@@ -1,0 +1,493 @@
+Call graph:
+    3819 Thread_7594399   DispatchQueue_1: com.apple.main-thread  (serial)
+      3819 start  (in dyld) + 7184  [0x19eb1dd54]
+        2839 main  (in btree-bench) + 3464  [0x102fb9370]  microbench.c:136
+        + 2000 zbtreeUpdateScore  (in btree-bench) + 1112  [0x102fbf21c]  zset_btree.c:3680
+        + ! 458 zbtScoreInsert  (in btree-bench) + 88  [0x102fbc7fc]  zset_btree.c:1685
+        + ! : 223 zbtScoreLeafLowerBound  (in btree-bench) + 368,356,...  [0x102fc11b4,0x102fc11a8,...]  zset_btree.c:1264
+        + ! : 159 zbtScoreLeafLowerBound  (in btree-bench) + 76  [0x102fc1090]  zset_btree.c:0
+        + ! : 37 zbtScoreLeafLowerBound  (in btree-bench) + 172,136,...  [0x102fc10f0,0x102fc10cc,...]  zset_btree.c:1263
+        + ! : 24 zbtScoreLeafLowerBound  (in btree-bench) + 544  [0x102fc1264]  zset_btree.c:1269
+        + ! : 11 zbtScoreLeafLowerBound  (in btree-bench) + 80  [0x102fc1094]  zset_btree.c:1266
+        + ! : 3 zbtScoreLeafLowerBound  (in btree-bench) + 28  [0x102fc1060]  zset_btree.c:1257
+        + ! : 1 zbtScoreLeafLowerBound  (in btree-bench) + 40  [0x102fc106c]  zset_btree.c:1258
+        + ! 332 zbtScoreInsertAt  (in btree-bench) + 4212  [0x102fc4100]  zset_btree.c:1613
+        + ! : 111 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 69 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : | + 62 _platform_memmove  (in libsystem_platform.dylib) + 428,460,...  [0x19eef152c,0x19eef154c,...]
+        + ! : | + 7 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! : | 29 zbtBuildElementWrite  (in btree-bench) + 32,40,...  [0x102fc5aac,0x102fc5ab4,...]  zset_btree.c:744
+        + ! : | 13 zbtBuildElementWrite  (in btree-bench) + 52,252,...  [0x102fc5ac0,0x102fc5b88,...]  zset_btree.c:745
+        + ! : 57 zbtScoreLeafBuild  (in btree-bench) + 2112,2224,...  [0x102fc2e7c,0x102fc2eec,...]  zset_btree.c:1011
+        + ! : 33 zbtBuildElementWrite  (in btree-bench) + 276  [0x102fc5ba0]  zset_btree.c:768
+        + ! : 32 zbtScoreLeafBuild  (in btree-bench) + 1280,1448,...  [0x102fc2b3c,0x102fc2be4,...]  zset_btree.c:974
+        + ! : 27 zbtScoreLeafBuild  (in btree-bench) + 2260  [0x102fc2f10]  zset_btree.c:1013
+        + ! : 22 zbtScoreLeafBuild  (in btree-bench) + 372,292,...  [0x102fc27b0,0x102fc2760,...]  zset_btree.c:973
+        + ! : 21 zbtScoreLeafBuild  (in btree-bench) + 1784  [0x102fc2d34]  zset_btree.c:985
+        + ! : | 17 zmalloc_usable  (in btree-bench) + 28  [0x102fc8e58]  standalone.c:41
+        + ! : | + 7 _xzm_xzone_malloc_freelist_outlined  (in libsystem_malloc.dylib) + 324  [0x19ed0c940]
+        + ! : | + ! 3 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 344  [0x19ed0d24c]
+        + ! : | + ! : 3 _xzm_xzone_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 328,432,...  [0x19ed0ce2c,0x19ed0ce94,...]
+        + ! : | + ! 2 _xzm_xzone_find_and_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 952  [0x19ed0d4ac]
+        + ! : | + ! : 2 xzm_chunk_mark_used  (in libsystem_malloc.dylib) + 176  [0x19ecf0d08]
+        + ! : | + ! :   1 _xzm_reclaim_mark_used  (in libsystem_malloc.dylib) + 176  [0x19ecf0df0]
+        + ! : | + ! :   | 1 mach_vm_reclaim_update_kernel_accounting  (in libsystem_kernel.dylib) + 92  [0x19eeb7f74]
+        + ! : | + ! :   |   1 mach_vm_reclaim_update_kernel_accounting_trap  (in libsystem_kernel.dylib) + 8  [0x19eea4cb8]
+        + ! : | + ! :   1 _xzm_reclaim_mark_used  (in libsystem_malloc.dylib) + 64  [0x19ecf0d80]
+        + ! : | + ! 1 _xzm_chunk_list_pop  (in libsystem_malloc.dylib) + 268  [0x19ed0db20]
+        + ! : | + ! 1 _xzm_xzone_malloc_from_empty_freelist_chunk  (in libsystem_malloc.dylib) + 324  [0x19ed0dc6c]
+        + ! : | + 7 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 328,12,...  [0x19ed0b2c8,0x19ed0b18c,...]
+        + ! : | + 1 _xzm_xzone_malloc  (in libsystem_malloc.dylib) + 184  [0x19ed07144]
+        + ! : | + 1 _xzm_xzone_malloc_freelist_outlined  (in libsystem_malloc.dylib) + 580  [0x19ed0ca40]
+        + ! : | + 1 _xzm_xzone_malloc_from_freelist_chunk  (in libsystem_malloc.dylib) + 672  [0x19ed0cf84]
+        + ! : | 2 _xzm_xzone_malloc_freelist_outlined  (in libsystem_malloc.dylib) + 816  [0x19ed0cb2c]
+        + ! : | 2 zmalloc_usable  (in btree-bench) + 40  [0x102fc8e64]  standalone.c:42
+        + ! : |   2 malloc_size  (in libsystem_malloc.dylib) + 52,108  [0x19ece4464,0x19ece449c]
+        + ! : 12 zbtScoreLeafBuild  (in btree-bench) + 2040  [0x102fc2e34]  zset_btree.c:1008
+        + ! : 10 zbtScoreLeafBuild  (in btree-bench) + 2312  [0x102fc2f44]  zset_btree.c:1017
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2000  [0x102fc2e0c]  zset_btree.c:1003
+        + ! : | 2 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        + ! : |   2 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 20,176  [0x19ed1014c,0x19ed101e8]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 1960  [0x102fc2de4]  zset_btree.c:1000
+        + ! : | 1 _platform_memset  (in libsystem_platform.dylib) + 180  [0x19eef1164]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 1988  [0x102fc2e00]  zset_btree.c:1001
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2264  [0x102fc2f14]  zset_btree.c:1014
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 1908  [0x102fc2db0]  zset_btree.c:993
+        + ! : 1 zmalloc_usable  (in btree-bench) + 52  [0x102fc8e70]  standalone.c:43
+        + ! 234 zbtScoreInsert  (in btree-bench) + 72  [0x102fbc7ec]  zset_btree.c:1684
+        + ! : 222 zbtScoreFindLeaf  (in btree-bench) + 112,164,...  [0x102fc0ec0,0x102fc0ef4,...]  zset_btree.c:1248
+        + ! : 8 zbtScoreFindLeaf  (in btree-bench) + 116  [0x102fc0ec4]  zset_btree.c:1246
+        + ! : 3 zbtScoreFindLeaf  (in btree-bench) + 48  [0x102fc0e80]  zset_btree.c:1251
+        + ! : 1 zbtScoreFindLeaf  (in btree-bench) + 24  [0x102fc0e68]  zset_btree.c:1243
+        + ! 121 zbtScoreInsertAt  (in btree-bench) + 10700,10620,...  [0x102fc5a58,0x102fc5a08,...]  zset_btree.c:1573
+        + ! 70 zbtScoreInsertAt  (in btree-bench) + 656,624,...  [0x102fc331c,0x102fc32fc,...]  zset_btree.c:1589
+        + ! 66 zbtScoreInsertAt  (in btree-bench) + 10460  [0x102fc5968]  zset_btree.c:1573
+        + ! : 64 _platform_memmove  (in libsystem_platform.dylib) + 436,460,...  [0x19eef1534,0x19eef154c,...]
+        + ! : 2 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! 60 zbtScoreInsertAt  (in btree-bench) + 536,456,...  [0x102fc32a4,0x102fc3254,...]  zset_btree.c:1588
+        + ! 55 zbtScoreInsertAt  (in btree-bench) + 10440  [0x102fc5954]  zset_btree.c:1573
+        + ! : 50 _platform_memmove  (in libsystem_platform.dylib) + 460,436,...  [0x19eef154c,0x19eef1534,...]
+        + ! : 5 DYLD-STUB$$memcpy  (in btree-bench) + 4,8  [0x102fc9784,0x102fc9788]
+        + ! 52 zbtScoreInsertAt  (in btree-bench) + 852,844,...  [0x102fc33e0,0x102fc33d8,...]  zset_btree.c:1591
+        + ! 51 zbtScoreInsertAt  (in btree-bench) + 9596  [0x102fc5608]  zset_btree.c:1625
+        + ! : 15 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 9 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : | + 6 _platform_memmove  (in libsystem_platform.dylib) + 460,428,...  [0x19eef154c,0x19eef152c,...]
+        + ! : | + 3 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! : | 4 zbtBuildElementWrite  (in btree-bench) + 32  [0x102fc5aac]  zset_btree.c:744
+        + ! : | 2 zbtBuildElementWrite  (in btree-bench) + 252  [0x102fc5b88]  zset_btree.c:745
+        + ! : 8 zbtScoreLeafBuild  (in btree-bench) + 2112,2224,...  [0x102fc2e7c,0x102fc2eec,...]  zset_btree.c:1011
+        + ! : 8 zbtScoreLeafBuild  (in btree-bench) + 1280,1576,...  [0x102fc2b3c,0x102fc2c64,...]  zset_btree.c:974
+        + ! : 5 zbtScoreLeafBuild  (in btree-bench) + 1784  [0x102fc2d34]  zset_btree.c:985
+        + ! : | 5 zmalloc_usable  (in btree-bench) + 28  [0x102fc8e58]  standalone.c:41
+        + ! : |   3 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 276,328  [0x19ed0b294,0x19ed0b2c8]
+        + ! : |   1 <deduplicated_symbol>  (in libsystem_malloc.dylib) + 108  [0x19ed06c8c]
+        + ! : |   1 _xzm_xzone_malloc_freelist_outlined  (in libsystem_malloc.dylib) + 264  [0x19ed0c904]
+        + ! : |     1 _malloc_ulock_self_owner_value  (in libsystem_malloc.dylib) + 0  [0x19ed0d0e4]
+        + ! : 3 zbtScoreLeafBuild  (in btree-bench) + 348,388,...  [0x102fc2798,0x102fc27c0,...]  zset_btree.c:973
+        + ! : 2 zbtBuildElementWrite  (in btree-bench) + 276  [0x102fc5ba0]  zset_btree.c:768
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2040  [0x102fc2e34]  zset_btree.c:1008
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2260  [0x102fc2f10]  zset_btree.c:1013
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2312  [0x102fc2f44]  zset_btree.c:1017
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2384  [0x102fc2f8c]  zset_btree.c:1021
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 1960  [0x102fc2de4]  zset_btree.c:1000
+        + ! : | 1 _platform_memset  (in libsystem_platform.dylib) + 180  [0x19eef1164]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2000  [0x102fc2e0c]  zset_btree.c:1003
+        + ! :   1 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        + ! :     1 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 516  [0x19ed1033c]
+        + ! 42 zbtScoreInsertAt  (in btree-bench) + 10416  [0x102fc593c]  zset_btree.c:1573
+        + ! : 40 _platform_memmove  (in libsystem_platform.dylib) + 708,624,...  [0x19eef1644,0x19eef15f0,...]
+        + ! : 2 DYLD-STUB$$memmove  (in btree-bench) + 4  [0x102fc9790]
+        + ! 40 zbtScoreInsertAt  (in btree-bench) + 9556  [0x102fc55e0]  zset_btree.c:1623
+        + ! : 9 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 7 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : | + 6 _platform_memmove  (in libsystem_platform.dylib) + 428,460,...  [0x19eef152c,0x19eef154c,...]
+        + ! : | + 1 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! : | 2 zbtBuildElementWrite  (in btree-bench) + 32  [0x102fc5aac]  zset_btree.c:744
+        + ! : 8 zbtScoreLeafBuild  (in btree-bench) + 1512,856,...  [0x102fc2c24,0x102fc2994,...]  zset_btree.c:974
+        + ! : 5 zbtBuildElementWrite  (in btree-bench) + 276  [0x102fc5ba0]  zset_btree.c:768
+        + ! : 5 zbtScoreLeafBuild  (in btree-bench) + 2112,2212,...  [0x102fc2e7c,0x102fc2ee0,...]  zset_btree.c:1011
+        + ! : 4 zbtScoreLeafBuild  (in btree-bench) + 2260  [0x102fc2f10]  zset_btree.c:1013
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2312  [0x102fc2f44]  zset_btree.c:1017
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 288,344  [0x102fc275c,0x102fc2794]  zset_btree.c:973
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 1784  [0x102fc2d34]  zset_btree.c:985
+        + ! : | 1 zmalloc_usable  (in btree-bench) + 28  [0x102fc8e58]  standalone.c:41
+        + ! : | + 1 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 80  [0x19ed13e54]
+        + ! : | 1 zmalloc_usable  (in btree-bench) + 40  [0x102fc8e64]  standalone.c:42
+        + ! : |   1 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        + ! : |     1 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 200  [0x19ed10200]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 1960  [0x102fc2de4]  zset_btree.c:1000
+        + ! : | 1 _platform_memset  (in libsystem_platform.dylib) + 196  [0x19eef1174]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2000  [0x102fc2e0c]  zset_btree.c:1003
+        + ! : | 1 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        + ! : |   1 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 200  [0x19ed10200]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2040  [0x102fc2e34]  zset_btree.c:1008
+        + ! 39 zbtScoreInsertAt  (in btree-bench) + 1516,1260,...  [0x102fc3678,0x102fc3578,...]  zset_btree.c:1596
+        + ! 36 zbtScoreInsertAt  (in btree-bench) + 4380  [0x102fc41a8]  zset_btree.c:0
+        + ! : 23 zbtScoreUpdatePath  (in btree-bench) + 152,104,...  [0x102fc6930,0x102fc6900,...]  zset_btree.c:898
+        + ! : 7 zbtScoreUpdatePath  (in btree-bench) + 40  [0x102fc68c0]  zset_btree.c:904
+        + ! : 5 zbtScoreUpdatePath  (in btree-bench) + 192,244  [0x102fc6958,0x102fc698c]  zset_btree.c:0
+        + ! : 1 zbtScoreUpdatePath  (in btree-bench) + 0  [0x102fc6898]  zset_btree.c:895
+        + ! 36 zbtScoreInsertAt  (in btree-bench) + 10284  [0x102fc58b8]  zset_btree.c:1659
+        + ! : 33 zbtIndexMove  (in btree-bench) + 200  [0x102fbfb08]  zset_btree.c:2341
+        + ! : | 8 zbtIndexTableFindReference  (in btree-bench) + 116,92  [0x102fc8424,0x102fc840c]  zset_btree.c:2021
+        + ! : | 8 zbtIndexTableFindReference  (in btree-bench) + 220,224  [0x102fc848c,0x102fc8490]  zset_btree.c:2030
+        + ! : | 7 zbtIndexTableFindReference  (in btree-bench) + 128,136,...  [0x102fc8430,0x102fc8438,...]  zset_btree.c:0
+        + ! : | 5 zbtIndexTableFindReference  (in btree-bench) + 164  [0x102fc8454]  zset_btree.c:2028
+        + ! : | 3 zbtIndexTableFindReference  (in btree-bench) + 196  [0x102fc8474]  zset_btree.c:2032
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 0  [0x102fc83b0]  zset_btree.c:2020
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 276  [0x102fc84c4]  zset_btree.c:2040
+        + ! : 1 zbtIndexMove  (in btree-bench) + 12  [0x102fbfa4c]  zset_btree.c:2337
+        + ! : 1 zbtIndexMove  (in btree-bench) + 200  [0x102fbfb08]  zset_btree.c:2341
+        + ! : 1 zbtIndexMove  (in btree-bench) + 216  [0x102fbfb18]  zset_btree.c:2344
+        + ! 35 zbtScoreInsertAt  (in btree-bench) + 6264  [0x102fc4904]  zset_btree.c:1573
+        + ! : 31 _platform_memmove  (in libsystem_platform.dylib) + 428,460,...  [0x19eef152c,0x19eef154c,...]
+        + ! : 2 DYLD-STUB$$mkdtempat_np  (in libsystem_c.dylib) + 12  [0x19ededbd4]
+        + ! : 2 __memcpy_chk  (in libsystem_c.dylib) + 8  [0x19ed78a8c]
+        + ! 24 zbtScoreInsertAt  (in btree-bench) + 10392  [0x102fc5924]  zset_btree.c:1573
+        + ! : 23 _platform_memmove  (in libsystem_platform.dylib) + 624,708,...  [0x19eef15f0,0x19eef1644,...]
+        + ! : 1 DYLD-STUB$$memmove  (in btree-bench) + 4  [0x102fc9790]
+        + ! 24 zbtScoreInsertAt  (in btree-bench) + 4072,3388,...  [0x102fc4074,0x102fc3dc8,...]  zset_btree.c:1610
+        + ! 21 zbtScoreInsertAt  (in btree-bench) + 3024,2488,...  [0x102fc3c5c,0x102fc3a44,...]  zset_btree.c:1621
+        + ! 20 zbtScoreInsertAt  (in btree-bench) + 10252  [0x102fc5898]  zset_btree.c:1658
+        + ! : 6 siphash  (in btree-bench) + 168  [0x102fc9138]  siphash.c:147
+        + ! : 5 siphash  (in btree-bench) + 84,96,...  [0x102fc90e4,0x102fc90f0,...]  siphash.c:0
+        + ! : 4 siphash  (in btree-bench) + 412  [0x102fc922c]  siphash.c:175
+        + ! : 3 siphash  (in btree-bench) + 420  [0x102fc9234]  siphash.c:177
+        + ! : 2 siphash  (in btree-bench) + 188  [0x102fc914c]  siphash.c:156
+        + ! 19 zbtScoreInsertAt  (in btree-bench) + 10492  [0x102fc5988]  zset_btree.c:1573
+        + ! : 11 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : | 9 _platform_memmove  (in libsystem_platform.dylib) + 428,460,...  [0x19eef152c,0x19eef154c,...]
+        + ! : | 2 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! : 7 zbtBuildElementWrite  (in btree-bench) + 32,40  [0x102fc5aac,0x102fc5ab4]  zset_btree.c:744
+        + ! : 1 zbtBuildElementWrite  (in btree-bench) + 52  [0x102fc5ac0]  zset_btree.c:745
+        + ! 19 zbtScoreInsertAt  (in btree-bench) + 760,816,...  [0x102fc3384,0x102fc33bc,...]  zset_btree.c:1590
+        + ! 16 zbtScoreInsertAt  (in btree-bench) + 4232  [0x102fc4114]  zset_btree.c:1616
+        + ! : 7 zbtScoreReplaceLeaf  (in btree-bench) + 328  [0x102fc5ed0]  zset_btree.c:1056
+        + ! : | 4 _xzm_free  (in libsystem_malloc.dylib) + 40,304,...  [0x19ed0776c,0x19ed07874,...]
+        + ! : | 1 _free  (in libsystem_malloc.dylib) + 104  [0x19ed14a94]
+        + ! : | 1 _xzm_chunk_list_slot_push  (in libsystem_malloc.dylib) + 120  [0x19ed0eb50]
+        + ! : | 1 malloc_size  (in libsystem_malloc.dylib) + 244  [0x19ece4524]
+        + ! : 4 zbtScoreReplaceLeaf  (in btree-bench) + 156  [0x102fc5e24]  zset_btree.c:1054
+        + ! : | 2 zbtScoreUpdatePath  (in btree-bench) + 244  [0x102fc698c]  zset_btree.c:0
+        + ! : | 1 zbtScoreUpdatePath  (in btree-bench) + 0  [0x102fc6898]  zset_btree.c:895
+        + ! : | 1 zbtScoreUpdatePath  (in btree-bench) + 268  [0x102fc69a4]  zset_btree.c:907
+        + ! : 2 _xzm_free  (in libsystem_malloc.dylib) + 1156  [0x19ed07bc8]
+        + ! : 1 zbtScoreReplaceLeaf  (in btree-bench) + 44  [0x102fc5db4]  zset_btree.c:1038
+        + ! : 1 zbtScoreReplaceLeaf  (in btree-bench) + 92  [0x102fc5de4]  zset_btree.c:1045
+        + ! : 1 zbtScoreReplaceLeaf  (in btree-bench) + 140  [0x102fc5e14]  zset_btree.c:1055
+        + ! 15 zbtScoreInsertAt  (in btree-bench) + 280,10016,...  [0x102fc31a4,0x102fc57ac,...]  zset_btree.c:0
+        + ! 13 zbtScoreInsertAt  (in btree-bench) + 9976  [0x102fc5784]  zset_btree.c:1665
+        + ! : 13 zbtScoreRefreshNode  (in btree-bench) + 152,180,...  [0x102fc638c,0x102fc63a8,...]  zset_btree.c:875
+        + ! 12 zbtScoreInsertAt  (in btree-bench) + 9960  [0x102fc5774]  zset_btree.c:1664
+        + ! : 5 zbtScoreInsertSibling  (in btree-bench) + 232  [0x102fc5fe0]  zset_btree.c:1184
+        + ! : | 5 zbtScoreRefreshNode  (in btree-bench) + 152,84,...  [0x102fc638c,0x102fc6348,...]  zset_btree.c:875
+        + ! : 4 zbtScoreInsertSibling  (in btree-bench) + 248  [0x102fc5ff0]  zset_btree.c:1185
+        + ! : | 3 zbtScoreRefreshNode  (in btree-bench) + 84,40  [0x102fc6348,0x102fc631c]  zset_btree.c:875
+        + ! : | 1 zbtScoreRefreshNode  (in btree-bench) + 260  [0x102fc63f8]  zset_btree.c:878
+        + ! : 1 zbtScoreInsertSibling  (in btree-bench) + 208  [0x102fc5fc8]  zset_btree.c:1180
+        + ! : | 1 _platform_memmove  (in libsystem_platform.dylib) + 624  [0x19eef15f0]
+        + ! : 1 zbtScoreSplitInner  (in btree-bench) + 524  [0x102fc6618]  zset_btree.c:1154
+        + ! : | 1 zbtScoreRefreshNode  (in btree-bench) + 152  [0x102fc638c]  zset_btree.c:875
+        + ! : 1 zbtScoreSplitInner  (in btree-bench) + 532  [0x102fc6620]  zset_btree.c:1155
+        + ! :   1 zbtScoreRefreshNode  (in btree-bench) + 84  [0x102fc6348]  zset_btree.c:875
+        + ! 11 zbtScoreInsertAt  (in btree-bench) + 40,72,...  [0x102fc30b4,0x102fc30d4,...]  zset_btree.c:1555
+        + ! 11 zbtScoreInsertAt  (in btree-bench) + 444  [0x102fc3248]  zset_btree.c:1582
+        + ! 10 zbtScoreInsertAt  (in btree-bench) + 860,868,...  [0x102fc33e8,0x102fc33f0,...]  zset_btree.c:1581
+        + ! 7 zbtBuildElementWrite  (in btree-bench) + 268,276  [0x102fc5b98,0x102fc5ba0]  zset_btree.c:768
+        + ! 7 zbtScoreInsertAt  (in btree-bench) + 10132,10160,...  [0x102fc5820,0x102fc583c,...]  zset_btree.c:1658
+        + ! 7 zbtScoreLeafLowerBound  (in btree-bench) + 572,560  [0x102fc1280,0x102fc1274]  zset_btree.c:1269
+        + ! 5 zbtScoreInsertAt  (in btree-bench) + 48  [0x102fc30bc]  zset_btree.c:1555
+        + ! : 5 ___chkstk_darwin  (in libsystem_pthread.dylib) + 4  [0x19eee2bb0]
+        + ! 5 zbtScoreInsertAt  (in btree-bench) + 9928  [0x102fc5754]  zset_btree.c:1663
+        + ! : 3 _xzm_free  (in libsystem_malloc.dylib) + 604,944  [0x19ed079a0,0x19ed07af4]
+        + ! : 2 zfree_usable  (in btree-bench) + 28  [0x102fc8f18]  standalone.c:53
+        + ! :   1 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        + ! :   + 1 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 356  [0x19ed1029c]
+        + ! :   1 malloc_size  (in libsystem_malloc.dylib) + 84  [0x19ece4484]
+        + ! 4 zbtScoreInsert  (in btree-bench) + 88  [0x102fbc7fc]  zset_btree.c:1685
+        + ! 3 zbtScoreFindLeaf  (in btree-bench) + 80,64  [0x102fc0ea0,0x102fc0e90]  zset_btree.c:1251
+        + ! 3 zbtScoreInsert  (in btree-bench) + 76  [0x102fbc7f0]  zset_btree.c:1686
+        + ! 2 zbtScoreInsert  (in btree-bench) + 268  [0x102fbc8b0]  zset_btree.c:0
+        + ! 2 zbtScoreInsert  (in btree-bench) + 48  [0x102fbc7d4]  zset_btree.c:1673
+        + ! 2 zbtScoreInsert  (in btree-bench) + 52  [0x102fbc7d8]  zset_btree.c:1674
+        + ! 2 zbtScoreInsertAt  (in btree-bench) + 856  [0x102fc33e4]  zset_btree.c:1592
+        + ! 2 zbtScoreInsertAt  (in btree-bench) + 9748,9756  [0x102fc56a0,0x102fc56a8]  zset_btree.c:1663
+        + ! 1 zbtIndexMove  (in btree-bench) + 928  [0x102fbfde0]  zset_btree.c:2391
+        + ! 1 zbtScoreInsert  (in btree-bench) + 100  [0x102fbc808]  zset_btree.c:1688
+        + ! 1 zbtScoreInsertAt  (in btree-bench) + 400  [0x102fc321c]  zset_btree.c:1583
+        + ! 1 zbtScoreInsertAt  (in btree-bench) + 2316  [0x102fc3998]  zset_btree.c:1607
+        + ! 1 zbtScoreInsertAt  (in btree-bench) + 4212  [0x102fc4100]  zset_btree.c:1613
+        + ! 1 zbtScoreInsertAt  (in btree-bench) + 9584  [0x102fc55fc]  zset_btree.c:1625
+        + ! 1 zbtScoreInsertAt  (in btree-bench) + 10124  [0x102fc5818]  zset_btree.c:1656
+        + 487 zbtreeUpdateScore  (in btree-bench) + 1096  [0x102fbf20c]  zset_btree.c:3679
+        + ! 109 zbtScoreDeleteInPlace  (in btree-bench) + 704,612,...  [0x102fc7334,0x102fc72d8,...]  zset_btree.c:2598
+        + ! 78 zbtScoreDeleteInPlace  (in btree-bench) + 976  [0x102fc7444]  zset_btree.c:2606
+        + ! : 73 _platform_memmove  (in libsystem_platform.dylib) + 460,436,...  [0x19eef154c,0x19eef1534,...]
+        + ! : 5 DYLD-STUB$$memcpy  (in btree-bench) + 4  [0x102fc9784]
+        + ! 75 zbtScoreDeleteInPlace  (in btree-bench) + 208  [0x102fc7144]  zset_btree.c:2559
+        + ! : 67 _platform_memmove  (in libsystem_platform.dylib) + 460,436,...  [0x19eef154c,0x19eef1534,...]
+        + ! : 5 __memcpy_chk  (in libsystem_c.dylib) + 8  [0x19ed78a8c]
+        + ! : 2 DYLD-STUB$$mkdtempat_np  (in libsystem_c.dylib) + 8  [0x19ededbd0]
+        + ! : 1 DYLD-STUB$$__memcpy_chk  (in btree-bench) + 4  [0x102fc96dc]
+        + ! 69 zbtScoreDeleteInPlace  (in btree-bench) + 956  [0x102fc7430]  zset_btree.c:2605
+        + ! : 67 _platform_memmove  (in libsystem_platform.dylib) + 460,436,...  [0x19eef154c,0x19eef1534,...]
+        + ! : 2 DYLD-STUB$$memcpy  (in btree-bench) + 0,4  [0x102fc9780,0x102fc9784]
+        + ! 54 zbtScoreDeleteInPlace  (in btree-bench) + 872  [0x102fc73dc]  zset_btree.c:2599
+        + ! : 51 _platform_memmove  (in libsystem_platform.dylib) + 420,444,...  [0x19eef1524,0x19eef153c,...]
+        + ! : 3 DYLD-STUB$$memmove  (in btree-bench) + 4,0  [0x102fc9790,0x102fc978c]
+        + ! 45 zbtScoreDeleteInPlace  (in btree-bench) + 932  [0x102fc7418]  zset_btree.c:2603
+        + ! : 43 _platform_memmove  (in libsystem_platform.dylib) + 464,12,...  [0x19eef1550,0x19eef138c,...]
+        + ! : 2 DYLD-STUB$$memmove  (in btree-bench) + 4  [0x102fc9790]
+        + ! 31 zbtScoreDeleteInPlace  (in btree-bench) + 1304  [0x102fc758c]  zset_btree.c:2616
+        + ! : 19 zbtScoreUpdatePath  (in btree-bench) + 56,104,...  [0x102fc68d0,0x102fc6900,...]  zset_btree.c:898
+        + ! : 6 zbtScoreUpdatePath  (in btree-bench) + 40  [0x102fc68c0]  zset_btree.c:904
+        + ! : 4 zbtScoreUpdatePath  (in btree-bench) + 192,244  [0x102fc6958,0x102fc698c]  zset_btree.c:0
+        + ! : 1 zbtScoreUpdatePath  (in btree-bench) + 0  [0x102fc6898]  zset_btree.c:895
+        + ! : 1 zbtScoreUpdatePath  (in btree-bench) + 268  [0x102fc69a4]  zset_btree.c:907
+        + ! 6 zbtScoreDeleteInPlace  (in btree-bench) + 180,128  [0x102fc7128,0x102fc70f4]  zset_btree.c:2557
+        + ! 4 zbtScoreDeleteInPlace  (in btree-bench) + 272,228,...  [0x102fc7184,0x102fc7158,...]  zset_btree.c:2562
+        + ! 3 zbtScoreDeleteInPlace  (in btree-bench) + 872  [0x102fc73dc]  zset_btree.c:2601
+        + ! 3 zbtScoreDeleteInPlace  (in btree-bench) + 920  [0x102fc740c]  zset_btree.c:2603
+        + ! 2 zbtScoreDeleteInPlace  (in btree-bench) + 1316  [0x102fc7598]  zset_btree.c:0
+        + ! 2 zbtScoreDeleteInPlace  (in btree-bench) + 932  [0x102fc7418]  zset_btree.c:2604
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 56  [0x102fc70ac]  zset_btree.c:2551
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 64  [0x102fc70b4]  zset_btree.c:2552
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 76  [0x102fc70c0]  zset_btree.c:2555
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 108  [0x102fc70e0]  zset_btree.c:2556
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 852  [0x102fc73c8]  zset_btree.c:2599
+        + ! 1 zbtScoreDeleteInPlace  (in btree-bench) + 908  [0x102fc7400]  zset_btree.c:2602
+        + 109 zbtreeUpdateScore  (in btree-bench) + 1672  [0x102fbf44c]  zset_btree.c:3686
+        + ! 45 zbtScoreMergePair  (in btree-bench) + 2936  [0x102fc8294]  zset_btree.c:2519
+        + ! : 11 zbtScoreLeafBuild  (in btree-bench) + 2112,2144,...  [0x102fc2e7c,0x102fc2e9c,...]  zset_btree.c:1011
+        + ! : 10 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 6 zbtBuildElementWrite  (in btree-bench) + 32,40  [0x102fc5aac,0x102fc5ab4]  zset_btree.c:744
+        + ! : | 4 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : |   4 _platform_memmove  (in libsystem_platform.dylib) + 428,460  [0x19eef152c,0x19eef154c]
+        + ! : 6 zbtScoreLeafBuild  (in btree-bench) + 76,232,...  [0x102fc2688,0x102fc2724,...]  zset_btree.c:973
+        + ! : 6 zbtScoreLeafBuild  (in btree-bench) + 828,848,...  [0x102fc2978,0x102fc298c,...]  zset_btree.c:974
+        + ! : 4 zbtBuildElementWrite  (in btree-bench) + 276  [0x102fc5ba0]  zset_btree.c:768
+        + ! : 4 zbtScoreLeafBuild  (in btree-bench) + 1784  [0x102fc2d34]  zset_btree.c:985
+        + ! : | 2 zmalloc_usable  (in btree-bench) + 28  [0x102fc8e58]  standalone.c:41
+        + ! : | + 2 _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib) + 276  [0x19ed0b294]
+        + ! : | 2 zmalloc_usable  (in btree-bench) + 40  [0x102fc8e64]  standalone.c:42
+        + ! : |   2 malloc_size  (in libsystem_malloc.dylib) + 108,120  [0x19ece449c,0x19ece44a8]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2000  [0x102fc2e0c]  zset_btree.c:1003
+        + ! : | 1 zmalloc_usable_size  (in btree-bench) + 0  [0x102fc8de0]  standalone.c:22
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2040  [0x102fc2e34]  zset_btree.c:1008
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2056  [0x102fc2e44]  zset_btree.c:1009
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2312  [0x102fc2f44]  zset_btree.c:1017
+        + ! 24 zbtScoreMergePair  (in btree-bench) + 3152  [0x102fc836c]  zset_btree.c:2525
+        + ! : 22 zbtIndexMove  (in btree-bench) + 200  [0x102fbfb08]  zset_btree.c:2341
+        + ! : | 13 zbtIndexTableFindReference  (in btree-bench) + 276  [0x102fc84c4]  zset_btree.c:2040
+        + ! : | 4 zbtIndexTableFindReference  (in btree-bench) + 116  [0x102fc8424]  zset_btree.c:2021
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 0  [0x102fc83b0]  zset_btree.c:2020
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 220  [0x102fc848c]  zset_btree.c:2030
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 228  [0x102fc8494]  zset_btree.c:2031
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 196  [0x102fc8474]  zset_btree.c:2032
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 264  [0x102fc84b8]  zset_btree.c:2038
+        + ! : 2 zbtIndexMove  (in btree-bench) + 212  [0x102fbfb14]  zset_btree.c:2344
+        + ! 10 zbtScoreMergePair  (in btree-bench) + 3124  [0x102fc8350]  zset_btree.c:2524
+        + ! : 4 siphash  (in btree-bench) + 168  [0x102fc9138]  siphash.c:147
+        + ! : 3 siphash  (in btree-bench) + 408,412  [0x102fc9228,0x102fc922c]  siphash.c:175
+        + ! : 1 siphash  (in btree-bench) + 84  [0x102fc90e4]  siphash.c:0
+        + ! : 1 siphash  (in btree-bench) + 188  [0x102fc914c]  siphash.c:156
+        + ! : 1 siphash  (in btree-bench) + 424  [0x102fc9238]  siphash.c:177
+        + ! 6 zbtScoreMergePair  (in btree-bench) + 2648,1616,...  [0x102fc8174,0x102fc7d6c,...]  zset_btree.c:2510
+        + ! 5 zbtScoreMergePair  (in btree-bench) + 200,228,...  [0x102fc77e4,0x102fc7800,...]  zset_btree.c:2494
+        + ! 5 zbtScoreMergePair  (in btree-bench) + 1348,1328,...  [0x102fc7c60,0x102fc7c4c,...]  zset_btree.c:2507
+        + ! 5 zbtScoreMergePair  (in btree-bench) + 3188  [0x102fc8390]  zset_btree.c:2528
+        + ! : 4 zbtScoreRemoveLeaf  (in btree-bench) + 140  [0x102fc6f5c]  zset_btree.c:1123
+        + ! : | 2 zbtScoreDetachNode  (in btree-bench) + 112  [0x102fc7670]  zset_btree.c:1105
+        + ! : | + 2 zbtScoreRefreshNode  (in btree-bench) + 152,240  [0x102fc638c,0x102fc63e4]  zset_btree.c:875
+        + ! : | 1 zbtScoreDetachNode  (in btree-bench) + 64  [0x102fc7640]  zset_btree.c:1091
+        + ! : | + 1 _platform_memmove  (in libsystem_platform.dylib) + 436  [0x19eef1534]
+        + ! : | 1 zbtScoreDetachNode  (in btree-bench) + 128  [0x102fc7680]  zset_btree.c:1106
+        + ! : |   1 zbtScoreRefreshNode  (in btree-bench) + 84  [0x102fc6348]  zset_btree.c:875
+        + ! : 1 zbtScoreRemoveLeaf  (in btree-bench) + 380  [0x102fc704c]  zset_btree.c:1125
+        + ! :   1 _free  (in libsystem_malloc.dylib) + 12  [0x19ed14a38]
+        + ! 2 zbtScoreMergePair  (in btree-bench) + 1172,1220  [0x102fc7bb0,0x102fc7be0]  zset_btree.c:2506
+        + ! 2 zbtScoreMergePair  (in btree-bench) + 2956  [0x102fc82a8]  zset_btree.c:2521
+        + ! : 1 zbtScoreReplaceLeaf  (in btree-bench) + 92  [0x102fc5de4]  zset_btree.c:1045
+        + ! : 1 zbtScoreReplaceLeaf  (in btree-bench) + 328  [0x102fc5ed0]  zset_btree.c:1056
+        + ! :   1 _xzm_free  (in libsystem_malloc.dylib) + 508  [0x19ed07940]
+        + ! 1 zbtIndexMove  (in btree-bench) + 928  [0x102fbfde0]  zset_btree.c:2391
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 3176  [0x102fc8384]  zset_btree.c:0
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 588  [0x102fc7968]  zset_btree.c:2499
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 560  [0x102fc794c]  zset_btree.c:2501
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 2936  [0x102fc8294]  zset_btree.c:2519
+        + 62 zbtreeUpdateScore  (in btree-bench) + 272  [0x102fbeed4]  zset_btree.c:3655
+        + ! 28 zbtScoreUpdateInPlace  (in btree-bench) + 740,676,...  [0x102fbf7b0,0x102fbf770,...]  zset_btree.c:3568
+        + ! 26 zbtScoreUpdateInPlace  (in btree-bench) + 140,232,...  [0x102fbf558,0x102fbf5b4,...]  zset_btree.c:3555
+        + ! 3 zbtScoreUpdateInPlace  (in btree-bench) + 548,568  [0x102fbf6f0,0x102fbf704]  zset_btree.c:3565
+        + ! 2 zbtScoreUpdateInPlace  (in btree-bench) + 32  [0x102fbf4ec]  zset_btree.c:0
+        + ! 2 zbtScoreUpdateInPlace  (in btree-bench) + 244  [0x102fbf5c0]  zset_btree.c:3557
+        + ! 1 zbtScoreUpdateInPlace  (in btree-bench) + 20  [0x102fbf4e0]  zset_btree.c:3550
+        + 54 zbtreeUpdateScore  (in btree-bench) + 1724  [0x102fbf480]  zset_btree.c:3686
+        + ! 17 zbtScoreMergePair  (in btree-bench) + 2936  [0x102fc8294]  zset_btree.c:2519
+        + ! : 6 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 5 zbtBuildElementWrite  (in btree-bench) + 252  [0x102fc5b88]  zset_btree.c:745
+        + ! : | 1 zbtBuildElementWrite  (in btree-bench) + 32  [0x102fc5aac]  zset_btree.c:744
+        + ! : 4 zbtScoreLeafBuild  (in btree-bench) + 2224,2144,...  [0x102fc2eec,0x102fc2e9c,...]  zset_btree.c:1011
+        + ! : 3 zbtScoreLeafBuild  (in btree-bench) + 372,288  [0x102fc27b0,0x102fc275c]  zset_btree.c:973
+        + ! : 3 zbtScoreLeafBuild  (in btree-bench) + 1416,1448,...  [0x102fc2bc4,0x102fc2be4,...]  zset_btree.c:974
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2260  [0x102fc2f10]  zset_btree.c:1013
+        + ! 13 zbtScoreMergePair  (in btree-bench) + 3152  [0x102fc836c]  zset_btree.c:2525
+        + ! : 12 zbtIndexMove  (in btree-bench) + 200  [0x102fbfb08]  zset_btree.c:2341
+        + ! : | 6 zbtIndexTableFindReference  (in btree-bench) + 276  [0x102fc84c4]  zset_btree.c:2040
+        + ! : | 2 zbtIndexTableFindReference  (in btree-bench) + 128,188  [0x102fc8430,0x102fc846c]  zset_btree.c:0
+        + ! : | 2 zbtIndexTableFindReference  (in btree-bench) + 116  [0x102fc8424]  zset_btree.c:2021
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 164  [0x102fc8454]  zset_btree.c:2028
+        + ! : | 1 zbtIndexTableFindReference  (in btree-bench) + 200  [0x102fc8478]  zset_btree.c:2032
+        + ! : 1 zbtIndexMove  (in btree-bench) + 44  [0x102fbfa6c]  zset_btree.c:2340
+        + ! 8 zbtScoreMergePair  (in btree-bench) + 3124  [0x102fc8350]  zset_btree.c:2524
+        + ! : 2 siphash  (in btree-bench) + 104,168  [0x102fc90f8,0x102fc9138]  siphash.c:147
+        + ! : 2 siphash  (in btree-bench) + 412  [0x102fc922c]  siphash.c:175
+        + ! : 1 siphash  (in btree-bench) + 84  [0x102fc90e4]  siphash.c:0
+        + ! : 1 siphash  (in btree-bench) + 100  [0x102fc90f4]  siphash.c:145
+        + ! : 1 siphash  (in btree-bench) + 148  [0x102fc9124]  siphash.c:151
+        + ! : 1 siphash  (in btree-bench) + 420  [0x102fc9234]  siphash.c:177
+        + ! 5 zbtScoreMergePair  (in btree-bench) + 3188  [0x102fc8390]  zset_btree.c:2528
+        + ! : 3 zbtScoreRemoveLeaf  (in btree-bench) + 380  [0x102fc704c]  zset_btree.c:1125
+        + ! : | 1 _xzm_chunk_list_slot_push  (in libsystem_malloc.dylib) + 128  [0x19ed0eb58]
+        + ! : | + 1 _xzm_chunk_list_push  (in libsystem_malloc.dylib) + 96  [0x19ed0d9d0]
+        + ! : | 1 _xzm_chunk_list_slot_push  (in libsystem_malloc.dylib) + 32  [0x19ed0eaf8]
+        + ! : | 1 _xzm_free  (in libsystem_malloc.dylib) + 624  [0x19ed079b4]
+        + ! : 2 zbtScoreRemoveLeaf  (in btree-bench) + 140  [0x102fc6f5c]  zset_btree.c:1123
+        + ! :   1 zbtScoreDetachNode  (in btree-bench) + 112  [0x102fc7670]  zset_btree.c:1105
+        + ! :   + 1 zbtScoreRefreshNode  (in btree-bench) + 240  [0x102fc63e4]  zset_btree.c:875
+        + ! :   1 zbtScoreDetachNode  (in btree-bench) + 128  [0x102fc7680]  zset_btree.c:1106
+        + ! :     1 zbtScoreRefreshNode  (in btree-bench) + 84  [0x102fc6348]  zset_btree.c:875
+        + ! 3 zbtScoreMergePair  (in btree-bench) + 228,384  [0x102fc7800,0x102fc789c]  zset_btree.c:2494
+        + ! 2 zbtScoreMergePair  (in btree-bench) + 1964,2380  [0x102fc7ec8,0x102fc8068]  zset_btree.c:2510
+        + ! 2 zbtScoreMergePair  (in btree-bench) + 3072  [0x102fc831c]  zset_btree.c:2524
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 3204  [0x102fc83a0]  zset_btree.c:0
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 776  [0x102fc7a24]  zset_btree.c:2500
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 1348  [0x102fc7c60]  zset_btree.c:2507
+        + ! 1 zbtScoreMergePair  (in btree-bench) + 1092  [0x102fc7b60]  zset_btree.c:2508
+        + 33 zbtreeUpdateScore  (in btree-bench) + 1152  [0x102fbf244]  zset_btree.c:3683
+        + ! 28 zbtIndexMove  (in btree-bench) + 200  [0x102fbfb08]  zset_btree.c:2341
+        + ! : 10 zbtIndexTableFindReference  (in btree-bench) + 116,68,...  [0x102fc8424,0x102fc83f4,...]  zset_btree.c:2021
+        + ! : 6 zbtIndexTableFindReference  (in btree-bench) + 276  [0x102fc84c4]  zset_btree.c:2040
+        + ! : 3 zbtIndexTableFindReference  (in btree-bench) + 164  [0x102fc8454]  zset_btree.c:2028
+        + ! : 3 zbtIndexTableFindReference  (in btree-bench) + 196,200  [0x102fc8474,0x102fc8478]  zset_btree.c:2032
+        + ! : 2 zbtIndexTableFindReference  (in btree-bench) + 244,344  [0x102fc84a4,0x102fc8508]  zset_btree.c:0
+        + ! : 2 zbtIndexTableFindReference  (in btree-bench) + 220  [0x102fc848c]  zset_btree.c:2030
+        + ! : 2 zbtIndexTableFindReference  (in btree-bench) + 264  [0x102fc84b8]  zset_btree.c:2038
+        + ! 3 zbtIndexMove  (in btree-bench) + 176,200  [0x102fbfaf0,0x102fbfb08]  zset_btree.c:2341
+        + ! 2 zbtIndexMove  (in btree-bench) + 212,216  [0x102fbfb14,0x102fbfb18]  zset_btree.c:2344
+        + 22 zbtreeUpdateScore  (in btree-bench) + 1256,1244,...  [0x102fbf2ac,0x102fbf2a0,...]  zset_btree.c:3686
+        + 11 zbtreeUpdateScore  (in btree-bench) + 1072,972,...  [0x102fbf1f4,0x102fbf190,...]  zset_btree.c:3678
+        + 9 zbtreeUpdateScore  (in btree-bench) + 248,132,...  [0x102fbeebc,0x102fbee48,...]  zset_btree.c:3656
+        + 7 zbtScoreUpdateInPlace  (in btree-bench) + 1192  [0x102fbf974]  zset_btree.c:3589
+        + 7 zbtreeUpdateScore  (in btree-bench) + 608,568  [0x102fbf024,0x102fbeffc]  zset_btree.c:3667
+        + 7 zbtreeUpdateScore  (in btree-bench) + 1764  [0x102fbf4a8]  zset_btree.c:3686
+        + ! 5 zbtScoreCompactLeaf  (in btree-bench) + 656  [0x102fc629c]  zset_btree.c:1072
+        + ! : 2 zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        + ! : | 1 zbtBuildElementWrite  (in btree-bench) + 32  [0x102fc5aac]  zset_btree.c:744
+        + ! : | 1 zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        + ! : |   1 _platform_memmove  (in libsystem_platform.dylib) + 428  [0x19eef152c]
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2040  [0x102fc2e34]  zset_btree.c:1008
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2112  [0x102fc2e7c]  zset_btree.c:1011
+        + ! : 1 zbtScoreLeafBuild  (in btree-bench) + 2384  [0x102fc2f8c]  zset_btree.c:1021
+        + ! 1 zbtScoreCompactLeaf  (in btree-bench) + 388  [0x102fc6190]  zset_btree.c:1069
+        + ! 1 zbtScoreCompactLeaf  (in btree-bench) + 624  [0x102fc627c]  zset_btree.c:1073
+        + 4 zbtIndexMove  (in btree-bench) + 936  [0x102fbfde8]  zset_btree.c:2391
+        + 4 zbtreeUpdateScore  (in btree-bench) + 96,100  [0x102fbee24,0x102fbee28]  zset_btree.c:3651
+        + 4 zbtreeUpdateScore  (in btree-bench) + 664,672,...  [0x102fbf05c,0x102fbf064,...]  zset_btree.c:3675
+        + 3 zbtreeUpdateScore  (in btree-bench) + 28  [0x102fbede0]  zset_btree.c:3645
+        + 2 zbtScoreDeleteInPlace  (in btree-bench) + 1348  [0x102fc75b8]  zset_btree.c:2617
+        + 2 zbtScoreInsertAt  (in btree-bench) + 10060  [0x102fc57d8]  zset_btree.c:1667
+        + 2 zbtreeUpdateScore  (in btree-bench) + 272,648  [0x102fbeed4,0x102fbf04c]  zset_btree.c:0
+        + 2 zbtreeUpdateScore  (in btree-bench) + 60  [0x102fbee00]  zset_btree.c:3650
+        + 2 zbtreeUpdateScore  (in btree-bench) + 416  [0x102fbef64]  zset_btree.c:3665
+        + 2 zbtreeUpdateScore  (in btree-bench) + 1124  [0x102fbf228]  zset_btree.c:3682
+        + 1 zbtreeUpdateScore  (in btree-bench) + 1096  [0x102fbf20c]  zset_btree.c:3680
+        + 1 zbtreeUpdateScore  (in btree-bench) + 1112  [0x102fbf21c]  zset_btree.c:3681
+        + 1 zbtreeUpdateScore  (in btree-bench) + 1152  [0x102fbf244]  zset_btree.c:3683
+        + 1 zbtreeUpdateScore  (in btree-bench) + 1736  [0x102fbf48c]  zset_btree.c:3686
+        +   1 malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        +     1 xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 184  [0x19ed101f0]
+        959 main  (in btree-bench) + 3524  [0x102fb93ac]  microbench.c:134
+        + 804 zbtreeFindForAdd  (in btree-bench) + 2048  [0x102fbbcec]  zset_btree.c:3234
+        + ! 522 zbtScoreLeafFindMember  (in btree-bench) + 204  [0x102fc2484]  zset_btree.c:1287
+        + ! : 457 _platform_memchr  (in libsystem_platform.dylib) + 104,84,...  [0x19eeeee48,0x19eeeee34,...]
+        + ! : 65 DYLD-STUB$$memchr  (in btree-bench) + 4  [0x102fc976c]
+        + ! 164 zbtScoreLeafFindMember  (in btree-bench) + 192  [0x102fc2478]  zset_btree.c:1287
+        + ! 50 zbtScoreLeafFindMember  (in btree-bench) + 560,524,...  [0x102fc25e8,0x102fc25c4,...]  zset_btree.c:1306
+        + ! 41 zbtScoreLeafFindMember  (in btree-bench) + 176  [0x102fc2468]  zset_btree.c:1302
+        + ! : 37 _platform_memcmp  (in libsystem_platform.dylib) + 104,96,...  [0x19eeeef58,0x19eeeef50,...]
+        + ! : 4 DYLD-STUB$$memcmp  (in btree-bench) + 4  [0x102fc9778]
+        + ! 13 zbtScoreLeafFindMember  (in btree-bench) + 68,48,...  [0x102fc23fc,0x102fc23e8,...]  zset_btree.c:1281
+        + ! 4 zbtScoreLeafFindMember  (in btree-bench) + 416  [0x102fc2558]  zset_btree.c:1305
+        + ! 3 zbtScoreLeafFindMember  (in btree-bench) + 456,208  [0x102fc2580,0x102fc2488]  zset_btree.c:0
+        + ! 3 zbtScoreLeafFindMember  (in btree-bench) + 40  [0x102fc23e0]  zset_btree.c:1279
+        + ! 3 zbtScoreLeafFindMember  (in btree-bench) + 224,236  [0x102fc2498,0x102fc24a4]  zset_btree.c:1293
+        + ! 1 zbtScoreLeafFindMember  (in btree-bench) + 164  [0x102fc245c]  zset_btree.c:1302
+        + 101 zbtreeFindForAdd  (in btree-bench) + 2092,1844,...  [0x102fbbd18,0x102fbbc20,...]  zset_btree.c:3234
+        + 29 zbtreeFindForAdd  (in btree-bench) + 148  [0x102fbb580]  zset_btree.c:3229
+        + ! 8 siphash  (in btree-bench) + 84,56,...  [0x102fc90e4,0x102fc90c8,...]  siphash.c:0
+        + ! 8 siphash  (in btree-bench) + 168  [0x102fc9138]  siphash.c:147
+        + ! 6 siphash  (in btree-bench) + 412  [0x102fc922c]  siphash.c:175
+        + ! 4 siphash  (in btree-bench) + 148  [0x102fc9124]  siphash.c:151
+        + ! 2 siphash  (in btree-bench) + 188,196  [0x102fc914c,0x102fc9154]  siphash.c:156
+        + ! 1 siphash  (in btree-bench) + 420  [0x102fc9234]  siphash.c:177
+        + 6 zbtreeFindForAdd  (in btree-bench) + 2712  [0x102fbbf84]  zset_btree.c:0
+        + 5 zbtreeFindForAdd  (in btree-bench) + 52  [0x102fbb520]  zset_btree.c:3228
+        + 5 zbtreeFindForAdd  (in btree-bench) + 68,84  [0x102fbb530,0x102fbb540]  zset_btree.c:3229
+        + 4 zbtScoreLeafFindMember  (in btree-bench) + 404  [0x102fc254c]  zset_btree.c:1313
+        + 4 zbtreeFindForAdd  (in btree-bench) + 172,180,...  [0x102fbb598,0x102fbb5a0,...]  zset_btree.c:3235
+        + 1 zbtreeFindForAdd  (in btree-bench) + 156  [0x102fbb588]  zset_btree.c:3233
+        12 zbtreeFindForAdd  (in btree-bench) + 2748,2744,...  [0x102fbbfa8,0x102fbbfa4,...]  zset_btree.c:3243
+        6 main  (in btree-bench) + 3472  [0x102fb9378]  microbench.c:137
+        1 main  (in btree-bench) + 3500  [0x102fb9394]  microbench.c:131
+        1 main  (in btree-bench) + 3524  [0x102fb93ac]  microbench.c:134
+        1 main  (in btree-bench) + 3440  [0x102fb9358]  microbench.c:136
+
+Total number in stack (recursive counted multiple, when >=5):
+        18       _platform_memmove  (in libsystem_platform.dylib) + 0  [0x19eef1380]
+        9       zbtScoreRefreshNode  (in btree-bench) + 0  [0x102fc62f4]  zset_btree.c:875
+        8       DYLD-STUB$$memcpy  (in btree-bench) + 0  [0x102fc9780]
+        7       zbtBuildElementWrite  (in btree-bench) + 0  [0x102fc5a8c]  zset_btree.c:744
+        6       malloc_size  (in libsystem_malloc.dylib) + 124  [0x19ece44ac]
+        6       xzm_malloc_zone_size  (in libsystem_malloc.dylib) + 0  [0x19ed10138]
+        6       zbtBuildElementWrite  (in btree-bench) + 260  [0x102fc5b90]  zset_btree.c:745
+        6       zbtScoreLeafBuild  (in btree-bench) + 0  [0x102fc263c]  zset_btree.c:1011
+        6       zbtScoreLeafBuild  (in btree-bench) + 2332  [0x102fc2f58]  zset_btree.c:1018
+        5       _xzm_free  (in libsystem_malloc.dylib) + 0  [0x19ed07744]
+        5       zbtBuildElementWrite  (in btree-bench) + 0  [0x102fc5a8c]  zset_btree.c:768
+        5       zbtScoreLeafBuild  (in btree-bench) + 0  [0x102fc263c]  zset_btree.c:1008
+        5       zbtScoreLeafBuild  (in btree-bench) + 0  [0x102fc263c]  zset_btree.c:973
+        5       zbtScoreLeafBuild  (in btree-bench) + 0  [0x102fc263c]  zset_btree.c:974
+
+Sort by top of stack, same collapsed (when >= 5):
+        _platform_memmove  (in libsystem_platform.dylib)        599
+        zbtScoreInsertAt  (in btree-bench)        471
+        zbtScoreLeafLowerBound  (in btree-bench)        465
+        _platform_memchr  (in libsystem_platform.dylib)        457
+        zbtScoreLeafBuild  (in btree-bench)        252
+        zbtScoreLeafFindMember  (in btree-bench)        245
+        zbtScoreFindLeaf  (in btree-bench)        237
+        zbtScoreDeleteInPlace  (in btree-bench)        137
+        zbtreeFindForAdd  (in btree-bench)        134
+        zbtBuildElementWrite  (in btree-bench)        122
+        zbtIndexTableFindReference  (in btree-bench)        95
+        zbtScoreUpdatePath  (in btree-bench)        71
+        zbtreeUpdateScore  (in btree-bench)        71
+        zbtScoreUpdateInPlace  (in btree-bench)        69
+        siphash  (in btree-bench)        67
+        DYLD-STUB$$memchr  (in btree-bench)        65
+        _platform_memcmp  (in libsystem_platform.dylib)        37
+        zbtScoreMergePair  (in btree-bench)        33
+        zbtScoreRefreshNode  (in btree-bench)        29
+        DYLD-STUB$$memcpy  (in btree-bench)        27
+        zbtIndexMove  (in btree-bench)        17
+        zbtScoreInsert  (in btree-bench)        14
+        _xzm_xzone_malloc_tiny  (in libsystem_malloc.dylib)        12
+        _xzm_free  (in libsystem_malloc.dylib)        11
+        main  (in btree-bench)        9
+        DYLD-STUB$$memmove  (in btree-bench)        8
+        __memcpy_chk  (in libsystem_c.dylib)        7
+        xzm_malloc_zone_size  (in libsystem_malloc.dylib)        7
+        malloc_size  (in libsystem_malloc.dylib)        6
+        ___chkstk_darwin  (in libsystem_pthread.dylib)        5

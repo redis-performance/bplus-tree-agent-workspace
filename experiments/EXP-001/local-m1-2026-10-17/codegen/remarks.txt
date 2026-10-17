@@ -1,0 +1,326 @@
+src/zset_btree.c:2159:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2159 |             while (zs->member_rehash) zbtIndexRehashStep(zs, 64);
+      |             ^
+src/zset_btree.c:2192:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2192 |         while (zs->member_rehash)
+      |         ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1855 |     while (result < size) result <<= 1;
+      |     ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:2839:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2839 |             for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |             ^
+src/zset_btree.c:2860:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2860 |         for (unsigned int i = 0; i < inner->n.count; i++)
+      |         ^
+src/zset_btree.c:785:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  785 |         for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |         ^
+src/zset_btree.c:2773:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2773 |     for (unsigned int i = 0; i < inner->n.count; i++)
+      |     ^
+src/zset_btree.c:2953:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2953 |             for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |             ^
+src/zset_btree.c:3140:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3140 |     while (state->score_leaf_id != ZBT_NO_LEAF_ID) {
+      |     ^
+src/zset_btree.c:3159:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3159 |         while (state->score_pos < leaf->n.count) {
+      |         ^
+src/zset_btree.c:3106:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3106 |         if (node->parent_index + 1 != parent->n.count) break;
+      |             ^
+src/zset_btree.c:3070:9: remark: interleaved loop (interleaved count: 4) [-Rpass=loop-vectorize]
+ 3070 |         for (unsigned int i = 0; i < inner->n.count; i++)
+      |         ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1940 |         while (matches) {
+      |         ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3203:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3203 |     for (unsigned int i = 0; i < count; i++) {
+      |     ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1940 |         while (matches) {
+      |         ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3253:9: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3253 |         for (unsigned int i = 0; i < node->parent_index; i++)
+      |         ^
+src/zset_btree.c:3439:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3439 |         for (unsigned int i = 0; i < b->count; i++) {
+      |         ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1940 |         while (matches) {
+      |         ^
+src/zset_btree.c:1940:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:2625:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+ 2625 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:2625:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:2625:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+src/zset_btree.c:2629:5: remark: vectorized loop (vectorization width: 16, interleaved count: 1) [-Rpass=loop-vectorize]
+ 2629 |     for (unsigned int i = 0; i < count / 2; i++) {
+      |     ^
+src/zset_btree.c:2637:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+ 2637 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:2644:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2644 |     for (unsigned int i = 0; i < count; i++) {
+      |     ^
+src/zset_btree.c:2461:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2461 |     for (unsigned int i = 0; i < leaf->n.count; i++)
+      |     ^
+src/zset_btree.c:2122:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2122 |         while (leaf && zbtIndexLeafMigrated(zs, leaf)) leaf = leaf->next;
+      |         ^
+src/zset_btree.c:2709:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2709 |         for (unsigned int i = 0; i < n; i++) {
+      |         ^
+src/zset_btree.c:2741:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2741 |     for (unsigned int i = 0; i < count; i++) {
+      |     ^
+src/zset_btree.c:2159:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2159 |             while (zs->member_rehash) zbtIndexRehashStep(zs, 64);
+      |             ^
+src/zset_btree.c:2461:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2461 |     for (unsigned int i = 0; i < leaf->n.count; i++)
+      |     ^
+src/zset_btree.c:3838:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3838 |         while (rank >= inner->child_count[pos]) {
+      |         ^
+src/zset_btree.c:3693:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3693 |     for (zbtScoreLeaf *leaf = zs->score_first; leaf; leaf = leaf->next)
+      |     ^
+src/zset_btree.c:3707:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3707 |     while (cap < count) cap *= 2;
+      |     ^
+src/zset_btree.c:3712:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3712 |     for (zbtScoreLeaf *leaf = zs->score_first; leaf; leaf = leaf->next) {
+      |     ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1855 |     while (result < size) result <<= 1;
+      |     ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3739:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3739 |         for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |         ^
+src/zset_btree.c:3838:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3838 |         while (rank >= inner->child_count[pos]) {
+      |         ^
+src/zset_btree.c:3838:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3888:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3888 |             while (pos < inner->n.count &&
+      |             ^
+src/zset_btree.c:3888:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3894:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3894 |             while (pos + 1 < inner->n.count &&
+      |             ^
+src/zset_btree.c:3894:13: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3253:9: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3253 |         for (unsigned int i = 0; i < node->parent_index; i++)
+      |         ^
+src/zset_btree.c:3855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 3855 |     while (lo < hi) {
+      |     ^
+src/zset_btree.c:3855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:3253:9: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+ 3253 |         for (unsigned int i = 0; i < node->parent_index; i++)
+      |         ^
+src/zset_btree.c:847:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  847 |     while (!node->isleaf) {
+      |     ^
+src/zset_btree.c:1259:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1259 |     while (lo < hi) {
+      |     ^
+src/zset_btree.c:4069:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4069 |         while (pos + 1 < inner->n.count &&
+      |         ^
+src/zset_btree.c:4069:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4069:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4069:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4355:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4355 |         do {
+      |         ^
+src/zset_btree.c:4349:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4349 |     do {
+      |     ^
+src/zset_btree.c:4245:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4245 |     for (unsigned long index = home_start; index < home_end; index++) {
+      |     ^
+src/zset_btree.c:4245:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4258:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4258 |     for (unsigned long index = home_start; index < home_end; index++) {
+      |     ^
+src/zset_btree.c:4268:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4268 |     while (remaining-- &&
+      |     ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1855 |     while (result < size) result <<= 1;
+      |     ^
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1855:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1286:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1286 |     while (next < end) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1008:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1008 |     for (unsigned int i = 0; i < count; i++) {
+      |     ^
+src/zset_btree.c:442:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  442 |     while (remaining) {
+      |     ^
+src/zset_btree.c:1581:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1581 |     for (unsigned int i = 0, src = 0; i < oldcount + 1; i++) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1326:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+ 1326 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:1326:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:1329:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1329 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:1655:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1655 |     for (unsigned int i = left_count; i < oldcount + 1; i++) {
+      |     ^
+src/zset_btree.c:785:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  785 |         for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |         ^
+src/zset_btree.c:884:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  884 |     while (node->parent) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:1406:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1406 |     for (unsigned int i = 0; i < count; i++) {
+      |     ^
+src/zset_btree.c:1406:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:884:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  884 |     while (node->parent) {
+      |     ^
+src/zset_btree.c:785:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  785 |         for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |         ^
+src/zset_btree.c:884:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  884 |     while (node->parent) {
+      |     ^
+src/zset_btree.c:1067:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1067 |     for (unsigned int i = 0; i < oldleaf->n.count; i++) {
+      |     ^
+src/zset_btree.c:870:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  870 |     for (unsigned int i = 0; i < inner->n.count; i++) {
+      |     ^
+src/zset_btree.c:895:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  895 |     while (node->parent) {
+      |     ^
+src/zset_btree.c:2097:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2097 |     for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |     ^
+src/zset_btree.c:1897:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 1897 |     for (unsigned long probes = 0; probes < table->size; probes++) {
+      |     ^
+src/zset_btree.c:1897:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:785:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  785 |         for (unsigned int i = 0; i < leaf->n.count; i++) {
+      |         ^
+src/zset_btree.c:2585:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2585 |         for (unsigned int i = 0; i < oldcount && !above; i++)
+      |         ^
+src/zset_btree.c:462:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  462 |     while (moved < remaining) {
+      |     ^
+src/zset_btree.c:2612:9: remark: vectorized loop (vectorization width: 8, interleaved count: 1) [-Rpass=loop-vectorize]
+ 2612 |         for (unsigned int i = 0; i < count; i++) {
+      |         ^
+src/zset_btree.c:884:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+  884 |     while (node->parent) {
+      |     ^
+src/zset_btree.c:2461:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2461 |     for (unsigned int i = 0; i < leaf->n.count; i++)
+      |     ^
+src/zset_btree.c:2461:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:2498:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2498 |     for (unsigned int i = 0; i < left->n.count; i++) {
+      |     ^
+src/zset_btree.c:2504:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2504 |     for (unsigned int i = 0; i < right->n.count; i++) {
+      |     ^
+src/zset_btree.c:921:5: remark: vectorized loop (vectorization width: 2, interleaved count: 4) [-Rpass=loop-vectorize]
+  921 |     for (unsigned int i = 1; i < count; i++) {
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+  949 |     for (unsigned int i = 0; i < count; i++)
+      |     ^
+src/zset_btree.c:949:5: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:2523:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2523 |     for (unsigned int i = 0; i < gone->n.count; i++) {
+      |     ^
+src/zset_btree.c:2029:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 2029 |         while (matches) {
+      |         ^
+src/zset_btree.c:4173:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4173 |         for (home = home_start; home < home_end; home++) {
+      |         ^
+src/zset_btree.c:4141:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4141 |         while (mask) {
+      |         ^
+src/zset_btree.c:4141:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4141:9: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4148:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4148 |     for (unsigned int pos = words * 8; pos < count; pos++) {
+      |     ^
+src/zset_btree.c:4148:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4148:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4148:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+src/zset_btree.c:4104:5: remark: loop not vectorized [-Rpass-missed=loop-vectorize]
+ 4104 |     for (unsigned long probes = 0; probes < table->size; probes++) {
+      |     ^

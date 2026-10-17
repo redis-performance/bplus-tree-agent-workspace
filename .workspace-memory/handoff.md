@@ -13,4 +13,9 @@ eight direct API cases; fixture coverage and qualified performance evidence rema
 work. Local smoke output is not a baseline. No agent populations have been executed.
 Unknown token usage is not estimated or fabricated.
 
-Next action is EXP-001. Workspace acceptance and upstream publication are separate.
+EXP-001 subsequently ran locally under explicit user authorisation, using the CPU
+Performance Engineering MCP methodology. Read its local-m1-2026-10-17/README.md: 144
+processes/984 rows, four profiles, unchanged source. Only 1/41 cells qualified; suite
+qualification is parked. Next: a separate referee observability/duration improvement
+and requalification, then the two population steps. Workspace acceptance and upstream
+publication are separate. Do not repeat these completed runs without a new reason.

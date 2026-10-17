@@ -1,0 +1,49 @@
+Call graph:
+    3826 Thread_7594681   DispatchQueue_1: com.apple.main-thread  (serial)
+      3826 start  (in dyld) + 7184  [0x19eb1dd54]
+        3808 main  (in btree-bench) + 2992  [0x102f31198]  microbench.c:114
+        + 2523 zbtreeScoreRaw  (in btree-bench) + 56  [0x102f327c0]  zset_btree.c:3186
+        + ! 1614 siphash  (in btree-bench) + 168,104  [0x102f41138,0x102f410f8]  siphash.c:147
+        + ! 667 siphash  (in btree-bench) + 156,164,...  [0x102f4112c,0x102f41134,...]  siphash.c:151
+        + ! 142 siphash  (in btree-bench) + 412,384  [0x102f4122c,0x102f41210]  siphash.c:175
+        + ! 46 siphash  (in btree-bench) + 116  [0x102f41104]  siphash.c:148
+        + ! 31 siphash  (in btree-bench) + 92,96,...  [0x102f410ec,0x102f410f0,...]  siphash.c:0
+        + ! 16 siphash  (in btree-bench) + 420,416  [0x102f41234,0x102f41230]  siphash.c:177
+        + ! 7 siphash  (in btree-bench) + 188,196  [0x102f4114c,0x102f41154]  siphash.c:156
+        + 1116 zbtreeScoreRaw  (in btree-bench) + 1156  [0x102f32c0c]  zset_btree.c:3187
+        + ! 785 zbtScoreLeafFindMember  (in btree-bench) + 204  [0x102f3a484]  zset_btree.c:1287
+        + ! : 780 _platform_memchr  (in libsystem_platform.dylib) + 104,84,...  [0x19eeeee48,0x19eeeee34,...]
+        + ! : 5 DYLD-STUB$$memchr  (in btree-bench) + 8,4  [0x102f41770,0x102f4176c]
+        + ! 142 zbtScoreLeafFindMember  (in btree-bench) + 180,456  [0x102f3a46c,0x102f3a580]  zset_btree.c:0
+        + ! 93 zbtScoreLeafFindMember  (in btree-bench) + 176  [0x102f3a468]  zset_btree.c:1302
+        + ! : 91 _platform_memcmp  (in libsystem_platform.dylib) + 56,48,...  [0x19eeeef28,0x19eeeef20,...]
+        + ! : 2 DYLD-STUB$$memcmp  (in btree-bench) + 4  [0x102f41778]
+        + ! 62 zbtScoreLeafFindMember  (in btree-bench) + 560,624,...  [0x102f3a5e8,0x102f3a628,...]  zset_btree.c:1306
+        + ! 7 zbtScoreLeafFindMember  (in btree-bench) + 420,416  [0x102f3a55c,0x102f3a558]  zset_btree.c:1305
+        + ! 6 zbtScoreLeafFindMember  (in btree-bench) + 224,236  [0x102f3a498,0x102f3a4a4]  zset_btree.c:1293
+        + ! 6 zbtScoreLeafFindMember  (in btree-bench) + 260,328  [0x102f3a4bc,0x102f3a500]  zset_btree.c:1301
+        + ! 5 zbtScoreLeafFindMember  (in btree-bench) + 192  [0x102f3a478]  zset_btree.c:1287
+        + ! 5 zbtScoreLeafFindMember  (in btree-bench) + 176,164,...  [0x102f3a468,0x102f3a45c,...]  zset_btree.c:1302
+        + ! 3 zbtScoreLeafFindMember  (in btree-bench) + 20,40  [0x102f3a3cc,0x102f3a3e0]  zset_btree.c:1279
+        + ! 2 zbtScoreLeafFindMember  (in btree-bench) + 84  [0x102f3a40c]  zset_btree.c:1281
+        + 138 zbtreeScoreRaw  (in btree-bench) + 920,1188,...  [0x102f32b20,0x102f32c2c,...]  zset_btree.c:3187
+        + 10 zbtreeScore  (in btree-bench) + 24,32,...  [0x102f32d14,0x102f32d1c,...]  zset_btree.c:3193
+        + 9 zbtScoreLeafFindMember  (in btree-bench) + 404  [0x102f3a54c]  zset_btree.c:1313
+        + 9 zbtreeScoreRaw  (in btree-bench) + 32,24,...  [0x102f327a8,0x102f327a0,...]  zset_btree.c:3185
+        + 3 zbtreeScore  (in btree-bench) + 8  [0x102f32d04]  zset_btree.c:3192
+        7 zbtreeScoreRaw  (in btree-bench) + 1384,1388,...  [0x102f32cf0,0x102f32cf4,...]  zset_btree.c:3187
+        5 main  (in btree-bench) + 2976  [0x102f31188]  microbench.c:114
+        4 main  (in btree-bench) + 3028  [0x102f311bc]  microbench.c:115
+        2 main  (in btree-bench) + 2992  [0x102f31198]  microbench.c:0
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        siphash  (in btree-bench)        2523
+        _platform_memchr  (in libsystem_platform.dylib)        780
+        zbtScoreLeafFindMember  (in btree-bench)        247
+        zbtreeScoreRaw  (in btree-bench)        154
+        _platform_memcmp  (in libsystem_platform.dylib)        91
+        zbtreeScore  (in btree-bench)        13
+        main  (in btree-bench)        11
+        DYLD-STUB$$memchr  (in btree-bench)        5

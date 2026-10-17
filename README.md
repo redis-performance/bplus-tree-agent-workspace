@@ -7,7 +7,9 @@ The target is the packed score-ordered tree **and its compact member index** fro
 microbenchmarks. No Redis server, networking, command processing, or persistence is built.
 
 **State:** preparation complete; 0 accepted, 0 rejected, 0 parked optimisation experiments.
-The initial harness is runnable; baseline qualification and optimisation are pending.
+The initial harness is runnable. [Local M1 measurements](experiments/EXP-001/local-m1-2026-10-17/README.md)
+completed 144 processes / 984 rows and four sampled profiles. Baseline qualification
+is parked: 40/41 cells fail the precision/duration gates. No optimisation is accepted.
 See [the experiment log](experiments/EXPERIMENTS.md) and [next steps](experiments/NEXT-STEPS.md).
 The [Linux/macOS CI configuration](docs/ci-check.yml) is a draft; publishing an active
 workflow requires GitHub `workflow` scope, absent from the available write credential.

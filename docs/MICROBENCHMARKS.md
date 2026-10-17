@@ -34,8 +34,9 @@ Run cardinalities 1K, 100K, 1M; member lengths 8, 16, 64, 319, 320, 321, 1024 by
 seeds 1, 2, 3 for discovery and 101, 102, 103 for confirmation. Select a bounded initial
 subset and record it before running. Include both sides of the 320-byte storage boundary.
 Use at least 10x cardinality for lookup/rank/update operations where runtime permits;
-calibrate durations against timer noise and record the chosen counts. No timing has yet
-qualified any of these cases. Workload fit is evidence to establish, not an assumption.
+calibrate durations against timer noise and record the chosen counts. Qualification is
+run-specific: the [local M1 control](../experiments/EXP-001/local-m1-2026-10-17/README.md)
+qualified only one of 41 cells; the suite remains parked. Workload fit must be established.
 
 Follow-up fixtures, to implement and freeze **before** relevant optimisation rounds:
 
@@ -83,3 +84,5 @@ not zero events. Do not change machine-wide permissions automatically.
 
 Local smoke checks are functional checks only. Substantive benchmarks run serially on a
 dedicated runner selected for the campaign; never share that runner with builds or tests.
+The user explicitly authorised the 2026-10-17 local M1 measurements. Their raw results
+are retained as exploration, with frequency/placement limitations and failed gates stated.
