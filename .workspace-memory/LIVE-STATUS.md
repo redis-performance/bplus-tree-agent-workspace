@@ -13,6 +13,14 @@ Next: improve placement/thread-time/duration observability in a separate harness
 then requalify before population decisions. See experiments/EXP-001/local-m1-2026-10-17/README.md.
 No optimisation accepted; no upstream action requested.
 
+Latest instruction: continue experimenting through the entire night. The
+overnight plan is experiments/OVERNIGHT-2026-10-17/PLAN.md. Endpoint interpreted as
+2026-10-18 08:00 Lisbon / 07:00 UTC. A bounded local supervisor runs serial workers;
+read scratch/overnight-20261017/status.json for actual runtime state. Do not launch
+concurrent measurements or a second worker. Both population stages remain required.
+First work is a separate harness revision and targeted A/A qualification. Candidate
+patches stay isolated and provisional until morning review. No automatic publishing.
+
 CI is a draft in docs/ci-check.yml: the write account lacks workflow scope. Repository
 creation and pushes use the existing fcostaoliveira credential without changing the
 default gh login; filipecosta90 has read access only. Never write credentials here.

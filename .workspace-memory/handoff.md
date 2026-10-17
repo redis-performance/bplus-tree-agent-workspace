@@ -19,3 +19,10 @@ processes/984 rows, four profiles, unchanged source. Only 1/41 cells qualified; 
 qualification is parked. Next: a separate referee observability/duration improvement
 and requalification, then the two population steps. Workspace acceptance and upstream
 publication are separate. Do not repeat these completed runs without a new reason.
+
+The user subsequently requested an all-night experiment loop. See
+experiments/OVERNIGHT-2026-10-17/PLAN.md and scratch/overnight-20261017/status.json.
+The supervisor has an explicit 07:00 UTC deadline, per-round timeouts, a STOP file,
+saved reports/transcripts and idle-sleep prevention. Workers use workspace-write;
+never change permissions when git metadata or a network operation is denied.
+Evidence and candidate patches may be local drafts until the morning commit/review.

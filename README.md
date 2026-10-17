@@ -11,6 +11,10 @@ The initial harness is runnable. [Local M1 measurements](experiments/EXP-001/loc
 completed 144 processes / 984 rows and four sampled profiles. Baseline qualification
 is parked: 40/41 cells fail the precision/duration gates. No optimisation is accepted.
 See [the experiment log](experiments/EXPERIMENTS.md) and [next steps](experiments/NEXT-STEPS.md).
+The user authorised an [overnight local campaign](experiments/OVERNIGHT-2026-10-17/PLAN.md)
+through 18 October, 08:00 Lisbon: measurement repair, requalification and bounded
+population experiments. Worker drafts stay local pending review; runtime status is
+`scratch/overnight-20261017/status.json`.
 The [Linux/macOS CI configuration](docs/ci-check.yml) is a draft; publishing an active
 workflow requires GitHub `workflow` scope, absent from the available write credential.
 
