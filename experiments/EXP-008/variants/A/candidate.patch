@@ -1,0 +1,22 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -6043,8 +6043,17 @@
+     }
+ }
+ 
+-/* Control policy always delegates to frozen EXP-007 bulk decoder. */
++/* Count-only policy for the EXP-008 isolated decoder comparison.
++ * The caller supplies a valid logical range and disjoint output storage. */
+ static void zbtScoreLeafDecodePolicy(zbtScoreLeaf *leaf, unsigned start,
+-                                   unsigned count, double *out) {
++                                     unsigned count, double *out) {
++    if (count == 0) return;
++
++    if (count <= 4) {
++        for (unsigned i = 0; i < count; i++)
++            out[i] = zbtScoreLeafScore(leaf, start + i);
++        return;
++    }
++
+     zbtScoreLeafDecodeRange(leaf, start, count, out);
+ }
