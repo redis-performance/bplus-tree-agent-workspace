@@ -7,7 +7,7 @@ LDLIBS += -lm
 COMMON = src/zset_btree.c compat/standalone.c vendor/redis/siphash.c
 HEADERS = src/zset_btree.h compat/server.h vendor/redis/sds.h vendor/redis/testhelp.h
 
-.PHONY: all check sanitize smoke clean
+.PHONY: all check sanitize smoke clean decoder decoder-check decoder-sanitize
 all: $(BUILD)/btree-bench $(BUILD)/btree-test
 $(BUILD):
 	mkdir -p $@
@@ -23,3 +23,13 @@ smoke: $(BUILD)/btree-bench
 	$(BUILD)/btree-bench --size 1000 --ops 1000 --member-bytes 16 --seed 1
 clean:
 	rm -rf build
+
+decoder:
+	python3 scripts/build-decoder.py
+decoder-check: decoder
+	python3 tests/test_decoder.py build/decoder/base/decoder-bench
+	python3 tests/test_decoder.py build/decoder/A/decoder-bench
+decoder-sanitize:
+	python3 scripts/build-decoder.py --sanitize --out build/decoder-sanitize
+	python3 tests/test_decoder.py build/decoder-sanitize/base/decoder-bench
+	python3 tests/test_decoder.py build/decoder-sanitize/A/decoder-bench
