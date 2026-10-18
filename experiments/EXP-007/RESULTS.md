@@ -29,6 +29,9 @@ remain noisy: 13/30 discovery and 25/30 fresh A/A cells fail the all-block ±1% 
 Fresh primary A/A spans -1.02% to +1.92%, much smaller than the observed 33% gain;
 this supports the scoped bulk observation but does not waive guard qualification.
 Ranges are observed block ranges, not confidence intervals. No rows were removed.
+The count-one fixtures use zero deltas by construction and are seed-invariant;
+the fresh phase supplies new measurements, not different input values for those
+cells. Longer fixtures do contain seeded deltas.
 
 Mechanism evidence: generated width dispatch is outside per-score loops. Noncrossing
 paths omit the ninth-byte scaffold; B's aligned path also omits bit-offset arithmetic.
