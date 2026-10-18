@@ -1,0 +1,278 @@
+diff --git a/bench/microbench.c b/bench/microbench.c
+index ddc64b1..25287a9 100644
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -1,3 +1,5 @@
++#define _GNU_SOURCE 1
++#define _DARWIN_C_SOURCE 1
+ #define _POSIX_C_SOURCE 200809L
+ #include "server.h"
+ #include "zset_btree.h"
+@@ -5,6 +7,12 @@
+ #include <string.h>
+ #include <time.h>
+ #include <errno.h>
++#if defined(__APPLE__)
++#include <pthread.h>
++#include <pthread/qos.h>
++#elif defined(__linux__)
++#include <sched.h>
++#endif
+ 
+ static volatile uint64_t sink;
+ static uint64_t random64(uint64_t *state) {
+@@ -18,6 +26,46 @@ static uint64_t now_ns(void) {
+     serverAssert(clock_gettime(CLOCK_MONOTONIC, &ts) == 0);
+     return (uint64_t)ts.tv_sec * UINT64_C(1000000000) + ts.tv_nsec;
+ }
++/* Observations, not affinity or frequency controls. -1 means unavailable. */
++static int64_t thread_ns(void) {
++#if defined(CLOCK_THREAD_CPUTIME_ID)
++    struct timespec ts;
++    if (clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts) == 0)
++        return (int64_t)ts.tv_sec * INT64_C(1000000000) + ts.tv_nsec;
++#endif
++    return -1;
++}
++static int cpu_id(void) {
++#if defined(__APPLE__)
++    size_t cpu;
++    if (__builtin_available(macOS 11.0, *))
++        return pthread_cpu_number_np(&cpu) == 0 ? (int)cpu : -1;
++    return -1;
++#elif defined(__linux__)
++    return sched_getcpu();
++#else
++    return -1;
++#endif
++}
++/* The public API reports requested QoS, not effective overrides/clamps. */
++static const char *qos_reported(int *relative_priority) {
++    *relative_priority = 0;
++#if defined(__APPLE__)
++    qos_class_t qos;
++    if (pthread_get_qos_class_np(pthread_self(), &qos, relative_priority)) return "unknown";
++    switch (qos) {
++    case QOS_CLASS_USER_INTERACTIVE: return "user-interactive";
++    case QOS_CLASS_USER_INITIATED: return "user-initiated";
++    case QOS_CLASS_DEFAULT: return "default";
++    case QOS_CLASS_UTILITY: return "utility";
++    case QOS_CLASS_BACKGROUND: return "background";
++    case QOS_CLASS_UNSPECIFIED: return "unspecified";
++    default: return "unknown";
++    }
++#else
++    return "unavailable";
++#endif
++}
+ static size_t number(const char *s) {
+     char *end;
+     errno = 0;
+@@ -34,27 +82,32 @@ static void insert(zbtreeSet *tree, sds key, double score) {
+     serverAssert(!zbtreeFindForAdd(tree, key, &old, &pos));
+     zbtreeInsertNew(tree, score, key, &pos);
+ }
++typedef struct { uint64_t count, sum; } scan_result;
+ static void scan_count(void *ctx, const unsigned char *key, size_t len, double score) {
+-    UNUSED(key); UNUSED(len); UNUSED(score);
+-    (*(uint64_t *)ctx)++;
++    UNUSED(key); UNUSED(len);
++    scan_result *result = ctx;
++    result->count++;
++    result->sum += (uint64_t)score;
+ }
+-typedef struct { unsigned char *seen; size_t n; } scan_check;
++typedef struct { unsigned char *seen; size_t n; sds *keys; scan_result result; } scan_check;
+ static void scan_verify(void *ctx, const unsigned char *key, size_t len, double score) {
+     scan_check *check = ctx;
+     serverAssert(len >= 8);
+     uint64_t id = 0;
+     for (unsigned j = 0; j < 8; j++) id |= (uint64_t)key[j] << (j * 8);
+     serverAssert(id < check->n && score == (double)id);
++    serverAssert(len == sdslen(check->keys[id]) && !memcmp(key, check->keys[id], len));
+     check->seen[id] = 1;
++    scan_count(&check->result, key, len, score);
+ }
+ int main(int argc, char **argv) {
+-    size_t n = 100000, ops = 1000000, bytes = 16;
++    size_t n = 100000, ops = 1000000, bytes = 16, warmup_passes = 1;
+     uint64_t seed = 1;
+     const char *selected = "all";
+     const char *cases[] = {"insert", "lookup-hit", "lookup-miss", "rank", "iterate", "scan", "update", "delete"};
+     for (int i = 1; i < argc; i++) {
+         if (!strcmp(argv[i], "--help")) {
+-            puts("btree-bench [--size N] [--ops N] [--member-bytes N>=8] [--seed N] [--case all|insert|lookup-hit|lookup-miss|rank|iterate|scan|update|delete]");
++            puts("btree-bench [--size N] [--ops N] [--member-bytes N>=8] [--seed N] [--warmup-passes N>=1] [--case all|insert|lookup-hit|lookup-miss|rank|iterate|scan|update|delete]");
+             return 0;
+         }
+         if (i + 1 == argc) { fprintf(stderr, "Missing value: %s\n", argv[i]); return 2; }
+@@ -63,6 +116,7 @@ int main(int argc, char **argv) {
+         else if (!strcmp(arg, "--ops")) ops = number(value);
+         else if (!strcmp(arg, "--member-bytes")) bytes = number(value);
+         else if (!strcmp(arg, "--seed")) seed = number(value);
++        else if (!strcmp(arg, "--warmup-passes")) warmup_passes = number(value);
+         else if (!strcmp(arg, "--case")) selected = value;
+         else { fprintf(stderr, "Unknown option: %s\n", arg); return 2; }
+     }
+@@ -88,23 +142,31 @@ int main(int argc, char **argv) {
+         size_t j = random64(&rng) % i, tmp = order[i - 1];
+         order[i - 1] = order[j]; order[j] = tmp;
+     }
+-    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum");
++    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) {
+         if (strcmp(selected, "all") && strcmp(selected, cases[c])) continue;
+         zbtreeSet *tree = zbtreeCreate();
+         if (c != 0) for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+-        /* One complete untimed lookup pass defines a warm, resident workload. */
+-        if (c != 0) for (size_t i = 0; i < n; i++) {
++        /* Fixed-count warm-up; this does not establish stable placement/DVFS. */
++        uint64_t warmup_start = now_ns();
++        if (c != 0) for (size_t pass = 0; pass < warmup_passes; pass++) for (size_t i = 0; i < n; i++) {
+             double score;
+             serverAssert(zbtreeScore(tree, keys[order[i]], &score) && score == (double)order[i]);
+         }
++        uint64_t warmup_elapsed = now_ns() - warmup_start;
+         size_t count = (c == 0 || c == 7) ? n : ops;
+         uint64_t checksum = 0, expected = 0;
+         size_t tree_bytes = zbtreeAllocSize(tree);
+-        if (c == 4 || c == 5) count = n;
++        size_t traversals = (c == 4 || c == 5) ? 1 + (ops - 1) / n : 0;
++        if (c == 4 || c == 5) count = traversals * n;
+         if (c == 1 || c == 3) for (size_t i = 0; i < count; i++) expected += order[i % n];
+-        else if (c == 5 || c == 6 || c == 7) expected = count;
+-        else if (c == 4) expected = (uint64_t)n * (n - 1) / 2;
++        else if (c == 6 || c == 7) expected = count;
++        else if (c == 4) expected = ((uint64_t)n * (n - 1) / 2) * traversals;
++        scan_result scanned = {0, 0};
++        int relpri_start, relpri_end;
++        const char *qos_start = qos_reported(&relpri_start);
++        int cpu_start = cpu_id();
++        int64_t thread_start = thread_ns();
+         uint64_t start = now_ns();
+         if (c == 0) {
+             for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+@@ -117,15 +179,20 @@ int main(int argc, char **argv) {
+         } else if (c == 3) {
+             for (size_t i = 0; i < count; i++) checksum += (uint64_t)zbtreeRank(tree, keys[order[i % n]], 0, NULL);
+         } else if (c == 4) {
+-            zbtreeIterator it;
+-            zbtreeIteratorStart(tree, 0, &it);
+-            double score;
+-            size_t visited = 0;
+-            while (zbtreeIteratorNext(&it, 0, NULL, NULL, &score)) { checksum += (uint64_t)score; visited++; }
+-            serverAssert(visited == n);
++            for (size_t pass = 0; pass < traversals; pass++) {
++                zbtreeIterator it;
++                zbtreeIteratorStart(tree, 0, &it);
++                double score;
++                size_t visited = 0;
++                while (zbtreeIteratorNext(&it, 0, NULL, NULL, &score)) { checksum += (uint64_t)score; visited++; }
++                serverAssert(visited == n);
++            }
+         } else if (c == 5) {
+-            uint64_t cursor = 0;
+-            do { cursor = zbtreeScan(tree, cursor, 64, scan_count, &checksum); } while (cursor);
++            for (size_t pass = 0; pass < traversals; pass++) {
++                uint64_t cursor = 0;
++                do { cursor = zbtreeScan(tree, cursor, 64, scan_count, &scanned); } while (cursor);
++            }
++            checksum = scanned.sum;
+         } else if (c == 6) {
+             for (size_t i = 0; i < count; i++) {
+                 sds key = keys[order[i % n]];
+@@ -140,15 +207,20 @@ int main(int argc, char **argv) {
+             for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[order[i]]);
+         }
+         uint64_t elapsed = now_ns() - start;
++        int64_t thread_end = thread_ns();
++        int cpu_end = cpu_id();
++        const char *qos_end = qos_reported(&relpri_end);
++        int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
+         if (c == 5) {
+             /* Cursor scans may legitimately emit duplicates even without edits. */
+-            serverAssert(checksum >= n);
+-            count = (size_t)checksum;
+-            expected = checksum;
+-            scan_check check = {zcalloc(n), n};
++            serverAssert(scanned.count >= count && scanned.count <= SIZE_MAX);
++            count = (size_t)scanned.count;
++            scan_check check = {zcalloc(n), n, keys, {0, 0}};
+             uint64_t cursor = 0;
+             do { cursor = zbtreeScan(tree, cursor, 64, scan_verify, &check); } while (cursor);
+             for (size_t i = 0; i < n; i++) serverAssert(check.seen[i]);
++            serverAssert(scanned.count == check.result.count * traversals);
++            expected = check.result.sum * traversals;
+             zfree(check.seen);
+         }
+         serverAssert(checksum == expected);
+@@ -161,9 +233,11 @@ int main(int argc, char **argv) {
+             serverAssert(score == (double)order[i] + (double)(repeats * n));
+         }
+         sink ^= checksum;
+-        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 "\n",
++        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 "\n",
+                cases[c], n, ops, bytes, seed, count, elapsed, (double)elapsed/count,
+-               (double)count * 1e9 / (elapsed ? elapsed : 1), tree_bytes, checksum);
++               (double)count * 1e9 / (elapsed ? elapsed : 1), tree_bytes, checksum,
++               thread_elapsed, cpu_start, cpu_end, qos_start, qos_end, relpri_start, relpri_end,
++               traversals, c == 0 ? 0 : warmup_passes, warmup_elapsed);
+         zbtreeFree(tree);
+     }
+     for (size_t i = 0; i < 2 * n; i++) sdsfree(keys[i]);
+diff --git a/docs/MICROBENCHMARKS.md b/docs/MICROBENCHMARKS.md
+index e71000b..2bf59dd 100644
+--- a/docs/MICROBENCHMARKS.md
++++ b/docs/MICROBENCHMARKS.md
+@@ -5,7 +5,7 @@
+ `bench/microbench.c` calls the tree API in-process. It generates unique binary members,
+ integer scores, and a seeded shuffled insertion/access permutation before starting timers.
+ Each case creates its own tree. Point cases repeat the same shuffled permutation, which
+-is not independent random sampling. A full successful-lookup pass warms each existing tree
++is not independent random sampling. `--warmup-passes` full successful-lookup passes (default 1) warm each existing tree
+ and may finish pending incremental rehashing; these rows are steady-state cases.
+ 
+ | CSV case | Timed work | Effective operations |
+@@ -13,21 +13,38 @@ and may finish pending incremental rehashing; these rows are steady-state cases.
+ | insert | find-for-add + insert-new, growing an unreserved tree | cardinality |
+ | lookup-hit / lookup-miss | member lookup, including hash and checksum accumulation | `--ops` |
+ | rank | member lookup plus forward rank, checksum accumulation | `--ops` |
+-| iterate | one complete forward traversal, score checksum | members visited |
+-| scan | complete cursor scan, COUNT hint 64, counting callback | members emitted |
++| iterate | repeated complete forward traversals, score checksum | members visited across all traversals |
++| scan | repeated complete cursor scans, COUNT hint 64, count and score checksum | callbacks across all traversals, including duplicates |
+ | update | find-for-add + score update to a larger score | `--ops` |
+ | delete | delete each member in shuffled order | initial cardinality |
+ 
+ Assertions on required insert/update preconditions remain inside those timed loops and
+ are identical for all candidates. Result checks and update-state verification run after
+ timing. Timings include loop/index/checksum overhead; there is no overhead subtraction.
+-Iteration/scan are single traversals and need sufficient cardinality to exceed timer noise.
++Iteration/scan perform `ceil(--ops / --size)` complete traversals, rounding the request
++up to whole passes; actual visits/callbacks determine the denominator.
+ Scan may emit duplicates; its operation count is actual callbacks, and a separate untimed
+-pass checks every member was seen with the expected score. It is not a unique-members rate.
++pass checks every binary member, length and score, verifies complete coverage, and supplies
++the count and score-sum reference for every repeated pass. It is not a unique-members rate.
+ `tree_bytes` is post-case owned memory except delete, which records pre-deletion memory.
+ The update fixture moves scores toward the high end; it does not represent all churn patterns.
+ This is an initial referee, not a claim of broad workload coverage.
+ 
++## Timing and scheduling observations
++
++Wall `CLOCK_MONOTONIC` time remains primary. CSV also records thread CPU elapsed time
++(`CLOCK_THREAD_CPUTIME_ID`, -1 when unavailable), CPU IDs just outside each timed region
++(macOS `pthread_cpu_number_np` or Linux `sched_getcpu`, -1 when unavailable), and
++`pthread_get_qos_class_np` results at both boundaries on macOS. The SDK defines that
++QoS result as requested class/relative priority; it excludes effective overrides/clamps.
++`qos_effective` remains `unknown`. Linux QoS fields say `unavailable`. No QoS is changed.
++CPU IDs are opaque numbers: no P/E mapping is assumed. Equal IDs cannot exclude migration
++within a window. Thread time brackets the wall timer reads and can slightly exceed wall
++time due to timer granularity/overhead; preserve the raw value without clamping.
++Warm-up elapsed time and pass count are recorded. Fixed warm-up passes do not prove
++frequency settling. Frequency/DVFS remain unknown. All instrumentation is outside the
++wall-timed operation loop. Harness revision requires fresh baseline qualification.
++
+ ## Frozen matrix for baseline qualification
+ 
+ Run cardinalities 1K, 100K, 1M; member lengths 8, 16, 64, 319, 320, 321, 1024 bytes;

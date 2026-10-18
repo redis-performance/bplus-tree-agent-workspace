@@ -1,0 +1,3 @@
+mkdir -p scratch/overnight-harness-001/release
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3  bench/microbench.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/overnight-harness-001/release/btree-bench
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3 -DREDIS_TEST -DREDIS_DEBUG  tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/overnight-harness-001/release/btree-test

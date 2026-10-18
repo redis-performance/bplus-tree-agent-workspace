@@ -1,0 +1,3 @@
+mkdir -p scratch/overnight-harness-001/sanitize
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize=address,undefined bench/microbench.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/overnight-harness-001/sanitize/btree-bench
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all -DREDIS_TEST -DREDIS_DEBUG -fsanitize=address,undefined tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/overnight-harness-001/sanitize/btree-test

@@ -5,7 +5,7 @@
 `bench/microbench.c` calls the tree API in-process. It generates unique binary members,
 integer scores, and a seeded shuffled insertion/access permutation before starting timers.
 Each case creates its own tree. Point cases repeat the same shuffled permutation, which
-is not independent random sampling. A full successful-lookup pass warms each existing tree
+is not independent random sampling. `--warmup-passes` full successful-lookup passes (default 1) warm each existing tree
 and may finish pending incremental rehashing; these rows are steady-state cases.
 
 | CSV case | Timed work | Effective operations |
@@ -13,20 +13,37 @@ and may finish pending incremental rehashing; these rows are steady-state cases.
 | insert | find-for-add + insert-new, growing an unreserved tree | cardinality |
 | lookup-hit / lookup-miss | member lookup, including hash and checksum accumulation | `--ops` |
 | rank | member lookup plus forward rank, checksum accumulation | `--ops` |
-| iterate | one complete forward traversal, score checksum | members visited |
-| scan | complete cursor scan, COUNT hint 64, counting callback | members emitted |
+| iterate | repeated complete forward traversals, score checksum | members visited across all traversals |
+| scan | repeated complete cursor scans, COUNT hint 64, count and score checksum | callbacks across all traversals, including duplicates |
 | update | find-for-add + score update to a larger score | `--ops` |
 | delete | delete each member in shuffled order | initial cardinality |
 
 Assertions on required insert/update preconditions remain inside those timed loops and
 are identical for all candidates. Result checks and update-state verification run after
 timing. Timings include loop/index/checksum overhead; there is no overhead subtraction.
-Iteration/scan are single traversals and need sufficient cardinality to exceed timer noise.
+Iteration/scan perform `ceil(--ops / --size)` complete traversals, rounding the request
+up to whole passes; actual visits/callbacks determine the denominator.
 Scan may emit duplicates; its operation count is actual callbacks, and a separate untimed
-pass checks every member was seen with the expected score. It is not a unique-members rate.
+pass checks every binary member, length and score, verifies complete coverage, and supplies
+the count and score-sum reference for every repeated pass. It is not a unique-members rate.
 `tree_bytes` is post-case owned memory except delete, which records pre-deletion memory.
 The update fixture moves scores toward the high end; it does not represent all churn patterns.
 This is an initial referee, not a claim of broad workload coverage.
+
+## Timing and scheduling observations
+
+Wall `CLOCK_MONOTONIC` time remains primary. CSV also records thread CPU elapsed time
+(`CLOCK_THREAD_CPUTIME_ID`, -1 when unavailable), CPU IDs just outside each timed region
+(macOS `pthread_cpu_number_np` or Linux `sched_getcpu`, -1 when unavailable), and
+`pthread_get_qos_class_np` results at both boundaries on macOS. The SDK defines that
+QoS result as requested class/relative priority; it excludes effective overrides/clamps.
+`qos_effective` remains `unknown`. Linux QoS fields say `unavailable`. No QoS is changed.
+CPU IDs are opaque numbers: no P/E mapping is assumed. Equal IDs cannot exclude migration
+within a window. Thread time brackets the wall timer reads and can slightly exceed wall
+time due to timer granularity/overhead; preserve the raw value without clamping.
+Warm-up elapsed time and pass count are recorded. Fixed warm-up passes do not prove
+frequency settling. Frequency/DVFS remain unknown. All instrumentation is outside the
+wall-timed operation loop. Harness revision requires fresh baseline qualification.
 
 ## Frozen matrix for baseline qualification
 

@@ -1,0 +1,77 @@
+diff --git a/tests/test_microbench.py b/tests/test_microbench.py
+new file mode 100644
+index 0000000..4ee02fe
+--- /dev/null
++++ b/tests/test_microbench.py
+@@ -0,0 +1,71 @@
++#!/usr/bin/env python3
++"""Functional referee checks; timing values are not performance assertions."""
++import csv
++import io
++from pathlib import Path
++import subprocess
++import sys
++import unittest
++
++BINARY = str(Path(sys.argv.pop(1)).resolve()) if len(sys.argv) > 1 else "build/btree-bench"
++
++
++def run(*args):
++    p = subprocess.run([BINARY, *map(str, args)], capture_output=True, text=True, timeout=120)
++    if p.returncode:
++        raise AssertionError(f"{args}: exit {p.returncode}: {p.stderr}")
++    return list(csv.DictReader(io.StringIO(p.stdout)))
++
++
++class RefereeTests(unittest.TestCase):
++    def test_traversal_counts_and_checksums(self):
++        # Binary member storage boundaries, tiny/partial/full leaves, rounded
++        # traversal budgets, and held-out seed. Baseline scan count may exceed n.
++        for n in (1, 31, 128, 1000):
++            for size in (8, 16, 319, 320, 321):
++                for seed in (1, 101):
++                    for case in ("iterate", "scan"):
++                        args = ("--size", n, "--member-bytes", size, "--seed", seed, "--case", case)
++                        baseline = run(*args, "--ops", 1)[0]
++                        self.assertGreaterEqual(int(baseline["operations"]), n)
++                        if case == "iterate":
++                            self.assertEqual(int(baseline["operations"]), n)
++                            self.assertEqual(int(baseline["checksum"]), n * (n - 1) // 2)
++                        for ops in (n, n + 1, 3 * n - 1):
++                            with self.subTest(n=n, size=size, seed=seed, case=case, ops=ops):
++                                row = run(*args, "--ops", ops, "--warmup-passes", 2)[0]
++                                passes = (ops + n - 1) // n
++                                self.assertEqual(int(row["operations"]), int(baseline["operations"]) * passes)
++                                self.assertEqual(int(row["checksum"]), int(baseline["checksum"]) * passes)
++                                self.assertEqual(row["tree_bytes"], baseline["tree_bytes"])
++                                self.assertEqual(int(row["traversals"]), passes)
++                                self.assertEqual(int(row["warmup_passes"]), 2)
++
++    def test_all_cases_and_observations(self):
++        for size in (8, 16, 319, 320, 321):
++            rows = run("--size", 1000, "--ops", 2501, "--member-bytes", size)
++            self.assertEqual(len(rows), 8)
++            for row in rows:
++                case = row["case"]
++                count = int(row["operations"])
++                if case in ("insert", "delete"):
++                    self.assertEqual(count, 1000)
++                elif case not in ("iterate", "scan"):
++                    self.assertEqual(count, 2501)
++                if case in ("lookup-miss", "insert"):
++                    self.assertEqual(int(row["checksum"]), 0)
++                if case in ("update", "delete"):
++                    self.assertEqual(int(row["checksum"]), count)
++                self.assertGreaterEqual(int(row["thread_elapsed_ns"]), -1)
++                self.assertGreaterEqual(int(row["cpu_start"]), -1)
++                self.assertGreaterEqual(int(row["cpu_end"]), -1)
++                self.assertEqual(row["qos_effective"], "unknown")
++
++    def test_invalid_warmup(self):
++        for value in ("0", "-1", "junk", "100000001"):
++            p = subprocess.run([BINARY, "--warmup-passes", value], capture_output=True, timeout=120)
++            self.assertEqual(p.returncode, 2)
++
++
++if __name__ == "__main__":
++    unittest.main()
