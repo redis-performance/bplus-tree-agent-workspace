@@ -1,0 +1,71 @@
+/* EXP-007 B: dispatch once for zero, byte-aligned, noncrossing, or crossing
+ * geometry. Private bulk helper; no persistent leaf/iterator state is changed.
+ * Logical forward subrange; output is disjoint and has room for count doubles. */
+static void zbtScoreLeafDecodeRange(zbtScoreLeaf *leaf, unsigned start,
+                                   unsigned count, double *out) {
+    if (count == 0) return;
+
+    const unsigned bits = leaf->score_bits;
+    const unsigned score_shift = leaf->n.score_shift;
+    const unsigned reversed = leaf->reversed;
+    const unsigned leaf_count = leaf->n.count;
+    const uint64_t base = leaf->score_base;
+
+    if (bits == 0) {
+        const double value = zbtOrderedToScore(base);
+        for (unsigned i = 0; i < count; i++) out[i] = value;
+        return;
+    }
+
+    const uint64_t mask = bits == 64 ? UINT64_MAX : (UINT64_C(1) << bits) - 1;
+
+    if ((bits & 7) == 0) {
+        /* Every score starts at a byte boundary; no bit-offset or crossing
+         * arithmetic is needed, including the 64-bit full-word case. */
+        const unsigned stride = bits / 8;
+        for (unsigned i = 0; i < count; i++) {
+            const unsigned logical = start + i;
+            const unsigned physical = reversed ? leaf_count - 1 - logical : logical;
+            uint64_t delta;
+            memcpy(&delta, leaf->data + (size_t)physical * stride, sizeof(delta));
+            delta = (intrev64ifbe(delta) & mask) << score_shift;
+            const uint64_t ordered = reversed ? base - delta : base + delta;
+            out[i] = zbtOrderedToScore(ordered);
+        }
+        return;
+    }
+
+    if (bits <= 58 || bits == 60) {
+        /* For 58 bits offsets are 0,2,4,6; for 60 they are 0,4. All
+         * smaller widths fit in the loaded word at every reachable offset. */
+        for (unsigned i = 0; i < count; i++) {
+            const unsigned logical = start + i;
+            const unsigned physical = reversed ? leaf_count - 1 - logical : logical;
+            const size_t bitpos = (size_t)physical * bits;
+            uint64_t delta;
+            memcpy(&delta, leaf->data + bitpos / 8, sizeof(delta));
+            delta = ((intrev64ifbe(delta) >> (bitpos & 7)) & mask) << score_shift;
+            const uint64_t ordered = reversed ? base - delta : base + delta;
+            out[i] = zbtOrderedToScore(ordered);
+        }
+        return;
+    }
+
+    /* Only 59,61,62,63 remain for valid widths. Preserve the scalar
+     * crossing predicate and its protection against a shift by 64. */
+    for (unsigned i = 0; i < count; i++) {
+        const unsigned logical = start + i;
+        const unsigned physical = reversed ? leaf_count - 1 - logical : logical;
+        const size_t bitpos = (size_t)physical * bits;
+        const size_t byte = bitpos / 8;
+        const unsigned shift = bitpos & 7;
+        uint64_t delta;
+        memcpy(&delta, leaf->data + byte, sizeof(delta));
+        delta = intrev64ifbe(delta) >> shift;
+        if (shift && bits > 64 - shift)
+            delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+        delta = (delta & mask) << score_shift;
+        const uint64_t ordered = reversed ? base - delta : base + delta;
+        out[i] = zbtOrderedToScore(ordered);
+    }
+}
