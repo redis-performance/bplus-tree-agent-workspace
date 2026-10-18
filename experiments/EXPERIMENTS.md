@@ -786,3 +786,16 @@ outputs. Two external profiles succeed, including warm-up; no cycle attribution.
 Totals: six optimization populations (five historical sequential, one multi-agent),
 0 accepted / 2 rejected / 4 parked, all 18 candidate patches retained. Next distinct
 experiment: scalar-short / specialized-long crossover. Overnight remains stopped.
+
+
+## 19 October: EXP-008 hybrid cutoff discovery on Apple M1
+
+[EXP-008](EXP-008/RESULTS.md) tested scalar cutoffs 4/8/16 against frozen EXP-007 B.
+All eight release/sanitizer suites pass. The 15,360-process / 1,981,440-batch discovery
+completed in 265.83s; independent raw audit passes 30,720 file hashes and 7,680 paired
+effects. No variant meets the count16/count96 gain gates, and count16 A/A fails fixed
+precision, so confirmation is skipped. The broad fallback is PARK. Count1-only remains
+a falsifiable lead for a separate experiment, not an accepted optimization. These local
+observations are Apple M1 only; the seven-field evidence screen says missing frequency,
+turbo/SMT and actual core use prevent portable quantitative claims. [M6 replication
+runbook](REPLICATE-LATEST.md) keeps host data separate. Production source is unchanged.

@@ -5,12 +5,20 @@ import hashlib
 import json
 from pathlib import Path
 import statistics
-import sys, math
+import sys, math, argparse
 
 root = Path(__file__).resolve().parent
-runroot = root / sys.argv[1]
-assert sys.argv[1] in ('discovery','confirmation')
-expected_runs=2880 if sys.argv[1]=='discovery' else 1440
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('run_dir', nargs='?', default='discovery', help='run directory; defaults to the checked-in discovery')
+parser.add_argument('--kind', choices=('discovery','confirmation'), help='expected campaign type; inferred from directory name when omitted')
+args = parser.parse_args()
+runroot = Path(args.run_dir)
+if not runroot.is_absolute():
+    candidate = Path.cwd()/runroot
+    runroot = candidate if candidate.exists() else root/runroot
+kind = args.kind or runroot.name
+assert kind in ('discovery','confirmation'), 'set --kind when the run directory has a custom name'
+expected_runs=2880 if kind=='discovery' else 1440
 manifest = json.loads((runroot/'manifest.json').read_text())
 saved = json.loads((runroot/'process-summary.json').read_text())
 assert manifest['status'] == 'complete'
@@ -47,7 +55,7 @@ for run, scheduled, summary in zip(manifest['runs'], manifest['schedule'], saved
     assert all(summary[k] == v for k,v in stats.items())
     derived.append(dict(scheduled,**stats))
 summary = json.loads((runroot/'summary.json').read_text())
-assert len(summary) == (120 if sys.argv[1]=='discovery' else 60)
+assert len(summary) == (120 if kind=='discovery' else 60)
 for cell in summary:
     group = [r for r in derived if all(r[k] == cell[k] for k in ('phase','width','reversed','count'))]
     assert len(group) == 24

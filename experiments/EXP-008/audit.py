@@ -3,8 +3,18 @@
 from collections import defaultdict
 import csv,hashlib,json,math,statistics,sys
 from pathlib import Path
-root=Path(__file__).resolve().parent;runroot=root/sys.argv[1];assert sys.argv[1] in ('discovery','confirmation')
-expected=15360 if sys.argv[1]=='discovery' else 7680
+import argparse
+root=Path(__file__).resolve().parent
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('run_dir',nargs='?',default='discovery',help='run directory; defaults to the checked-in discovery')
+parser.add_argument('--kind',choices=('discovery','confirmation'),help='expected campaign type; inferred from directory name when omitted')
+args=parser.parse_args()
+runroot=Path(args.run_dir)
+if not runroot.is_absolute():
+ runroot=Path.cwd()/runroot if (Path.cwd()/runroot).exists() else root/runroot
+kind=args.kind or runroot.name
+assert kind in ('discovery','confirmation'),'set --kind when the run directory has a custom name'
+expected=15360 if kind=='discovery' else 7680
 m=json.loads((runroot/'manifest.json').read_text());saved=json.loads((runroot/'process-summary.json').read_text())
 assert m['status']=='complete' and len(m['runs'])==expected==len(saved)
 seen={};stats=[];rows_n=0;end=''
@@ -25,7 +35,7 @@ for run,sch,ss in zip(m['runs'],m['schedule'],saved):
  assert all(ss[k]==v for k,v in d.items() if k in ('min_ns','median_ns','p90_ns','max_ns','min_batch_ns','endpoint_migrations'));stats.append(d)
 g=defaultdict(list)
 for x in stats:g[(x['phase'],x['width'],x['reversed'],x['count'])].append(x)
-summary=json.loads((runroot/'summary.json').read_text());assert len(summary)==(640 if sys.argv[1]=='discovery' else 320)
+summary=json.loads((runroot/'summary.json').read_text());assert len(summary)==(640 if kind=='discovery' else 320)
 for x in summary:
  group=g[(x['phase'],x['width'],x['reversed'],x['count'])];assert len(group)==24
  for stat in ('min_ns','median_ns'):

@@ -1,6 +1,32 @@
+# Next steps after EXP-008 (Apple M1)
+
+The broad scalar/bulk crossover failed its preregistered gates. The only new lead is
+a count1-only scalar path: at width60 forward, A/B cutoff variants were faster at count1
+but broad scalar paths regress at counts4–8. Treat this as an unconfirmed local M1
+observation; the count16 A/A precision gate failed. Do not add a count1 branch to source
+or alter EXP-008 cutoffs after the result.
+
+1. Reproduce EXP-004, EXP-007 and EXP-008 on Apple M6 mini using the
+   [host replication runbook](REPLICATE-LATEST.md). Store separate host fingerprints,
+   profiles, raw matrices and audits. Compare each host independently; never pool timing
+   rows or infer architecture-wide speedups from these two machines.
+2. If the M6 matrices support the same count1 signal and qualify their A/A controls,
+   create a separate experiment for scalar only at count1, with count2+ guards and a
+   fresh confirmation rule frozen before timing. Use the rapid narrow loop first, then
+   broaden only the preregistered guard matrix if it survives.
+3. Keep the scalar iterator and production source unchanged until correctness, guards,
+   profiling and adversarial review all pass. EXP-007's bulk helper remains a private
+   benchmark artifact, not an iterator optimization.
+
+EXP-008 ran all 160 cells in serial ABBA blocks, but process-launch overhead and short
+batch durations leave many cells unqualified. For future focused work, increase timed
+work per process while keeping a small number of fixed cells and full paired blocks;
+retain per-process distributions and A/A controls. This improves iteration speed without
+confusing inner samples with independent trials.
+
 # Next steps after round 16
 
-## Latest next step after EXP-007
+## Archived next step after EXP-007 (superseded by EXP-008)
 
 The [bulk decoder experiment](EXP-007/RESULTS.md) found reproducible full-leaf gains,
 but B's three short-range losses block all-range adoption. Test a new hybrid with

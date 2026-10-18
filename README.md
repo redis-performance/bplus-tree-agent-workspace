@@ -5,6 +5,21 @@ by 33% on the primary case and about 43% on aligned 8/64-bit scores. Three short
 regressions block adoption. [Results and next experiment](experiments/EXP-007/RESULTS.md).
 Both three-agent population steps, native/sanitizer validation, fresh confirmation,
 assembly inspection and raw-data audit are complete. Production source stays baseline.
+**Latest decoder work (Apple M1):** EXP-008 tested three scalar/bulk cutoffs against
+the frozen bulk decoder. None passed its fixed gates; broad scalar ranges regress, while
+count1 suggests a separate narrow test. The chart below is the width60 forward discovery
+matrix only; it is not a cross-machine or iterator claim. Full raw-audited results:
+[EXP-008](experiments/EXP-008/RESULTS.md). All checked-in focused decoder timings are
+labeled **Apple M1**. A separate-host rerun guide is ready for Apple M6 mini:
+[replication instructions](experiments/REPLICATE-LATEST.md). Do not pool the machines.
+
+![EXP-008 Apple M1 cutoff effects](experiments/EXP-008/discovery/threshold-effects.svg)
+
+EXP-008 status: PARK / no candidate; 15,360 serial processes and 1,981,440 batches,
+raw audit PASS. The plotted values are internal M1 observations: the seven-field evidence
+screen flags actual core use, frequency, and turbo/SMT state as missing. The count1-only
+hypothesis is not tested yet. Production source remains unchanged.
+
 
 **Focused decoder benchmark (19 October):** ready and locally measured; see the
 [run guide](docs/DECODER-MICROBENCHMARK.md) and [results](experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
@@ -18,7 +33,7 @@ The target is the packed score-ordered tree **and its compact member index** fro
 [Redis PR #15635](https://github.com/redis/redis/pull/15635), measured through direct C API
 microbenchmarks. No Redis server, networking, command processing, or persistence is built.
 
-**State:** preparation complete; 0 accepted, 2 rejected, 4 parked optimisation experiments.
+**State:** preparation complete; 0 accepted, 2 rejected, 5 parked optimisation experiments (latest counts on Apple M1).
 [Round 20](experiments/OVERNIGHT-2026-10-17/ROUND-020.md): 112 correctness cells pass, including candidate boundary histories, forced scalar fallback, dense-leaf promotion and natural generation wrap; six repeated faults detected. Counts and performance decisions unchanged; main source preserved.
 [Round 19](experiments/OVERNIGHT-2026-10-17/ROUND-019.md): fixed prefetch diagnostic does not resolve the batch-size guard; 32 heterogeneous batch cells pass. Scoped counters confirm equal logical lookup paths, not equal timings. Main source preserved.
 [Round 18](experiments/OVERNIGHT-2026-10-17/ROUND-018.md): new batch qualification and fifth sequential population complete; main source preserved.

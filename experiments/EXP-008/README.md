@@ -1,70 +1,46 @@
-# EXP-008 — Short-range scalar fallback for bulk score decoding
+# EXP-008 — short-range scalar fallback for bulk score decoding
 
 Date: 2026-10-19
-Status: PREPARED — awaiting frozen-run start
-Decision: PENDING — no candidate selected
+Status: complete on Apple M1; cross-host M6 replication prepared
+Decision: PARK; no candidate adopted
 
-## Frozen context
+## Frozen scope
 
-- Source baseline: EXP-007 original root source at `4fd3a3fdbce5acca18ee292642a3d80a79f50362`; bulk helper frozen from EXP-007 B; EXP-008 referee commit pending.
-- PR provenance head: a7ecd959374d66847c095250bf2d373edf7316c5
-- Compiler, flags, linker, allocator, binary hashes: TBD
-- Generic host/CPU, OS, affinity, frequency/cache context: TBD
-- Case/cardinality/member length/score distribution/access order/seeds: TBD
-- Primary: width60 forward count16; secondary width60/count96, both >=2% faster. Guard limit1%; A/A cells failing ±1% all-block precision remain unresolved. Discovery budget300s; fresh confirmation180s.
-- A/A precision: NOT RUN; baseline profile: NOT RUN
-- Hypothesis: a per-range scalar path through count 8 removes short-range overhead while retaining EXP-007 B bulk decoding above 8.
+This is a standalone microbenchmark of packed B+ tree score decoding. It uses no Redis
+server and makes no claim about the public scalar iterator. The source baseline is
+`4fd3a3fdbce5acca18ee292642a3d80a79f50362`; the B bulk helper is frozen from EXP-007.
+The per-range policy is private referee code. Main source remains unchanged.
 
-## Population step 1 — hypothesis selection
+The full frozen plan, chair selection and implementation record are in
+[PLAN.md](PLAN.md), [selection.md](selection.md), and
+[implementation-selection.md](implementation-selection.md). Three independent
+proposers predicted scalar fallbacks with cutoffs 4, 8, or 16; three isolated
+implementers produced those variants. Correctness and sanitizer tests passed for all
+four binaries. Compiler assembly confirms the cutoff comparison occurs once per range,
+outside the inner score loop; the policy call is outlined in every variant.
 
-| Proposer | Actual agent/model | Hypothesis | Profile evidence | Chair rank / rationale |
-|---|---|---|---|---|
-| A | NOT RUN | TBD | TBD | TBD |
-| B | NOT RUN | TBD | TBD | TBD |
-| C | NOT RUN | TBD | TBD | TBD |
+## Machine result
 
-Chair identity: `/root`. Winner: scalar for counts <=8, B bulk for counts >8. Rationale and dissent: selection.md.
-Decision and dissent: [selection](selection.md); [preregistered plan](PLAN.md). All proposal files: proposals/.
+The complete 15,360-process discovery matrix passed on an **Apple M1** with Apple clang
+17, C11 `-O3 -fno-lto`, one unpinned process, and uncontrolled frequency/DVFS. A/A
+precision at the declared count16 primary failed, and no candidate reached both primary
+gates. No confirmation was run; all candidates remain PARKED. Results and limits are in
+[RESULTS.md](RESULTS.md), with the latest measured chart embedded there.
 
-## Population step 2 — implementation selection
+| Variant | Scalar path | Width60 forward count16 | Width60 forward count96 | Result |
+|---|---|---:|---:|---|
+| A | count ≤4 | -0.58% | +0.32% | Fails ≥2% primary gains |
+| B | count ≤8 | -0.87% | +0.32% | Fails ≥2% primary gains |
+| C | count ≤16 | +38.06% | +0.38% | Count16 scalar path substantially slower |
 
-| Variant | Actual agent/model / base | Patch | Correctness | Primary / guards / memory | Verdict |
-|---|---|---|---|---|---|
-| A | independent implementer; baseline4fd3a3fd | variants/A/policy.inc | release + ASan/UBSan decoder suites passed | pending timing | pending timing |
-| B | independent implementer; baseline4fd3a3fd | variants/B/policy.inc | release + ASan/UBSan decoder suites passed | pending timing | pending timing |
-| C | independent implementer; baseline4fd3a3fd | variants/C/policy.inc | release + ASan/UBSan decoder suites passed | pending timing | pending timing |
+Negative elapsed-time change means faster than all-bulk control. The only narrow lead is
+count1 under A/B; counts4–8 show large losses when routed through scalar. The next
+falsifiable test is a new count1-only policy with fresh A/A and count2+ guards. It is
+not an EXP-008 threshold adjustment.
 
-Measured selection: implementation-selection.md. Winner: NOT RUN.
-Keep every patch and failed result. Worktree/build isolation evidence: detached baseline worktrees and separate output binaries; build manifests are retained.
+## Apple M6 mini replication
 
-## Correctness gate
-
-Upstream tree tests: out of scope. ASan/UBSan: passed for all four binaries.
-Target-specific regression/model/boundary checks: passed for all four binaries (1,820-case exhaustive self-test and Python oracle groups).
-Referee identity across variants: common kernel, adapter, helper bytes, and checksum/materialization barrier.
-
-## Validation step 1 — benchmark
-
-| Case | Compiler/arch | Baseline ns/op | Candidate ns/op | Paired effect / uncertainty | Owned bytes | Guard |
-|---|---|---|---|---|---|---|
-| TBD | TBD | NOT RUN | NOT RUN | NOT RUN | NOT RUN | NOT RUN |
-
-A/A precision: TBD. Serial ABBA raw paths: TBD. Fresh confirmation/held-out seeds: TBD.
-Document effective operation counts and all exclusions; no post-hoc objective changes.
-
-## Validation step 2 — profile
-
-Baseline/candidate hot symbols and instructions/cycles/branch/cache evidence: NOT RUN.
-Timed region versus whole-process capture boundary: TBD.
-Does the profile support the hypothesis, and what is now limiting? TBD.
-
-## Adversarial review and final decision
-
-Reviewer identity, exact commit, five lenses, verdict: NOT RUN.
-ACCEPT / REJECT / PARK, reasoning, dissent and revisit condition: NOT RUN.
-Upstream action: none requested. Evidence hashes and reproduction commands: TBD.
-Append result to EXPERIMENTS.md, update SUMMARY.md/README counts and shared memory.
-
-## Cost
-
-Append measured usage to ../token-ledger.tsv. Unknown is unknown, never zero by assumption.
+M1 data remain labeled by host and are never pooled with M6 observations. Use the
+[latest-host replication guide](../REPLICATE-LATEST.md) to rebuild the frozen EXP-007
+and EXP-008 candidates, capture profiles, run each full matrix into a host-specific
+folder, and analyze/audit the raw files. Keep M6 as an independent machine result.

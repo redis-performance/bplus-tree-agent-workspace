@@ -746,3 +746,17 @@ forced scalar fallback is not big-endian testing. Independent review/confirmatio
 qualified performance guards and committed provenance remain pending. Reviewer startup
 failed; exact backend/model/token cost unknown, supervisor CLI accounting separate.
 No publishing, git retry, credentials, permission or supervisor/runtime/STOP edits.
+
+
+## Latest: EXP-008 / Apple M1 decoder work
+
+EXP-008 is complete on Apple M1. Scalar cutoffs 4/8/16 failed the frozen count16/count96
+primary gates; count16 A/A precision failed. No confirmation, no selected candidate, and
+root source remains unchanged. The count1 scalar path is only a lead for a separate
+experiment. All recent focused decoder results (EXP-004/007/008) are Apple M1 observations.
+The user plans to rerun the latest decoder campaigns on Apple M6 mini; use
+`experiments/REPLICATE-LATEST.md`, host-specific output folders, and separate A/A/results.
+Do not pool M1 and M6 rows. EXP-008 completed 15360 serial processes / 1981440 batches in
+265.83s; all release/sanitizer tests and raw audit pass. Frequency, DVFS, actual core use
+and within-window migration remain unknown. Source/hash baseline is EXP-008 commit plus
+M1 host metadata in its run manifest.

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import subprocess,json,hashlib,sys
-v=sys.argv[1];assert v in ('base','A','B','C');out=Path('experiments/EXP-008/profile-results');binary=Path('build/exp008')/v/'decoder-bench'
+import subprocess,json,hashlib,sys,argparse
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('variant',choices=('base','A','B','C'));parser.add_argument('--out-dir',default='experiments/EXP-008/profile-results');a=parser.parse_args()
+v=a.variant;out=Path(a.out_dir);out.mkdir(parents=True,exist_ok=True);binary=Path('build/exp008')/v/'decoder-bench'
 cmd=[str(binary),'--width','60','--count','16','--leaves','8','--rounds','65536','--samples','64','--warmup','16','--seed','81031']
 with (out/(v+'-profile.csv')).open('w') as so,(out/(v+'-profile.stderr')).open('w') as se:
  child=subprocess.Popen(cmd,stdout=so,stderr=se);sampler=['/usr/bin/sample',str(child.pid),'1','1','-file',str(out/(v+'-sample.txt'))]
