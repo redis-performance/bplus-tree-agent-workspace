@@ -1,6 +1,16 @@
 # Experiment summary
 
-## Latest: focused decoder benchmark, 19 October
+## Latest: EXP-007 bulk specialization, 19 October
+
+[Fresh results](EXP-007/RESULTS.md): B reduces primary full-leaf elapsed time by
+33.14% and aligned 8/64-bit full leaves by about 43%. Qualified short-range losses
+block universal adoption; experiment PARK / source NONE. Native/sanitizer checks and
+raw audits pass; both real three-agent population steps and cross-author reviews
+are complete.
+No scalar iterator gain is claimed. Current optimization totals are 0 accepted /
+2 rejected / 4 parked across six populations; all 18 patches are retained.
+
+## Earlier: focused decoder benchmark, 19 October
 
 The [new decoder harness and results](EXP-004/decoder-microbench-2026-10-19/README.md)
 are ready. One new harness/diagnostic follows the overnight totals below. A fixed
@@ -12,11 +22,13 @@ and raw-data audit pass. No source adoption; optimization counts remain
 | Category | Count |
 |---|---:|
 | Preparation completed | 1 |
-| Harness revisions locally validated; commit review pending | 7 |
-| Baseline explorations completed; suite qualification parked | 13 |
-| Optimisations accepted / rejected / parked | 0 / 2 / 3 |
-| Population rounds executed | 5 (sequential fallback) |
-| Additional measurement diagnostics completed | 34 |
+| Harness revisions locally validated (7 overnight + 2 focused decoder referees) | 9 |
+| Historical overnight baseline explorations | 13 |
+| Post-overnight focused A/A campaigns (decoder + bulk discovery/fresh) | 3 |
+| Optimisations accepted / rejected / parked | 0 / 2 / 4 |
+| Population rounds executed | 6 (5 sequential fallback + 1 multi-agent) |
+| Historical overnight additional measurement diagnostics | 34 |
+| Post-overnight focused decoder investigations | 2 |
 | Additional boundary oracle suites validated | 26 |
 
 The initial standalone library, direct API harness and upstream test entry point are ready.

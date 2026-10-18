@@ -1,5 +1,17 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+## Latest completed task: EXP-007 bulk specialization
+
+[Results](../experiments/EXP-007/RESULTS.md): B has fresh full-leaf gains (-33.14%
+primary; about -43% aligned) and repeated short-range losses (+20.79%, +10.60%,
++6.49%). Reject B as a universal replacement; retain bulk direction PARK, source
+NONE. These losses had qualified discovery controls, not merely unresolved noise.
+4320 serial processes / 557280 measured batches completed in 67.65 seconds total.
+All semantic/sanitizer checks and raw-data audits pass. Two genuine three-agent
+population steps and cross-author reviews completed. Main source and original
+scalar iterator unchanged; no integration started because guards fail. Next is a
+new preregistered short-range scalar fallback experiment. Overnight stays stopped.
+
 ## Latest task completed: 19 October decoder diagnostic
 
 The user approved a focused Lemire-style benchmark. It is implemented and measured:

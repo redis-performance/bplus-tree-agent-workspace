@@ -771,3 +771,18 @@ two fresh fixed seeds; all original counts/checks retained. Final audit3960 hash
 220 serial experimental windows,23 patch reconstructions; old469-file checkpoint
 preserved. Counts unchanged7/13/34/26,5 populations,0 accepted/2 rejected/3 parked.
 No timings or source adoption; final child ended06:25:59UTC. See canonical round20.
+
+## 19 October: EXP-007 per-leaf bulk specialization completed
+
+[EXP-007](EXP-007/RESULTS.md) completes both real three-agent population steps.
+Private bulk helper B is shortlisted; fresh primary uses 33.14% less elapsed time,
+aligned 8/64-bit full leaves about 43% less. Three short-range regressions repeat;
+their discovery controls qualified. B fails as an all-range replacement. Experiment
+PARK retains the bulk opportunity; production source NONE. Scalar iterator unchanged.
+Discovery/fresh total 4320 serial processes / 557280 batches in 67.65 seconds;
+eight native/sanitizer suites plus 272 boundary-base commands pass. Raw audit checks
+8640 hashes and 2160 paired effects. Assembly confirms per-range dispatch and retained
+outputs. Two external profiles succeed, including warm-up; no cycle attribution.
+Totals: six optimization populations (five historical sequential, one multi-agent),
+0 accepted / 2 rejected / 4 parked, all 18 candidate patches retained. Next distinct
+experiment: scalar-short / specialized-long crossover. Overnight remains stopped.

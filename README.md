@@ -1,5 +1,11 @@
 # bplus-tree-agent-workspace
 
+**EXP-007 completed:** per-leaf specialization reduces fresh full-leaf decode time
+by 33% on the primary case and about 43% on aligned 8/64-bit scores. Three short-range
+regressions block adoption. [Results and next experiment](experiments/EXP-007/RESULTS.md).
+Both three-agent population steps, native/sanitizer validation, fresh confirmation,
+assembly inspection and raw-data audit are complete. Production source stays baseline.
+
 **Focused decoder benchmark (19 October):** ready and locally measured; see the
 [run guide](docs/DECODER-MICROBENCHMARK.md) and [results](experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
 The 12.58-second A/A and baseline/A matrix found EXP-004 A slower in aligned 8-bit
@@ -12,7 +18,7 @@ The target is the packed score-ordered tree **and its compact member index** fro
 [Redis PR #15635](https://github.com/redis/redis/pull/15635), measured through direct C API
 microbenchmarks. No Redis server, networking, command processing, or persistence is built.
 
-**State:** preparation complete; 0 accepted, 2 rejected, 3 parked optimisation experiments.
+**State:** preparation complete; 0 accepted, 2 rejected, 4 parked optimisation experiments.
 [Round 20](experiments/OVERNIGHT-2026-10-17/ROUND-020.md): 112 correctness cells pass, including candidate boundary histories, forced scalar fallback, dense-leaf promotion and natural generation wrap; six repeated faults detected. Counts and performance decisions unchanged; main source preserved.
 [Round 19](experiments/OVERNIGHT-2026-10-17/ROUND-019.md): fixed prefetch diagnostic does not resolve the batch-size guard; 32 heterogeneous batch cells pass. Scoped counters confirm equal logical lookup paths, not equal timings. Main source preserved.
 [Round 18](experiments/OVERNIGHT-2026-10-17/ROUND-018.md): new batch qualification and fifth sequential population complete; main source preserved.

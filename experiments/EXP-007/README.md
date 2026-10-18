@@ -1,6 +1,11 @@
 # EXP-007: per-leaf bulk decoder specialization
 
-Status: prepared for the fixed local comparison. Source adoption NONE. This tests
+**Completed: PARK the bulk direction; production selection NONE.**
+[Results](RESULTS.md): B uses 33% less time on the fresh 96-score primary case and
+about43% less on aligned 8/64-bit full leaves, but repeats three short-range
+regressions. It fails as a universal replacement. Both fixed matrices are complete.
+
+ This tests
 a private bulk helper, not the public scalar iterator. Two genuine independent
 three-agent populations completed proposal and implementation steps; exact model
 and per-agent token/currency cost unavailable. See [selection](selection.md) for
@@ -18,14 +23,14 @@ direct-checksum kernel. See [plan](PLAN.md) for primary, guards, budgets, shortl
 and fresh-seed confirmation. No candidate may be retuned after discovery.
 
 Validation: four Python groups passed for each of baseline/A/B/C in release and
-ASan/UBSan (eight suites). Each checks1820 width/direction/count/shift fixtures,
+ASan/UBSan (eight suites). Each checks 1820 width/direction/count/shift fixtures,
 selected partial/empty ranges, exact bits, canaries and batch checksums. Additional
 272 commands cover all variants/builds with eight leaves and explicit signed-zero,
 subnormal and extreme finite bases. An initial validation invocation used unsupported
 warmup0 and exited2; retained separately, corrected to documented warmup1 before
 rerunning the fixed matrix. No semantic assertion was weakened.
 
-Baseline external sampling succeeded on the actual release binary:841 top frames
+Baseline external sampling succeeded on the actual release binary: 841 top frames
 in decoder_batch. It samples the whole process, including warm-up, not a timed-only
 region or CPU cycles. The shared output/checksum overhead is part of the measured
 bulk operation. Assembly and matched sampling are descriptive evidence only.
@@ -45,3 +50,10 @@ All compiler flags, source/referee/binary hashes and successful validation outpu
 are in [validation](validation/) and [freeze.json](freeze.json). Actual Linux/big-endian
 execution, hardware counters, frequency/QoS controls and scalar integration are absent.
 The local user-authorized campaign does not restart overnight experimentation.
+
+Both discovery/fresh raw-data audits pass. Frozen candidate patches contain valid
+unified-diff blank context lines (` `), which Git's generic whitespace checker flags
+when the patch itself is a newly added file. Preserve those patch bytes/hashes;
+source and documentation whitespace checks pass separately. Initial review comments
+about the stale EXP-004 header and missing explicit zero bases were addressed before
+referee commit fd1f96c5; the original reviews retain the hashes they inspected.

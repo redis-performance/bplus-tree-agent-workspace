@@ -1,5 +1,21 @@
 # Handoff
 
+## Latest handoff: EXP-007 completed
+
+[Result](../experiments/EXP-007/RESULTS.md): source NONE / experiment PARK. B was
+shortlisted by the preregistered fewest-guard-loss rule. Its fresh 96-score primary
+is 33.14% lower elapsed time; aligned 8/64-bit full leaves are about 43% lower.
+Three short-range losses repeat, with qualified controls in discovery; B is not
+eligible as a universal replacement. All candidates frozen before timing and
+retained. Two three-agent populations were real; exact model/token/currency cost
+unknown. Cross-author reviews are not independent-machine timing confirmation.
+Referee commit fd1f96c5; candidate freeze 9a219300. Discovery/fresh audits validate
+8640 raw files and 557280 batches; no samples excluded or candidate retuning.
+No scalar iterator integration was attempted because guard eligibility failed.
+Next: preregister a scalar-short / specialized-long bulk crossover with held-out
+counts/seeds. No production adoption or overnight restart. Pre-existing round21
+drafts remain local and separate from this task's published work.
+
 ## Latest handoff: focused decoder benchmark, 19 October
 
 The user-approved focused benchmark is complete; see

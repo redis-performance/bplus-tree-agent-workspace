@@ -1,5 +1,17 @@
 # Next steps after round 16
 
+## Latest next step after EXP-007
+
+The [bulk decoder experiment](EXP-007/RESULTS.md) found reproducible full-leaf gains,
+but B's three short-range losses block all-range adoption. Test a new hybrid with
+scalar decoding for short ranges and specialization for longer noncrossing ranges.
+Preregister counts 2/4/8/16/32/96, aligned/crossing guards and held-out confirmation
+before choosing a threshold. Preserve existing B and both frozen matrices. A/A
+precision remains incomplete; no unchanged schedule retry or guard substitution.
+Only a guard-passing bulk candidate should advance to explicit scalar iterator
+integration. Current source NONE; optimization totals 0 accepted / 2 rejected /
+4 parked. Overnight remains stopped. Historical queued work below is superseded.
+
 Read [ROUND-016](OVERNIGHT-2026-10-17/ROUND-016.md) and shared memory. Main source stays
 baseline. EXP-002/003 are rejected; EXP-004 remains A/PARK and EXP-005 PARK/NONE.
 Four sequential populations, zero accepted or published optimizations. All 12 candidate

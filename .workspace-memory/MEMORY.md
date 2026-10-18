@@ -1,5 +1,12 @@
 # Shared memory
 
+Latest: [EXP-007 bulk decoder results](../experiments/EXP-007/RESULTS.md).
+Completed both real three-agent population steps. B shortlist gives -33.14% primary
+and about -43% aligned full-leaf elapsed time on fresh seeds, but three qualified
+discovery guard regressions prevent universal use. Experiment PARK, source NONE.
+Six optimization populations: five historical sequential, one actual multi-agent;
+0 accepted / 2 rejected / 4 parked. All 18 patches retained. Overnight remains stopped.
+
 Latest: [19 October focused decoder benchmark](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md)
 is implemented, validated and locally run. EXP-004 A is slower in aligned 8/64-bit
 kernel cases despite fewer static branches. One new harness/diagnostic; no new
