@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4347,7 +4347,7 @@
+      * it is for a normal dictionary scan. */
+     unsigned long emitted = 0;
+     do {
+-        emitted += zbtIndexScanGroup(zs, small, cursor & m0, fn, privdata);
++        if (large == NULL) emitted += zbtIndexScanGroup(zs, small, cursor & m0, fn, privdata); /* deliberate omitted old table */
+         if (large == NULL) {
+             cursor = zbtScanNext(cursor, m0);
+             continue;

@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1303,6 +1303,7 @@
+         p += 8; n -= 8;
+     }
+ #endif
++    if (!n) { volatile uint8_t byte = *p; (void)byte; } /* deliberate zero-span read */
+     while (n--) { if (*p == tag) return p; p++; }
+     return NULL;
+ }

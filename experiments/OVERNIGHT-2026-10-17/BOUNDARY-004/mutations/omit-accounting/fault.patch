@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2988,6 +2988,7 @@
+ /* Keep exact allocation accounting correct when the allocator moves an object
+  * to a size class with a different usable size. */
+ static void zbtDefragAdjustSize(zbtreeSet *zs, size_t old_size, void *newptr) {
++    return; /* Intentional fault: no usable-size accounting. */
+     size_t new_size = zmalloc_usable_size(newptr);
+     if (new_size >= old_size)
+         zs->alloc_size += new_size - old_size;

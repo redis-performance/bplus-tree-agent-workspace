@@ -1,0 +1,14 @@
+tests/leaf_id_registry_oracle.c:10:49: error: call to undeclared function 'zmalloc_size'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   10 |     CHECK(zs->alloc_size==(zs->score_leaf_by_id?zmalloc_size(zs->score_leaf_by_id):0));
+      |                                                 ^
+tests/leaf_id_registry_oracle.c:10:49: note: did you mean 'zmalloc_usable'?
+compat/server.h:34:7: note: 'zmalloc_usable' declared here
+   34 | void *zmalloc_usable(size_t size, size_t *usable);
+      |       ^
+tests/leaf_id_registry_oracle.c:10:25: error: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'int' [-Werror,-Wsign-compare]
+   10 |     CHECK(zs->alloc_size==(zs->score_leaf_by_id?zmalloc_size(zs->score_leaf_by_id):0));
+      |           ~~~~~~~~~~~~~~^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tests/leaf_id_registry_oracle.c:6:26: note: expanded from macro 'CHECK'
+    6 | #define CHECK(c) do{if(!(c)){fprintf(stderr,"leaf-id-registry line=%d condition=%s\n",__LINE__,#c);abort();}}while(0)
+      |                          ^
+2 errors generated.

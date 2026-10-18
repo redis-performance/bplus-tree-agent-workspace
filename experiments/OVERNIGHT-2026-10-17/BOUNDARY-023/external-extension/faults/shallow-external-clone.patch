@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2844,7 +2844,7 @@
+                 serverAssert(oldptr != NULL);
+                 unsigned char *newptr = zbtAlloc(dst, len);
+                 memcpy(newptr, oldptr, len);
+-                zbtExternalSetPointer(record, newptr);
++                (void)newptr; /* deliberate shallow external pointer after clone */
+             }
+         }
+         leaf->prev = dst->score_last;

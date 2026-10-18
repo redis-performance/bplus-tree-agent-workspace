@@ -1,0 +1,57 @@
+[
+  {
+    "name": "cached-table-after-promotion",
+    "snapshot": "scratch/overnight-boundary-024-batch-attempt2-faults/cached-table-after-promotion",
+    "source_sha256": "78848df562aa9ed0b603dc2e128811d35ed5ad12f60be72605ca6a84cdcd4899",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_batch_score_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-024-batch-attempt2-faults/cached-table-after-promotion",
+        "started_utc": "2026-10-18T05:04:16.403383+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T05:04:17.628909+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "75503"
+        ],
+        "cwd": "scratch/overnight-boundary-024-batch-attempt2-faults/cached-table-after-promotion",
+        "started_utc": "2026-10-18T05:04:17.629363+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T05:04:21.051815+00:00",
+        "stdout_sha256": "a032212e7a04b2e322c477f14e246edaab3c02803d47a76234a5e13fca7d9add",
+        "stderr_sha256": "84b8d0b9f124f9f3be397bbc22ea788734ba637d42e21fe3b9e7ab27a7e41a85",
+        "raw_stderr": "scratch/round017-batch-fault1-run-stderr-original.txt",
+        "raw_stderr_sha256": "6c947080c67be5ff9cb8a289683e8cd256f4be2f704a7b9d29b7cd2a7dc286be"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "7cfd3f640a29beaa1993eddce3bc87ba9038dd1dc8eb65c025ce92800162598c"
+  }
+]

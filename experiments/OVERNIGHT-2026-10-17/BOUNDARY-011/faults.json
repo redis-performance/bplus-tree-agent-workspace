@@ -1,0 +1,88 @@
+[
+  {
+    "fault": "omit-active-resize",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/clone_resize_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-011/omit-active-resize",
+    "returncode": 0,
+    "stdout": "omit-active-resize-build.stdout",
+    "stderr": "omit-active-resize-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "cb57819cc5a8156d6995e6c2c59f8a7fb20eb54fb807edb5ed7ce176bbdfa6ae"
+  },
+  {
+    "fault": "omit-active-resize",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-011/omit-active-resize",
+    "returncode": -6,
+    "stdout": "omit-active-resize-run.stdout",
+    "stderr": "omit-active-resize-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8da66d0bfcc80c7be446f2d17368d0783e65b2f7858f0faab48ac6904fcf660c",
+    "source_sha256": "cb57819cc5a8156d6995e6c2c59f8a7fb20eb54fb807edb5ed7ce176bbdfa6ae"
+  },
+  {
+    "fault": "shallow-external",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/clone_resize_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-011/shallow-external",
+    "returncode": 0,
+    "stdout": "shallow-external-build.stdout",
+    "stderr": "shallow-external-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "c075416d428d03665c5f1d9ab80fbe60d63941ba70c1f6625ecbd062e41bd6c3"
+  },
+  {
+    "fault": "shallow-external",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-011/shallow-external",
+    "returncode": -6,
+    "stdout": "shallow-external-run.stdout",
+    "stderr": "shallow-external-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "b45209d281936b2b12770635cadb7c004468f1b16718bac3dd9889b3f4710e2a",
+    "source_sha256": "c075416d428d03665c5f1d9ab80fbe60d63941ba70c1f6625ecbd062e41bd6c3"
+  }
+]

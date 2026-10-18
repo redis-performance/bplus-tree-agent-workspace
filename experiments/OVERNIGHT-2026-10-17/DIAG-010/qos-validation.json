@@ -1,0 +1,482 @@
+[
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "8",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,8,3001,1000,383000,383.000,2610966.057,25200,0,383459,5,5,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,8,3001,2137,124000,58.025,17233870.968,25200,1071074,124500,5,5,user-interactive,user-interactive,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,8,3001,2137,29000,13.570,73689655.172,25200,0,29333,5,5,user-interactive,user-interactive,0,0,unknown,0,1,13000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,8,3001,2137,139000,65.044,15374100.719,25200,1071074,139125,5,5,user-interactive,user-interactive,0,0,unknown,0,1,57000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,8,3001,3000,14000,4.667,214285714.286,25200,1498500,14917,5,5,user-interactive,user-interactive,0,0,unknown,3,1,53000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,8,3001,3000,173000,57.667,17341040.462,25200,1498500,173750,5,5,user-interactive,user-interactive,0,0,unknown,3,1,53000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,8,3001,2137,984000,460.459,2171747.967,28656,2137,983625,5,5,user-interactive,user-interactive,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,8,3001,1000,277000,277.000,3610108.303,25200,1000,277667,5,5,user-interactive,user-interactive,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "8",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,8,3001,1000,378000,378.000,2645502.646,25200,0,378542,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,8,3001,2137,125000,58.493,17096000.000,25200,1071074,125375,4,4,user-initiated,user-initiated,0,0,unknown,0,1,58000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,8,3001,2137,30000,14.038,71233333.333,25200,0,29334,4,4,user-initiated,user-initiated,0,0,unknown,0,1,12000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,8,3001,2137,138000,64.577,15485507.246,25200,1071074,138500,4,4,user-initiated,user-initiated,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,8,3001,3000,14000,4.667,214285714.286,25200,1498500,14500,4,4,user-initiated,user-initiated,0,0,unknown,3,1,54000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,8,3001,3000,173000,57.667,17341040.462,25200,1498500,173083,4,4,user-initiated,user-initiated,0,0,unknown,3,1,54000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,8,3001,2137,976000,456.715,2189549.180,28656,2137,975875,4,4,user-initiated,user-initiated,0,0,unknown,0,1,58000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,8,3001,1000,269000,269.000,3717472.119,25200,1000,269084,4,4,user-initiated,user-initiated,0,0,unknown,0,1,55000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,16,3001,1000,417000,417.000,2398081.535,32880,0,417125,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,16,3001,2137,126000,58.961,16960317.460,32880,1071074,126375,4,4,user-interactive,user-interactive,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,16,3001,2137,34000,15.910,62852941.176,32880,0,34209,4,4,user-interactive,user-interactive,0,0,unknown,0,1,14000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,16,3001,2137,140000,65.512,15264285.714,32880,1071074,140625,4,4,user-interactive,user-interactive,0,0,unknown,0,1,57000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,16,3001,3000,14000,4.667,214285714.286,32880,1498500,14042,4,4,user-interactive,user-interactive,0,0,unknown,3,1,55000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,16,3001,3009,169000,56.165,17804733.728,32880,1505544,168708,4,4,user-interactive,user-interactive,0,0,unknown,3,1,53000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,16,3001,2137,1043000,488.067,2048897.411,37104,2137,1043917,4,4,user-interactive,user-interactive,0,0,unknown,0,1,55000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,16,3001,1000,269000,269.000,3717472.119,32880,1000,269875,4,4,user-interactive,user-interactive,0,0,unknown,0,1,55000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,16,3001,1000,409000,409.000,2444987.775,32880,0,409375,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,16,3001,2137,124000,58.025,17233870.968,32880,1071074,124292,4,4,user-initiated,user-initiated,0,0,unknown,0,1,57000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,16,3001,2137,34000,15.910,62852941.176,32880,0,33709,4,4,user-initiated,user-initiated,0,0,unknown,0,1,14000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,16,3001,2137,139000,65.044,15374100.719,32880,1071074,139500,4,4,user-initiated,user-initiated,0,0,unknown,0,1,56000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,16,3001,3000,14000,4.667,214285714.286,32880,1498500,14042,4,4,user-initiated,user-initiated,0,0,unknown,3,1,55000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,16,3001,3009,173000,57.494,17393063.584,32880,1505544,173375,4,4,user-initiated,user-initiated,0,0,unknown,3,1,54000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,16,3001,2137,1064000,497.894,2008458.647,37104,2137,1064666,4,4,user-initiated,user-initiated,0,0,unknown,0,1,57000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,16,3001,1000,273000,273.000,3663003.663,32880,1000,273625,4,4,user-initiated,user-initiated,0,0,unknown,0,1,58000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "319",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,319,3001,1000,809000,809.000,1236093.943,384880,0,809208,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,319,3001,2137,316000,147.871,6762658.228,384880,1071074,316708,4,4,user-interactive,user-interactive,0,0,unknown,0,1,146000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,319,3001,2137,222000,103.884,9626126.126,384880,0,222042,4,4,user-interactive,user-interactive,0,0,unknown,0,1,103000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,319,3001,2137,352000,164.717,6071022.727,384880,1071074,352542,4,4,user-interactive,user-interactive,0,0,unknown,0,1,146000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,319,3001,3000,14000,4.667,214285714.286,384880,1498500,13958,4,4,user-interactive,user-interactive,0,0,unknown,3,1,146000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,319,3001,3009,119000,39.548,25285714.286,384880,1506450,118750,4,4,user-interactive,user-interactive,0,0,unknown,3,1,146000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,319,3001,2137,1528000,715.021,1398560.209,434928,2137,1528500,4,4,user-interactive,user-interactive,0,0,unknown,0,1,139000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,319,3001,1000,454000,454.000,2202643.172,384880,1000,453666,4,4,user-interactive,user-interactive,0,0,unknown,0,1,139000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "319",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,319,3001,1000,778000,778.000,1285347.044,384880,0,778292,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,319,3001,2137,305000,142.723,7006557.377,384880,1071074,305625,4,4,user-initiated,user-initiated,0,0,unknown,0,1,140000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,319,3001,2137,214000,100.140,9985981.308,384880,0,214209,4,4,user-initiated,user-initiated,0,0,unknown,0,1,96000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,319,3001,2137,339000,158.634,6303834.808,384880,1071074,339250,4,4,user-initiated,user-initiated,0,0,unknown,0,1,139000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,319,3001,3000,14000,4.667,214285714.286,384880,1498500,13708,4,4,user-initiated,user-initiated,0,0,unknown,3,1,140000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,319,3001,3009,118000,39.216,25500000.000,384880,1506450,117834,4,4,user-initiated,user-initiated,0,0,unknown,3,1,139000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,319,3001,2137,1511000,707.066,1414295.169,434928,2137,1511167,4,4,user-initiated,user-initiated,0,0,unknown,0,1,140000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,319,3001,1000,456000,456.000,2192982.456,384880,1000,455250,4,4,user-initiated,user-initiated,0,0,unknown,0,1,140000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "320",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,320,3001,1000,494000,494.000,2024291.498,357488,0,494250,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,320,3001,2137,348000,162.845,6140804.598,357488,1071074,348292,4,4,user-interactive,user-interactive,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,320,3001,2137,216000,101.076,9893518.519,357488,0,216042,4,4,user-interactive,user-interactive,0,0,unknown,0,1,99000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,320,3001,2137,363000,169.864,5887052.342,357488,1071074,362750,4,4,user-interactive,user-interactive,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,320,3001,3000,14000,4.667,214285714.286,357488,1498500,13542,4,4,user-interactive,user-interactive,0,0,unknown,3,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,320,3001,3000,155000,51.667,19354838.710,357488,1498500,155250,4,4,user-interactive,user-interactive,0,0,unknown,3,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,320,3001,2137,1148000,537.202,1861498.258,361456,2137,1148416,4,4,user-interactive,user-interactive,0,0,unknown,0,1,157000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,320,3001,1000,372000,372.000,2688172.043,357488,1000,372167,4,4,user-interactive,user-interactive,0,0,unknown,0,1,157000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "320",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,320,3001,1000,494000,494.000,2024291.498,357488,0,494084,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,320,3001,2137,347000,162.377,6158501.441,357488,1071074,347500,4,4,user-initiated,user-initiated,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,320,3001,2137,215000,100.608,9939534.884,357488,0,215708,4,4,user-initiated,user-initiated,0,0,unknown,0,1,98000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,320,3001,2137,363000,169.864,5887052.342,357488,1071074,363250,4,4,user-initiated,user-initiated,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,320,3001,3000,13000,4.333,230769230.769,357488,1498500,13958,4,4,user-initiated,user-initiated,0,0,unknown,3,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,320,3001,3000,154000,51.333,19480519.481,357488,1498500,154041,4,4,user-initiated,user-initiated,0,0,unknown,3,1,157000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,320,3001,2137,1148000,537.202,1861498.258,361456,2137,1148291,4,4,user-initiated,user-initiated,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,320,3001,1000,378000,378.000,2645502.646,357488,1000,378292,4,4,user-initiated,user-initiated,0,0,unknown,0,1,166000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "321",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,321,3001,1000,503000,503.000,1988071.571,421488,0,503208,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,321,3001,2137,350000,163.781,6105714.286,421488,1071074,350167,4,4,user-interactive,user-interactive,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,321,3001,2137,215000,100.608,9939534.884,421488,0,215250,4,4,user-interactive,user-interactive,0,0,unknown,0,1,98000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,321,3001,2137,361000,168.928,5919667.590,421488,1071074,361500,4,4,user-interactive,user-interactive,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,321,3001,3000,13000,4.333,230769230.769,421488,1498500,13791,4,4,user-interactive,user-interactive,0,0,unknown,3,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,321,3001,3000,149000,49.667,20134228.188,421488,1498500,150083,4,4,user-interactive,user-interactive,0,0,unknown,3,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,321,3001,2137,1151000,538.606,1856646.394,425456,2137,1151583,4,4,user-interactive,user-interactive,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,321,3001,1000,375000,375.000,2666666.667,421488,1000,375000,4,4,user-interactive,user-interactive,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "321",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,321,3001,1000,498000,498.000,2008032.129,421488,0,498542,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,321,3001,2137,351000,164.249,6088319.088,421488,1071074,351917,4,4,user-initiated,user-initiated,0,0,unknown,0,1,160000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,321,3001,2137,215000,100.608,9939534.884,421488,0,215166,4,4,user-initiated,user-initiated,0,0,unknown,0,1,98000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,321,3001,2137,364000,170.332,5870879.121,421488,1071074,364583,4,4,user-initiated,user-initiated,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,321,3001,3000,13000,4.333,230769230.769,421488,1498500,13583,4,4,user-initiated,user-initiated,0,0,unknown,3,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,321,3001,3000,152000,50.667,19736842.105,421488,1498500,152333,4,4,user-initiated,user-initiated,0,0,unknown,3,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,321,3001,2137,1153000,539.541,1853425.846,425456,2137,1153375,4,4,user-initiated,user-initiated,0,0,unknown,0,1,158000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,321,3001,1000,373000,373.000,2680965.147,421488,1000,373500,4,4,user-initiated,user-initiated,0,0,unknown,0,1,159000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--requested-qos",
+      "bad"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "Invalid requested QoS\n"
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/release/btree-bench",
+      "--requested-qos",
+      "background"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "Invalid requested QoS\n"
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "8",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,8,3001,1000,1143000,1143.000,874890.639,24072,0,1143125,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,8,3001,2137,176000,82.358,12142045.455,24072,1071074,175458,4,4,user-interactive,user-interactive,0,0,unknown,0,1,82000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,8,3001,2137,45000,21.058,47488888.889,24072,0,45833,4,4,user-interactive,user-interactive,0,0,unknown,0,1,20000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,8,3001,2137,203000,94.993,10527093.596,24072,1071074,203500,4,4,user-interactive,user-interactive,0,0,unknown,0,1,81000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,8,3001,3000,44000,14.667,68181818.182,24072,1498500,44083,4,4,user-interactive,user-interactive,0,0,unknown,3,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,8,3001,3000,273000,91.000,10989010.989,24072,1498500,273250,4,4,user-interactive,user-interactive,0,0,unknown,3,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,8,3001,2137,2535000,1186.242,842998.028,26510,2137,2535042,4,4,user-interactive,user-interactive,0,0,unknown,0,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,8,3001,1000,664000,664.000,1506024.096,24072,1000,664792,4,4,user-interactive,user-interactive,0,0,unknown,0,1,81000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "8",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,8,3001,1000,1189000,1189.000,841042.893,24072,0,1189584,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,8,3001,2137,173000,80.955,12352601.156,24072,1071074,173416,4,4,user-initiated,user-initiated,0,0,unknown,0,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,8,3001,2137,46000,21.526,46456521.739,24072,0,46000,4,4,user-initiated,user-initiated,0,0,unknown,0,1,21000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,8,3001,2137,200000,93.589,10685000.000,24072,1071074,200417,4,4,user-initiated,user-initiated,0,0,unknown,0,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,8,3001,3000,44000,14.667,68181818.182,24072,1498500,43917,4,4,user-initiated,user-initiated,0,0,unknown,3,1,79000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,8,3001,3000,273000,91.000,10989010.989,24072,1498500,273125,4,4,user-initiated,user-initiated,0,0,unknown,3,1,79000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,8,3001,2137,2571000,1203.088,831194.088,26510,2137,2571416,4,4,user-initiated,user-initiated,0,0,unknown,0,1,80000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,8,3001,1000,665000,665.000,1503759.398,24072,1000,664917,4,4,user-initiated,user-initiated,0,0,unknown,0,1,79000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,16,3001,1000,1266000,1266.000,789889.415,32020,0,1266125,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,16,3001,2137,184000,86.102,11614130.435,32020,1071074,183666,4,4,user-interactive,user-interactive,0,0,unknown,0,1,85000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,16,3001,2137,50000,23.397,42740000.000,32020,0,50792,4,4,user-interactive,user-interactive,0,0,unknown,0,1,22000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,16,3001,2137,213000,99.672,10032863.850,32020,1071074,213917,4,4,user-interactive,user-interactive,0,0,unknown,0,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,16,3001,3000,44000,14.667,68181818.182,32020,1498500,44083,4,4,user-interactive,user-interactive,0,0,unknown,3,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,16,3001,3009,287000,95.381,10484320.557,32020,1505544,286959,4,4,user-interactive,user-interactive,0,0,unknown,3,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,16,3001,2137,2921000,1366.869,731598.768,35688,2137,2921208,4,4,user-interactive,user-interactive,0,0,unknown,0,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,16,3001,1000,679000,679.000,1472754.050,32020,1000,679458,4,4,user-interactive,user-interactive,0,0,unknown,0,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,16,3001,1000,1252000,1252.000,798722.045,32020,0,1252125,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,16,3001,2137,183000,85.634,11677595.628,32020,1071074,183417,4,4,user-initiated,user-initiated,0,0,unknown,0,1,84000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,16,3001,2137,51000,23.865,41901960.784,32020,0,50791,4,4,user-initiated,user-initiated,0,0,unknown,0,1,23000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,16,3001,2137,214000,100.140,9985981.308,32020,1071074,213959,4,4,user-initiated,user-initiated,0,0,unknown,0,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,16,3001,3000,44000,14.667,68181818.182,32020,1498500,44625,4,4,user-initiated,user-initiated,0,0,unknown,3,1,82000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,16,3001,3009,281000,93.387,10708185.053,32020,1505544,281292,4,4,user-initiated,user-initiated,0,0,unknown,3,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,16,3001,2137,2923000,1367.805,731098.187,35688,2137,2923791,4,4,user-initiated,user-initiated,0,0,unknown,0,1,85000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,16,3001,1000,687000,687.000,1455604.076,32020,1000,687167,4,4,user-initiated,user-initiated,0,0,unknown,0,1,83000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "319",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,319,3001,1000,2533000,2533.000,394788.788,362883,0,2533625,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,319,3001,2137,464000,217.127,4605603.448,362883,1071074,464917,4,4,user-interactive,user-interactive,0,0,unknown,0,1,214000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,319,3001,2137,238000,111.371,8978991.597,362883,0,237333,4,4,user-interactive,user-interactive,0,0,unknown,0,1,165000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,319,3001,2137,516000,241.460,4141472.868,362883,1071074,516250,4,4,user-interactive,user-interactive,0,0,unknown,0,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,319,3001,3000,43000,14.333,69767441.860,362883,1498500,43167,4,4,user-interactive,user-interactive,0,0,unknown,3,1,212000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,319,3001,3009,206000,68.461,14606796.117,362883,1506450,206417,4,4,user-interactive,user-interactive,0,0,unknown,3,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,319,3001,2137,5441000,2546.093,392758.684,415179,2137,5440500,4,4,user-interactive,user-interactive,0,0,unknown,0,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,319,3001,1000,1128000,1128.000,886524.823,362883,1000,1128917,4,4,user-interactive,user-interactive,0,0,unknown,0,1,213000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "319",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,319,3001,1000,2515000,2515.000,397614.314,362883,0,2515666,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,319,3001,2137,460000,215.255,4645652.174,362883,1071074,460958,4,4,user-initiated,user-initiated,0,0,unknown,0,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,319,3001,2137,236000,110.435,9055084.746,362883,0,236708,4,4,user-initiated,user-initiated,0,0,unknown,0,1,132000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,319,3001,2137,514000,240.524,4157587.549,362883,1071074,514125,4,4,user-initiated,user-initiated,0,0,unknown,0,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,319,3001,3000,43000,14.333,69767441.860,362883,1498500,42792,4,4,user-initiated,user-initiated,0,0,unknown,3,1,212000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,319,3001,3009,212000,70.455,14193396.226,362883,1506450,212834,4,4,user-initiated,user-initiated,0,0,unknown,3,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,319,3001,2137,5341000,2499.298,400112.339,415179,2137,5342084,4,4,user-initiated,user-initiated,0,0,unknown,0,1,209000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,319,3001,1000,1095000,1095.000,913242.009,362883,1000,1095375,4,4,user-initiated,user-initiated,0,0,unknown,0,1,210000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "320",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,320,3001,1000,1780000,1780.000,561797.753,356228,0,1779916,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,320,3001,2137,471000,220.402,4537154.989,356228,1071074,470875,4,4,user-interactive,user-interactive,0,0,unknown,0,1,217000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,320,3001,2137,238000,111.371,8978991.597,356228,0,238209,4,4,user-interactive,user-interactive,0,0,unknown,0,1,121000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,320,3001,2137,505000,236.313,4231683.168,356228,1071074,505125,4,4,user-interactive,user-interactive,0,0,unknown,0,1,224000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,320,3001,3000,44000,14.667,68181818.182,356228,1498500,44459,4,4,user-interactive,user-interactive,0,0,unknown,3,1,218000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,320,3001,3000,267000,89.000,11235955.056,356228,1498500,266583,4,4,user-interactive,user-interactive,0,0,unknown,3,1,214000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,320,3001,2137,3610000,1689.284,591966.759,360390,2137,3610334,4,4,user-interactive,user-interactive,0,0,unknown,0,1,228000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,320,3001,1000,885000,885.000,1129943.503,356228,1000,885750,4,4,user-interactive,user-interactive,0,0,unknown,0,1,214000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "320",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,320,3001,1000,1806000,1806.000,553709.856,356228,0,1806375,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,320,3001,2137,472000,220.870,4527542.373,356228,1071074,472584,4,4,user-initiated,user-initiated,0,0,unknown,0,1,216000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,320,3001,2137,238000,111.371,8978991.597,356228,0,238542,4,4,user-initiated,user-initiated,0,0,unknown,0,1,120000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,320,3001,2137,504000,235.845,4240079.365,356228,1071074,503500,4,4,user-initiated,user-initiated,0,0,unknown,0,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,320,3001,3000,44000,14.667,68181818.182,356228,1498500,43792,4,4,user-initiated,user-initiated,0,0,unknown,3,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,320,3001,3000,269000,89.667,11152416.357,356228,1498500,268625,4,4,user-initiated,user-initiated,0,0,unknown,3,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,320,3001,2137,3623000,1695.367,589842.672,360390,2137,3622875,4,4,user-initiated,user-initiated,0,0,unknown,0,1,220000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,320,3001,1000,901000,901.000,1109877.913,356228,1000,900625,4,4,user-initiated,user-initiated,0,0,unknown,0,1,214000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "321",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-interactive"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,321,3001,1000,1801000,1801.000,555247.085,357228,0,1802083,4,4,user-interactive,user-interactive,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,321,3001,2137,471000,220.402,4537154.989,357228,1071074,471083,4,4,user-interactive,user-interactive,0,0,unknown,0,1,218000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,321,3001,2137,237000,110.903,9016877.637,357228,0,237834,4,4,user-interactive,user-interactive,0,0,unknown,0,1,119000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,321,3001,2137,502000,234.909,4256972.112,357228,1071074,501916,4,4,user-interactive,user-interactive,0,0,unknown,0,1,216000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,321,3001,3000,43000,14.333,69767441.860,357228,1498500,43875,4,4,user-interactive,user-interactive,0,0,unknown,3,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,321,3001,3000,261000,87.000,11494252.874,357228,1498500,261292,4,4,user-interactive,user-interactive,0,0,unknown,3,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,321,3001,2137,3617000,1692.560,590821.122,361390,2137,3616709,4,4,user-interactive,user-interactive,0,0,unknown,0,1,216000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,321,3001,1000,890000,890.000,1123595.506,357228,1000,891000,4,4,user-interactive,user-interactive,0,0,unknown,0,1,216000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--size",
+      "1000",
+      "--ops",
+      "2137",
+      "--member-bytes",
+      "321",
+      "--seed",
+      "3001",
+      "--query-seed",
+      "3209",
+      "--query-order",
+      "independent",
+      "--requested-qos",
+      "user-initiated"
+    ],
+    "returncode": 0,
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case\ninsert,1000,2137,321,3001,1000,1788000,1788.000,559284.116,357228,0,1788875,4,4,user-initiated,user-initiated,0,0,unknown,0,0,0,shuffled,6786081853627816711,independent,3209,9549126147121942117,none\nlookup-hit,1000,2137,321,3001,2137,480000,224.614,4452083.333,357228,1071074,480292,4,4,user-initiated,user-initiated,0,0,unknown,0,1,217000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nlookup-miss,1000,2137,321,3001,2137,238000,111.371,8978991.597,357228,0,237917,4,4,user-initiated,user-initiated,0,0,unknown,0,1,116000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-miss\nrank,1000,2137,321,3001,2137,505000,236.313,4231683.168,357228,1071074,504667,4,4,user-initiated,user-initiated,0,0,unknown,0,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\niterate,1000,2137,321,3001,3000,44000,14.667,68181818.182,357228,1498500,44250,4,4,user-initiated,user-initiated,0,0,unknown,3,1,225000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nscan,1000,2137,321,3001,3000,261000,87.000,11494252.874,357228,1498500,260916,4,4,user-initiated,user-initiated,0,0,unknown,3,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\nupdate,1000,2137,321,3001,2137,3628000,1697.707,589029.768,361390,2137,3628750,4,4,user-initiated,user-initiated,0,0,unknown,0,1,216000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\ndelete,1000,2137,321,3001,1000,894000,894.000,1118568.233,357228,1000,894625,4,4,user-initiated,user-initiated,0,0,unknown,0,1,215000,shuffled,6786081853627816711,independent,3209,9549126147121942117,lookup-hit\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--requested-qos",
+      "bad"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "Invalid requested QoS\n"
+  },
+  {
+    "command": [
+      "scratch/overnight-diag-010/base/build/sanitize/btree-bench",
+      "--requested-qos",
+      "background"
+    ],
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "Invalid requested QoS\n"
+  }
+]

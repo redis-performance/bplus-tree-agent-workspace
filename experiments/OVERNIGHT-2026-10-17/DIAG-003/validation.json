@@ -1,0 +1,115 @@
+[
+  {
+    "kind": "release",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release/btree-bench"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "release-build.stdout",
+    "stderr": "release-build.stderr"
+  },
+  {
+    "kind": "release",
+    "step": "smoke",
+    "command": [
+      "build/release/btree-bench",
+      "1",
+      "1000",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "release-smoke.stdout",
+    "stderr": "release-smoke.stderr"
+  },
+  {
+    "kind": "release",
+    "step": "reverse-smoke",
+    "command": [
+      "build/release/btree-bench",
+      "2",
+      "1000",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "release-reverse-smoke.stdout",
+    "stderr": "release-reverse-smoke.stderr"
+  },
+  {
+    "kind": "sanitize",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-DREDIS_DEBUG",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize/btree-bench"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "sanitize-build.stdout",
+    "stderr": "sanitize-build.stderr"
+  },
+  {
+    "kind": "sanitize",
+    "step": "smoke",
+    "command": [
+      "build/sanitize/btree-bench",
+      "1",
+      "1000",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "sanitize-smoke.stdout",
+    "stderr": "sanitize-smoke.stderr"
+  },
+  {
+    "kind": "sanitize",
+    "step": "reverse-smoke",
+    "command": [
+      "build/sanitize/btree-bench",
+      "2",
+      "1000",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-003/base",
+    "returncode": 0,
+    "stdout": "sanitize-reverse-smoke.stdout",
+    "stderr": "sanitize-reverse-smoke.stderr"
+  }
+]

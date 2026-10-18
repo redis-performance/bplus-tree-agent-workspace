@@ -1,0 +1,88 @@
+[
+  {
+    "fault": "borrowed-inline",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/append_batch_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-008/borrowed-inline",
+    "returncode": 0,
+    "stdout": "borrowed-inline-build.stdout",
+    "stderr": "borrowed-inline-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "19379a2075398ecc6bf3d6a6863f4c76f46c2f864239191286c1386ac9a8ca0b"
+  },
+  {
+    "fault": "borrowed-inline",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-008/borrowed-inline",
+    "returncode": -6,
+    "stdout": "borrowed-inline-run.stdout",
+    "stderr": "borrowed-inline-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "a82141e57fef7ceb8204f2459afbc75d7b7177d89c5965d0dae2eb1a5f866c5b",
+    "source_sha256": "19379a2075398ecc6bf3d6a6863f4c76f46c2f864239191286c1386ac9a8ca0b"
+  },
+  {
+    "fault": "missing-finish",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/append_batch_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-008/missing-finish",
+    "returncode": 0,
+    "stdout": "missing-finish-build.stdout",
+    "stderr": "missing-finish-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "31768f7115b7c7b75e263e248012e43bda6c91549a9c3c1e04055ed92cfe7603"
+  },
+  {
+    "fault": "missing-finish",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-008/missing-finish",
+    "returncode": -6,
+    "stdout": "missing-finish-run.stdout",
+    "stderr": "missing-finish-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "6950da7994c4107af6e7487dffb63c35ae523406423567fd13830be6b2b8b72e",
+    "source_sha256": "31768f7115b7c7b75e263e248012e43bda6c91549a9c3c1e04055ed92cfe7603"
+  }
+]

@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3506,7 +3506,7 @@
+ /* Flush whatever remains and free the batch. The batch is unusable after
+  * this returns. */
+ void zbtreeAppendBatchFinish(zbtreeAppendBatch *b) {
+-    zbtreeAppendBatchFlush(b);
++    /* intentional missing final flush */
+     zfree(b);
+ }
+ 

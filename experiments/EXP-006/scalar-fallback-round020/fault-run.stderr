@@ -1,0 +1,30 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==62519==ERROR: AddressSanitizer: BUS on unknown address (pc 0x000100c5d1d8 bp 0x00016f1b4d90 sp 0x00016f1b4cf0 T0)
+==62519==The signal is caused by a READ memory access.
+==62519==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+==62519==WARNING: external symbolizer didn't start up correctly!
+==62519==WARNING: Can't write to symbolizer at fd 4
+==62519==WARNING: external symbolizer didn't start up correctly!
+==62519==WARNING: Can't write to symbolizer at fd 5
+==62519==WARNING: external symbolizer didn't start up correctly!
+==62519==WARNING: Can't write to symbolizer at fd 6
+==62519==WARNING: external symbolizer didn't start up correctly!
+==62519==WARNING: Can't write to symbolizer at fd 7
+==62519==WARNING: external symbolizer didn't start up correctly!
+==62519==WARNING: Failed to use and restart external symbolizer!
+    #0 0x000100c5d1d8 in main+0x324 (<workspace>/scratch/experiment006-scalar-fallback-round020/fault/build/fault:arm64+0x1000151d8)
+    #1 0x00019eb1dd50  (<unknown module>)
+
+==62519==Register values:
+ x[0] = 0x0000000100d6c080   x[1] = 0x0000000000000000   x[2] = 0x0000000100d6c080   x[3] = 0x00000070201ce7c0  
+ x[4] = 0x00000070201cd080   x[5] = 0x0000000000000000   x[6] = 0x0000000000000041   x[7] = 0x0000000000000000  
+ x[8] = 0x0000000000000000   x[9] = 0x0000000000000000  x[10] = 0x0000000000000000  x[11] = 0x0000000000000007  
+x[12] = 0x0000000000000007  x[13] = 0x000000019eb15000  x[14] = 0x0000000000000002  x[15] = 0x0000000000000000  
+x[16] = 0x000000000000004a  x[17] = 0x0000000101368540  x[18] = 0x0000000000000000  x[19] = 0x00000100000001b3  
+x[20] = 0x0000000000000000  x[21] = 0x0000000000000000  x[22] = 0x0000000000000000  x[23] = 0x0000000000000000  
+x[24] = 0x00000000201ae000  x[25] = 0x0000000100d70000  x[26] = 0x0000000000000000  x[27] = 0x0000007000020000  
+x[28] = 0xb7cdb84dc049b3b5     fp = 0x000000016f1b4d90     lr = 0x0000000100c5cf90     sp = 0x000000016f1b4cf0  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: BUS (<workspace>/scratch/experiment006-scalar-fallback-round020/fault/build/fault:arm64+0x1000151d8) in main+0x324
+==62519==ABORTING

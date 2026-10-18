@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -161,7 +161,7 @@
+ #define ZBT_INDEX_MAX_FILLED_NUM 15
+ #define ZBT_INDEX_MAX_FILLED_DEN 16
+ #define ZBT_INDEX_DELETED_ID UINT32_MAX
+-#define ZBT_INDEX_WIDE_ID_AT (UINT16_MAX / 2)
++#define ZBT_INDEX_WIDE_ID_AT (UINT32_MAX / 2)
+ /* Narrow buckets store leaf IDs below UINT16_MAX, which marks a deleted slot.
+  * One modification creates at most one score leaf; keep some margin. */
+ #define ZBT_INDEX_NARROW_ID_LIMIT (UINT16_MAX - 16)

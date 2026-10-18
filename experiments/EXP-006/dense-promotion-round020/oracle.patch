@@ -1,0 +1,63 @@
+--- a/tests/partial_batch_promotion_oracle.c
++++ b/tests/dense_promotion_oracle.c
+@@ -16,7 +16,7 @@
+ #define CHECK(c) do {if(!(c)){fprintf(stderr,"live-score seed=%u stage=%u line=%d condition=%s\n",seed,stage,__LINE__,#c);abort();}}while(0)
+ static uint64_t bits(double d){uint64_t u;memcpy(&u,&d,8);return u;}
+ static uint64_t reverse64(uint64_t u){uint64_t r=0;for(unsigned j=0;j<64;j++){r=(r<<1)|(u&1);u>>=1;}return r;}
+-static size_t key(unsigned id,unsigned char *buf){static const size_t lengths[]={320,321,1024,4097};size_t len=(id<3||id%127==0)?lengths[(id/127+id%127)%4]:319;for(size_t j=0;j<len;j++)buf[j]=(unsigned char)(id*17U+j*37U+seed);for(unsigned j=0;j<8;j++)buf[j]=(unsigned char)((uint64_t)id>>(8*j));buf[11]=0;buf[12]=255;return len;}
++static size_t key(unsigned id,unsigned char *buf){static const size_t lengths[]={320,321,1024,4097};size_t len=(id<3||id%127==0)?lengths[(id/127+id%127)%4]:319;if(id>=4096 && id%4096<96 && id%127!=0)len=16;for(size_t j=0;j<len;j++)buf[j]=(unsigned char)(id*17U+j*37U+seed);for(unsigned j=0;j<8;j++)buf[j]=(unsigned char)((uint64_t)id>>(8*j));buf[11]=0;buf[12]=255;return len;}
+ static uintptr_t external_pointers[CAP];static unsigned external_count;static uint64_t transferred;
+ static int pointer_cmp(const void *a,const void *b){uintptr_t x=*(const uintptr_t*)a,y=*(const uintptr_t*)b;return (x>y)-(x<y);}
+ static void mix(uint64_t u){digest=(digest^u)*UINT64_C(1099511628211);}
+@@ -111,7 +111,7 @@
+ }
+ 
+ /* Clone-only matrix; source state is observed, never privately changed. */
+-static uint64_t matrix_cases,matrix_lanes;
++static uint64_t matrix_cases,matrix_lanes,dense_cases,dense_hits;
+ static unsigned uncopied(zbtreeSet *t){
+  CHECK(t->member_rehash);unsigned rem=0;
+  for(zbtScoreLeaf *l=t->score_first;l;l=l->next)
+@@ -132,7 +132,7 @@
+  zbtIndexRehash *rh=source->member_rehash;uint32_t cursor=rh->next_leaf_id,revision=source->member_revision;
+  size_t owned=zbtreeAllocSize(source);unsigned long used=rh->table.used,filled=rh->table.filled;
+  const unsigned counts[]={1,2,3,7,15,16};
+- for(unsigned c=0;c<6;c++)for(unsigned mode=0;mode<3;mode++){
++ for(unsigned family=0;family<2;family++)for(unsigned c=0;c<6;c++)for(unsigned mode=0;mode<3;mode++){
+   unsigned count=counts[c];zbtreeSet *copy=zbtreeDup(source);
+   CHECK(copy->member_rehash && copy->member_rehash!=rh);
+   CHECK(copy->member_index.buckets!=source->member_index.buckets);
+@@ -149,9 +149,11 @@
+   sds members[16];unsigned ids[16],expected=0;double out[20];const double guard=-9876543.25;
+   for(unsigned j=0;j<20;j++)out[j]=guard;
+   for(unsigned j=0;j<count;j++){
+-   ids[j]=(mode==1 || (mode==2 && j%2))?CAP-1-j:j%3;
++   ids[j]=(mode==1 || (mode==2 && j%2))?CAP-1-j:(family?4096+j:j%3);
+    unsigned char buf[KEYLEN];size_t len=key(ids[j],buf);members[j]=sdsnewlen(buf,len);
+-   if(ids[j]<n)expected|=1U<<j;
++   if(ids[j]<n){expected|=1U<<j;
++    if(family){zbtreeIterator it;CHECK(len==16);CHECK(zbtreeIteratorSeekScore(copy,scores[ids[j]],0,0,&it,NULL));CHECK(((zbtScoreLeaf*)it.leaf)->n.count>=16);dense_hits++;}
++   }
+   }
+   unsigned found=zbtreeScores(copy,members,count,out+2);CHECK(found==expected);
+   CHECK(!copy->member_rehash && copy->member_index.wide_ids && copy->length==n);
+@@ -164,8 +166,8 @@
+   verify(copy);zbtreeFree(copy);
+   CHECK(source->member_rehash==rh && source->member_revision==revision && rh->next_leaf_id==cursor);
+   CHECK(rh->table.used==used && rh->table.filled==filled && zbtreeAllocSize(source)==owned && uncopied(source)==15);
+-  matrix_cases++;matrix_lanes+=count;
+-  printf("MATRIX seed=%u lanes=%u mode=%u remaining=%u mask=%04x promoted=1 external=%u\n",seed,count,mode,count-1,found,ext);fflush(stdout);
++  matrix_cases++;matrix_lanes+=count;if(family)dense_cases++;
++  printf("MATRIX seed=%u family=%u lanes=%u mode=%u remaining=%u mask=%04x promoted=1 external=%u dense_hits=%"PRIu64"\n",seed,family,count,mode,count-1,found,ext,dense_hits);fflush(stdout);
+  }
+  zfree(original);logical(source);
+ }
+@@ -195,7 +197,7 @@
+   }
+   uint64_t g=groups(t);if(g>largest)largest=g;
+  }while(cur);
+- CHECK(matrix_cases==18 && matrix_lanes==132);CHECK(batch_promotions==1 && batch_active>0);CHECK(transferred==260);CHECK(mixed && completed && active_calls && wide_calls && count<=largest+1 && gaps==128 && moves==258 && zero_updates==2);for(unsigned i=0;i<anchors;i++)CHECK(continuous[i]);structure(t);
++ CHECK(matrix_cases==36 && matrix_lanes==264 && dense_cases==18 && dense_hits==68);CHECK(batch_promotions==1 && batch_active>0);CHECK(transferred==260);CHECK(mixed && completed && active_calls && wide_calls && count<=largest+1 && gaps==128 && moves==258 && zero_updates==2);for(unsigned i=0;i<anchors;i++)CHECK(continuous[i]);structure(t);
+  printf("LIVE seed=%u calls=%"PRIu64" max_groups=%"PRIu64" anchors=%u final=%u active_calls=%"PRIu64" wide_calls=%"PRIu64" moves=%"PRIu64" old_old=%"PRIu64" old_new=%"PRIu64" new_old=%"PRIu64" new_new=%"PRIu64" zeros=%"PRIu64"\n",seed,count,largest,anchors,n,active_calls,wide_calls,moves,ownership[0][0],ownership[0][1],ownership[1][0],ownership[1][1],zero_updates);fflush(stdout);
+  printf("EXTERNAL seed=%u buffers=%u transfers=%"PRIu64"\n",seed,external_count,transferred);
+  stage=3;verify(t);scan(t,0);scan(t,256);scan(t,ULONG_MAX);stage=4;zbtreeSet *copy=zbtreeDup(t);zbtreeFree(t);verify(copy);scan(copy,256);zbtreeFree(copy);zfree(order);

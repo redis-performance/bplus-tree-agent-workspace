@@ -1,0 +1,106 @@
+[
+  {
+    "name": "finite-low-bit",
+    "source_sha256": "c20be2bf56997e432f96292dfe162f0cd67cb245b2b628e25a16b7f8efe604ad",
+    "snapshot": "scratch/overnight-boundary-015-faults/finite-low-bit",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-DCAPACITY_QUANTUM=1",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/mixed_capacity_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-015-faults/finite-low-bit",
+        "started_utc": "2026-10-18T02:46:06.140697+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T02:46:07.648025+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-015-faults/finite-low-bit",
+        "started_utc": "2026-10-18T02:46:07.648640+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T02:46:08.030870+00:00",
+        "stdout_sha256": "e3e628b5d6c49f28967dd655ea45ff642ac1d66369a3e3d708d501c3d3d56b21",
+        "stderr_sha256": "9a3209cbd52cf2d45c73487870f0ba9d03601fe518d1c3d74898af030332844e"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "beec8df31efeb086b513522395b55b96e081a641f888b8f98fbb5dddc18aea44"
+  },
+  {
+    "name": "skip-numeric-update",
+    "source_sha256": "e0ba20724ff2ffa3b82c7428bf7e84a2407b5e02b3c26227733b08f32ab71cb9",
+    "snapshot": "scratch/overnight-boundary-015-faults/skip-numeric-update",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-DCAPACITY_QUANTUM=1",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/mixed_capacity_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-015-faults/skip-numeric-update",
+        "started_utc": "2026-10-18T02:46:08.050797+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T02:46:09.340728+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-015-faults/skip-numeric-update",
+        "started_utc": "2026-10-18T02:46:09.341211+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T02:46:09.715943+00:00",
+        "stdout_sha256": "1567d08662bb0de1719253f607b0b4b7eea4e438d7e729edf2a493d8d5902a9e",
+        "stderr_sha256": "edeb9ee5cced9c9cb4d48a7bcd65226a882ceac34404c41248c6f6a827736709"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "2f4ffc67218295c9ee6d65b2b695e6f767e7387e2af26fae33a9609b7484027d"
+  }
+]

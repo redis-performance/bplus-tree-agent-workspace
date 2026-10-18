@@ -1,0 +1,90 @@
+[
+  {
+    "fault": "reverse-exclusive",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/lex_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-007/reverse-exclusive",
+    "returncode": 0,
+    "stdout": "reverse-exclusive-build.stdout",
+    "stderr": "reverse-exclusive-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "f2b591a408e0bde7d392a055de19a3b3023b155c5cc98ca57c44f8a124b55125"
+  },
+  {
+    "fault": "reverse-exclusive",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-007/reverse-exclusive",
+    "returncode": -6,
+    "stdout": "reverse-exclusive-run.stdout",
+    "stderr": "reverse-exclusive-run.stderr",
+    "stdout_sha256": "400c9f53810511a6caeaf3a008696ea706709c798860937fbf40a75f839f33ed",
+    "stderr_sha256": "ffad25ce19e23fe58a23fafc6db4b088adc4cd6cc0643750927201bb3466f02f",
+    "source_sha256": "f2b591a408e0bde7d392a055de19a3b3023b155c5cc98ca57c44f8a124b55125"
+  },
+  {
+    "fault": "sentinel-rank",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/lex_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-007/sentinel-rank",
+    "returncode": 0,
+    "stdout": "sentinel-rank-build.stdout",
+    "stderr": "sentinel-rank-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "6282c8946ead11f63c4ad7c756b0131c0fed84f8017f0ed64241f944099151d4"
+  },
+  {
+    "fault": "sentinel-rank",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-007/sentinel-rank",
+    "returncode": -6,
+    "stdout": "sentinel-rank-run.stdout",
+    "stderr": "sentinel-rank-run.stderr",
+    "stdout_sha256": "400c9f53810511a6caeaf3a008696ea706709c798860937fbf40a75f839f33ed",
+    "stderr_sha256": "0ec0eeb31b48eda65a633dcf8fd7f47da0ad5f5ab353cc1009c535c0dd63b20b",
+    "source_sha256": "6282c8946ead11f63c4ad7c756b0131c0fed84f8017f0ed64241f944099151d4"
+  }
+]

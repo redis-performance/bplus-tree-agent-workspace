@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3774,7 +3774,7 @@
+             zbtScoreDeleteRun(zs, leaf, iter.pos, run, 0, 0);
+             remaining -= run;
+         }
+-        zbtIndexRebuild(zs);
++        /* intentional fault: omitted rebuild */
+         return deleted;
+     }
+ 

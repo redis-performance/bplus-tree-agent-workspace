@@ -1,0 +1,221 @@
+{
+  "status": "pass",
+  "validated_hashes": 1512,
+  "reconstructed_patches": 16,
+  "serial_command_windows": 190,
+  "whole_oracle_count_captures": 3,
+  "timing_benchmarks": 0,
+  "manifests": [
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/growth-extension/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/growth-extension/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/attempt-002/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/attempt-002/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/COUNTERS-008/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/ROUND-015-CONFIRMATION/manifest.json"
+  ],
+  "matrices": [
+    {
+      "scope": "BOUNDARY-021/growth-extension",
+      "cells": 8,
+      "fixtures_per_cell": 2,
+      "checks_per_cell": 131094,
+      "pass_line": "PASS fixtures=2 checks=131094 results=12126950 resizes=131080 wraps=2 digest=0cac3898c2091105",
+      "identical_output": true
+    },
+    {
+      "scope": "BOUNDARY-021/batch-extension/attempt-002",
+      "cells": 8,
+      "fixtures_per_cell": 4,
+      "checks_per_cell": 262188,
+      "pass_line": "PASS fixtures=4 checks=262188 results=24254190 resizes=262160 wraps=4 digest=f0afb8f65679c0a5",
+      "identical_output": true
+    },
+    {
+      "scope": "BOUNDARY-022",
+      "cells": 8,
+      "fixtures_per_cell": 2,
+      "checks_per_cell": 20,
+      "pass_line": "PASS fixtures=2 checks=20 results=327129 calls=684 nonces=17166810 grow=128 shrink=128 digest=03302d76f6ba2ae5",
+      "identical_output": true
+    },
+    {
+      "scope": "BOUNDARY-022/cleanup-extension/attempt-002",
+      "cells": 8,
+      "fixtures_per_cell": 2,
+      "checks_per_cell": 10,
+      "pass_line": "PASS fixtures=2 checks=10 results=119784 calls=432 nonces=16030419 digest=6a42baa8886bc635",
+      "identical_output": true
+    }
+  ],
+  "fresh_confirmation_cells": 48,
+  "retained_failures": [
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/growth-extension/faults/allow-zero-resize-generation-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/faults/allow-zero-resize-generation-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/faults/batch-marked-migrated-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/control-release-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/attempt-002/faults/skip-same-size-destination-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/control-release-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/faults/missing-displaced-scan-tail-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/faults/collapse-colliding-members-run",
+      "returncode": -6
+    }
+  ],
+  "faults": [
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/growth-extension/faults",
+      "name": "allow-zero-resize-generation",
+      "detected": true,
+      "outcome": "detected"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/growth-extension/faults",
+      "name": "batch-marked-migrated",
+      "detected": false,
+      "outcome": "SURVIVED"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/faults",
+      "name": "allow-zero-resize-generation",
+      "detected": true,
+      "outcome": "detected"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/attempt-002/faults",
+      "name": "batch-marked-migrated",
+      "detected": true,
+      "outcome": "detected"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/cleanup-extension/attempt-002/faults",
+      "name": "skip-same-size-destination",
+      "detected": true,
+      "outcome": "detected"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/faults",
+      "name": "missing-displaced-scan-tail",
+      "detected": true,
+      "outcome": "detected"
+    },
+    {
+      "scope": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/faults",
+      "name": "collapse-colliding-members",
+      "detected": true,
+      "outcome": "detected"
+    }
+  ],
+  "failed_snapshot_binary_hashes": {
+    "scratch/overnight-boundary-021-batch/control/build/release": "4da7d6e6a1163ef36a39794dee8a1c6cdfc48c4f101e6e2f8f5598e7dc280d9c",
+    "scratch/overnight-boundary-022-cleanup/control/build/release": "182efce65f5e5600d44fb8cb61ddcedcb84f5abed4628a55b0b2545ff88c2f23"
+  },
+  "raw_recomputed_counts": {
+    "singleton": {
+      "natural_wrap": 2,
+      "active_batch_flush": 2,
+      "active_scan": 4,
+      "displaced_slot": 0,
+      "multiple_leaf_tags": 0,
+      "probe_reach_rejection": 0
+    },
+    "batch": {
+      "natural_wrap": 4,
+      "active_batch_flush": 6,
+      "active_scan": 6,
+      "displaced_slot": 0,
+      "multiple_leaf_tags": 0,
+      "probe_reach_rejection": 0
+    },
+    "scan": {
+      "natural_wrap": 0,
+      "active_batch_flush": 0,
+      "active_scan": 256,
+      "displaced_slot": 68250,
+      "multiple_leaf_tags": 712995,
+      "probe_reach_rejection": 62728
+    }
+  },
+  "checks": [
+    {
+      "name": "workspace",
+      "command": [
+        "python3",
+        "scripts/check-workspace.py",
+        "--pristine-source"
+      ],
+      "started_utc": "2026-10-18T04:13:46.615504+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T04:13:47.600384+00:00",
+      "stdout_sha256": "57b9dd457cd0617f1e073814999372126ab458b060178b60660fbc6095184c49",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "started_utc": "2026-10-18T04:13:47.600911+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T04:13:47.654308+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compiler",
+      "command": [
+        "cc",
+        "--version"
+      ],
+      "started_utc": "2026-10-18T04:13:47.654547+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T04:13:47.703639+00:00",
+      "stdout_sha256": "6a114ff7ba58f89cda6b6bf1a34f1a5e395e6c3e179578ef13866d77e6355336",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "arch",
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "started_utc": "2026-10-18T04:13:47.703897+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T04:13:47.711313+00:00",
+      "stdout_sha256": "c1669e1d8edca98769c37d494b76442a1d6e5ffffd7b4da1fb63aef8ebaf6f01",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "backend": "unknown",
+  "model": "unknown",
+  "token_cost": "unknown",
+  "review": "sequential; reviewer startup failed"
+}

@@ -1,0 +1,79 @@
+--- /dev/null
++++ b/tests/cleanup_interval_oracle.c
+@@ -0,0 +1,76 @@
++/* Public mutations, independent scalar cursor-interval and sorted-vector models. */
++#include "../src/zset_btree.c"
++#include <inttypes.h>
++#define N 512U
++static sds keys[N];static uint32_t hashes[N];static double scores[N];
++static unsigned char live[N],seen[N],continuous[N];
++static unsigned seed,stage;static uint64_t checks,results,calls,fixtures,nonces,growing,shrinking,collisions,displaced,wrapped;
++static uint64_t digest=UINT64_C(14695981039346656037);
++#define CHECK(c) do{if(!(c)){fprintf(stderr,"cleanup-interval seed=%u stage=%u line=%d condition=%s\n",seed,stage,__LINE__,#c);abort();}}while(0)
++static uint64_t bits(double d){uint64_t u;memcpy(&u,&d,8);return u;}
++static uint64_t reverse64(uint64_t u){uint64_t r=0;for(unsigned i=0;i<64;i++){r=(r<<1)|(u&1);u>>=1;}return r;}
++static void mix(uint64_t u){digest=(digest^u)*UINT64_C(1099511628211);}
++static unsigned identify(const unsigned char *buf,size_t len,double score){
++ CHECK(len>=4);unsigned id=0;for(unsigned j=0;j<4;j++)id=(id<<8)|buf[j];
++ CHECK(id<N && live[id] && len==sdslen(keys[id]));CHECK(!memcmp(buf,keys[id],len) && bits(score)==bits(scores[id]));results++;return id;
++}
++static void visit(void *ctx,const unsigned char *buf,size_t len,double score){UNUSED(ctx);unsigned id=identify(buf,len,score);seen[id]=continuous[id]=1;}
++static int cmp(const void *a,const void *b){unsigned x=*(const unsigned*)a,y=*(const unsigned*)b;if(scores[x]<scores[y])return -1;if(scores[x]>scores[y])return 1;size_t nx=sdslen(keys[x]),ny=sdslen(keys[y]);int c=memcmp(keys[x],keys[y],nx<ny?nx:ny);return c?c:(nx>ny)-(nx<ny);}
++static unsigned ordered(unsigned *order){unsigned n=0;for(unsigned i=0;i<N;i++)if(live[i])order[n++]=i;qsort(order,n,sizeof(*order),cmp);return n;}
++static uint64_t node(zbtScoreNode *p,zbtScoreInner *parent,unsigned slot,size_t *bytes){
++ if(!p)return 0;CHECK(p->parent==parent && (!parent||p->parent_index==slot));*bytes+=zmalloc_usable_size(p);uint64_t n=0;
++ if(p->isleaf){zbtScoreLeaf *leaf=(zbtScoreLeaf*)p;n=p->count;CHECK(n);for(unsigned j=0;j<p->count;j++){unsigned char *rec=zbtScoreLeafRecord(leaf,j);if(rec[0]==ZBT_PACKED_EXTERNAL)*bytes+=zmalloc_usable_size(zbtExternalPointer(rec));}}
++ else{zbtScoreInner *in=(zbtScoreInner*)p;CHECK(p->count);for(unsigned j=0;j<p->count;j++){uint64_t sub=node(in->child[j],in,j,bytes);CHECK(sub==in->child_count[j]);n+=sub;}}
++ CHECK(p->subtree==n);return n;
++}
++static void structural(zbtreeSet *t){
++ size_t bytes=zmalloc_usable_size(t)+zmalloc_usable_size(t->score_leaf_by_id)+zmalloc_usable_size(t->member_index.buckets);if(t->member_rehash)bytes+=zmalloc_usable_size(t->member_rehash)+zmalloc_usable_size(t->member_rehash->table.buckets);
++ CHECK(node(t->score_root,NULL,0,&bytes)==t->length && bytes==zbtreeAllocSize(t));
++ unsigned n=0;zbtScoreLeaf *prev=NULL;for(zbtScoreLeaf *p=t->score_first;p;p=p->next){CHECK(p->prev==prev && p->id<t->next_score_leaf_id && t->score_leaf_by_id[p->id]==p);prev=p;n+=p->n.count;}CHECK(prev==t->score_last && n==t->length);
++}
++static uint64_t group_count(zbtreeSet *t){uint64_t n=t->member_index.size/4;if(t->member_rehash && t->member_rehash->table.size/4>n)n=t->member_rehash->table.size/4;return n;}
++static uint64_t step(zbtreeSet *t,uint64_t cursor,unsigned long hint){
++ memset(seen,0,sizeof(seen));zbtIndexRehash *rehash=t->member_rehash;uint32_t next=rehash?rehash->next_leaf_id:0;uint32_t revision=t->member_revision;size_t owned=zbtreeAllocSize(t);
++ if(rehash){growing+=rehash->table.size>t->member_index.size;shrinking+=rehash->table.size<t->member_index.size;}
++ uint64_t after=zbtreeScan(t,cursor,hint,visit,NULL);uint64_t low=reverse64(cursor),high=reverse64(after);CHECK(!after||high>low);
++ for(unsigned i=0;i<N;i++)if(live[i]){uint64_t h=reverse64(hashes[i]>>2);if(h>=low && (!after||h<high))CHECK(seen[i]);}
++ CHECK(t->member_rehash==rehash && (!rehash||rehash->next_leaf_id==next) && t->member_revision==revision && zbtreeAllocSize(t)==owned);calls++;return after;
++}
++static void scan(zbtreeSet *t,unsigned long hint){memset(continuous,0,sizeof(continuous));uint64_t cur=0,n=0,limit=group_count(t)+1;do{cur=step(t,cur,hint);CHECK(++n<=limit);}while(cur);for(unsigned i=0;i<N;i++)CHECK(continuous[i]==live[i]);}
++static void verify(zbtreeSet *t){
++ unsigned order[N],n=ordered(order);CHECK(n==t->length);structural(t);
++ for(unsigned i=0;i<N;i++){double score;CHECK(zbtreeScore(t,keys[i],&score)==live[i]);if(live[i])CHECK(bits(score)==bits(scores[i]));}
++ for(int rev=0;rev<2;rev++){zbtreeIterator it;CHECK(zbtreeIteratorStart(t,rev,&it)==(n!=0));for(unsigned j=0;j<n;j++){unsigned rank=rev?n-1-j:j,id=order[rank];const unsigned char *buf;size_t len;double score;CHECK(zbtreeIteratorNext(&it,rev,&buf,&len,&score));CHECK(identify(buf,len,score)==id);CHECK(zbtreeRank(t,keys[id],rev,&score)==(long)j && bits(score)==bits(scores[id]));zbtreeIterator seek;CHECK(zbtreeIteratorSeekRank(t,rank,&seek));CHECK(zbtreeIteratorNext(&seek,rev,&buf,&len,&score) && identify(buf,len,score)==id);if(!rev){mix(id);mix(bits(score));}}CHECK(!zbtreeIteratorNext(&it,rev,NULL,NULL,NULL));}
++ unsigned long hints[]={0,1,7,ULONG_MAX};for(unsigned j=0;j<4;j++)scan(t,hints[j]);structural(t);checks++;
++}
++static void put(zbtreeSet *t,unsigned id,double score){zbtreeInsertPosition p;double old;CHECK(zbtreeFindForAdd(t,keys[id],&old,&p)==live[id]);if(live[id]){CHECK(bits(old)==bits(scores[id]));zbtreeUpdateScore(t,keys[id],score,&p);}else zbtreeInsertNew(t,score,keys[id],&p);live[id]=1;scores[id]=score;}
++static void inspect(zbtreeSet *t){
++ CHECK(!t->member_rehash);zbtIndexTable *table=&t->member_index;
++ for(zbtScoreLeaf *leaf=t->score_first;leaf;leaf=leaf->next)for(unsigned j=0;j<leaf->n.count;j++)for(unsigned k=j+1;k<leaf->n.count;k++)collisions+=zbtIndexTag(zbtScoreLeafHash(leaf,j))==zbtIndexTag(zbtScoreLeafHash(leaf,k));
++ for(unsigned i=0;i<N;i++)if(live[i]){zbtreeInsertPosition p;CHECK(zbtreeFindForAdd(t,keys[i],NULL,&p));unsigned long bucket=((uintptr_t)p.bucket-(uintptr_t)table->buckets)/zbtIndexBucketBytes(table);unsigned long home=hashes[i]&(table->size-1);displaced+=bucket/4!=home/4;wrapped+=bucket<home;}
++}
++static void exercise(unsigned s){
++ seed=s;stage=0;memset(live,0,sizeof(live));uint64_t r=s;uint8_t hs[16];for(unsigned j=0;j<16;j++){r^=r<<13;r^=r>>7;r^=r<<17;hs[j]=r;}dictSetHashFunctionSeed(hs);
++ unsigned tags[]={0,1,254,255};size_t lengths[]={16,319,320,321};
++ for(unsigned i=0;i<N;i++){
++  unsigned home=i<448?i/7:(32+i-448)%64;size_t len=lengths[i%4];unsigned char buf[321];for(size_t j=0;j<len;j++)buf[j]=(unsigned char)(i*17+j*37+s);for(unsigned j=0;j<4;j++)buf[j]=(unsigned char)(i>>(24-8*j));buf[8]=0;buf[9]=255;unsigned nonce;uint32_t h=0;
++  for(nonce=0;nonce<10000000;nonce++){for(unsigned j=0;j<4;j++)buf[4+j]=(unsigned char)(nonce>>(8*j));h=(uint32_t)dictGenHashFunction(buf,len);nonces++;if((h&63)==home&&(h>>24)==tags[i%4])break;}CHECK(nonce<10000000);keys[i]=sdsnewlen(buf,len);hashes[i]=h;
++ }
++ zbtreeSet *t=zbtreeCreate();zbtreeReserve(t,320);for(unsigned i=0;i<448;i++)put(t,i,(double)i);
++ CHECK(!t->member_rehash && t->member_index.size==64 && t->member_index.filled==448);verify(t);inspect(t);
++ stage=1;for(unsigned i=0;i<224;i++){CHECK(zbtreeDelete(t,keys[i]));live[i]=0;}
++ CHECK(!t->member_rehash && t->member_index.used==224 && t->member_index.filled==448);verify(t);
++ zbtreeInsertPosition saved,last;CHECK(!zbtreeFindForAdd(t,keys[479],NULL,&saved));CHECK(!zbtreeFindForAdd(t,keys[480],NULL,&last));CHECK(saved.bucket && last.bucket);
++ stage=2;for(unsigned i=448;i<479;i++)put(t,i,(double)i);
++ CHECK(!t->member_rehash && t->member_index.size==64 && t->member_index.filled==479 && saved.revision!=t->member_revision);
++ zbtreeInsertNew(t,479.0,keys[479],&saved);live[479]=1;scores[479]=479.0;
++ CHECK(t->member_rehash && t->member_index.size==64 && t->member_rehash->table.size==64 && t->member_rehash->table.used<t->length);
++ unsigned uncopied=0;for(zbtScoreLeaf *leaf=t->score_first;leaf;leaf=leaf->next)uncopied+=leaf->n.index_resize!=t->member_rehash->resize_id;CHECK(uncopied>0);
++ unsigned long hints[]={0,1,7,ULONG_MAX};for(unsigned i=0;i<4;i++)scan(t,hints[i]);
++ zbtIndexRehash *rehash=t->member_rehash;uint32_t cursor=rehash->next_leaf_id,revision=t->member_revision;size_t owned=zbtreeAllocSize(t);
++ zbtreeSet *copy=zbtreeDup(t);verify(copy);zbtreeFree(copy);CHECK(t->member_rehash==rehash && rehash->next_leaf_id==cursor && t->member_revision==revision && zbtreeAllocSize(t)==owned);
++ printf("CLEANUP seed=%u old_buckets=%lu new_buckets=%lu used=%lu destination_used=%lu uncopied=%u stale_revision=%u current_revision=%u\n",seed,t->member_index.size,rehash->table.size,t->length,rehash->table.used,uncopied,saved.revision,revision);fflush(stdout);
++ stage=3;verify(t);CHECK(!t->member_rehash && t->member_index.size==64 && t->member_index.used==256 && last.revision!=t->member_revision);
++ zbtreeInsertNew(t,480.0,keys[480],&last);live[480]=1;scores[480]=480.0;verify(t);zbtreeFree(t);for(unsigned i=0;i<N;i++)sdsfree(keys[i]);fixtures++;
++}
++int main(void){exercise(63503);exercise(63521);CHECK(fixtures==2);printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" nonces=%"PRIu64" digest=%016"PRIx64"\n",fixtures,checks,results,calls,nonces,digest);}

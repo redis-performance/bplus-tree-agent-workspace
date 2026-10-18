@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3710,7 +3710,7 @@
+ 
+     uint32_t id = 0;
+     for (zbtScoreLeaf *leaf = zs->score_first; leaf; leaf = leaf->next) {
+-        leaf->id = id;
++        /* deliberate stale leaf ID in compacted registry */
+         leaf->n.index_resize = 0;
+         table[id++] = leaf;
+     }

@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3213,7 +3213,7 @@
+     for (unsigned int i = 0; i < count; i++) {
+         if (zbtIndexFind(zs, hashes[i], (unsigned char *)members[i],
+                          sdslen(members[i]), &scores[i], NULL, NULL, NULL, NULL))
+-            found |= 1U << i;
++            found |= 1U << (i ^ 1);
+     }
+     return found;
+ }

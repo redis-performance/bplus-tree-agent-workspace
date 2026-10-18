@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4165,7 +4165,8 @@
+                                       void *privdata)
+ {
+     uint8_t tag = zbtIndexTags(bucket) >> (slot_pos * 8);
+-    uint32_t id = zbtIndexGetId(table, bucket, slot_pos);
++    zbtIndexTable decoded = *table; decoded.wide_ids = 0; /* deliberate width confusion */
++    uint32_t id = zbtIndexGetId(&decoded, bucket, slot_pos);
+     if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;
+     if (home_end) {
+         uint64_t bits = zbtIndexTagBits(tag);

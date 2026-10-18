@@ -1,0 +1,120 @@
+{
+  "status": "pass",
+  "runs": [
+    {
+      "name": "build",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "scratch/overnight-diag018/wait_observer.c",
+        "-o",
+        "scratch/overnight-diag018/observer"
+      ],
+      "started_utc": "2026-10-18T03:15:56.785910+00:00",
+      "ended_utc": "2026-10-18T03:15:57.116569+00:00",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "file-success",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/file-success.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');"
+      ],
+      "started_utc": "2026-10-18T03:15:57.117190+00:00",
+      "ended_utc": "2026-10-18T03:15:57.548456+00:00",
+      "returncode": 0,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    },
+    {
+      "name": "file-nonzero",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/file-nonzero.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');raise SystemExit(7)"
+      ],
+      "started_utc": "2026-10-18T03:15:57.549463+00:00",
+      "ended_utc": "2026-10-18T03:15:57.598481+00:00",
+      "returncode": 7,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    },
+    {
+      "name": "file-timeout",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/file-timeout.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');time.sleep(3)"
+      ],
+      "started_utc": "2026-10-18T03:15:57.599156+00:00",
+      "ended_utc": "2026-10-18T03:15:58.648218+00:00",
+      "returncode": 137,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    },
+    {
+      "name": "pipe-success",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/pipe-success.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');"
+      ],
+      "started_utc": "2026-10-18T03:15:58.651159+00:00",
+      "ended_utc": "2026-10-18T03:15:58.722974+00:00",
+      "returncode": 0,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    },
+    {
+      "name": "pipe-nonzero",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/pipe-nonzero.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');raise SystemExit(7)"
+      ],
+      "started_utc": "2026-10-18T03:15:58.723702+00:00",
+      "ended_utc": "2026-10-18T03:15:58.754581+00:00",
+      "returncode": 7,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    },
+    {
+      "name": "pipe-timeout",
+      "command": [
+        "scratch/overnight-diag018/observer",
+        "experiments/OVERNIGHT-2026-10-17/DIAG-018/pipe-timeout.json",
+        "1",
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time;os.write(1,b'out\\x00ok\\n');os.write(2,b'err\\n');time.sleep(3)"
+      ],
+      "started_utc": "2026-10-18T03:15:58.755100+00:00",
+      "ended_utc": "2026-10-18T03:15:59.767854+00:00",
+      "returncode": 137,
+      "stdout_sha256": "0d93c6c48797694a3d9743561c02f0f2c2558f1d39002d17fa738917b5006ac5",
+      "stderr_sha256": "2ccde4875ec595757efdf23d7b1336fcd69cf0fb869310b12a0d219c52817b20"
+    }
+  ]
+}

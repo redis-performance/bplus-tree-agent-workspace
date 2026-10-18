@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4068,7 +4068,7 @@
+ int zbtreeIteratorNext(zbtreeIterator *iter, int reverse,
+                        const unsigned char **ele, size_t *len, double *score)
+ {
+-    if (!reverse && ele == NULL && len == NULL && score != NULL) return zbtIteratorForwardScore(iter, score);
++    if (reverse != 1 && ele == NULL && len == NULL && score != NULL) return zbtIteratorForwardScore(iter, score);
+     return zbtIteratorGeneric(iter, reverse, ele, len, score);
+ }
+ 

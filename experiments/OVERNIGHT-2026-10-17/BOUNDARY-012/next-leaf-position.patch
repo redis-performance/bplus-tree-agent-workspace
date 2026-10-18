@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4061,7 +4061,7 @@
+     unsigned int pos = iter->pos;
+     *score = zbtScoreLeafScore(leaf, pos);
+     if (pos + 1 < leaf->n.count) iter->pos = pos + 1;
+-    else { iter->leaf = leaf->next; iter->pos = 0; }
++    else { iter->leaf = leaf->next; iter->pos = 1; }
+     return 1;
+ }
+ 

@@ -1,0 +1,16 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3240,12 +3240,7 @@
+     uint32_t hashes[ZBT_SCORE_BATCH_SIZE];
+     for (unsigned int i = 0; i < count; i++) {
+         hashes[i] = (uint32_t)dictGenHashFunction(members[i], sdslen(members[i]));
+-        if (zs->member_index.size)
+-            redis_prefetch_read(zbtIndexBucketAt(&zs->member_index,
+-                hashes[i] & (zs->member_index.size - 1)));
+-        if (zs->member_rehash)
+-            redis_prefetch_read(zbtIndexBucketAt(&zs->member_rehash->table,
+-                hashes[i] & (zs->member_rehash->table.size - 1)));
++
+     }
+     unsigned int found = 0;
+     for (unsigned int i = 0; i < count; i++) {

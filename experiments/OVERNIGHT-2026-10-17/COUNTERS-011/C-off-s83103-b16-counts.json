@@ -1,0 +1,754 @@
+[
+  {
+    "name": "zbtreeScores",
+    "count": 2048,
+    "branches": [
+      {
+        "start_line": 3241,
+        "start_column": 30,
+        "end_line": 3241,
+        "end_column": 39,
+        "true": 32768,
+        "false": 2048,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int i = 0; i < count; i++) {"
+      },
+      {
+        "start_line": 3246,
+        "start_column": 30,
+        "end_line": 3246,
+        "end_column": 39,
+        "true": 32768,
+        "false": 2048,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int i = 0; i < count; i++) {"
+      },
+      {
+        "start_line": 3247,
+        "start_column": 13,
+        "end_line": 3248,
+        "end_column": 81,
+        "true": 32768,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        if (zbtIndexFind(zs, hashes[i], (unsigned char *)members[i],\n                         sdslen(members[i]), &scores[i], NULL, NULL, NULL, NULL))"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 2048,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexFind",
+    "count": 32768,
+    "branches": [
+      {
+        "start_line": 2306,
+        "start_column": 9,
+        "end_line": 2306,
+        "end_column": 26,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) zbtIndexRehashStep(zs, 1);"
+      },
+      {
+        "start_line": 2308,
+        "start_column": 9,
+        "end_line": 2308,
+        "end_column": 26,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash &&"
+      },
+      {
+        "start_line": 2309,
+        "start_column": 9,
+        "end_line": 2315,
+        "end_column": 59,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        zbtIndexTableFind(zs, &zs->member_rehash->table, hash, ele, elelen,\n                          score,\n                          found_score_leaf, found_score_position,\n                          found_bucket ? &bucket : NULL,\n                          found_bucket_position ? &pos : NULL,\n                          found_bucket ? &hint_bucket : NULL,\n                          found_bucket ? &hint_pos : NULL))"
+      },
+      {
+        "start_line": 2312,
+        "start_column": 27,
+        "end_line": 2312,
+        "end_column": 39,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket ? &bucket : NULL,"
+      },
+      {
+        "start_line": 2313,
+        "start_column": 27,
+        "end_line": 2313,
+        "end_column": 48,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket_position ? &pos : NULL,"
+      },
+      {
+        "start_line": 2314,
+        "start_column": 27,
+        "end_line": 2314,
+        "end_column": 39,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket ? &hint_bucket : NULL,"
+      },
+      {
+        "start_line": 2315,
+        "start_column": 27,
+        "end_line": 2315,
+        "end_column": 39,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket ? &hint_pos : NULL))"
+      },
+      {
+        "start_line": 2320,
+        "start_column": 9,
+        "end_line": 2325,
+        "end_column": 81,
+        "true": 32768,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zbtIndexTableFind(zs, &zs->member_index, hash, ele, elelen, score,\n                          found_score_leaf, found_score_position,\n                          found_bucket ? &bucket : NULL,\n                          found_bucket_position ? &pos : NULL,\n                          zs->member_rehash || !found_bucket ? NULL : &hint_bucket,\n                          zs->member_rehash || !found_bucket ? NULL : &hint_pos))"
+      },
+      {
+        "start_line": 2322,
+        "start_column": 27,
+        "end_line": 2322,
+        "end_column": 39,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket ? &bucket : NULL,"
+      },
+      {
+        "start_line": 2323,
+        "start_column": 27,
+        "end_line": 2323,
+        "end_column": 48,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "                          found_bucket_position ? &pos : NULL,"
+      },
+      {
+        "start_line": 2324,
+        "start_column": 27,
+        "end_line": 2324,
+        "end_column": 44,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "                          zs->member_rehash || !found_bucket ? NULL : &hint_bucket,"
+      },
+      {
+        "start_line": 2324,
+        "start_column": 48,
+        "end_line": 2324,
+        "end_column": 61,
+        "true": 32768,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          zs->member_rehash || !found_bucket ? NULL : &hint_bucket,"
+      },
+      {
+        "start_line": 2325,
+        "start_column": 27,
+        "end_line": 2325,
+        "end_column": 44,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "                          zs->member_rehash || !found_bucket ? NULL : &hint_pos))"
+      },
+      {
+        "start_line": 2325,
+        "start_column": 48,
+        "end_line": 2325,
+        "end_column": 61,
+        "true": 32768,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                          zs->member_rehash || !found_bucket ? NULL : &hint_pos))"
+      },
+      {
+        "start_line": 2328,
+        "start_column": 9,
+        "end_line": 2328,
+        "end_column": 21,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (found_bucket) *found_bucket = hint_bucket;"
+      },
+      {
+        "start_line": 2329,
+        "start_column": 9,
+        "end_line": 2329,
+        "end_column": 30,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (found_bucket_position) *found_bucket_position = hint_pos;"
+      },
+      {
+        "start_line": 2333,
+        "start_column": 9,
+        "end_line": 2333,
+        "end_column": 21,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "    if (found_bucket) *found_bucket = bucket;"
+      },
+      {
+        "start_line": 2334,
+        "start_column": 9,
+        "end_line": 2334,
+        "end_column": 30,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "    if (found_bucket_position) *found_bucket_position = pos;"
+      }
+    ]
+  },
+  {
+    "name": "zbtScoreLeafFindMember",
+    "count": 33048,
+    "branches": [
+      {
+        "start_line": 1324,
+        "start_column": 12,
+        "end_line": 1324,
+        "end_column": 22,
+        "true": 37456,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    while (next < end) {"
+      },
+      {
+        "start_line": 1326,
+        "start_column": 13,
+        "end_line": 1326,
+        "end_column": 26,
+        "true": 280,
+        "false": 37176,
+        "file": "src/zset_btree.c",
+        "source": "        if (found == NULL) break;"
+      },
+      {
+        "start_line": 1331,
+        "start_column": 13,
+        "end_line": 1331,
+        "end_column": 45,
+        "true": 0,
+        "false": 37176,
+        "file": "src/zset_btree.c",
+        "source": "        if (record[0] == ZBT_PACKED_EXTERNAL &&"
+      },
+      {
+        "start_line": 1332,
+        "start_column": 13,
+        "end_line": 1332,
+        "end_column": 44,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "            zbtExternalHash(record) != hash)"
+      },
+      {
+        "start_line": 1340,
+        "start_column": 13,
+        "end_line": 1340,
+        "end_column": 26,
+        "true": 37176,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        if (len == elelen && memcmp(stored, ele, len) == 0)"
+      },
+      {
+        "start_line": 1340,
+        "start_column": 30,
+        "end_line": 1340,
+        "end_column": 59,
+        "true": 32768,
+        "false": 4408,
+        "file": "src/zset_btree.c",
+        "source": "        if (len == elelen && memcmp(stored, ele, len) == 0)"
+      },
+      {
+        "start_line": 1344,
+        "start_column": 17,
+        "end_line": 1344,
+        "end_column": 22,
+        "true": 32768,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "            if (score) *score = zbtScoreLeafScore(leaf, logical);"
+      },
+      {
+        "start_line": 1345,
+        "start_column": 17,
+        "end_line": 1345,
+        "end_column": 25,
+        "true": 0,
+        "false": 32768,
+        "file": "src/zset_btree.c",
+        "source": "            if (position) *position = logical;"
+      }
+    ]
+  },
+  {
+    "name": "dictGenHashFunction",
+    "count": 32768,
+    "branches": []
+  },
+  {
+    "name": "siphash",
+    "count": 32768,
+    "branches": [
+      {
+        "start_line": 147,
+        "start_column": 12,
+        "end_line": 147,
+        "end_column": 21,
+        "true": 65536,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    for (; in != end; in += 8) {"
+      },
+      {
+        "start_line": 156,
+        "start_column": 13,
+        "end_line": 156,
+        "end_column": 17,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    switch (left) {"
+      },
+      {
+        "start_line": 157,
+        "start_column": 5,
+        "end_line": 157,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 7: b |= ((uint64_t)in[6]) << 48; /* fall-thru */"
+      },
+      {
+        "start_line": 158,
+        "start_column": 5,
+        "end_line": 158,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 6: b |= ((uint64_t)in[5]) << 40; /* fall-thru */"
+      },
+      {
+        "start_line": 159,
+        "start_column": 5,
+        "end_line": 159,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 5: b |= ((uint64_t)in[4]) << 32; /* fall-thru */"
+      },
+      {
+        "start_line": 160,
+        "start_column": 5,
+        "end_line": 160,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 4: b |= ((uint64_t)in[3]) << 24; /* fall-thru */"
+      },
+      {
+        "start_line": 161,
+        "start_column": 5,
+        "end_line": 161,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 3: b |= ((uint64_t)in[2]) << 16; /* fall-thru */"
+      },
+      {
+        "start_line": 162,
+        "start_column": 5,
+        "end_line": 162,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 2: b |= ((uint64_t)in[1]) << 8; /* fall-thru */"
+      },
+      {
+        "start_line": 163,
+        "start_column": 5,
+        "end_line": 163,
+        "end_column": 11,
+        "true": 0,
+        "false": 32768,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 1: b |= ((uint64_t)in[0]); break;"
+      },
+      {
+        "start_line": 164,
+        "start_column": 5,
+        "end_line": 164,
+        "end_column": 11,
+        "true": 32768,
+        "false": 0,
+        "file": "vendor/redis/siphash.c",
+        "source": "    case 0: break;"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeInsertNew",
+    "count": 0,
+    "branches": []
+  },
+  {
+    "name": "zbtreeFree",
+    "count": 0,
+    "branches": [
+      {
+        "start_line": 2953,
+        "start_column": 9,
+        "end_line": 2953,
+        "end_column": 23,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->score_root) zbtScoreFreeTree(zs, zs->score_root);"
+      },
+      {
+        "start_line": 2955,
+        "start_column": 9,
+        "end_line": 2955,
+        "end_column": 26,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) {"
+      },
+      {
+        "start_line": 2959,
+        "start_column": 9,
+        "end_line": 2959,
+        "end_column": 29,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->score_leaf_by_id) zbtFreeAllocation(zs, zs->score_leaf_by_id);"
+      }
+    ]
+  },
+  {
+    "name": "work",
+    "count": 1,
+    "branches": [
+      {
+        "start_line": 92,
+        "start_column": 22,
+        "end_line": 92,
+        "end_column": 32,
+        "true": 2048,
+        "false": 1,
+        "file": "bench/batch_lookup.c",
+        "source": " for(size_t offset=0;offset<ops;){"
+      },
+      {
+        "start_line": 93,
+        "start_column": 18,
+        "end_line": 93,
+        "end_column": 34,
+        "true": 0,
+        "false": 2048,
+        "file": "bench/batch_lookup.c",
+        "source": "  unsigned count=ops-offset<batch?(unsigned)(ops-offset):batch,expected=0;"
+      },
+      {
+        "start_line": 95,
+        "start_column": 6,
+        "end_line": 95,
+        "end_column": 12,
+        "true": 0,
+        "false": 2048,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)out[j]=guard;"
+      },
+      {
+        "start_line": 95,
+        "start_column": 30,
+        "end_line": 95,
+        "end_column": 34,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)out[j]=guard;"
+      },
+      {
+        "start_line": 96,
+        "start_column": 20,
+        "end_line": 96,
+        "end_column": 27,
+        "true": 32768,
+        "false": 2048,
+        "file": "bench/batch_lookup.c",
+        "source": "  for(unsigned j=0;j<count;j++){"
+      },
+      {
+        "start_line": 97,
+        "start_column": 12,
+        "end_line": 97,
+        "end_column": 19,
+        "true": 32768,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "   int hit=mode==0 || (mode==2 && (offset+j)%2==0);"
+      },
+      {
+        "start_line": 97,
+        "start_column": 24,
+        "end_line": 97,
+        "end_column": 31,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "   int hit=mode==0 || (mode==2 && (offset+j)%2==0);"
+      },
+      {
+        "start_line": 97,
+        "start_column": 35,
+        "end_line": 97,
+        "end_column": 50,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "   int hit=mode==0 || (mode==2 && (offset+j)%2==0);"
+      },
+      {
+        "start_line": 98,
+        "start_column": 41,
+        "end_line": 98,
+        "end_column": 44,
+        "true": 32768,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "   members[j]=keys[query[(offset+j)%n]+(hit?0:n)];if(hit)expected|=1U<<j;"
+      },
+      {
+        "start_line": 98,
+        "start_column": 54,
+        "end_line": 98,
+        "end_column": 57,
+        "true": 32768,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "   members[j]=keys[query[(offset+j)%n]+(hit?0:n)];if(hit)expected|=1U<<j;"
+      },
+      {
+        "start_line": 101,
+        "start_column": 20,
+        "end_line": 101,
+        "end_column": 27,
+        "true": 32768,
+        "false": 2048,
+        "file": "bench/batch_lookup.c",
+        "source": "  for(unsigned j=0;j<count;j++)if(found&(1U<<j)){"
+      },
+      {
+        "start_line": 101,
+        "start_column": 35,
+        "end_line": 101,
+        "end_column": 48,
+        "true": 32768,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "  for(unsigned j=0;j<count;j++)if(found&(1U<<j)){"
+      },
+      {
+        "start_line": 102,
+        "start_column": 7,
+        "end_line": 102,
+        "end_column": 13,
+        "true": 0,
+        "false": 32768,
+        "file": "bench/batch_lookup.c",
+        "source": "   if(verify)serverAssert(out[j+2]==(double)query[(offset+j)%n]);"
+      },
+      {
+        "start_line": 105,
+        "start_column": 6,
+        "end_line": 105,
+        "end_column": 12,
+        "true": 0,
+        "false": 2048,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);"
+      },
+      {
+        "start_line": 105,
+        "start_column": 30,
+        "end_line": 105,
+        "end_column": 34,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);"
+      },
+      {
+        "start_line": 105,
+        "start_column": 42,
+        "end_line": 105,
+        "end_column": 45,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);"
+      },
+      {
+        "start_line": 105,
+        "start_column": 47,
+        "end_line": 105,
+        "end_column": 57,
+        "true": 0,
+        "false": 0,
+        "file": "bench/batch_lookup.c",
+        "source": "  if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 2048,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 0,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 0,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtInlineTagSearch",
+    "count": 37456,
+    "branches": [
+      {
+        "start_line": 1276,
+        "start_column": 12,
+        "end_line": 1276,
+        "end_column": 19,
+        "true": 83724,
+        "false": 4004,
+        "file": "src/zset_btree.c",
+        "source": "    while (n >= 16) {"
+      },
+      {
+        "start_line": 1283,
+        "start_column": 13,
+        "end_line": 1283,
+        "end_column": 20,
+        "true": 17352,
+        "false": 66372,
+        "file": "src/zset_btree.c",
+        "source": "        if (matches) return p + (__builtin_ctzll(matches) >> 3);"
+      },
+      {
+        "start_line": 1292,
+        "start_column": 13,
+        "end_line": 1292,
+        "end_column": 20,
+        "true": 16100,
+        "false": 50272,
+        "file": "src/zset_btree.c",
+        "source": "        if (matches) return p + (__builtin_ctzll(matches) >> 3);"
+      },
+      {
+        "start_line": 1296,
+        "start_column": 9,
+        "end_line": 1296,
+        "end_column": 15,
+        "true": 2684,
+        "false": 1320,
+        "file": "src/zset_btree.c",
+        "source": "    if (n >= 8) {"
+      },
+      {
+        "start_line": 1302,
+        "start_column": 13,
+        "end_line": 1302,
+        "end_column": 20,
+        "true": 1812,
+        "false": 872,
+        "file": "src/zset_btree.c",
+        "source": "        if (matches) return p + (__builtin_ctzll(matches) >> 3);"
+      },
+      {
+        "start_line": 1306,
+        "start_column": 12,
+        "end_line": 1306,
+        "end_column": 15,
+        "true": 6688,
+        "false": 280,
+        "file": "src/zset_btree.c",
+        "source": "    while (n--) { if (*p == tag) return p; p++; }"
+      },
+      {
+        "start_line": 1306,
+        "start_column": 23,
+        "end_line": 1306,
+        "end_column": 32,
+        "true": 1912,
+        "false": 4776,
+        "file": "src/zset_btree.c",
+        "source": "    while (n--) { if (*p == tag) return p; p++; }"
+      }
+    ]
+  }
+]

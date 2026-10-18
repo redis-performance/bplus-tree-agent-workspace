@@ -1,0 +1,54 @@
+[
+  {
+    "name": "skip-same-size-destination",
+    "snapshot": "scratch/overnight-boundary-022-cleanup-attempt002-faults/skip-same-size-destination",
+    "source_sha256": "1eb39be30b12e6853026ce3872712adef2823ff8ee04526dd3c8373c9bafdae9",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/cleanup_interval_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-cleanup-attempt002-faults/skip-same-size-destination",
+        "started_utc": "2026-10-18T04:05:47.029133+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:05:48.255698+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-cleanup-attempt002-faults/skip-same-size-destination",
+        "started_utc": "2026-10-18T04:05:48.256320+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:05:49.167930+00:00",
+        "stdout_sha256": "7f16076e1f87a352ef728c76f1217b67a3c38d940154bc9759a79599b074dcfd",
+        "stderr_sha256": "e120159e5506c693a7469a40c28c1fdf97b8602ff709ea43d693f6dbbbba3299"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "50ec10885c1e03dc2cf5cd484bbcdde3a0993323574b25e5a3695f71e9502fba"
+  }
+]

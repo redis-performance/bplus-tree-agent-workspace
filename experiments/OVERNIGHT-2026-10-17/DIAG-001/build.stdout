@@ -1,0 +1,5 @@
+make: Entering directory '<workspace>/scratch/overnight-diag-001/base'
+mkdir -p build
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3  bench/microbench.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o build/btree-bench
+cc -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3 -DREDIS_TEST -DREDIS_DEBUG  tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o build/btree-test
+make: Leaving directory '<workspace>/scratch/overnight-diag-001/base'

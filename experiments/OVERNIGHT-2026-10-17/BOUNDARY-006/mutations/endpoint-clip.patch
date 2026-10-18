@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3758,7 +3758,7 @@
+                                       unsigned long end)
+ {
+     if (start >= zs->length || start > end) return 0;
+-    if (end >= zs->length) end = zs->length - 1;
++    if (end >= zs->length) end = zs->length - 2; /* intentional fault */
+     unsigned long deleted = end - start + 1;
+ 
+     if (deleted > 1024 && deleted >= zs->length / 10) {

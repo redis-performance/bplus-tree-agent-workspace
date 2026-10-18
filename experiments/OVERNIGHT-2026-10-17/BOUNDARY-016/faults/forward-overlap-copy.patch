@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -441,7 +441,7 @@
+     size_t remaining = (size_t)(leaf->n.count - pos) * bits;
+     while (remaining) {
+         unsigned int chunk = remaining > 64 ? 64 : remaining;
+-        size_t source = insert_at + remaining - chunk;
++        size_t source = insert_at + (size_t)(leaf->n.count - pos) * bits - remaining;
+         uint64_t part = zbtReadBits(leaf->data, source, chunk);
+         zbtWriteBits(leaf->data, source + bits, chunk, part);
+         remaining -= chunk;

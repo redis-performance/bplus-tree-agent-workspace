@@ -1,0 +1,850 @@
+[
+  {
+    "name": "zbtIndexStartResize",
+    "count": 382,
+    "branches": [
+      {
+        "start_line": 2050,
+        "start_column": 9,
+        "end_line": 2050,
+        "end_column": 26,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) return 0;"
+      },
+      {
+        "start_line": 2052,
+        "start_column": 9,
+        "end_line": 2052,
+        "end_column": 41,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "    if (buckets == zs->member_index.size && !allow_same_size) return 0;"
+      },
+      {
+        "start_line": 2052,
+        "start_column": 45,
+        "end_line": 2052,
+        "end_column": 61,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (buckets == zs->member_index.size && !allow_same_size) return 0;"
+      },
+      {
+        "start_line": 2056,
+        "start_column": 9,
+        "end_line": 2056,
+        "end_column": 24,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->length == 0) {"
+      },
+      {
+        "start_line": 2057,
+        "start_column": 24,
+        "end_line": 2057,
+        "end_column": 49,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        int wide_ids = zs->member_index.wide_ids ||"
+      },
+      {
+        "start_line": 2058,
+        "start_column": 24,
+        "end_line": 2058,
+        "end_column": 70,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                       zs->next_score_leaf_id >= ZBT_INDEX_WIDE_ID_AT;"
+      },
+      {
+        "start_line": 2067,
+        "start_column": 20,
+        "end_line": 2067,
+        "end_column": 45,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "    int wide_ids = zs->member_index.wide_ids ||"
+      },
+      {
+        "start_line": 2068,
+        "start_column": 20,
+        "end_line": 2068,
+        "end_column": 66,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "                   zs->next_score_leaf_id >= ZBT_INDEX_WIDE_ID_AT;"
+      },
+      {
+        "start_line": 2075,
+        "start_column": 9,
+        "end_line": 2075,
+        "end_column": 23,
+        "true": 0,
+        "false": 382,
+        "file": "src/zset_btree.c",
+        "source": "    if (resize_id == 0) resize_id = 1;"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 382,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexCopyLeaf",
+    "count": 3182,
+    "branches": [
+      {
+        "start_line": 2095,
+        "start_column": 9,
+        "end_line": 2095,
+        "end_column": 39,
+        "true": 0,
+        "false": 3182,
+        "file": "src/zset_btree.c",
+        "source": "    if (zbtIndexLeafMigrated(zs, leaf)) return;"
+      },
+      {
+        "start_line": 2097,
+        "start_column": 30,
+        "end_line": 2097,
+        "end_column": 47,
+        "true": 102280,
+        "false": 3182,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int i = 0; i < leaf->n.count; i++) {"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 3182,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexLeafMigrated",
+    "count": 29501,
+    "branches": [
+      {
+        "start_line": 2085,
+        "start_column": 12,
+        "end_line": 2085,
+        "end_column": 29,
+        "true": 29501,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    return zs->member_rehash &&"
+      },
+      {
+        "start_line": 2086,
+        "start_column": 12,
+        "end_line": 2086,
+        "end_column": 64,
+        "true": 6690,
+        "false": 22811,
+        "file": "src/zset_btree.c",
+        "source": "           leaf->n.index_resize == zs->member_rehash->resize_id;"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeAppendBatchFlush",
+    "count": 0,
+    "branches": [
+      {
+        "start_line": 3380,
+        "start_column": 9,
+        "end_line": 3380,
+        "end_column": 22,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (b->count == 0) return;"
+      },
+      {
+        "start_line": 3395,
+        "start_column": 9,
+        "end_line": 3395,
+        "end_column": 31,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->score_root == NULL) {"
+      },
+      {
+        "start_line": 3411,
+        "start_column": 13,
+        "end_line": 3411,
+        "end_column": 65,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        if (zmalloc_usable_size(oldleaf) >= ZBT_SCORE_LEAF_BYTES)"
+      },
+      {
+        "start_line": 3426,
+        "start_column": 9,
+        "end_line": 3426,
+        "end_column": 26,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) {"
+      },
+      {
+        "start_line": 3439,
+        "start_column": 34,
+        "end_line": 3439,
+        "end_column": 46,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        for (unsigned int i = 0; i < b->count; i++) {"
+      },
+      {
+        "start_line": 3441,
+        "start_column": 17,
+        "end_line": 3441,
+        "end_column": 33,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "            if (ahead < b->count) {"
+      },
+      {
+        "start_line": 3442,
+        "start_column": 40,
+        "end_line": 3442,
+        "end_column": 57,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                zbtIndexTable *table = zs->member_rehash ?"
+      },
+      {
+        "start_line": 3444,
+        "start_column": 21,
+        "end_line": 3444,
+        "end_column": 36,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "                if (table->size > 0) {"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeScan",
+    "count": 684,
+    "branches": [
+      {
+        "start_line": 4333,
+        "start_column": 9,
+        "end_line": 4333,
+        "end_column": 24,
+        "true": 0,
+        "false": 684,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->length == 0) return 0;"
+      },
+      {
+        "start_line": 4335,
+        "start_column": 9,
+        "end_line": 4335,
+        "end_column": 26,
+        "true": 256,
+        "false": 428,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) {"
+      },
+      {
+        "start_line": 4337,
+        "start_column": 13,
+        "end_line": 4337,
+        "end_column": 38,
+        "true": 128,
+        "false": 128,
+        "file": "src/zset_btree.c",
+        "source": "        if (large->size < small->size) {"
+      },
+      {
+        "start_line": 4344,
+        "start_column": 19,
+        "end_line": 4344,
+        "end_column": 24,
+        "true": 256,
+        "false": 428,
+        "file": "src/zset_btree.c",
+        "source": "    uint64_t m1 = large ? zbtScanGroupMask(large) : m0;"
+      },
+      {
+        "start_line": 4351,
+        "start_column": 13,
+        "end_line": 4351,
+        "end_column": 26,
+        "true": 704,
+        "false": 256,
+        "file": "src/zset_btree.c",
+        "source": "        if (large == NULL) {"
+      },
+      {
+        "start_line": 4358,
+        "start_column": 18,
+        "end_line": 4358,
+        "end_column": 36,
+        "true": 256,
+        "false": 256,
+        "file": "src/zset_btree.c",
+        "source": "        } while (cursor & (m0 ^ m1));"
+      },
+      {
+        "start_line": 4359,
+        "start_column": 14,
+        "end_line": 4359,
+        "end_column": 25,
+        "true": 864,
+        "false": 96,
+        "file": "src/zset_btree.c",
+        "source": "    } while (cursor != 0 && emitted < count);"
+      },
+      {
+        "start_line": 4359,
+        "start_column": 29,
+        "end_line": 4359,
+        "end_column": 44,
+        "true": 276,
+        "false": 588,
+        "file": "src/zset_btree.c",
+        "source": "    } while (cursor != 0 && emitted < count);"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexScanGroup",
+    "count": 1472,
+    "branches": [
+      {
+        "start_line": 4245,
+        "start_column": 44,
+        "end_line": 4245,
+        "end_column": 60,
+        "true": 5888,
+        "false": 1472,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned long index = home_start; index < home_end; index++) {"
+      },
+      {
+        "start_line": 4247,
+        "start_column": 36,
+        "end_line": 4247,
+        "end_column": 64,
+        "true": 47104,
+        "false": 5888,
+        "file": "src/zset_btree.c",
+        "source": "        for (unsigned int pos = 0; pos < ZBT_INDEX_BUCKET_ITEMS; pos++) {"
+      },
+      {
+        "start_line": 4248,
+        "start_column": 17,
+        "end_line": 4248,
+        "end_column": 66,
+        "true": 27444,
+        "false": 19660,
+        "file": "src/zset_btree.c",
+        "source": "            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) == 0) continue;"
+      },
+      {
+        "start_line": 4250,
+        "start_column": 17,
+        "end_line": 4250,
+        "end_column": 45,
+        "true": 1655,
+        "false": 18005,
+        "file": "src/zset_btree.c",
+        "source": "            if (id >= zs->next_score_leaf_id) continue;"
+      },
+      {
+        "start_line": 4252,
+        "start_column": 17,
+        "end_line": 4252,
+        "end_column": 29,
+        "true": 0,
+        "false": 18005,
+        "file": "src/zset_btree.c",
+        "source": "            if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) continue;"
+      },
+      {
+        "start_line": 4258,
+        "start_column": 44,
+        "end_line": 4258,
+        "end_column": 60,
+        "true": 5888,
+        "false": 1472,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned long index = home_start; index < home_end; index++) {"
+      },
+      {
+        "start_line": 4260,
+        "start_column": 36,
+        "end_line": 4260,
+        "end_column": 64,
+        "true": 47104,
+        "false": 5888,
+        "file": "src/zset_btree.c",
+        "source": "        for (unsigned int pos = 0; pos < ZBT_INDEX_BUCKET_ITEMS; pos++)"
+      },
+      {
+        "start_line": 4268,
+        "start_column": 12,
+        "end_line": 4268,
+        "end_column": 23,
+        "true": 11096,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    while (remaining-- &&"
+      },
+      {
+        "start_line": 4269,
+        "start_column": 12,
+        "end_line": 4269,
+        "end_column": 77,
+        "true": 9624,
+        "false": 1472,
+        "file": "src/zset_btree.c",
+        "source": "           !zbtIndexTagMask(zbtIndexTags(zbtIndexBucketAt(table, index)), 0))"
+      },
+      {
+        "start_line": 4273,
+        "start_column": 36,
+        "end_line": 4273,
+        "end_column": 64,
+        "true": 76992,
+        "false": 9624,
+        "file": "src/zset_btree.c",
+        "source": "        for (unsigned int pos = 0; pos < ZBT_INDEX_BUCKET_ITEMS; pos++)"
+      },
+      {
+        "start_line": 203,
+        "start_column": 34,
+        "end_line": 203,
+        "end_column": 63,
+        "true": 0,
+        "false": 18005,
+        "file": "src/zset_btree.c",
+        "source": "#define ZBT_IS_FREE_LEAF_ID(ptr) (((uintptr_t)(ptr) & 1) != 0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexScanSlot",
+    "count": 124096,
+    "branches": [
+      {
+        "start_line": 4169,
+        "start_column": 9,
+        "end_line": 4169,
+        "end_column": 17,
+        "true": 31690,
+        "false": 92406,
+        "file": "src/zset_btree.c",
+        "source": "    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;"
+      },
+      {
+        "start_line": 4169,
+        "start_column": 21,
+        "end_line": 4169,
+        "end_column": 47,
+        "true": 6151,
+        "false": 86255,
+        "file": "src/zset_btree.c",
+        "source": "    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;"
+      },
+      {
+        "start_line": 4170,
+        "start_column": 9,
+        "end_line": 4170,
+        "end_column": 17,
+        "true": 68250,
+        "false": 18005,
+        "file": "src/zset_btree.c",
+        "source": "    if (home_end) {"
+      },
+      {
+        "start_line": 4173,
+        "start_column": 33,
+        "end_line": 4173,
+        "end_column": 48,
+        "true": 213492,
+        "false": 33584,
+        "file": "src/zset_btree.c",
+        "source": "        for (home = home_start; home < home_end; home++) {"
+      },
+      {
+        "start_line": 4174,
+        "start_column": 17,
+        "end_line": 4174,
+        "end_column": 66,
+        "true": 34666,
+        "false": 178826,
+        "file": "src/zset_btree.c",
+        "source": "            if ((*zbtIndexHomeTagsAt(table, home) & bits) == bits) break;"
+      },
+      {
+        "start_line": 4176,
+        "start_column": 13,
+        "end_line": 4176,
+        "end_column": 29,
+        "true": 33584,
+        "false": 34666,
+        "file": "src/zset_btree.c",
+        "source": "        if (home == home_end) return 0;"
+      },
+      {
+        "start_line": 4178,
+        "start_column": 26,
+        "end_line": 4178,
+        "end_column": 53,
+        "true": 52671,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "    zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?"
+      },
+      {
+        "start_line": 4180,
+        "start_column": 9,
+        "end_line": 4180,
+        "end_column": 21,
+        "true": 0,
+        "false": 52671,
+        "file": "src/zset_btree.c",
+        "source": "    if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {"
+      },
+      {
+        "start_line": 4185,
+        "start_column": 9,
+        "end_line": 4185,
+        "end_column": 26,
+        "true": 20767,
+        "false": 31904,
+        "file": "src/zset_btree.c",
+        "source": "    if (zs->member_rehash) {"
+      },
+      {
+        "start_line": 4187,
+        "start_column": 13,
+        "end_line": 4187,
+        "end_column": 53,
+        "true": 2338,
+        "false": 18429,
+        "file": "src/zset_btree.c",
+        "source": "        if (in_new != zbtIndexLeafMigrated(zs, leaf)) return 0;"
+      },
+      {
+        "start_line": 4201,
+        "start_column": 30,
+        "end_line": 4201,
+        "end_column": 39,
+        "true": 712995,
+        "false": 50333,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int i = 0; i < count; i++) {"
+      },
+      {
+        "start_line": 4207,
+        "start_column": 13,
+        "end_line": 4207,
+        "end_column": 22,
+        "true": 712995,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        if (count > 1 || home_end) {"
+      },
+      {
+        "start_line": 4207,
+        "start_column": 26,
+        "end_line": 4207,
+        "end_column": 34,
+        "true": 0,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "        if (count > 1 || home_end) {"
+      },
+      {
+        "start_line": 4210,
+        "start_column": 17,
+        "end_line": 4210,
+        "end_column": 25,
+        "true": 489228,
+        "false": 223767,
+        "file": "src/zset_btree.c",
+        "source": "            if (home_end && (home < home_start || home >= home_end))"
+      },
+      {
+        "start_line": 4210,
+        "start_column": 30,
+        "end_line": 4210,
+        "end_column": 47,
+        "true": 152702,
+        "false": 336526,
+        "file": "src/zset_btree.c",
+        "source": "            if (home_end && (home < home_start || home >= home_end))"
+      },
+      {
+        "start_line": 4210,
+        "start_column": 51,
+        "end_line": 4210,
+        "end_column": 67,
+        "true": 182212,
+        "false": 154314,
+        "file": "src/zset_btree.c",
+        "source": "            if (home_end && (home < home_start || home >= home_end))"
+      },
+      {
+        "start_line": 4212,
+        "start_column": 17,
+        "end_line": 4212,
+        "end_column": 26,
+        "true": 378081,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "            if (count > 1 && !zbtIndexHashReachesBucket(table, hash, bucket))"
+      },
+      {
+        "start_line": 4212,
+        "start_column": 30,
+        "end_line": 4212,
+        "end_column": 77,
+        "true": 62728,
+        "false": 315353,
+        "file": "src/zset_btree.c",
+        "source": "            if (count > 1 && !zbtIndexHashReachesBucket(table, hash, bucket))"
+      },
+      {
+        "start_line": 203,
+        "start_column": 34,
+        "end_line": 203,
+        "end_column": 63,
+        "true": 0,
+        "false": 52671,
+        "file": "src/zset_btree.c",
+        "source": "#define ZBT_IS_FREE_LEAF_ID(ptr) (((uintptr_t)(ptr) & 1) != 0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 36,
+        "end_line": 15,
+        "end_column": 37,
+        "true": 0,
+        "false": 0,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 36,
+        "end_line": 15,
+        "end_column": 37,
+        "true": 0,
+        "false": 0,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 52671,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 34,
+        "end_line": 15,
+        "end_column": 38,
+        "true": 0,
+        "false": 50333,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 36,
+        "end_line": 15,
+        "end_column": 37,
+        "true": 33258,
+        "false": 17075,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "start_line": 15,
+        "start_column": 36,
+        "end_line": 15,
+        "end_column": 37,
+        "true": 17075,
+        "false": 0,
+        "file": "compat/server.h",
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtLeafTagMatches",
+    "count": 50333,
+    "branches": [
+      {
+        "start_line": 4136,
+        "start_column": 25,
+        "end_line": 4136,
+        "end_column": 33,
+        "true": 0,
+        "false": 50333,
+        "file": "src/zset_btree.c",
+        "source": "    unsigned int last = reversed ? count - 1 : 0;"
+      },
+      {
+        "start_line": 4137,
+        "start_column": 30,
+        "end_line": 4137,
+        "end_column": 39,
+        "true": 218644,
+        "false": 50333,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int w = 0; w < words; w++) {"
+      },
+      {
+        "start_line": 4140,
+        "start_column": 13,
+        "end_line": 4140,
+        "end_column": 21,
+        "true": 125138,
+        "false": 93506,
+        "file": "src/zset_btree.c",
+        "source": "        if (tag == 1) mask |= zbtIndexTagMask(word, 0);"
+      },
+      {
+        "start_line": 4141,
+        "start_column": 16,
+        "end_line": 4141,
+        "end_column": 20,
+        "true": 773521,
+        "false": 218644,
+        "file": "src/zset_btree.c",
+        "source": "        while (mask) {"
+      },
+      {
+        "start_line": 4143,
+        "start_column": 17,
+        "end_line": 4143,
+        "end_column": 33,
+        "true": 436275,
+        "false": 337246,
+        "file": "src/zset_btree.c",
+        "source": "            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4143,
+        "start_column": 38,
+        "end_line": 4143,
+        "end_column": 46,
+        "true": 253526,
+        "false": 83720,
+        "file": "src/zset_btree.c",
+        "source": "            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4143,
+        "start_column": 50,
+        "end_line": 4143,
+        "end_column": 64,
+        "true": 253526,
+        "false": 0,
+        "file": "src/zset_btree.c",
+        "source": "            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4144,
+        "start_column": 38,
+        "end_line": 4144,
+        "end_column": 46,
+        "true": 0,
+        "false": 689801,
+        "file": "src/zset_btree.c",
+        "source": "                positions[found++] = reversed ? last - pos : pos;"
+      },
+      {
+        "start_line": 4148,
+        "start_column": 40,
+        "end_line": 4148,
+        "end_column": 51,
+        "true": 62124,
+        "false": 50333,
+        "file": "src/zset_btree.c",
+        "source": "    for (unsigned int pos = words * 8; pos < count; pos++) {"
+      },
+      {
+        "start_line": 4149,
+        "start_column": 13,
+        "end_line": 4149,
+        "end_column": 29,
+        "true": 15387,
+        "false": 46737,
+        "file": "src/zset_btree.c",
+        "source": "        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4149,
+        "start_column": 34,
+        "end_line": 4149,
+        "end_column": 42,
+        "true": 27324,
+        "false": 19413,
+        "file": "src/zset_btree.c",
+        "source": "        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4149,
+        "start_column": 46,
+        "end_line": 4149,
+        "end_column": 60,
+        "true": 7807,
+        "false": 19517,
+        "file": "src/zset_btree.c",
+        "source": "        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))"
+      },
+      {
+        "start_line": 4150,
+        "start_column": 34,
+        "end_line": 4150,
+        "end_column": 42,
+        "true": 0,
+        "false": 23194,
+        "file": "src/zset_btree.c",
+        "source": "            positions[found++] = reversed ? last - pos : pos;"
+      }
+    ]
+  }
+]

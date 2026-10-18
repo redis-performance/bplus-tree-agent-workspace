@@ -1,0 +1,104 @@
+[
+  {
+    "name": "lost-relocated-resize-buckets",
+    "snapshot": "scratch/overnight-boundary-020-faults/lost-relocated-resize-buckets",
+    "source_sha256": "a67854a1295938d90efcf377fd70af153418222591bc0cf9884812b39d8c84a2",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/active_resize_defrag_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-020-faults/lost-relocated-resize-buckets",
+        "started_utc": "2026-10-18T03:32:07.866410+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:32:09.094505+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-020-faults/lost-relocated-resize-buckets",
+        "started_utc": "2026-10-18T03:32:09.095071+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:32:09.526670+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8446daf21d1acaca5b7d038a76ec02f4787c0ed891928d6c497f9bf039e8ddd2"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "e6a9cb997e317f2b9dabfbdb2eee003147fd8acae4eb3aa2c45e770a8f34d118"
+  },
+  {
+    "name": "skip-retired-defrag-cursor",
+    "snapshot": "scratch/overnight-boundary-020-faults/skip-retired-defrag-cursor",
+    "source_sha256": "4a6346ff4823baa150fff6ed7c0b5e21d39103079ce5a17637e0e3edcd078dcd",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/active_resize_defrag_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-020-faults/skip-retired-defrag-cursor",
+        "started_utc": "2026-10-18T03:32:09.542219+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:32:10.814964+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-020-faults/skip-retired-defrag-cursor",
+        "started_utc": "2026-10-18T03:32:10.815527+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:32:11.205770+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "12f4e49241da839a245567c5b081ac7433ab2fc2b7cb7c8649921436800b4218"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "f73c0aaf84ffa260b8d3ae30fccddc2ed700845f647ec10b2ccad744b4398303"
+  }
+]

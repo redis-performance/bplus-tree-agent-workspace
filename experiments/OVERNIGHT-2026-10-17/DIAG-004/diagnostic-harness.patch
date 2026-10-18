@@ -1,0 +1,68 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -104,6 +104,7 @@
+     size_t n = 100000, ops = 1000000, bytes = 16, warmup_passes = 1;
+     uint64_t seed = 1;
+     const char *selected = "all";
++    const char *fixture_order = "shuffled";
+     const char *cases[] = {"insert", "lookup-hit", "lookup-miss", "rank", "iterate", "scan", "update", "delete"};
+     for (int i = 1; i < argc; i++) {
+         if (!strcmp(argv[i], "--help")) {
+@@ -118,11 +119,14 @@
+         else if (!strcmp(arg, "--seed")) seed = number(value);
+         else if (!strcmp(arg, "--warmup-passes")) warmup_passes = number(value);
+         else if (!strcmp(arg, "--case")) selected = value;
++        else if (!strcmp(arg, "--fixture-order")) fixture_order = value;
+         else { fprintf(stderr, "Unknown option: %s\n", arg); return 2; }
+     }
+     int valid_case = !strcmp(selected, "all");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) valid_case |= !strcmp(selected, cases[c]);
+     if (!valid_case || bytes < 8 || bytes > 65536) { fputs("Invalid case or member size (8..65536)\n", stderr); return 2; }
++    serverAssert(!strcmp(selected,"lookup-hit"));
++    serverAssert(!strcmp(fixture_order,"ascending") || !strcmp(fixture_order,"shuffled"));
+     uint64_t rng = seed;
+     uint8_t hash_seed[16];
+     for (size_t i = 0; i < sizeof(hash_seed); i++) hash_seed[i] = (uint8_t)random64(&rng);
+@@ -142,11 +146,26 @@
+         size_t j = random64(&rng) % i, tmp = order[i - 1];
+         order[i - 1] = order[j]; order[j] = tmp;
+     }
+-    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns");
++    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,fixture_order,leaf_count,leaf_min,leaf_max");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) {
+         if (strcmp(selected, "all") && strcmp(selected, cases[c])) continue;
+         zbtreeSet *tree = zbtreeCreate();
+-        if (c != 0) for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
++        if (c != 0) for (size_t i = 0; i < n; i++) {
++            size_t id = !strcmp(fixture_order,"ascending") ? i : order[i];
++            insert(tree, keys[id], (double)id);
++        }
++        size_t leaf_count=0,leaf_min=n,leaf_max=0,leaf_items=0,observed=0;
++        void *previous=NULL;zbtreeIterator observation;
++        zbtreeIteratorStart(tree,0,&observation);
++        while (observation.leaf) {
++            if (observation.leaf != previous) {
++                if (previous) {if(leaf_items<leaf_min)leaf_min=leaf_items;if(leaf_items>leaf_max)leaf_max=leaf_items;}
++                previous=observation.leaf;leaf_count++;leaf_items=0;
++            }
++            serverAssert(zbtreeIteratorNext(&observation,0,NULL,NULL,NULL));leaf_items++;observed++;
++        }
++        if(leaf_items<leaf_min)leaf_min=leaf_items;if(leaf_items>leaf_max)leaf_max=leaf_items;
++        serverAssert(observed==n && leaf_count>0);
+         /* Fixed-count warm-up; this does not establish stable placement/DVFS. */
+         uint64_t warmup_start = now_ns();
+         if (c != 0) for (size_t pass = 0; pass < warmup_passes; pass++) for (size_t i = 0; i < n; i++) {
+@@ -233,11 +252,11 @@
+             serverAssert(score == (double)order[i] + (double)(repeats * n));
+         }
+         sink ^= checksum;
+-        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 "\n",
++        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 ",%s,%zu,%zu,%zu\n",
+                cases[c], n, ops, bytes, seed, count, elapsed, (double)elapsed/count,
+                (double)count * 1e9 / (elapsed ? elapsed : 1), tree_bytes, checksum,
+                thread_elapsed, cpu_start, cpu_end, qos_start, qos_end, relpri_start, relpri_end,
+-               traversals, c == 0 ? 0 : warmup_passes, warmup_elapsed);
++               traversals, c == 0 ? 0 : warmup_passes, warmup_elapsed, fixture_order, leaf_count, leaf_min, leaf_max);
+         zbtreeFree(tree);
+     }
+     for (size_t i = 0; i < 2 * n; i++) sdsfree(keys[i]);

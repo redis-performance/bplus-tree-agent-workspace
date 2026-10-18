@@ -1,0 +1,31 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==57050==ERROR: AddressSanitizer: BUS on unknown address (pc 0x000100d7d2dc bp 0x00016f094ce0 sp 0x00016f094ce0 T0)
+==57050==The signal is caused by a READ memory access.
+==57050==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+==57050==WARNING: external symbolizer didn't start up correctly!
+==57050==WARNING: Can't write to symbolizer at fd 4
+==57050==WARNING: external symbolizer didn't start up correctly!
+==57050==WARNING: Can't write to symbolizer at fd 5
+==57050==WARNING: external symbolizer didn't start up correctly!
+==57050==WARNING: Can't write to symbolizer at fd 6
+==57050==WARNING: external symbolizer didn't start up correctly!
+==57050==WARNING: Can't write to symbolizer at fd 7
+==57050==WARNING: external symbolizer didn't start up correctly!
+==57050==WARNING: Failed to use and restart external symbolizer!
+    #0 0x000100d7d2dc in zbtInlineTagSearch+0x68 (<workspace>/scratch/experiment006-tag-guard/fault/build/sanitize:arm64+0x1000152dc)
+    #1 0x000100d7d164 in main+0x2b0 (<workspace>/scratch/experiment006-tag-guard/fault/build/sanitize:arm64+0x100015164)
+    #2 0x00019eb1dd50  (<unknown module>)
+
+==57050==Register values:
+ x[0] = 0x0000000100f8c000   x[1] = 0x0000000000000001   x[2] = 0x0000000000000001   x[3] = 0x00000070202127c0  
+ x[4] = 0x0000007020211080   x[5] = 0x0000000000000000   x[6] = 0x0000000000000041   x[7] = 0x0000000000000000  
+ x[8] = 0x0000000000000001   x[9] = 0x0000000100f90000  x[10] = 0x0000000100f90007  x[11] = 0x0000000000004000  
+x[12] = 0x0000007000020000  x[13] = 0x0101010101010101  x[14] = 0xfefefefefefefeff  x[15] = 0x0000007020212000  
+x[16] = 0x0000000000000000  x[17] = 0x0000000000000007  x[18] = 0x0000000000000000  x[19] = 0x00000100000001b3  
+x[20] = 0x0000007000020000  x[21] = 0x86062c4c2008322c  x[22] = 0x0000000000000000  x[23] = 0x0000000000000001  
+x[24] = 0x0000000100f8c000  x[25] = 0x0000000100d8b7e0  x[26] = 0x0000000000000001  x[27] = 0x0000000000000000  
+x[28] = 0x0000000100f8c000     fp = 0x000000016f094ce0     lr = 0x0000000100d7d168     sp = 0x000000016f094ce0  
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: BUS (<workspace>/scratch/experiment006-tag-guard/fault/build/sanitize:arm64+0x1000152dc) in zbtInlineTagSearch+0x68
+==57050==ABORTING

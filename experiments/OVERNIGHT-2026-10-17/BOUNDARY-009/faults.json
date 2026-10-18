@@ -1,0 +1,88 @@
+[
+  {
+    "fault": "wrong-mask",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/batch_score_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-009/wrong-mask",
+    "returncode": 0,
+    "stdout": "wrong-mask-build.stdout",
+    "stderr": "wrong-mask-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "24e70fc9eb3996d092a19f8c9ee3664f7d8f8130b6210fb415fc273cc4da958e"
+  },
+  {
+    "fault": "wrong-mask",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-009/wrong-mask",
+    "returncode": -6,
+    "stdout": "wrong-mask-run.stdout",
+    "stderr": "wrong-mask-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "4672cf89b274bf2136abb6ad734f9ef193ef89d320a769fd0ba1e8d1d2c40936",
+    "source_sha256": "24e70fc9eb3996d092a19f8c9ee3664f7d8f8130b6210fb415fc273cc4da958e"
+  },
+  {
+    "fault": "wrong-score-slot",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/batch_score_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-009/wrong-score-slot",
+    "returncode": 0,
+    "stdout": "wrong-score-slot-build.stdout",
+    "stderr": "wrong-score-slot-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "cfa3425e58d974314b2c99b49d061ddb71fb193942f90e4831176341c6540bf4"
+  },
+  {
+    "fault": "wrong-score-slot",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-009/wrong-score-slot",
+    "returncode": -6,
+    "stdout": "wrong-score-slot-run.stdout",
+    "stderr": "wrong-score-slot-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "03a762a94c4a0cfafbd3b15b6f47dcb738eab85aae122d68b879e969be719e75",
+    "source_sha256": "cfa3425e58d974314b2c99b49d061ddb71fb193942f90e4831176341c6540bf4"
+  }
+]

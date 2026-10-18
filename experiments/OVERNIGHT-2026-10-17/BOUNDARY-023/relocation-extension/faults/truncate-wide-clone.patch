@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2871,7 +2871,7 @@
+ {
+     *copy = *source;
+     if (source->buckets) {
+-        size_t bytes = zbtIndexTableBytes(source);
++        size_t bytes = source->size * sizeof(zbtIndexBucket16); /* deliberate truncated wide clone */
+         copy->buckets = zbtAlloc(dst, bytes);
+         memcpy(copy->buckets, source->buckets, bytes);
+     }

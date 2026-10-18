@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3183,6 +3183,7 @@
+ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
++    volatile unsigned char overread = ele[elelen]; UNUSED(overread);
+     uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
+     return zbtIndexFind(zs, hash, ele, elelen, score,
+                         NULL, NULL, NULL, NULL);

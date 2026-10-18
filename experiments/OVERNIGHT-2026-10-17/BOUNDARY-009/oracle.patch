@@ -1,0 +1,113 @@
+--- /dev/null
++++ b/tests/batch_score_oracle.c
+@@ -0,0 +1,110 @@
++/* Public batch lookup semantics; private fields are observed, never changed. */
++#include "../src/zset_btree.c"
++#include <float.h>
++#include <inttypes.h>
++#define N 7169
++#define EXTRA 32
++static sds keys[N+EXTRA];
++static double values[N+EXTRA];
++static unsigned char live[N+EXTRA];
++static unsigned seed,stage;
++static unsigned long batches,slots,checks,active_batches;
++#define CHECK(x) do{if(!(x)){fprintf(stderr,"seed=%u stage=%u line=%d: %s\n",seed,stage,__LINE__,#x);abort();}}while(0)
++static uint64_t bits(double x){uint64_t u;memcpy(&u,&x,8);return u;}
++static void batch(zbtreeSet *tree,const unsigned *ids,unsigned count){
++    sds members[16];double scores[20];
++    const double guard=-1234567.25;
++    for(unsigned i=0;i<20;i++)scores[i]=guard;
++    unsigned expected=0;
++    for(unsigned i=0;i<count;i++){CHECK(ids[i]<N+EXTRA);members[i]=keys[ids[i]];if(live[ids[i]])expected|=1U<<i;}
++    if(tree->member_rehash)active_batches++;
++    unsigned found=zbtreeScores(tree,members,count,scores+2);
++    CHECK(found==expected);
++    for(unsigned i=0;i<20;i++){
++        if(i<2 || i>=count+2)CHECK(bits(scores[i])==bits(guard));
++        else if(found&(1U<<(i-2)))CHECK(bits(scores[i])==bits(values[ids[i-2]]));
++    }
++    batches++;slots+=count;
++}
++static void masks(zbtreeSet *tree){
++    unsigned ids[16];
++    CHECK(zbtreeScores(tree,NULL,0,NULL)==0);
++    /* First16 entries cover every key/score representation, including empty. */
++    for(unsigned count=0;count<=16;count++)for(unsigned mask=0;mask<(1U<<count);mask++){
++        for(unsigned i=0;i<count;i++)ids[i]=(mask&(1U<<i))?i:N+i;
++        batch(tree,ids,count);
++    }
++    for(unsigned id=0;id<32;id++)for(unsigned count=0;count<=16;count++){
++        for(unsigned i=0;i<count;i++)ids[i]=id;
++        batch(tree,ids,count);
++    }
++}
++static int cmp(const void *ap,const void *bp){
++    unsigned a=*(const unsigned*)ap,b=*(const unsigned*)bp;
++    if(values[a]<values[b])return -1;if(values[a]>values[b])return 1;
++    size_t na=sdslen(keys[a]),nb=sdslen(keys[b]);int c=memcmp(keys[a],keys[b],na<nb?na:nb);
++    return c?c:(na>nb)-(na<nb);
++}
++static void verify(zbtreeSet *tree){
++    unsigned sorted[N+EXTRA],n=0;
++    for(unsigned i=0;i<N+EXTRA;i++){
++        double score=0;CHECK(zbtreeScore(tree,keys[i],&score)==live[i]);
++        if(live[i]){CHECK(bits(score)==bits(values[i]));sorted[n++]=i;}
++        CHECK(zbtreeScoreRaw(tree,(unsigned char*)keys[i],sdslen(keys[i]),NULL)==live[i]);
++        CHECK(zbtreeScoreRaw(tree,(unsigned char*)keys[i],sdslen(keys[i]),&score)==live[i]);
++        if(live[i])CHECK(bits(score)==bits(values[i]));
++    }
++    CHECK(zbtreeLength(tree)==n);qsort(sorted,n,sizeof(*sorted),cmp);
++    for(int reverse=0;reverse<2;reverse++){
++        zbtreeIterator it;CHECK(zbtreeIteratorStart(tree,reverse,&it)==(n!=0));
++        for(unsigned j=0;j<n;j++){
++            unsigned id=sorted[reverse?n-j-1:j];const unsigned char *ele;size_t len;double score;
++            CHECK(zbtreeIteratorNext(&it,reverse,&ele,&len,&score));
++            CHECK(len==sdslen(keys[id]) && !memcmp(ele,keys[id],len));CHECK(bits(score)==bits(values[id]));
++        }
++        CHECK(!zbtreeIteratorNext(&it,reverse,NULL,NULL,NULL));
++    }
++    checks++;
++}
++static void exercise(void){
++    uint8_t hs[16]={0};hs[0]=seed;dictSetHashFunctionSeed(hs);
++    const size_t lens[]={4,7,8,16,319,320,321,1024};
++    double specials[]={-0.0,0.0,-DBL_MAX,DBL_MAX,-DBL_MIN,DBL_MIN,-DBL_TRUE_MIN,DBL_TRUE_MIN,
++        nextafter(1.0,0.0),1.0,nextafter(1.0,2.0),-1.0,0.5,-0.5,42.0,-42.0};
++    memset(live,0,sizeof(live));
++    for(unsigned i=0;i<N+EXTRA;i++){
++        unsigned char buf[1024];size_t len=i?lens[i%8]:0;memset(buf,i%2?0xff:0,sizeof(buf));
++        for(unsigned j=0;j<4;j++)buf[j]=(i>>(8*j))&255;
++        keys[i]=sdsnewlen(buf,len);values[i]=specials[i%16];
++    }
++    zbtreeSet *tree=zbtreeCreate();stage=0;
++    unsigned ids[16];for(unsigned i=0;i<16;i++)ids[i]=i;
++    for(unsigned count=0;count<=16;count++)batch(tree,ids,count);verify(tree);
++    stage=1;
++    for(unsigned i=0;i<N;i++){
++        sds tmp=sdsnewlen(keys[i],sdslen(keys[i]));zbtreeInsertPosition pos;double old;
++        CHECK(!zbtreeFindForAdd(tree,tmp,&old,&pos));zbtreeInsertNew(tree,values[i],tmp,&pos);live[i]=1;
++        memset(tmp,0xa5,sdslen(tmp));sdsfree(tmp);
++    }
++    CHECK(tree->member_rehash!=NULL);
++    unsigned loops=0;
++    while(tree->member_rehash){
++        for(unsigned i=0;i<16;i++)ids[i]=(i%3==0)?N+i:(loops*127+i*421)%N;
++        batch(tree,ids,16);CHECK(++loops<100000);
++    }
++    CHECK(loops>0);verify(tree);stage=2;masks(tree);verify(tree);
++    stage=3;
++    CHECK(zbtreeDelete(tree,keys[3]));live[3]=0;
++    for(unsigned i=0;i<16;i++)if(live[i]){
++        zbtreeInsertPosition pos;double old;CHECK(zbtreeFindForAdd(tree,keys[i],&old,&pos));
++        values[i]=specials[(i+7)%16];zbtreeUpdateScore(tree,keys[i],values[i],&pos);
++    }
++    masks(tree);verify(tree);
++    stage=4;zbtreeSet *copy=zbtreeDup(tree);zbtreeFree(tree);tree=copy;
++    for(unsigned i=0;i<16;i++)ids[i]=i;for(unsigned count=0;count<=16;count++)batch(tree,ids,count);verify(tree);
++    stage=5;CHECK(zbtreeDeleteRangeByRank(tree,0,ULONG_MAX)==N-1);memset(live,0,sizeof(live));
++    for(unsigned count=0;count<=16;count++)batch(tree,ids,count);verify(tree);zbtreeFree(tree);
++    for(unsigned i=0;i<N+EXTRA;i++)sdsfree(keys[i]);
++    printf("seed=%u PASS batches=%lu slots=%lu checks=%lu active_batches=%lu\n",seed,batches,slots,checks,active_batches);fflush(stdout);
++}
++int main(void){seed=17;exercise();seed=101;exercise();CHECK(active_batches>0);printf("PASS seeds=2 batches=%lu slots=%lu checks=%lu active_batches=%lu\n",batches,slots,checks,active_batches);}

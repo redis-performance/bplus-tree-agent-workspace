@@ -1,0 +1,55 @@
+[
+  {
+    "name": "omit-external-detach",
+    "snapshot": "scratch/overnight-boundary-024-external-faults/omit-external-detach",
+    "source_sha256": "f90b37fa44f701dba17351bebf84effe45631084be61149ba432245a8d354588",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_external_score_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-024-external-faults/omit-external-detach",
+        "started_utc": "2026-10-18T04:50:03.583658+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:50:05.055203+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "71503"
+        ],
+        "cwd": "scratch/overnight-boundary-024-external-faults/omit-external-detach",
+        "started_utc": "2026-10-18T04:50:05.055830+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:50:07.231721+00:00",
+        "stdout_sha256": "8c87e10edbda4940aa27c6cd5fc57ddd5c1349b00cc3d31d82cbc42a7e1e3af0",
+        "stderr_sha256": "a19aed0d86d013710a79f534e85bc27d836752aacd6c04fe401489ecc8563ebd"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "3bf60efde587b82914d254209f5df50090cae2470fb17aed15d5274281a7b3fa"
+  }
+]

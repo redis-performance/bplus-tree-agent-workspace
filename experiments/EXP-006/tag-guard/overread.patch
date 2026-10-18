@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1273,7 +1273,7 @@
+ static inline uint8_t *zbtInlineTagSearch(uint8_t *p, uint8_t tag, size_t n) {
+ #if defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+     const uint64_t repeated = (uint64_t)tag * UINT64_C(0x0101010101010101);
+-    while (n >= 16) {
++    while (n > 0) {
+       {
+         uint64_t word;
+         memcpy(&word, p, sizeof(word));

@@ -1,0 +1,90 @@
+[
+  {
+    "fault": "read-past-end",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/raw_guard_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-010/read-past-end",
+    "returncode": 0,
+    "stdout": "read-past-end-build.stdout",
+    "stderr": "read-past-end-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "3ca1a88d39764af6a82e25620a762764c9872eb462c53c2ec9e04ff25d4934e0"
+  },
+  {
+    "fault": "read-past-end",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-010/read-past-end",
+    "returncode": -10,
+    "stdout": "read-past-end-run.stdout",
+    "stderr": "read-past-end-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "3ca1a88d39764af6a82e25620a762764c9872eb462c53c2ec9e04ff25d4934e0"
+  },
+  {
+    "fault": "truncated-hash",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-DREDIS_DEBUG",
+      "tests/raw_guard_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-010/truncated-hash",
+    "returncode": 0,
+    "stdout": "truncated-hash-build.stdout",
+    "stderr": "truncated-hash-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "d1c27fa20c9b26ce23871b07d439e852486d119b3abe8fd18ff8fa656ae1018d"
+  },
+  {
+    "fault": "truncated-hash",
+    "step": "run",
+    "command": [
+      "./fault-test"
+    ],
+    "cwd": "scratch/overnight-boundary-010/truncated-hash",
+    "returncode": -6,
+    "stdout": "truncated-hash-run.stdout",
+    "stderr": "truncated-hash-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "914b7feecc230f37df91af1660f3a3da5234cfe24c5e35cbe3992b4a1cc378b4",
+    "source_sha256": "d1c27fa20c9b26ce23871b07d439e852486d119b3abe8fd18ff8fa656ae1018d"
+  }
+]

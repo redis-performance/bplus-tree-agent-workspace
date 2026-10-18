@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3488,7 +3488,7 @@
+         b->eles[i].owner_record = NULL;
+     } else {
+         memcpy(b->scratch + b->scratch_used, ele, elelen);
+-        zbtBuildElementFromBytes(&b->eles[i], b->scratch + b->scratch_used,
++        zbtBuildElementFromBytes(&b->eles[i], ele,
+                                  elelen, hash);
+         b->scratch_used += elelen;
+     }

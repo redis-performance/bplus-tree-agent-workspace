@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4215,7 +4215,7 @@
+         size_t len;
+         const unsigned char *ele =
+             zbtScoreLeafElement(leaf, positions[i], &len);
+-        fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
++        if (len != 320) fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
+         emitted++;
+     }
+     serverAssert(home_end || emitted != 0);

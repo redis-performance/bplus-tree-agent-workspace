@@ -1,0 +1,112 @@
+--- a/bench/iterator_modes.c
++++ b/bench/iterator_modes.c
+@@ -27,6 +27,69 @@
+             if (mask&1) sum += ele[0];
+             if (mask&2) sum += len;
+             if (mask&4) sum += score_bits(score);
++            visited++;
++        }
++        serverAssert(visited == n);
++    }
++    return sum;
++}
++static uint64_t traverse_fixed4(zbtreeSet *tree, size_t n, size_t passes, int reverse, unsigned mask) {
++    UNUSED(mask);
++    uint64_t sum = 0;
++    for (size_t pass=0; pass<passes; pass++) {
++        zbtreeIterator it;
++        serverAssert(zbtreeIteratorStart(tree, reverse, &it));
++        const unsigned char *ele = NULL;
++        size_t len = 0, visited = 0;
++        double score = 0;
++        while (zbtreeIteratorNext(&it, reverse, 4&1 ? &ele : NULL,
++                                 4&2 ? &len : NULL, 4&4 ? &score : NULL)) {
++            sum += 1;
++            if (4&1) sum += ele[0];
++            if (4&2) sum += len;
++            if (4&4) sum += score_bits(score);
++            visited++;
++        }
++        serverAssert(visited == n);
++    }
++    return sum;
++}
++static uint64_t traverse_fixed6(zbtreeSet *tree, size_t n, size_t passes, int reverse, unsigned mask) {
++    UNUSED(mask);
++    uint64_t sum = 0;
++    for (size_t pass=0; pass<passes; pass++) {
++        zbtreeIterator it;
++        serverAssert(zbtreeIteratorStart(tree, reverse, &it));
++        const unsigned char *ele = NULL;
++        size_t len = 0, visited = 0;
++        double score = 0;
++        while (zbtreeIteratorNext(&it, reverse, 6&1 ? &ele : NULL,
++                                 6&2 ? &len : NULL, 6&4 ? &score : NULL)) {
++            sum += 1;
++            if (6&1) sum += ele[0];
++            if (6&2) sum += len;
++            if (6&4) sum += score_bits(score);
++            visited++;
++        }
++        serverAssert(visited == n);
++    }
++    return sum;
++}
++static uint64_t traverse_fixed7(zbtreeSet *tree, size_t n, size_t passes, int reverse, unsigned mask) {
++    UNUSED(mask);
++    uint64_t sum = 0;
++    for (size_t pass=0; pass<passes; pass++) {
++        zbtreeIterator it;
++        serverAssert(zbtreeIteratorStart(tree, reverse, &it));
++        const unsigned char *ele = NULL;
++        size_t len = 0, visited = 0;
++        double score = 0;
++        while (zbtreeIteratorNext(&it, reverse, 7&1 ? &ele : NULL,
++                                 7&2 ? &len : NULL, 7&4 ? &score : NULL)) {
++            sum += 1;
++            if (7&1) sum += ele[0];
++            if (7&2) sum += len;
++            if (7&4) sum += score_bits(score);
+             visited++;
+         }
+         serverAssert(visited == n);
+@@ -67,7 +130,7 @@
+ }
+ int main(int argc,char **argv) {
+     size_t n=100000,ops=20000000,bytes=16,passes=3; uint64_t seed=7103;
+-    unsigned mask=4;int reverse=0;const char *encoding="integer";
++    unsigned mask=4;int reverse=0;const char *encoding="integer",*caller="dynamic";
+     for(int i=1;i<argc;i+=2) {
+         if(i+1==argc)return 2;
+         const char *a=argv[i],*v=argv[i+1];
+@@ -79,9 +142,17 @@
+         else if(!strcmp(a,"--direction")){if(!strcmp(v,"forward"))reverse=0;else if(!strcmp(v,"reverse"))reverse=1;else return 2;}
+         else if(!strcmp(a,"--mask")){if(strlen(v)!=1 || *v<'0' || *v>'7')return 2;mask=*v-'0';}
+         else if(!strcmp(a,"--encoding"))encoding=v;
++        else if(!strcmp(a,"--caller"))caller=v;
+         else return 2;
+     }
+     if(bytes<8 || bytes>65536 || (strcmp(encoding,"integer") && strcmp(encoding,"fraction") && strcmp(encoding,"wide") && strcmp(encoding,"zero")))return 2;
++    uint64_t (*run_traversal)(zbtreeSet*,size_t,size_t,int,unsigned)=traverse;
++    if(!strcmp(caller,"fixed")) {
++        if(mask==4)run_traversal=traverse_fixed4;
++        else if(mask==6)run_traversal=traverse_fixed6;
++        else if(mask==7)run_traversal=traverse_fixed7;
++        else return 2;
++    } else if(strcmp(caller,"dynamic")) return 2;
+     uint64_t rng=seed;uint8_t hashseed[16];for(size_t i=0;i<16;i++)hashseed[i]=(uint8_t)random64(&rng);dictSetHashFunctionSeed(hashseed);
+     sds *keys=zmalloc(n*sizeof(*keys));size_t *order=zmalloc(n*sizeof(*order));char *buf=zmalloc(bytes);
+     uint64_t expected=0,fingerprint=UINT64_C(14695981039346656037);
+@@ -95,10 +166,10 @@
+     zbtreeSet *tree=zbtreeCreate();
+     for(size_t i=0;i<n;i++){size_t k=order[i];insert(tree,keys[k],model_score(k,n,encoding));fingerprint=(fingerprint^k)*UINT64_C(1099511628211);}
+     verify(tree,keys,n,reverse,mask,encoding);
+-    uint64_t warmstart=now_ns();serverAssert(traverse(tree,n,passes,reverse,mask)==expected*passes);uint64_t warm=now_ns()-warmstart;
++    uint64_t warmstart=now_ns();serverAssert(run_traversal(tree,n,passes,reverse,mask)==expected*passes);uint64_t warm=now_ns()-warmstart;
+     size_t traversals=1+(ops-1)/n,count=traversals*n,owned=zbtreeAllocSize(tree);
+     int p0,p1;const char *q0=qos_reported(&p0);int cpu0=cpu_id();int64_t t0=thread_ns();uint64_t w0=now_ns();
+-    uint64_t checksum=traverse(tree,n,traversals,reverse,mask);
++    uint64_t checksum=run_traversal(tree,n,traversals,reverse,mask);
+     uint64_t elapsed=now_ns()-w0;int64_t t1=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&p1);
+     serverAssert(checksum==expected*traversals && zbtreeLength(tree)==n && zbtreeAllocSize(tree)==owned);
+     verify(tree,keys,n,reverse,mask,encoding);sink^=checksum;

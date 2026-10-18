@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -506,7 +506,7 @@
+         unsigned int shift = bitpos & 7;
+         memcpy(&delta, leaf->data + byte, sizeof(delta));
+         delta = intrev64ifbe(delta) >> shift;
+-        if (shift && bits > 64 - shift)
++        if (shift > 64 - bits)
+             delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+         if (bits < 64)
+             delta &= (UINT64_C(1) << bits) - 1;

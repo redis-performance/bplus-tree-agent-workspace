@@ -1,0 +1,106 @@
+[
+  {
+    "name": "missing-displaced-scan-tail",
+    "snapshot": "scratch/overnight-boundary-022-faults/missing-displaced-scan-tail",
+    "source_sha256": "ead756bacdb7b016cd437381d578b943ecc9e803f90e3a9b99dfa3b2d01b818b",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/scan_interval_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-faults/missing-displaced-scan-tail",
+        "started_utc": "2026-10-18T04:00:50.864914+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:00:52.080600+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-faults/missing-displaced-scan-tail",
+        "started_utc": "2026-10-18T04:00:52.081182+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:00:53.122217+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "4e38b9e799dd0c72f8e4e6a07bcf3185e589cd9f43b3f648a38271760a3cc0f0"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "be58c5758e933fb77672b8cf0c10d949f05e20210cb52a0b9045831c4f21d70c"
+  },
+  {
+    "name": "collapse-colliding-members",
+    "snapshot": "scratch/overnight-boundary-022-faults/collapse-colliding-members",
+    "source_sha256": "112333243fa62f31fae5084ac91c61bb22b67e733231b670a0b0ffc67851a88d",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/scan_interval_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-faults/collapse-colliding-members",
+        "started_utc": "2026-10-18T04:00:53.137639+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:00:54.368492+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-022-faults/collapse-colliding-members",
+        "started_utc": "2026-10-18T04:00:54.369046+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:00:55.419515+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "4e38b9e799dd0c72f8e4e6a07bcf3185e589cd9f43b3f648a38271760a3cc0f0"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "49907c942805a0cedc83965f9ea377278ec8b17b528e9dbe1a22ec3aacdbb823"
+  }
+]

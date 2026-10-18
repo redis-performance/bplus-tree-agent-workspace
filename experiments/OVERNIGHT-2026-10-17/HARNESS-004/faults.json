@@ -1,0 +1,113 @@
+[
+  {
+    "name": "length",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "bench/iterator_modes.c",
+      "scratch/overnight-harness-004/faults/length.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "scratch/overnight-harness-004/faults/length"
+    ],
+    "run_command": [
+      "scratch/overnight-harness-004/faults/length",
+      "--size",
+      "129",
+      "--ops",
+      "259",
+      "--mask",
+      "2",
+      "--direction",
+      "forward",
+      "--encoding",
+      "fraction"
+    ],
+    "returncode": -6,
+    "source_sha256": "a1a939696351144fb6d81329a3f78bc2a60b96941137ac0665ebc083cb934b77",
+    "detected": true,
+    "stderr": "bench/iterator_modes.c:49: len == sdslen(keys[i])\n"
+  },
+  {
+    "name": "score",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "bench/iterator_modes.c",
+      "scratch/overnight-harness-004/faults/score.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "scratch/overnight-harness-004/faults/score"
+    ],
+    "run_command": [
+      "scratch/overnight-harness-004/faults/score",
+      "--size",
+      "129",
+      "--ops",
+      "259",
+      "--mask",
+      "4",
+      "--direction",
+      "forward",
+      "--encoding",
+      "fraction"
+    ],
+    "returncode": -6,
+    "source_sha256": "b2bdd7f002fda70f302368e479a086819b8106238767a26aca4e84a956bede59",
+    "detected": true,
+    "stderr": "bench/iterator_modes.c:51: score_bits(score) == score_bits(model_score(i,n,encoding))\n"
+  },
+  {
+    "name": "state",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "bench/iterator_modes.c",
+      "scratch/overnight-harness-004/faults/state.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "scratch/overnight-harness-004/faults/state"
+    ],
+    "run_command": [
+      "scratch/overnight-harness-004/faults/state",
+      "--size",
+      "129",
+      "--ops",
+      "259",
+      "--mask",
+      "0",
+      "--direction",
+      "reverse",
+      "--encoding",
+      "fraction"
+    ],
+    "returncode": -6,
+    "source_sha256": "5c90acaacdee3550746e10533064582b02ee72d013074df627323040af08b57b",
+    "detected": true,
+    "stderr": "bench/iterator_modes.c:58: nextlen==sdslen(keys[nexti]) && !memcmp(next,keys[nexti],nextlen)\n"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "ask": {
+    "question": "New monotonic/alternating signed-zero fixture validation and A/A qualification",
+    "result": "Retrieved passages were not specific support; not cited."
+  },
+  "benchmarks_consulted": [
+    {
+      "slug": "05-measurement-pitfalls",
+      "parts": [
+        "method",
+        "code"
+      ],
+      "url": "https://github.com/usamahz/cpu-performance-engineering/blob/main/misc/benchmarks/05-measurement-pitfalls/README.md",
+      "used": "Consume output and preserve repeated fixed schedules/warmups. No M4 measurements transferred."
+    },
+    {
+      "slug": "14-pcore-vs-ecore",
+      "parts": [
+        "method",
+        "code"
+      ],
+      "url": "https://github.com/usamahz/cpu-performance-engineering/blob/main/misc/benchmarks/14-pcore-vs-ecore/README.md",
+      "used": "Boundary CPU IDs and thread CPU time; method says nothing pinned. These do not establish M1 frequency or within-window placement."
+    }
+  ],
+  "evidence_checks": [
+    {
+      "phase": "AA-010",
+      "verdict": "drop_number",
+      "limitations": "Frequency/core-type residency unknown; heuristic also missed stated fields. No performance headline."
+    },
+    {
+      "phase": "EXP-004 ordered guards",
+      "verdict": "drop_number",
+      "limitations": "Frequency/core-type residency unknown; raw effects remain scoped local evidence, no portable speed claim."
+    }
+  ],
+  "reviewer": {
+    "status": "failed before execution",
+    "reason": "invalid thread-store request; no rollout found",
+    "review": "sequential only"
+  },
+  "backend": "unknown",
+  "model": "unknown",
+  "cost": "unknown",
+  "raw_method_archive": {
+    "path": "scratch/round010-method/initial-method-responses.json",
+    "sha256": "3512b19ab0e69c87b4709debce8337a06b20b29899e127411d10140946ff1951"
+  },
+  "raw_checker_archive": {
+    "path": "scratch/round010-method/evidence-checks.json",
+    "sha256": "e5081f30d1595dbeeb9bd7f1b8e78367b1aab1d6ddd5fa1e0b63a97773ea157f"
+  }
+}

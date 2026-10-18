@@ -1,0 +1,36 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4018,7 +4018,7 @@
+ 
+ /* Return the current member and score, then advance to the next logical
+  * position. The output pointers are optional. Return zero at the end. */
+-int zbtreeIteratorNext(zbtreeIterator *iter, int reverse,
++static __attribute__((noinline)) int zbtIteratorGeneric(zbtreeIterator *iter, int reverse,
+                        const unsigned char **ele, size_t *len, double *score)
+ {
+     zbtScoreLeaf *leaf = iter->leaf;
+@@ -4052,6 +4052,24 @@
+         }
+     }
+     return 1;
++}
++
++static __attribute__((noinline)) int zbtIteratorForwardScore(zbtreeIterator *iter, double *score)
++{
++    zbtScoreLeaf *leaf = iter->leaf;
++    if (leaf == NULL) return 0;
++    unsigned int pos = iter->pos;
++    *score = zbtScoreLeafScore(leaf, pos);
++    if (pos + 1 < leaf->n.count) iter->pos = pos + 1;
++    else { iter->leaf = leaf->next; iter->pos = 0; }
++    return 1;
++}
++
++int zbtreeIteratorNext(zbtreeIterator *iter, int reverse,
++                       const unsigned char **ele, size_t *len, double *score)
++{
++    if (!reverse && ele == NULL && len == NULL && score != NULL) return zbtIteratorForwardScore(iter, score);
++    return zbtIteratorGeneric(iter, reverse, ele, len, score);
+ }
+ 
+ /* Return the rank where a score bound would be inserted. Complete children

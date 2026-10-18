@@ -1,0 +1,42 @@
+[
+  {
+    "name": "length",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "bench/iterator_modes.c",
+      "../faults/length.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "../faults/length"
+    ],
+    "run_command": [
+      "../faults/length",
+      "--size",
+      "513",
+      "--ops",
+      "1027",
+      "--mask",
+      "2",
+      "--direction",
+      "forward",
+      "--encoding",
+      "alternating-zero",
+      "--construction",
+      "descending"
+    ],
+    "returncode": -6,
+    "source_sha256": "a1a939696351144fb6d81329a3f78bc2a60b96941137ac0665ebc083cb934b77",
+    "binary_sha256": "49b8a11275c29a65e65fa51eea2981028e441a40352fb1a627a66c6ba0ac5190",
+    "detected": true,
+    "stderr": "bench/iterator_modes.c:52: len == sdslen(keys[i])\n"
+  }
+]

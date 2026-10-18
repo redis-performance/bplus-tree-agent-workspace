@@ -1,0 +1,38 @@
+{
+  "scope": "One public requested-QoS capability attempt in short-lived child; no benchmark/time/placement inference and no retries",
+  "source_sha256": "5a61a99a6d2c1c2b416ad42dd6a38de2df9ebace7a753143c525f61ec758dc1d",
+  "runs": [
+    {
+      "name": "build",
+      "command": [
+        "cc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "experiments/OVERNIGHT-2026-10-17/ROUND-005-QOS-PROBE.c",
+        "-o",
+        "scratch/overnight-round005-qos-probe/probe"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "run",
+      "command": [
+        "scratch/overnight-round005-qos-probe/probe"
+      ],
+      "returncode": 0,
+      "stdout": "get_before=0 requested_before=33 rel_before=0 set_user_initiated=0 get_after=0 requested_after=25 rel_after=0\neffective_qos=unknown core_type=unknown residency=unknown frequency=unknown\n",
+      "stderr": ""
+    }
+  ],
+  "binary_sha256": "86277419a51a37941e7dab7739a84df4b924184799c759bf12a34c9bdd7abbd7",
+  "sdk_qos_h_sha256": "3f1e1e9a2b707f22407df44ee8a8b270348d3b4b53313ec52d06a6198716e273",
+  "sdk_constants": {
+    "QOS_CLASS_USER_INTERACTIVE": 33,
+    "QOS_CLASS_USER_INITIATED": 25
+  },
+  "interpretation": "Inherited requested class is user-interactive; one request for user-initiated succeeds and getter reflects it. AA-004 also reports user-interactive. Effective QoS/placement/frequency remain unknown; this is a capability probe, no measurement decision."
+}

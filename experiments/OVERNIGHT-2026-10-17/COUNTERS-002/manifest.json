@@ -1,0 +1,277 @@
+{
+  "binary_sha256": "0f6502ff06a183fbcf83ca3d3f5933e5ca4797cb8f6e4abe281b7d9014093585",
+  "plan_sha256": "85d68ab1a0c2a2d55c4e1e26223a39da5f801368591a5513833bda4c72bab27d",
+  "freeze_sha256": "1f49b1406789f277fb96250818746971c198d3eb12cc1ae49eb07ef5b6066401",
+  "runs": [
+    {
+      "cell": "AS",
+      "command": [
+        "scratch/overnight-counters-002/base/build/btree-bench",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "320",
+        "--seed",
+        "211",
+        "--warmup-passes",
+        "10",
+        "--fixture-order",
+        "ascending",
+        "--query-order",
+        "coupled"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-002/AS.profraw",
+      "runs": [
+        {
+          "command": [
+            "xcrun",
+            "llvm-profdata",
+            "merge",
+            "-sparse",
+            "<workspace>/scratch/overnight-counters-002/AS.profraw",
+            "-o",
+            "<workspace>/scratch/overnight-counters-002/AS.profdata"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "xcrun",
+            "llvm-cov",
+            "export",
+            "<workspace>/scratch/overnight-counters-002/base/build/btree-bench",
+            "-instr-profile=<workspace>/scratch/overnight-counters-002/AS.profdata"
+          ],
+          "returncode": 0
+        }
+      ],
+      "assertions": {
+        "lookup_count": true,
+        "no_insert": true,
+        "no_delete": true
+      },
+      "raw_sha256": "4a8f27c72cd7f17ce9f976a4df0c3259bcbdd23146a2557fbbd53997e260a241",
+      "data_sha256": "1915cac5bf31d637440d938e9f00564e8847daf7124ebc2fdadb5eddb4cf6a66",
+      "export_sha256": "8966c1c45bd25d5128ef1668366d61a2d29dd58f7433400481037791f4fb7450",
+      "tree_counts_sha256": "302f989d2a3d06645e89d6748c943c9d8a14dda66f305ee318516a75b34cce4c",
+      "outputs": {
+        "bench.stderr": "7f950718db5c3ae5ddb6375df3ce4e1e9f7e61958028fff770107835d8b1017c",
+        "tool1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tree-counts.json": "c66041f8149f4bfe085f9469e46f9c9ed84a301c0fa46d4f1a2f25198e488d73",
+        "function-counts.json": "c88a179406905a3a8debb86b3e53219a123ace65956de06e22c8a964dfece353",
+        "merge.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bench.csv": "62261c081162fb01ef55026e637d8f1d006045a9158f4786712802be8f18adf1",
+        "tool0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "cell": "BS",
+      "command": [
+        "scratch/overnight-counters-002/base/build/btree-bench",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "320",
+        "--seed",
+        "211",
+        "--warmup-passes",
+        "10",
+        "--fixture-order",
+        "shuffled",
+        "--query-order",
+        "coupled"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-002/BS.profraw",
+      "runs": [
+        {
+          "command": [
+            "xcrun",
+            "llvm-profdata",
+            "merge",
+            "-sparse",
+            "<workspace>/scratch/overnight-counters-002/BS.profraw",
+            "-o",
+            "<workspace>/scratch/overnight-counters-002/BS.profdata"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "xcrun",
+            "llvm-cov",
+            "export",
+            "<workspace>/scratch/overnight-counters-002/base/build/btree-bench",
+            "-instr-profile=<workspace>/scratch/overnight-counters-002/BS.profdata"
+          ],
+          "returncode": 0
+        }
+      ],
+      "assertions": {
+        "lookup_count": true,
+        "no_insert": true,
+        "no_delete": true
+      },
+      "raw_sha256": "0d7599e93dadf56aec5e27d788177aa3ec589156a3e7df0718c094f8b54ae3ad",
+      "data_sha256": "006273641273f19bb28c031323b262a2483f67ce1c13b353d290fcab89f6c26a",
+      "export_sha256": "469638b61a0c048f6a53fd3acedc5e9242440cce35a92d7bf0779785b36ab6a1",
+      "tree_counts_sha256": "795281ea1cf9d00cf4f940431cbb79f3a356cc6be973da6da56b85c65c240c0f",
+      "outputs": {
+        "bench.stderr": "7f950718db5c3ae5ddb6375df3ce4e1e9f7e61958028fff770107835d8b1017c",
+        "tool1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tree-counts.json": "a2c443c05f3fb531d9eadb76245d917dbc28fe71cbf2efd9de5d0001934297eb",
+        "function-counts.json": "b043d876fdd2ad7d36b955cf45df20755169ccec10f9fdff86d3b6c2915261e0",
+        "merge.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bench.csv": "52a11bcdfab007193faa79bb9553153a57e2e0fd544db2773583bfd4b18b0ae2",
+        "tool0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "cell": "AI",
+      "command": [
+        "scratch/overnight-counters-002/base/build/btree-bench",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "320",
+        "--seed",
+        "211",
+        "--warmup-passes",
+        "10",
+        "--fixture-order",
+        "ascending",
+        "--query-order",
+        "independent"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-002/AI.profraw",
+      "runs": [
+        {
+          "command": [
+            "xcrun",
+            "llvm-profdata",
+            "merge",
+            "-sparse",
+            "<workspace>/scratch/overnight-counters-002/AI.profraw",
+            "-o",
+            "<workspace>/scratch/overnight-counters-002/AI.profdata"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "xcrun",
+            "llvm-cov",
+            "export",
+            "<workspace>/scratch/overnight-counters-002/base/build/btree-bench",
+            "-instr-profile=<workspace>/scratch/overnight-counters-002/AI.profdata"
+          ],
+          "returncode": 0
+        }
+      ],
+      "assertions": {
+        "lookup_count": true,
+        "no_insert": true,
+        "no_delete": true
+      },
+      "raw_sha256": "57131f3669e512717728935c344b218fc613bb35bf8aeddc04053bace0d08651",
+      "data_sha256": "1915cac5bf31d637440d938e9f00564e8847daf7124ebc2fdadb5eddb4cf6a66",
+      "export_sha256": "8966c1c45bd25d5128ef1668366d61a2d29dd58f7433400481037791f4fb7450",
+      "tree_counts_sha256": "302f989d2a3d06645e89d6748c943c9d8a14dda66f305ee318516a75b34cce4c",
+      "outputs": {
+        "bench.stderr": "7f950718db5c3ae5ddb6375df3ce4e1e9f7e61958028fff770107835d8b1017c",
+        "tool1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tree-counts.json": "c66041f8149f4bfe085f9469e46f9c9ed84a301c0fa46d4f1a2f25198e488d73",
+        "function-counts.json": "c88a179406905a3a8debb86b3e53219a123ace65956de06e22c8a964dfece353",
+        "merge.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bench.csv": "3dec4df8b5a4896d9e5a2a0f86921494714829f4fcedaf8e2f457624c869b2cf",
+        "tool0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "cell": "BI",
+      "command": [
+        "scratch/overnight-counters-002/base/build/btree-bench",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "320",
+        "--seed",
+        "211",
+        "--warmup-passes",
+        "10",
+        "--fixture-order",
+        "shuffled",
+        "--query-order",
+        "independent"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-002/BI.profraw",
+      "runs": [
+        {
+          "command": [
+            "xcrun",
+            "llvm-profdata",
+            "merge",
+            "-sparse",
+            "<workspace>/scratch/overnight-counters-002/BI.profraw",
+            "-o",
+            "<workspace>/scratch/overnight-counters-002/BI.profdata"
+          ],
+          "returncode": 0
+        },
+        {
+          "command": [
+            "xcrun",
+            "llvm-cov",
+            "export",
+            "<workspace>/scratch/overnight-counters-002/base/build/btree-bench",
+            "-instr-profile=<workspace>/scratch/overnight-counters-002/BI.profdata"
+          ],
+          "returncode": 0
+        }
+      ],
+      "assertions": {
+        "lookup_count": true,
+        "no_insert": true,
+        "no_delete": true
+      },
+      "raw_sha256": "5e48e7f2da7666dc351a5888493197aa3822b541e538227bbacdc1d829cac178",
+      "data_sha256": "006273641273f19bb28c031323b262a2483f67ce1c13b353d290fcab89f6c26a",
+      "export_sha256": "469638b61a0c048f6a53fd3acedc5e9242440cce35a92d7bf0779785b36ab6a1",
+      "tree_counts_sha256": "795281ea1cf9d00cf4f940431cbb79f3a356cc6be973da6da56b85c65c240c0f",
+      "outputs": {
+        "bench.stderr": "7f950718db5c3ae5ddb6375df3ce4e1e9f7e61958028fff770107835d8b1017c",
+        "tool1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tree-counts.json": "a2c443c05f3fb531d9eadb76245d917dbc28fe71cbf2efd9de5d0001934297eb",
+        "function-counts.json": "b043d876fdd2ad7d36b955cf45df20755169ccec10f9fdff86d3b6c2915261e0",
+        "merge.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bench.csv": "14abee020b3e7135079193ed8ea2b1e860134053ab208a118eb6803c127d0236",
+        "tool0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "binary_sha256_after": "0f6502ff06a183fbcf83ca3d3f5933e5ca4797cb8f6e4abe281b7d9014093585",
+  "status": "complete",
+  "paired_tree_counts_identical": {
+    "A": true,
+    "B": true
+  }
+}

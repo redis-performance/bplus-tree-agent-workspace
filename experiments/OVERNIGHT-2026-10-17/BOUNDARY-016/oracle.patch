@@ -1,0 +1,63 @@
+--- /dev/null
++++ b/tests/packed_move_oracle.c
+@@ -0,0 +1,60 @@
++/* Private packed bitstream mutation, independent out-of-place bit reference. */
++#include "../src/zset_btree.c"
++#include <inttypes.h>
++#define DATA_BYTES 824
++static uint64_t operations,insertions,deletions,zero_width,full_width,multichunk;
++static uint64_t digest=UINT64_C(14695981039346656037);
++static uint64_t rng_next(uint64_t *s) {
++    uint64_t z=(*s+=UINT64_C(0x9e3779b97f4a7c15));
++    z=(z^(z>>30))*UINT64_C(0xbf58476d1ce4e5b9);z=(z^(z>>27))*UINT64_C(0x94d049bb133111eb);return z^(z>>31);
++}
++static unsigned bit(const unsigned char *p,size_t pos) {return p[pos/8]>>(pos%8)&1;}
++static void put(unsigned char *p,size_t pos,unsigned value) {
++    unsigned char mask=(unsigned char)(1u<<(pos%8));p[pos/8]=(p[pos/8]&~mask)|(value?mask:0);
++}
++static void check(const zbtScoreLeaf *leaf,const unsigned char *want,unsigned n,unsigned width,unsigned pos,int deleting) {
++    for(size_t b=0;b<DATA_BYTES;b++) {
++        if(leaf->data[b]!=want[b]) {
++            fprintf(stderr,"packed-move count=%u width=%u pos=%u delete=%d byte=%zu actual=%u expected=%u\n",n,width,pos,deleting,b,leaf->data[b],want[b]);abort();
++        }
++        digest=(digest^leaf->data[b])*UINT64_C(1099511628211);
++    }
++    serverAssert(leaf->n.count==n && leaf->score_bits==width);operations++;
++}
++static void exercise(unsigned n,unsigned width,int deleting,uint64_t *rng) {
++    unsigned char original[DATA_BYTES],expected[DATA_BYTES];
++    for(size_t b=0;b<DATA_BYTES;b++)original[b]=(unsigned char)rng_next(rng);
++    zbtScoreLeaf *leaf=zmalloc(sizeof(*leaf)+DATA_BYTES);memset(leaf,0,sizeof(*leaf));
++    leaf->n.count=n;leaf->score_bits=width;
++    unsigned positions=deleting?n:n+1;
++    for(unsigned pos=0;pos<positions;pos++) {
++        memcpy(leaf->data,original,DATA_BYTES);memcpy(expected,original,DATA_BYTES);
++        size_t at=(size_t)pos*width,tail=(size_t)(n-pos-(deleting?1:0))*width;
++        if(deleting) {
++            for(size_t b=0;b<tail;b++)put(expected,at+b,bit(original,at+width+b));
++            for(unsigned b=0;b<width;b++)put(expected,(size_t)(n-1)*width+b,0);
++            zbtDeleteScoreBits(leaf,pos);deletions++;
++        } else {
++            uint64_t value=rng_next(rng);
++            for(size_t b=0;b<tail;b++)put(expected,at+width+b,bit(original,at+b));
++            for(unsigned b=0;b<width;b++)put(expected,at+b,(unsigned)(value>>b&1));
++            zbtInsertScoreBits(leaf,pos,value);insertions++;
++        }
++        zero_width+=width==0;full_width+=width==64;multichunk+=tail>64;
++        check(leaf,expected,n,width,pos,deleting);
++    }
++    zfree(leaf);
++}
++int main(void) {
++    const unsigned ins[]={0,1,2,3,7,8,9,31,32,33,63,64,65,94,95};
++    const unsigned del[]={1,2,3,7,8,9,31,32,33,63,64,65,94,95,96};
++    uint64_t seeds[]={44351,44357};uint64_t expected_ins=0,expected_del=0;
++    for(unsigned i=0;i<15;i++){expected_ins+=ins[i]+1;expected_del+=del[i];}
++    expected_ins*=2*65;expected_del*=2*65;
++    for(unsigned s=0;s<2;s++)for(unsigned w=0;w<=64;w++)for(unsigned i=0;i<15;i++) {
++        exercise(ins[i],w,0,&seeds[s]);exercise(del[i],w,1,&seeds[s]);
++    }
++    serverAssert(insertions==expected_ins && deletions==expected_del && operations==insertions+deletions);
++    serverAssert(zero_width && full_width && multichunk);
++    printf("PASS operations=%"PRIu64" insertions=%"PRIu64" deletions=%"PRIu64" zero_width=%"PRIu64" full_width=%"PRIu64" multichunk=%"PRIu64" digest=%016"PRIx64"\n",operations,insertions,deletions,zero_width,full_width,multichunk,digest);
++}

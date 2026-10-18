@@ -1,0 +1,44 @@
+{
+  "backend": "unknown",
+  "model": "unknown",
+  "token_cost": "unknown; supervisor records actual CLI usage separately",
+  "review": "Independent reviewer startup failed before execution; sequential only",
+  "method_files": {
+    "scratch/overnight-round012-method/round12_checker.json": "501deb3508c9c500b2eae69ee4e6a52d294c0ef4ae89ae425bbb4ef999aa93a0",
+    "scratch/overnight-round012-method/round12_method14.json": "7bdf9bc33e36326c377d28572a43626f8be06436f3ef3c3125dae9d6cfc3ee70",
+    "scratch/overnight-round012-method/round12_method05.json": "823f145203ae1a1957a88c0beb4ed829155ec588aa9b92cf20e9d39c6ae1587b",
+    "scratch/overnight-round012-method/round12_ask.json": "42c16c46ba56b25fd73012c4e9edf89794ddcb5d8e99b13d6eb57e01fb66b74b"
+  },
+  "consulted": [
+    "cpu_perf.ask",
+    "05-measurement-pitfalls method/code",
+    "14-pcore-vs-ecore method/code",
+    "cpu_perf.check_evidence"
+  ],
+  "benchmark_build_command": [
+    "cc",
+    "-Isrc",
+    "-Icompat",
+    "-Ivendor/redis",
+    "-std=c11",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-fno-omit-frame-pointer",
+    "-O3",
+    "bench/iterator_modes.c",
+    "src/zset_btree.c",
+    "compat/standalone.c",
+    "vendor/redis/siphash.c",
+    "-lm",
+    "-o",
+    "build/release/iterator-modes"
+  ],
+  "machine": "Apple M1 arm64 macOS26.3, one benchmark thread; no CPU type inferred from IDs",
+  "frequency": "unknown",
+  "effective_qos": "unknown",
+  "within_window_migration": "unknown",
+  "checker_verdict": "drop_number; no portable speed headline",
+  "checker_input_erratum": "Initial checker prompt unnecessarily listed -Werror; actual frozen timing command below has no -Werror. No binary was changed. Boundaries use -Werror but timing does not.",
+  "source_attribution": "MCP ask returned measurement-bias and allocator passages, not proof of local causality. No source performance number transferred. Methods 05/14 used only for consumed results, repeated runs, thread time and boundary IDs; no new platform API code adopted."
+}

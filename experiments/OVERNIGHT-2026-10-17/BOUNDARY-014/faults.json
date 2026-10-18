@@ -1,0 +1,80 @@
+[
+  {
+    "name": "last-zero-base",
+    "snapshot": "scratch/overnight-boundary-014-attempt002/last-zero-base",
+    "source_sha256": "c961e8d5ab67a8b25176af8912d5e0f6db46cd41cc8546794c48812461c35860",
+    "commands": [
+      {
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/zero_physical_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "a2f4f2c0ad775ac8bfdfdd0b3d967fc736b07aa550ef7bd41baf1ff2c7bd31e5"
+      }
+    ],
+    "detected": true
+  },
+  {
+    "name": "equal-zero-update",
+    "snapshot": "scratch/overnight-boundary-014-attempt002/equal-zero-update",
+    "source_sha256": "c9e7d5e0bfcd9fd83c4018775302f8498942b8852f0f5f1311d8e90627c54c54",
+    "commands": [
+      {
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/zero_physical_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "c4943a830b03c1b901347038be4e5624bd3911a9cd6c35b32211cb1194e4bae5"
+      }
+    ],
+    "detected": true
+  }
+]

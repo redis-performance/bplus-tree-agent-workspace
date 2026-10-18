@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4264,7 +4264,7 @@
+ 
+     unsigned long mask = table->size - 1;
+     unsigned long index = home_end - 1;
+-    unsigned long remaining = table->size - ZBT_SCAN_BUCKETS_PER_STEP;
++    unsigned long remaining = 0; /* deliberate missing displaced scan tail */
+     while (remaining-- &&
+            !zbtIndexTagMask(zbtIndexTags(zbtIndexBucketAt(table, index)), 0))
+     {

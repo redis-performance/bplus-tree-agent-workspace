@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -832,7 +832,7 @@
+ static void zbtScoreReleaseLeafId(zbtreeSet *zs, uint32_t id) {
+     serverAssert(id < zs->next_score_leaf_id);
+     zs->score_leaf_by_id[id] =
+-        ZBT_FREE_LEAF_ID(zs->free_score_leaf_id);
++        ZBT_FREE_LEAF_ID((uint16_t)zs->free_score_leaf_id);
+     zs->free_score_leaf_id = id + 1;
+ }
+ 

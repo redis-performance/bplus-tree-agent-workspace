@@ -1,0 +1,5 @@
+tests/heterogeneous_batch_oracle.c:85:92: error: call to undeclared library function 'nextafter' with type 'double (double, double)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   85 |  double special[16]={-0.0,0.0,-DBL_MAX,DBL_MAX,-DBL_MIN,DBL_MIN,-DBL_TRUE_MIN,DBL_TRUE_MIN,nextafter(1.0,0.0),1.0,nextafter(1.0,2.0),-1.0,0.5,-0.5,42.0,-42.0};
+      |                                                                                            ^
+tests/heterogeneous_batch_oracle.c:85:92: note: include the header <math.h> or explicitly provide a declaration for 'nextafter'
+1 error generated.

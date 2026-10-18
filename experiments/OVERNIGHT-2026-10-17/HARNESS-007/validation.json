@@ -1,0 +1,68 @@
+{
+  "status": "running",
+  "plan_sha256": "32e18e84b51dc262ffc3c4660812283a7ffeea8d48b70c67c634144ff85e180d",
+  "freeze_sha256": "469c9b434e7279739d57a602afc51a78199d8240f88e13f15bb2ad2b74240e05",
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "bench/batch_lookup.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/batch/release"
+      ],
+      "cwd": "scratch/overnight-harness-007/base",
+      "started_utc": "2026-10-18T05:16:24.089228+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:16:25.020394+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "release-0000",
+      "command": [
+        "build/batch/release",
+        "--size",
+        "1",
+        "--ops",
+        "1",
+        "--member-bytes",
+        "8",
+        "--batch-size",
+        "1",
+        "--layout",
+        "hit",
+        "--seed",
+        "80603",
+        "--query-seed",
+        "80611",
+        "--warmup-passes",
+        "2"
+      ],
+      "cwd": "scratch/overnight-harness-007/base",
+      "started_utc": "2026-10-18T05:16:25.022413+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:16:25.344826+00:00",
+      "stdout_sha256": "1a1e9c521ec9ebd8869828af6ab2a30a2d174eb80d3033fc76aa659586aeec82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binaries": {
+    "release": "edd3a4fb21c64a332723c0852d92723d0e2726ae8bde8f06c385fd56ff72278c"
+  }
+}

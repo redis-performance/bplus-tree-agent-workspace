@@ -1,0 +1,26 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -7,6 +7,7 @@
+ #include <string.h>
+ #include <time.h>
+ #include <errno.h>
++#include <profile/instr_prof_interface.h>
+ #if defined(__APPLE__)
+ #include <pthread.h>
+ #include <pthread/qos.h>
+@@ -167,6 +168,7 @@
+         const char *qos_start = qos_reported(&relpri_start);
+         int cpu_start = cpu_id();
+         int64_t thread_start = thread_ns();
++        __llvm_profile_reset_counters();
+         uint64_t start = now_ns();
+         if (c == 0) {
+             for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+@@ -211,6 +213,7 @@
+         int cpu_end = cpu_id();
+         const char *qos_end = qos_reported(&relpri_end);
+         int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
++        serverAssert(__llvm_profile_dump() == 0);
+         if (c == 5) {
+             /* Cursor scans may legitimately emit duplicates even without edits. */
+             serverAssert(scanned.count >= count && scanned.count <= SIZE_MAX);

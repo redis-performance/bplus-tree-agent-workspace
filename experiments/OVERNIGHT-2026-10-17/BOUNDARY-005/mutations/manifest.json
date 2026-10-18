@@ -1,0 +1,96 @@
+[
+  {
+    "name": "tombstone-tag",
+    "snapshot": "scratch/overnight-boundary-005/tombstone-tag",
+    "source_sha256": "54194480addf7e4a5b5852036f395e96c8efa5a38e2a3b11aa80c9179a257402",
+    "patch_sha256": "94417230e08118e4b30e41cb2bf9bcc49cdcdbbbd84598b6ef40d009a15fafc1",
+    "runs": [
+      {
+        "step": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-Wall",
+          "-Wextra",
+          "-fno-omit-frame-pointer",
+          "-DREDIS_DEBUG",
+          "-O1",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/index_probe_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "fault-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 1.3457308750366792,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "step": "run",
+        "command": [
+          "./fault-test"
+        ],
+        "returncode": -6,
+        "elapsed_seconds": 0.798023417009972,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "545c295879258c388f18e34df64a5638ec76d7e269e2a2e2332a75b947ee0f91"
+      }
+    ],
+    "binary_sha256": "f4a8564636c46bd92178b515822ae147b2200b99a3398412ac387ca899105923"
+  },
+  {
+    "name": "home-filter",
+    "snapshot": "scratch/overnight-boundary-005/home-filter",
+    "source_sha256": "84191a8e7d5973d0cfbbbe7c3bcaa6b11f801ac2f8f2ecb39ea9cebb66757450",
+    "patch_sha256": "c96333d5a32821a39bab6db4c1726cff30f707e6678192712182665451d0d813",
+    "runs": [
+      {
+        "step": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-Wall",
+          "-Wextra",
+          "-fno-omit-frame-pointer",
+          "-DREDIS_DEBUG",
+          "-O1",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/index_probe_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "fault-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 1.2886664590332657,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "step": "run",
+        "command": [
+          "./fault-test"
+        ],
+        "returncode": -6,
+        "elapsed_seconds": 0.7383424999425188,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "a111c9c998f56a50b0eaa6ed80675c738a1441c1b77c1d6771e0191198c32111"
+      }
+    ],
+    "binary_sha256": "3b14b06771bc0b4ddd7a2195f9d1e0b89b0c52a6f0578939acf35de92e2adc7b"
+  }
+]

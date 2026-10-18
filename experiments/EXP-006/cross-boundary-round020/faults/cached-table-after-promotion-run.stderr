@@ -1,0 +1,66 @@
+=================================================================
+==62181==ERROR: AddressSanitizer: heap-use-after-free on address 0x00010a15b580 at pc 0x0001008a7208 bp 0x00016f55a3f0 sp 0x00016f55a3e8
+READ of size 8 at 0x00010a15b580 thread T0
+==62181==WARNING: external symbolizer didn't start up correctly!
+==62181==WARNING: Can't write to symbolizer at fd 4
+==62181==WARNING: external symbolizer didn't start up correctly!
+==62181==WARNING: Can't write to symbolizer at fd 5
+==62181==WARNING: external symbolizer didn't start up correctly!
+==62181==WARNING: Can't write to symbolizer at fd 6
+==62181==WARNING: external symbolizer didn't start up correctly!
+==62181==WARNING: Can't write to symbolizer at fd 7
+==62181==WARNING: external symbolizer didn't start up correctly!
+==62181==WARNING: Failed to use and restart external symbolizer!
+    #0 0x0001008a7204 in zbtreeScores+0x1c30 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100007204)
+    #1 0x0001008b63e0 in main+0xd90 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x1000163e0)
+    #2 0x00019eb1dd50  (<unknown module>)
+
+0x00010a15b580 is located 1961344 bytes inside of 2097152-byte region [0x000109f7c800,0x00010a17c800)
+freed by thread T0 here:
+    #0 0x000102565424 in free+0x7c (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d424)
+    #1 0x0001008aeb64 in zbtIndexRehashStep+0x394 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x10000eb64)
+    #2 0x0001008a5aec in zbtreeScores+0x518 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100005aec)
+    #3 0x0001008b63e0 in main+0xd90 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x1000163e0)
+    #4 0x00019eb1dd50  (<unknown module>)
+
+previously allocated by thread T0 here:
+    #0 0x000102565330 in malloc+0x78 (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d330)
+    #1 0x0001008c9478 in zmalloc_usable+0x2c (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100029478)
+    #2 0x0001008a215c in zbtIndexDupTable+0x14c (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x10000215c)
+    #3 0x0001008a1340 in zbtreeDup+0x2e0 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100001340)
+    #4 0x0001008b6084 in main+0xa34 (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100016084)
+    #5 0x00019eb1dd50  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (<workspace>/scratch/experiment006-cross-boundary-round020-faults/cached-table-after-promotion/build/fault:arm64+0x100007204) in zbtreeScores+0x1c30
+Shadow bytes around the buggy address:
+  0x00010a15b300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b380: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b480: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b500: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x00010a15b580:[fd]fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b600: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b680: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b700: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b780: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010a15b800: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==62181==ABORTING

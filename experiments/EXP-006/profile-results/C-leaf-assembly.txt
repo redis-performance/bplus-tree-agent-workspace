@@ -1,0 +1,1079 @@
+_zbtScoreLeafFindMember:                ; @zbtScoreLeafFindMember
+Lfunc_begin55:
+	.loc	0 1317 0 is_stmt 1              ; src/zset_btree.c:1317:0
+	.cfi_startproc
+; %bb.0:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x0
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- $w1
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- $x2
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x3
+	;DEBUG_VALUE: zbtScoreLeafFindMember:score <- $x4
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- $x5
+	sub	sp, sp, #160
+	stp	x28, x27, [sp, #64]             ; 16-byte Folded Spill
+	stp	x26, x25, [sp, #80]             ; 16-byte Folded Spill
+	stp	x24, x23, [sp, #96]             ; 16-byte Folded Spill
+	stp	x22, x21, [sp, #112]            ; 16-byte Folded Spill
+	stp	x20, x19, [sp, #128]            ; 16-byte Folded Spill
+	stp	x29, x30, [sp, #144]            ; 16-byte Folded Spill
+	add	x29, sp, #144
+	.cfi_def_cfa w29, 16
+	.cfi_offset w30, -8
+	.cfi_offset w29, -16
+	.cfi_offset w19, -24
+	.cfi_offset w20, -32
+	.cfi_offset w21, -40
+	.cfi_offset w22, -48
+	.cfi_offset w23, -56
+	.cfi_offset w24, -64
+	.cfi_offset w25, -72
+	.cfi_offset w26, -80
+	.cfi_offset w27, -88
+	.cfi_offset w28, -96
+	mov	x22, x3
+Ltmp4417:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	str	x2, [sp, #56]                   ; 8-byte Folded Spill
+Ltmp4418:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	mov	x21, x0
+Ltmp4419:
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tag <- undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	.loc	0 358 53 prologue_end           ; src/zset_btree.c:358:53
+	ldrb	w9, [x0, #52]
+Ltmp4420:
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:score_bits <- undef
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:count <- undef
+	.loc	0 350 9                         ; src/zset_btree.c:350:9
+	cbz	x9, LBB55_2
+Ltmp4421:
+; %bb.1:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- $x5
+	;DEBUG_VALUE: zbtScoreLeafFindMember:score <- $x4
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- $w1
+	.loc	0 358 40                        ; src/zset_btree.c:358:40
+	mov	x11, x21
+	ldrb	w8, [x11, #17]!
+Ltmp4422:
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:count <- $x8
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:count <- $x8
+	.loc	0 351 48                        ; src/zset_btree.c:351:48
+	mov	w10, #7                         ; =0x7
+	madd	w9, w8, w9, w10
+Ltmp4423:
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:bytes <- undef
+	.loc	0 352 23                        ; src/zset_btree.c:352:23
+	lsr	w9, w9, #3
+	add	w9, w9, #9
+	.loc	0 352 28 is_stmt 0              ; src/zset_btree.c:352:28
+	and	x9, x9, #0x7ffe
+Ltmp4424:
+	.loc	0 357 31 is_stmt 1              ; src/zset_btree.c:357:31
+	add	x10, x21, x9
+	.loc	0 357 36 is_stmt 0              ; src/zset_btree.c:357:36
+	add	x12, x10, #56
+Ltmp4425:
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:bytes <- undef
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:score_bits <- [DW_OP_LLVM_convert 8 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] undef
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:count <- undef
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafHashTags:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:offsets <- $x12
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:score_bits <- [DW_OP_LLVM_convert 8 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:next <- undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- undef
+	.loc	0 1324 5 is_stmt 1              ; src/zset_btree.c:1324:5
+	cbnz	x8, LBB55_3
+	b	LBB55_29
+Ltmp4426:
+LBB55_2:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- $x5
+	;DEBUG_VALUE: zbtScoreLeafFindMember:score <- $x4
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- $w1
+	.loc	0 363 0                         ; src/zset_btree.c:363:0
+	mov	x11, x21
+	ldrb	w8, [x11, #17]!
+Ltmp4427:
+	.loc	0 357 31                        ; src/zset_btree.c:357:31
+	add	x12, x11, #39
+Ltmp4428:
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:score_bits <- [DW_OP_LLVM_convert 8 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] undef
+	;DEBUG_VALUE: zbtScoreLeafScoreBytes:count <- undef
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafHashTags:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:offsets <- $x12
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:next <- undef
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- undef
+	.loc	0 1324 5                        ; src/zset_btree.c:1324:5
+	cbz	x8, LBB55_29
+Ltmp4429:
+LBB55_3:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:offsets <- $x12
+	;DEBUG_VALUE: zbtScoreLeafHashTags:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafOffsets:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- $x5
+	;DEBUG_VALUE: zbtScoreLeafFindMember:score <- $x4
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- $w1
+	.loc	0 0 5 is_stmt 0                 ; src/zset_btree.c:0:5
+	stp	x11, x4, [sp, #24]              ; 16-byte Folded Spill
+	str	x5, [sp, #40]                   ; 8-byte Folded Spill
+Ltmp4430:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	str	w1, [sp, #52]                   ; 4-byte Folded Spill
+Ltmp4431:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	lsr	w25, w1, #24
+	add	x10, x21, #56
+	str	x10, [sp, #16]                  ; 8-byte Folded Spill
+	add	x9, x10, x9
+	add	x24, x9, x8, lsl #1
+Ltmp4432:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:next <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	add	x20, x24, x8
+Ltmp4433:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	mov	x27, #-72340172838076674        ; =0xfefefefefefefefe
+	movk	x27, #65279
+	mov	x8, #72340172838076673          ; =0x101010101010101
+	mul	x23, x25, x8
+	mov	x19, x24
+	b	LBB55_6
+Ltmp4434:
+LBB55_4:                                ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: len <- $x8
+	;DEBUG_VALUE: stored <- $x0
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	ldr	x1, [sp, #56]                   ; 8-byte Folded Reload
+Ltmp4435:
+	.loc	0 1340 30 is_stmt 1             ; src/zset_btree.c:1340:30
+	mov	x2, x22
+	mov	x28, x12
+Ltmp4436:
+	bl	_memcmp
+Ltmp4437:
+	.loc	0 0 30 is_stmt 0                ; src/zset_btree.c:0:30
+	mov	x12, x28
+Ltmp4438:
+	.loc	0 1340 13                       ; src/zset_btree.c:1340:13
+	cbz	w0, LBB55_31
+Ltmp4439:
+LBB55_5:                                ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 0                           ; src/zset_btree.c:0:0
+	add	x19, x19, #1
+Ltmp4440:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:next <- $x19
+	.loc	0 1324 5 is_stmt 1              ; src/zset_btree.c:1324:5
+	cmp	x19, x20
+	b.hs	LBB55_29
+Ltmp4441:
+LBB55_6:                                ; =>This Loop Header: Depth=1
+                                        ;     Child Loop BB55_7 Depth 2
+                                        ;     Child Loop BB55_27 Depth 2
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafFindMember:next <- $x19
+	.loc	0 1325 69                       ; src/zset_btree.c:1325:69
+	sub	x8, x20, x19
+Ltmp4442:
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	.loc	0 1276 5                        ; src/zset_btree.c:1276:5
+	cmp	x8, #16
+	b.lo	LBB55_10
+Ltmp4443:
+LBB55_7:                                ;   Parent Loop BB55_6 Depth=1
+                                        ; =>  This Inner Loop Header: Depth=2
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	.loc	0 1279 9                        ; src/zset_btree.c:1279:9
+	ldr	x9, [x19]
+Ltmp4444:
+	;DEBUG_VALUE: word <- $x9
+	.loc	0 1280 27                       ; src/zset_btree.c:1280:27
+	eor	x9, x9, x23
+Ltmp4445:
+	;DEBUG_VALUE: x <- $x9
+	.loc	0 1281 31                       ; src/zset_btree.c:1281:31
+	add	x10, x9, x27
+	.loc	0 1281 63 is_stmt 0             ; src/zset_btree.c:1281:63
+	bic	x9, x10, x9
+Ltmp4446:
+	.loc	0 1282 31 is_stmt 1             ; src/zset_btree.c:1282:31
+	ands	x9, x9, #0x8080808080808080
+Ltmp4447:
+	;DEBUG_VALUE: matches <- $x9
+	.loc	0 0 31 is_stmt 0                ; src/zset_btree.c:0:31
+	b.ne	LBB55_13
+Ltmp4448:
+; %bb.8:                                ;   in Loop: Header=BB55_7 Depth=2
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- [DW_OP_plus_uconst 8, DW_OP_stack_value] $x19
+	.loc	0 1288 9 is_stmt 1              ; src/zset_btree.c:1288:9
+	ldr	x9, [x19, #8]
+Ltmp4449:
+	;DEBUG_VALUE: word <- $x9
+	.loc	0 1289 27                       ; src/zset_btree.c:1289:27
+	eor	x9, x9, x23
+Ltmp4450:
+	;DEBUG_VALUE: x <- $x9
+	.loc	0 1290 31                       ; src/zset_btree.c:1290:31
+	add	x10, x9, x27
+	.loc	0 1290 63 is_stmt 0             ; src/zset_btree.c:1290:63
+	bic	x9, x10, x9
+Ltmp4451:
+	.loc	0 1291 31 is_stmt 1             ; src/zset_btree.c:1291:31
+	ands	x9, x9, #0x8080808080808080
+Ltmp4452:
+	;DEBUG_VALUE: matches <- $x9
+	.loc	0 0 31 is_stmt 0                ; src/zset_btree.c:0:31
+	b.ne	LBB55_15
+Ltmp4453:
+; %bb.9:                                ;   in Loop: Header=BB55_7 Depth=2
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- [DW_OP_plus_uconst 8, DW_OP_stack_value] $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1294 9 is_stmt 1              ; src/zset_btree.c:1294:9
+	add	x19, x19, #16
+Ltmp4454:
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	.loc	0 1294 17 is_stmt 0             ; src/zset_btree.c:1294:17
+	sub	x8, x8, #16
+Ltmp4455:
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	.loc	0 1276 5 is_stmt 1              ; src/zset_btree.c:1276:5
+	cmp	x8, #15
+	b.hi	LBB55_7
+Ltmp4456:
+LBB55_10:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1296 9                        ; src/zset_btree.c:1296:9
+	subs	x9, x8, #8
+	b.lo	LBB55_26
+Ltmp4457:
+; %bb.11:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1298 9                        ; src/zset_btree.c:1298:9
+	mov	x10, x19
+	ldr	x8, [x10], #8
+Ltmp4458:
+	;DEBUG_VALUE: word <- $x8
+	.loc	0 1299 27                       ; src/zset_btree.c:1299:27
+	eor	x8, x8, x23
+Ltmp4459:
+	;DEBUG_VALUE: x <- $x8
+	.loc	0 1300 31                       ; src/zset_btree.c:1300:31
+	add	x11, x8, x27
+	.loc	0 1300 63 is_stmt 0             ; src/zset_btree.c:1300:63
+	bic	x8, x11, x8
+Ltmp4460:
+	.loc	0 1301 31 is_stmt 1             ; src/zset_btree.c:1301:31
+	and	x8, x8, #0x8080808080808080
+Ltmp4461:
+	;DEBUG_VALUE: matches <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- undef
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- undef
+	.loc	0 0 31 is_stmt 0                ; src/zset_btree.c:0:31
+	cbz	x8, LBB55_25
+Ltmp4462:
+; %bb.12:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: matches <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	rbit	x8, x8
+	b	LBB55_14
+Ltmp4463:
+LBB55_13:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: matches <- $x9
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	rbit	x8, x9
+Ltmp4464:
+LBB55_14:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	clz	x8, x8
+	add	x19, x19, x8, lsr #3
+Ltmp4465:
+	;DEBUG_VALUE: found <- $x19
+	b	LBB55_16
+Ltmp4466:
+LBB55_15:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- [DW_OP_plus_uconst 8, DW_OP_stack_value] $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	rbit	x8, x9
+Ltmp4467:
+	clz	x8, x8
+	.loc	0 1308 1 is_stmt 1              ; src/zset_btree.c:1308:1
+	add	x8, x19, x8, lsr #3
+	add	x19, x8, #8
+Ltmp4468:
+LBB55_16:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1327 39                       ; src/zset_btree.c:1327:39
+	sub	x26, x19, x24
+Ltmp4469:
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	.loc	0 1328 27                       ; src/zset_btree.c:1328:27
+	ldrh	w8, [x12, w26, uxtw #1]
+Ltmp4470:
+	;DEBUG_VALUE: offset <- undef
+	.loc	0 1329 55                       ; src/zset_btree.c:1329:55
+	add	x28, x21, x8
+Ltmp4471:
+	;DEBUG_VALUE: record <- $x28
+	.loc	0 1331 13                       ; src/zset_btree.c:1331:13
+	ldrb	w8, [x28]
+	.loc	0 1331 46 is_stmt 0             ; src/zset_btree.c:1331:46
+	cmp	w8, #254
+	b.eq	LBB55_23
+Ltmp4472:
+; %bb.17:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	cmp	w8, #255
+	b.ne	LBB55_24
+Ltmp4473:
+; %bb.18:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 561 5 is_stmt 1               ; src/zset_btree.c:561:5
+	ldur	w8, [x28, #1]
+Ltmp4474:
+	;DEBUG_VALUE: zbtExternalHash:hash <- $w8
+	.loc	0 0 5 is_stmt 0                 ; src/zset_btree.c:0:5
+	ldr	w9, [sp, #52]                   ; 4-byte Folded Reload
+Ltmp4475:
+	.loc	0 1331 13 is_stmt 1             ; src/zset_btree.c:1331:13
+	cmp	w8, w9
+	b.ne	LBB55_5
+Ltmp4476:
+; %bb.19:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtPackedData:record <- $x28
+	;DEBUG_VALUE: zbtPackedData:len <- undef
+	.loc	0 576 5                         ; src/zset_btree.c:576:5
+	ldur	x0, [x28, #13]
+Ltmp4477:
+	;DEBUG_VALUE: ptr <- $x0
+	;DEBUG_VALUE: zbtExternalPointer:ptr <- $x0
+	.loc	0 599 9                         ; src/zset_btree.c:599:9
+	cbnz	x0, LBB55_22
+Ltmp4478:
+; %bb.20:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: ptr <- $x0
+	;DEBUG_VALUE: zbtPackedData:record <- $x28
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 9 is_stmt 0                 ; src/zset_btree.c:0:9
+	stp	x12, x0, [sp]                   ; 16-byte Folded Spill
+Ltmp4479:
+	.loc	0 599 9                         ; src/zset_btree.c:599:9
+Lloh335:
+	adrp	x0, l_.str@PAGE
+Ltmp4480:
+Lloh336:
+	add	x0, x0, l_.str@PAGEOFF
+	mov	w1, #599                        ; =0x257
+Lloh337:
+	adrp	x2, l_.str.16@PAGE
+Lloh338:
+	add	x2, x2, l_.str.16@PAGEOFF
+	bl	_standalone_panic
+Ltmp4481:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:score <- [DW_OP_LLVM_entry_value 1] $x4
+	.loc	0 0 9                           ; src/zset_btree.c:0:9
+	ldp	x12, x0, [sp]                   ; 16-byte Folded Reload
+Ltmp4482:
+	.loc	0 567 5 is_stmt 1               ; src/zset_btree.c:567:5
+	ldrb	w8, [x28]
+Ltmp4483:
+	;DEBUG_VALUE: zbtExternalLength:record <- $x28
+	.loc	0 567 5 is_stmt 0               ; src/zset_btree.c:567:5
+	cmp	w8, #255
+	b.eq	LBB55_22
+Ltmp4484:
+; %bb.21:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtExternalLength:record <- $x28
+	;DEBUG_VALUE: zbtPackedData:record <- $x28
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 567 5                         ; src/zset_btree.c:567:5
+Lloh339:
+	adrp	x0, l_.str@PAGE
+Lloh340:
+	add	x0, x0, l_.str@PAGEOFF
+	mov	w1, #567                        ; =0x237
+Lloh341:
+	adrp	x2, l_.str.11@PAGE
+Lloh342:
+	add	x2, x2, l_.str.11@PAGEOFF
+	bl	_standalone_panic
+Ltmp4485:
+	.loc	0 0 5                           ; src/zset_btree.c:0:5
+	ldp	x12, x0, [sp]                   ; 16-byte Folded Reload
+Ltmp4486:
+LBB55_22:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtPackedData:record <- $x28
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtExternalLength:len <- undef
+	.loc	0 568 5 is_stmt 1               ; src/zset_btree.c:568:5
+	ldur	x8, [x28, #5]
+Ltmp4487:
+	;DEBUG_VALUE: zbtExternalLength:len <- $x8
+	;DEBUG_VALUE: stored <- $x0
+	;DEBUG_VALUE: len <- $x8
+	.loc	0 1340 27                       ; src/zset_btree.c:1340:27
+	cmp	x8, x22
+	b.ne	LBB55_5
+	b	LBB55_4
+Ltmp4488:
+LBB55_23:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 594 9                         ; src/zset_btree.c:594:9
+	ldurh	w8, [x28, #1]
+Ltmp4489:
+	;DEBUG_VALUE: shortlen <- undef
+	.loc	0 596 23                        ; src/zset_btree.c:596:23
+	add	x0, x28, #3
+Ltmp4490:
+	;DEBUG_VALUE: stored <- $x0
+	;DEBUG_VALUE: len <- $x8
+	.loc	0 1340 27                       ; src/zset_btree.c:1340:27
+	cmp	x8, x22
+	b.eq	LBB55_4
+	b	LBB55_5
+Ltmp4491:
+LBB55_24:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: record <- $x28
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 591 23                        ; src/zset_btree.c:591:23
+	add	x0, x28, #1
+Ltmp4492:
+	;DEBUG_VALUE: stored <- $x0
+	;DEBUG_VALUE: len <- $x8
+	.loc	0 1340 27                       ; src/zset_btree.c:1340:27
+	cmp	x8, x22
+	b.ne	LBB55_5
+	b	LBB55_4
+Ltmp4493:
+LBB55_25:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: matches <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 27 is_stmt 0                ; src/zset_btree.c:0:27
+	mov	x8, x9
+	mov	x19, x10
+Ltmp4494:
+LBB55_26:                               ;   in Loop: Header=BB55_6 Depth=1
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- $x8
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	.loc	0 1306 5 is_stmt 1              ; src/zset_btree.c:1306:5
+	cbz	x8, LBB55_29
+Ltmp4495:
+LBB55_27:                               ;   Parent Loop BB55_6 Depth=1
+                                        ; =>  This Inner Loop Header: Depth=2
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	.loc	0 1306 23 is_stmt 0             ; src/zset_btree.c:1306:23
+	ldrb	w9, [x19]
+Ltmp4496:
+	.loc	0 1306 23                       ; src/zset_btree.c:1306:23
+	cmp	w9, w25
+	b.eq	LBB55_16
+Ltmp4497:
+; %bb.28:                               ;   in Loop: Header=BB55_27 Depth=2
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:repeated <- $x23
+	;DEBUG_VALUE: zbtInlineTagSearch:tag <- [DW_OP_LLVM_convert 32 7, DW_OP_LLVM_convert 8 7, DW_OP_stack_value] $w25
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1306 45                       ; src/zset_btree.c:1306:45
+	add	x19, x19, #1
+Ltmp4498:
+	;DEBUG_VALUE: zbtInlineTagSearch:p <- $x19
+	;DEBUG_VALUE: zbtInlineTagSearch:n <- [DW_OP_constu 1, DW_OP_minus, DW_OP_stack_value] undef
+	.loc	0 1306 13                       ; src/zset_btree.c:1306:13
+	subs	x8, x8, #1
+	.loc	0 1306 5                        ; src/zset_btree.c:1306:5
+	b.ne	LBB55_27
+Ltmp4499:
+LBB55_29:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 5                           ; src/zset_btree.c:0:5
+	mov	w0, #0                          ; =0x0
+Ltmp4500:
+LBB55_30:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1351 1 epilogue_begin is_stmt 1 ; src/zset_btree.c:1351:1
+	ldp	x29, x30, [sp, #144]            ; 16-byte Folded Reload
+	ldp	x20, x19, [sp, #128]            ; 16-byte Folded Reload
+	ldp	x22, x21, [sp, #112]            ; 16-byte Folded Reload
+Ltmp4501:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- [DW_OP_LLVM_entry_value 1] $x3
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- [DW_OP_LLVM_entry_value 1] $x0
+	ldp	x24, x23, [sp, #96]             ; 16-byte Folded Reload
+	ldp	x26, x25, [sp, #80]             ; 16-byte Folded Reload
+	ldp	x28, x27, [sp, #64]             ; 16-byte Folded Reload
+	add	sp, sp, #160
+Ltmp4502:
+	ret
+Ltmp4503:
+LBB55_31:
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:leaf <- $x21
+	.loc	0 372 18                        ; src/zset_btree.c:372:18
+	ldrb	w8, [x21, #53]
+	.loc	0 372 12 is_stmt 0              ; src/zset_btree.c:372:12
+	cbz	w8, LBB55_33
+Ltmp4504:
+; %bb.32:
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:pos <- $w26
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 12                          ; src/zset_btree.c:0:12
+	ldp	x11, x15, [sp, #24]             ; 16-byte Folded Reload
+	.loc	0 372 37                        ; src/zset_btree.c:372:37
+	ldrb	w9, [x11]
+	.loc	0 372 49                        ; src/zset_btree.c:372:49
+	mvn	w10, w26
+	add	w26, w9, w10
+Ltmp4505:
+	.loc	0 0 49                          ; src/zset_btree.c:0:49
+	ldr	x14, [sp, #40]                  ; 8-byte Folded Reload
+	b	LBB55_34
+Ltmp4506:
+LBB55_33:
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:pos <- $w26
+	;DEBUG_VALUE: physical <- [DW_OP_LLVM_convert 64 7, DW_OP_LLVM_convert 32 7, DW_OP_stack_value] $x26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	ldp	x15, x14, [sp, #32]             ; 16-byte Folded Reload
+	ldr	x11, [sp, #24]                  ; 8-byte Folded Reload
+Ltmp4507:
+LBB55_34:
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: logical <- $w26
+	.loc	0 1344 17 is_stmt 1             ; src/zset_btree.c:1344:17
+	cbz	x15, LBB55_44
+Ltmp4508:
+; %bb.35:
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	.loc	0 500 31                        ; src/zset_btree.c:500:31
+	ldrb	w9, [x21, #52]
+Ltmp4509:
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- 0
+	.loc	0 503 9                         ; src/zset_btree.c:503:9
+	cbz	w9, LBB55_42
+Ltmp4510:
+; %bb.36:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- 0
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 9 is_stmt 0                 ; src/zset_btree.c:0:9
+	mov	x10, x26
+Ltmp4511:
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:leaf <- $x21
+	.loc	0 372 12 is_stmt 1              ; src/zset_btree.c:372:12
+	cbz	w8, LBB55_38
+Ltmp4512:
+; %bb.37:
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafPhysicalPos:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- 0
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 372 37 is_stmt 0              ; src/zset_btree.c:372:37
+	ldrb	w10, [x11]
+	.loc	0 372 49                        ; src/zset_btree.c:372:49
+	mvn	w11, w26
+	add	w10, w10, w11
+Ltmp4513:
+LBB55_38:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- 0
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 504 68 is_stmt 1              ; src/zset_btree.c:504:68
+	umull	x12, w9, w10
+Ltmp4514:
+	;DEBUG_VALUE: bitpos <- $x12
+	.loc	0 505 30                        ; src/zset_btree.c:505:30
+	lsr	x11, x12, #3
+Ltmp4515:
+	;DEBUG_VALUE: byte <- $x11
+	.loc	0 0 30 is_stmt 0                ; src/zset_btree.c:0:30
+	ldr	x10, [sp, #16]                  ; 8-byte Folded Reload
+	.loc	0 507 9 is_stmt 1               ; src/zset_btree.c:507:9
+	ldr	x10, [x10, x11]
+Ltmp4516:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	.loc	0 508 37                        ; src/zset_btree.c:508:37
+	and	x13, x12, #0x7
+	lsr	x10, x10, x13
+Ltmp4517:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	.loc	0 506 30                        ; src/zset_btree.c:506:30
+	ands	w12, w12, #0x7
+Ltmp4518:
+	;DEBUG_VALUE: shift <- $w12
+	.loc	0 509 19                        ; src/zset_btree.c:509:19
+	b.eq	LBB55_41
+Ltmp4519:
+; %bb.39:
+	;DEBUG_VALUE: shift <- $w12
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	;DEBUG_VALUE: byte <- $x11
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 19 is_stmt 0                ; src/zset_btree.c:0:19
+	mov	w13, #64                        ; =0x40
+	.loc	0 509 32                        ; src/zset_btree.c:509:32
+	sub	w12, w13, w12
+Ltmp4520:
+	.loc	0 509 13                        ; src/zset_btree.c:509:13
+	cmp	w12, w9
+	b.hs	LBB55_41
+Ltmp4521:
+; %bb.40:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	;DEBUG_VALUE: byte <- $x11
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 13                          ; src/zset_btree.c:0:13
+	ldr	x13, [sp, #16]                  ; 8-byte Folded Reload
+Ltmp4522:
+	.loc	0 510 48 is_stmt 1              ; src/zset_btree.c:510:48
+	add	x11, x11, x13
+Ltmp4523:
+	.loc	0 510 32 is_stmt 0              ; src/zset_btree.c:510:32
+	ldrb	w11, [x11, #8]
+	.loc	0 510 53                        ; src/zset_btree.c:510:53
+	lsl	x11, x11, x12
+	.loc	0 510 19                        ; src/zset_btree.c:510:19
+	orr	x10, x11, x10
+Ltmp4524:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+LBB55_41:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x10
+	.loc	0 0 19                          ; src/zset_btree.c:0:19
+	mov	x11, #-1                        ; =0xffffffffffffffff
+	.loc	0 511 13 is_stmt 1              ; src/zset_btree.c:511:13
+	lsl	x12, x11, x9
+	cmp	w9, #64
+	csinv	x9, x11, x12, hs
+Ltmp4525:
+	and	x9, x10, x9
+Ltmp4526:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x9
+	.loc	0 513 27                        ; src/zset_btree.c:513:27
+	ldrb	w10, [x21, #19]
+	.loc	0 513 15 is_stmt 0              ; src/zset_btree.c:513:15
+	lsl	x9, x9, x10
+Ltmp4527:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x9
+	.loc	0 0 15                          ; src/zset_btree.c:0:15
+	b	LBB55_43
+Ltmp4528:
+LBB55_42:
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- 0
+	;DEBUG_VALUE: zbtScoreLeafScore:bits <- $w9
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	mov	x9, #0                          ; =0x0
+Ltmp4529:
+LBB55_43:
+	;DEBUG_VALUE: zbtScoreLeafScore:pos <- $w26
+	;DEBUG_VALUE: zbtScoreLeafScore:leaf <- $x21
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	;DEBUG_VALUE: zbtScoreLeafScore:delta <- $x9
+	ldr	x10, [x21, #40]
+	.loc	0 515 24 is_stmt 1              ; src/zset_btree.c:515:24
+	cmp	w8, #0
+	cneg	x8, x9, ne
+	add	x8, x10, x8
+Ltmp4530:
+	;DEBUG_VALUE: zbtOrderedToScore:ordered <- $x8
+	;DEBUG_VALUE: zbtScoreLeafScore:ordered <- $x8
+	.loc	0 331 9                         ; src/zset_btree.c:331:9
+	and	x9, x8, #0x7fffffffffffffff
+Ltmp4531:
+	cmp	x8, #0
+	csinv	x8, x9, x8, lt
+Ltmp4532:
+	;DEBUG_VALUE: zbtOrderedToScore:score <- $x8
+	;DEBUG_VALUE: zbtOrderedToScore:bits <- $x8
+	.loc	0 1344 31                       ; src/zset_btree.c:1344:31
+	str	x8, [x15]
+Ltmp4533:
+LBB55_44:
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1345 17                       ; src/zset_btree.c:1345:17
+	cbz	x14, LBB55_46
+Ltmp4534:
+; %bb.45:
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 1345 37 is_stmt 0             ; src/zset_btree.c:1345:37
+	str	w26, [x14]
+Ltmp4535:
+LBB55_46:
+	;DEBUG_VALUE: logical <- $w26
+	;DEBUG_VALUE: zbtScoreLeafFindMember:end <- $x20
+	;DEBUG_VALUE: zbtScoreLeafFindMember:tags <- $x24
+	;DEBUG_VALUE: zbtScoreLeafFindMember:hash <- [DW_OP_plus_uconst 52] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:position <- [DW_OP_plus_uconst 40] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:leaf <- $x21
+	;DEBUG_VALUE: zbtScoreLeafFindMember:ele <- [DW_OP_plus_uconst 56] [$sp+0]
+	;DEBUG_VALUE: zbtScoreLeafFindMember:elelen <- $x22
+	.loc	0 0 37                          ; src/zset_btree.c:0:37
+	mov	w0, #1                          ; =0x1
+	.loc	0 1345 27                       ; src/zset_btree.c:1345:27
+	b	LBB55_30
+Ltmp4536:
+	.loh AdrpAdd	Lloh337, Lloh338
+	.loh AdrpAdd	Lloh335, Lloh336
+	.loh AdrpAdd	Lloh341, Lloh342
+	.loh AdrpAdd	Lloh339, Lloh340
+Lfunc_end55:
+	

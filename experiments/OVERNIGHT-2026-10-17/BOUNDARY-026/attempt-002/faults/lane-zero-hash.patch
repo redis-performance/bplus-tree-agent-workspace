@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3249,7 +3249,7 @@
+     }
+     unsigned int found = 0;
+     for (unsigned int i = 0; i < count; i++) {
+-        if (zbtIndexFind(zs, hashes[i], (unsigned char *)members[i],
++        if (zbtIndexFind(zs, hashes[0], (unsigned char *)members[i],
+                          sdslen(members[i]), &scores[i], NULL, NULL, NULL, NULL))
+             found |= 1U << i;
+     }

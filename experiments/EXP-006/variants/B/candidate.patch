@@ -1,0 +1,36 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1269,6 +1269,24 @@
+     return lo;
+ }
+ 
++#define ZBT_INLINE_TAG_SEARCH 1
++static inline uint8_t *zbtInlineTagSearch(uint8_t *p, uint8_t tag, size_t n) {
++#if defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
++    const uint64_t repeated = (uint64_t)tag * UINT64_C(0x0101010101010101);
++    while (n >= 8) {
++        uint64_t word;
++        memcpy(&word, p, sizeof(word));
++        uint64_t x = word ^ repeated;
++        uint64_t matches = (x - UINT64_C(0x0101010101010101)) &
++                           ~x & UINT64_C(0x8080808080808080);
++        if (matches) return p + (__builtin_ctzll(matches) >> 3);
++        p += 8; n -= 8;
++    }
++#endif
++    while (n--) { if (*p == tag) return p; p++; }
++    return NULL;
++}
++
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+@@ -1284,7 +1302,7 @@
+     uint8_t *end = tags + leaf->n.count;
+ 
+     while (next < end) {
+-        uint8_t *found = memchr(next, tag, end - next);
++        uint8_t *found = zbtInlineTagSearch(next, tag, (size_t)(end - next));
+         if (found == NULL) break;
+         unsigned int physical = found - tags;
+         uint16_t offset = offsets[physical];

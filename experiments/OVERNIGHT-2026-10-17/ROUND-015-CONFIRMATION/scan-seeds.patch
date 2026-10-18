@@ -1,0 +1,8 @@
+--- a/tests/scan_interval_oracle.c
++++ b/tests/scan_interval_oracle.c
+@@ -60,4 +60,4 @@
+  CHECK(growing>g && shrinking>h);zbtreeSet *copy=zbtreeDup(t);zbtreeFree(t);verify(copy);zbtreeFree(copy);for(unsigned i=0;i<N;i++)sdsfree(keys[i]);fixtures++;
+  printf("FIXTURE seed=%u checks=%"PRIu64" calls=%"PRIu64" grow=%"PRIu64" shrink=%"PRIu64" collisions=%"PRIu64" displaced=%"PRIu64" wrapped=%"PRIu64"\n",seed,checks,calls,growing,shrinking,collisions,displaced,wrapped);fflush(stdout);
+ }
+-int main(void){exercise(62507);exercise(62533);CHECK(fixtures==2);printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" nonces=%"PRIu64" grow=%"PRIu64" shrink=%"PRIu64" digest=%016"PRIx64"\n",fixtures,checks,results,calls,nonces,growing,shrinking,digest);}
++int main(void){exercise(64567);exercise(64577);CHECK(fixtures==2);printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" nonces=%"PRIu64" grow=%"PRIu64" shrink=%"PRIu64" digest=%016"PRIx64"\n",fixtures,checks,results,calls,nonces,growing,shrinking,digest);}

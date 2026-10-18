@@ -1,0 +1,49 @@
+--- a/bench/self_sampler.h
++++ b/bench/self_sampler.h
+@@ -26,7 +26,7 @@
+     char *end = NULL;
+     unsigned long value = arg ? strtoul(arg, &end, 10) : 1000;
+     serverAssert(!arg || (end != arg && *end == 0));
+-    serverAssert(value >= 1 && value <= 999999);
++    serverAssert(value <= 999999);
+     sample_usec = (unsigned)value;
+     serverAssert(atomic_is_lock_free(&sample_count) && atomic_is_lock_free(&sample_pc[0]));
+     struct itimerval prior;
+@@ -40,17 +40,21 @@
+     serverAssert(sigaction(SIGPROF, &action, NULL) == 0);
+ }
+ static void sample_start(void) {
++    if (!sample_usec) return;
+     atomic_store_explicit(&sample_count, 0, memory_order_relaxed);
+     sample_active = 1;
+     struct itimerval timer = {{0, sample_usec}, {0, sample_usec}};
+     serverAssert(setitimer(ITIMER_PROF, &timer, NULL) == 0);
+     serverAssert(sigprocmask(SIG_UNBLOCK, &sample_mask, NULL) == 0);
+ }
+-static void sample_stop(const char *scope) {
++static void sample_stop(void) {
++    if (!sample_usec) return;
+     struct itimerval timer = {{0,0},{0,0}};
+     serverAssert(setitimer(ITIMER_PROF, &timer, NULL) == 0);
+     serverAssert(sigprocmask(SIG_BLOCK, &sample_mask, NULL) == 0);
+     sample_active = 0;
++}
++static void sample_dump(const char *scope) {
+     unsigned n = atomic_load_explicit(&sample_count, memory_order_relaxed);
+     fprintf(stderr,"PROFILE,%s,%u,%u,%u\n",scope,sample_usec,n,n > SAMPLE_CAP);
+     for (unsigned i=0; i<n && i<SAMPLE_CAP; i++) {
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -232,10 +232,11 @@
+             for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[query[i]]);
+         }
+         uint64_t elapsed = now_ns() - start;
+-        sample_stop(cases[c]);
++        sample_stop();
+         int64_t thread_end = thread_ns();
+         int cpu_end = cpu_id();
+         const char *qos_end = qos_reported(&relpri_end);
++        sample_dump(cases[c]);
+         int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
+         if (c == 5) {
+             /* Cursor scans may legitimately emit duplicates even without edits. */

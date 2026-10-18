@@ -1,0 +1,13 @@
+tests/raw_guard_oracle.c:19:43: error: call to undeclared library function 'memcpy' with type 'void *(void *, const void *, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   19 | static uint64_t bits(double x){uint64_t u;memcpy(&u,&x,8);return u;}
+      |                                           ^
+tests/raw_guard_oracle.c:19:43: note: include the header <string.h> or explicitly provide a declaration for 'memcpy'
+tests/raw_guard_oracle.c:38:56: error: call to undeclared library function 'memcmp' with type 'int (const void *, const void *, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   38 |     size_t na=sdslen(keys[a]),nb=sdslen(keys[b]);int c=memcmp(keys[a],keys[b],na<nb?na:nb);
+      |                                                        ^
+tests/raw_guard_oracle.c:38:56: note: include the header <string.h> or explicitly provide a declaration for 'memcmp'
+tests/raw_guard_oracle.c:81:65: error: call to undeclared library function 'memset' with type 'void *(void *, int, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   81 |         protect(&buffers[i],PROT_READ|PROT_WRITE);if(length_now)memset(buffers[i].ptr,0xa5,length_now);release(&buffers[i]);
+      |                                                                 ^
+tests/raw_guard_oracle.c:81:65: note: include the header <string.h> or explicitly provide a declaration for 'memset'
+3 errors generated.

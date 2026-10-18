@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1114,7 +1114,7 @@
+         zs->member_rehash->next_leaf_id == leaf->id)
+     {
+         zs->member_rehash->next_leaf_id =
+-            leaf->next ? leaf->next->id : ZBT_NO_LEAF_ID;
++            leaf->id;
+     }
+     if (leaf->prev) leaf->prev->next = leaf->next;
+     else zs->score_first = leaf->next;

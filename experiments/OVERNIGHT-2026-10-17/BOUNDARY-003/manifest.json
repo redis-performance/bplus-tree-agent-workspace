@@ -1,0 +1,115 @@
+{
+  "base_commit": "a2ff0c5ddc00ffc11ff7d73e202d6384df77c84c",
+  "provenance": "uncommitted additional oracle; unchanged source; protected git metadata not retried",
+  "sources": {
+    "tests/wide_scan_oracle.c": "e1357be7373ef4f4411622b20a39e0571655fd17bd36d5129401632dd28334b9",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "plan_sha256": "bcbe86852f89e21785467d8a9e50f6b3e85a10d4ea72bcf04482b42ce0ec03ac",
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/wide_scan_oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-003/release"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.0399477089522406,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "release-seed7",
+      "command": [
+        "scratch/overnight-boundary-003/release",
+        "7"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 4.704674833104946,
+      "stdout_sha256": "5a3b7256c81a66ff6052671581947f95ddda277e74fa288a5a14a6584d50ea50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "release-seed19",
+      "command": [
+        "scratch/overnight-boundary-003/release",
+        "19"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 4.249680291977711,
+      "stdout_sha256": "469c5d99b50457ddd2e35a6139525eedd1d28916e1d9602326f88c2d87397c76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/wide_scan_oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-003/sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.1650454589398578,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-seed7",
+      "command": [
+        "scratch/overnight-boundary-003/sanitize",
+        "7"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 12.65072570904158,
+      "stdout_sha256": "5a3b7256c81a66ff6052671581947f95ddda277e74fa288a5a14a6584d50ea50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-seed19",
+      "command": [
+        "scratch/overnight-boundary-003/sanitize",
+        "19"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 12.104755249922164,
+      "stdout_sha256": "469c5d99b50457ddd2e35a6139525eedd1d28916e1d9602326f88c2d87397c76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "release_binary_sha256": "f607c920fd68e740894758bae601aba5d5f1eafa46ed83217e4fc2e7a5c2d83c",
+  "sanitize_binary_sha256": "a8d3cf3d2f2034ec43055ea1a108077f253bf358d991ec4761c8a33d1c540af4"
+}

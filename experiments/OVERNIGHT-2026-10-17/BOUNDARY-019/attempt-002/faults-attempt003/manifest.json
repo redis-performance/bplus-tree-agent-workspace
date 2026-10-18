@@ -1,0 +1,104 @@
+[
+  {
+    "name": "reuse-during-rehash",
+    "snapshot": "scratch/overnight-boundary-019-faults-attempt003/reuse-during-rehash",
+    "source_sha256": "98497c414e213521c9eeb27ec9ce8bc59dfd3be1a6409e6a7b0dad8b8d61bb88",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/leaf_id_lifecycle_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-faults-attempt003/reuse-during-rehash",
+        "started_utc": "2026-10-18T03:28:31.272542+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:28:32.504722+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-faults-attempt003/reuse-during-rehash",
+        "started_utc": "2026-10-18T03:28:32.505342+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:28:32.869291+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "9dba7a50af5105e601382627cc89b0818d89b335453bfdb9748a143b621eee12"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "388dbafb9966a139c3dd06bf3d1cefa01d8d7c05012d54c32089380071a91f3e"
+  },
+  {
+    "name": "wrong-retirement-cursor",
+    "snapshot": "scratch/overnight-boundary-019-faults-attempt003/wrong-retirement-cursor",
+    "source_sha256": "c8f15b15486e70baedea9085c17ab39b41c342dfdc47d864af34795098f5fa5a",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/leaf_id_lifecycle_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-faults-attempt003/wrong-retirement-cursor",
+        "started_utc": "2026-10-18T03:28:32.885539+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:28:34.116833+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-faults-attempt003/wrong-retirement-cursor",
+        "started_utc": "2026-10-18T03:28:34.117306+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:28:34.447511+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "cd939d3809e9ae3ca6bddafa355e6e9f48266e82c6a1dbf7d40632e3dfc2a54f"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "0abd36f902fd74e6c9493f0840a0f93142ee55a0cea30feb2f437ce4e0b3e855"
+  }
+]

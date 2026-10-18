@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2842,7 +2842,7 @@
+                 size_t len = zbtExternalLength(record);
+                 unsigned char *oldptr = zbtExternalPointer(record);
+                 serverAssert(oldptr != NULL);
+-                unsigned char *newptr = zbtAlloc(dst, len);
++                unsigned char *newptr = oldptr;
+                 memcpy(newptr, oldptr, len);
+                 zbtExternalSetPointer(record, newptr);
+             }

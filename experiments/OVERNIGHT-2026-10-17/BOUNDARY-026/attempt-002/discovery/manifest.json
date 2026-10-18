@@ -1,0 +1,810 @@
+{
+  "status": "complete",
+  "phase": "discovery",
+  "runs": [
+    {
+      "name": "control-release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-release"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:24.489908+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:25.541053+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-release-82603",
+      "command": [
+        "build/discovery-release",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:25.541992+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:26.375763+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-82603.stderr",
+      "stdout_sha256": "db7cb49a05af6e9f5629aaea891983995ad2ce0e341e9ff3eb30dd7fe62f4a59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-release-82611",
+      "command": [
+        "build/discovery-release",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:26.376877+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:26.764185+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-release-82611.stderr",
+      "stdout_sha256": "176a61b1ef80e480871ad02340785a7575a53da34a90f18bde5b8551f97ac8a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:26.765153+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:27.932348+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-sanitize-82603",
+      "command": [
+        "build/discovery-sanitize",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:27.933432+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:29.082097+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-82603.stderr",
+      "stdout_sha256": "2a0aa5fb68cff3e12e16d34552c5e48c543beb3ec90d6f15ceba5571f83de88e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-sanitize-82611",
+      "command": [
+        "build/discovery-sanitize",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/control",
+      "started_utc": "2026-10-18T05:46:29.083058+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:29.892569+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/control-sanitize-82611.stderr",
+      "stdout_sha256": "41b7bb3f89d07721eda16f26fc7dafa6fdd678a3e860afddb6f5ccb5b98ea77f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-release"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:29.895460+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:30.822532+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-release-82603",
+      "command": [
+        "build/discovery-release",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:30.823876+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:31.501521+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-82603.stderr",
+      "stdout_sha256": "db7cb49a05af6e9f5629aaea891983995ad2ce0e341e9ff3eb30dd7fe62f4a59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-release-82611",
+      "command": [
+        "build/discovery-release",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:31.502455+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:31.892425+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-release-82611.stderr",
+      "stdout_sha256": "176a61b1ef80e480871ad02340785a7575a53da34a90f18bde5b8551f97ac8a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:31.893533+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:33.058847+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-sanitize-82603",
+      "command": [
+        "build/discovery-sanitize",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:33.060187+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:34.274965+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-82603.stderr",
+      "stdout_sha256": "2a0aa5fb68cff3e12e16d34552c5e48c543beb3ec90d6f15ceba5571f83de88e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "A-sanitize-82611",
+      "command": [
+        "build/discovery-sanitize",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/A",
+      "started_utc": "2026-10-18T05:46:34.276052+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:35.082945+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/A-sanitize-82611.stderr",
+      "stdout_sha256": "41b7bb3f89d07721eda16f26fc7dafa6fdd678a3e860afddb6f5ccb5b98ea77f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-release"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:35.088246+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:36.012855+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-release-82603",
+      "command": [
+        "build/discovery-release",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:36.014028+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:36.686628+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-82603.stderr",
+      "stdout_sha256": "db7cb49a05af6e9f5629aaea891983995ad2ce0e341e9ff3eb30dd7fe62f4a59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-release-82611",
+      "command": [
+        "build/discovery-release",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:36.687967+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:37.066420+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-release-82611.stderr",
+      "stdout_sha256": "176a61b1ef80e480871ad02340785a7575a53da34a90f18bde5b8551f97ac8a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:37.067740+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:38.234610+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-sanitize-82603",
+      "command": [
+        "build/discovery-sanitize",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:38.236168+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:39.384854+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-82603.stderr",
+      "stdout_sha256": "2a0aa5fb68cff3e12e16d34552c5e48c543beb3ec90d6f15ceba5571f83de88e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "B-sanitize-82611",
+      "command": [
+        "build/discovery-sanitize",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/B",
+      "started_utc": "2026-10-18T05:46:39.385917+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:40.192965+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/B-sanitize-82611.stderr",
+      "stdout_sha256": "41b7bb3f89d07721eda16f26fc7dafa6fdd678a3e860afddb6f5ccb5b98ea77f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-release"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:40.199088+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:41.121029+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-release-82603",
+      "command": [
+        "build/discovery-release",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:41.122253+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:41.791186+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-82603.stderr",
+      "stdout_sha256": "db7cb49a05af6e9f5629aaea891983995ad2ce0e341e9ff3eb30dd7fe62f4a59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-release-82611",
+      "command": [
+        "build/discovery-release",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:41.792080+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:42.174965+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-release-82611.stderr",
+      "stdout_sha256": "176a61b1ef80e480871ad02340785a7575a53da34a90f18bde5b8551f97ac8a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:42.176195+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:43.343127+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-sanitize-82603",
+      "command": [
+        "build/discovery-sanitize",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:43.344394+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:44.491584+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-82603.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-82603.stderr",
+      "stdout_sha256": "2a0aa5fb68cff3e12e16d34552c5e48c543beb3ec90d6f15ceba5571f83de88e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "C-sanitize-82611",
+      "command": [
+        "build/discovery-sanitize",
+        "82611"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/C",
+      "started_utc": "2026-10-18T05:46:44.492703+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:46:45.303082+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-82611.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/discovery/C-sanitize-82611.stderr",
+      "stdout_sha256": "41b7bb3f89d07721eda16f26fc7dafa6fdd678a3e860afddb6f5ccb5b98ea77f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binaries": {
+    "control-release": "8532e60c5f6b2529170ba8ff5c06c46dc15e6c3403a5ee91abe9bbafad9407a4",
+    "control-sanitize": "b182edf58b356283044cab70bf8bf080fe8865b3c7940553530c714b1c5367d0",
+    "A-release": "eb5e6c6b4717feec450dbbfb8de7246744ed15ce4d9d1a0ee3f52208da37bafd",
+    "A-sanitize": "a43b902c0bd4e8a7dbf7a4d46aa69b994494ce8a055f7152b024eb2b1b3a5bf1",
+    "B-release": "03996d2b2b6585f68ca2d9e83ae4557c6964f48798de710611a93ff16be5bdee",
+    "B-sanitize": "7524825b79b0665a676d8caaffc0404be8265e8a47d91451bde720ba0dd36e60",
+    "C-release": "56dd1acad295fb545ff27c298a51fa8fa04ae43766dc34bf732b5a149797616c",
+    "C-sanitize": "5615d44be2621377f378cd3eff663525be66dbf21164a25cb2a1be30f65f23a8"
+  },
+  "results": [
+    {
+      "variant": "control",
+      "build": "release",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "control",
+      "build": "release",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "control",
+      "build": "sanitize",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "control",
+      "build": "sanitize",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "A",
+      "build": "release",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "A",
+      "build": "release",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "A",
+      "build": "sanitize",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "A",
+      "build": "sanitize",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "B",
+      "build": "release",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "B",
+      "build": "release",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "B",
+      "build": "sanitize",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "B",
+      "build": "sanitize",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "C",
+      "build": "release",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "C",
+      "build": "release",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "C",
+      "build": "sanitize",
+      "seed": 82603,
+      "debug": true,
+      "counts": {
+        "seed": "82603",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    },
+    {
+      "variant": "C",
+      "build": "sanitize",
+      "seed": 82611,
+      "debug": true,
+      "counts": {
+        "seed": "82611",
+        "keys": "1345",
+        "models": "6",
+        "batches": "342975",
+        "lanes": "2743800",
+        "exact": "1567343",
+        "aliases": "1452600",
+        "copies": "1291200",
+        "heterogeneous": "195025",
+        "digest": "cc98c012807073ca"
+      }
+    }
+  ]
+}

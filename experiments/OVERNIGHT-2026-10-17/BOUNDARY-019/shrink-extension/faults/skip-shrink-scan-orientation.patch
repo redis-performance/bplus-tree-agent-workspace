@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4334,7 +4334,7 @@
+     zbtIndexTable *small = &zs->member_index, *large = NULL;
+     if (zs->member_rehash) {
+         large = &zs->member_rehash->table;
+-        if (large->size < small->size) {
++        if (0 && large->size < small->size) {
+             zbtIndexTable *tmp = small;
+             small = large;
+             large = tmp;

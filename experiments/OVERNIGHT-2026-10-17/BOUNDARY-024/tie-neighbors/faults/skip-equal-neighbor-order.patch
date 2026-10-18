@@ -1,0 +1,20 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3554,7 +3554,7 @@
+     if (neighbor) {
+         double other_score = zbtScoreLeafScore(neighbor, neighbor_pos);
+         if (score < other_score) return 0;
+-        if (score == other_score) {
++        if (0 && score == other_score) { /* deliberate allowed misordered tie */
+             size_t len;
+             const unsigned char *other =
+                 zbtScoreLeafElement(neighbor, neighbor_pos, &len);
+@@ -3567,7 +3567,7 @@
+     if (neighbor) {
+         double other_score = zbtScoreLeafScore(neighbor, neighbor_pos);
+         if (score > other_score) return 0;
+-        if (score == other_score) {
++        if (0 && score == other_score) { /* deliberate allowed misordered tie */
+             size_t len;
+             const unsigned char *other =
+                 zbtScoreLeafElement(neighbor, neighbor_pos, &len);

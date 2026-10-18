@@ -1,0 +1,80 @@
+[
+  {
+    "name": "missing-ninth-byte",
+    "snapshot": "scratch/overnight-boundary-013/missing-ninth-byte",
+    "source_sha256": "113dd42bf25dc0ca3cbcdd581f594b5843701a05c0f7f251a4158b861196cf0b",
+    "commands": [
+      {
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/packed_decode_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8d40a64228dffc25b7a72625eac3df6ffa30f1bd950759eb7f7362d6928eda14"
+      }
+    ],
+    "detected": true
+  },
+  {
+    "name": "width64-mask",
+    "snapshot": "scratch/overnight-boundary-013/width64-mask",
+    "source_sha256": "2f6eac040b7d3f0a2e4114e129e6594d20322e48b755d4ca08f0471064fce6ba",
+    "commands": [
+      {
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/packed_decode_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "0eb2a7c90f15949b95c2d7a711f88c46c44c48ae6d7395633a27b827f3d1808a"
+      }
+    ],
+    "detected": true
+  }
+]

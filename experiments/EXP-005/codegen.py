@@ -1,0 +1,6 @@
+from pathlib import Path
+import subprocess,json,hashlib,re
+P=Path(__file__).resolve().parent;R=P.parents[1];F=json.loads((P/'freeze.json').read_text());D=R/'scratch/exp-005-codegen';D.mkdir();rows=[];lines=['# Score-mask codegen audit','','Uninstrumented release binaries;static instruction counts are not executed costs.','Original cross-word predicate retained. Width0 bypass and width64 behavior checked','by scalar bitstream oracle;no branch removal claim about baseline mask (it uses select).','']
+for v in ['control','A','B','C']:
+ binary=R/F['snapshot_root']/v/'build/release/iterator-modes';cmd=['otool','-tvV',str(binary.relative_to(R))];q=subprocess.run(cmd,cwd=R,capture_output=True,timeout=120);assert q.returncode==0;out=D/(v+'.assembly');out.write_bytes(q.stdout);text=q.stdout.decode();a=text.index('_zbtreeIteratorNext:');b=text.find('\n_',a+1);body=text[a:b];lines+=['## '+v,'','```asm',body,'```',''];rows.append(dict(variant=v,command=cmd,returncode=q.returncode,binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(),assembly_path=str(out.relative_to(R)),assembly_sha256=hashlib.sha256(q.stdout).hexdigest(),instructions=len(re.findall(r'^[0-9a-f]+\s+',body,re.M))))
+(P/'CODEGEN.md').write_text('\n'.join(lines)+'\n');(P/'codegen.json').write_text(json.dumps(rows,indent=2)+'\n');print(json.dumps(rows,indent=2))

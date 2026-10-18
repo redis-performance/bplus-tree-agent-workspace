@@ -1,0 +1,122 @@
+--- /dev/null
++++ b/tests/clone_resize_oracle.c
+@@ -0,0 +1,119 @@
++/* Observe clone representation without altering private tree state. */
++#include "../src/zset_btree.c"
++#include <float.h>
++#include <inttypes.h>
++#define N 7169
++#define CAP (N+256)
++#define MAX_ALLOCS 40000
++static sds keys[CAP];
++typedef struct { unsigned char live[CAP]; double value[CAP]; } Model;
++static unsigned seed,fixture;
++static unsigned long checks,clones,active_clones,free_id_clones,allocations;
++#define CHECK(x) do { if(!(x)) {fprintf(stderr,"seed=%u fixture=%u line=%d: %s\n",seed,fixture,__LINE__,#x);abort();} } while(0)
++static uint64_t bits(double x){uint64_t u;memcpy(&u,&x,8);return u;}
++static Model *sorting;
++static int cmp_id(const void *a,const void *b){
++ unsigned x=*(const unsigned*)a,y=*(const unsigned*)b;
++ if(sorting->value[x]<sorting->value[y])return -1;
++ if(sorting->value[x]>sorting->value[y])return 1;
++ size_t nx=sdslen(keys[x]),ny=sdslen(keys[y]);int c=memcmp(keys[x],keys[y],nx<ny?nx:ny);
++ return c?c:(nx>ny)-(nx<ny);
++}
++static unsigned sorted(Model *m,unsigned *ids){unsigned n=0;for(unsigned i=0;i<CAP;i++)if(m->live[i])ids[n++]=i;sorting=m;qsort(ids,n,sizeof(*ids),cmp_id);return n;}
++static void put(zbtreeSet *t,Model *m,unsigned id,double value){
++ zbtreeInsertPosition pos;double old;int hit=zbtreeFindForAdd(t,keys[id],&old,&pos);
++ CHECK(hit==m->live[id]);
++ if(hit)zbtreeUpdateScore(t,keys[id],value,&pos);else zbtreeInsertNew(t,value,keys[id],&pos);
++ m->live[id]=1;m->value[id]=value;
++}
++typedef struct {uintptr_t ptr[MAX_ALLOCS];size_t n,total;} Owned;
++static void own(Owned *o,void *p){if(!p)return;CHECK(o->n<MAX_ALLOCS);o->ptr[o->n++]=(uintptr_t)p;o->total+=zmalloc_usable_size(p);}
++static void nodes(Owned *o,zbtScoreNode *n){
++ if(!n)return;own(o,n);
++ if(n->isleaf){zbtScoreLeaf *l=(zbtScoreLeaf*)n;for(unsigned i=0;i<n->count;i++){
++  unsigned char *r=zbtScoreLeafRecord(l,i);if(r[0]==ZBT_PACKED_EXTERNAL)own(o,zbtExternalPointer(r));
++ }}else{zbtScoreInner *in=(zbtScoreInner*)n;for(unsigned i=0;i<n->count;i++)nodes(o,in->child[i]);}
++}
++static int cmp_ptr(const void *a,const void *b){uintptr_t x=*(const uintptr_t*)a,y=*(const uintptr_t*)b;return (x>y)-(x<y);}
++static void ownership(zbtreeSet *t,Owned *o){
++ memset(o,0,sizeof(*o));own(o,t);nodes(o,t->score_root);own(o,t->score_leaf_by_id);own(o,t->member_index.buckets);
++ if(t->member_rehash){own(o,t->member_rehash);own(o,t->member_rehash->table.buckets);}
++ CHECK(o->total==zbtreeAllocSize(t));qsort(o->ptr,o->n,sizeof(*o->ptr),cmp_ptr);
++ for(size_t i=1;i<o->n;i++)CHECK(o->ptr[i-1]!=o->ptr[i]);allocations+=o->n;
++}
++static void table_equal(zbtIndexTable *a,zbtIndexTable *b){
++ CHECK(a->size==b->size && a->used==b->used && a->filled==b->filled && a->wide_ids==b->wide_ids);
++ if(a->buckets){CHECK(b->buckets);CHECK(!memcmp(a->buckets,b->buckets,zbtIndexTableBytes(a)));}else CHECK(!b->buckets);
++}
++static void audit_clone(zbtreeSet *a,zbtreeSet *b){
++ Owned *oa=malloc(sizeof(*oa)),*ob=malloc(sizeof(*ob));CHECK(oa&&ob);ownership(a,oa);ownership(b,ob);
++ size_t i=0,j=0;while(i<oa->n && j<ob->n){CHECK(oa->ptr[i]!=ob->ptr[j]);if(oa->ptr[i]<ob->ptr[j])i++;else j++;}free(oa);free(ob);
++ CHECK(a->length==b->length && a->score_leaf_cap==b->score_leaf_cap && a->next_score_leaf_id==b->next_score_leaf_id && a->free_score_leaf_id==b->free_score_leaf_id);
++ CHECK(a->member_revision!=b->member_revision);
++ table_equal(&a->member_index,&b->member_index);
++ CHECK(!!a->member_rehash==!!b->member_rehash);
++ if(a->member_rehash){CHECK(a->member_rehash->next_leaf_id==b->member_rehash->next_leaf_id && a->member_rehash->resize_id==b->member_rehash->resize_id);table_equal(&a->member_rehash->table,&b->member_rehash->table);active_clones++;}
++ if(a->free_score_leaf_id)free_id_clones++;
++ for(uint32_t k=0;k<a->score_leaf_cap;k++){
++  zbtScoreLeaf *x=a->score_leaf_by_id[k],*y=b->score_leaf_by_id[k];
++  if(!x || ZBT_IS_FREE_LEAF_ID(x))CHECK(x==y);
++  else{CHECK(y && !ZBT_IS_FREE_LEAF_ID(y));CHECK(x!=y && x->id==y->id && x->n.count==y->n.count && x->n.index_resize==y->n.index_resize);}
++ }
++ clones++;
++}
++typedef struct {Model *m;unsigned char seen[CAP];unsigned calls;} Scan;
++static void visit(void *ctx,const unsigned char *ele,size_t len,double score){
++ Scan *s=ctx;CHECK(len>=4);unsigned id=0;for(unsigned j=0;j<4;j++)id|=(unsigned)ele[j]<<(j*8);
++ CHECK(id<CAP && s->m->live[id]);CHECK(len==sdslen(keys[id]) && !memcmp(ele,keys[id],len));CHECK(bits(score)==bits(s->m->value[id]));s->seen[id]=1;s->calls++;
++}
++static void verify(zbtreeSet *t,Model *m){
++ unsigned ids[CAP],n=sorted(m,ids);CHECK(zbtreeLength(t)==n);
++ for(int rev=0;rev<2;rev++){
++  zbtreeIterator it;CHECK(zbtreeIteratorStart(t,rev,&it)==(n!=0));
++  for(unsigned j=0;j<n;j++){unsigned id=ids[rev?n-1-j:j];const unsigned char *p;size_t len;double v;
++   CHECK(zbtreeIteratorNext(&it,rev,&p,&len,&v));CHECK(len==sdslen(keys[id]) && !memcmp(p,keys[id],len));CHECK(bits(v)==bits(m->value[id]));
++  }CHECK(!zbtreeIteratorNext(&it,rev,NULL,NULL,NULL));
++ }
++ for(unsigned i=0;i<CAP;i++){double v;CHECK(zbtreeScore(t,keys[i],&v)==m->live[i]);if(m->live[i])CHECK(bits(v)==bits(m->value[i]));}
++ for(unsigned j=0;j<n;j++){double v;CHECK(zbtreeRank(t,keys[ids[j]],0,&v)==(long)j);CHECK(bits(v)==bits(m->value[ids[j]]));CHECK(zbtreeRank(t,keys[ids[j]],1,NULL)==(long)(n-1-j));}
++ Scan s={.m=m};uint64_t cur=0;unsigned calls=0;do{cur=zbtreeScan(t,cur,1,visit,&s);CHECK(++calls<65536);}while(cur);
++ for(unsigned i=0;i<CAP;i++)CHECK(s.seen[i]==m->live[i]);
++ Owned *o=malloc(sizeof(*o));CHECK(o);ownership(t,o);free(o);checks++;
++}
++static void exercise(unsigned offset,int holes){
++ Model a={0},b;zbtreeSet *t=zbtreeCreate();
++ for(unsigned i=0;i<N;i++)put(t,&a,i,i==0?-0.0:i==1?0.0:i==2?-DBL_MAX:i==3?DBL_MAX:(double)i/8);
++ CHECK(t->member_rehash!=NULL);
++ for(unsigned j=0;j<offset;j++)CHECK(zbtreeScore(t,keys[j],NULL));
++ if(!holes)CHECK(t->member_rehash!=NULL);
++ else{
++  verify(t,&a);unsigned ids[CAP];CHECK(sorted(&a,ids)==N);
++  CHECK(zbtreeDeleteRangeByRank(t,2048,3071)==1024);
++  for(unsigned j=2048;j<=3071;j++)a.live[ids[j]]=0;
++  verify(t,&a);CHECK(t->free_score_leaf_id!=0);
++ }
++ zbtreeSet *copy=zbtreeDup(t);b=a;audit_clone(t,copy);
++ verify(t,&a);verify(copy,&b);
++ for(unsigned i=0;i<N;i+=17){CHECK(zbtreeDelete(copy,keys[i])==b.live[i]);b.live[i]=0;}
++ for(unsigned i=1;i<N;i+=19)put(copy,&b,i,-(double)i-0.5);
++ for(unsigned i=N;i<CAP;i++)put(copy,&b,i,(double)i/4);
++ verify(copy,&b);verify(t,&a);
++ if(offset==1){zbtreeFree(copy);verify(t,&a);copy=zbtreeDup(t);b=a;audit_clone(t,copy);}
++ zbtreeFree(t);verify(copy,&b);
++ for(unsigned i=0;i<N;i++)if(!b.live[i])put(copy,&b,i,(double)i+0.25);
++ verify(copy,&b);
++ for(unsigned i=0;i<CAP;i++){CHECK(zbtreeDelete(copy,keys[i])==b.live[i]);b.live[i]=0;}
++ verify(copy,&b);zbtreeSet *empty=zbtreeDup(copy);audit_clone(copy,empty);zbtreeFree(copy);verify(empty,&b);zbtreeFree(empty);
++}
++int main(void){
++ const size_t lens[]={8,16,319,320,321,1024};
++ for(unsigned i=0;i<CAP;i++){unsigned char buf[1024];memset(buf,(i&1)?255:0,sizeof(buf));for(unsigned j=0;j<4;j++)buf[j]=(i>>(8*j))&255;keys[i]=sdsnewlen(buf,lens[i%6]);}
++ for(unsigned s=0;s<2;s++){
++  seed=s?211:43;uint8_t hs[16]={0};hs[0]=seed;dictSetHashFunctionSeed(hs);
++  fixture=0;exercise(0,0);fixture=1;exercise(1,0);fixture=2;exercise(7,0);fixture=3;exercise(0,1);
++  Model m={0};for(unsigned reserve=0;reserve<2;reserve++){fixture=4+reserve;zbtreeSet *a=zbtreeCreate();if(reserve)zbtreeReserve(a,N);zbtreeSet *b=zbtreeDup(a);audit_clone(a,b);zbtreeFree(a);verify(b,&m);zbtreeFree(b);}
++  printf("PASS seed=%u checks=%lu clones=%lu active_clones=%lu free_id_clones=%lu allocation_observations=%lu\n",seed,checks,clones,active_clones,free_id_clones,allocations);
++ }
++ CHECK(active_clones>=6 && free_id_clones>=2);for(unsigned i=0;i<CAP;i++)sdsfree(keys[i]);
++ puts("PASS 12 clone fixtures; both release orders, independent model and owned-allocation audits");return 0;
++}

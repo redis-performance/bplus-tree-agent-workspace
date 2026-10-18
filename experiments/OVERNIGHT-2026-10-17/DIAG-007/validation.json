@@ -1,0 +1,383 @@
+[
+  {
+    "kind": "release",
+    "name": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release/btree-bench"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-build.stdout",
+    "stderr": "release-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "16-0-1409",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "1",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-16-0-1409.stdout",
+    "stderr": "release-16-0-1409.stderr",
+    "stdout_sha256": "14d8309144b73e30569fde67b3c11fa335cfc1acee13970a829b2f220285f56f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "16-0-1423",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "1",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-16-0-1423.stdout",
+    "stderr": "release-16-0-1423.stderr",
+    "stdout_sha256": "033596537cdffad88dc7525351d69457137b6bc6d48785e8bc33aee13ae41987",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "16-1-1409",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "2",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-16-1-1409.stdout",
+    "stderr": "release-16-1-1409.stderr",
+    "stdout_sha256": "c42be74b154d85810b22ab7c6d63865249abe392740f84dd06e4b6e2435a4920",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "16-1-1423",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "2",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-16-1-1423.stdout",
+    "stderr": "release-16-1-1423.stderr",
+    "stdout_sha256": "48f92ecc09e84f42b2e1fa73295e45bb769f858e5423da904cdd7b7642c651dc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "320-0-1409",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "1",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-320-0-1409.stdout",
+    "stderr": "release-320-0-1409.stderr",
+    "stdout_sha256": "78dfc7a97481eb3ef2b29389caba051ed3cc880ed824c3f2598b33b0fcb04a41",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "320-0-1423",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "1",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-320-0-1423.stdout",
+    "stderr": "release-320-0-1423.stderr",
+    "stdout_sha256": "844e5b223447601d913a6dbd798ed3a1984ef61bee372686c572a2788ecbca60",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "320-1-1409",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "2",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-320-1-1409.stdout",
+    "stderr": "release-320-1-1409.stderr",
+    "stdout_sha256": "a1971430985e30dd99f46d09623b5431ba66e89720ee7102bb7324f05dc1dedf",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "name": "320-1-1423",
+    "command": [
+      "build/release/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "2",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "release-320-1-1423.stdout",
+    "stderr": "release-320-1-1423.stderr",
+    "stdout_sha256": "db2b087bebb8fa1ef8bfacd5741cd37316f64e39d71d399ef5f786355ddbec8e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-DREDIS_DEBUG",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize/btree-bench"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-build.stdout",
+    "stderr": "sanitize-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "16-0-1409",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "1",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-16-0-1409.stdout",
+    "stderr": "sanitize-16-0-1409.stderr",
+    "stdout_sha256": "a06df58b5dc3363f8db736ac62d489fa28e42a32464ff2c9a100b1efd6d0e077",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "16-0-1423",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "1",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-16-0-1423.stdout",
+    "stderr": "sanitize-16-0-1423.stderr",
+    "stdout_sha256": "9a336b948600f43e191ca32abfb4813b568a5b8b9a34270e38dd5261d2e26c78",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "16-1-1409",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "2",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-16-1-1409.stdout",
+    "stderr": "sanitize-16-1-1409.stderr",
+    "stdout_sha256": "f3d666a28dbb0c2130a43989201ee8e9a6e8ca079b073f8e2539988f249f6846",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "16-1-1423",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "16",
+      "4",
+      "2",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-16-1-1423.stdout",
+    "stderr": "sanitize-16-1-1423.stderr",
+    "stdout_sha256": "2213715b63db2517fdf361b49c710c19ab02001638456b49e62d4058a514a351",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "320-0-1409",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "1",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-320-0-1409.stdout",
+    "stderr": "sanitize-320-0-1409.stderr",
+    "stdout_sha256": "17f59acb24ee32fa202177584db2884b2008157647e59a1aa43592e4929a3dd7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "320-0-1423",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "1",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-320-0-1423.stdout",
+    "stderr": "sanitize-320-0-1423.stderr",
+    "stdout_sha256": "b1f6257c7fe3b3003d93e047c2f7f32cb31b2477718431c8505afa62d8438555",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "320-1-1409",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "2",
+      "1409",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-320-1-1409.stdout",
+    "stderr": "sanitize-320-1-1409.stderr",
+    "stdout_sha256": "aee13112794588a77d15ca575a4e96fff3353b923d8642dd00bf62f790eb372c",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "name": "320-1-1423",
+    "command": [
+      "build/sanitize/btree-bench",
+      "997",
+      "1999",
+      "320",
+      "4",
+      "2",
+      "1423",
+      "2"
+    ],
+    "cwd": "scratch/overnight-diag-007/base",
+    "returncode": 0,
+    "stdout": "sanitize-320-1-1423.stdout",
+    "stderr": "sanitize-320-1-1423.stderr",
+    "stdout_sha256": "9af9824589eda256de7c90df363004d5df8bb5f033ef77d442e018b6630b8019",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

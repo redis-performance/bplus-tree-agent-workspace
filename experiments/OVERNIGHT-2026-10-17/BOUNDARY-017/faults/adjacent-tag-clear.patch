@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1845,7 +1845,7 @@
+ {
+     uint64_t shift = pos * 8;
+     bucket->narrow.tags =
+-        (zbtIndexTags(bucket) & ~(UINT64_C(0xff) << shift)) |
++        (zbtIndexTags(bucket) & ~(UINT64_C(0xffff) << shift)) |
+         ((uint64_t)tag << shift);
+ }
+ 

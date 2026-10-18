@@ -1,0 +1,69 @@
+{
+  "retrievals": {
+    "ask.json": {
+      "path": "scratch/overnight-round005-method/ask.json",
+      "sha256": "b0b13836a8a3f6d5c0a56d34df8cf79f7658fded2e5e28fc3ad03a45929b4edc"
+    },
+    "check-AA-004.json": {
+      "path": "scratch/overnight-round005-method/check-AA-004.json",
+      "sha256": "4ddbe818b9bc270fb0c284d253a131fea16f8ffe39a3ce0a636c8000e4ef8110"
+    },
+    "check-DIAG-008.json": {
+      "path": "scratch/overnight-round005-method/check-DIAG-008.json",
+      "sha256": "43b148403fc9fb27e23e3780cd1261b44ba77fab203dd2a3098e84de82fdfaaa"
+    },
+    "check-DIAG-009.json": {
+      "path": "scratch/overnight-round005-method/check-DIAG-009.json",
+      "sha256": "5e3a7e26d60c0462236761c1bde74265602a8afae83aea09edfa0fb82e3e1c27"
+    },
+    "method05.json": {
+      "path": "scratch/overnight-round005-method/method05.json",
+      "sha256": "065d13389e5002d1b93cba55a9ada28a8ad92a23c53233f690bfd179c5073be6"
+    },
+    "method14.json": {
+      "path": "scratch/overnight-round005-method/method14.json",
+      "sha256": "acee1276d188e31297b4112d7013ae96232c11fa142faee73d7789215933663f"
+    }
+  },
+  "sdk_sources": {
+    "usr/include/pthread/pthread.h": "9d621c730d1d96b600893b0e3e4c45822a24d565e7b6b166973c41a6a2eb02e7",
+    "usr/include/pthread/qos.h": "bfcfcf23501c328f5aa7f3bb39c0c8167730ab111393063c5b5fb4bd72d074f2",
+    "usr/share/man/man2/getitimer.2": "293388e0c0238ae6dced0b2a6b82943606de4e4bc44454913547ab593bb08161",
+    "usr/share/man/man2/sigaction.2": "5538ae92984c07616a250ebc73b52eaca60b27a231a67b2fbd1e6b9a85ab7097"
+  },
+  "environment": {
+    "cc --version": {
+      "returncode": 0,
+      "stdout": "Apple clang version 17.0.0 (clang-1700.6.3.2)\nTarget: arm64-apple-darwin25.3.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+      "stderr": ""
+    },
+    "uname -m": {
+      "returncode": 0,
+      "stdout": "arm64\n",
+      "stderr": ""
+    },
+    "sw_vers -productVersion": {
+      "returncode": 0,
+      "stdout": "26.3\n",
+      "stderr": ""
+    }
+  },
+  "review": {
+    "ask": "Google Benchmark CPU timer scope passage relevant only to timer scope; Intel/OpenVINO/other retrievals not support for local diagnosis.",
+    "cpu_ids": "Installed pthread.h says CPU may change before return; IDs remain opaque.",
+    "qos": "Installed qos.h says overrides invisible to getter; effective QoS unknown.",
+    "signals": "Installed sigaction.2 list does not include clock_gettime and labels unlisted calls unsafe. No handler timestamp added.",
+    "evidence_checker": "DIAG-008 and AA-004 checker reports no_number; DIAG-009 reports drop_number, missing clock and heuristically missing explicitly stated fields. Retain raw local diagnostics, promote no portable performance/GHz/source-speed claim. DIAG-007 checker was consulted; its response was not separately persisted, so no invented raw hash.",
+    "provenance": "One attempted reviewer failed at thread-store context load before running. No independent participant/model/cost. Sequential coordinator audit only."
+  },
+  "method_sources": [
+    {
+      "url": "https://github.com/usamahz/cpu-performance-engineering/blob/main/misc/benchmarks/05-measurement-pitfalls/README.md",
+      "use": "Retain fixed repeated observations and meaningful checksums. No M4 results copied."
+    },
+    {
+      "url": "https://github.com/usamahz/cpu-performance-engineering/blob/main/misc/benchmarks/14-pcore-vs-ecore/README.md",
+      "use": "Thread CPU and boundary CPU observations, method says nothing pinned. No topology,frequency or measurements transferred."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "command": [
+    "cc",
+    "-Isrc",
+    "-Icompat",
+    "-Ivendor/redis",
+    "-std=c11",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-fno-omit-frame-pointer",
+    "-O3",
+    "-fprofile-instr-generate",
+    "-fcoverage-mapping",
+    "bench/microbench.c",
+    "src/zset_btree.c",
+    "compat/standalone.c",
+    "vendor/redis/siphash.c",
+    "-lm",
+    "-o",
+    "build/btree-bench"
+  ],
+  "cwd": "scratch/overnight-counters-002/base",
+  "returncode": 0
+}

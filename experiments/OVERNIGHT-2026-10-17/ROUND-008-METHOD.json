@@ -1,0 +1,38 @@
+{
+  "scope": "Local Apple M1 from established campaign provenance; no private system access",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.3.0",
+    "arch": "arm64"
+  },
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.3.2)\nTarget: arm64-apple-darwin25.3.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "base_commit": "a2ff0c5ddc00ffc11ff7d73e202d6384df77c84c",
+  "root_files": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde"
+  },
+  "retrievals": {
+    "checkers.json": "456ae5d667ef422bb82aa796db2212ce0f8eb6bd8af8027872dcd4e45f7cfe3c",
+    "raw.json": "8cc51c15841ae03390666f3ab00b1da920e6e3ebbb9c3c297849fd1fb77f1e34"
+  },
+  "reviewer_startup": "failed before execution: invalid thread-store request; no independent agent ran",
+  "unknowns": [
+    "exact backend/model/token cost",
+    "frequency/DVFS state",
+    "effective QoS",
+    "within-window migration",
+    "sampler bias"
+  ],
+  "attribution": {
+    "ask": "Compiler source distinguishes coverage counters from sampled-path mapping; census is structural, not timed coverage. No borrowed benchmark values.",
+    "benchmark05": "Result consumption and repeated retained samples; no M4 timing transferred.",
+    "benchmark14": "Thread time and boundary CPU IDs are observations; method says nothing pinned. Local existing APIs reused, no CPU-type numbering inference."
+  },
+  "checker_verdicts": {
+    "AA-007": "no_number (heuristic failed to recognize some supplied fields)",
+    "EXP-004-screening": "drop_number",
+    "DIAG-011": "drop_number"
+  },
+  "limits": "Checker is heuristic and does not certify measurements. No portable speed headline; all original gates retained."
+}

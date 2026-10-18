@@ -1,0 +1,55 @@
+[
+  {
+    "name": "skip-equal-neighbor-order",
+    "snapshot": "scratch/overnight-boundary-024-tie-neighbor-faults/skip-equal-neighbor-order",
+    "source_sha256": "a742991f078d571cdda769362ade7488e37a1f70b8f1b75be491b77bc2be1e68",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_tie_neighbor_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-024-tie-neighbor-faults/skip-equal-neighbor-order",
+        "started_utc": "2026-10-18T04:54:00.144670+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:54:01.373781+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "73501"
+        ],
+        "cwd": "scratch/overnight-boundary-024-tie-neighbor-faults/skip-equal-neighbor-order",
+        "started_utc": "2026-10-18T04:54:01.374354+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:54:03.415027+00:00",
+        "stdout_sha256": "652c97193c3205e1480627e04338ad16280ef96ae16a649f447a1a38cf78af17",
+        "stderr_sha256": "af78e5a4e0207d716404bee6aebc2c96019c1224238b0a6278c9aab818aaa502"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "559eb86a9fc4588f216e98ad13ce9c6b9911f446b8c93734160345b721773283"
+  }
+]

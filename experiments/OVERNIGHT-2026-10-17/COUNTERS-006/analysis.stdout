@@ -1,0 +1,71 @@
+{
+  "status": "supported",
+  "semantic_cells": 12,
+  "unit_cells": 12,
+  "fixtures_per_cell": 1940,
+  "checks_per_cell": 289060,
+  "exact_per_cell": 86570560,
+  "comparisons": [
+    {
+      "policy": "ambient",
+      "all_four_builds_identical": false,
+      "finals": {
+        "ambient-O1-native": "PASS checks=289060 exact=86570560 forward_leaves=582784 reversed_leaves=182396 reversal_opportunities=10838",
+        "ambient-O1-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662",
+        "ambient-O3-native": "PASS checks=289060 exact=86570560 forward_leaves=582784 reversed_leaves=182396 reversal_opportunities=10838",
+        "ambient-O3-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662"
+      }
+    },
+    {
+      "policy": "exact",
+      "all_four_builds_identical": true,
+      "finals": {
+        "exact-O1-native": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662",
+        "exact-O1-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662",
+        "exact-O3-native": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662",
+        "exact-O3-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662"
+      }
+    },
+    {
+      "policy": "round16",
+      "all_four_builds_identical": true,
+      "finals": {
+        "round16-O1-native": "PASS checks=289060 exact=86570560 forward_leaves=582020 reversed_leaves=183160 reversal_opportunities=10674",
+        "round16-O1-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582020 reversed_leaves=183160 reversal_opportunities=10674",
+        "round16-O3-native": "PASS checks=289060 exact=86570560 forward_leaves=582020 reversed_leaves=183160 reversal_opportunities=10674",
+        "round16-O3-sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582020 reversed_leaves=183160 reversal_opportunities=10674"
+      }
+    }
+  ],
+  "ambient_differences": [
+    {
+      "opt": "O1",
+      "different_fixtures": 1920,
+      "physical_different_fixtures": 1920,
+      "first": {
+        "index": 10,
+        "fixture": "PASS n=1 bytes=16 descending=0 seed=31121 checks=58 exact=43",
+        "native": "LAYOUT hash=8e61dc7712e3986a capacity=e0936dea0e75a97d forward=6 reversed=0 opportunities=0",
+        "sanitize": "LAYOUT hash=17641cc82f3e5212 capacity=df7821a388739705 forward=6 reversed=0 opportunities=0"
+      }
+    },
+    {
+      "opt": "O3",
+      "different_fixtures": 1920,
+      "physical_different_fixtures": 1920,
+      "first": {
+        "index": 10,
+        "fixture": "PASS n=1 bytes=16 descending=0 seed=31121 checks=58 exact=43",
+        "native": "LAYOUT hash=8e61dc7712e3986a capacity=e0936dea0e75a97d forward=6 reversed=0 opportunities=0",
+        "sanitize": "LAYOUT hash=17641cc82f3e5212 capacity=df7821a388739705 forward=6 reversed=0 opportunities=0"
+      }
+    }
+  ],
+  "intervention_different_fixtures": 1900,
+  "intervention_first": {
+    "index": 10,
+    "fixture": "PASS n=1 bytes=16 descending=0 seed=31121 checks=58 exact=43",
+    "exact": "LAYOUT hash=17641cc82f3e5212 capacity=df7821a388739705 forward=6 reversed=0 opportunities=0",
+    "round16": "LAYOUT hash=acaab111fe1d45ea capacity=1087ea655394c7fd forward=6 reversed=0 opportunities=0"
+  }
+}

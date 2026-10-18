@@ -1,0 +1,44 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -90,10 +90,11 @@
+     return sum;
+ }
+ int main(int argc, char **argv) {
+-    serverAssert(argc == 8);
++    serverAssert(argc == 9);
+     size_t n=argnum(argv[1]), ops=argnum(argv[2]), bytes=argnum(argv[3]);
+     size_t windows=argnum(argv[4]); int miss=(int)argnum(argv[5])-1;
+-    uint64_t seed=1301, qs=argnum(argv[6]); size_t warm=argnum(argv[7]);
++    uint64_t seed=1723, qs=argnum(argv[6]); size_t warm=argnum(argv[7]); int warmmiss=(int)argnum(argv[8])-1;
++    serverAssert(warmmiss==0 || warmmiss==1);
+     serverAssert(bytes>=8 && bytes<=65536 && windows<=64 && miss>=0 && miss<=1);
+     uint64_t rng=seed; uint8_t hash_seed[16];
+     for(size_t i=0;i<16;i++) hash_seed[i]=(uint8_t)random64(&rng);
+@@ -128,7 +129,9 @@
+     size_t memory=zbtreeAllocSize(tree);
+     uint64_t warm0=now_ns();
+     for(size_t p=0;p<warm;p++) for(size_t i=0;i<n;i++){
+-        double score;serverAssert(zbtreeScore(tree,keys[query[i]],&score) && score==(double)query[i]);
++        double score=0;
++        int found=zbtreeScore(tree,keys[query[i]+(warmmiss?n:0)],&score);
++        serverAssert(warmmiss ? !found : (found && score==(double)query[i]));
+     }
+     uint64_t warm_ns=now_ns()-warm0;
+     uint64_t outer0=now_ns();
+@@ -151,13 +154,13 @@
+         double score;serverAssert(zbtreeScore(tree,keys[i],&score) && score==(double)i);
+         serverAssert(!zbtreeScore(tree,keys[i+n],&score));
+     }
+-    puts("case,size,member_bytes,seed,query_seed,construction_fingerprint,query_fingerprint,window,windows,operations,elapsed_ns,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,checksum,expected,tree_bytes,outer_elapsed_ns,gap_ns,warmup_passes,warmup_elapsed_ns");
++    puts("case,size,member_bytes,seed,query_seed,construction_fingerprint,query_fingerprint,window,windows,operations,elapsed_ns,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,checksum,expected,tree_bytes,outer_elapsed_ns,gap_ns,warmup_passes,warmup_elapsed_ns,warmup_case");
+     for(size_t w=0;w<windows;w++){
+         window *r=&records[w];
+-        printf("%s,%zu,%zu,%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%zu,%zu,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%" PRIu64 ",%" PRIu64 ",%zu,%" PRIu64 ",%" PRIu64 ",%zu,%" PRIu64 "\n",
++        printf("%s,%zu,%zu,%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%zu,%zu,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%" PRIu64 ",%" PRIu64 ",%zu,%" PRIu64 ",%" PRIu64 ",%zu,%" PRIu64 ",%s\n",
+             miss?"lookup-miss":"lookup-hit",n,bytes,seed,qs,of,qf,w,windows,ops,
+             r->wall,r->thread,r->cpu0,r->cpu1,r->qos0,r->qos1,r->rel0,r->rel1,
+-            r->sum,r->expected,memory,outer,outer-totalwall,warm,warm_ns);
++            r->sum,r->expected,memory,outer,outer-totalwall,warm,warm_ns,warmmiss?"lookup-miss":"lookup-hit");
+     }
+     zbtreeFree(tree);for(size_t i=0;i<2*n;i++)sdsfree(keys[i]);
+     zfree(keys);zfree(order);zfree(query);return 0;

@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -514,7 +514,8 @@
+     }
+     uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+                                          leaf->score_base + delta;
+-    return zbtOrderedToScore(ordered);
++    double broken = zbtOrderedToScore(ordered);
++    return broken == 0.0 ? 0.0 : broken;
+ }
+ 
+ /* Return the raw hash byte stored with a member. */

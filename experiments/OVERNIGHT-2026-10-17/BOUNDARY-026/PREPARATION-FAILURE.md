@@ -1,0 +1,1 @@
+Initial oracle build fails under Werror because nextafter requires math.h. The original source is frozen in scratch/overnight-boundary-026 and its hash/patch/build stderr remain. No semantic run occurred. Attempt002 adds only math.h; all checks, counts, seeds and frozen production source remain unchanged.

@@ -1,0 +1,24 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1269,6 +1269,12 @@
+     return lo;
+ }
+ 
++#define ZBT_INLINE_TAG_SEARCH 1
++static inline uint8_t *zbtInlineTagSearch(uint8_t *p, uint8_t tag, size_t n) {
++    while (n--) { if (*p == tag) return p; p++; }
++    return NULL;
++}
++
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+@@ -1284,7 +1290,7 @@
+     uint8_t *end = tags + leaf->n.count;
+ 
+     while (next < end) {
+-        uint8_t *found = memchr(next, tag, end - next);
++        uint8_t *found = zbtInlineTagSearch(next, tag, (size_t)(end - next));
+         if (found == NULL) break;
+         unsigned int physical = found - tags;
+         uint16_t offset = offsets[physical];

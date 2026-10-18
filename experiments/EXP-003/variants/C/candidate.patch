@@ -1,0 +1,31 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4018,6 +4018,13 @@
+ 
+ /* Return the current member and score, then advance to the next logical
+  * position. The output pointers are optional. Return zero at the end. */
++typedef struct { const unsigned char *ele; size_t len; } zbtIteratorMemberResult;
++static __attribute__((noinline)) zbtIteratorMemberResult zbtIteratorMember(zbtScoreLeaf *leaf, unsigned int pos) {
++    zbtIteratorMemberResult result;
++    result.ele = zbtScoreLeafElement(leaf, pos, &result.len);
++    return result;
++}
++
+ int zbtreeIteratorNext(zbtreeIterator *iter, int reverse,
+                        const unsigned char **ele, size_t *len, double *score)
+ {
+@@ -4026,11 +4033,9 @@
+ 
+     unsigned int pos = iter->pos;
+     if (ele || len) {
+-        size_t elelen;
+-        const unsigned char *element =
+-            zbtScoreLeafElement(leaf, pos, &elelen);
+-        if (ele) *ele = element;
+-        if (len) *len = elelen;
++        zbtIteratorMemberResult result = zbtIteratorMember(leaf, pos);
++        if (ele) *ele = result.ele;
++        if (len) *len = result.len;
+     }
+     if (score) *score = zbtScoreLeafScore(leaf, pos);
+ 

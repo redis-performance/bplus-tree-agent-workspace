@@ -1,0 +1,40 @@
+{
+  "scope": "local M1, prior established hardware; no private system queries",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.3.0",
+    "arch": "arm64"
+  },
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.3.2)\nTarget: arm64-apple-darwin25.3.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "root_files": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde"
+  },
+  "retrievals": {
+    "benchmark05.json": "823f145203ae1a1957a88c0beb4ed829155ec588aa9b92cf20e9d39c6ae1587b",
+    "exp3-check.json": "b1355fdcebc197d6b5c9bef25d9b081207d290ce50b50e60c2dfa888279d8c5d",
+    "benchmark14.json": "63ff7f16fd9a005ba6157fa276f0aa3cab1851939cfa8e1bf3311439f274ab0a",
+    "guard-check.json": "c2846c7de371d4497e7a3c8038509459d1bff27b7cf2dc2121396a5c708c44e0",
+    "ask.json": "70e39b9732edcb49dc4e511a66aeea5a8754c86de91a5efe6ffbf7d31ede4708",
+    "aa-check.json": "a54be566971a0e39d2ba1a123071758da049b2fbcb01fd76ad303aead124d5fb"
+  },
+  "unknowns": [
+    "exact backend/model/token cost",
+    "frequency",
+    "effective QoS",
+    "within-window migration",
+    "sampling bias"
+  ],
+  "reviewer_startup": "failed before execution: invalid thread-store request; no independent agent ran",
+  "attribution": {
+    "05": "consume results; repeated retained samples, no M4 timings transferred",
+    "14": "boundary IDs/thread time observations; method says nothing pinned"
+  },
+  "correction": "ask context called boundary CPU IDs unavailable, local frozen code actually uses public pthread_cpu_number_np; AA-006 records opaque IDs without P/E mapping",
+  "checker_verdicts": {
+    "AA-006": "drop_number",
+    "EXP-002-guards": "drop_number",
+    "EXP-003-screening": "drop_number"
+  }
+}

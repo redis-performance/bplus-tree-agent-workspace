@@ -1,0 +1,63 @@
+{
+  "commands": [
+    {
+      "command": [
+        "xcrun",
+        "dwarfdump",
+        "--uuid",
+        "scratch/overnight-profile-002/base/build/release/btree-bench",
+        "scratch/overnight-profile-002/base/build/release/btree-bench.dSYM"
+      ],
+      "returncode": 0,
+      "stdout": "UUID: BA8DF83E-8DC7-33A2-8D76-E722FBC2E6CD (arm64) scratch/overnight-profile-002/base/build/release/btree-bench\nUUID: BA8DF83E-8DC7-33A2-8D76-E722FBC2E6CD (arm64) scratch/overnight-profile-002/base/build/release/btree-bench.dSYM/Contents/Resources/DWARF/btree-bench\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "dwarfdump",
+        "--uuid",
+        "scratch/overnight-profile-002/base/build/release/calibrate",
+        "scratch/overnight-profile-002/base/build/release/calibrate.dSYM"
+      ],
+      "returncode": 0,
+      "stdout": "UUID: 0963C25A-E41A-3AFB-AA56-8327EA146A91 (arm64) scratch/overnight-profile-002/base/build/release/calibrate\nUUID: 0963C25A-E41A-3AFB-AA56-8327EA146A91 (arm64) scratch/overnight-profile-002/base/build/release/calibrate.dSYM/Contents/Resources/DWARF/calibrate\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "nm",
+        "-u",
+        "scratch/overnight-profile-002/base/build/release/btree-bench"
+      ],
+      "returncode": 0,
+      "stdout": "___chkstk_darwin\n___error\n___memcpy_chk\n___stack_chk_fail\n___stack_chk_guard\n___stderrp\n_abort\n_bzero\n_calloc\n_clock_gettime\n_dladdr\n_exit\n_fprintf\n_fputs\n_free\n_getenv\n_getitimer\n_malloc\n_malloc_size\n_memchr\n_memcmp\n_memcpy\n_memmove\n_memset\n_printf\n_pthread_cpu_number_np\n_pthread_get_qos_class_np\n_pthread_self\n_puts\n_realloc\n_setitimer\n_sigaction\n_sigprocmask\n_strcmp\n_strlen\n_strrchr\n_strtoul\n_strtoull\n",
+      "stderr": ""
+    }
+  ],
+  "artifact_hashes": {
+    "scratch/overnight-profile-002/base/build/release/btree-bench.dSYM/Contents/Info.plist": "7fc61795fbf48164c0bfb6dec6a1cd305782a81bcc24302d30b505c2eccad3f6",
+    "scratch/overnight-profile-002/base/build/release/btree-bench.dSYM/Contents/Resources/DWARF/btree-bench": "f3ab8208ce81667ffce5a0a6d233bfcd6a2b0028fd169d8e9d2eff96128641b7",
+    "scratch/overnight-profile-002/base/build/release/btree-bench.dSYM/Contents/Resources/Relocations/aarch64/btree-bench.yml": "7466ba7cfb26d3b3c0861493a458b6318e5802a52038d1210aa7522b736fa30c",
+    "scratch/overnight-profile-002/base/build/release/calibrate.dSYM/Contents/Info.plist": "986d68f8a5fce0b63791503df198323031da30b7fae86ec313e3664bec5fa4c3",
+    "scratch/overnight-profile-002/base/build/release/calibrate.dSYM/Contents/Resources/DWARF/calibrate": "e1eb131014adf922dc7290413f23011c178c5358ec24b6810b38320c0081ea3f",
+    "scratch/overnight-profile-002/base/build/release/calibrate.dSYM/Contents/Resources/Relocations/aarch64/calibrate.yml": "2e88e7fb15a289fda3bcdc590cfdc619beefbccfd27fc278f614e983ca3301e8"
+  },
+  "sdk_sources": {
+    "usr/share/man/man2/getitimer.2": "293388e0c0238ae6dced0b2a6b82943606de4e4bc44454913547ab593bb08161",
+    "usr/share/man/man2/sigaction.2": "5538ae92984c07616a250ebc73b52eaca60b27a231a67b2fbd1e6b9a85ab7097",
+    "usr/include/sys/time.h": "89da128487ce75eca6f6bd40453d7ed8e25f583cdcdddb97bf297efac75846d2",
+    "usr/include/sys/_types/_ucontext.h": "d67fecbd5fba1fc876b41b0a69ff080e3d47c9884f3ea4012f8a334ffda62681",
+    "usr/include/arm/_mcontext.h": "6af56aec1a82613dbd54b09d95eaf96fa7b9443a4cf4c7e9ba689f6de6047186",
+    "usr/include/mach/arm/_structs.h": "99386c3144bb4b833ef467649623b183647938ce7a8ef9a0425cd836dd92ee7d",
+    "usr/include/dlfcn.h": "04294faa7f4d8f08cef5b11c0813595ba0e87aa345677576ff62423aefa77e33"
+  },
+  "review": {
+    "timer": "Installed getitimer(2) states process virtual+system CPU accounting, interval rounding and interrupted syscalls. Requested interval is not measured cadence.",
+    "signal": "Installed sigaction(2) documents SA_SIGINFO ucontext argument. Checked public arm64 PC accessor and context layout.",
+    "handler": "Only lock-free atomic counter/PC stores plus ucontext reads; atomic_is_lock_free checked at startup. nm imports contain no out-of-line atomic support. This does not prove absence of sampling bias.",
+    "scope": "Timer armed before operation clock and disabled after operation clock; small boundary helpers may be sampled. Fixture construction and warmup excluded.",
+    "thread_timer": "PROFILE-002 dumps before thread clock ends; never interpret its thread/wall ratio. DIAG-006 moves dump after endpoint.",
+    "provenance": "Sequential coordinator inspection; not independent review. No process attach, privileged APIs or permission changes."
+  }
+}

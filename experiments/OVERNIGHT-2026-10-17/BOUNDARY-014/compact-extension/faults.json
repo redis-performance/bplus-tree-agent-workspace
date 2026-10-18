@@ -1,0 +1,102 @@
+[
+  {
+    "name": "last-zero-base",
+    "snapshot": "scratch/overnight-boundary-014-compact/last-zero-base",
+    "source_sha256": "c961e8d5ab67a8b25176af8912d5e0f6db46cd41cc8546794c48812461c35860",
+    "commands": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/compact_zero.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "started_utc": "2026-10-18T02:06:44.476457+00:00",
+        "ended_utc": "2026-10-18T02:06:45.637443+00:00",
+        "stdout": "fault-last-zero-base-build.stdout",
+        "stderr": "fault-last-zero-base-build.stderr",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "2c10ba4a47269b99bd8acc005fb3d604d736e7069830856bbe72d52cab12ee2f"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "started_utc": "2026-10-18T02:06:45.637676+00:00",
+        "ended_utc": "2026-10-18T02:06:45.965459+00:00",
+        "stdout": "fault-last-zero-base-run.stdout",
+        "stderr": "fault-last-zero-base-run.stderr",
+        "stdout_sha256": "6445e2300d88fc5c7c59f9925f5873353d9caf50c79dd3e52cdbe7916e0e9739",
+        "stderr_sha256": "a2f4f2c0ad775ac8bfdfdd0b3d967fc736b07aa550ef7bd41baf1ff2c7bd31e5"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "9ee1ea7dca14693b55abef82b0bf5111b18646c9947b62f3b514a05b2f2a7ed2"
+  },
+  {
+    "name": "equal-zero-update",
+    "snapshot": "scratch/overnight-boundary-014-compact/equal-zero-update",
+    "source_sha256": "c9e7d5e0bfcd9fd83c4018775302f8498942b8852f0f5f1311d8e90627c54c54",
+    "commands": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/compact_zero.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "returncode": 0,
+        "started_utc": "2026-10-18T02:06:45.972397+00:00",
+        "ended_utc": "2026-10-18T02:06:47.183633+00:00",
+        "stdout": "fault-equal-zero-update-build.stdout",
+        "stderr": "fault-equal-zero-update-build.stderr",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "2c10ba4a47269b99bd8acc005fb3d604d736e7069830856bbe72d52cab12ee2f"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "returncode": -6,
+        "started_utc": "2026-10-18T02:06:47.183851+00:00",
+        "ended_utc": "2026-10-18T02:06:47.506622+00:00",
+        "stdout": "fault-equal-zero-update-run.stdout",
+        "stderr": "fault-equal-zero-update-run.stderr",
+        "stdout_sha256": "93818884a13e71c0a903981b3652b5c92045f3e577a06fee904a99a884886f5d",
+        "stderr_sha256": "c4943a830b03c1b901347038be4e5624bd3911a9cd6c35b32211cb1194e4bae5"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "06ceb20697db20e7a3c6b39508337840236de295fa614370f554eda0786f95cf"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "status": "failed",
+  "phase": "discovery",
+  "runs": [
+    {
+      "name": "control-release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/discovery-release"
+      ],
+      "cwd": "scratch/overnight-boundary-026/control",
+      "started_utc": "2026-10-18T05:46:08.970592+00:00",
+      "returncode": 1,
+      "ended_utc": "2026-10-18T05:46:09.956782+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/discovery/control-release-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/discovery/control-release-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "89731ea71928d4378d429b4ec9517e734968c7af93a29bab76106f6c1045e96b"
+    }
+  ],
+  "binaries": {},
+  "results": []
+}

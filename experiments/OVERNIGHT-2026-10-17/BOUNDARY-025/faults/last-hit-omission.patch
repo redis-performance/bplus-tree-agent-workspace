@@ -1,0 +1,16 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3209,11 +3209,12 @@
+             redis_prefetch_read(zbtIndexBucketAt(&zs->member_rehash->table,
+                 hashes[i] & (zs->member_rehash->table.size - 1)));
+     }
++    int active_before = zs->member_rehash != NULL;
+     unsigned int found = 0;
+     for (unsigned int i = 0; i < count; i++) {
+         if (zbtIndexFind(zs, hashes[i], (unsigned char *)members[i],
+                          sdslen(members[i]), &scores[i], NULL, NULL, NULL, NULL))
+-            found |= 1U << i;
++            if (!(active_before && !zs->member_rehash && i+1==count)) found |= 1U << i; /* deliberate promotion last hit omission */
+     }
+     return found;
+ }

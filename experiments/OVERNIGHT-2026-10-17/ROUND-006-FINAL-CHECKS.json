@@ -1,0 +1,34 @@
+[
+  {
+    "name": "audit",
+    "command": [
+      "python3",
+      "experiments/OVERNIGHT-2026-10-17/verify-round006.py"
+    ],
+    "returncode": 0,
+    "stdout": "PASS root/snapshot/referee identity, raw/source hashes, serial ABBA schedules, candidate effects/intervals, correctness/fault evidence, profile count conservation; sequential audit only\n",
+    "stderr": ""
+  },
+  {
+    "name": "workspace",
+    "command": [
+      "python3",
+      "scripts/check-workspace.py",
+      "--pristine-source"
+    ],
+    "returncode": 0,
+    "stdout": "Workspace links and pinned source/support hashes: PASS\n",
+    "stderr": ""
+  },
+  {
+    "name": "whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

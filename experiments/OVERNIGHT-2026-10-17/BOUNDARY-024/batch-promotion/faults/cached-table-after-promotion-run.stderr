@@ -1,0 +1,70 @@
+=================================================================
+==51895==ERROR: AddressSanitizer: heap-use-after-free on address 0x00010b352560 at pc 0x0001020af208 bp 0x00016dd52410 sp 0x00016dd52408
+READ of size 8 at 0x00010b352560 thread T0
+==51895==WARNING: external symbolizer didn't start up correctly!
+==51895==WARNING: Can't write to symbolizer at fd 4
+==51895==WARNING: external symbolizer didn't start up correctly!
+==51895==WARNING: Can't write to symbolizer at fd 5
+==51895==WARNING: external symbolizer didn't start up correctly!
+==51895==WARNING: Can't write to symbolizer at fd 6
+==51895==WARNING: external symbolizer didn't start up correctly!
+==51895==WARNING: Can't write to symbolizer at fd 7
+==51895==WARNING: external symbolizer didn't start up correctly!
+==51895==WARNING: Failed to use and restart external symbolizer!
+    #0 0x0001020af204 in zbtreeScores+0x1c30 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100007204)
+    #1 0x0001020c2024 in batch+0x3cc (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x10001a024)
+    #2 0x0001020bde2c in main+0x7dc (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100015e2c)
+    #3 0x00019eb1dd50  (<unknown module>)
+
+0x00010b352560 is located 302432 bytes inside of 2097152-byte region [0x00010b308800,0x00010b508800)
+freed by thread T0 here:
+    #0 0x000103d8d424 in free+0x7c (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d424)
+    #1 0x0001020b6b64 in zbtIndexRehashStep+0x394 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x10000eb64)
+    #2 0x0001020adaec in zbtreeScores+0x518 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100005aec)
+    #3 0x0001020c2024 in batch+0x3cc (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x10001a024)
+    #4 0x0001020bde2c in main+0x7dc (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100015e2c)
+    #5 0x00019eb1dd50  (<unknown module>)
+
+previously allocated by thread T0 here:
+    #0 0x000103d8d330 in malloc+0x78 (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d330)
+    #1 0x0001020cf7f8 in zmalloc_usable+0x2c (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x1000277f8)
+    #2 0x0001020c327c in zbtIndexStartResize+0x2e0 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x10001b27c)
+    #3 0x0001020a8d74 in zbtIndexExpandIfNeeded+0x264 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100000d74)
+    #4 0x0001020b2de0 in zbtreeInsertNewAppendWithHash+0xe0 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x10000ade0)
+    #5 0x0001020bf1cc in append+0x188 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x1000171cc)
+    #6 0x0001020bda00 in main+0x3b0 (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100015a00)
+    #7 0x00019eb1dd50  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (<workspace>/scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion/build/fault:arm64+0x100007204) in zbtreeScores+0x1c30
+Shadow bytes around the buggy address:
+  0x00010b352280: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352300: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352380: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352400: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352480: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+=>0x00010b352500: fd fd fd fd fd fd fd fd fd fd fd fd[fd]fd fd fd
+  0x00010b352580: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352600: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352680: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352700: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x00010b352780: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==51895==ABORTING

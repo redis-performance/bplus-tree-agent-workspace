@@ -1,0 +1,34 @@
+[
+  {
+    "name": "workspace",
+    "command": [
+      "python3",
+      "scripts/check-workspace.py",
+      "--pristine-source"
+    ],
+    "returncode": 0,
+    "stdout": "Workspace links and pinned source/support hashes: PASS\n",
+    "stderr": ""
+  },
+  {
+    "name": "diff",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "name": "audit",
+    "command": [
+      "python3",
+      "experiments/OVERNIGHT-2026-10-17/verify-round003.py"
+    ],
+    "returncode": 0,
+    "stdout": "HARNESS-001 snapshot integrity PASS\nDIAG-003 snapshot integrity PASS\nDIAG-004 snapshot integrity PASS\nDIAG-005 snapshot integrity PASS\nCOUNTERS-002 snapshot integrity PASS\nDIAG-003 raw hashes/counts/checksums, fixed schedule, independently recomputed criterion PASS\nDIAG-004 raw hashes/counts/checksums, fixed schedule, independently recomputed criterion PASS\nDIAG-005 raw hashes/counts/checksums, fixed schedule, independently recomputed criterion PASS\nBOUNDARY-005 all retained attempts, final tests and fault controls PASS\nBOUNDARY-006 all retained attempts, final tests and fault controls PASS\nCOUNTERS-002 raw captures, all tree region/branch/function comparisons PASS\nPASS: read-only sequential coordinator audit, not independent performance confirmation\n",
+    "stderr": ""
+  }
+]

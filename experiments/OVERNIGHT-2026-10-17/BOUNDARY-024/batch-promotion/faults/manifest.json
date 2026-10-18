@@ -1,0 +1,57 @@
+[
+  {
+    "name": "cached-table-after-promotion",
+    "snapshot": "scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion",
+    "source_sha256": "78848df562aa9ed0b603dc2e128811d35ed5ad12f60be72605ca6a84cdcd4899",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_batch_score_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion",
+        "started_utc": "2026-10-18T05:02:04.375257+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T05:02:05.595392+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "75503"
+        ],
+        "cwd": "scratch/overnight-boundary-024-batch-faults/cached-table-after-promotion",
+        "started_utc": "2026-10-18T05:02:05.595953+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T05:02:08.964696+00:00",
+        "stdout_sha256": "a032212e7a04b2e322c477f14e246edaab3c02803d47a76234a5e13fca7d9add",
+        "stderr_sha256": "1d87b7a3bbeab2beecf5cf5d6a4cd2ec76edac192930db3eb6a1e61199665252",
+        "raw_stderr": "scratch/round017-batch-fault0-run-stderr-original.txt",
+        "raw_stderr_sha256": "aa1275c2e2d986dab631bb5f2c0a96a6dc587af3f13bf426b51e71bf64cdb088"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "844419f9a5719466c89d172196ae4e7892cfec7fe5de2b876a36e2be77f4354d"
+  }
+]

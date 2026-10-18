@@ -1,0 +1,18 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4021,6 +4021,15 @@
+ int zbtreeIteratorNext(zbtreeIterator *iter, int reverse,
+                        const unsigned char **ele, size_t *len, double *score)
+ {
++    if (!reverse && ele == NULL && len == NULL && score != NULL) {
++    zbtScoreLeaf *leaf = iter->leaf;
++    if (leaf == NULL) return 0;
++    unsigned int pos = iter->pos;
++    *score = zbtScoreLeafScore(leaf, pos);
++    if (pos + 1 < leaf->n.count) iter->pos = pos + 1;
++    else { iter->leaf = leaf->next; iter->pos = 0; }
++    return 1;
++    }
+     zbtScoreLeaf *leaf = iter->leaf;
+     if (leaf == NULL) return 0;
+ 

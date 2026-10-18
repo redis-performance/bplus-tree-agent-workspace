@@ -1,0 +1,72 @@
+[
+  {
+    "name": "no-reversal",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-DREDIS_DEBUG",
+      "-fno-omit-frame-pointer",
+      "bench/census.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault"
+    ],
+    "run_command": [
+      "./fault",
+      "31",
+      "16",
+      "31101",
+      "alternating-zero",
+      "trimmed"
+    ],
+    "returncode": -6,
+    "source_sha256": "34a5c6324a4d175a7ad654618f6d00c5fb5e181d8bebd3b684ff56e087a2b2ed",
+    "binary_sha256": "cd43904b7ae105fc6a213283da871d5c9d09987c6facfb3114f3a6cf63991024",
+    "detected": true,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3ad6f44a4634bc64f450ec1e3ec204c4143ee41362be0bc3315f8a6eccfbb56",
+    "stderr": "bench/census.c:59: leaves==1 && reversed==(trimmed?n:0)\n"
+  },
+  {
+    "name": "zero-sign",
+    "build_command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-DREDIS_DEBUG",
+      "-fno-omit-frame-pointer",
+      "bench/census.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault"
+    ],
+    "run_command": [
+      "./fault",
+      "31",
+      "16",
+      "31101",
+      "alternating-zero",
+      "trimmed"
+    ],
+    "returncode": -6,
+    "source_sha256": "da4789ac0d9dd2250c1e733c0b0c08d404b9665f9501628c00e8381f4f2bcb9f",
+    "binary_sha256": "5ad8c981e8bb9da91f1fa491c04938d8f3fec2258b6d1c3f5924aab2f8b88fc0",
+    "detected": false,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "ffeb3487f2081a4d83bcdc5135f9b2cc7a6ea5ac0312c8d9e576c304062e0893",
+    "stderr": "bench/iterator_helpers.h:62: score_bits(nextscore)==score_bits(model_score(nexti,n,encoding))\n"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "build_command": [
+    "cc",
+    "-Isrc",
+    "-Icompat",
+    "-Ivendor/redis",
+    "-std=c11",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-fno-omit-frame-pointer",
+    "-DREDIS_DEBUG",
+    "-O3",
+    "tests/boundary_oracle.c",
+    "scratch/overnight-boundary-001/rank-offset/zset_btree.c",
+    "compat/standalone.c",
+    "vendor/redis/siphash.c",
+    "-lm",
+    "-o",
+    "scratch/overnight-boundary-001/rank-offset/oracle"
+  ],
+  "build_returncode": 0,
+  "source_sha256": "5c3b97136359def4f6dae7866f2da0b3387bdc6b9973bed40421e13b4edcc8ce",
+  "run_command": [
+    "scratch/overnight-boundary-001/rank-offset/oracle"
+  ],
+  "run_returncode": -6,
+  "binary_sha256": "b9df73a4591b30cbbce35528012de1b4e43f796cded3b1943f75f60a513b550d"
+}

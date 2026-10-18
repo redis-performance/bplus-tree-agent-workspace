@@ -1,0 +1,1 @@
+The first length fault was detected (SIGABRT, exact length equality assertion), but the driver expected the nonexistent text `Assertion failed`. Original failure and fault retained. The continuation uses the observed adapter assertion format and SIGABRT, and runs only the two remaining faults. No test predicate changed or previously measured child repeated.

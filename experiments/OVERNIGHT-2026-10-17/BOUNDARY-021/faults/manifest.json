@@ -1,0 +1,53 @@
+[
+  {
+    "name": "allow-zero-resize-generation",
+    "snapshot": "scratch/overnight-boundary-021-faults/allow-zero-resize-generation",
+    "source_sha256": "58ed3c3fa1b5918130a533a7e82997d6aefe48537474b725f52660ec072e2450",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/resize_generation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:45:15.899654+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:45:17.063653+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:45:17.064291+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:45:18.701741+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "54a42144f2a269ae041ede6e4aa075a07ce9de1b754c3df795d5b285a54cb1fa"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "6612e058005bb833d11be77de4dbab82a507f8b3fcfc443dde6ede381fef4857"
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "name": "release-emit",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-S",
+      "src/zset_btree.c",
+      "-o",
+      "build/release-original.s"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "0-release-build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/iterator_modes.c",
+      "build/release-placed.s",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "0-symbols",
+    "command": [
+      "nm",
+      "-n",
+      "build/release"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "321cc78676ae987b95e0700e28ee31e4efd3dcf10329568bd4b100587070a6eb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "0-assembly",
+    "command": [
+      "otool",
+      "-tvV",
+      "build/release"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "2e6f1f5666000427b22d1952a0f97bf92c17c03ed49b300502c6e178cb5dab00",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "sanitize-emit",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-S",
+      "src/zset_btree.c",
+      "-o",
+      "build/sanitize-original.s"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "0-sanitize-build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/iterator_modes.c",
+      "build/sanitize-placed.s",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "upstream-emit",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O3",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "-DREDIS_TEST",
+      "-DREDIS_DEBUG",
+      "-S",
+      "src/zset_btree.c",
+      "-o",
+      "build/upstream-original.s"
+    ],
+    "cwd": "scratch/overnight-diag-012/0",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

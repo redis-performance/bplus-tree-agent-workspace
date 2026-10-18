@@ -1,0 +1,1 @@
+Initial compile failed because new oracle used unavailable zmalloc_size. Header inspection confirms zmalloc_usable_size, already used by other oracles. Attempt002 changes only that call; all checks remain. Initial frozen snapshot, patch and errors retained. No source candidate changed.

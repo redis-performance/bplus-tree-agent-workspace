@@ -1,0 +1,44 @@
+[
+  {
+    "name": "nonboolean-reverse",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-DREDIS_DEBUG",
+      "tests/iterator_mutation_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault"
+    ],
+    "cwd": "scratch/overnight-boundary-012/faults/nonboolean-reverse",
+    "returncode": 0,
+    "stdout": "nonboolean-reverse-build.stdout",
+    "stderr": "nonboolean-reverse-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "eb258f41c985ac009d8da706ee34b06787d76dad8f84df054aef8e0dcdbad4db"
+  },
+  {
+    "name": "nonboolean-reverse",
+    "step": "run",
+    "command": [
+      "./fault"
+    ],
+    "cwd": "scratch/overnight-boundary-012/faults/nonboolean-reverse",
+    "returncode": -6,
+    "stdout": "nonboolean-reverse-run.stdout",
+    "stderr": "nonboolean-reverse-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "0f0d9d2f5fec4ddda8ddda13b27e723f406e155ca3b06cf94f08704b6ba468a3",
+    "source_sha256": "eb258f41c985ac009d8da706ee34b06787d76dad8f84df054aef8e0dcdbad4db"
+  }
+]

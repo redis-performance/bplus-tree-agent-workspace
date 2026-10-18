@@ -1,0 +1,59 @@
+[
+  {
+    "name": "stale-renumbered-leaf-id",
+    "snapshot": "scratch/overnight-boundary-023-narrowing-attempt002-faults/stale-renumbered-leaf-id",
+    "source_sha256": "ef30c60cbe0b1744579d94a41cd19ab41ae9f5cb0e98206d6c1e472b4e7e78de",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_narrow_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-023-narrowing-attempt002-faults/stale-renumbered-leaf-id",
+        "started_utc": "2026-10-18T04:34:02.172235+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-narrowing-attempt002-faults/stale-renumbered-leaf-id/stale-renumbered-leaf-id-build.raw.stderr",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:34:03.339790+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "68501"
+        ],
+        "cwd": "scratch/overnight-boundary-023-narrowing-attempt002-faults/stale-renumbered-leaf-id",
+        "started_utc": "2026-10-18T04:34:03.340069+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-narrowing-attempt002-faults/stale-renumbered-leaf-id/stale-renumbered-leaf-id-run.raw.stderr",
+        "raw_stderr_sha256": "c1af902cdef706430c828b90b67133c1120c69ec66b96346f4e8dc89f47aadcc",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:34:05.330256+00:00",
+        "stdout_sha256": "daf476fb309d77ac3831825080b97d3444eb53b45b32b1130d99b4820dea161b",
+        "stderr_sha256": "c1af902cdef706430c828b90b67133c1120c69ec66b96346f4e8dc89f47aadcc"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "cbf74a262baf66dffab3dedc6807420703c703d5126473defcdd5e81e1b56ba8"
+  }
+]

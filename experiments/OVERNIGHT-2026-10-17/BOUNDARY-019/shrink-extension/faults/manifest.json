@@ -1,0 +1,53 @@
+[
+  {
+    "name": "skip-shrink-scan-orientation",
+    "snapshot": "scratch/overnight-boundary-019-shrink-faults/skip-shrink-scan-orientation",
+    "source_sha256": "f22466c18d604ff34ea6e3181af5e6740f9686958ad741b32616faefaa61b89a",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/public_shrink_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-shrink-faults/skip-shrink-scan-orientation",
+        "started_utc": "2026-10-18T03:42:03.370901+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:42:04.542631+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-019-shrink-faults/skip-shrink-scan-orientation",
+        "started_utc": "2026-10-18T03:42:04.543183+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:42:04.992580+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "670290217275f328577d8800cbeb1972d5dedab038b8349786ab2297a3ed82ba"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "6b90953830a65e0aefd0783bf4a3ec5841ea64812d6b8929f280ec1eea207c10"
+  }
+]

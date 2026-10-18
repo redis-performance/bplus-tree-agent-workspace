@@ -1,0 +1,982 @@
+{
+  "utc": "2026-10-18T06:17:42.555708+00:00",
+  "status": "PASS",
+  "scope": "Post-hoc descriptive inventory of already frozen round18 compiler assembly; no new compilation, execution, timing, preregistered hypothesis test or diagnostic count.",
+  "limitations": [
+    "Includes prologue/epilogue, callee-save traffic, all branch paths and cold assertions.",
+    "Static sites are not dynamic counts, cycles, stalls, performance or cache pressure.",
+    "Own frame omits called libc frames; do not infer peak call-chain stack or tree-owned memory.",
+    "No inference that frame difference explains single-lane versus batched timing.",
+    "Compiler assembly is not a linked address-layout or alignment audit."
+  ],
+  "rows": [
+    {
+      "variant": "control",
+      "input": "experiments/EXP-006/profile-results/control-leaf-assembly.txt",
+      "input_sha256": "51f17b069d1767887bf40f66efe7ce39750280fb5962367d23769b94e1c32526",
+      "full_assembly": "scratch/experiment006/control/build/source.s",
+      "full_assembly_sha256": "b3519a31c6cbd4657048c283479eae59b2fe213bb5a5fa527abd0fa53c7181c0",
+      "compiler_command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-S",
+        "src/zset_btree.c",
+        "-o",
+        "build/source.s"
+      ],
+      "static_instruction_lines": 161,
+      "own_frame_bytes": 144,
+      "static_stack_load_sites": 15,
+      "static_stack_store_sites": 11,
+      "calls": [
+        "_memcmp",
+        "_memchr",
+        "_standalone_panic",
+        "_standalone_panic"
+      ],
+      "stack_accesses": [
+        {
+          "line": 13,
+          "opcode": "stp",
+          "operands": "x28, x27, [sp, #48]",
+          "text": "stp\tx28, x27, [sp, #48]"
+        },
+        {
+          "line": 14,
+          "opcode": "stp",
+          "operands": "x26, x25, [sp, #64]",
+          "text": "stp\tx26, x25, [sp, #64]"
+        },
+        {
+          "line": 15,
+          "opcode": "stp",
+          "operands": "x24, x23, [sp, #80]",
+          "text": "stp\tx24, x23, [sp, #80]"
+        },
+        {
+          "line": 16,
+          "opcode": "stp",
+          "operands": "x22, x21, [sp, #96]",
+          "text": "stp\tx22, x21, [sp, #96]"
+        },
+        {
+          "line": 17,
+          "opcode": "stp",
+          "operands": "x20, x19, [sp, #112]",
+          "text": "stp\tx20, x19, [sp, #112]"
+        },
+        {
+          "line": 18,
+          "opcode": "stp",
+          "operands": "x29, x30, [sp, #128]",
+          "text": "stp\tx29, x30, [sp, #128]"
+        },
+        {
+          "line": 36,
+          "opcode": "str",
+          "operands": "x2, [sp, #40]",
+          "text": "str\tx2, [sp, #40]"
+        },
+        {
+          "line": 39,
+          "opcode": "str",
+          "operands": "w1, [sp, #36]",
+          "text": "str\tw1, [sp, #36]"
+        },
+        {
+          "line": 139,
+          "opcode": "stp",
+          "operands": "x11, x4, [sp, #8]",
+          "text": "stp\tx11, x4, [sp, #8]"
+        },
+        {
+          "line": 140,
+          "opcode": "str",
+          "operands": "x5, [sp, #24]",
+          "text": "str\tx5, [sp, #24]"
+        },
+        {
+          "line": 144,
+          "opcode": "str",
+          "operands": "x10, [sp]",
+          "text": "str\tx10, [sp]"
+        },
+        {
+          "line": 150,
+          "opcode": "ldr",
+          "operands": "w9, [sp, #36]",
+          "text": "ldr\tw9, [sp, #36]"
+        },
+        {
+          "line": 177,
+          "opcode": "ldr",
+          "operands": "x1, [sp, #40]",
+          "text": "ldr\tx1, [sp, #40]"
+        },
+        {
+          "line": 291,
+          "opcode": "ldr",
+          "operands": "w9, [sp, #36]",
+          "text": "ldr\tw9, [sp, #36]"
+        },
+        {
+          "line": 476,
+          "opcode": "ldp",
+          "operands": "x29, x30, [sp, #128]",
+          "text": "ldp\tx29, x30, [sp, #128]"
+        },
+        {
+          "line": 477,
+          "opcode": "ldp",
+          "operands": "x20, x19, [sp, #112]",
+          "text": "ldp\tx20, x19, [sp, #112]"
+        },
+        {
+          "line": 478,
+          "opcode": "ldp",
+          "operands": "x22, x21, [sp, #96]",
+          "text": "ldp\tx22, x21, [sp, #96]"
+        },
+        {
+          "line": 482,
+          "opcode": "ldp",
+          "operands": "x24, x23, [sp, #80]",
+          "text": "ldp\tx24, x23, [sp, #80]"
+        },
+        {
+          "line": 483,
+          "opcode": "ldp",
+          "operands": "x26, x25, [sp, #64]",
+          "text": "ldp\tx26, x25, [sp, #64]"
+        },
+        {
+          "line": 485,
+          "opcode": "ldp",
+          "operands": "x28, x27, [sp, #48]",
+          "text": "ldp\tx28, x27, [sp, #48]"
+        },
+        {
+          "line": 528,
+          "opcode": "ldp",
+          "operands": "x11, x15, [sp, #8]",
+          "text": "ldp\tx11, x15, [sp, #8]"
+        },
+        {
+          "line": 536,
+          "opcode": "ldr",
+          "operands": "x14, [sp, #24]",
+          "text": "ldr\tx14, [sp, #24]"
+        },
+        {
+          "line": 558,
+          "opcode": "ldp",
+          "operands": "x15, x14, [sp, #16]",
+          "text": "ldp\tx15, x14, [sp, #16]"
+        },
+        {
+          "line": 559,
+          "opcode": "ldr",
+          "operands": "x11, [sp, #8]",
+          "text": "ldr\tx11, [sp, #8]"
+        },
+        {
+          "line": 668,
+          "opcode": "ldr",
+          "operands": "x10, [sp]",
+          "text": "ldr\tx10, [sp]"
+        },
+        {
+          "line": 734,
+          "opcode": "ldr",
+          "operands": "x13, [sp]",
+          "text": "ldr\tx13, [sp]"
+        }
+      ],
+      "opcode_histogram": {
+        "add": 22,
+        "adrp": 4,
+        "and": 4,
+        "ands": 1,
+        "b": 8,
+        "b.eq": 4,
+        "b.hs": 2,
+        "b.ne": 4,
+        "bl": 4,
+        "cbnz": 3,
+        "cbz": 9,
+        "cmp": 12,
+        "cneg": 1,
+        "csinv": 2,
+        "ldp": 8,
+        "ldr": 9,
+        "ldrb": 11,
+        "ldrh": 1,
+        "ldur": 3,
+        "ldurh": 1,
+        "lsl": 3,
+        "lsr": 4,
+        "madd": 1,
+        "mov": 18,
+        "mvn": 2,
+        "orr": 1,
+        "ret": 1,
+        "stp": 7,
+        "str": 6,
+        "sub": 4,
+        "umull": 1
+      }
+    },
+    {
+      "variant": "A",
+      "input": "experiments/EXP-006/profile-results/A-leaf-assembly.txt",
+      "input_sha256": "f1d719ada69d5b4c7c815443924c65712f0565701767de95b096d4766948ef19",
+      "full_assembly": "scratch/experiment006/A/build/source.s",
+      "full_assembly_sha256": "5607b1451949ced7a190fa64600eb76b316d8466583e3e71a818c496bc17e2bb",
+      "compiler_command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-S",
+        "src/zset_btree.c",
+        "-o",
+        "build/source.s"
+      ],
+      "static_instruction_lines": 166,
+      "own_frame_bytes": 144,
+      "static_stack_load_sites": 16,
+      "static_stack_store_sites": 11,
+      "calls": [
+        "_standalone_panic",
+        "_standalone_panic",
+        "_memcmp"
+      ],
+      "stack_accesses": [
+        {
+          "line": 13,
+          "opcode": "stp",
+          "operands": "x28, x27, [sp, #48]",
+          "text": "stp\tx28, x27, [sp, #48]"
+        },
+        {
+          "line": 14,
+          "opcode": "stp",
+          "operands": "x26, x25, [sp, #64]",
+          "text": "stp\tx26, x25, [sp, #64]"
+        },
+        {
+          "line": 15,
+          "opcode": "stp",
+          "operands": "x24, x23, [sp, #80]",
+          "text": "stp\tx24, x23, [sp, #80]"
+        },
+        {
+          "line": 16,
+          "opcode": "stp",
+          "operands": "x22, x21, [sp, #96]",
+          "text": "stp\tx22, x21, [sp, #96]"
+        },
+        {
+          "line": 17,
+          "opcode": "stp",
+          "operands": "x20, x19, [sp, #112]",
+          "text": "stp\tx20, x19, [sp, #112]"
+        },
+        {
+          "line": 18,
+          "opcode": "stp",
+          "operands": "x29, x30, [sp, #128]",
+          "text": "stp\tx29, x30, [sp, #128]"
+        },
+        {
+          "line": 39,
+          "opcode": "str",
+          "operands": "w1, [sp, #44]",
+          "text": "str\tw1, [sp, #44]"
+        },
+        {
+          "line": 137,
+          "opcode": "stp",
+          "operands": "x11, x4, [sp, #8]",
+          "text": "stp\tx11, x4, [sp, #8]"
+        },
+        {
+          "line": 138,
+          "opcode": "str",
+          "operands": "x5, [sp, #24]",
+          "text": "str\tx5, [sp, #24]"
+        },
+        {
+          "line": 142,
+          "opcode": "str",
+          "operands": "x10, [sp]",
+          "text": "str\tx10, [sp]"
+        },
+        {
+          "line": 148,
+          "opcode": "ldr",
+          "operands": "w9, [sp, #44]",
+          "text": "ldr\tw9, [sp, #44]"
+        },
+        {
+          "line": 253,
+          "opcode": "ldr",
+          "operands": "w9, [sp, #44]",
+          "text": "ldr\tw9, [sp, #44]"
+        },
+        {
+          "line": 296,
+          "opcode": "str",
+          "operands": "x0, [sp, #32]",
+          "text": "str\tx0, [sp, #32]"
+        },
+        {
+          "line": 314,
+          "opcode": "ldr",
+          "operands": "x0, [sp, #32]",
+          "text": "ldr\tx0, [sp, #32]"
+        },
+        {
+          "line": 352,
+          "opcode": "ldr",
+          "operands": "x0, [sp, #32]",
+          "text": "ldr\tx0, [sp, #32]"
+        },
+        {
+          "line": 498,
+          "opcode": "ldp",
+          "operands": "x29, x30, [sp, #128]",
+          "text": "ldp\tx29, x30, [sp, #128]"
+        },
+        {
+          "line": 499,
+          "opcode": "ldp",
+          "operands": "x20, x19, [sp, #112]",
+          "text": "ldp\tx20, x19, [sp, #112]"
+        },
+        {
+          "line": 501,
+          "opcode": "ldp",
+          "operands": "x22, x21, [sp, #96]",
+          "text": "ldp\tx22, x21, [sp, #96]"
+        },
+        {
+          "line": 505,
+          "opcode": "ldp",
+          "operands": "x24, x23, [sp, #80]",
+          "text": "ldp\tx24, x23, [sp, #80]"
+        },
+        {
+          "line": 508,
+          "opcode": "ldp",
+          "operands": "x26, x25, [sp, #64]",
+          "text": "ldp\tx26, x25, [sp, #64]"
+        },
+        {
+          "line": 509,
+          "opcode": "ldp",
+          "operands": "x28, x27, [sp, #48]",
+          "text": "ldp\tx28, x27, [sp, #48]"
+        },
+        {
+          "line": 548,
+          "opcode": "ldp",
+          "operands": "x11, x15, [sp, #8]",
+          "text": "ldp\tx11, x15, [sp, #8]"
+        },
+        {
+          "line": 556,
+          "opcode": "ldr",
+          "operands": "x14, [sp, #24]",
+          "text": "ldr\tx14, [sp, #24]"
+        },
+        {
+          "line": 576,
+          "opcode": "ldp",
+          "operands": "x15, x14, [sp, #16]",
+          "text": "ldp\tx15, x14, [sp, #16]"
+        },
+        {
+          "line": 577,
+          "opcode": "ldr",
+          "operands": "x11, [sp, #8]",
+          "text": "ldr\tx11, [sp, #8]"
+        },
+        {
+          "line": 678,
+          "opcode": "ldr",
+          "operands": "x10, [sp]",
+          "text": "ldr\tx10, [sp]"
+        },
+        {
+          "line": 740,
+          "opcode": "ldr",
+          "operands": "x13, [sp]",
+          "text": "ldr\tx13, [sp]"
+        }
+      ],
+      "opcode_histogram": {
+        "add": 23,
+        "adrp": 4,
+        "and": 4,
+        "ands": 1,
+        "b": 8,
+        "b.eq": 6,
+        "b.hs": 1,
+        "b.ls": 1,
+        "b.ne": 4,
+        "bl": 3,
+        "cbnz": 4,
+        "cbz": 8,
+        "cmp": 12,
+        "cneg": 1,
+        "csinv": 2,
+        "ldp": 8,
+        "ldr": 10,
+        "ldrb": 12,
+        "ldrh": 1,
+        "ldur": 3,
+        "ldurh": 1,
+        "lsl": 3,
+        "lsr": 4,
+        "madd": 1,
+        "mov": 18,
+        "mvn": 2,
+        "orr": 1,
+        "ret": 1,
+        "stp": 7,
+        "str": 6,
+        "sub": 3,
+        "subs": 2,
+        "umull": 1
+      }
+    },
+    {
+      "variant": "B",
+      "input": "experiments/EXP-006/profile-results/B-leaf-assembly.txt",
+      "input_sha256": "3547b99600a32a01fb307074a1275c3cfe96bb28d656db2e293032f8e6244788",
+      "full_assembly": "scratch/experiment006/B/build/source.s",
+      "full_assembly_sha256": "afadc4538a2874c59e32bf8dd821392f9585b1012708fc8c5ca018ff44334b84",
+      "compiler_command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-S",
+        "src/zset_btree.c",
+        "-o",
+        "build/source.s"
+      ],
+      "static_instruction_lines": 204,
+      "own_frame_bytes": 176,
+      "static_stack_load_sites": 18,
+      "static_stack_store_sites": 13,
+      "calls": [
+        "_memcmp",
+        "_standalone_panic",
+        "_standalone_panic"
+      ],
+      "stack_accesses": [
+        {
+          "line": 13,
+          "opcode": "stp",
+          "operands": "x28, x27, [sp, #80]",
+          "text": "stp\tx28, x27, [sp, #80]"
+        },
+        {
+          "line": 14,
+          "opcode": "stp",
+          "operands": "x26, x25, [sp, #96]",
+          "text": "stp\tx26, x25, [sp, #96]"
+        },
+        {
+          "line": 15,
+          "opcode": "stp",
+          "operands": "x24, x23, [sp, #112]",
+          "text": "stp\tx24, x23, [sp, #112]"
+        },
+        {
+          "line": 16,
+          "opcode": "stp",
+          "operands": "x22, x21, [sp, #128]",
+          "text": "stp\tx22, x21, [sp, #128]"
+        },
+        {
+          "line": 17,
+          "opcode": "stp",
+          "operands": "x20, x19, [sp, #144]",
+          "text": "stp\tx20, x19, [sp, #144]"
+        },
+        {
+          "line": 18,
+          "opcode": "stp",
+          "operands": "x29, x30, [sp, #160]",
+          "text": "stp\tx29, x30, [sp, #160]"
+        },
+        {
+          "line": 131,
+          "opcode": "stp",
+          "operands": "x11, x4, [sp, #40]",
+          "text": "stp\tx11, x4, [sp, #40]"
+        },
+        {
+          "line": 134,
+          "opcode": "str",
+          "operands": "x10, [sp, #32]",
+          "text": "str\tx10, [sp, #32]"
+        },
+        {
+          "line": 148,
+          "opcode": "stp",
+          "operands": "x5, x27, [sp, #56]",
+          "text": "stp\tx5, x27, [sp, #56]"
+        },
+        {
+          "line": 160,
+          "opcode": "str",
+          "operands": "x20, [sp, #72]",
+          "text": "str\tx20, [sp, #72]"
+        },
+        {
+          "line": 196,
+          "opcode": "ldp",
+          "operands": "x27, x17, [sp, #64]",
+          "text": "ldp\tx27, x17, [sp, #64]"
+        },
+        {
+          "line": 357,
+          "opcode": "str",
+          "operands": "x0, [sp, #72]",
+          "text": "str\tx0, [sp, #72]"
+        },
+        {
+          "line": 367,
+          "opcode": "stp",
+          "operands": "x2, x3, [sp, #16]",
+          "text": "stp\tx2, x3, [sp, #16]"
+        },
+        {
+          "line": 374,
+          "opcode": "str",
+          "operands": "x14, [sp, #8]",
+          "text": "str\tx14, [sp, #8]"
+        },
+        {
+          "line": 383,
+          "opcode": "ldp",
+          "operands": "x14, x2, [sp, #8]",
+          "text": "ldp\tx14, x2, [sp, #8]"
+        },
+        {
+          "line": 384,
+          "opcode": "ldr",
+          "operands": "x3, [sp, #24]",
+          "text": "ldr\tx3, [sp, #24]"
+        },
+        {
+          "line": 385,
+          "opcode": "ldr",
+          "operands": "x0, [sp, #72]",
+          "text": "ldr\tx0, [sp, #72]"
+        },
+        {
+          "line": 416,
+          "opcode": "ldp",
+          "operands": "x14, x2, [sp, #8]",
+          "text": "ldp\tx14, x2, [sp, #8]"
+        },
+        {
+          "line": 417,
+          "opcode": "ldr",
+          "operands": "x3, [sp, #24]",
+          "text": "ldr\tx3, [sp, #24]"
+        },
+        {
+          "line": 418,
+          "opcode": "ldr",
+          "operands": "x0, [sp, #72]",
+          "text": "ldr\tx0, [sp, #72]"
+        },
+        {
+          "line": 533,
+          "opcode": "ldp",
+          "operands": "x29, x30, [sp, #160]",
+          "text": "ldp\tx29, x30, [sp, #160]"
+        },
+        {
+          "line": 534,
+          "opcode": "ldp",
+          "operands": "x20, x19, [sp, #144]",
+          "text": "ldp\tx20, x19, [sp, #144]"
+        },
+        {
+          "line": 535,
+          "opcode": "ldp",
+          "operands": "x22, x21, [sp, #128]",
+          "text": "ldp\tx22, x21, [sp, #128]"
+        },
+        {
+          "line": 538,
+          "opcode": "ldp",
+          "operands": "x24, x23, [sp, #112]",
+          "text": "ldp\tx24, x23, [sp, #112]"
+        },
+        {
+          "line": 539,
+          "opcode": "ldp",
+          "operands": "x26, x25, [sp, #96]",
+          "text": "ldp\tx26, x25, [sp, #96]"
+        },
+        {
+          "line": 541,
+          "opcode": "ldp",
+          "operands": "x28, x27, [sp, #80]",
+          "text": "ldp\tx28, x27, [sp, #80]"
+        },
+        {
+          "line": 563,
+          "opcode": "ldp",
+          "operands": "x11, x15, [sp, #40]",
+          "text": "ldp\tx11, x15, [sp, #40]"
+        },
+        {
+          "line": 571,
+          "opcode": "ldr",
+          "operands": "x14, [sp, #56]",
+          "text": "ldr\tx14, [sp, #56]"
+        },
+        {
+          "line": 580,
+          "opcode": "ldp",
+          "operands": "x15, x14, [sp, #48]",
+          "text": "ldp\tx15, x14, [sp, #48]"
+        },
+        {
+          "line": 581,
+          "opcode": "ldr",
+          "operands": "x11, [sp, #40]",
+          "text": "ldr\tx11, [sp, #40]"
+        },
+        {
+          "line": 658,
+          "opcode": "ldr",
+          "operands": "x16, [sp, #32]",
+          "text": "ldr\tx16, [sp, #32]"
+        }
+      ],
+      "opcode_histogram": {
+        "add": 27,
+        "adrp": 4,
+        "and": 5,
+        "ands": 1,
+        "b": 9,
+        "b.eq": 5,
+        "b.hs": 2,
+        "b.ls": 1,
+        "b.ne": 5,
+        "bic": 1,
+        "bl": 3,
+        "cbnz": 2,
+        "cbz": 10,
+        "clz": 1,
+        "cmp": 14,
+        "cneg": 1,
+        "csinv": 2,
+        "eor": 1,
+        "ldp": 11,
+        "ldr": 10,
+        "ldrb": 12,
+        "ldrh": 1,
+        "ldur": 3,
+        "ldurh": 1,
+        "lsl": 3,
+        "lsr": 4,
+        "madd": 1,
+        "mov": 32,
+        "movk": 1,
+        "mul": 1,
+        "mvn": 2,
+        "orr": 1,
+        "rbit": 1,
+        "ret": 1,
+        "stp": 9,
+        "str": 6,
+        "sub": 8,
+        "subs": 1,
+        "umull": 1
+      }
+    },
+    {
+      "variant": "C",
+      "input": "experiments/EXP-006/profile-results/C-leaf-assembly.txt",
+      "input_sha256": "1258e6cfb0e3030ca795a2331196e255e11d4ce64d662d75335797b2dddb96ac",
+      "full_assembly": "scratch/experiment006/C/build/source.s",
+      "full_assembly_sha256": "16d2c9a18d84d1bb046be8af17672e00cd1a58e0d58e096b0051052b877e81e5",
+      "compiler_command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-S",
+        "src/zset_btree.c",
+        "-o",
+        "build/source.s"
+      ],
+      "static_instruction_lines": 209,
+      "own_frame_bytes": 160,
+      "static_stack_load_sites": 16,
+      "static_stack_store_sites": 12,
+      "calls": [
+        "_memcmp",
+        "_standalone_panic",
+        "_standalone_panic"
+      ],
+      "stack_accesses": [
+        {
+          "line": 13,
+          "opcode": "stp",
+          "operands": "x28, x27, [sp, #64]",
+          "text": "stp\tx28, x27, [sp, #64]"
+        },
+        {
+          "line": 14,
+          "opcode": "stp",
+          "operands": "x26, x25, [sp, #80]",
+          "text": "stp\tx26, x25, [sp, #80]"
+        },
+        {
+          "line": 15,
+          "opcode": "stp",
+          "operands": "x24, x23, [sp, #96]",
+          "text": "stp\tx24, x23, [sp, #96]"
+        },
+        {
+          "line": 16,
+          "opcode": "stp",
+          "operands": "x22, x21, [sp, #112]",
+          "text": "stp\tx22, x21, [sp, #112]"
+        },
+        {
+          "line": 17,
+          "opcode": "stp",
+          "operands": "x20, x19, [sp, #128]",
+          "text": "stp\tx20, x19, [sp, #128]"
+        },
+        {
+          "line": 18,
+          "opcode": "stp",
+          "operands": "x29, x30, [sp, #144]",
+          "text": "stp\tx29, x30, [sp, #144]"
+        },
+        {
+          "line": 36,
+          "opcode": "str",
+          "operands": "x2, [sp, #56]",
+          "text": "str\tx2, [sp, #56]"
+        },
+        {
+          "line": 134,
+          "opcode": "stp",
+          "operands": "x11, x4, [sp, #24]",
+          "text": "stp\tx11, x4, [sp, #24]"
+        },
+        {
+          "line": 135,
+          "opcode": "str",
+          "operands": "x5, [sp, #40]",
+          "text": "str\tx5, [sp, #40]"
+        },
+        {
+          "line": 138,
+          "opcode": "str",
+          "operands": "w1, [sp, #52]",
+          "text": "str\tw1, [sp, #52]"
+        },
+        {
+          "line": 143,
+          "opcode": "str",
+          "operands": "x10, [sp, #16]",
+          "text": "str\tx10, [sp, #16]"
+        },
+        {
+          "line": 171,
+          "opcode": "ldr",
+          "operands": "x1, [sp, #56]",
+          "text": "ldr\tx1, [sp, #56]"
+        },
+        {
+          "line": 484,
+          "opcode": "ldr",
+          "operands": "w9, [sp, #52]",
+          "text": "ldr\tw9, [sp, #52]"
+        },
+        {
+          "line": 523,
+          "opcode": "stp",
+          "operands": "x12, x0, [sp]",
+          "text": "stp\tx12, x0, [sp]"
+        },
+        {
+          "line": 540,
+          "opcode": "ldp",
+          "operands": "x12, x0, [sp]",
+          "text": "ldp\tx12, x0, [sp]"
+        },
+        {
+          "line": 575,
+          "opcode": "ldp",
+          "operands": "x12, x0, [sp]",
+          "text": "ldp\tx12, x0, [sp]"
+        },
+        {
+          "line": 727,
+          "opcode": "ldp",
+          "operands": "x29, x30, [sp, #144]",
+          "text": "ldp\tx29, x30, [sp, #144]"
+        },
+        {
+          "line": 728,
+          "opcode": "ldp",
+          "operands": "x20, x19, [sp, #128]",
+          "text": "ldp\tx20, x19, [sp, #128]"
+        },
+        {
+          "line": 729,
+          "opcode": "ldp",
+          "operands": "x22, x21, [sp, #112]",
+          "text": "ldp\tx22, x21, [sp, #112]"
+        },
+        {
+          "line": 733,
+          "opcode": "ldp",
+          "operands": "x24, x23, [sp, #96]",
+          "text": "ldp\tx24, x23, [sp, #96]"
+        },
+        {
+          "line": 734,
+          "opcode": "ldp",
+          "operands": "x26, x25, [sp, #80]",
+          "text": "ldp\tx26, x25, [sp, #80]"
+        },
+        {
+          "line": 735,
+          "opcode": "ldp",
+          "operands": "x28, x27, [sp, #64]",
+          "text": "ldp\tx28, x27, [sp, #64]"
+        },
+        {
+          "line": 768,
+          "opcode": "ldp",
+          "operands": "x11, x15, [sp, #24]",
+          "text": "ldp\tx11, x15, [sp, #24]"
+        },
+        {
+          "line": 776,
+          "opcode": "ldr",
+          "operands": "x14, [sp, #40]",
+          "text": "ldr\tx14, [sp, #40]"
+        },
+        {
+          "line": 790,
+          "opcode": "ldp",
+          "operands": "x15, x14, [sp, #32]",
+          "text": "ldp\tx15, x14, [sp, #32]"
+        },
+        {
+          "line": 791,
+          "opcode": "ldr",
+          "operands": "x11, [sp, #24]",
+          "text": "ldr\tx11, [sp, #24]"
+        },
+        {
+          "line": 888,
+          "opcode": "ldr",
+          "operands": "x10, [sp, #16]",
+          "text": "ldr\tx10, [sp, #16]"
+        },
+        {
+          "line": 944,
+          "opcode": "ldr",
+          "operands": "x13, [sp, #16]",
+          "text": "ldr\tx13, [sp, #16]"
+        }
+      ],
+      "opcode_histogram": {
+        "add": 30,
+        "adrp": 4,
+        "and": 5,
+        "ands": 3,
+        "b": 10,
+        "b.eq": 5,
+        "b.hi": 1,
+        "b.hs": 2,
+        "b.lo": 2,
+        "b.ne": 7,
+        "bic": 3,
+        "bl": 3,
+        "cbnz": 2,
+        "cbz": 10,
+        "clz": 2,
+        "cmp": 15,
+        "cneg": 1,
+        "csinv": 2,
+        "eor": 3,
+        "ldp": 10,
+        "ldr": 11,
+        "ldrb": 12,
+        "ldrh": 1,
+        "ldur": 3,
+        "ldurh": 1,
+        "lsl": 3,
+        "lsr": 4,
+        "madd": 1,
+        "mov": 22,
+        "movk": 1,
+        "mul": 1,
+        "mvn": 2,
+        "orr": 1,
+        "rbit": 3,
+        "ret": 1,
+        "stp": 8,
+        "str": 6,
+        "sub": 5,
+        "subs": 2,
+        "umull": 1
+      }
+    }
+  ]
+}

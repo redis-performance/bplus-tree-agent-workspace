@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2682,6 +2682,7 @@
+     /* Deleting never shrinks the allocation. When a small leaf cannot join
+      * a neighbor, rebuild it at the real size once at least half of the
+      * allocation is unused, so sparse leaves return their memory. */
++    fprintf(stderr,"COMPACT_CHECK count=%u reversed=%u usable=%zu live=%zu reserve=%u decision=%d\n",leaf->n.count,leaf->reversed,zmalloc_usable_size(leaf),zbtScoreLeafLiveBytes(leaf),(unsigned)ZBT_SCORE_LEAF_RESERVE,zmalloc_usable_size(leaf)>=2*zbtScoreLeafLiveBytes(leaf)+ZBT_SCORE_LEAF_RESERVE);
+     if (zmalloc_usable_size(leaf) >=
+         2 * zbtScoreLeafLiveBytes(leaf) + ZBT_SCORE_LEAF_RESERVE)
+         zbtScoreCompactLeaf(zs, leaf);

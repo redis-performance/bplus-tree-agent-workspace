@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4196,6 +4196,7 @@
+                                            leaf->n.count, leaf->reversed,
+                                            tag, positions);
+     serverAssert(count != 0);
++    count = 1; /* deliberate loss of colliding members */
+ 
+     unsigned long emitted = 0;
+     for (unsigned int i = 0; i < count; i++) {

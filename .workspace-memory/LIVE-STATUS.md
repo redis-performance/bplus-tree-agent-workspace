@@ -1,26 +1,26 @@
-# Live status — 2026-10-17
+# Live status — round20 final handoff, 2026-10-18 UTC
 
-Standalone workspace prepared from PR #15635 at a7ecd959374d66847c095250bf2d373edf7316c5.
-Only the data structure and minimal support are present; no Redis checkout is required.
-Population selection and implementation are documented and have not run.
+## Round 20 final extension and sealed handoff
 
-User subsequently authorised local microbenchmarks and CPU Performance Engineering MCP
-exploration. EXP-001 local M1 run completed: 144 processes, 984 rows, all checks passed,
-four profiles. Qualification parked: 40/41 cells fail precision/duration gates.
-Short-key leaf memchr and long-key SipHash dominate their respective sampled lookup paths;
-the 321-byte allocator request gets 384 usable bytes. Source/referee unchanged.
-Next: improve placement/thread-time/duration observability in a separate harness commit,
-then requalify before population decisions. See experiments/EXP-001/local-m1-2026-10-17/README.md.
-No optimisation accepted; no upstream action requested.
+The final bounded generation-wrap matrix passes8 additional control/A/B/C cells and
+8 builds on fresh94503/94521 seeds. Each cell retains four fixtures,262160 natural
+resizes, four65535→1 growth wraps,262188 complete models and24254190 exact results.
+Only seed literals changed; no new fault or timing run. Round20 final total:112 passing
+semantic cells and six detected repeated faults. Earlier104-cell checkpoint and all
+469 sealed files are preserved and reverified; final report/seal supersede it.
 
-Latest instruction: continue experimenting through the entire night. The
-overnight plan is experiments/OVERNIGHT-2026-10-17/PLAN.md. Endpoint interpreted as
-2026-10-18 08:00 Lisbon / 07:00 UTC. A bounded local supervisor runs serial workers;
-read scratch/overnight-20261017/status.json for actual runtime state. Do not launch
-concurrent measurements or a second worker. Both population stages remain required.
-First work is a separate harness revision and targeted A/A qualification. Candidate
-patches stay isolated and provisional until morning review. No automatic publishing.
+Final audit PASS:3960 hashes,220 serial experimental windows,23 reconstructed patches,
+including all15 optimization patches. Last experimental child ended06:25:59UTC.
+No more experiments start. Counts remain7 harnesses/13 baselines/34 diagnostics/
+26 named suites/5 sequential populations;0 accepted/2 rejected/3 parked. SourceNONE,
+EXP-006C/PARK and all other decisions unchanged. Main baseline preserved.
 
-CI is a draft in docs/ci-check.yml: the write account lacks workflow scope. Repository
-creation and pushes use the existing fcostaoliveira credential without changing the
-default gh login; filipecosta90 has read access only. Never write credentials here.
+Canonical [round20](../experiments/OVERNIGHT-2026-10-17/ROUND-020.md),
+[coverage](../experiments/OVERNIGHT-2026-10-17/ROUND-020-CANDIDATE-COVERAGE.md) and
+[next action](../experiments/OVERNIGHT-2026-10-17/ROUND-020-NEXT.md). Final worker must
+write MORNING-REPORT.md before07:00UTC/08:00Lisbon, using the supplied morning draft
+and final seal. Same-size cleanup and actual architecture portability remain gaps;
+forced scalar fallback is not big-endian testing. Independent review/confirmation,
+qualified performance guards and committed provenance remain pending. Reviewer startup
+failed; exact backend/model/token cost unknown, supervisor CLI accounting separate.
+No publishing, git retry, credentials, permission or supervisor/runtime/STOP edits.

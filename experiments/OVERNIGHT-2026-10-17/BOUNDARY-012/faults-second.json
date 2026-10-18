@@ -1,0 +1,44 @@
+[
+  {
+    "name": "next-leaf-position",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-O1",
+      "-g",
+      "-DREDIS_DEBUG",
+      "tests/iterator_mutation_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "fault"
+    ],
+    "cwd": "scratch/overnight-boundary-012/faults/next-leaf-position",
+    "returncode": 0,
+    "stdout": "next-leaf-position-build.stdout",
+    "stderr": "next-leaf-position-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_sha256": "b51efa5a83a4c4094f2004ac8862c51e6b8956217c2a4055573c193ac00771f3"
+  },
+  {
+    "name": "next-leaf-position",
+    "step": "run",
+    "command": [
+      "./fault"
+    ],
+    "cwd": "scratch/overnight-boundary-012/faults/next-leaf-position",
+    "returncode": -6,
+    "stdout": "next-leaf-position-run.stdout",
+    "stderr": "next-leaf-position-run.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "0f0d9d2f5fec4ddda8ddda13b27e723f406e155ca3b06cf94f08704b6ba468a3",
+    "source_sha256": "b51efa5a83a4c4094f2004ac8862c51e6b8956217c2a4055573c193ac00771f3"
+  }
+]

@@ -1,0 +1,93 @@
+/* Reuse the unchanged sorted-vector referee, adding only a separate entry point. */
+#define main boundary_oracle_original_main
+#include "boundary_oracle.c"
+#undef main
+
+static int64_t allocation_delta;
+static uint64_t move_calls, moved, declined, released;
+static int decline_some;
+static void *copy_allocation(void *old) {
+    move_calls++;
+    if (decline_some && move_calls%3==0) { declined++; return NULL; }
+    size_t old_size=zmalloc_usable_size(old);
+    void *copy=zmalloc(old_size+64);
+    CHECK(copy!=old);
+    memcpy(copy,old,old_size);
+    allocation_delta+=(int64_t)zmalloc_usable_size(copy)-(int64_t)old_size;
+    moved++;return copy;
+}
+static void *start_move(void *old) {
+    void *copy=copy_allocation(old);
+    if(copy)zfree(old);
+    return copy;
+}
+static void release_old(void *old) { released++;zfree(old); }
+static zbtreeSet *pass(zbtreeSet *tree,int allow_declines) {
+    verify(tree); /* Drains index migration before accounting-only pass. */
+    int64_t before=(int64_t)zbtreeAllocSize(tree);
+    allocation_delta=0;decline_some=allow_declines;
+    uint64_t before_moved=moved,before_declined=declined;
+    tree=zbtreeDefragStart(tree,start_move);
+    CHECK((int64_t)zbtreeAllocSize(tree)==before+allocation_delta);
+    verify(tree);
+    zbtreeDefragState state;zbtreeDefragStateReset(&state);
+    unsigned calls=0;int done;
+    do {
+        unsigned long scanned;
+        done=zbtreeDefragStep(tree,&state,copy_allocation,release_old,&scanned);
+        CHECK(++calls<N*4);
+        CHECK((int64_t)zbtreeAllocSize(tree)==before+allocation_delta);
+        verify(tree);
+    } while(!done);
+    CHECK(moved>before_moved);
+    if(allow_declines)CHECK(declined>before_declined);
+    return tree;
+}
+static void exercise_defrag(unsigned seed,unsigned fixture) {
+    active_seed=seed;active_fixture=fixture;active_step=0;rng=seed;
+    uint8_t hash_seed[16];
+    for(unsigned i=0;i<16;i++)hash_seed[i]=(uint8_t)random64();
+    dictSetHashFunctionSeed(hash_seed);keys_create(fixture);
+    zbtreeSet *tree=zbtreeCreate();
+    for(unsigned i=0;i<N;i++)put(tree,i,score());
+    tree=pass(tree,0);tree=pass(tree,1);
+    decline_some=1;
+    zbtreeDefragState state;zbtreeDefragStateReset(&state);
+    int done=0;unsigned calls=0;
+    /* Fixed writes first, even if an early pass completes; then quiescent finish. */
+    for(unsigned step=0;step<64;step++) {
+        active_step=step;
+        unsigned long scanned;
+        if(done)zbtreeDefragStateReset(&state);
+        done=zbtreeDefragStep(tree,&state,copy_allocation,release_old,&scanned);
+        if(step==3) {
+            for(unsigned i=0;i<N;i++) {CHECK(zbtreeDelete(tree,model[i].key)==model[i].live);model[i].live=0;}
+            verify(tree);
+            for(unsigned i=0;i<N;i++)put(tree,i,score());
+        } else {
+            unsigned id=(unsigned)(random64()%N);
+            if(step%4==0) {CHECK(zbtreeDelete(tree,model[id].key)==model[id].live);model[id].live=0;}
+            else put(tree,id,score());
+        }
+        verify(tree);
+    }
+    /* A fresh uninterrupted pass checks completion after writes stop. */
+    zbtreeDefragStateReset(&state);
+    do {
+        unsigned long scanned;
+        done=zbtreeDefragStep(tree,&state,copy_allocation,release_old,&scanned);
+        CHECK(++calls<N*4);verify(tree);
+    }while(!done);
+    tree=pass(tree,0);
+    zbtreeSet *copy=zbtreeDup(tree);zbtreeFree(tree);
+    copy=pass(copy,1);verify(copy);zbtreeFree(copy);
+    for(unsigned i=0;i<N;i++)sdsfree(model[i].key);
+    printf("PASS seed=%u fixture=%u checks=%lu moved=%" PRIu64 " declined=%" PRIu64 " released=%" PRIu64 "\n",seed,fixture,checks,moved,declined,released);
+}
+int main(void) {
+    exercise_defrag(11,0);exercise_defrag(11,1);
+    exercise_defrag(29,0);exercise_defrag(29,1);
+    CHECK(moved&&declined&&released);
+    puts("PASS 4 relocation fixtures; accounting and ownership oracle checks retained");
+    return 0;
+}

@@ -1,0 +1,78 @@
+{
+  "sources": {
+    "tests/boundary_oracle.c": "f0ffb9c2a7011b4b71faec323c7d24a49b9f212e8525c776a6b5fb99954bb8b6",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/boundary_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-001/oracle"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.2949813338927925
+    },
+    {
+      "name": "release-run",
+      "command": [
+        "scratch/overnight-boundary-001/oracle"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.9008740830468014
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/boundary_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-001/oracle-sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.2103664169553667
+    },
+    {
+      "name": "sanitize-run",
+      "command": [
+        "scratch/overnight-boundary-001/oracle-sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.5167295839637518
+    }
+  ]
+}

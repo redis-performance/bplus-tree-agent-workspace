@@ -1,0 +1,104 @@
+[
+  {
+    "name": "narrow-sentinel-live",
+    "snapshot": "scratch/overnight-boundary-017-faults/narrow-sentinel-live",
+    "source_sha256": "1191e177887e75087ec845ead5bbc48f520ad2b4ea747102268ab7df640539d0",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/index_storage_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-017-faults/narrow-sentinel-live",
+        "started_utc": "2026-10-18T03:11:54.306083+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:11:55.409069+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-017-faults/narrow-sentinel-live",
+        "started_utc": "2026-10-18T03:11:55.409764+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:11:55.842047+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "af8ced01dc41199cfcd0d0a795c2d1d6adb218702b053dd653e92a67185b1584"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "29562890097ef3f36af70efd3ab95efa67e90b4c70d75475b75b126175a6e0ad"
+  },
+  {
+    "name": "adjacent-tag-clear",
+    "snapshot": "scratch/overnight-boundary-017-faults/adjacent-tag-clear",
+    "source_sha256": "44857647e1567c3ce9f1259771edb878ccb8d73e7ab73f44cbf272420060ed52",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/index_storage_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-017-faults/adjacent-tag-clear",
+        "started_utc": "2026-10-18T03:11:55.859026+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:11:56.964769+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-017-faults/adjacent-tag-clear",
+        "started_utc": "2026-10-18T03:11:56.965251+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:11:57.655343+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "10ac52217f2c3792bfeb3bdfd5fae334e8fe49d1ef8d4851653a9be60495eb61"
+      }
+    ],
+    "detected": true,
+    "binary_sha256": "4deb7df8746219058d299b142cd62ca9b7c974a54912e975d98627980d7ca38d"
+  }
+]

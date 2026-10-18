@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3424,6 +3424,7 @@
+      * zbtIndexInsert() can finish the rehash and check the total member count. */
+     zs->length += b->count;
+     if (zs->member_rehash) {
++        newleaf->n.index_resize = zs->member_rehash->resize_id; /* deliberate fault */
+         zbtIndexInsert(zs, b->eles[0].hash, newleaf->id, NULL);
+     } else {
+         /* zbtIndexTableInsertRaw()'s bucket lookup is a near-guaranteed

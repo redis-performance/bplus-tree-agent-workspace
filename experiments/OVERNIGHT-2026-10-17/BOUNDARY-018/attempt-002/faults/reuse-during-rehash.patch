@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -800,7 +800,7 @@
+         /* Old hash entries remain in place during a resize. Do not reuse a
+          * released ID until that old table is gone, or a stale entry could
+          * appear to refer to an unrelated new leaf. */
+-        if (zs->free_score_leaf_id && zs->member_rehash == NULL) {
++        if (zs->free_score_leaf_id) {
+             id = zs->free_score_leaf_id - 1;
+             serverAssert(ZBT_IS_FREE_LEAF_ID(zs->score_leaf_by_id[id]));
+             zs->free_score_leaf_id =

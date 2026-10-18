@@ -1,0 +1,118 @@
+[
+  {
+    "name": "truncate-wide-clone",
+    "snapshot": "scratch/overnight-boundary-023-relocation-faults/truncate-wide-clone",
+    "source_sha256": "76032d1ea18d4fa71a61f1ade40c48cc2cdbbb42d864e2b299164b7f26aefb46",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_relocation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-023-relocation-faults/truncate-wide-clone",
+        "started_utc": "2026-10-18T04:27:55.970516+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-relocation-faults/truncate-wide-clone/truncate-wide-clone-build.raw.stderr",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:27:57.495762+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "66509",
+          "0"
+        ],
+        "cwd": "scratch/overnight-boundary-023-relocation-faults/truncate-wide-clone",
+        "started_utc": "2026-10-18T04:27:57.496118+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-relocation-faults/truncate-wide-clone/truncate-wide-clone-run.raw.stderr",
+        "raw_stderr_sha256": "40575dfc849ca32f6ea0faf12e16150316e907eeb85bfa0e816f83b5d5492995",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:28:00.534566+00:00",
+        "stdout_sha256": "7e18d91ab112ba949f9b5e02adaf0e785616285ab1dad032d92b34669d30c1de",
+        "stderr_sha256": "92578671143f351a88f2aa41a65775f08fad0bed31e40ca1035b75baf0c58e72"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "2e360d3b9a236a8a4d053da1bf517b54d4430aa7f7be909a1cd6e21142295500"
+  },
+  {
+    "name": "stale-relocated-destination",
+    "snapshot": "scratch/overnight-boundary-023-relocation-faults/stale-relocated-destination",
+    "source_sha256": "dfdd085d8ea0dde6ede4088e82dfccce442dd1a1a8c653d3c8bce0fb36e51746",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_relocation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-023-relocation-faults/stale-relocated-destination",
+        "started_utc": "2026-10-18T04:28:00.554159+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-relocation-faults/stale-relocated-destination/stale-relocated-destination-build.raw.stderr",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:28:01.838523+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "66509",
+          "1"
+        ],
+        "cwd": "scratch/overnight-boundary-023-relocation-faults/stale-relocated-destination",
+        "started_utc": "2026-10-18T04:28:01.838784+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-relocation-faults/stale-relocated-destination/stale-relocated-destination-run.raw.stderr",
+        "raw_stderr_sha256": "bf8d0c9cd7458ee9767734e2a0819f1ecf15f35ea2c12d5eb22a4692b2e3b318",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:28:03.892358+00:00",
+        "stdout_sha256": "11bd5cc1811fc617588988f4597d9b9bd660f06e51d814752220f7645f7b69bd",
+        "stderr_sha256": "bf8d0c9cd7458ee9767734e2a0819f1ecf15f35ea2c12d5eb22a4692b2e3b318"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "4795d8ab695f49e4621f8fe09f2256ee8cb20782677b7a1bd6016885ff494093"
+  }
+]

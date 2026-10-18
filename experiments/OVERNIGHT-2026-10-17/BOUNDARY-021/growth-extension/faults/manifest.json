@@ -1,0 +1,106 @@
+[
+  {
+    "name": "allow-zero-resize-generation",
+    "snapshot": "scratch/overnight-boundary-021-growth-faults/allow-zero-resize-generation",
+    "source_sha256": "58ed3c3fa1b5918130a533a7e82997d6aefe48537474b725f52660ec072e2450",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/growth_generation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-growth-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:54:55.394522+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:54:56.559370+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-growth-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:54:56.559996+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:55:02.570524+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "b777ad948ded052047b67a3a8a12b4e8baad8914315ec785e10e734fceef8c4a"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "43fa930c9711c0e51e246fbb0fd77065be55ca4b883e50505bf30ea421406673"
+  },
+  {
+    "name": "batch-marked-migrated",
+    "snapshot": "scratch/overnight-boundary-021-growth-faults/batch-marked-migrated",
+    "source_sha256": "074ce86eaa96a32e6c7f1f0d31ca87c049b314515595306d0abc5487e41ed89a",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/growth_generation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-growth-faults/batch-marked-migrated",
+        "started_utc": "2026-10-18T03:55:02.583439+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:55:03.812546+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-growth-faults/batch-marked-migrated",
+        "started_utc": "2026-10-18T03:55:03.813053+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:55:15.452837+00:00",
+        "stdout_sha256": "7599db8aede7e9c46238013ae1032353a8789bc1ec6737a0368a97a747a24c7f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "detected": false,
+    "outcome": "SURVIVED",
+    "binary_sha256": "66f749ae06311a723a3d7d8103600f99296d65f19e4689d5fd6a19605b386cb7"
+  }
+]

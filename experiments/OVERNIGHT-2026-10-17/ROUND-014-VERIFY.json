@@ -1,0 +1,176 @@
+{
+  "status": "pass",
+  "validated_file_hashes": 2863,
+  "manifests": [
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/attempt-002/faults-attempt003/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/attempt-002/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/original-tests/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/shrink-extension/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/shrink-extension/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/attempt-002/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/attempt-002/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/faults/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/COUNTERS-007/manifest.json",
+    "experiments/OVERNIGHT-2026-10-17/COUNTERS-007/shrink-extension/manifest.json"
+  ],
+  "serial_command_windows": 120,
+  "profile_captures": 4,
+  "timing_benchmark_windows": 0,
+  "retained_nonzero_exits": [
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/attempt-002/faults-attempt003/reuse-during-rehash-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/attempt-002/faults-attempt003/wrong-retirement-cursor-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/control-release-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-019/shrink-extension/faults/skip-shrink-scan-orientation-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/faults/lost-relocated-resize-buckets-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/faults/skip-retired-defrag-cursor-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/attempt-002/faults/lost-relocated-resize-buckets-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/attempt-002/faults/skip-retired-defrag-cursor-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-020/mutation-extension/control-release-run",
+      "returncode": -6
+    },
+    {
+      "name": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/faults/allow-zero-resize-generation-run",
+      "returncode": -6
+    }
+  ],
+  "matrices": [
+    {
+      "matrix": "BOUNDARY-019/attempt-002",
+      "cells": 8,
+      "fixtures_per_cell": 4,
+      "checks_per_cell": 32,
+      "results_per_cell": 293132,
+      "identical_outputs": true
+    },
+    {
+      "matrix": "BOUNDARY-020",
+      "cells": 8,
+      "fixtures_per_cell": 4,
+      "checks_per_cell": 32,
+      "results_per_cell": 284714,
+      "identical_outputs": true
+    },
+    {
+      "matrix": "BOUNDARY-020/mutation-extension/attempt-002",
+      "cells": 8,
+      "fixtures_per_cell": 8,
+      "checks_per_cell": 448,
+      "results_per_cell": 15054526,
+      "identical_outputs": true
+    },
+    {
+      "matrix": "BOUNDARY-019/shrink-extension",
+      "cells": 8,
+      "fixtures_per_cell": 4,
+      "checks_per_cell": 88,
+      "results_per_cell": 574384,
+      "identical_outputs": true
+    },
+    {
+      "matrix": "BOUNDARY-021",
+      "cells": 2,
+      "fixtures_per_cell": 2,
+      "checks_per_cell": 274,
+      "results_per_cell": 10960,
+      "identical_outputs": true
+    }
+  ],
+  "original_test_cells": 8,
+  "original_tests_per_cell": 43,
+  "raw_recomputed_branches": {
+    "lifecycle": {
+      "member_cursor_repair": 2,
+      "reuse_after_free": 4,
+      "freed_member_cursor": 0,
+      "member_cursor_fallback": 0,
+      "retired_defrag_cursor": 0,
+      "defrag_tree_reset": 0
+    },
+    "relocation": {
+      "member_cursor_repair": 0,
+      "reuse_after_free": 0,
+      "freed_member_cursor": 0,
+      "member_cursor_fallback": 0,
+      "retired_defrag_cursor": 4,
+      "defrag_tree_reset": 8
+    },
+    "mutation": {
+      "member_cursor_repair": 0,
+      "reuse_after_free": 0,
+      "freed_member_cursor": 0,
+      "member_cursor_fallback": 0,
+      "retired_defrag_cursor": 256,
+      "defrag_tree_reset": 32
+    },
+    "shrink": {
+      "member_cursor_repair": 0,
+      "reuse_after_free": 4,
+      "freed_member_cursor": 0,
+      "member_cursor_fallback": 8,
+      "retired_defrag_cursor": 0,
+      "defrag_tree_reset": 0
+    }
+  },
+  "checks": [
+    {
+      "name": "workspace",
+      "command": [
+        "python3",
+        "scripts/check-workspace.py",
+        "--pristine-source"
+      ],
+      "started_utc": "2026-10-18T03:47:34.229729+00:00",
+      "ended_utc": "2026-10-18T03:47:35.093143+00:00",
+      "returncode": 0,
+      "stdout_sha256": "57b9dd457cd0617f1e073814999372126ab458b060178b60660fbc6095184c49",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "started_utc": "2026-10-18T03:47:35.093320+00:00",
+      "ended_utc": "2026-10-18T03:47:35.142892+00:00",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "backend": "unknown",
+  "model": "unknown",
+  "token_cost": "unknown",
+  "review": "sequential; independent reviewer startup failed"
+}

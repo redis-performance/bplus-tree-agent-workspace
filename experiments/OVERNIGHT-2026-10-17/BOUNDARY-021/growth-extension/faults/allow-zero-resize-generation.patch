@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2072,7 +2072,7 @@
+     uint16_t resize_id = zs->score_first->n.index_resize + 1;
+     /* Zero is what a newly allocated leaf contains. Never use it for an
+      * active resize, including when this counter wraps. */
+-    if (resize_id == 0) resize_id = 1;
++    /* fault: allow zero resize generation */
+     zs->member_rehash->resize_id = resize_id;
+     zs->member_revision = zbtIndexNextRevision();
+     return 1;

@@ -1,0 +1,267 @@
+diff --git a/tests/boundary_oracle.c b/tests/boundary_oracle.c
+new file mode 100644
+index 0000000..774223e
+--- /dev/null
++++ b/tests/boundary_oracle.c
+@@ -0,0 +1,261 @@
++/* Standalone sorted-vector oracle: no Redis server or tree internals. */
++#include "server.h"
++#include "zset_btree.h"
++#include <float.h>
++#include <inttypes.h>
++#include <math.h>
++#include <string.h>
++
++#define N 257
++typedef struct { sds key; double score; int live; } entry;
++static entry model[N];
++static unsigned long checks;
++static uint64_t rng;
++static unsigned active_seed, active_fixture, active_step;
++#define CHECK(x) do { if (!(x)) { \
++    fprintf(stderr, "seed=%u fixture=%u step=%u line=%d: %s\n", \
++            active_seed, active_fixture, active_step, __LINE__, #x); abort(); \
++} } while (0)
++
++static uint64_t random64(void) {
++    uint64_t z = (rng += UINT64_C(0x9e3779b97f4a7c15));
++    z = (z ^ (z >> 30)) * UINT64_C(0xbf58476d1ce4e5b9);
++    z = (z ^ (z >> 27)) * UINT64_C(0x94d049bb133111eb);
++    return z ^ (z >> 31);
++}
++static uint64_t bits(double value) {
++    uint64_t result;
++    memcpy(&result, &value, sizeof(result));
++    return result;
++}
++static double score(void) {
++    static const double edge[] = {0.0, -0.0, DBL_MIN, -DBL_MIN, DBL_MAX,
++        -DBL_MAX, DBL_TRUE_MIN, -DBL_TRUE_MIN, 1.0, -1.0, 0.5, -0.5,
++        9007199254740992.0, -9007199254740992.0};
++    uint64_t r = random64();
++    if (r & 1) return edge[(r >> 1) % (sizeof(edge) / sizeof(*edge))];
++    /* All exponent patterns except 0x7ff: arbitrary finite bit patterns. */
++    r = (r & ~UINT64_C(0x7ff0000000000000)) | (((r >> 12) % 2047) << 52);
++    double result;
++    memcpy(&result, &r, sizeof(result));
++    CHECK(isfinite(result));
++    return result;
++}
++static int keycmp(const unsigned char *a, size_t alen, const unsigned char *b, size_t blen) {
++    int c = memcmp(a, b, alen < blen ? alen : blen);
++    return c ? c : (alen > blen) - (alen < blen);
++}
++static int compare(const void *a, const void *b) {
++    const entry *x = *(entry * const *)a, *y = *(entry * const *)b;
++    if (x->score < y->score) return -1;
++    if (x->score > y->score) return 1;
++    return keycmp((unsigned char *)x->key, sdslen(x->key), (unsigned char *)y->key, sdslen(y->key));
++}
++static size_t sorted(entry **order) {
++    size_t count = 0;
++    for (unsigned i = 0; i < N; i++) if (model[i].live) order[count++] = &model[i];
++    qsort(order, count, sizeof(*order), compare);
++    return count;
++}
++static void member_matches(entry *e, const unsigned char *key, size_t len, double value) {
++    CHECK(len == sdslen(e->key));
++    CHECK(!memcmp(key, e->key, len));
++    CHECK(bits(value) == bits(e->score));
++}
++typedef struct { unsigned char seen[N]; unsigned long calls; } scan_state;
++static void scan_member(void *ctx, const unsigned char *key, size_t len, double value) {
++    scan_state *state = ctx;
++    for (unsigned i = 0; i < N; i++) {
++        if (len == sdslen(model[i].key) && !memcmp(key, model[i].key, len)) {
++            CHECK(model[i].live);
++            member_matches(&model[i], key, len, value);
++            state->seen[i] = 1;
++            state->calls++;
++            return;
++        }
++    }
++    CHECK(0 && "scan returned unknown binary member");
++}
++static void verify(zbtreeSet *tree) {
++    entry *order[N];
++    size_t count = sorted(order);
++    CHECK(zbtreeLength(tree) == count);
++    for (unsigned i = 0; i < N; i++) {
++        double value = 123.0;
++        CHECK(zbtreeScore(tree, model[i].key, &value) == model[i].live);
++        if (model[i].live) CHECK(bits(value) == bits(model[i].score));
++        CHECK(zbtreeScoreRaw(tree, (unsigned char *)model[i].key, sdslen(model[i].key), &value) == model[i].live);
++        if (model[i].live) CHECK(bits(value) == bits(model[i].score));
++        else CHECK(zbtreeRank(tree, model[i].key, 0, NULL) == -1);
++    }
++    for (unsigned start = 0; start < N; start += ZBT_SCORE_BATCH_SIZE) {
++        sds keys[ZBT_SCORE_BATCH_SIZE];
++        double values[ZBT_SCORE_BATCH_SIZE];
++        unsigned count_batch = N - start < ZBT_SCORE_BATCH_SIZE ? N - start : ZBT_SCORE_BATCH_SIZE;
++        unsigned expected = 0;
++        for (unsigned j = 0; j < count_batch; j++) {
++            keys[j] = model[start+j].key;
++            if (model[start+j].live) expected |= 1U << j;
++        }
++        CHECK(zbtreeScores(tree, keys, count_batch, values) == expected);
++        for (unsigned j = 0; j < count_batch; j++)
++            if (expected & (1U << j)) CHECK(bits(values[j]) == bits(model[start+j].score));
++    }
++    for (int reverse = 0; reverse <= 1; reverse++) {
++        zbtreeIterator it;
++        CHECK(zbtreeIteratorStart(tree, reverse, &it) == (count != 0));
++        for (size_t i = 0; i < count; i++) {
++            const unsigned char *key;
++            size_t len;
++            double value;
++            entry *e = order[reverse ? count-i-1 : i];
++            CHECK(zbtreeIteratorNext(&it, reverse, &key, &len, &value));
++            member_matches(e, key, len, value);
++            CHECK(zbtreeRank(tree, e->key, reverse, &value) == (long)i);
++            CHECK(bits(value) == bits(e->score));
++        }
++        CHECK(!zbtreeIteratorNext(&it, reverse, NULL, NULL, NULL));
++    }
++    for (size_t i = 0; i < count; i++) {
++        zbtreeIterator it;
++        const unsigned char *key;
++        size_t len;
++        double value;
++        CHECK(zbtreeIteratorSeekRank(tree, i, &it));
++        CHECK(zbtreeIteratorNext(&it, 0, &key, &len, &value));
++        member_matches(order[i], key, len, value);
++    }
++    zbtreeIterator end;
++    CHECK(!zbtreeIteratorSeekRank(tree, count, &end));
++    scan_state state = {{0}, 0};
++    uint64_t cursor = 0;
++    unsigned long steps = 0;
++    unsigned long hint = checks % 3 == 0 ? 1 : checks % 3 == 1 ? 7 : 64;
++    do {
++        cursor = zbtreeScan(tree, cursor, hint, scan_member, &state);
++        CHECK(++steps < 1000000);
++    } while (cursor);
++    for (unsigned i = 0; i < N; i++) CHECK(state.seen[i] == model[i].live);
++    CHECK(state.calls >= count); /* duplicate callbacks are legal */
++    checks++;
++}
++static void put(zbtreeSet *tree, unsigned id, double value) {
++    double old;
++    zbtreeInsertPosition pos;
++    int found = zbtreeFindForAdd(tree, model[id].key, &old, &pos);
++    CHECK(found == model[id].live);
++    if (found) {
++        CHECK(bits(old) == bits(model[id].score));
++        zbtreeUpdateScore(tree, model[id].key, value, &pos);
++    } else if (id & 1) {
++        zbtreeInsertNew(tree, value, model[id].key, &pos);
++    } else {
++        zbtreeInsertNewRaw(tree, value, (unsigned char *)model[id].key, sdslen(model[id].key), &pos);
++    }
++    model[id].score = value;
++    model[id].live = 1;
++}
++static void keys_create(unsigned collisions) {
++    const size_t lengths[] = {8, 16, 319, 320, 321, 1024};
++    for (unsigned i = 0; i < N; i++) {
++        size_t len = collisions ? lengths[i % 5] : (i < 8 ? i : lengths[i % 6]);
++        unsigned char buf[1024];
++        for (size_t j = 0; j < len; j++) buf[j] = (unsigned char)(j * 37 + i);
++        for (size_t j = 0; j < len && j < 4; j++) buf[j] = (unsigned char)(i >> (j * 8));
++        if (collisions) {
++            unsigned want = i % 3 == 0 ? 0 : i % 3 == 1 ? 1 : 255;
++            uint32_t nonce;
++            for (nonce = 0; nonce < 1000000; nonce++) {
++                for (unsigned j = 0; j < 4; j++) buf[4+j] = (unsigned char)(nonce >> (j * 8));
++                if (((uint32_t)dictGenHashFunction(buf, len) >> 24) == want) break;
++            }
++            CHECK(nonce < 1000000);
++        }
++        model[i] = (entry){sdsnewlen(buf, len), 0, 0};
++        for (unsigned j = 0; j < i; j++)
++            CHECK(keycmp((unsigned char *)model[j].key, sdslen(model[j].key), buf, len) != 0);
++    }
++}
++static void exercise(unsigned seed, unsigned fixture) {
++    active_seed = seed; active_fixture = fixture; active_step = 0;
++    rng = seed;
++    uint8_t hash_seed[16];
++    for (unsigned i = 0; i < sizeof(hash_seed); i++) hash_seed[i] = (uint8_t)random64();
++    dictSetHashFunctionSeed(hash_seed);
++    keys_create(fixture);
++    zbtreeSet *tree = zbtreeCreate();
++    unsigned permutation[N];
++    for (unsigned i = 0; i < N; i++) permutation[i] = i;
++    for (unsigned i = N-1; i; i--) {
++        unsigned j = random64() % (i+1), tmp = permutation[i];
++        permutation[i] = permutation[j]; permutation[j] = tmp;
++    }
++    verify(tree);
++    for (unsigned i = 0; i < N; i++) {
++        active_step = i;
++        /* Equal-score runs force member ordering and dense same-tag leaves. */
++        put(tree, permutation[i], fixture ? (i & 1 ? -0.0 : 0.0) : score());
++        unsigned count = i+1;
++        if (count <= 9 || count % 32 <= 1 || count >= 255) verify(tree);
++    }
++    verify(tree);
++    for (unsigned step = 0; step < 2048; step++) {
++        active_step = N + step;
++        unsigned id = random64() % N;
++        switch (random64() % 8) {
++        case 0: case 1: case 2: case 3:
++            put(tree, id, score());
++            break;
++        case 4:
++            CHECK(zbtreeDelete(tree, model[id].key) == model[id].live);
++            model[id].live = 0;
++            break;
++        case 5: {
++            entry *order[N]; size_t count = sorted(order);
++            if (count) {
++                int reverse = random64() & 1;
++                zbtreeDeleteEdge(tree, reverse);
++                order[reverse ? count-1 : 0]->live = 0;
++            }
++            break;
++        }
++        case 6: {
++            entry *order[N]; size_t count = sorted(order);
++            if (count) {
++                size_t start = random64() % count, end = start + random64() % 5;
++                size_t clipped = end < count ? end : count-1;
++                CHECK(zbtreeDeleteRangeByRank(tree, start, end) == clipped-start+1);
++                for (size_t i = start; i <= clipped; i++) order[i]->live = 0;
++            }
++            break;
++        }
++        case 7:
++            zbtreeReserve(tree, N * 4);
++            break;
++        }
++        if (step % 31 == 0) verify(tree);
++        if (step % 257 == 0) {
++            zbtreeSet *copy = zbtreeDup(tree);
++            verify(copy);
++            zbtreeFree(copy);
++            verify(tree);
++        }
++    }
++    verify(tree);
++    for (unsigned i = 0; i < N; i++) {
++        CHECK(zbtreeDelete(tree, model[i].key) == model[i].live);
++        model[i].live = 0;
++    }
++    verify(tree);
++    zbtreeFree(tree);
++    for (unsigned i = 0; i < N; i++) sdsfree(model[i].key);
++    printf("seed=%u fixture=%u PASS cumulative_verifications=%lu\n", seed, fixture, checks);
++    fflush(stdout);
++}
++int main(void) {
++    const unsigned seeds[] = {1, 2, 3, 101, 102, 103};
++    for (unsigned s = 0; s < sizeof(seeds)/sizeof(*seeds); s++)
++        for (unsigned fixture = 0; fixture < 2; fixture++) exercise(seeds[s], fixture);
++    printf("PASS: 12 fixtures, 24576 mutation steps, %lu full oracle verifications\n", checks);
++    return 0;
++}

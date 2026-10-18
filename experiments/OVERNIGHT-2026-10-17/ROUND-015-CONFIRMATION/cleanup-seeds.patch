@@ -1,0 +1,8 @@
+--- a/tests/cleanup_interval_oracle.c
++++ b/tests/cleanup_interval_oracle.c
+@@ -75,4 +75,4 @@
+  stage=3;verify(t);CHECK(!t->member_rehash && t->member_index.size==64 && t->member_index.used==256 && last.revision!=t->member_revision);
+  zbtreeInsertNew(t,480.0,keys[480],&last);live[480]=1;scores[480]=480.0;verify(t);zbtreeFree(t);for(unsigned i=0;i<N;i++)sdsfree(keys[i]);fixtures++;
+ }
+-int main(void){exercise(63503);exercise(63521);CHECK(fixtures==2);printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" nonces=%"PRIu64" digest=%016"PRIx64"\n",fixtures,checks,results,calls,nonces,digest);}
++int main(void){exercise(64579);exercise(64601);CHECK(fixtures==2);printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" nonces=%"PRIu64" digest=%016"PRIx64"\n",fixtures,checks,results,calls,nonces,digest);}

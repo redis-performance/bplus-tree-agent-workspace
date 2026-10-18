@@ -1,0 +1,38 @@
+{
+  "status": "semantic_controls_pass;preregistered_cross_build_whole_output_equality_unsupported",
+  "original_manifest_status": "running",
+  "children_passed": 8,
+  "fixtures_per_child": 1940,
+  "checks_per_child": 289060,
+  "exact_per_child": 86570560,
+  "within_build_all_variants_identical": true,
+  "cross_build_fixture_lines_identical": 1940,
+  "different_lines": [
+    {
+      "line": 1941,
+      "release": "PASS checks=289060 exact=86570560 forward_leaves=582784 reversed_leaves=182396 reversal_opportunities=10838",
+      "sanitize": "PASS checks=289060 exact=86570560 forward_leaves=582048 reversed_leaves=183132 reversal_opportunities=10662"
+    }
+  ],
+  "cause": "Unknown; allocator usable sizes and compiler/instrumentation differ between builds. Allocator influence is plausible, not established by this comparison.",
+  "no_reruns": true,
+  "warning": "Renamed original main lacks explicit return; never called. Original oracle unchanged; no runtime UBSan failure.",
+  "binaries": {
+    "control": {
+      "release": "1d3b859a07106ac32f63a1eb2431527e36653c9f23850df8944aead3985f2b5f",
+      "sanitize": "2aab061978bb6aca066aacc36f49695e58b91222c2cb0d252c05d583da7e482e"
+    },
+    "A": {
+      "release": "5fc371172969f3f203e752a6c0f1d44b2c33fbad664fdd95980e544cf8224626",
+      "sanitize": "0a44299fc5c1eefd80f2b0b54c46103f1d865aa82fd6073885b0d2f4b3f4e0b1"
+    },
+    "B": {
+      "release": "44a750ba1e7ee86c523c4bf0eeb87aeadd75841c16ffbf29c3e4f3c9cfe1125f",
+      "sanitize": "e0df0b1d36457dd06fc4434cc58065d363a02be42651972e88697517c084071b"
+    },
+    "C": {
+      "release": "c376d6e5aad9553f1cd2e210a590abf33034251793ffdae4f548cb7e869df1da",
+      "sanitize": "16088e7c31d482c949043feda18dd579c5bb3278a219cece5cc7a9959e9d2844"
+    }
+  }
+}

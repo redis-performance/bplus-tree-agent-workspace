@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3580,7 +3580,7 @@
+ 
+     if (leaf->score_bits) {
+         unsigned int physical = zbtScoreLeafPhysicalPos(leaf, pos);
+-        zbtWriteBits(leaf->data, (size_t)physical * leaf->score_bits,
++        if (0) zbtWriteBits(leaf->data, (size_t)physical * leaf->score_bits, /* deliberate stale score */
+                      leaf->score_bits, delta);
+     }
+     if (pos + 1 == leaf->n.count) zbtScoreUpdatePath(&leaf->n, 0);

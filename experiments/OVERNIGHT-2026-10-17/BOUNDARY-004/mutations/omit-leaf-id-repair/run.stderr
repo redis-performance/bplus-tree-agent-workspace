@@ -1,0 +1,75 @@
+=================================================================
+==80288==ERROR: AddressSanitizer: heap-use-after-free on address 0x61e000009cb0 at pc 0x000102225a1c bp 0x00016dbdfbe0 sp 0x00016dbdfbd8
+READ of size 4 at 0x61e000009cb0 thread T0
+==80288==WARNING: external symbolizer didn't start up correctly!
+==80288==WARNING: Can't write to symbolizer at fd 4
+==80288==WARNING: external symbolizer didn't start up correctly!
+==80288==WARNING: Can't write to symbolizer at fd 5
+==80288==WARNING: external symbolizer didn't start up correctly!
+==80288==WARNING: Can't write to symbolizer at fd 6
+==80288==WARNING: external symbolizer didn't start up correctly!
+==80288==WARNING: Can't write to symbolizer at fd 7
+==80288==WARNING: external symbolizer didn't start up correctly!
+==80288==WARNING: Failed to use and restart external symbolizer!
+    #0 0x000102225a18 in zbtreeScoreRaw+0x1044 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100009a18)
+    #1 0x00010221e908 in verify+0x33c (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100002908)
+    #2 0x000102220b44 in pass+0x1ac (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100004b44)
+    #3 0x00010221d9e0 in exercise_defrag+0x1d8 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x1000019e0)
+    #4 0x00010221d724 in main+0x24 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100001724)
+    #5 0x00019eb1dd50  (<unknown module>)
+
+0x61e000009cb0 is located 48 bytes inside of 2547-byte region [0x61e000009c80,0x61e00000a673)
+freed by thread T0 here:
+    #0 0x000102ac9424 in free+0x7c (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d424)
+    #1 0x000102224874 in zbtDefragScoreNode+0x268 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100008874)
+    #2 0x000102223c10 in zbtreeDefragStep+0x1bc (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100007c10)
+    #3 0x000102220b10 in pass+0x178 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100004b10)
+    #4 0x00010221d9e0 in exercise_defrag+0x1d8 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x1000019e0)
+    #5 0x00010221d724 in main+0x24 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100001724)
+    #6 0x00019eb1dd50  (<unknown module>)
+
+previously allocated by thread T0 here:
+    #0 0x000102ac9330 in malloc+0x78 (/Library/Developer/CommandLineTools/usr/lib/clang/17/lib/darwin/libclang_rt.asan_osx_dynamic.dylib:arm64e+0x3d330)
+    #1 0x000102240c0c in zmalloc_usable+0x2c (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100024c0c)
+    #2 0x000102236d44 in zbtScoreLeafBuild+0x174 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x10001ad44)
+    #3 0x0001022384a4 in zbtScoreInsertAt+0xc84 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x10001c4a4)
+    #4 0x00010222a398 in zbtScoreInsert+0x2a0 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x10000e398)
+    #5 0x000102229fcc in zbtreeInsertNewRaw+0x188 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x10000dfcc)
+    #6 0x00010221fce8 in put+0x1dc (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100003ce8)
+    #7 0x00010221d9c8 in exercise_defrag+0x1c0 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x1000019c8)
+    #8 0x00010221d724 in main+0x24 (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100001724)
+    #9 0x00019eb1dd50  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free (<workspace>/scratch/overnight-boundary-004/omit-leaf-id-repair/oracle:arm64+0x100009a18) in zbtreeScoreRaw+0x1044
+Shadow bytes around the buggy address:
+  0x61e000009a00: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa
+  0x61e000009a80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61e000009b00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61e000009b80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x61e000009c00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x61e000009c80: fd fd fd fd fd fd[fd]fd fd fd fd fd fd fd fd fd
+  0x61e000009d00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x61e000009d80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x61e000009e00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x61e000009e80: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x61e000009f00: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==80288==ABORTING

@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3945,7 +3945,7 @@
+     if (reverse) {
+         if (ele == shared.maxstring) {
+             int found = zbtreeIteratorStart(zs, 1, iter);
+-            if (found && rank) *rank = zs->length - 1;
++            if (found && rank) *rank = zs->length;
+             return found;
+         }
+         if (ele == shared.minstring) goto notfound;

@@ -1,0 +1,90 @@
+{
+  "sources": {
+    "tests/defrag_oracle.c": "31a82c59c0fe7be76aa7bd573ba90bca230ee8f499b6e310910aab4b4bb2b21f",
+    "tests/boundary_oracle.c": "f0ffb9c2a7011b4b71faec323c7d24a49b9f212e8525c776a6b5fb99954bb8b6",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/defrag_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-004/release"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.102919292054139,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "release-run",
+      "command": [
+        "scratch/overnight-boundary-004/release"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.4535935410531238,
+      "stdout_sha256": "ea3d2407c2f7b70ea081588352c36c7b37eab6759739c5ac8fdcffa090efb7ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/defrag_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-004/sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.218152082990855,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-run",
+      "command": [
+        "scratch/overnight-boundary-004/sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 2.8649648329010233,
+      "stdout_sha256": "ea3d2407c2f7b70ea081588352c36c7b37eab6759739c5ac8fdcffa090efb7ee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "release_binary_sha256": "1b2b2bb8980311eb0c8164abc74fb597ddb4a4bc82fbca7b4ab326f8cf3d9a02",
+  "sanitize_binary_sha256": "da41daf21de0a05fba53f799ee9d1a31673ce8656bcd60329fda9ace5e57a858"
+}

@@ -1,0 +1,70 @@
+{
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "make",
+        "build/btree-bench"
+      ],
+      "cwd": "scratch/overnight-diag-002/base",
+      "returncode": 0,
+      "elapsed_seconds": 0.9220221659634262
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "make",
+        "BUILD=build/sanitize",
+        "OPT=-O1",
+        "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+        "LDFLAGS=-fsanitize=address,undefined",
+        "build/sanitize/btree-bench"
+      ],
+      "cwd": "scratch/overnight-diag-002/base",
+      "returncode": 0,
+      "elapsed_seconds": 1.103340792004019
+    },
+    {
+      "name": "release-smoke",
+      "command": [
+        "build/btree-bench",
+        "--smoke"
+      ],
+      "cwd": "scratch/overnight-diag-002/base",
+      "returncode": 0,
+      "elapsed_seconds": 0.4246526249917224
+    },
+    {
+      "name": "sanitize-smoke",
+      "command": [
+        "build/sanitize/btree-bench",
+        "--smoke"
+      ],
+      "cwd": "scratch/overnight-diag-002/base",
+      "returncode": 0,
+      "elapsed_seconds": 0.4162704999325797
+    },
+    {
+      "name": "assembly",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-S",
+        "bench/microbench.c",
+        "-o",
+        "build/microbench.s"
+      ],
+      "cwd": "scratch/overnight-diag-002/base",
+      "returncode": 0,
+      "elapsed_seconds": 0.09051266708411276
+    }
+  ]
+}

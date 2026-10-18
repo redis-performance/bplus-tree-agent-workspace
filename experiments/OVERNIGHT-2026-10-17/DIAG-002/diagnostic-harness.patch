@@ -1,0 +1,252 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -66,181 +66,75 @@
+     return "unavailable";
+ #endif
+ }
+-static size_t number(const char *s) {
+-    char *end;
+-    errno = 0;
+-    unsigned long long v = strtoull(s, &end, 10);
+-    if (errno || s[0] == '-' || *end || !*s || !v || v > 100000000) {
+-        fprintf(stderr, "Expected integer in [1, 100000000]: %s\n", s);
+-        exit(2);
++/* Diagnostic only; inspired by CPU Performance Engineering benchmark14 brackets.
++ * No conversion to clock GHz: dependent-add elapsed time is just a second workload. */
++#if !defined(__aarch64__)
++#error "This diagnostic's inspected assembly is AArch64-only"
++#endif
++__attribute__((noinline)) static uint64_t dependent_adds(uint64_t count) {
++    uint64_t x=0;
++    for (uint64_t i=0;i<count;i+=8) {
++        __asm__ volatile(
++            "add %0, %0, #1\n\tadd %0, %0, #1\n\t"
++            "add %0, %0, #1\n\tadd %0, %0, #1\n\t"
++            "add %0, %0, #1\n\tadd %0, %0, #1\n\t"
++            "add %0, %0, #1\n\tadd %0, %0, #1\n\t" : "+r"(x));
+     }
+-    return (size_t)v;
++    return x;
+ }
+-static void insert(zbtreeSet *tree, sds key, double score) {
+-    zbtreeInsertPosition pos;
+-    double old;
+-    serverAssert(!zbtreeFindForAdd(tree, key, &old, &pos));
+-    zbtreeInsertNew(tree, score, key, &pos);
++typedef struct {uint64_t wall;int64_t thread;int start,end;} observation;
++static observation bracket(uint64_t adds) {
++    observation s; s.start=cpu_id();int64_t c=thread_ns();uint64_t w=now_ns();
++    uint64_t result=dependent_adds(adds);
++    s.wall=now_ns()-w;int64_t end=thread_ns();s.end=cpu_id();
++    s.thread=c>=0&&end>=c?end-c:-1;
++    serverAssert(result==adds);sink^=result;return s;
+ }
+-typedef struct { uint64_t count, sum; } scan_result;
+-static void scan_count(void *ctx, const unsigned char *key, size_t len, double score) {
+-    UNUSED(key); UNUSED(len);
+-    scan_result *result = ctx;
+-    result->count++;
+-    result->sum += (uint64_t)score;
++int main(int argc,char **argv) {
++    int smoke=argc==2&&!strcmp(argv[1],"--smoke");
++    if (argc!=1&&!smoke) return 2;
++    size_t n=smoke?1000:1000000,ops=smoke?10000:5000000,reps=smoke?2:4;
++    uint64_t adds=smoke?80000:128000000,rng=1;
++    uint8_t hash_seed[16];
++    for (unsigned i=0;i<16;i++) hash_seed[i]=(uint8_t)random64(&rng);
++    dictSetHashFunctionSeed(hash_seed);
++    sds *keys=zmalloc(2*n*sizeof(*keys));size_t *order=zmalloc(n*sizeof(*order));
++    for (size_t i=0;i<2*n;i++) {
++        unsigned char buf[16];memset(buf,'x',16);
++        for (unsigned j=0;j<8;j++) buf[j]=(unsigned char)((uint64_t)i>>(8*j));
++        keys[i]=sdsnewlen(buf,16);if(i<n)order[i]=i;
++    }
++    for (size_t i=n;i>1;i--) {size_t j=random64(&rng)%i,t=order[i-1];order[i-1]=order[j];order[j]=t;}
++    zbtreeSet *tree=zbtreeCreate();
++    for (size_t i=0;i<n;i++) {
++        zbtreeInsertPosition pos;double old;
++        serverAssert(!zbtreeFindForAdd(tree,keys[order[i]],&old,&pos));
++        zbtreeInsertNew(tree,(double)order[i],keys[order[i]],&pos);
++    }
++    uint64_t warm_start=now_ns();
++    for(unsigned pass=0;pass<10;pass++) for(size_t i=0;i<n;i++) {
++        double score;serverAssert(zbtreeScore(tree,keys[order[i]],&score)&&score==(double)order[i]);
++    }
++    uint64_t warm_ns=now_ns()-warm_start,expected=0;
++    for(size_t i=0;i<ops;i++)expected+=order[i%n];
++    size_t memory=zbtreeAllocSize(tree);
++    puts("sample,size,member_bytes,seed,operations,adds,checksum,tree_bytes,wall_ns,thread_ns,cpu_start,cpu_end,pre_wall_ns,pre_thread_ns,pre_cpu_start,pre_cpu_end,post_wall_ns,post_thread_ns,post_cpu_start,post_cpu_end,qos_reported,qos_relpri,qos_effective,warmup_ns");
++    for(size_t sample=0;sample<reps;sample++) {
++        int relpri;const char *qos=qos_reported(&relpri);
++        observation pre=bracket(adds),s;uint64_t checksum=0;
++        s.start=cpu_id();int64_t c=thread_ns();uint64_t w=now_ns();
++        for(size_t i=0;i<ops;i++) {
++            double score=0;int found=zbtreeScore(tree,keys[order[i%n]],&score);
++            checksum+=found?(uint64_t)score:UINT64_MAX;
++        }
++        s.wall=now_ns()-w;int64_t end=thread_ns();s.end=cpu_id();
++        s.thread=c>=0&&end>=c?end-c:-1;
++        observation post=bracket(adds);
++        serverAssert(checksum==expected&&zbtreeLength(tree)==n&&zbtreeAllocSize(tree)==memory);
++        sink^=checksum;
++        printf("%zu,%zu,16,1,%zu,%" PRIu64 ",%" PRIu64 ",%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%" PRIu64 ",%" PRId64 ",%d,%d,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%d,unknown,%" PRIu64 "\n",
++            sample,n,ops,adds,checksum,memory,s.wall,s.thread,s.start,s.end,
++            pre.wall,pre.thread,pre.start,pre.end,post.wall,post.thread,post.start,post.end,qos,relpri,warm_ns);
++    }
++    zbtreeFree(tree);for(size_t i=0;i<2*n;i++)sdsfree(keys[i]);zfree(keys);zfree(order);return 0;
+ }
+-typedef struct { unsigned char *seen; size_t n; sds *keys; scan_result result; } scan_check;
+-static void scan_verify(void *ctx, const unsigned char *key, size_t len, double score) {
+-    scan_check *check = ctx;
+-    serverAssert(len >= 8);
+-    uint64_t id = 0;
+-    for (unsigned j = 0; j < 8; j++) id |= (uint64_t)key[j] << (j * 8);
+-    serverAssert(id < check->n && score == (double)id);
+-    serverAssert(len == sdslen(check->keys[id]) && !memcmp(key, check->keys[id], len));
+-    check->seen[id] = 1;
+-    scan_count(&check->result, key, len, score);
+-}
+-int main(int argc, char **argv) {
+-    size_t n = 100000, ops = 1000000, bytes = 16, warmup_passes = 1;
+-    uint64_t seed = 1;
+-    const char *selected = "all";
+-    const char *cases[] = {"insert", "lookup-hit", "lookup-miss", "rank", "iterate", "scan", "update", "delete"};
+-    for (int i = 1; i < argc; i++) {
+-        if (!strcmp(argv[i], "--help")) {
+-            puts("btree-bench [--size N] [--ops N] [--member-bytes N>=8] [--seed N] [--warmup-passes N>=1] [--case all|insert|lookup-hit|lookup-miss|rank|iterate|scan|update|delete]");
+-            return 0;
+-        }
+-        if (i + 1 == argc) { fprintf(stderr, "Missing value: %s\n", argv[i]); return 2; }
+-        const char *arg = argv[i++], *value = argv[i];
+-        if (!strcmp(arg, "--size")) n = number(value);
+-        else if (!strcmp(arg, "--ops")) ops = number(value);
+-        else if (!strcmp(arg, "--member-bytes")) bytes = number(value);
+-        else if (!strcmp(arg, "--seed")) seed = number(value);
+-        else if (!strcmp(arg, "--warmup-passes")) warmup_passes = number(value);
+-        else if (!strcmp(arg, "--case")) selected = value;
+-        else { fprintf(stderr, "Unknown option: %s\n", arg); return 2; }
+-    }
+-    int valid_case = !strcmp(selected, "all");
+-    for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) valid_case |= !strcmp(selected, cases[c]);
+-    if (!valid_case || bytes < 8 || bytes > 65536) { fputs("Invalid case or member size (8..65536)\n", stderr); return 2; }
+-    uint64_t rng = seed;
+-    uint8_t hash_seed[16];
+-    for (size_t i = 0; i < sizeof(hash_seed); i++) hash_seed[i] = (uint8_t)random64(&rng);
+-    dictSetHashFunctionSeed(hash_seed);
+-    sds *keys = zmalloc(2 * n * sizeof(*keys));
+-    size_t *order = zmalloc(n * sizeof(*order));
+-    char *buf = zmalloc(bytes);
+-    for (size_t i = 0; i < 2 * n; i++) {
+-        memset(buf, 'x', bytes);
+-        /* Fixed-endian unique binary members, including embedded NUL bytes. */
+-        for (unsigned j = 0; j < 8; j++) buf[j] = (char)((uint64_t)i >> (j * 8));
+-        keys[i] = sdsnewlen(buf, bytes);
+-        if (i < n) order[i] = i;
+-    }
+-    zfree(buf);
+-    for (size_t i = n; i > 1; i--) {
+-        size_t j = random64(&rng) % i, tmp = order[i - 1];
+-        order[i - 1] = order[j]; order[j] = tmp;
+-    }
+-    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns");
+-    for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) {
+-        if (strcmp(selected, "all") && strcmp(selected, cases[c])) continue;
+-        zbtreeSet *tree = zbtreeCreate();
+-        if (c != 0) for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+-        /* Fixed-count warm-up; this does not establish stable placement/DVFS. */
+-        uint64_t warmup_start = now_ns();
+-        if (c != 0) for (size_t pass = 0; pass < warmup_passes; pass++) for (size_t i = 0; i < n; i++) {
+-            double score;
+-            serverAssert(zbtreeScore(tree, keys[order[i]], &score) && score == (double)order[i]);
+-        }
+-        uint64_t warmup_elapsed = now_ns() - warmup_start;
+-        size_t count = (c == 0 || c == 7) ? n : ops;
+-        uint64_t checksum = 0, expected = 0;
+-        size_t tree_bytes = zbtreeAllocSize(tree);
+-        size_t traversals = (c == 4 || c == 5) ? 1 + (ops - 1) / n : 0;
+-        if (c == 4 || c == 5) count = traversals * n;
+-        if (c == 1 || c == 3) for (size_t i = 0; i < count; i++) expected += order[i % n];
+-        else if (c == 6 || c == 7) expected = count;
+-        else if (c == 4) expected = ((uint64_t)n * (n - 1) / 2) * traversals;
+-        scan_result scanned = {0, 0};
+-        int relpri_start, relpri_end;
+-        const char *qos_start = qos_reported(&relpri_start);
+-        int cpu_start = cpu_id();
+-        int64_t thread_start = thread_ns();
+-        uint64_t start = now_ns();
+-        if (c == 0) {
+-            for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+-        } else if (c == 1 || c == 2) {
+-            for (size_t i = 0; i < count; i++) {
+-                double score = 0;
+-                int found = zbtreeScore(tree, keys[order[i % n] + (c == 2 ? n : 0)], &score);
+-                checksum += c == 1 ? (found ? (uint64_t)score : UINT64_MAX) : (uint64_t)found;
+-            }
+-        } else if (c == 3) {
+-            for (size_t i = 0; i < count; i++) checksum += (uint64_t)zbtreeRank(tree, keys[order[i % n]], 0, NULL);
+-        } else if (c == 4) {
+-            for (size_t pass = 0; pass < traversals; pass++) {
+-                zbtreeIterator it;
+-                zbtreeIteratorStart(tree, 0, &it);
+-                double score;
+-                size_t visited = 0;
+-                while (zbtreeIteratorNext(&it, 0, NULL, NULL, &score)) { checksum += (uint64_t)score; visited++; }
+-                serverAssert(visited == n);
+-            }
+-        } else if (c == 5) {
+-            for (size_t pass = 0; pass < traversals; pass++) {
+-                uint64_t cursor = 0;
+-                do { cursor = zbtreeScan(tree, cursor, 64, scan_count, &scanned); } while (cursor);
+-            }
+-            checksum = scanned.sum;
+-        } else if (c == 6) {
+-            for (size_t i = 0; i < count; i++) {
+-                sds key = keys[order[i % n]];
+-                zbtreeInsertPosition pos;
+-                double score;
+-                int found = zbtreeFindForAdd(tree, key, &score, &pos);
+-                serverAssert(found);
+-                zbtreeUpdateScore(tree, key, score + (double)n, &pos);
+-                checksum += found;
+-            }
+-        } else {
+-            for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[order[i]]);
+-        }
+-        uint64_t elapsed = now_ns() - start;
+-        int64_t thread_end = thread_ns();
+-        int cpu_end = cpu_id();
+-        const char *qos_end = qos_reported(&relpri_end);
+-        int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
+-        if (c == 5) {
+-            /* Cursor scans may legitimately emit duplicates even without edits. */
+-            serverAssert(scanned.count >= count && scanned.count <= SIZE_MAX);
+-            count = (size_t)scanned.count;
+-            scan_check check = {zcalloc(n), n, keys, {0, 0}};
+-            uint64_t cursor = 0;
+-            do { cursor = zbtreeScan(tree, cursor, 64, scan_verify, &check); } while (cursor);
+-            for (size_t i = 0; i < n; i++) serverAssert(check.seen[i]);
+-            serverAssert(scanned.count == check.result.count * traversals);
+-            expected = check.result.sum * traversals;
+-            zfree(check.seen);
+-        }
+-        serverAssert(checksum == expected);
+-        serverAssert(zbtreeLength(tree) == (c == 7 ? 0 : n));
+-        if (c != 7) tree_bytes = zbtreeAllocSize(tree);
+-        if (c == 6) for (size_t i = 0; i < n; i++) {
+-            double score;
+-            size_t repeats = ops / n + (i < ops % n);
+-            serverAssert(zbtreeScore(tree, keys[order[i]], &score));
+-            serverAssert(score == (double)order[i] + (double)(repeats * n));
+-        }
+-        sink ^= checksum;
+-        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 "\n",
+-               cases[c], n, ops, bytes, seed, count, elapsed, (double)elapsed/count,
+-               (double)count * 1e9 / (elapsed ? elapsed : 1), tree_bytes, checksum,
+-               thread_elapsed, cpu_start, cpu_end, qos_start, qos_end, relpri_start, relpri_end,
+-               traversals, c == 0 ? 0 : warmup_passes, warmup_elapsed);
+-        zbtreeFree(tree);
+-    }
+-    for (size_t i = 0; i < 2 * n; i++) sdsfree(keys[i]);
+-    zfree(keys); zfree(order);
+-    return 0;
+-}

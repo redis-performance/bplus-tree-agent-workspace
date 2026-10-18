@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3144,7 +3144,7 @@
+             /* A write removed the saved leaf between defrag slices. New
+              * allocations do not need defrag, so restarting is sufficient. */
+             state->score_leaf_id =
+-                zs->score_first ? zs->score_first->id : ZBT_NO_LEAF_ID;
++                ZBT_NO_LEAF_ID;
+             state->score_pos = 0;
+             state->leaf_moved = 0;
+             continue;

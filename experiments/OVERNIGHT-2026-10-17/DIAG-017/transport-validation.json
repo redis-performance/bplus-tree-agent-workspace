@@ -1,0 +1,70 @@
+{
+  "status": "pass",
+  "timeout_override_seconds": 0.2,
+  "records": [
+    {
+      "policy": "file",
+      "mode": "success",
+      "command": [
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time; os.write(1,b'hello\\x00world\\n'); os.write(2,b'check\\n')"
+      ],
+      "started_utc": "2026-10-18T03:09:10.191714+00:00",
+      "ended_utc": "2026-10-18T03:09:10.216408+00:00",
+      "start_monotonic_ns": 838443530859833,
+      "end_monotonic_ns": 838443555217291,
+      "parent_cpu_start_ns": 40542000,
+      "parent_cpu_end_ns": 41634000,
+      "returncode": 0
+    },
+    {
+      "policy": "file",
+      "mode": "timeout",
+      "command": [
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time; os.write(1,b'hello\\x00world\\n'); os.write(2,b'check\\n'); time.sleep(3)"
+      ],
+      "started_utc": "2026-10-18T03:09:10.216777+00:00",
+      "ended_utc": "2026-10-18T03:09:10.429008+00:00",
+      "start_monotonic_ns": 838443555603291,
+      "end_monotonic_ns": 838443767814583,
+      "parent_cpu_start_ns": 42019000,
+      "parent_cpu_end_ns": 43402000,
+      "returncode": "timeout"
+    },
+    {
+      "policy": "pipe",
+      "mode": "success",
+      "command": [
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time; os.write(1,b'hello\\x00world\\n'); os.write(2,b'check\\n')"
+      ],
+      "started_utc": "2026-10-18T03:09:10.430728+00:00",
+      "ended_utc": "2026-10-18T03:09:10.478228+00:00",
+      "start_monotonic_ns": 838443769569750,
+      "end_monotonic_ns": 838443817048833,
+      "parent_cpu_start_ns": 45153000,
+      "parent_cpu_end_ns": 48213000,
+      "returncode": 0
+    },
+    {
+      "policy": "pipe",
+      "mode": "timeout",
+      "command": [
+        "/opt/homebrew/opt/python@3.13/bin/python3.13",
+        "-c",
+        "import os,time; os.write(1,b'hello\\x00world\\n'); os.write(2,b'check\\n'); time.sleep(3)"
+      ],
+      "started_utc": "2026-10-18T03:09:10.478959+00:00",
+      "ended_utc": "2026-10-18T03:09:10.685152+00:00",
+      "start_monotonic_ns": 838443817793458,
+      "end_monotonic_ns": 838444023947625,
+      "parent_cpu_start_ns": 48957000,
+      "parent_cpu_end_ns": 50877000,
+      "returncode": "timeout"
+    }
+  ]
+}

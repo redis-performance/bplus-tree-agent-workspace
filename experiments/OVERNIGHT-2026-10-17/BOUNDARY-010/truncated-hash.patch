@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3183,7 +3183,7 @@
+ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
+-    uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
++    uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen ? elelen - 1 : 0);
+     return zbtIndexFind(zs, hash, ele, elelen, score,
+                         NULL, NULL, NULL, NULL);
+ }

@@ -1,0 +1,593 @@
+[
+  {
+    "name": "zbtScoreRegisterLeaf",
+    "count": 3298,
+    "branches": [
+      {
+        "line": 799,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 1564,
+        "false": 1734,
+        "source": "    if (id == ZBT_NEW_LEAF_ID) {"
+      },
+      {
+        "line": 803,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 116,
+        "false": 1448,
+        "source": "        if (zs->free_score_leaf_id && zs->member_rehash == NULL) {"
+      },
+      {
+        "line": 803,
+        "column": 39,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 116,
+        "source": "        if (zs->free_score_leaf_id && zs->member_rehash == NULL) {"
+      },
+      {
+        "line": 810,
+        "column": 17,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 40,
+        "false": 1524,
+        "source": "            if (id == zs->score_leaf_cap) {"
+      },
+      {
+        "line": 811,
+        "column": 35,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 32,
+        "false": 8,
+        "source": "                uint32_t newcap = zs->score_leaf_cap ?"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 0,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtScoreReleaseLeafId",
+    "count": 274,
+    "branches": [
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 274,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtScoreRemoveLeaf",
+    "count": 274,
+    "branches": [
+      {
+        "line": 1113,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 274,
+        "false": 0,
+        "source": "    if (zs->member_rehash &&"
+      },
+      {
+        "line": 1114,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 274,
+        "source": "        zs->member_rehash->next_leaf_id == leaf->id)"
+      },
+      {
+        "line": 1117,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 0,
+        "source": "            leaf->next ? leaf->next->id : ZBT_NO_LEAF_ID;"
+      },
+      {
+        "line": 1119,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 206,
+        "false": 68,
+        "source": "    if (leaf->prev) leaf->prev->next = leaf->next;"
+      },
+      {
+        "line": 1121,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 274,
+        "false": 0,
+        "source": "    if (leaf->next) leaf->next->prev = leaf->prev;"
+      }
+    ]
+  },
+  {
+    "name": "zbtIndexRehashStep",
+    "count": 58920,
+    "branches": [
+      {
+        "line": 2109,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 55888,
+        "false": 3032,
+        "source": "    if (rehash == NULL) return 0;"
+      },
+      {
+        "line": 2111,
+        "column": 12,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 3032,
+        "false": 2952,
+        "source": "    while (steps--) {"
+      },
+      {
+        "line": 2113,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 3032,
+        "false": 0,
+        "source": "        if (rehash->next_leaf_id != ZBT_NO_LEAF_ID &&"
+      },
+      {
+        "line": 2114,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 3032,
+        "false": 0,
+        "source": "            rehash->next_leaf_id < zs->next_score_leaf_id)"
+      },
+      {
+        "line": 2117,
+        "column": 17,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 3032,
+        "false": 0,
+        "source": "            if (leaf && ZBT_IS_FREE_LEAF_ID(leaf)) leaf = NULL;"
+      },
+      {
+        "line": 2121,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 3032,
+        "source": "        if (leaf == NULL) leaf = zs->score_first;"
+      },
+      {
+        "line": 2122,
+        "column": 16,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 3126,
+        "false": 80,
+        "source": "        while (leaf && zbtIndexLeafMigrated(zs, leaf)) leaf = leaf->next;"
+      },
+      {
+        "line": 2122,
+        "column": 24,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 174,
+        "false": 2952,
+        "source": "        while (leaf && zbtIndexLeafMigrated(zs, leaf)) leaf = leaf->next;"
+      },
+      {
+        "line": 2123,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 80,
+        "false": 2952,
+        "source": "        if (leaf == NULL) {"
+      },
+      {
+        "line": 2137,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 2952,
+        "false": 0,
+        "source": "            leaf->next ? leaf->next->id : ZBT_NO_LEAF_ID;"
+      },
+      {
+        "line": 203,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 3032,
+        "source": "#define ZBT_IS_FREE_LEAF_ID(ptr) (((uintptr_t)(ptr) & 1) != 0)"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 80,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeDefragStart",
+    "count": 24,
+    "branches": [
+      {
+        "line": 3016,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 24,
+        "false": 0,
+        "source": "    if (newzs) {"
+      },
+      {
+        "line": 3021,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 24,
+        "false": 0,
+        "source": "    if (zs->score_leaf_by_id)"
+      },
+      {
+        "line": 3024,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 24,
+        "false": 0,
+        "source": "    if (zs->member_index.buckets)"
+      },
+      {
+        "line": 3027,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 24,
+        "false": 0,
+        "source": "    if (zs->member_rehash) {"
+      },
+      {
+        "line": 3030,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 24,
+        "false": 0,
+        "source": "        if (zs->member_rehash->table.buckets)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeDefragStep",
+    "count": 40894,
+    "branches": [
+      {
+        "line": 3133,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 32,
+        "false": 40862,
+        "source": "    if (state->tree != zs) {"
+      },
+      {
+        "line": 3137,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 32,
+        "false": 0,
+        "source": "            zs->score_first ? zs->score_first->id : ZBT_NO_LEAF_ID;"
+      },
+      {
+        "line": 3140,
+        "column": 12,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 41142,
+        "false": 8,
+        "source": "    while (state->score_leaf_id != ZBT_NO_LEAF_ID) {"
+      },
+      {
+        "line": 3143,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 256,
+        "false": 40886,
+        "source": "        if (leaf == NULL) {"
+      },
+      {
+        "line": 3147,
+        "column": 17,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 256,
+        "false": 0,
+        "source": "                zs->score_first ? zs->score_first->id : ZBT_NO_LEAF_ID;"
+      },
+      {
+        "line": 3153,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 1784,
+        "false": 39102,
+        "source": "        if (!state->leaf_moved) {"
+      },
+      {
+        "line": 3159,
+        "column": 16,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 52562,
+        "false": 1510,
+        "source": "        while (state->score_pos < leaf->n.count) {"
+      },
+      {
+        "line": 3163,
+        "column": 17,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 13186,
+        "false": 39376,
+        "source": "            if (record[0] != ZBT_PACKED_EXTERNAL) continue;"
+      },
+      {
+        "line": 3170,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 1502,
+        "false": 8,
+        "source": "            leaf->next ? leaf->next->id : ZBT_NO_LEAF_ID;"
+      }
+    ]
+  },
+  {
+    "name": "zbtScoreLeafById",
+    "count": 41652,
+    "branches": [
+      {
+        "line": 3116,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 41652,
+        "source": "    if (id >= zs->next_score_leaf_id) return NULL;"
+      },
+      {
+        "line": 3118,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 41652,
+        "source": "    if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) return NULL;"
+      },
+      {
+        "line": 203,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 256,
+        "false": 41396,
+        "source": "#define ZBT_IS_FREE_LEAF_ID(ptr) (((uintptr_t)(ptr) & 1) != 0)"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 41396,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeInsertNewRaw",
+    "count": 512,
+    "branches": [
+      {
+        "line": 3280,
+        "column": 21,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 512,
+        "source": "    uint32_t hash = position ? position->hash :"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 512,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeInsertNewAppend",
+    "count": 57352,
+    "branches": []
+  },
+  {
+    "name": "zbtreeDeleteRangeByRank",
+    "count": 256,
+    "branches": [
+      {
+        "line": 3760,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "    if (start >= zs->length || start > end) return 0;"
+      },
+      {
+        "line": 3760,
+        "column": 32,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "    if (start >= zs->length || start > end) return 0;"
+      },
+      {
+        "line": 3761,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "    if (end >= zs->length) end = zs->length - 1;"
+      },
+      {
+        "line": 3764,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "    if (deleted > 1024 && deleted >= zs->length / 10) {"
+      },
+      {
+        "line": 3764,
+        "column": 27,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 0,
+        "source": "    if (deleted > 1024 && deleted >= zs->length / 10) {"
+      },
+      {
+        "line": 3766,
+        "column": 16,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 0,
+        "source": "        while (remaining) {"
+      },
+      {
+        "line": 3771,
+        "column": 17,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 0,
+        "source": "            if (run > remaining) run = remaining;"
+      },
+      {
+        "line": 3784,
+        "column": 12,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 256,
+        "false": 256,
+        "source": "    while (remaining) {"
+      },
+      {
+        "line": 3789,
+        "column": 13,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "        if (run > remaining) run = remaining;"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 0,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 256,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeUpdateScore",
+    "count": 512,
+    "branches": [
+      {
+        "line": 3655,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 2,
+        "false": 510,
+        "source": "    if (zbtScoreUpdateInPlace(oldleaf, oldpos, score,"
+      },
+      {
+        "line": 3668,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 350,
+        "false": 160,
+        "source": "    if (moved.external) {"
+      },
+      {
+        "line": 3678,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 510,
+        "false": 0,
+        "source": "    if (oldleaf->n.count > 1) zbtScoreLeafNoteMove(oldleaf, oldpos);"
+      },
+      {
+        "line": 3681,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 486,
+        "false": 24,
+        "source": "    if (oldid != newleaf->id) {"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 512,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "line": 15,
+        "column": 36,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 512,
+        "false": 0,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "line": 15,
+        "column": 36,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 512,
+        "false": 0,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 350,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      },
+      {
+        "line": 15,
+        "column": 34,
+        "file": "scratch/overnight-counters-007/mutation/compat/server.h",
+        "true": 0,
+        "false": 486,
+        "source": "#define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)"
+      }
+    ]
+  },
+  {
+    "name": "zbtreeDelete",
+    "count": 256,
+    "branches": [
+      {
+        "line": 3520,
+        "column": 9,
+        "file": "scratch/overnight-counters-007/mutation/src/zset_btree.c",
+        "true": 0,
+        "false": 256,
+        "source": "    if (!zbtIndexFind(zs, hash, (unsigned char *)ele, sdslen(ele), NULL,"
+      }
+    ]
+  }
+]

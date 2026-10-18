@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3269,7 +3269,7 @@
+         return -1;
+ 
+     unsigned long rank = zbtScoreRank(leaf, pos);
+-    return reverse ? zs->length - rank - 1 : rank;
++    return reverse ? zs->length - rank - 1 : rank + 1;
+ }
+ 
+ /* Insert a member that is known to be absent. Bulk builders pass the bytes

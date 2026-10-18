@@ -1,0 +1,60 @@
+{
+  "intentional_fault": "omit-leaf-id-repair",
+  "sources": {
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "tests/boundary_oracle.c": "f0ffb9c2a7011b4b71faec323c7d24a49b9f212e8525c776a6b5fb99954bb8b6",
+    "tests/defrag_oracle.c": "31a82c59c0fe7be76aa7bd573ba90bca230ee8f499b6e310910aab4b4bb2b21f",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "src/zset_btree.c": "42040a4d5cc1fdab876960e43ad99505cbc176534186e8baf2a225ef031ddc15",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/LICENSE.txt": "4a0e416b9537688f30dfe69ddaceb2ca64d96b7df02a0a6760d376890ddc4e40"
+  },
+  "runs": [
+    {
+      "name": "build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/defrag_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "oracle"
+      ],
+      "cwd": "scratch/overnight-boundary-004/omit-leaf-id-repair",
+      "returncode": 0,
+      "elapsed_seconds": 1.2824969579232857,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "run",
+      "command": [
+        "./oracle"
+      ],
+      "cwd": "scratch/overnight-boundary-004/omit-leaf-id-repair",
+      "returncode": -6,
+      "elapsed_seconds": 0.6123156249523163,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "de5fa10ad8ce28c5ce55251d95f36feca5b654f88018b36e6c165186881ad0e4"
+    }
+  ],
+  "detected": true,
+  "binary_sha256": "97027fcc2afff8752987bf743ab976405b8af95a28bebf535de5a14b8384ba52"
+}

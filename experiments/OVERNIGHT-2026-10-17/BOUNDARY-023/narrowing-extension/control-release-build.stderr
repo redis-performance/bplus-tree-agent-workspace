@@ -1,0 +1,4 @@
+tests/live_widen_narrow_oracle.c:61:225: error: member reference base type 'void' is not a structure or union
+   61 |    CHECK(zbtreeDeleteRangeByRank(t,anchors,n-1)==n-anchors);n=anchors;unsigned remove_prefix=anchors-4096;zbtreeIterator anchor_it;CHECK(zbtreeIteratorSeekRank(t,remove_prefix,&anchor_it));uint32_t survivor_id=anchor_it.leaf->id;CHECK(survivor_id>0);CHECK(zbtreeDeleteRangeByRank(t,0,remove_prefix-1)==remove_prefix);low_id=remove_prefix;
+      |                                                                                                                                                                                                                   ~~~~~~~~~~~~~~^ ~~
+1 error generated.

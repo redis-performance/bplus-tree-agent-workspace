@@ -1,0 +1,105 @@
+{
+  "base_commit": "a2ff0c5ddc00ffc11ff7d73e202d6384df77c84c",
+  "snapshot": "scratch/overnight-boundary-005/attempt3",
+  "provenance": "uncommitted new oracle; tree/referee identical to HARNESS-001",
+  "sources": {
+    "Makefile": "d6247607373095943599c9e276b15d47c5e3313ae21fb6ffef8bb6c5d6f5732a",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "tests/test_overnight.py": "dfbaaec71c30b199337aa340afa8edd5db573e324c1a0c50d915b3cb311e229c",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+    "tests/boundary_oracle.c": "f0ffb9c2a7011b4b71faec323c7d24a49b9f212e8525c776a6b5fb99954bb8b6",
+    "tests/test_microbench.py": "24556ccd16c85a124756e2eca0e2e7db0bcb5e504583bdb7f94409b922965232",
+    "tests/index_probe_oracle.c": "0a96ee5d702b912391c604cde7f9882c4dc5a8f6f73b3101f23d4e158f65fae8",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/LICENSE.txt": "4a0e416b9537688f30dfe69ddaceb2ca64d96b7df02a0a6760d376890ddc4e40"
+  },
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/index_probe_oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/release"
+      ],
+      "cwd": "scratch/overnight-boundary-005/attempt3",
+      "returncode": 0,
+      "elapsed_seconds": 1.0435762089909986,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "release-run",
+      "command": [
+        "build/release"
+      ],
+      "cwd": "scratch/overnight-boundary-005/attempt3",
+      "returncode": 0,
+      "elapsed_seconds": 2.7768992909695953,
+      "stdout_sha256": "cdf57ab536cffd30e0bc2f0a6a4c5a0f6b0b574345491ae40fe52f699390057f",
+      "stderr_sha256": "9891d09df469fcdcd02d737215683229fc44ed55c89c7a7e1dbb64afc66f5b5c",
+      "binary_sha256": "38edabdcb6f0e14d86725f8547938d85f0a891fc3c7b2268abdbff33e12a79e4"
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/index_probe_oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-005/attempt3",
+      "returncode": 0,
+      "elapsed_seconds": 1.2317899159388617,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "sanitize-run",
+      "command": [
+        "build/sanitize"
+      ],
+      "cwd": "scratch/overnight-boundary-005/attempt3",
+      "returncode": 0,
+      "elapsed_seconds": 7.656644291942939,
+      "stdout_sha256": "cdf57ab536cffd30e0bc2f0a6a4c5a0f6b0b574345491ae40fe52f699390057f",
+      "stderr_sha256": "9891d09df469fcdcd02d737215683229fc44ed55c89c7a7e1dbb64afc66f5b5c",
+      "binary_sha256": "d5ca6e41f0cc32306267bd44e6362429200a0b0a352404233b24e86283460241"
+    }
+  ],
+  "status": "pass"
+}

@@ -1,0 +1,121 @@
+{
+  "status": "complete",
+  "phase": "faults",
+  "runs": [
+    {
+      "name": "lane-zero-hash-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/fault"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/lane-zero-hash",
+      "started_utc": "2026-10-18T05:47:28.241772+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:47:29.411947+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-hash-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-hash-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lane-zero-hash-run",
+      "command": [
+        "build/fault",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/lane-zero-hash",
+      "started_utc": "2026-10-18T05:47:29.412705+00:00",
+      "returncode": -6,
+      "ended_utc": "2026-10-18T05:47:29.901928+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-hash-run.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-hash-run.stderr",
+      "stdout_sha256": "0610e07e07132139c03351c2bfbb56a7837f44d237831538cbfdedc8222b6819",
+      "stderr_sha256": "508d73330d1a00f8e18987f44aec3920ee8ef25d371ee835359c0c41f006a587"
+    },
+    {
+      "name": "lane-zero-length-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/heterogeneous_batch_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/fault"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/lane-zero-length",
+      "started_utc": "2026-10-18T05:47:29.915611+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:47:31.186075+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-length-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-length-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lane-zero-length-run",
+      "command": [
+        "build/fault",
+        "82603"
+      ],
+      "cwd": "scratch/overnight-boundary-026-attempt2/lane-zero-length",
+      "started_utc": "2026-10-18T05:47:31.186720+00:00",
+      "returncode": -6,
+      "ended_utc": "2026-10-18T05:47:31.636815+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-length-run.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/BOUNDARY-026/attempt-002/faults/lane-zero-length-run.stderr",
+      "stdout_sha256": "0610e07e07132139c03351c2bfbb56a7837f44d237831538cbfdedc8222b6819",
+      "stderr_sha256": "508d73330d1a00f8e18987f44aec3920ee8ef25d371ee835359c0c41f006a587"
+    }
+  ],
+  "binaries": {},
+  "results": [
+    {
+      "fault": "lane-zero-hash",
+      "detected": true,
+      "returncode": -6,
+      "source_sha256": "006b9ba72d77214d1efe04f2cfa0849e0bab3dc89a973facee30cf35fc2a111c",
+      "patch_sha256": "beb835a3040066bc7a8e231109b051575b45c4a6301c79e8f88a90241a53d7ff"
+    },
+    {
+      "fault": "lane-zero-length",
+      "detected": true,
+      "returncode": -6,
+      "source_sha256": "9514d07209e2c7a67f8b7ad57abf3a153d5043a6496cd7b4d89050420d312230",
+      "patch_sha256": "a5b3e774fde4e185dcd43f9b9d50100849ee07259e8113e0d42869e5b23befe8"
+    }
+  ]
+}

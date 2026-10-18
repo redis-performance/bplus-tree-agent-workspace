@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1812,8 +1812,7 @@
+ 
+ /* Record one member in the missing-member filter of its home bucket. */
+ static inline void zbtIndexRecordHomeTag(zbtIndexTable *table, uint32_t hash) {
+-    unsigned long home = hash & (table->size - 1);
+-    *zbtIndexHomeTagsAt(table, home) |= zbtIndexTagBits(zbtIndexTag(hash));
++    UNUSED(table); UNUSED(hash); /* intentional fault */
+ }
+ 
+ /* Return zero only when the home bucket proves that a hash is absent. */

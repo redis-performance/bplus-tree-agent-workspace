@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2384,8 +2384,7 @@
+     } else {
+         zbtIndexSetId(source, bucket, pos, ZBT_INDEX_DELETED_ID);
+         source->used--;
+-        zbtIndexTableInsertRaw(&zs->member_rehash->table,
+-                               hash, new_leaf_id);
++        /* deliberate missing destination insertion */
+     }
+     return 1;
+ }

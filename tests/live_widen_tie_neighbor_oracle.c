@@ -1,0 +1,129 @@
+/* Score mutation during natural widening with a live public SCAN cursor. Private state is read-only. */
+#include "../src/zset_btree.c"
+#include <inttypes.h>
+#define CAP 850000U
+#define KEYLEN 319U
+static unsigned seed,stage,n,anchors;
+static double scores[CAP];
+static unsigned sorted[CAP];
+static uint64_t moves,ownership[2][2],zero_updates,crossmoves,range_checks;
+static const uint64_t finite_bits[]={UINT64_C(0xffefffffffffffff),UINT64_C(0x7fefffffffffffff),UINT64_C(0x8000000000000001),UINT64_C(0x0000000000000001),UINT64_C(0x8010000000000000),UINT64_C(0x0010000000000000),UINT64_C(0x8000000000000000),UINT64_C(0x0000000000000000),UINT64_C(0xbff0000000000000),UINT64_C(0x3ff0000000000000),UINT64_C(0xc340000000000000),UINT64_C(0x4340000000000000)};
+static double finite_score(unsigned i){double value;uint64_t b=finite_bits[i%12];memcpy(&value,&b,8);return value;}
+static uint32_t seen[CAP];
+static unsigned char continuous[CAP];
+static uint64_t checks,results,calls,active_calls,wide_calls,interval_members;
+static uint64_t digest=UINT64_C(14695981039346656037);
+typedef struct {uint64_t reversed;unsigned id;} hash_order;
+static hash_order *order;
+#define CHECK(c) do {if(!(c)){fprintf(stderr,"live-score seed=%u stage=%u line=%d condition=%s\n",seed,stage,__LINE__,#c);abort();}}while(0)
+static uint64_t bits(double d){uint64_t u;memcpy(&u,&d,8);return u;}
+static uint64_t reverse64(uint64_t u){uint64_t r=0;for(unsigned j=0;j<64;j++){r=(r<<1)|(u&1);u>>=1;}return r;}
+static void key(unsigned id,unsigned char *buf){for(size_t j=0;j<KEYLEN;j++)buf[j]=(unsigned char)(id*17U+j*37U+seed);for(unsigned j=0;j<8;j++)buf[j]=(unsigned char)((uint64_t)id>>(8*j));buf[11]=0;buf[12]=255;}
+static void mix(uint64_t u){digest=(digest^u)*UINT64_C(1099511628211);}
+static unsigned identify(const unsigned char *buf,size_t len,double score){
+ CHECK(len==KEYLEN);uint64_t id=0;for(unsigned j=0;j<8;j++)id|=(uint64_t)buf[j]<<(8*j);CHECK(id<n);unsigned char expected[KEYLEN];key((unsigned)id,expected);CHECK(!memcmp(buf,expected,len));CHECK(bits(score)==bits(scores[id]));results++;return (unsigned)id;
+}
+static void visit(void *ctx,const unsigned char *buf,size_t len,double score){UNUSED(ctx);unsigned id=identify(buf,len,score);CHECK(calls<UINT32_MAX);seen[id]=(uint32_t)calls;continuous[id]=1;}
+static int cmp(const void *a,const void *b){const hash_order *x=a,*y=b;if(x->reversed!=y->reversed)return (x->reversed>y->reversed)-(x->reversed<y->reversed);return (x->id>y->id)-(x->id<y->id);}
+static unsigned lower(uint64_t x){unsigned lo=0,hi=CAP;while(lo<hi){unsigned mid=lo+(hi-lo)/2;if(order[mid].reversed<x)lo=mid+1;else hi=mid;}return lo;}
+static uint64_t groups(zbtreeSet *t){uint64_t g=t->member_index.size/4;if(t->member_rehash && t->member_rehash->table.size/4>g)g=t->member_rehash->table.size/4;return g>ZBT_SCAN_MAX_GROUPS?ZBT_SCAN_MAX_GROUPS:g;}
+static uint64_t step(zbtreeSet *t,uint64_t cursor,unsigned long hint){
+ zbtIndexRehash *r=t->member_rehash;uint32_t next=r?r->next_leaf_id:0,rev=t->member_revision;unsigned long used=t->member_index.used,filled=t->member_index.filled,dused=r?r->table.used:0,dfilled=r?r->table.filled:0;size_t owned=zbtreeAllocSize(t);
+ calls++;active_calls+=r&&!t->member_index.wide_ids&&r->table.wide_ids;wide_calls+=t->member_index.wide_ids;
+ uint64_t after=zbtreeScan(t,cursor,hint,visit,NULL),low=reverse64(cursor),high=reverse64(after);CHECK(!after||high>low);
+ unsigned begin=lower(low),end=after?lower(high):CAP;for(unsigned j=begin;j<end;j++)if(order[j].id<n){CHECK(seen[order[j].id]==calls);interval_members++;}
+ CHECK(t->member_rehash==r && t->member_revision==rev && zbtreeAllocSize(t)==owned);CHECK(t->member_index.used==used && t->member_index.filled==filled);if(r)CHECK(r->next_leaf_id==next && r->table.used==dused && r->table.filled==dfilled);return after;
+}
+static void scan(zbtreeSet *t,unsigned long hint){memset(continuous,0,sizeof(continuous));uint64_t cur=0,count=0,limit=groups(t)+1;do{cur=step(t,cur,hint);CHECK(++count<=limit);}while(cur);for(unsigned i=0;i<n;i++)CHECK(continuous[i]);}
+static uint64_t node(zbtScoreNode *p,zbtScoreInner *parent,unsigned slot,size_t *owned){
+ if(!p)return 0;CHECK(p->parent==parent && (!parent||p->parent_index==slot));*owned+=zmalloc_usable_size(p);uint64_t count=0;
+ if(p->isleaf){CHECK(p->count);count=p->count;zbtScoreLeaf *l=(zbtScoreLeaf*)p;for(unsigned j=0;j<p->count;j++)CHECK(zbtScoreLeafRecord(l,j)[0]!=ZBT_PACKED_EXTERNAL);}
+ else{zbtScoreInner *in=(zbtScoreInner*)p;CHECK(p->count);for(unsigned j=0;j<p->count;j++){uint64_t sub=node(in->child[j],in,j,owned);CHECK(sub==in->child_count[j]);count+=sub;}}
+ CHECK(p->subtree==count);return count;
+}
+static void structure(zbtreeSet *t){
+ size_t owned=zmalloc_usable_size(t)+zmalloc_usable_size(t->score_leaf_by_id)+zmalloc_usable_size(t->member_index.buckets);if(t->member_rehash)owned+=zmalloc_usable_size(t->member_rehash)+zmalloc_usable_size(t->member_rehash->table.buckets);CHECK(node(t->score_root,NULL,0,&owned)==n && t->length==n);CHECK(owned==zbtreeAllocSize(t));
+ zbtScoreLeaf *prev=NULL;uint64_t total=0;for(zbtScoreLeaf *l=t->score_first;l;l=l->next){CHECK(l->prev==prev && l->id<t->next_score_leaf_id && t->score_leaf_by_id[l->id]==l);prev=l;total+=l->n.count;}CHECK(prev==t->score_last && total==n);
+}
+/* Independent model: score order uses numeric comparisons; equal scores use bytes. */
+static int score_cmp(const void *a,const void *b){
+ unsigned x=*(const unsigned*)a,y=*(const unsigned*)b;
+ if(scores[x]!=scores[y])return (scores[x]>scores[y])-(scores[x]<scores[y]);
+ unsigned char xb[KEYLEN],yb[KEYLEN];key(x,xb);key(y,yb);return memcmp(xb,yb,KEYLEN);
+}
+static void logical(zbtreeSet *t){
+ structure(t);for(unsigned i=0;i<n;i++)sorted[i]=i;qsort(sorted,n,sizeof(*sorted),score_cmp);
+ for(int reverse=0;reverse<2;reverse++){
+  zbtreeIterator it;CHECK(zbtreeIteratorStart(t,reverse,&it));
+  for(unsigned j=0;j<n;j++){
+   unsigned k=reverse?n-1-j:j,id=sorted[k];const unsigned char *buf;size_t len;double value;
+   CHECK(zbtreeIteratorNext(&it,reverse,&buf,&len,&value));CHECK(identify(buf,len,value)==id);
+   if(!reverse){mix(id);mix(bits(value));}
+   if(j%997==0){zbtreeIterator seek;CHECK(zbtreeIteratorSeekRank(t,k,&seek));CHECK(zbtreeIteratorNext(&seek,reverse,&buf,&len,&value)&&identify(buf,len,value)==id);}
+  }
+  CHECK(!zbtreeIteratorNext(&it,reverse,NULL,NULL,NULL));
+ }
+ for(unsigned i=0;i<14;i++){double value=i<12?finite_score(i):(i==12?255.0:512.0);unsigned long count=0;for(unsigned j=0;j<n;j++)count+=scores[j]==value;
+  for(int lo=0;lo<2;lo++)for(int hi=0;hi<2;hi++){CHECK(zbtreeCountByScore(t,value,lo,value,hi)==((lo||hi)?0:count));range_checks++;}
+ }
+ structure(t);checks++;
+}
+static void verify(zbtreeSet *t){
+ logical(t);for(unsigned i=0;i<n;i++){
+  unsigned char buf[KEYLEN];key(i,buf);double value;CHECK(zbtreeScoreRaw(t,buf,KEYLEN,&value));CHECK(bits(value)==bits(scores[i]));
+ }
+ for(unsigned j=0;j<n;j+=997){unsigned id=sorted[j];unsigned char buf[KEYLEN];key(id,buf);sds member=sdsnewlen(buf,KEYLEN);double value;
+  CHECK(zbtreeRank(t,member,0,&value)==(long)j && bits(value)==bits(scores[id]));
+  CHECK(zbtreeRank(t,member,1,&value)==(long)(n-1-j) && bits(value)==bits(scores[id]));sdsfree(member);
+ }structure(t);
+}
+static void append(zbtreeSet *t){CHECK(n<CAP);unsigned char buf[KEYLEN];key(n,buf);scores[n]=(double)n;zbtreeInsertNewAppend(t,scores[n],buf,KEYLEN);n++;}
+static int migrated(zbtreeSet *t,zbtScoreLeaf *leaf){return t->member_rehash && leaf->n.index_resize==t->member_rehash->resize_id;}
+static void update(zbtreeSet *t,unsigned id,double value,int iszero){
+ CHECK(id<anchors && t->member_rehash && !t->member_index.wide_ids && t->member_rehash->table.wide_ids);
+ unsigned char buf[KEYLEN];key(id,buf);sds member=sdsnewlen(buf,KEYLEN);double previous;zbtreeInsertPosition pos;
+ CHECK(zbtreeFindForAdd(t,member,&previous,&pos));CHECK(bits(previous)==bits(scores[id]));CHECK(t->member_rehash);
+ zbtScoreLeaf *source=pos.score_leaf;uint32_t oldid=source->id;int oldcopied=migrated(t,source);
+ zbtreeIterator target;zbtScoreLeaf *dest;
+ if(zbtreeIteratorSeekScore(t,value,0,0,&target,NULL))dest=(zbtScoreLeaf*)target.leaf;else dest=t->score_last;
+ uint32_t targetid=dest->id;int targetcopied=migrated(t,dest);uint16_t generation=t->member_rehash->resize_id;
+ zbtreeUpdateScore(t,member,value,&pos);scores[id]=value;sdsfree(member);
+ CHECK(t->member_rehash && t->member_rehash->resize_id==generation);
+ CHECK(zbtreeIteratorSeekScore(t,value,0,0,&target,NULL));
+ const unsigned char *found;size_t len;double score;uint32_t newid=0;int located=0;
+ for(unsigned j=0;j<512;j++){zbtScoreLeaf *leaf=(zbtScoreLeaf*)target.leaf;CHECK(zbtreeIteratorNext(&target,0,&found,&len,&score));unsigned actual=identify(found,len,score);CHECK(score==value);if(actual==id){newid=leaf->id;located=1;break;}}
+ CHECK(located);if(iszero){CHECK(oldid==newid);zero_updates++;}else{if(oldid!=newid){ownership[oldcopied][targetcopied]++;crossmoves++;}moves++;}
+ if(moves<=4||iszero)printf("MOVE seed=%u id=%u old=%u target_before=%u new=%u source_copied=%d target_copied=%d zero=%d bits=%016"PRIx64"\n",seed,id,oldid,targetid,newid,oldcopied,targetcopied,iszero,bits(value));
+}
+int main(int argc,char **argv){
+ CHECK(argc==2);seed=(unsigned)strtoul(argv[1],NULL,10);CHECK(seed);uint64_t rng=seed;uint8_t hs[16];for(unsigned j=0;j<16;j++){rng^=rng<<13;rng^=rng>>7;rng^=rng<<17;hs[j]=(uint8_t)rng;}dictSetHashFunctionSeed(hs);
+ order=zmalloc(CAP*sizeof(*order));for(unsigned i=0;i<CAP;i++){unsigned char buf[KEYLEN];key(i,buf);order[i]=(hash_order){reverse64(((uint32_t)dictGenHashFunction(buf,KEYLEN))>>2),i};}qsort(order,CAP,sizeof(*order),cmp);
+ zbtreeSet *t=zbtreeCreate();zbtreeReserve(t,1024);stage=1;while(t->next_score_leaf_id<ZBT_INDEX_WIDE_ID_AT-32)append(t);CHECK(!t->member_index.wide_ids && (!t->member_rehash||!t->member_rehash->table.wide_ids));anchors=n;uint32_t initial_id=t->next_score_leaf_id;verify(t);CHECK(!t->member_index.wide_ids && !t->member_rehash && t->next_score_leaf_id==initial_id);
+ printf("START seed=%u anchors=%u next_id=%u buckets=%lu\n",seed,anchors,initial_id,t->member_index.size);fflush(stdout);
+ stage=2;uint64_t cur=0,count=0,largest=groups(t),mixed=0,completed=0;unsigned gaps=0;memset(continuous,0,sizeof(continuous));
+ do{
+  cur=step(t,cur,1);CHECK(++count<=largest+1);if(count==1)CHECK(cur && !t->member_index.wide_ids && !t->member_rehash);if(!cur)break;
+  if(!mixed){
+   for(unsigned j=0;j<16;j++)append(t);
+   if(t->member_rehash && !t->member_index.wide_ids && t->member_rehash->table.wide_ids){
+    CHECK(t->member_rehash->table.used<t->length);mixed=count;
+    printf("MIXED seed=%u call=%"PRIu64" cursor=%"PRIu64" members=%u next_id=%u copied=%lu\n",seed,count,cur,n,t->next_score_leaf_id,t->member_rehash->table.used);fflush(stdout);
+    update(t,1,(double)(n/2)+0.25,0);update(t,2,(double)(n/2)+0.75,0);uint64_t before=crossmoves;update(t,256,255.0,0);update(t,511,512.0,0);CHECK(crossmoves==before);logical(t);CHECK(ownership[1][0]);
+   }
+  }else if(gaps<128){
+   CHECK(t->member_rehash);unsigned id=anchors/2+gaps*2;update(t,id,finite_score(gaps*2),0);update(t,id+1,finite_score(gaps*2+1),0);
+   if(gaps<2)update(t,0,gaps==0?-0.0:0.0,1);
+   gaps++;if(gaps==128){logical(t);CHECK(ownership[0][1] && zero_updates==2);}
+  }else if(!completed){
+   for(unsigned j=0;j<16;j++){unsigned id=(unsigned)((count*16+j)%n);unsigned char buf[KEYLEN];key(id,buf);double value;CHECK(zbtreeScoreRaw(t,buf,KEYLEN,&value)&&bits(value)==bits(scores[id]));}
+   if(t->member_index.wide_ids && !t->member_rehash){completed=count;logical(t);printf("WIDE seed=%u call=%"PRIu64" cursor=%"PRIu64" members=%u\n",seed,count,cur,n);fflush(stdout);}
+  }
+  uint64_t g=groups(t);if(g>largest)largest=g;
+ }while(cur);
+ CHECK(mixed && completed && active_calls && wide_calls && count<=largest+1 && gaps==128 && moves==260 && zero_updates==2);for(unsigned i=0;i<anchors;i++)CHECK(continuous[i]);structure(t);
+ printf("LIVE seed=%u calls=%"PRIu64" max_groups=%"PRIu64" anchors=%u final=%u active_calls=%"PRIu64" wide_calls=%"PRIu64" moves=%"PRIu64" old_old=%"PRIu64" old_new=%"PRIu64" new_old=%"PRIu64" new_new=%"PRIu64" zeros=%"PRIu64"\n",seed,count,largest,anchors,n,active_calls,wide_calls,moves,ownership[0][0],ownership[0][1],ownership[1][0],ownership[1][1],zero_updates);fflush(stdout);
+ printf("FINITE seed=%u updates=%"PRIu64" cross_moves=%"PRIu64" range_checks=%"PRIu64"\n",seed,moves,crossmoves,range_checks);
+ stage=3;verify(t);scan(t,0);scan(t,256);scan(t,ULONG_MAX);stage=4;zbtreeSet *copy=zbtreeDup(t);zbtreeFree(t);verify(copy);scan(copy,256);zbtreeFree(copy);zfree(order);
+ CHECK(range_checks==336);printf("RANGES seed=%u checks=%"PRIu64"\n",seed,range_checks);
+ printf("PASS seed=%u checks=%"PRIu64" results=%"PRIu64" calls=%"PRIu64" intervals=%"PRIu64" anchors=%u final=%u active=%"PRIu64" digest=%016"PRIx64"\n",seed,checks,results,calls,interval_members,anchors,n,active_calls,digest);return 0;
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "name": "allow-zero-resize-generation",
+    "snapshot": "scratch/overnight-boundary-021-batch-attempt002-faults/allow-zero-resize-generation",
+    "source_sha256": "58ed3c3fa1b5918130a533a7e82997d6aefe48537474b725f52660ec072e2450",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/batch_generation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-batch-attempt002-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:59:27.333625+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:59:28.615947+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-batch-attempt002-faults/allow-zero-resize-generation",
+        "started_utc": "2026-10-18T03:59:28.616490+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:59:34.802321+00:00",
+        "stdout_sha256": "64b44d5492949f68d7db71efeb8f0574e40a48237a5f0bc57eb6f3f6995ee7b3",
+        "stderr_sha256": "0adf68f42bb02a62fbebed4bd6923520965da02b4c555a110e05dd25b28ab22b"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "257cd21df040038d0ea0be947643fd280b5fb5cf4fa8249c5ee69c6f85b5e15b"
+  },
+  {
+    "name": "batch-marked-migrated",
+    "snapshot": "scratch/overnight-boundary-021-batch-attempt002-faults/batch-marked-migrated",
+    "source_sha256": "074ce86eaa96a32e6c7f1f0d31ca87c049b314515595306d0abc5487e41ed89a",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/batch_generation_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-batch-attempt002-faults/batch-marked-migrated",
+        "started_utc": "2026-10-18T03:59:34.821244+00:00",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T03:59:36.052549+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-021-batch-attempt002-faults/batch-marked-migrated",
+        "started_utc": "2026-10-18T03:59:36.053026+00:00",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T03:59:42.099829+00:00",
+        "stdout_sha256": "64b44d5492949f68d7db71efeb8f0574e40a48237a5f0bc57eb6f3f6995ee7b3",
+        "stderr_sha256": "3b56bbbaeed0a1ef542be9a2d0ef5601038efc403ba37450b3b2d5ed0428c9a8"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "8e8f679552d006ca9c9556bb8a69e9711b30f7f04f16849a38219b4b40156241"
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "label": "round-audit",
+    "command": [
+      "python3",
+      "experiments/OVERNIGHT-2026-10-17/verify-round004.py"
+    ],
+    "returncode": 0,
+    "stdout": "PASS root/snapshot/validation/boundary/fault hashes\nPASS AA-003 complete schedule/all raw rows/recomputed PARK\nPASS PROFILE-002 fixed captures, sample/symbol conservation\nPASS DIAG-006 fixed schedule/all rows/recomputed bounded-perturbation result\nPASS round004 read-only sequential audit; not independent performance confirmation\n",
+    "stderr": ""
+  },
+  {
+    "label": "workspace",
+    "command": [
+      "python3",
+      "scripts/check-workspace.py",
+      "--pristine-source"
+    ],
+    "returncode": 0,
+    "stdout": "Workspace links and pinned source/support hashes: PASS\n",
+    "stderr": ""
+  },
+  {
+    "label": "whitespace",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "label": "public-private-path-scan",
+    "files": 376,
+    "matches": [],
+    "returncode": 0
+  },
+  {
+    "label": "curation-hashes",
+    "returncode": 0
+  },
+  {
+    "label": "dSYM-artifact-hashes-and-UUIDs",
+    "returncode": 0
+  }
+]

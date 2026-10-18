@@ -1,0 +1,33 @@
+--- a/bench/iterator_modes.c
++++ b/bench/iterator_modes.c
+@@ -86,7 +86,7 @@
+         else return 2;
+     }
+     if(bytes<8 || bytes>65536 || (strcmp(encoding,"integer") && strcmp(encoding,"fraction") && strcmp(encoding,"wide") && strcmp(encoding,"zero") && strcmp(encoding,"alternating-zero")))return 2;
+-    if(strcmp(construction,"shuffled") && strcmp(construction,"ascending") && strcmp(construction,"descending"))return 2;
++    if(strcmp(construction,"shuffled") && strcmp(construction,"ascending") && strcmp(construction,"descending") && strcmp(construction,"trimmed") && strcmp(construction,"trimmed-clone") && strcmp(construction,"trimmed-cycle"))return 2;
+     uint64_t rng=seed;uint8_t hashseed[16];for(size_t i=0;i<16;i++)hashseed[i]=(uint8_t)random64(&rng);dictSetHashFunctionSeed(hashseed);
+     sds *keys=zmalloc(n*sizeof(*keys));size_t *order=zmalloc(n*sizeof(*order));char *buf=zmalloc(bytes);
+     uint64_t expected=0,fingerprint=UINT64_C(14695981039346656037);
+@@ -101,8 +101,21 @@
+     } else if(!strcmp(construction,"descending")) {
+         for(size_t i=0;i<n;i++)order[i]=n-1-i;
+     }
++    int trimmed=!strncmp(construction,"trimmed",7);
++    unsigned char sentinel_bytes[8];memset(sentinel_bytes,0xff,sizeof sentinel_bytes);
++    sds sentinel=trimmed?sdsnewlen(sentinel_bytes,sizeof sentinel_bytes):NULL;
++    double sentinel_score=nextafter(model_score(0,n,encoding),-INFINITY);
++    serverAssert(isfinite(sentinel_score) && sentinel_score<model_score(0,n,encoding));
+     zbtreeSet *tree=zbtreeCreate();
++    if(trimmed)insert(tree,sentinel,sentinel_score);
+     for(size_t i=0;i<n;i++){size_t k=order[i];insert(tree,keys[k],model_score(k,n,encoding));fingerprint=(fingerprint^k)*UINT64_C(1099511628211);}
++    if(trimmed) {
++        zbtreeDeleteEdge(tree,0);serverAssert(zbtreeLength(tree)==n);
++        if(!strcmp(construction,"trimmed-clone")) {zbtreeSet *copy=zbtreeDup(tree);zbtreeFree(tree);tree=copy;}
++        if(!strcmp(construction,"trimmed-cycle")) {insert(tree,sentinel,sentinel_score);zbtreeDeleteEdge(tree,0);}
++        for(const char *p=construction;*p;p++)fingerprint=(fingerprint^(unsigned char)*p)*UINT64_C(1099511628211);
++    }
++    sdsfree(sentinel);
+     verify(tree,keys,n,reverse,mask,encoding);
+     uint64_t warmstart=now_ns();serverAssert(traverse(tree,n,passes,reverse,mask)==expected*passes);uint64_t warm=now_ns()-warmstart;
+     size_t traversals=1+(ops-1)/n,count=traversals*n,owned=zbtreeAllocSize(tree);

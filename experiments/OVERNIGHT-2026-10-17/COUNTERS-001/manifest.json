@@ -1,0 +1,143 @@
+{
+  "binary_sha256": "fb91cc762c57d1b4670af5f657dffdec9cec148f4ea8d80d7a1e9a9e379a01fd",
+  "runs": [
+    {
+      "name": "scan16",
+      "args": [
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1",
+        "--warmup-passes",
+        "10"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-001/scan16.profraw",
+      "assertions": {
+        "no_insert_calls": true,
+        "no_delete_calls": true,
+        "loop_entry_count": true
+      },
+      "operations": 1025150,
+      "raw_sha256": "bc228a3ef24584c6f5d414a4657aa320e158478e32ae7fb4dd048ff3025ac05f",
+      "data_sha256": "bd075f97aa1c7b993f72f4175cbf024cd6e382b0bbfecabaeae05c71b531ae22",
+      "export_sha256": "ca68f468188a4165a24ea81b1e6df5de8036e51689068376ed29943a1b5a71ec",
+      "commands": [
+        [
+          "xcrun",
+          "llvm-profdata",
+          "merge",
+          "-sparse",
+          "<workspace>/scratch/overnight-counters-001/scan16.profraw",
+          "-o",
+          "<workspace>/scratch/overnight-counters-001/scan16.profdata"
+        ],
+        [
+          "xcrun",
+          "llvm-cov",
+          "export",
+          "<workspace>/scratch/overnight-counters-001/base/build/btree-bench",
+          "-instr-profile=<workspace>/scratch/overnight-counters-001/scan16.profdata"
+        ]
+      ]
+    },
+    {
+      "name": "scan320",
+      "args": [
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "320",
+        "--seed",
+        "1",
+        "--warmup-passes",
+        "10"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-001/scan320.profraw",
+      "assertions": {
+        "no_insert_calls": true,
+        "no_delete_calls": true,
+        "loop_entry_count": true
+      },
+      "operations": 1024930,
+      "raw_sha256": "4574af5b06eb429f9cf424dd8c488cf55ffad5fe132791ccf97a2e76fb1f94e6",
+      "data_sha256": "1c29322610db5469fe4310106552b9d014ffbeb151a3e32c7c10145e143615be",
+      "export_sha256": "425aa776a1d3ebaf9ad5c26a4c65af794199c9923991be2fc80f322dcb71368b",
+      "commands": [
+        [
+          "xcrun",
+          "llvm-profdata",
+          "merge",
+          "-sparse",
+          "<workspace>/scratch/overnight-counters-001/scan320.profraw",
+          "-o",
+          "<workspace>/scratch/overnight-counters-001/scan320.profdata"
+        ],
+        [
+          "xcrun",
+          "llvm-cov",
+          "export",
+          "<workspace>/scratch/overnight-counters-001/base/build/btree-bench",
+          "-instr-profile=<workspace>/scratch/overnight-counters-001/scan320.profdata"
+        ]
+      ]
+    },
+    {
+      "name": "hit16",
+      "args": [
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1",
+        "--warmup-passes",
+        "10"
+      ],
+      "returncode": 0,
+      "raw": "scratch/overnight-counters-001/hit16.profraw",
+      "assertions": {
+        "no_insert_calls": true,
+        "no_delete_calls": true,
+        "loop_entry_count": true
+      },
+      "operations": 1000000,
+      "raw_sha256": "a3b072e712f3375ba696c56adb05d098ba6409650c2936046d10cef16614896c",
+      "data_sha256": "804d01cc909441403368832c642b8384e4bf6382e63c918586e564d5520293f6",
+      "export_sha256": "03fe71e259b1616ed6f6d393e7a92da4bea94a058718082354d4ec60adb2b628",
+      "commands": [
+        [
+          "xcrun",
+          "llvm-profdata",
+          "merge",
+          "-sparse",
+          "<workspace>/scratch/overnight-counters-001/hit16.profraw",
+          "-o",
+          "<workspace>/scratch/overnight-counters-001/hit16.profdata"
+        ],
+        [
+          "xcrun",
+          "llvm-cov",
+          "export",
+          "<workspace>/scratch/overnight-counters-001/base/build/btree-bench",
+          "-instr-profile=<workspace>/scratch/overnight-counters-001/hit16.profdata"
+        ]
+      ]
+    }
+  ]
+}

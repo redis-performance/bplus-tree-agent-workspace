@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -508,8 +508,7 @@
+         delta = intrev64ifbe(delta) >> shift;
+         if (shift && bits > 64 - shift)
+             delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+-        if (bits < 64)
+-            delta &= (UINT64_C(1) << bits) - 1;
++        delta &= UINT64_MAX >> ((-bits) & 63);
+         delta <<= leaf->n.score_shift;
+     }
+     uint64_t ordered = leaf->reversed ? leaf->score_base - delta :

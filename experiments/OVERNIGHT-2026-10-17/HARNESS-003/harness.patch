@@ -1,0 +1,37 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -164,7 +164,7 @@
+         construction_fingerprint = (construction_fingerprint ^ order[i]) * UINT64_C(1099511628211);
+         query_fingerprint = (query_fingerprint ^ query[i]) * UINT64_C(1099511628211);
+     }
+-    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint");
++    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns,construction_order,construction_fingerprint,query_order,query_seed,query_fingerprint,warmup_case");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) {
+         if (strcmp(selected, "all") && strcmp(selected, cases[c])) continue;
+         zbtreeSet *tree = zbtreeCreate();
+@@ -173,7 +173,8 @@
+         uint64_t warmup_start = now_ns();
+         if (c != 0) for (size_t pass = 0; pass < warmup_passes; pass++) for (size_t i = 0; i < n; i++) {
+             double score;
+-            serverAssert(zbtreeScore(tree, keys[query[i]], &score) && score == (double)query[i]);
++            if (c == 2) serverAssert(!zbtreeScore(tree, keys[query[i] + n], &score));
++            else serverAssert(zbtreeScore(tree, keys[query[i]], &score) && score == (double)query[i]);
+         }
+         uint64_t warmup_elapsed = now_ns() - warmup_start;
+         size_t count = (c == 0 || c == 7) ? n : ops;
+@@ -255,12 +256,13 @@
+             serverAssert(score == (double)query[i] + (double)(repeats * n));
+         }
+         sink ^= checksum;
+-        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 ",shuffled,%" PRIu64 ",%s,%" PRIu64 ",%" PRIu64 "\n",
++        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 ",shuffled,%" PRIu64 ",%s,%" PRIu64 ",%" PRIu64 ",%s\n",
+                cases[c], n, ops, bytes, seed, count, elapsed, (double)elapsed/count,
+                (double)count * 1e9 / (elapsed ? elapsed : 1), tree_bytes, checksum,
+                thread_elapsed, cpu_start, cpu_end, qos_start, qos_end, relpri_start, relpri_end,
+                traversals, c == 0 ? 0 : warmup_passes, warmup_elapsed,
+-               construction_fingerprint, query_order, query_seed, query_fingerprint);
++               construction_fingerprint, query_order, query_seed, query_fingerprint,
++               c == 0 ? "none" : c == 2 ? "lookup-miss" : "lookup-hit");
+         zbtreeFree(tree);
+     }
+     for (size_t i = 0; i < 2 * n; i++) sdsfree(keys[i]);

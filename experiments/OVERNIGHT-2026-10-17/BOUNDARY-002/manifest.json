@@ -1,0 +1,78 @@
+{
+  "sources": {
+    "tests/score_boundary_oracle.c": "2d8c4497e4097269c6ea712f2454a08bace32f1a67fce17eb3c15773f566730c",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "runs": [
+    {
+      "name": "release-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "tests/score_boundary_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-002/oracle"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.9201420838944614
+    },
+    {
+      "name": "release-run",
+      "command": [
+        "scratch/overnight-boundary-002/oracle"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.49236449995078146
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "tests/score_boundary_oracle.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "scratch/overnight-boundary-002/oracle-sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.164500082959421
+    },
+    {
+      "name": "sanitize-run",
+      "command": [
+        "scratch/overnight-boundary-002/oracle-sanitize"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.6205919169588014
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "status": "running",
+  "runs": [
+    {
+      "name": "control-on-release-original-build",
+      "command": [
+        "cc",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-DREDIS_DEBUG",
+        "-O3",
+        "-DREDIS_TEST",
+        "tests/upstream.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/release-original"
+      ],
+      "cwd": "scratch/overnight-diag-019/control-on",
+      "started_utc": "2026-10-18T05:39:54.076680+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:39:55.649886+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/DIAG-019/validation/control-on-release-original-build.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/DIAG-019/validation/control-on-release-original-build.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "control-on-release-original",
+      "command": [
+        "build/release-original"
+      ],
+      "cwd": "scratch/overnight-diag-019/control-on",
+      "started_utc": "2026-10-18T05:39:55.650966+00:00",
+      "returncode": 0,
+      "ended_utc": "2026-10-18T05:39:57.262157+00:00",
+      "stdout": "experiments/OVERNIGHT-2026-10-17/DIAG-019/validation/control-on-release-original.stdout",
+      "stderr": "experiments/OVERNIGHT-2026-10-17/DIAG-019/validation/control-on-release-original.stderr",
+      "stdout_sha256": "e96d03e92d8c5b1881d32bb33879ecd7373302a762de55b195deda64657dccca",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binaries": {
+    "control-on-release-original": "2d7df9891273b68232f5d978c1835dffc9d7264477102e51ae0fc9b7de7c1d87"
+  },
+  "codegen": []
+}

@@ -1,0 +1,216 @@
+[
+  {
+    "kind": "release",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release/btree-bench"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "release-build.stdout",
+    "stderr": "release-build.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "step": "build-tests",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DREDIS_TEST",
+      "-DREDIS_DEBUG",
+      "tests/upstream.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release/btree-test"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "release-build-tests.stdout",
+    "stderr": "release-build-tests.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "step": "upstream",
+    "command": [
+      "build/release/btree-test"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "release-upstream.stdout",
+    "stderr": "release-upstream.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e96d03e92d8c5b1881d32bb33879ecd7373302a762de55b195deda64657dccca",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "release",
+    "step": "existing-referee",
+    "command": [
+      "python3",
+      "tests/test_microbench.py",
+      "build/release/btree-bench",
+      "-v"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "release-existing-referee.stdout",
+    "stderr": "release-existing-referee.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "8ce7a37e3b9b480ebc57ec0cb735fb12c418b4542e5c32f41b690c090f22a551"
+  },
+  {
+    "kind": "release",
+    "step": "query-oracle",
+    "command": [
+      "python3",
+      "experiments/OVERNIGHT-2026-10-17/HARNESS-002/test_query.py",
+      "scratch/overnight-harness-002/base/build/release/btree-bench"
+    ],
+    "cwd": ".",
+    "stdout": "release-query-oracle.stdout",
+    "stderr": "release-query-oracle.stderr",
+    "returncode": 0,
+    "stdout_sha256": "106a20b98c0b4a5f22eb1cc39f64773475c995722a0595acbf5cef6563dd20ac",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "step": "build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-DREDIS_DEBUG",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize/btree-bench"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "sanitize-build.stdout",
+    "stderr": "sanitize-build.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "step": "build-tests",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-DREDIS_DEBUG",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DREDIS_TEST",
+      "-DREDIS_DEBUG",
+      "tests/upstream.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize/btree-test"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "sanitize-build-tests.stdout",
+    "stderr": "sanitize-build-tests.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "step": "upstream",
+    "command": [
+      "build/sanitize/btree-test"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "sanitize-upstream.stdout",
+    "stderr": "sanitize-upstream.stderr",
+    "returncode": 0,
+    "stdout_sha256": "f54c0948474f071dfe989e7d5106e30ea758a885a803e83a1c8f1ac7779f578d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "kind": "sanitize",
+    "step": "existing-referee",
+    "command": [
+      "python3",
+      "tests/test_microbench.py",
+      "build/sanitize/btree-bench",
+      "-v"
+    ],
+    "cwd": "scratch/overnight-harness-002/base",
+    "stdout": "sanitize-existing-referee.stdout",
+    "stderr": "sanitize-existing-referee.stderr",
+    "returncode": 0,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "4c954a7803c918198b7829e9de74ed64c7bec1dd64a4d69c8ed9c292ef6e3587"
+  },
+  {
+    "kind": "sanitize",
+    "step": "query-oracle",
+    "command": [
+      "python3",
+      "experiments/OVERNIGHT-2026-10-17/HARNESS-002/test_query.py",
+      "scratch/overnight-harness-002/base/build/sanitize/btree-bench"
+    ],
+    "cwd": ".",
+    "stdout": "sanitize-query-oracle.stdout",
+    "stderr": "sanitize-query-oracle.stderr",
+    "returncode": 0,
+    "stdout_sha256": "106a20b98c0b4a5f22eb1cc39f64773475c995722a0595acbf5cef6563dd20ac",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

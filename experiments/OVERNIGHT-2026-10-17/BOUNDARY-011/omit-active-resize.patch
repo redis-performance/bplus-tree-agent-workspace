@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2898,7 +2898,7 @@
+         copy->score_root = zbtScoreDupTree(copy, source->score_root, NULL, 0);
+ 
+     zbtIndexDupTable(copy, &copy->member_index, &source->member_index);
+-    if (source->member_rehash) {
++    if (0 && source->member_rehash) {
+         copy->member_rehash = zbtAlloc(copy, sizeof(*copy->member_rehash));
+         *copy->member_rehash = *source->member_rehash;
+         zbtIndexDupTable(copy, &copy->member_rehash->table,

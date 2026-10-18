@@ -1,0 +1,120 @@
+--- /dev/null
++++ b/tests/index_probe_oracle.c
+@@ -0,0 +1,117 @@
++/* Private structures are read-only observations; mutations use public APIs. */
++#include "../src/zset_btree.c"
++#define main boundary_oracle_original_main
++#include "boundary_oracle.c"
++#undef main
++
++static unsigned long nonce_trials, wrap_hits, max_distance, false_candidates;
++static unsigned long revision_changes, cached_invalidations, active_scans, tombstones_reused;
++static void collision_keys(void) {
++    const size_t lengths[] = {16,319,320,321};
++    const unsigned upper[] = {254,255,0,1};
++    for (unsigned i=0;i<N;i++) {
++        unsigned char buf[321];size_t len=lengths[i%4];
++        for(size_t j=0;j<len;j++)buf[j]=(unsigned char)(i*13U+j*37U);
++        for(unsigned j=0;j<4;j++)buf[j]=(unsigned char)(i>>(8*j));
++        uint32_t nonce,hash=0;
++        for(nonce=0;nonce<10000000;nonce++) {
++            for(unsigned j=0;j<4;j++)buf[4+j]=(unsigned char)(nonce>>(8*j));
++            hash=(uint32_t)dictGenHashFunction(buf,len);nonce_trials++;
++            if((hash&63)==63 && (hash>>24)==upper[i%4])break;
++        }
++        CHECK(nonce<10000000);
++        CHECK((hash&63)==63 && (hash>>24)==upper[i%4]);
++        model[i]=(entry){sdsnewlen(buf,len),0,0};
++    }
++}
++static void checked_scan(zbtreeSet *tree) {
++    scan_state state={{0},0};uint64_t cursor=0;unsigned calls=0;
++    do {cursor=zbtreeScan(tree,cursor,1,scan_member,&state);CHECK(++calls<1000000);}while(cursor);
++    size_t count=0;
++    for(unsigned i=0;i<N;i++){CHECK(state.seen[i]==model[i].live);count+=model[i].live;}
++    CHECK(state.calls>=count);
++}
++static void reset_live(void){for(unsigned i=0;i<N;i++)model[i].live=0;}
++static void add(zbtreeSet *tree,unsigned id) {
++    double old;zbtreeInsertPosition pos;
++    CHECK(!model[id].live && !zbtreeFindForAdd(tree,model[id].key,&old,&pos));
++    uint32_t revision=pos.revision;int cached=pos.bucket!=NULL;
++    double value=id&1?-0.0:0.0;
++    zbtreeInsertNew(tree,value,model[id].key,&pos);
++    model[id].live=1;model[id].score=value;
++    if(revision!=tree->member_revision){revision_changes++;if(cached)cached_invalidations++;}
++}
++static void inspect(zbtreeSet *tree) {
++    CHECK(!tree->member_rehash && tree->member_index.size==64);
++    zbtIndexTable *table=&tree->member_index;
++    for(unsigned i=0;i<N;i++)if(model[i].live){
++        double score;zbtreeInsertPosition pos;
++        CHECK(zbtreeFindForAdd(tree,model[i].key,&score,&pos));
++        CHECK(zbtIndexOwnsBucket(table,pos.bucket));
++        unsigned long bucket=((uintptr_t)pos.bucket-(uintptr_t)table->buckets)/zbtIndexBucketBytes(table);
++        unsigned long home=pos.hash&(table->size-1),distance=(bucket-home)&(table->size-1);
++        if(distance>max_distance)max_distance=distance;
++        if(bucket<home)wrap_hits++;
++    }
++    for(unsigned long b=0;b<table->size;b++){
++        uint64_t tags=zbtIndexTags(zbtIndexBucketAt(table,b));
++        uint64_t mask=zbtIndexTagMask(tags,254);
++        for(unsigned p=0;p<8;p++)if((mask>>(p*8))&128){
++            if((uint8_t)(tags>>(p*8))!=254)false_candidates++;
++        }
++    }
++}
++static void exercise_probe(unsigned seed) {
++    active_seed=seed;active_fixture=0;active_step=0;rng=seed;
++    uint8_t seed_bytes[16];for(unsigned i=0;i<16;i++)seed_bytes[i]=(uint8_t)random64();
++    dictSetHashFunctionSeed(seed_bytes);collision_keys();
++    zbtreeSet *tree=zbtreeCreate();zbtreeReserve(tree,320);
++    CHECK(tree->member_index.size==64 && !tree->member_rehash);
++    for(unsigned i=0;i<192;i++){active_step=i;add(tree,i);}
++    verify(tree);inspect(tree);
++    CHECK(max_distance>=23 && wrap_hits && false_candidates);
++    CHECK(tree->member_index.used==192 && tree->member_index.filled==192);
++    for(unsigned i=0;i<32;i++){
++        active_step=192+i;CHECK(zbtreeDelete(tree,model[i].key));model[i].live=0;
++    }
++    CHECK(!tree->member_rehash && tree->member_index.size==64);
++    CHECK(tree->member_index.used==160 && tree->member_index.filled==192);
++    unsigned deleted=0;
++    for(unsigned b=0;b<64;b++)for(unsigned p=0;p<8;p++)
++        deleted+=zbtIndexGetId(&tree->member_index,zbtIndexBucketAt(&tree->member_index,b),p)==ZBT_INDEX_DELETED_ID;
++    CHECK(deleted==32);verify(tree);
++    for(unsigned i=192;i<224;i++){
++        double old;zbtreeInsertPosition pos;
++        CHECK(!zbtreeFindForAdd(tree,model[i].key,&old,&pos));
++        CHECK(pos.bucket && zbtIndexGetId(&tree->member_index,pos.bucket,pos.pos)==ZBT_INDEX_DELETED_ID);
++        unsigned long filled=tree->member_index.filled;
++        add(tree,i);CHECK(tree->member_index.filled==filled);tombstones_reused++;
++        verify(tree);
++    }
++    size_t bytes=zbtreeAllocSize(tree);uint32_t revision=tree->member_revision;
++    zbtreeReserve(tree,8192);
++    CHECK(bytes==zbtreeAllocSize(tree) && revision==tree->member_revision && !tree->member_rehash);
++    zbtreeSet *copy=zbtreeDup(tree);verify(copy);zbtreeFree(tree);verify(copy);zbtreeFree(copy);
++    reset_live();
++
++    active_fixture=1;tree=zbtreeCreate();
++    unsigned long before_invalid=cached_invalidations,before_scans=active_scans;
++    for(unsigned i=0;i<N;i++){
++        active_step=i;add(tree,i);
++        if(tree->member_rehash){active_scans++;checked_scan(tree);}
++        verify(tree);
++    }
++    CHECK(cached_invalidations>before_invalid && active_scans>before_scans);
++    for(unsigned i=0;i<N;i++){
++        CHECK(zbtreeDelete(tree,model[i].key));model[i].live=0;
++        if(i%16==0 || i==N-1)verify(tree);
++    }
++    CHECK(!tree->member_rehash && tree->member_index.size==0);
++    for(unsigned i=0;i<N;i++)add(tree,i);
++    verify(tree);zbtreeFree(tree);
++    for(unsigned i=0;i<N;i++)sdsfree(model[i].key);
++    printf("seed=%u PASS checks=%lu trials=%lu max_probe_distance=%lu wrap_hits=%lu false_mask_candidates=%lu revision_changes=%lu cached_invalidations=%lu active_scans=%lu tombstones_reused=%lu\n",
++        seed,checks,nonce_trials,max_distance,wrap_hits,false_candidates,revision_changes,cached_invalidations,active_scans,tombstones_reused);
++    fflush(stdout);
++}
++int main(void){exercise_probe(7);exercise_probe(107);return 0;}

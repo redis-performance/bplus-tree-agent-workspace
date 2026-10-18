@@ -1,0 +1,60 @@
+[
+  {
+    "name": "shallow-external-clone",
+    "snapshot": "scratch/overnight-boundary-023-external-faults/shallow-external-clone",
+    "source_sha256": "23a7e72ca1fe24e0f3c2fa16158a8daa64940d511ec2eaec9a40f792782b1169",
+    "runs": [
+      {
+        "stage": "build",
+        "command": [
+          "cc",
+          "-Isrc",
+          "-Icompat",
+          "-Ivendor/redis",
+          "-std=c11",
+          "-g",
+          "-O1",
+          "-Wall",
+          "-Wextra",
+          "-Werror",
+          "-DREDIS_DEBUG",
+          "-fsanitize=address,undefined",
+          "-fno-sanitize-recover=all",
+          "tests/live_widen_external_oracle.c",
+          "compat/standalone.c",
+          "vendor/redis/siphash.c",
+          "-lm",
+          "-o",
+          "build/fault"
+        ],
+        "cwd": "scratch/overnight-boundary-023-external-faults/shallow-external-clone",
+        "started_utc": "2026-10-18T04:32:37.844620+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-external-faults/shallow-external-clone/shallow-external-clone-build.raw.stderr",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "returncode": 0,
+        "ended_utc": "2026-10-18T04:32:39.127249+00:00",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "stage": "run",
+        "command": [
+          "build/fault",
+          "67511",
+          "0"
+        ],
+        "cwd": "scratch/overnight-boundary-023-external-faults/shallow-external-clone",
+        "started_utc": "2026-10-18T04:32:39.127562+00:00",
+        "raw_stderr": "scratch/overnight-boundary-023-external-faults/shallow-external-clone/shallow-external-clone-run.raw.stderr",
+        "raw_stderr_sha256": "33edc9308a376942d8030eb23baaa0607a3404813a03da0d3a584532c8d196bf",
+        "returncode": -6,
+        "ended_utc": "2026-10-18T04:32:42.255071+00:00",
+        "stdout_sha256": "d7c034c04ec5809187900057c161bd891330ad3a5b0225d3229734fb4e4a6b3d",
+        "stderr_sha256": "33edc9308a376942d8030eb23baaa0607a3404813a03da0d3a584532c8d196bf"
+      }
+    ],
+    "detected": true,
+    "outcome": "detected",
+    "binary_sha256": "1de389f173ea777fd5d036856024265553edf8ec5f8fbf44b58b198a434f36d7"
+  }
+]

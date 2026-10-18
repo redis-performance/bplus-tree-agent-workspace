@@ -1,0 +1,25 @@
+--- a/bench/batch_lookup.c
++++ b/bench/batch_lookup.c
+@@ -103,7 +103,9 @@
+  }
+  return r;
+ }
++#include "self_sampler.h"
+ int main(int argc,char **argv){
++ sample_init();
+  size_t n=10000,ops=1000000,bytes=16,warmups=3,batch=16;uint64_t seed=1,query_seed=2;const char *layout="hit";
+  for(int i=1;i<argc;i++){
+   if(!strcmp(argv[i],"--help")){puts("batch-lookup --size N --ops N --member-bytes 8..65536 --seed N --query-seed N --batch-size 1..16 --layout hit|miss|mixed --warmup-passes N");return 0;}
+@@ -132,9 +134,10 @@
+  for(size_t i=0;i<ops;i++)if(mode==0||(mode==2&&i%2==0)){expected+=query[i%n]+1;expected_hits++;}
+  uint64_t ws=now_ns();for(size_t p=0;p<warmups;p++){result r=work(tree,keys,query,n,n,(unsigned)batch,mode,1);sink^=r.checksum;}
+  uint64_t we=now_ns()-ws;serverAssert(zbtreeAllocSize(tree)==owned);
+- int rp0,rp1;const char *q0=qos_reported(&rp0);int cpu0=cpu_id();int64_t ts=thread_ns();uint64_t start=now_ns();
++ int rp0,rp1;const char *q0=qos_reported(&rp0);int cpu0=cpu_id();int64_t ts=thread_ns();sample_start();uint64_t start=now_ns();
+  result r=work(tree,keys,query,n,ops,(unsigned)batch,mode,0);
+- uint64_t elapsed=now_ns()-start;int64_t te=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&rp1);
++ uint64_t elapsed=now_ns()-start;sample_stop();int64_t te=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&rp1);
++ sample_dump(layout);
+  serverAssert(r.checksum==expected && r.hits==expected_hits && r.calls==1+(ops-1)/batch);
+  serverAssert(zbtreeLength(tree)==n && zbtreeAllocSize(tree)==owned);
+  for(size_t i=0;i<n;i++){double score;serverAssert(zbtreeScore(tree,keys[i],&score)&&score==(double)i);serverAssert(!zbtreeScore(tree,keys[n+i],&score));}

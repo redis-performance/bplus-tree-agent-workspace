@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -468,7 +468,7 @@
+         moved += chunk;
+     }
+     zbtWriteBits(leaf->data, (size_t)(leaf->n.count - 1) * bits,
+-                 bits, 0);
++                 bits, UINT64_MAX);
+ }
+ 
+ /* Write one score into a zeroed packed field. The base, shift and width must

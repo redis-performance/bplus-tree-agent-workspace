@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3064,7 +3064,7 @@
+         else zs->score_first = leaf;
+         if (leaf->next) leaf->next->prev = leaf;
+         else zs->score_last = leaf;
+-        zs->score_leaf_by_id[leaf->id] = leaf;
++        /* Intentional fault: no leaf ID repair. */
+     } else {
+         zbtScoreInner *inner = (zbtScoreInner *)newnode;
+         for (unsigned int i = 0; i < inner->n.count; i++)

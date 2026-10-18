@@ -1,0 +1,165 @@
+[
+  {
+    "name": "release-build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/calibrate.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/release/calibrate"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": null,
+    "stdout": "scratch/overnight-diag-009/release-build.stdout",
+    "stderr": "scratch/overnight-diag-009/release-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "release-smoke-0",
+    "command": [
+      "build/release/calibrate",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": "0",
+    "stdout": "scratch/overnight-diag-009/release-smoke-0.stdout",
+    "stderr": "scratch/overnight-diag-009/release-smoke-0.stderr",
+    "stdout_sha256": "333cc2f2be7da5fc856dc5983470ae2fb327fc022db7e005f9439c8940423c54",
+    "stderr_sha256": "6daadccb7491fd072cfb3ed4e414252e5d4aa29f8ae70b49413064677c2c2886"
+  },
+  {
+    "name": "release-smoke-1000",
+    "command": [
+      "build/release/calibrate",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": "1000",
+    "stdout": "scratch/overnight-diag-009/release-smoke-1000.stdout",
+    "stderr": "scratch/overnight-diag-009/release-smoke-1000.stderr",
+    "stdout_sha256": "d3683e0174ca60913dcb8f5749bc199423d8f695e16f3be1a20e78609fb272c9",
+    "stderr_sha256": "8374c559fd21abd52ce8be48c1f4169c6ab6de3a99f0e4a19ccee4ca8a17a6b9"
+  },
+  {
+    "name": "sanitize-build",
+    "command": [
+      "cc",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-DREDIS_DEBUG",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/calibrate.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/sanitize/calibrate"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": null,
+    "stdout": "scratch/overnight-diag-009/sanitize-build.stdout",
+    "stderr": "scratch/overnight-diag-009/sanitize-build.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "sanitize-smoke-0",
+    "command": [
+      "build/sanitize/calibrate",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": "0",
+    "stdout": "scratch/overnight-diag-009/sanitize-smoke-0.stdout",
+    "stderr": "scratch/overnight-diag-009/sanitize-smoke-0.stderr",
+    "stdout_sha256": "22d2c75f065ff7d92e30bbaa05f3c7e34720ffb8514ffed4e8ae04e7533d17bb",
+    "stderr_sha256": "6daadccb7491fd072cfb3ed4e414252e5d4aa29f8ae70b49413064677c2c2886"
+  },
+  {
+    "name": "sanitize-smoke-1000",
+    "command": [
+      "build/sanitize/calibrate",
+      "10000"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": "1000",
+    "stdout": "scratch/overnight-diag-009/sanitize-smoke-1000.stdout",
+    "stderr": "scratch/overnight-diag-009/sanitize-smoke-1000.stderr",
+    "stdout_sha256": "877da9c18c70b684a76fa2bb66f1cc0c09fbdff969469361ca075ed875e7b0e1",
+    "stderr_sha256": "8374c559fd21abd52ce8be48c1f4169c6ab6de3a99f0e4a19ccee4ca8a17a6b9"
+  },
+  {
+    "name": "dsym",
+    "command": [
+      "dsymutil",
+      "build/release/calibrate"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": null,
+    "stdout": "scratch/overnight-diag-009/dsym.stdout",
+    "stderr": "scratch/overnight-diag-009/dsym.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "638d3aa37985c2f9d0d08c18fb3497b0d80d7a99dfb0e47b980d0b51cf596345"
+  },
+  {
+    "name": "atomic-imports",
+    "command": [
+      "nm",
+      "-u",
+      "build/release/calibrate"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": null,
+    "stdout": "scratch/overnight-diag-009/atomic-imports.stdout",
+    "stderr": "scratch/overnight-diag-009/atomic-imports.stderr",
+    "stdout_sha256": "b3adf3c804fcd818656460d4514f1a124002c9fe62f9b688827bc0ca86c9b73a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "uuid",
+    "command": [
+      "xcrun",
+      "dwarfdump",
+      "--uuid",
+      "build/release/calibrate",
+      "build/release/calibrate.dSYM"
+    ],
+    "cwd": "scratch/overnight-diag-009/base",
+    "returncode": 0,
+    "profile_usec": null,
+    "stdout": "scratch/overnight-diag-009/uuid.stdout",
+    "stderr": "scratch/overnight-diag-009/uuid.stderr",
+    "stdout_sha256": "6f1307b0315f20e4ad274a840fa4880d7364dcf0e4fbde1e7b7f1292f3173d35",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
