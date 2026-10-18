@@ -1,5 +1,11 @@
 # bplus-tree-agent-workspace
 
+**Focused decoder benchmark (19 October):** ready and locally measured; see the
+[run guide](docs/DECODER-MICROBENCHMARK.md) and [results](experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
+The 12.58-second A/A and baseline/A matrix found EXP-004 A slower in aligned 8-bit
+and 64-bit decoder loops. Release/sanitizer checks passed; source selection remains
+NONE and EXP-004 stays PARK. The overnight supervisor is stopped.
+
 Standalone B+ tree optimisation workspace, modelled on
 [hdr-agent-workspace](https://github.com/redis-performance/hdr-agent-workspace).
 The target is the packed score-ordered tree **and its compact member index** from
@@ -16,8 +22,8 @@ microbenchmarks. No Redis server, networking, command processing, or persistence
 [Round 16](experiments/OVERNIGHT-2026-10-17/ROUND-016.md): 192 source/build/seed/mode cells pass, including live widening/narrowing, clone/relocation, external ownership and fresh seeds; source NONE.
 [Round 15](experiments/OVERNIGHT-2026-10-17/ROUND-015.md): 80 passing source/build cells, three branch captures, all candidate patches preserved; source adoption NONE.
 [Growth-wrap](experiments/OVERNIGHT-2026-10-17/BOUNDARY-021/batch-extension/README.md) and [colliding SCAN](experiments/OVERNIGHT-2026-10-17/BOUNDARY-022/README.md) coverage pass all eight source/build cells; same-size cleanup and fault sensitivity are checked.
-Seven harness revisions are locally validated. Thirteen baseline explorations, thirty-four measurement
-diagnostics and twenty-six boundary oracle suites have completed.
+The overnight campaign completed seven harness revisions, thirteen baseline explorations,
+thirty-four measurement diagnostics and twenty-six boundary oracle suites.
 [Round 12](experiments/OVERNIGHT-2026-10-17/ROUND-012.md) adds mixed finite-score and
 packed-movement oracles; all source/build cells pass and four new faults are detected.
 Predecessor-workload contrasts reproduce, but a placebo blocks robustness; a fixed

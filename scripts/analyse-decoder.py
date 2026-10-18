@@ -40,7 +40,8 @@ lines = ['# Decoder throughput diagnostic', '',
          'Percentages are candidate/control elapsed-time changes (negative means lower time).',
          'Each effect pairs process statistics within an ABBA block. All inner samples and',
          'all blocks are retained. Ranges below are observed block ranges, not confidence intervals.',
-         'A/A uses the exact same binary. No source acceptance or iterator-guard conclusion follows.', '',
+         'A/A uses the exact same binary. No source acceptance or iterator-guard conclusion follows.',
+         'Column A is the baseline role; column B is also baseline in aa and EXP-004 candidate A in compare.', '',
          '| Phase | Width | Reverse | A median ns/decode | B median ns/decode | Median effect % [block range] | Minimum effect % [block range] |',
          '|---|---:|---:|---:|---:|---|---|']
 for r in results:
@@ -56,7 +57,7 @@ for run in manifest['runs']:
             bucket = int(float(row['ns_per_decode'])/.05)
             histogram[(run['phase'], run['variant'], run['width'], run['reversed'], bucket)] += 1
 with (root/'histogram.csv').open('w') as handle:
-    writer = csv.writer(handle)
+    writer = csv.writer(handle, lineterminator='\n')
     writer.writerow(['phase', 'variant', 'width', 'reversed', 'bin_lower_ns', 'bin_upper_ns', 'samples'])
     for (phase, variant, width, reverse, bucket), count in sorted(histogram.items()):
         writer.writerow([phase, variant, width, reverse, f'{bucket*.05:.2f}', f'{(bucket+1)*.05:.2f}', count])

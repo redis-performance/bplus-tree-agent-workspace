@@ -73,3 +73,6 @@ short-repetition ideas in [Daniel Lemire's methodology](https://lemire.me/blog/2
 It retains a distribution alongside the minimum. His idealized conditions are a target;
 this uncontrolled Mac does not satisfy every condition. The CPU Performance Engineering
 MCP was consulted; its broad retrieval was not direct evidence for this decoder.
+
+[First local results and retained evidence](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md):
+the 12.58-second matrix found substantial aligned-layout regressions for EXP-004 A.

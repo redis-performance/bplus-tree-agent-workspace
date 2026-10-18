@@ -1,5 +1,14 @@
 # Experiment summary
 
+## Latest: focused decoder benchmark, 19 October
+
+The [new decoder harness and results](EXP-004/decoder-microbench-2026-10-19/README.md)
+are ready. One new harness/diagnostic follows the overnight totals below. A fixed
+12.58-second matrix found EXP-004 A slower for aligned 8-bit and 64-bit scores;
+this limits the generality of the earlier iterator gains. Release/sanitizer checks
+and raw-data audit pass. No source adoption; optimization counts remain
+0 accepted / 2 rejected / 3 parked. Overnight execution remains stopped.
+
 | Category | Count |
 |---|---:|
 | Preparation completed | 1 |

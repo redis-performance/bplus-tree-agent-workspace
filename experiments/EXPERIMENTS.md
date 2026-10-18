@@ -1,5 +1,16 @@
 # Experiment log
 
+## 19 October: focused decoder diagnostic
+
+[EXP-004 decoder microbenchmark](EXP-004/decoder-microbench-2026-10-19/README.md)
+adds one isolated harness/diagnostic after the overnight campaign. Release and
+ASan/UBSan validation passed for baseline/A. The fixed matrix completed 960 serial
+processes / 123,840 batches in 12.58 seconds. Forward 8-bit/64-bit layouts show A
+15.65%/10.39% slower by paired median time, separated from same-cell A/A ranges.
+All rows retained and independently reconstructed from raw CSVs. Main source NONE;
+EXP-004 A/PARK and 0 accepted / 2 rejected / 3 parked unchanged. No new population
+or overnight restart; original iterator guard remains unresolved.
+
 Append-only decisions and evidence; correct earlier records with a dated addendum.
 Preparation and baseline qualification do not count as accepted optimisations.
 

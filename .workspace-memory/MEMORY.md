@@ -1,5 +1,11 @@
 # Shared memory
 
+Latest: [19 October focused decoder benchmark](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md)
+is implemented, validated and locally run. EXP-004 A is slower in aligned 8/64-bit
+kernel cases despite fewer static branches. One new harness/diagnostic; no new
+optimization population or source adoption. Overnight remains stopped. Original
+iterator guard and A/PARK remain. See the report for commands, raw evidence and limits.
+
 - [Live status](LIVE-STATUS.md): preparation state and next action.
 - [Handoff](handoff.md): user scope, source pin, evidence and remaining work.
 - [Preparation evidence](../experiments/PREP-001/README.md).

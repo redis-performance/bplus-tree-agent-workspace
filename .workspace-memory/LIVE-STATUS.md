@@ -1,5 +1,15 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+## Latest task completed: 19 October decoder diagnostic
+
+The user approved a focused Lemire-style benchmark. It is implemented and measured:
+[report](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
+960 serial processes / 123,840 batches finished in 12.58 seconds; release/sanitizer
+checks and raw reconstruction pass. A regresses aligned 8-bit/64-bit decoder loops.
+EXP-004 A/PARK and production baseline unchanged. No new population. The overnight
+supervisor remains stopped; do not infer permission to restart it from this run.
+This adds one standalone harness/diagnostic after historical overnight totals.
+
 ## Round 20 final extension and sealed handoff
 
 The final bounded generation-wrap matrix passes8 additional control/A/B/C cells and

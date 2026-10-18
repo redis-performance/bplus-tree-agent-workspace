@@ -1,5 +1,18 @@
 # Handoff
 
+## Latest handoff: focused decoder benchmark, 19 October
+
+The user-approved focused benchmark is complete; see
+[report and reproducible commands](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
+Harness commit c5b817d0 preceded the fixed local timing matrix. Release/sanitizer
+checks pass, all 123,840 measured batches retained and raw-derived effects audited.
+A is ~16%/~10% slower on forward aligned 8/64-bit layouts; smaller effects may be
+inconclusive. No CPU-cycle evidence on Mac; Linux PMU success remains unvalidated.
+Source baseline and A/PARK remain; overnight supervisor stays stopped. A useful
+next diagnostic is assembly comparison against the actual mixed-output iterator.
+Do not reinterpret this kernel as clearing that guard. Pre-existing round21 drafts
+remain local and separate from this task's commits.
+
 The user requested a workspace like hdr-agent-workspace, created in redis-performance,
 with an experiment log and both population-based decision steps. They clarified that
 only the data structure matters and experiments must use microbenchmarks, not Redis.
