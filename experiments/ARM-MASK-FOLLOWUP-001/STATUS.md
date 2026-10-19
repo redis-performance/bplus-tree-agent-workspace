@@ -1,10 +1,10 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; fresh primary baseline controls granted.** Composite correctness
-closure and timing code pass root/AMD/Intel review. One300s job may run48 baseline-only
-processes; candidate timing remains ungranted pending fresh qualification. Original
-failed preparation and successful six-command suffix remain separate, immutable records.
-ARM coordinator remains stopped; restoration armed for10:15UTC /11:15Lisbon.
+**ACTIVE lease; fresh primary controls QUALIFIED, candidate comparison granted.**
+All12 controlblocks pass; largest absolute baseline differences0.490%/0.281% at100K/1M.
+Root and independentAMD raw audits agree. One300s/48process exactcandidate comparison
+may run; no guard/confirmation/profile grant yet. SourceNONE; originalFAILED preparation
+and separate correctness closure retained. Restoration armed for10:15UTC /11:15Lisbon.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 

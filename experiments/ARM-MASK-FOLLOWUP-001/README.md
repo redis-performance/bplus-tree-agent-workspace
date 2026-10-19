@@ -1,6 +1,6 @@
 # ARM mask follow-up — 19 October 2026
 
-Status: six-command suffix completed; composite correctness closure under review. The user authorized completing validation of the existing ARM
+Status: fresh primary controls qualify at both sizes; exact candidate comparison granted. The user authorized completing validation of the existing ARM
 mask lead after the overnight handback, including Git publication. This is a new,
 bounded ARM-only runner lease, ending no later than 10:15 UTC (11:15 Lisbon), with
 early release on completion. Intel and AMD runners remain released.
@@ -56,3 +56,10 @@ otherwise record REJECT or PARK and keep the baseline source unchanged.
 - [Previous independent raw audit](../NIGHT-EXPLORATION-001/reviews/aws-arm-mask-screen-independent-audit.json)
 - [Previous chart](../NIGHT-EXPLORATION-001/latest-charts/aws-arm-mask-primary.png)
 - Fresh execution freezes, reviews, results and the decision will be linked here as published.
+
+## Fresh control evidence
+
+All12 blocks qualify within±1%; no candidate result is claimed by these controls.
+[Root raw audit](PRIMARY-AA-ROOT-AUDIT.json) · [Independent review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/f9daaf4e3/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/034-arm-mask-continuation-review/FRESH-PRIMARY-AA-REVIEW-53e193c5b.md).
+
+![Fresh ARM baseline controls](charts/primary-AA.png)
