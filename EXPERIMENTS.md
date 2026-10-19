@@ -10,3 +10,6 @@
 
 
 Intel baseline scan diagnosis:6 scoped captures show TagMatches27.48%/24.14% of captured executable-range samples at100K/1M. This is a coarse hotspot observation, not a speed claim. Source remains NONE; no new population. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/README.md).
+
+
+Intel scan baseline qualification:48 held-out-seed A/A rows complete, both100K/1M controls qualify within±1% with windows>=444ms. No candidate timing or population increment. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
