@@ -42,3 +42,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T06:45:01.611844+00:00: Independent ARM iterator proposal031 sealed: NONE. Qualifiednative controls do not establish>=2% recoverable mask cost; exactEXP005A recognized as historical replication,15/22maskevents and missingguards explicit. No peer proposal reads/code/runner work; sourceNONE,leaseACTIVE/restorationpending.
 
 - 2026-10-19T07:01:17.626270+00:00: ARM026 exact historicalEXP005A preparation review passesa9b09cadc:20inputs/10sourcehashes,exactca145→aa834,570commands/512modecells/8faults and48conditionalrows. No static blocker; separate correctness/codegen/root grants required. PriorNONE dissent unchanged; no runner access,sourceNONE,leaseACTIVE.
+
+- 2026-10-19T07:12:58.406392+00:00: Independent ARM026 validation/codegen review PASS: 570 commands/1141 artifact hashes; exact mask4→3 and ordinary paths−1, no added branch/read; shared callers reviewed. Static gate only, root timing grant required; prior NONE dissent retained. No runner access; lease ACTIVE/restoration pending.

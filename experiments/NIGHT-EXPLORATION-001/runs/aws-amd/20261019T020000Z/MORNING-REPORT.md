@@ -74,3 +74,5 @@ Additional local review: [ARM024 iterator adaptation](030-arm-iterator-review/RE
 [Independent ARM score-only iterator proposal](031-arm-iterator-proposal/proposal-amd.md): NONE; exact EXP005A is historical replication, current mask attribution is sparse and broader native guards remain absent. No implementation or runner work.
 
 [Exact historical ARM EXP005A replication preparation review](032-arm-exp005A-review/REVIEW.md): no static execution blocker; independent NONE dissent preserved. Validation and codegen gate remain prerequisites to any screen; no adopted source.
+
+Independent ARM026 [validation/codegen gate review](032-arm-exp005A-review/CODEGEN-REVIEW.md) passes; this is static diagnostic eligibility, not a performance result or acceptance. Earlier NONE proposal remains preserved.
