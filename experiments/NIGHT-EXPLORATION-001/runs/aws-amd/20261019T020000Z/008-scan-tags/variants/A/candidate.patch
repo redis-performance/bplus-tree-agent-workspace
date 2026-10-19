@@ -1,0 +1,42 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -15,6 +15,10 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ #include <string.h>
++
++#if defined(__SSE2__) && !defined(ZBT_FORCE_PORTABLE_TAG_MATCHES)
++#include <emmintrin.h>
++#endif
+ 
+ /*-----------------------------------------------------------------------------
+  * B+ tree implementation of the low level sorted set API
+@@ -4132,9 +4136,26 @@
+                                              unsigned int *positions)
+ {
+     unsigned int found = 0;
++    unsigned int base = 0;
++    unsigned int last = reversed ? count - 1 : 0;
++#if defined(__SSE2__) && !defined(ZBT_FORCE_PORTABLE_TAG_MATCHES)
++    __m128i target = _mm_set1_epi8((char)tag);
++    __m128i zero = _mm_setzero_si128();
++    for (; base + 16 <= count; base += 16) {
++        __m128i block = _mm_loadu_si128((const __m128i *)(tags + base));
++        __m128i equal = _mm_cmpeq_epi8(block, target);
++        if (tag == 1)
++            equal = _mm_or_si128(equal, _mm_cmpeq_epi8(block, zero));
++        unsigned int mask = (unsigned int)_mm_movemask_epi8(equal);
++        while (mask) {
++            unsigned int pos = base + (unsigned int)__builtin_ctz(mask);
++            positions[found++] = reversed ? last - pos : pos;
++            mask &= mask - 1;
++        }
++    }
++#endif
+     unsigned int words = count / 8;
+-    unsigned int last = reversed ? count - 1 : 0;
+-    for (unsigned int w = 0; w < words; w++) {
++    for (unsigned int w = base / 8; w < words; w++) {
+         uint64_t word = zbtLeafTagWord(tags + w * 8);
+         uint64_t mask = zbtIndexTagMask(word, tag);
+         if (tag == 1) mask |= zbtIndexTagMask(word, 0);

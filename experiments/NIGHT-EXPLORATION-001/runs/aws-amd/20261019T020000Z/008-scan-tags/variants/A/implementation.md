@@ -1,0 +1,7 @@
+# Independent AMD implementation A
+
+Implemented from exact8fab511e after root chair0695cf415, without reading Intel/ARM patches. Only local SSE2 include/capability guard and zbtLeafTagMatches changed. Native SSE2 loads complete16-byte spans, exact equality masks, ORs zero-byte equality for tag1, enumerates least set bits with guarded ctz, then applies original logical reversal. Original8-byte SWAR remainder and scalar tail remain; forced portable define starts original loop atzero. No timing flags or other source helpers change.
+
+Complete-span bound base+16<=count (count<=96), so each vector read stays inside tags; ctz only nonzero16-bit mask; each setbit appearsonce and ascendingphysical chunks/order; tag0literal, tag1folds0+1, values128..255 retainbytebits via intrinsicbroadcast. Count0 does register setup only and returnswithoutaccess; reversedlast unsignedunderflow is unused as inoriginal. Residual atmostone8-byteword plus0..7bytes. Potential cost: loopsetup,codegrowth and foldedbranch; no speed claim.
+
+Immutable submitted patch/source hashes in provenance.json. No build/timing yet: root independent review of allthree precedes serial remote validation. Correctness-only fallback define is ZBT_FORCE_PORTABLE_TAG_MATCHES; not nativeARM/bigendian evidence. Do not infer implementation independence from generatedcode if identical to peers; original authoring independence is recorded separately.
