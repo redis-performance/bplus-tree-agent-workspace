@@ -1,0 +1,102 @@
+[
+  {
+    "tag": "original-before-hashes",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/post-phase-hashes.py",
+      "--freeze",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/candidate-freeze.json",
+      "--sources",
+      "scratch/intel-scan-replication",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/original-before-hashes.json"
+    ],
+    "started_utc": "2026-10-19T05:10:17.116621+00:00",
+    "finished_utc": "2026-10-19T05:10:17.151076+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "fetch-source",
+    "command": [
+      "git",
+      "fetch",
+      "origin",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9"
+    ],
+    "started_utc": "2026-10-19T05:10:17.151152+00:00",
+    "finished_utc": "2026-10-19T05:10:17.446505+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "isolated-worktree",
+    "command": [
+      "git",
+      "worktree",
+      "add",
+      "--detach",
+      "<workspace>/repo/scratch/intel-corrected-adapter",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9"
+    ],
+    "started_utc": "2026-10-19T05:10:17.446617+00:00",
+    "finished_utc": "2026-10-19T05:10:19.880230+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "source-head",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "started_utc": "2026-10-19T05:10:19.880368+00:00",
+    "finished_utc": "2026-10-19T05:10:19.881788+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "baseline",
+    "command": [
+      "python3",
+      "scripts/run-size-matrix.py",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/results",
+      "--build",
+      "build/corrected-adapter-intel",
+      "--ops",
+      "1000000",
+      "--member-bytes",
+      "16",
+      "--budget-seconds",
+      "1200"
+    ],
+    "started_utc": "2026-10-19T05:10:19.882488+00:00",
+    "finished_utc": "2026-10-19T05:16:44.752582+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "original-after-hashes",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/post-phase-hashes.py",
+      "--freeze",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/candidate-freeze.json",
+      "--sources",
+      "scratch/intel-scan-replication",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/original-after-hashes.json"
+    ],
+    "started_utc": "2026-10-19T05:16:44.758915+00:00",
+    "finished_utc": "2026-10-19T05:16:44.794442+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "analysis",
+    "command": [
+      "python3",
+      "scripts/analyse-size-matrix.py",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/results"
+    ],
+    "started_utc": "2026-10-19T05:16:44.794588+00:00",
+    "finished_utc": "2026-10-19T05:16:44.840369+00:00",
+    "returncode": 0
+  }
+]
