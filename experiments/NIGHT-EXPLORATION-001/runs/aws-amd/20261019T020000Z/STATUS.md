@@ -1,3 +1,9 @@
+# Final release checkpoint — 2026-10-19T08:02:42.854666+00:00
+
+Campaign complete; fleet lease RELEASED. Root's [immutable release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json) records all three OSS coordinators RUNNING during 08:00:20–08:00:25 UTC, inactive owned slices, no owned units/processes, no inspection errors, and fresh saved RUNNING status matching live PIDs. The private fleet reservation was marked RELEASED and pushed. This is root's published verification, read locally; I performed no new runner access or workload. Marker timestamps are attempt starts, not exact restoration completion. Source remains NONE; AMD's four populations remain zero accepted, three rejected and one parked. All other experiment and replication decisions remain unchanged. [Final fleet report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md).
+
+The entries below are retained historical checkpoints; earlier ACTIVE/restoration-pending statements are superseded by this verified release.
+
 # AMD checkpoint
 
 Iterator029 execution drivers sealed for root/ARM code review: exact51 profile commands, validated scope/known-control gates, six50M scientific captures, fixed48 AA rows, actual015 preserved. Local synthetic/static checks pass; no runner access or measurement. Await explicit launch grant; sourceNONE.

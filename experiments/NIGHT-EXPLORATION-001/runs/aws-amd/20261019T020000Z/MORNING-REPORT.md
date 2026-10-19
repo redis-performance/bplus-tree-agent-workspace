@@ -1,3 +1,9 @@
+# Final release checkpoint — 2026-10-19T08:02:42.854666+00:00
+
+Campaign complete; fleet lease RELEASED. Root's [immutable release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json) records all three OSS coordinators RUNNING during 08:00:20–08:00:25 UTC, inactive owned slices, no owned units/processes, no inspection errors, and fresh saved RUNNING status matching live PIDs. The private fleet reservation was marked RELEASED and pushed. This is root's published verification, read locally; I performed no new runner access or workload. Marker timestamps are attempt starts, not exact restoration completion. Source remains NONE; AMD's four populations remain zero accepted, three rejected and one parked. All other experiment and replication decisions remain unchanged. [Final fleet report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md).
+
+The entries below are retained historical checkpoints; earlier ACTIVE/restoration-pending statements are superseded by this verified release.
+
 # AWS AMD morning results — 19 October 2026
 
 **Source selection NONE. Campaign lease ACTIVE until 08:00 UTC (09:00 Lisbon); OSS coordinator restoration is pending. This is a results report, not release proof.** The last AMD workload completed06:07:18UTC; a subsequent read-only check found zero active owned jobs and zero btree-bench processes. Existing unrelated Redis/container processes were left intact. No new experiments are planned. Root is separately preparing a bounded observational idle-environment capture; it is not an A/A retry or a causal explanation for noise.
