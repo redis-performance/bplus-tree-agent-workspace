@@ -1,3 +1,16 @@
+<!-- ARM-MASK-FOLLOWUP-CURRENT -->
+## Active: authorized ARM mask validation follow-up — 19 October 08:08 UTC
+
+User explicitly authorized continuing the ARM mask validation and committing all work.
+This supersedes the expired overnight lease restriction only for a new ARM-only,
+bounded reservation (no later than10:15UTC/11:15Lisbon). Preparation in progress;
+no new timing yet. Same exactEXP005A/13e referee and preserved binaries; no retuning,
+new population or reuse of old-session A/A. Prior ARM lead remains PARK/sourceNONE.
+ARM prepares guarded continuation, AMD independent execution/semantic review, Intel
+independent held-out confirmation. Root handles lease and explicit execution gates.
+[Plan](../experiments/ARM-MASK-FOLLOWUP-001/README.md).
+<!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
+
 <!-- AWS-CURRENT-START -->
 ## AWS overnight campaign complete — 19 October 08:01 UTC
 
