@@ -988,3 +988,16 @@ adapter/compiler-contract observations, not qualified tree speedups or source
 optimization acceptance. Separateadapterfixalreadyreviewed/applied; historical
 rows staywitholdidentity. Counts12populations,0/7/5,36patches/15harnesses unchanged.
 Independent rawaudit PASS576rows/144effects and chart complete; corrected-adapterprofile preparationnext.
+
+## 2026-10-19 — Corrected-adapter profile and static inventory
+
+[013 corrected iterator profile](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/013-corrected-iterator-profile/RESULTS.md)
+completes16sufficient captures/937PCs, all frozen/raw/semantic checks and independent
+audit PASS. No normal iterator frame; no cold-panic PCs. Per-contract/seed region
+tables are descriptive locations, not cycles, instruction costs or speed. No new
+tree hypothesis/candidate is selected. Historical009 staysunderoldadapteridentity.
+[015 static inventory](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/015-adapter-codegen/README.md)
+uses retained012old/new disassembly: Next155→114instructionlines,ScoreRaw345→491,
+Rank443→596. Static sizes do not establish performance. No newexperimentalchild.
+Completedcandidatecounts unchanged; stronger countercapability is preparing in014
+without record/attachments/privilegechanges.

@@ -1,5 +1,15 @@
 # M6 live scoreboard
 
+Operator013profile COMPLETE/independentauditPASS:16/16sufficient,937PCs,114instruction
+map;nonormalframe/coldframe16byteswith0PCs. Countsnotcosts;elapsedunused.
+015staticinventoryreviewPASSafterretainingduplicateoutlinedlabels:108old/105new
+bodies,106/103uniquenames;2ambiguousnamesexcludedfrompairing. Initialparserpreserved.
+SourceNONE/countsunchanged.014self-onlyCPUcountercapabilitypreparing, no recordyet.
+M1latestremoteverified4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9(01:33UTCround2);
+itsstatusreportsDNSunknownandoldadapter. DonotassumeitreceivedlaterM6evidence.
+Rootcontinues08UTCdeadline/07:15experimentalcutoff;mainchart5839e139eavailable.
+
+
 Operator013capture checkpoint: all16corrected-adapterbaselineprofilescomplete,
 35–75PCs/capture,937total(734IteratorNext/190traverse/13threadaccounting),8.198410s
 phasewall/allchildrenreaped. Elapsedfieldsunused;PCcountsnotcosts. Rootlauncher
@@ -69,7 +79,10 @@ Previous scoreboard updated 2026-10-19T03:36:36.711231+00:00. Active driver: int
 | [Iterator baseline profile](009-iterator-profile/RESULTS.md) | COMPLETE | Descriptive PCs; no cache replication selected|
 | [Adapter contract correction](010-assertion-contract-review/README.md) | REVIEWED/APPLIED | Separate harness correction; source unchanged|
 | [Corrected baseline](011-contract-baseline/RESULTS.md) | COMPLETE | 960 rows; 5/40 qualify; 14 short|
-| [Matched adapter diagnostic](012-contract-diagnostic/README.md) | PREPARING | Freeze/review pending; no measured claim|
+| [Matched adapter diagnostic](012-contract-diagnostic/RESULTS.md) | COMPLETE/CONDITIONAL | 576rows;0/8jointcontrols;memory0 |
+| [Corrected iterator profile](013-corrected-iterator-profile/RESULTS.md) | COMPLETE/AUDIT PASS | 16sufficientcaptures/937PCs;countsnotcosts |
+| [Counter capability](014-counter-capability/) | PREPARING | Metadata-only;no recording yet |
+| [Static codegen inventory](015-adapter-codegen/README.md) | COMPLETE/AUDIT PASS | Old/new012binaries;no timingclaim |
 
 Caller follow-up: three actual independent proposals plus three isolated implementations.
 Full baseline101-cellAA complete2424rows;39qualify,62noisy,0short.100Kprimary qualifies,

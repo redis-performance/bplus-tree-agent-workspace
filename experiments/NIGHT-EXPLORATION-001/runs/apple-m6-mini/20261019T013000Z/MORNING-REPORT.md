@@ -45,8 +45,8 @@ owned memory is identical. Only3/16adapter/workload controls qualify; zero ofeig
 workloads qualify onbothadapters. Thus all effects remainconditional. Fullinteger
 forward/reverse medians are−6.081%/−8.122% at100K and−4.674%/−7.058% at1M,
 all observed blocks negative. Failed controls prevent a qualified speed claim.
-This is harness-only; no candidate population/adoption. Independent audit PASS576rows/144exact effects; chart complete. Corrected-adapter baseline-only profile013 completes16sufficient captures,937PCs; region analysis/auditpending. These are sampled locations, not cycle costs.
-No cache replication or new source optimization is selected.
+This is harness-only; no candidate population/adoption. Independent audit PASS576rows/144exact effects; chart complete. Corrected-adapter baseline-only profile013 completes16sufficient captures,937PCs; region analysis and independent audit PASS. These are sampled locations, not cycle costs.
+Static codegen inventory015 also shows broader inlining/code-size changes; these are not speed results. Countercapability014 is preparing without recordings. No cache replication or new source optimization is selected.
 
 Totals12completedpopulations(9sequential+3multi-agent),0accepted/7rejected/5parked,
 36retainedpatches/15validatedharnesses. M1 night and concurrent AWS populations

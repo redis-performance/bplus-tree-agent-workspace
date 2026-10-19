@@ -1,5 +1,15 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Operator013profile COMPLETE/independentauditPASS:16/16sufficient,937PCs,114instruction
+map;nonormalframe/coldframe16byteswith0PCs. Countsnotcosts;elapsedunused.
+015staticinventoryreviewPASSafterretainingduplicateoutlinedlabels:108old/105new
+bodies,106/103uniquenames;2ambiguousnamesexcludedfrompairing. Initialparserpreserved.
+SourceNONE/countsunchanged.014self-onlyCPUcountercapabilitypreparing, no recordyet.
+M1latestremoteverified4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9(01:33UTCround2);
+itsstatusreportsDNSunknownandoldadapter. DonotassumeitreceivedlaterM6evidence.
+Rootcontinues08UTCdeadline/07:15experimentalcutoff;mainchart5839e139eavailable.
+
+
 Operator013capture checkpoint: all16corrected-adapterbaselineprofilescomplete,
 35–75PCs/capture,937total(734IteratorNext/190traverse/13threadaccounting),8.198410s
 phasewall/allchildrenreaped. Elapsedfieldsunused;PCcountsnotcosts. Rootlauncher

@@ -120,6 +120,19 @@ def main():
     assert launch['published_freeze_commit'] == authorization['published_commit'] == '7c8f5c0bdcbfdc32ce779ea2e6c36cb1b0378529'
     assert dt(authorization['authorized_utc']) < dt(launch['launched_utc']) <= dt(summary['started_utc'])
     relative = OUT.relative_to(ROOT)
+    for label in ['iterator-native', 'iterator-san', 'iterator-profile']:
+        flags = PLAN['flags'].copy()
+        if label == 'iterator-san':
+            flags[flags.index('-O3')] = '-O1'
+            flags += ['-fsanitize=address,undefined', '-fno-sanitize-recover=all']
+        if label == 'iterator-profile':
+            flags += PLAN['profile_extra_flags']
+        expected = ['clang', *flags, '-Isrc', '-Icompat', '-Ivendor/redis',
+                    str(relative / 'iterator.c'),
+                    *([str(relative / 'apple-sampler-bridge.c')] if label == 'iterator-profile' else []),
+                    'src/zset_btree.c', 'compat/standalone.c', 'vendor/redis/siphash.c',
+                    '-lm', '-o', 'scratch/m6-corrected-iterator-profile/' + label]
+        assert command_map['build-' + label]['command'] == expected
     for name in ['freeze.json', 'run.py', 'PLAN.json', 'planned-commands.json']:
         blob = subprocess.run(['git', 'show', authorization['published_commit'] + ':' + str(relative / name)],
                               capture_output=True, check=True).stdout
