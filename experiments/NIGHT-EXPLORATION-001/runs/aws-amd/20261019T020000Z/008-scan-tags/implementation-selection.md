@@ -19,3 +19,5 @@ Actual independent AMD/Intel/ARM proposal and implementation authors, root chair
 AMD totals:4 completed populations,0accepted,3rejected,1parked. Baseline source unchanged; sourceNONE overnight. See GUARDS.md for every missing fixture and acceptance condition.
 
 Decision UTC: 2026-10-19T03:31:21.336887+00:00.
+
+Matched mechanism diagnostic now complete: [report](mechanism/RESULT.md). Instructions/branches fall about12%, branch misses rise about5%, scoped cycles improve under1%; this does not validate the exploratory4–5% elapsed magnitude. PARK unchanged; no further candidate timing or sampling.

@@ -1,0 +1,192 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88  of event 'cycles:u'
+# Event count (approx.): 419741067
+#
+# Overhead  Symbol                   IPC   [IPC Coverage]
+# ........  .......................  ....................
+#
+    76.08%  [.] zbtIndexScanSlot     -      -
+            |
+            |--29.95%--zbtLeafTagMatches (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--15.27%--zbtIndexHashReachesBucket (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--9.69%--zbtPackedData (inlined)
+            |          zbtScoreLeafElement (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--8.00%--zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--3.37%--zbtScoreLeafPhysicalPos (inlined)
+            |          zbtScoreLeafOffset (inlined)
+            |          zbtScoreLeafRecord (inlined)
+            |          zbtScoreLeafHash (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--3.29%--zbtIndexGetId (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--3.25%--zbtScoreLeafHash (inlined)
+            |          zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--2.16%--zbtScoreLeafOffsets (inlined)
+            |          |
+            |          |--1.08%--zbtScoreLeafOffset (inlined)
+            |          |          zbtScoreLeafRecord (inlined)
+            |          |          zbtScoreLeafElement (inlined)
+            |          |          zbtIndexScanSlot
+            |          |          zbtIndexScanGroup
+            |          |          zbtScanNext (inlined)
+            |          |          zbtreeScan
+            |          |          main
+            |          |          0x7937b1e2a1ca
+            |          |          __libc_start_main
+            |          |          _start
+            |          |
+            |           --1.08%--zbtScoreLeafHashTags (inlined)
+            |                     zbtIndexScanSlot
+            |                     zbtIndexScanGroup
+            |                     zbtScanNext (inlined)
+            |                     zbtreeScan
+            |                     main
+            |                     0x7937b1e2a1ca
+            |                     __libc_start_main
+            |                     _start
+            |
+             --1.08%--zbtIndexBucketAt (inlined)
+                       zbtIndexHashReachesBucket (inlined)
+                       zbtIndexScanSlot
+                       zbtIndexScanGroup
+                       zbtScanNext (inlined)
+                       zbtreeScan
+                       main
+                       0x7937b1e2a1ca
+                       __libc_start_main
+                       _start
+
+    15.39%  [.] zbtIndexScanGroup    -      -
+            |
+            |--14.31%--zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.08%--zbtIndexBucketBytes (inlined)
+                       zbtIndexBucketAt (inlined)
+                       zbtIndexScanGroup
+                       zbtScanNext (inlined)
+                       zbtreeScan
+                       main
+                       0x7937b1e2a1ca
+                       __libc_start_main
+                       _start
+
+     5.29%  [.] siphash              -      -
+            |
+            ---zbtScoreLeafHash (inlined)
+               zbtIndexScanSlot
+               zbtIndexScanGroup
+               zbtScanNext (inlined)
+               zbtreeScan
+               main
+               0x7937b1e2a1ca
+               __libc_start_main
+               _start
+
+     2.16%  [.] scan_count           -      -
+            |
+            |--1.08%--zbtIndexScanSlot
+            |          zbtIndexScanGroup
+            |          zbtScanNext (inlined)
+            |          zbtreeScan
+            |          main
+            |          0x7937b1e2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.08%--zbtIndexScanGroup
+                       zbtScanNext (inlined)
+                       zbtreeScan
+                       main
+                       0x7937b1e2a1ca
+                       __libc_start_main
+                       _start
+
+     1.08%  [.] dictGenHashFunction  -      -
+            |
+            ---zbtIndexScanGroup
+               zbtScanNext (inlined)
+               zbtreeScan
+               main
+               0x7937b1e2a1ca
+               __libc_start_main
+               _start
+
+     0.00%  [.] 0x000000000001537d   -      -
+     0.00%  [.] 0x00000000000152f4   -      -
+     0.00%  [k] 0xffffffff8a0d40ce   -      -
+     0.00%  [.] read                 -      -
+     0.00%  [k] 0xffffffff8a0d40f1   -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
