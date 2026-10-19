@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent ARM discovery144ee7e0d audit reconstructs144 rows/36 blocks plus48 qualified AA rows; every candidate block slower, REJECT/NONE. Both evidence manifests pass406 hashes; source/referee/baseline joins pass. Authored C disclosed. Held-out confirmation024 frozen e9a558eba is ineligible/unexecuted, no ARM access or501–503 data. AMD index partition remains NONE and host idle; available for further bounded review/diagnosis until reporting window.
+Independent ARM018 static review supports35 reconstruction instructions per fullchunk in all6 candidate regions; traced baseline/A/B/C zero-mask paths19/56/51/54 and provenance joins. No causal cycle-share claim, no execution. Next independent Intel supplemental guard audit pending immutable evidence; AMD idle/sourceNONE.
 
-AMD counts unchanged:4populations,0accepted,3rejected,1parked. SourceNONE. Deadline08:00UTC, no new experiments after07:15UTC.
+AMD4population counts remain0accepted/3rejected/1parked. ARM confirmation024 ineligible/unexecuted. Deadline08:00UTC.
