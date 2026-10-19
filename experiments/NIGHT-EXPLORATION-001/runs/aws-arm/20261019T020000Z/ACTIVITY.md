@@ -66,3 +66,7 @@
 ## 2026-10-19T04:46:24.460168+00:00 — Corrected SCAN profile and fresh controls complete
 
 014 six5M scopedcaptures: all-match+localsetup36.93%/33.13% sampledperiod at100K/1M;209 matching original/diagnostic opcodes, sixsemantic controls anddisabledzero pass.015 fixed48row A/A bothsizes qualify, allsix±1%, min415.775/535.062ms. Distinct corrected13e459ff8 identity, no repair of original8fab failure, no candidate/population/acceptance. Await root independent review and any actualproposal assignment. ARMrunner idle.
+
+## 2026-10-19T04:49:15.887202+00:00 — Independent corrected ARM proposal
+
+016 separately authored ARM proposal selects exact bounded16-byte NEON all-match as a falsifiable hypothesis, with lane-mask overhead risk and full guard requirements. No peer proposal reads or candidate implementation; original8fab NONE remains final. Corrected21/40 full-baseline precision limits explicit. Runner idle pending chair.
