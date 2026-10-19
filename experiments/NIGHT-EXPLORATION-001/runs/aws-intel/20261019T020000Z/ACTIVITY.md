@@ -112,3 +112,5 @@
 2026-10-19T06:44:47.290055+00:00 Independently proposed NONE from frozen corrected ARM iterator packet27a4afee1. Both native controls qualify; exact mask-region evidence retained. EXP005 A is historical replication only, with missing native guards/confirmation/profile and narrow remaining window; no code or runner work. No peer new proposals read.
 
 2026-10-19T06:50:44.988948+00:00 Reviewed chair4d36b2d0e exact EXP005 A replication preparation: historical patch and verbatim Intel NONE dissent verified. Conditional diagnostic rationale has no scope blocker, but initial900s plus follow-up2400s cannot fit all phase starts before07:15; no follow-up grant, source/build/runner work. Requirements inventory published; primary success alone remainsPARK.
+
+2026-10-19T06:59:57.580792+00:00 Adversarial reporting auditfd4b5d2cb: one material README213–223 staleoverallPARK contradiction; root notified. Counts8(0/5/3),24patchrecords(21public/3private),160correctedchartcells/sourceparity/roundedtables verify. Read-only metadata/context checks, no benchmarks/tests/builds/runner; prior Intel authorship disclosed. Release remains pending.
