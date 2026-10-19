@@ -73,3 +73,5 @@
 - 2026-10-19T04:55:47.404329+00:00: Root approved exactB corrected-adapter replication after017 controls/code mapping.019 plan/drivers frozen before data:600s serial correctness then conditional300s48row primary. Original015 binary unchanged; no new population or source adoption.
 
 - 2026-10-19T04:59:55.456623+00:00: Corrected exactB validation PASS60serialcommands,4original43passes+30oracles,allsource/refereehashes match; candidate timing SHAde6ed897 frozen before fixed48row primary. Independent ARM C sealed3b137666b, no peer patch reads. SourceNONE.
+
+- 2026-10-19T05:02:53.205796+00:00: Corrected13e459ff8 exactB replication rejects advancement/NONE:48rows12blocks,100Kmedian−1.848% and1M−1.785%; only2/6blocks per size meet2%, so no guards/profile/confirmation/retry. All semantic/hash/CPU2 checks pass; AMD idle05:02:13UTC. Original8fabPARK unchanged. Independent ARM C sealed3b137666b; root/ARM review-validation pending.
