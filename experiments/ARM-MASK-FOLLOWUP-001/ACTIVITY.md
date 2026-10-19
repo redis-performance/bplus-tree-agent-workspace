@@ -39,3 +39,12 @@ Published all six blocks of each qualified original guard, including the mixed S
 ### 2026-10-19T09:47:33.857402+00:00 — Iterator controls audited; fixed comparison granted
 
 Result8ed45423c,1968rows/492blocks,764.223122s:43/82qualify,39noisy,0short. Root audit+Intel d68b27aa2 agree on rawrows/semantics/identity/memory/idle. OverallPARK/NONE. One fixed1968-process iterator-comparison granted1500s/60schild; only iffullcap+20 fits10:15. No automatic profile/confirmation/retries.
+
+### 09:50 UTC — Read-only profile audit preparation
+
+Root audit-profile-raw.py independently checks immutable provenance,104contracts,
+semantic rows, PMU counts and sample accounting; AMD3a3582d3b prepares complementary
+independent known-work/physical-byte/final-gate reconstruction. Only AST/local metadata
+checks have run. No scientific profile result or profile grant is implied. Prepared
+auditors remain useful even if guard outcome/deadline leaves profiling unexecuted.
+Iterator comparison is active under ddb4cf444, all1968fixed processes retained.
