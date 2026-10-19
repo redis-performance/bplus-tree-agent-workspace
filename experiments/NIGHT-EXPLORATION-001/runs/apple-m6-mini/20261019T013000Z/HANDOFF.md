@@ -55,3 +55,5 @@ Round2 resumed 2026-10-19T02:04:22.845384+00:00: launcher baseline-attempt002 an
 2026-10-19T02:04:36.729913+00:00: UPDATE-001 referee freeze ready:100 pattern/size/member-length checks plus2 finite/signed-zero/binary-tie/clone oracles passed. Source unchanged. freeze.json pins toolchain, source and binaries. Metadata-only dSYM hash failure retained in PREPARATION-NOTE.md; no experimental rerun. Publication barrier before census/profile/calibration.
 
 UPDATE referee publication timed out after120s without matching acknowledgement. Last successful published decision remains23df69a3. Exact local hashes retained; acknowledged harness provenance unresolved. Continue bounded local census/profile; no Git retries or settings changes.
+
+2026-10-19T02:08:04.899118+00:00: UPDATE baseline path census/profile COMPLETE. preserve packing failures1517/20000 at100K and11058/20000 at1M; no order failures. Longer captures show lookup dominates after amortization. See003-update/PROFILE.md; no hypothesis selected. Baseline calibration/A/A next. SourceNONE, prior rankREJECT unchanged. Publication requested for diagnosis.
