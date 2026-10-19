@@ -1,11 +1,10 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; six-command correctness suffix completed.** Original preparation
-remains FAILED on diagnostic registration; the separately granted six unstarted
-commands passed at08:46UTC, with all evidence/source/binary identities unchanged.
-Root raw audit passes; independent composite closure and timing review are pending.
-No performance benchmark launched. ARM coordinator remains stopped, with restoration
-armed for10:15UTC /11:15Lisbon.
+**ACTIVE lease; fresh primary baseline controls granted.** Composite correctness
+closure and timing code pass root/AMD/Intel review. One300s job may run48 baseline-only
+processes; candidate timing remains ungranted pending fresh qualification. Original
+failed preparation and successful six-command suffix remain separate, immutable records.
+ARM coordinator remains stopped; restoration armed for10:15UTC /11:15Lisbon.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 
