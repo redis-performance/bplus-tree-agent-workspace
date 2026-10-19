@@ -9,7 +9,7 @@ Acknowledgements: baseline48b00870; public rank referee ca5cacfb.
 | Target | Status | M1 action |
 |---|---|---|
 | Five-size baseline | COMPLETE | baseline-attempt002 reused:120processes/960rows/40cells,162.42s.36cells fail A/A,14 short. |
-| RANK-001 | RUNNING; profile supports bounded accumulation proposal | No candidate or veto. Already vectorized; do not assume explicit SIMD helps. A/A next. |
+| RANK-001 | REJECT / NONE | M6-RANK-SHORTER-001 and exact A/B/C fail100Kprimary in all6blocks. Skip exact contenders. 1M signals unqualified. |
 | UPDATE-001 | NOT STARTED | Await bounded rank work. |
 | LOOKUP-001 | NOT STARTED | Public rank profiles also sample memchr heavily; later target. |
 | Optional / confirmation | RESERVED | No contender. |
@@ -29,3 +29,5 @@ Latest acknowledgement210c06a2. 2026-10-19T01:44:38.181856+00:00 — rank AA max
 2026-10-19T01:45:55.394138+00:00 — three sequential proposal passes/chair choose shorter-side accumulation for ONE exploratory three-variant screen. No candidate built. Full guards, qualified controls and independent review remain missing; source NONE. Discovery plan in002-rank/DISCOVERY-PLAN.md. Latest published acknowledgementb5ebd930.
 
 2026-10-19T01:48:31.090343+00:00 — A/B/C isolated implementations validated:each43upstream tests/native+sanitizer,38targetedchecks; allreferees identical. Patches/source/binary/driver hashes in002-rank/comparison-freeze.json and implementation-manifest.json. Await publication then ONE exploratory screen, no concurrent work. Latest acknowledged chairfedb7d41.
+
+2026-10-19T01:51:54.879790+00:00 — complete216process/648batchscreen rejectsA/B/C on100Kprimary (+3.81/+3.42/+3.87%median);1Mnegative signals within A/A variation. Tree-ownedbytes unchanged. No contender/confirmation/adoption. See implementation-selection.md and discovery-audit.json. Latest acknowledged comparisonfreeze3102530f.
