@@ -146,3 +146,5 @@
 2026-10-19T10:45:49.298213+00:00 Independent ARM030preparationa3db7053a review: four actualassembly exports confirm114/113IteratorNext,4assertionaddressdifferences andunswitched11instructionH4mask4loop;648scheduleentrieschecked. Onepublicationblocker missing sealedignoredpycache;63otherhashespass. Census/hooksstaticconsistent; finalcallerPCmapping,loss/runtimegates anddriversremainrequired. No runner/build/timing; REJECT unchanged.
 
 2026-10-19T10:49:22.672470+00:00 Native720b74247 independentreview:15native+63correctedsealinputs,288scheduleentries,13fixturemodels and26syntheticparserchecksPASS. Holdfor4narrowauditfixes:comparisonwindowfloor,AAresultaudit/source/chronologyjoin,exactsourcemapkeys,positivephase+620sstartmargin. No runner/build/benchmark; oldREJECT unchanged. Review030/native-720b74247.
+
+2026-10-19T10:50:44.217115+00:00 Corrective fa190bd9b nativefreeze review:all4priorauditfindingsresolved;15hashesPASS,2driver/auditorfileschanged,13inputsunchanged;newnamespace/sliceCPU2/exact11:45deadline enforced. No staticblocker native-only; rootlivelease/preflight/separategrants stillrequired. No measurement/build/SSH; originalREJECT stands.
