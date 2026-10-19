@@ -1,0 +1,22 @@
+# ARM count-one decoder — PARK / no winner
+
+All three isolated source implementations completed the frozen exploratory screen, alongside the unchanged-root scalar adapter. Each phase contains696 processes/174 six-block ABBA effects over29 cells; combined2,784 processes/696 effects. Checksums, exact fixtures, leaf bytes, operation accounting, raw CSV hashes, frozen rounds, CPU2 residency endpoints and within/across-phase serial order pass. Every phase finished its fixed300s budget without restart. Three proposals/chair and three implementations were sequential passes by one native Codex worker, not independent agents. Actual serving model variant and measured token/USD costs are unknown.
+
+The control is the unadopted EXP007B bulk helper appended to unchanged root source8fab511e. Effects below are relative to that experimental helper, never whole-tree gains. The root adapter uses unchanged scalar decoding under the same materialized-output contract. Candidate output count1 avoids bulk geometry; count2+ algorithm remains unchanged. All five sources pass ten unchanged native/sanitizer referee suites and40 duration-boundary/accounting checks.
+
+| Variant | Primary width60/forward/count1: median / six-block range | Guard width60/forward/count8: median / range |
+|---|---|---|
+| A | -8.321% / -13.239..-8.188% | +1.931% / +1.608..+2.369% |
+| B | -8.263% / -10.998..-7.768% | +1.725% / +1.453..+3.111% |
+| C | -11.372% / -12.647..-8.214% | +1.804% / +1.426..+2.164% |
+| root | -2.056% / -5.751..+2.470% | +32.880% / +30.627..+33.465% |
+
+Both revised primary A/A controls fail: bulk -3.130..+5.808%, root +0.017..+2.336%, despite roughly100ms windows. Count8 bulk A/A narrowly fails (-1.082..+0.418%), while root count8 qualifies (-0.355..+0.092%). Candidate count8 slowdowns are consistent observations, not a strictly qualified >1% regression proof. Of58 A/A control/cell combinations22 qualify; the last root/w31/forward/count1 block is incomplete, with three raw rows preserved and not interpreted. Complete original short A/A also fails the primary. No further harness/noise iteration or retrospective primary/guard changes.
+
+All three candidate kernel machine-code `.text` sections are byte-identical:62,648 bytes, SHA256 b20bb2bcccd88d6abd9d0fb63465dfff18fc0d24fa3979e30548dda454f70ab3. The final linked executable `.text` sections also match exactly:69,348 bytes, SHA256 ba21d4445792d53a1936c0e860c24e10ac2deea74394ed6654aeb8a17b2ae110. Their differing apparent primary magnitudes cannot select one implementation. The base kernel is62,476 bytes and scalar root61,988 bytes. Debug information and embedded source paths can differ; these are section checks, not whole-file identity claims. See codegen/kernel-text.json and linked-sections.json.
+
+Decision: PARK, implementation winner NONE, source adoption NONE. One measured sequential population,0 accepted/0 rejected/1 parked; the earlier lookup withdrawal remains unmeasured and is not counted. The conditional primary lead merits preservation, but unqualified controls and observed guard concerns block promotion. Full176-cell performance guards, fresh independent confirmation and candidate profile validation were not run; none may be inferred from correctness or partial screens. Existing EXP007 guards and dependency on experimental bulk decoding remain unresolved.
+
+Adversarial checks: the root anchor is not stable at count1, so relative-B fallback gains do not establish root improvement. Identical candidate code invalidates ranking their sampled differences. Global22/58 qualification does not substitute for failed required cells. The phase budget failure is distinct from measured primary A/A failure. Counts/seeds/flags/allocator/driver/referee remain frozen; count1 seed changes do not imply new fixture diversity. The analyser's aa_qualified field is only meaningful for A/A data, not candidate eligibility.
+
+Independent root review of patches was published as dd5b63d9 before timing. Final raw-data review requested; final review record pending. No upstream action or root source change.

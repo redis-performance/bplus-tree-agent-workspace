@@ -1,14 +1,13 @@
 # AWS ARM overnight exploration
 
-Native worker continues until19 October2026,08:00 UTC /09:00 Lisbon; new experiments stop07:15 UTC. Historical external CLI failure is preserved separately.
+Native worker continues until19 October2026,08:00 UTC/09:00 Lisbon; new experiments stop07:15 UTC. Historical external CLI failure remains preserved.
 
 | Work | Status |
 |---|---|
-| Five-size baseline | Complete:120 processes,960 rows,40 cells; native/sanitizer checks pass |
-| Independent-query lookup | Diagnostic NONE;80 validation cells and288 A/A processes,10/12 qualify |
-| Exact-mask preparation | Withdrawn before timing after profile correction; three unmeasured patches retained |
-| Count-one decoder | One frozen exploratory population running; both original and longer primary A/A fail |
-| Decoder A |696 processes; conditional primary improves, count8 guard slows in every block |
-| Root/B/C comparison | Root anchor running; remaining variants frozen |
+| Five-size baseline | Complete120 processes/960 rows/40 cells; native/sanitizer checks pass |
+| Independent-query lookup | Diagnostic NONE;80 validation cells,288 A/A processes,10/12 qualify |
+| Exact-mask preparation | Withdrawn before timing after instruction-attribution correction;3 unmeasured patches |
+| Count-one decoder | PARK/NONE;3 source variants plusroot anchor,2784 processes/696 effects |
+| Public update paths | Fresh unchanged-root referee validation; no hypothesis selected |
 
-No source adoption. Decoder B baseline is historical EXP-007 B, not current root. Every relative-B result remains conditional; unchanged-root scalar control is measured separately. See ACTIVITY.md, STATUS.md and003-decode/DURATION-RESULT.md.
+**ARM new measured populations:1;0 accepted/0 rejected/1 parked.** No source adoption. Three decoder variants compile to identical machine-code text; failed primary A/A prevents acceptance or ranking. Relative-B gains are conditional on unadopted EXP007B, not root/public-tree gains. Count8 slowdowns are observed on an unqualified bulk-control cell. [Complete decision](003-decode/RESULT.md); independent final review pending. See ACTIVITY.md and STATUS.md.

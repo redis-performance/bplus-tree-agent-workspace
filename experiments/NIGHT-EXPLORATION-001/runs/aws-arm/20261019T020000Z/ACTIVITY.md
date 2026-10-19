@@ -10,3 +10,7 @@
 - 2026-10-19T02:40:52.502531+00:00 — Decoder A screen complete:696 serial processes, all checksums/fixtures/leaf bytes and ABBA audit pass. Conditional primary -13.24%..-8.19%; count8 guard +1.61%..+2.37% in every block. No adoption or selected winner. Root anchor running; B/C schedules unchanged.
 
 - 2026-10-19T02:44:11.036771+00:00: Root scalar-anchor screen completes696 serial processes. Conditional width60/forward/count1 effect vs unadopted EXP007B ranges -5.751..+2.470%, median -2.056%; no stable paired root advantage. Second frozen candidate B running. Latest M6 e62f839d now proposes count-one, without timings; our existing frozen candidates unchanged.
+
+- 2026-10-19T02:45:19Z: B screen completes696 processes. Primary -10.998..-7.768%, count8 +1.453..+3.111%. C starts after hash/Apple checks. Count8 bulk-control A/A itself fails (-1.082..+0.418%); observed candidate guard slowdowns are not strictly qualified regression proof. Overall PARK remains appropriate, no eligible winner.
+
+- 2026-10-19T02:51:03.361612+00:00: Decoder C completes696 processes; four-screen audit totals2784 processes/696 effects. A/B/C kernel and final executable text hashes identical. Decision PARK/NONE; no eligible implementation or adoption. Parent independent final audit requested. New unchanged-root public-update referee validation begins serially after codegen jobs.

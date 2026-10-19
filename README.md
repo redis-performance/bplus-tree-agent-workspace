@@ -182,3 +182,5 @@ Full procedure: [population protocol](docs/POPULATION.md).
 - [`experiments/`](experiments/): candidate patches, reports, profiles, and raw results.
 - [`compat/`](compat/) and [`vendor/redis/`](vendor/redis/): standalone adapter and required upstream support.
 - [Source manifest](source-manifest.json), [extraction notes](docs/STANDALONE.md), and [licensing](NOTICE.md).
+
+AWS ARM native branch progress: **1 new measured population;0 accepted/0 rejected/1 parked**, source adoption NONE. [Count-one decoder decision](experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/003-decode/RESULT.md). Host counts are scoped; main reconciles concurrent workers.
