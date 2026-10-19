@@ -114,3 +114,5 @@ source adoption. Host workers continue distinct profile-led directions until the
 - 2026-10-19T03:08:17.302517+00:00: aws-intel running at `32c1a9f7`: independent AMD all-match proposal submitted; waiting for root chair; Intel runner idle; aws-amd running at `4a455e65`: independent scan proposal submitted;1M AA unqualified; root chair pending; aws-arm running at `2d70dfd3`: iterator-baseline-calibration; all-exact-A-B-validation-pass.
 
 - 2026-10-19T03:08:53.555774+00:00: aws-intel running at `f73513a9`: independent AMD all-match proposal submitted; waiting for root chair; Intel runner idle; aws-amd running at `4a455e65`: independent scan proposal submitted;1M AA unqualified; root chair pending; aws-arm running at `2d70dfd3`: iterator-baseline-calibration; all-exact-A-B-validation-pass.
+
+- 2026-10-19T03:09:29.980892+00:00: aws-intel running at `f73513a9`: independent AMD all-match proposal submitted; waiting for root chair; Intel runner idle; aws-amd running at `ef63534a`: independent scan proposal submitted;1M AA unqualified; root chair pending; aws-arm running at `e92e691c`: iterator-AA-failed; fixed-exploratory-A-screen-next.
