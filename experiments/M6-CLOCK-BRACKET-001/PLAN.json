@@ -1,0 +1,56 @@
+{
+  "id": "M6-CLOCK-BRACKET-001",
+  "created_utc": "2026-10-19T14:56:10.756095+00:00",
+  "absolute_stop_utc": "2026-10-19T15:41:10.756095+00:00",
+  "baseline_main_commit": "95ccb4ad692dc0f3651ee4485c746db225632574",
+  "source_commit": "d13b3598f6e859969c764daf9982998f87233f73",
+  "scope": "harness-only nested clock bracketing, empirical controls and fresh baseline A/A; zero source candidates",
+  "sizes": [
+    100000,
+    1000000
+  ],
+  "case": "lookup-hit",
+  "member_bytes": 16,
+  "seeds": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+  ],
+  "operations": {
+    "100000": 13834448,
+    "1000000": 4978427
+  },
+  "minimum_wall_ns": 10000000,
+  "aa_rule": "abs(Bsum-Asum)*100 <= Asum for every one of6blocks at both sizes; same counts/output/memory",
+  "failure": "PARK baseline; all fixed rows retained, no retry/filter/count change and no source candidates",
+  "phase_wall_caps_seconds": {
+    "build": 600,
+    "controls": 180,
+    "aa": 600
+  },
+  "control_repetitions": 24,
+  "control_order": [
+    "empty",
+    "cpu",
+    "block"
+  ],
+  "control_cpu_iterations": 2000000,
+  "control_block_ns": 20000000,
+  "control_validation": "all clocks valid/monotonic; exact checksum;24rows each; block inner independent sleep wall>=20ms; recorded residual>=90% requested blocking in every block control; conditional interval nonempty, no physical accuracy bound claimed",
+  "clock_error_model": "conditional reliable-accounting model only; nominal resolution and empirical controls are NOT worstcase accuracy bounds; physical attribution always UNVALIDATED",
+  "qualified_result": "fresh wall A/A precision result for new harness only; previous experiments unchanged",
+  "native_flags": [
+    "-std=c11",
+    "-O3",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fno-omit-frame-pointer",
+    "-fno-lto"
+  ],
+  "backend": "Codex/GPT-6 family; exact model/token/currency costs unknown"
+}
