@@ -1,5 +1,13 @@
 # Experiment log
 
+## 19 October: Apple M1 lookup precision preflight
+
+[EXP-009-M1-AA-001](EXP-009-M1-AA-001/RESULTS.md) PARKed before proposals,
+implementation or candidate timing. The frozen 48-process A/A passed 1/6
+blocks at 100K and 2/6 at 1M; all windows exceeded 564 ms. The independent
+[raw audit](EXP-009-M1-AA-001/results/AUDIT.json) passes. Source NONE and
+historical population counts unchanged. M1 and M6 measurements are separate.
+
 ## 19 October: Apple M1 overnight campaign
 
 [Full report and raw evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)

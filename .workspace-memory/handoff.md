@@ -1413,3 +1413,10 @@ This closes only the fresh independent primary-confirmation gate. Full original
 controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
 remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
+<!-- M1-LOOKUP-AA-MERGED -->
+M1 EXP-009 lookup preflight PARK: 48 same-binary A/A rows, 1/6 qualified
+100K blocks and 2/6 qualified 1M blocks; independent raw audit PASS.
+No candidate timing or source adoption. Read
+experiments/EXP-009-M1-AA-001/RESULTS.md before further M1 lookup work.
+<!-- M1-LOOKUP-AA-MERGED-END -->
+

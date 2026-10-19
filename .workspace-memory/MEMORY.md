@@ -1093,3 +1093,9 @@ This closes only the fresh independent primary-confirmation gate. Full original
 controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
 remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
+<!-- M1-LOOKUP-AA-MERGED -->
+M1 EXP-009 lookup preflight is PARK: 100K A/A 1/6, 1M A/A 2/6;
+48-process raw audit PASS. No source change or population decision.
+Evidence: experiments/EXP-009-M1-AA-001/RESULTS.md.
+<!-- M1-LOOKUP-AA-MERGED-END -->
+

@@ -10,6 +10,10 @@ The M1 branch recorded 0 accepted / 3 rejected / 6 parked decisions across nine
 populations; source adoption remains NONE. These are M1-only results; M6 evidence
 is tracked separately.
 
+The [M1 lookup precision preflight](experiments/EXP-009-M1-AA-001/RESULTS.md)
+is PARK: same-binary A/A passed only 1/6 blocks at 100K and 2/6 at 1M.
+Its 48 timing rows and decision were independently audited; no candidate was timed.
+
 All Codex and Claude investigation sessions must use the
 [performance MCP workflow](docs/PERFORMANCE-MCP.md); consultation and limitations
 are recorded with the experiment evidence.

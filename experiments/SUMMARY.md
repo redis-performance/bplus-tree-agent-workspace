@@ -1,5 +1,11 @@
 # Experiment summary
 
+## Apple M1 lookup precision, 19 October
+
+[EXP-009-M1-AA-001](EXP-009-M1-AA-001/RESULTS.md) is PARK before source work:
+the independently audited same-binary A/A passed 1/6 blocks at 100K and
+2/6 at 1M. No candidate timing, adoption, or population count change.
+
 ## Apple M1 overnight results, 19 October
 
 The [five-size report](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)

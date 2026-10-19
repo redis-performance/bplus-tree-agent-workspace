@@ -357,3 +357,11 @@ source NONE. Strict baseline A/A fails 39/40 cells; M6 published gate checked
 06:50 UTC and no further matching M1 source trial queued. Host totals separate.
 <!-- M1-OVERNIGHT-CURRENT-END -->
 
+<!-- M1-LOOKUP-AA-CURRENT -->
+M1 EXP-009 lookup precision preflight PARK: 48 same-binary A/A processes;
+100K passes 1/6 and 1M passes 2/6 blocks. All windows exceed 564 ms;
+independent raw audit PASS. No proposal, candidate timing or source edit;
+historical M1 population counts unchanged. See
+experiments/EXP-009-M1-AA-001/RESULTS.md.
+<!-- M1-LOOKUP-AA-CURRENT-END -->
+
