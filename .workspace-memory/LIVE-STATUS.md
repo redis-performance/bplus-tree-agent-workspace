@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:24 UTC
+## Current AWS overnight checkpoint — 19 October 04:21 UTC
 
 Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
 start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:

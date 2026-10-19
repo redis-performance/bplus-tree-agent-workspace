@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-19T04:20:57.299787+00:00",
+  "purpose": "Read-only preflight after correcting nested systemd slice inspection; not release proof",
+  "tests": "python3 tests/test_aws_release.py: six tests pass",
+  "independent_review": "aws_amd native agent static review, exact backend/model/cost unknown",
+  "hosts": {
+    "intel": {
+      "coordinator_running": false,
+      "slice_state": "active",
+      "owned_cgroup_path": "/sys/fs/cgroup/bplus.slice/bplus-night.slice/bplus-night-20261019.slice",
+      "owned_cgroup_exists": true,
+      "owned_cgroup_process_count": 3,
+      "inspection_errors": [],
+      "verified_released": false
+    },
+    "amd": {
+      "coordinator_running": false,
+      "slice_state": "active",
+      "owned_cgroup_path": "/sys/fs/cgroup/bplus.slice/bplus-night.slice/bplus-night-20261019.slice",
+      "owned_cgroup_exists": true,
+      "owned_cgroup_process_count": 0,
+      "inspection_errors": [],
+      "verified_released": false
+    },
+    "arm": {
+      "coordinator_running": false,
+      "slice_state": "active",
+      "owned_cgroup_path": "/sys/fs/cgroup/bplus.slice/bplus-night.slice/bplus-night-20261019.slice",
+      "owned_cgroup_exists": true,
+      "owned_cgroup_process_count": 0,
+      "inspection_errors": [],
+      "verified_released": false
+    }
+  },
+  "all_released": false
+}

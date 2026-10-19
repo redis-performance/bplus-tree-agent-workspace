@@ -165,7 +165,7 @@ remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
 
 
-## 19 October 04:24 UTC — Guard and profile follow-ups
+## 19 October 04:21 UTC — Guard and profile follow-ups
 
 Intel B original-operation guards run serially under the frozen 1440-second cap;
 AMD independently audits the raw comparison after publication. The matched profile
@@ -180,3 +180,15 @@ scores. This is correctness and coverage engineering, with no candidate timing y
 Existing focused guards remain immutable. AWS source/referee stays pinned to
 8fab511e, including its original adapter; the separate main/M6 adapter correction
 is a different baseline identity. No population counts or decisions change.
+
+
+## 19 October 04:21 UTC — Release auditor correction
+
+Read-only live inspection found systemd nests the campaign slice beneath its parent
+slices. The auditor previously inspected an incorrect top-level cgroup path, which
+could silently miss remaining processes. It now verifies the live ControlGroup,
+walks its descendants, and fails verification on inspection errors. Six targeted
+tests and an independent static review pass. The corrected live preflight detects
+three Intel job processes and zero AMD/ARM job processes; every coordinator remains
+stopped and no host is yet released. Host restoration timers are unchanged.
+[Sanitized preflight](reviews/aws-release-auditor-preflight.json).

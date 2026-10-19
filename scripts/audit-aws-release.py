@@ -14,7 +14,7 @@ import time
 
 
 REMOTE = r'''
-import json, pathlib, re, subprocess, sys
+import json, os, pathlib, re, subprocess, sys
 root = pathlib.Path(sys.argv[1])
 def command(args):
     r = subprocess.run(args, text=True, capture_output=True, timeout=20)
@@ -22,23 +22,38 @@ def command(args):
 code, status = command(['sudo', '-n', 'supervisorctl', 'status', 'redis-benchmarks-spec-sc-coordinator'])
 match = re.search(r'\bRUNNING\s+pid (\d+)', status)
 pid = int(match.group(1)) if match else 0
-_, slice_state = command(['systemctl', 'show', 'bplus-night-20261019.slice', '--property=ActiveState', '--value'])
+slice_code, slice_state = command(['systemctl', 'show', 'bplus-night-20261019.slice', '--property=ActiveState', '--value'])
+group_code, group_path = command(['systemctl', 'show', 'bplus-night-20261019.slice', '--property=ControlGroup', '--value'])
 units_code, units = command(['systemctl', 'list-units', 'bplus-job-20261019-*', 'bplus-baseline-*', '--state=active,activating,deactivating', '--no-legend', '--plain'])
 _, timer = command(['systemctl', 'show', 'bplus-release-20261019.timer', '--property=NextElapseUSecRealtime', '--value'])
 marker = root/'LEASE-RELEASED'
 saved = root/'released-status.txt'
-cgroup = pathlib.Path('/sys/fs/cgroup/bplus-night-20261019.slice')
 errors = []
+expected_group = '/bplus.slice/bplus-night.slice/bplus-night-20261019.slice'
+if slice_code or group_code:
+    errors.append('could not inspect owned slice properties')
+if group_path and group_path != expected_group:
+    errors.append('unexpected owned slice cgroup path')
+cgroup = pathlib.Path('/sys/fs/cgroup' + (group_path or expected_group))
 processes = []
+def walk_error(error):
+    errors.append('could not enumerate owned cgroup')
 try:
-    for f in cgroup.rglob('cgroup.procs'):
-        processes.extend(f.read_text().split())
+    if cgroup.exists():
+        for directory, _, files in os.walk(cgroup, onerror=walk_error):
+            if 'cgroup.procs' in files:
+                processes.extend((pathlib.Path(directory)/'cgroup.procs').read_text().split())
+            else:
+                errors.append('owned cgroup lacks process listing')
+    elif slice_state != 'inactive':
+        errors.append('active owned slice cgroup missing')
 except OSError:
     errors.append('could not inspect owned cgroup')
 print(json.dumps(dict(coordinator_running=code == 0 and pid > 0 and pathlib.Path('/proc', str(pid)).exists(),
     coordinator_pid=pid,
     coordinator_status=status, slice_state=slice_state,
     active_owned_units=units.splitlines(), units_query_ok=units_code == 0,
+    owned_cgroup_path=str(cgroup), owned_cgroup_exists=cgroup.exists(),
     owned_cgroup_process_count=len(set(processes)), inspection_errors=errors,
     release_marker=marker.read_text().strip() if marker.exists() else None,
     saved_release_status=saved.read_text().strip() if saved.exists() else None,
