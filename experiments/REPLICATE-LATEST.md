@@ -39,7 +39,7 @@ python3 scripts/analyse-size-matrix.py "$REPLICA_ROOT/size-matrix"
 ```
 
 Compare its `SUMMARY.md` with
-[the Apple M1 baseline](SIZE-MATRIX-001/apple-m1/SUMMARY.md), operation by operation
+[the Apple M1 baseline](SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md), operation by operation
 at the same size. Check variation and short timing windows before interpreting
 small differences. Do not combine samples across hosts. The runner captures the
 actual CPU, compiler, source and binary hashes; record compiler differences when

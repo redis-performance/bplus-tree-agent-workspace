@@ -501,3 +501,16 @@ below 10 ms. Baseline coverage is complete; no optimization or precision claim.
 Plan, scripts, raw data, summaries and chart are retained. M6 rerun commands are in
 [REPLICATE-LATEST.md](REPLICATE-LATEST.md); keep new host results separate.
 Source and optimization/population counts are unchanged.
+
+
+## 2026-10-19 — five-size Apple M1 baseline complete
+
+[Five-size results](SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md): all eight operations
+at 100/1K/10K/100K/1M, 16-byte members, 24 observations per cell; 120 processes /
+960 rows / 40 cells in 351.43 seconds of timing. Native/ASan-UBSan upstream tests
+passed (43 each), plus sanitizer benchmark coverage at every size. Source and raw
+hashes verified. 39 cells have an A/A block outside ±1%; 11 have <10 ms windows.
+These are exploratory baseline costs; no candidate or source adoption. Original
+four-size data preserved. README now shows the five-size chart. Shared overnight
+plan and [C benchmark review](NIGHT-EXPLORATION-001/BENCHMARK-REVIEW.md) are published;
+night campaigns remain unstarted. M6 rerun instructions preserve per-host results.

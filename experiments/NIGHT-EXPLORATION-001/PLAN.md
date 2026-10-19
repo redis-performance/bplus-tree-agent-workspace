@@ -1,7 +1,7 @@
 # Eight-hour exploration queue
 
 Status: PLANNED. No candidates selected and no overnight measurements collected.
-Starting evidence: [four-size Apple M1 baseline](../SIZE-MATRIX-001/apple-m1/SUMMARY.md).
+Starting evidence: [five-size Apple M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md).
 Tree source baseline is the unchanged extraction recorded by source-manifest.json;
 record the exact launch HEAD and all source/referee hashes on each host.
 

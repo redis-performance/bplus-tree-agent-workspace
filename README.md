@@ -11,7 +11,7 @@ been merged into `src/`; experimental implementations and results live in `exper
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
 is prepared for M1 and M6: rank, update paths, single-query lookup, and a decoder
 fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
-The original four-size M1 results below remain preserved.
+The latest M1 results below include all five sizes; the original four-size data is preserved.
 
 ## Build and test
 
@@ -83,15 +83,15 @@ See the [decoder guide](docs/DECODER-MICROBENCHMARK.md) and
 All results below were measured on **Apple M1**, using Apple Clang 17, `-O3`, and
 one unpinned thread.
 
-### Whole-tree baseline: 100 / 1K / 10K / 100K members
+### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members
 
-All eight operations have now been measured at all four sizes with 16-byte members.
+All eight operations have now been measured at all five sizes with 16-byte members.
 The chart shows median batch-average ns/op and the full observed min–max range;
 each panel has its own y-axis. These are baseline costs, not optimization speedups.
 Identical-binary controls show variation above 1%, and small insert/delete windows
-are short. See the [results and timing details](experiments/SIZE-MATRIX-001/apple-m1/SUMMARY.md).
+are short. See the [results and timing details](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md).
 
-![Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1/size-matrix.svg)
+![Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg)
 
 [Plan, raw data and M6 rerun commands](experiments/SIZE-MATRIX-001/README.md).
 

@@ -73,3 +73,14 @@ See [report](../experiments/SIZE-MATRIX-001/README.md), README chart, and
 [M6 runbook](../experiments/REPLICATE-LATEST.md). The user requested publishing the
 plan/documentation so they can follow up on M6. Run the same matrix into a new
 host-specific directory and compare separately; do not overwrite M1 evidence.
+
+
+## Latest: five-size M1 results and shared night plan published
+
+SIZE-MATRIX-001/apple-m1-five-sizes completes 100/1K/10K/100K/1M × all eight operations:
+120 processes, 960 rows, 40 cells, 351.43s timing; native/sanitizer checks and raw audit
+passed. Variation remains (39 cells >1% in an A/A block, 11 short cells). No tree change.
+See experiments/NIGHT-EXPLORATION-001 for the shared M1/M6 eight-hour plan, launch/stop
+commands, population/measurement rules, and pinned Lemire template/blog/cbitset review.
+All documents/results are prepared for publishing; no overnight run started. User
+wants M6 follow-up using the same five-size definitions and separate host evidence.

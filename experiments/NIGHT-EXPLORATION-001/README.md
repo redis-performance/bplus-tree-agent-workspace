@@ -6,7 +6,8 @@ this queue and measurement protocol; their evidence and decisions stay separate.
 
 The baseline matrix is **100 / 1K / 10K / 100K / 1M members × eight operations**:
 insert, hit lookup, miss lookup, rank, forward iteration, scan, score update, delete.
-A new five-size M1 run is separate from the preserved four-size baseline.
+The [five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) is complete
+and separate from the preserved four-size data. The overnight campaign is still unstarted.
 
 ## Read first
 

@@ -7,6 +7,26 @@ lookup, rank, iteration, scan and score update operate on a populated tree.
 
 [Five-size extension plan](PLAN-5-SIZES.md). The original four-size data below is preserved.
 
+## Latest five-size Apple M1 results
+
+All **40 combinations** completed: five sizes × eight operations, 24 observations
+per cell, 120 processes and 960 raw rows. Timing took **351.43 seconds**. Native and
+ASan/UBSan upstream tests passed (43 each), and sanitizer benchmark checks passed
+at every size, including 1M. Same CPU/compiler/flags as the original M1 run below.
+
+![Apple M1 five-size sorted-set matrix](apple-m1-five-sizes/size-matrix.svg)
+
+[Latest table and variation](apple-m1-five-sizes/SUMMARY.md) ·
+[CSV](apple-m1-five-sizes/summary.csv) · [Raw data](apple-m1-five-sizes/raw/) ·
+[Manifest and validation](apple-m1-five-sizes/manifest.json)
+
+The new 1M-member medians are approximately 259 ns/hit lookup, 439 ns/rank,
+1,149 ns/update and 4.8 ns/visited member for score-only iteration. These are local
+baseline observations. 39 of 40 cells have an A/A block outside ±1%; 11 cells have
+a shortest window below 10 ms. No optimization or cache-miss explanation is claimed.
+All raw rows remain, including slow observations. Compare M6 using this five-size
+matrix and the same output contracts, not an aggregate across different operations.
+
 ## Original four-size Apple M1 results
 
 Completed on Apple M1 / macOS 26.3, Apple Clang 17, C11 `-O3`, one unpinned thread.
