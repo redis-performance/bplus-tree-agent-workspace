@@ -368,3 +368,29 @@ Compiler/OS/affinity differences remain confounded. No corrected M1 data is pres
 The original five-host chart remains byte-identical. PNG/SVG, per-host summaries,
 source parity, reproduction commands and checksums are retained; the combined PNG
 was visually inspected. All source adoption remains NONE.
+
+
+## 19 October 05:39 UTC — corrected ARM NEON discovery rejected
+
+The actual three-proposal / three-implementation population completes all 144
+serial CPU2 rows and 36 ABBA blocks against qualified corrected-source controls.
+Every candidate is slower in every primary block. Median elapsed changes at
+100K / 1M: A +100.169% / +69.898%, B +78.161% / +55.342%, C +100.075% / +69.457%.
+Decision **REJECT / NONE**. No survivor or eligible independent confirmation;
+the prepared held-out driver remains unexecuted. All three patches are retained.
+
+Root independently reconstructs the exact rotating schedule, every raw row and
+elapsed-based effect, fixture/checksum/callback/owned-memory joins, CPU boundaries,
+serial windows and 298 immutable evidence hashes. Independent AMD review also
+reconstructs all 48 controls and 406 total evidence hashes; C authorship is disclosed.
+Pre/post identities rely on the completed frozen driver's checks and published live
+record; neither reviewer claims a new remote binary read.
+[Root audit](reviews/aws-arm-corrected-neon-discovery-audit.json),
+[independent review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ffd0dbf58/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/023-arm-neon-validation-review/DISCOVERY-REVIEW.md).
+
+AWS completed populations: **8 — 0 accepted / 5 rejected / 3 parked**; architecture
+replications remain separately counted. Main tree source is unchanged. A read-only
+assembly diagnosis identifies unexpected per-chunk predicate reconstruction; a new
+bounded matched profile may test attribution, without revising this rejection.
+Intel supplemental guard comparison continues. Its separately frozen corrected-source
+baseline profile/control protocol6ed4d361e is reviewed and approved after that job ends.

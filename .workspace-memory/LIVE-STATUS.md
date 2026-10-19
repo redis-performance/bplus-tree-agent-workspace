@@ -1,11 +1,10 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:29 UTC
+## Current AWS overnight checkpoint — 19 October 05:39 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
-Main tree source remains unchanged; source adoption NONE. Seven previously audited
-measured populations: 0 accepted / 4 rejected / 3 parked. New corrected ARM NEON
-population completes 144 discovery rows; worker reports all three slower, REJECT/NONE.
-Root and independent AMD result audits are pending; no confirmation is eligible.
+Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
+ARM NEON completes 144 discovery rows, every block slower: REJECT/NONE. Root and
+independent AMD raw audits pass; held-out confirmation is ineligible/unexecuted.
 All three implementations passed 145 native validation commands before discovery.
 
 Original-adapter Intel scan B passes discovery and independent primary confirmation;
