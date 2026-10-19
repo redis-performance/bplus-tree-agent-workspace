@@ -523,3 +523,19 @@ checkpoint; evidence review continues. No source adoption. The06:02 live fleet
 check confirms three stopped OSS coordinators and08:00UTC release timers; actual
 restoration remains pending.
 [Pre-deadline check](reviews/aws-release-preflight-0602.json).
+
+
+## 19 October 06:18 UTC — retained patches and environmental evidence
+
+[Patch index](AWS-PATCH-INDEX.md) pins all24 measured-population patch records.21
+apply cleanly to unchanged public C/H;3 require the augmented private decoder
+control. No patches are adopted. Separate replication artifacts are not counted as
+new populations. All three workers have published host results reports with release
+explicitly pending.
+
+One frozen read-only environment observation per host runs for600s under620s owned
+limits, starting about06:15UTC. It records current idle CPU activity, PSI and available
+frequency metadata; the observer runs outside CPU2's sibling set. It is not an A/A
+retry or a causal explanation for earlier noise. [Frozen plan](ambient-observation/PLAN.md).
+ARM separately prepares a corrected-source score-only iterator baseline diagnosis;
+no launch before review and observation completion.

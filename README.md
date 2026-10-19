@@ -41,7 +41,8 @@ proposal review selected NONE despite qualified controls; all three proposals an
 the conditional implementation dissent are retained. No new candidate.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
-[Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
+[Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·
+[All24 retained patch records](experiments/NIGHT-EXPLORATION-001/AWS-PATCH-INDEX.md).
 
 **Standalone adapter correction:** the panic declaration now conveys its existing
 non-returning behavior. The reviewed C11 `_Noreturn` change preserves every assertion
