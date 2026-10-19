@@ -1,5 +1,8 @@
 # Experiment log
 
+M6 05:38 UTC: exact decoder replications COMPLETE/audits PASS,20,640 processes/2,662,560 batches including fixed freshA; every timer window<10ms. EXP007 privateA repeats−34.344992% but primaryAA/guards/shortwindows keepPARK/sourceNONE; EXP008NONE. Combined chart visually reviewed. Original EXP008 expanded post-discovery correctness16,512/16,512PASS,8256native+8256sanitizer; allsources/binaries unchanged. Next019 corrected-adapter index baseline profile prepared:24 semantic checksPASS,53 frozen identities after review fixes; enabled binary never executed. Root+independent reviews/publication/exclusive release required. No candidate or count change; root continues08:00UTC, experimental cutoff07:15.
+
+
 M6 decoder discovery audits PASS: all19,200 processes/2,476,800 batches reconstructed with exact schedules, hashes, statistics, fixtures/checksums and serial UTC; complete raw evidence copied byte-identically. Every individual timer window is below10ms, so full precision qualification is0/210 cells. EXP007 conditional primary medians A−34.272446%, B−20.477069%, C−24.790811%; original diagnostic shortlistA triggers exactly one fresh confirmation (not adoption). EXP008 count16 gains fail for all, NONE/no confirmation. Original legacy adapter retained; corrected baseline separate. Source NONE and optimization counts unchanged. All three agents idle; publish exact follow-up plan before exclusive launch.
 
 [Replica results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md).

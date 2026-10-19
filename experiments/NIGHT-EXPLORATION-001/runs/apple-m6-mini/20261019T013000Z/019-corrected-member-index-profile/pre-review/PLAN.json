@@ -1,0 +1,113 @@
+{
+  "identity": "M6-CORRECTED-MEMBER-INDEX-SOFTWARE-PROFILE-001",
+  "classification": "PREPARATION ONLY baseline diagnosis, no source optimization/candidate/population",
+  "source_c_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "source_h_sha256": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+  "corrected_adapter_header_sha256": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+  "corrected_adapter_c_sha256": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3",
+  "binary": "scratch/m6-corrected-member-index-profile/native/enabled",
+  "captures": [
+    {
+      "case": "lookup-hit",
+      "size": 100000,
+      "seed": 1
+    },
+    {
+      "case": "lookup-hit",
+      "size": 100000,
+      "seed": 2
+    },
+    {
+      "case": "lookup-hit",
+      "size": 1000000,
+      "seed": 1
+    },
+    {
+      "case": "lookup-hit",
+      "size": 1000000,
+      "seed": 2
+    },
+    {
+      "case": "lookup-miss",
+      "size": 100000,
+      "seed": 1
+    },
+    {
+      "case": "lookup-miss",
+      "size": 100000,
+      "seed": 2
+    },
+    {
+      "case": "lookup-miss",
+      "size": 1000000,
+      "seed": 1
+    },
+    {
+      "case": "lookup-miss",
+      "size": 1000000,
+      "seed": 2
+    },
+    {
+      "case": "rank",
+      "size": 100000,
+      "seed": 1
+    },
+    {
+      "case": "rank",
+      "size": 100000,
+      "seed": 2
+    },
+    {
+      "case": "rank",
+      "size": 1000000,
+      "seed": 1
+    },
+    {
+      "case": "rank",
+      "size": 1000000,
+      "seed": 2
+    },
+    {
+      "case": "scan",
+      "size": 100000,
+      "seed": 1
+    },
+    {
+      "case": "scan",
+      "size": 100000,
+      "seed": 2
+    },
+    {
+      "case": "scan",
+      "size": 1000000,
+      "seed": 1
+    },
+    {
+      "case": "scan",
+      "size": 1000000,
+      "seed": 2
+    }
+  ],
+  "requested_ops": 10000000,
+  "member_bytes": 16,
+  "warmup_passes": 3,
+  "environment_overrides": {
+    "PROFILE_USEC": "1000"
+  },
+  "minimum_captured_PCs": 10,
+  "maximum_captured_PCs": 65536,
+  "uncapped_required": true,
+  "insufficient_policy": "Keep every fixed row; insufficient stays insufficient; no repeat/retune",
+  "phase_cap_seconds": 600,
+  "child_cap_seconds": 45,
+  "child_clipped_remaining": true,
+  "cleanup_reserve_seconds": 10,
+  "absolute_stop_utc": "2026-10-19T07:15:00+00:00",
+  "sample_scope": "Hooks immediately after original start timestamp and before original elapsed timestamp around selected operation, after warmup/expected-work preparation; signal boundary/hook code can be sampled. No fixture setup/warmup/post-oracle inside bracket.",
+  "scan_semantics": "Scan may emit duplicate entries. Preserve canonical actual emitted operations, checksum, traversals and independent full byte/score/coverage oracle; no n-only replacement.",
+  "timing_fields_used": false,
+  "metrics": "PC counts/locations only; no cycles, cache costs, latency, speed or unbiased time-share claims",
+  "authorization": "Root and distinct independent PASS, published exact freeze ACK, exclusive idle runner, no captures during preparation",
+  "participant": "/root/followup_proposal_c",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/currency cost unknown"
+}

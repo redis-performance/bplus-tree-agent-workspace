@@ -1,0 +1,81 @@
+{
+  "status": "PASS: independent static prelaunch review; not execution authorization",
+  "reviewer": "/root/followup_proposal_b",
+  "preparer": "/root/followup_proposal_c",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/currency cost unknown",
+  "freeze_sha256": "2aad43fdd9ce492a5f5fb01c27fc0d065686d7338e6ec70c23aeedb072295020",
+  "driver_sha256": "0c9da1c6442d7a4537275d42b602581a8b8b1c2d765c276ff0959de3b99ef9bc",
+  "plan_sha256": "23a6955d8dd387c7563716b0f32d15fb27c593e9b3c1ab628ff76d857ca50532",
+  "frozen_identities_verified": 53,
+  "enabled_binary_sha256": "7c088393dcd381154869327e626d06e4bd73c42a93ed888663e796b1e8cfefb8",
+  "source_and_binary_executed_by_reviewer": false,
+  "checks": {
+    "exact16_fixed_capture_order": true,
+    "operations10000000_member16_seeds1and2_sizes100Kand1M": true,
+    "corrected_source_and_adapter_identity": true,
+    "original_benchmark_restored_byte_exact_by_removing3_hooks": true,
+    "sampler_byte_identical_to_frozen002": true,
+    "all4_retained_binary_and_object_hashes": true,
+    "original_disabled_enabled_link_same_tree_standalone_siphash_objects": true,
+    "correctness24_raw_command_exit_codes_and_csv_semantic_metadata": true,
+    "correctness48_actual_raw_log_hashes_and_empty_stderr": true,
+    "original43_per_build_native_sanitizer_log_hashes_and_pass_markers": true,
+    "scan_duplicate_emissions_callback_bytes_scores_coverage_preserved": true,
+    "AST_syntax_only": true,
+    "explicit_PROFILE_USEC1000": true,
+    "no_overwrite_public_or_private": true,
+    "root_and_distinct_independent_PASS_plus_publication_hash_ACK_required": true,
+    "exclusive_runner_and_other_work_idle_ACK_required": true,
+    "child45_clipped_remaining_with10_cleanup_reserve": true,
+    "phase600_and_absolute0715UTC_parent_watchdog": true,
+    "owned_process_group_kill_races_reap5_seconds_group_check3_seconds_and_journal": true,
+    "watchdog_SIGALRM_deferred_through_cleanup_journal": true,
+    "post_derive_and_serialization_deadline_checks": true,
+    "minimum10PCs_uncapped65536_max_no_retry_retune": true,
+    "public_PC_bins_preserve_aliases_and_ambiguity": true,
+    "raw_PCs_paths_timing_fields_private": true
+  },
+  "resolved_findings": [
+    {
+      "id": "R1",
+      "issue": "Initial own-image bin derivation discarded coalesced symbol aliases and selected one name",
+      "resolution": "Retain full sanitized aliases, symbol_ambiguous and ambiguous-coalesced-symbol label;3 genuine coalesced entries among103 sorted unique in-text map addresses"
+    },
+    {
+      "id": "R2",
+      "issue": "Initial completion path lacked deadline checks after derivation and serialization",
+      "resolution": "Both post-operation checks present, plus one parent real-time phase watchdog clipped to earlier600seconds or0715UTC, leaving10seconds cleanup reserve"
+    },
+    {
+      "id": "R3",
+      "issue": "New watchdog could interrupt mandatory run-finally reaping/journal after an ordinary child exit",
+      "resolution": "SIGALRM blocked throughout mandatory cleanup and record writing; prior mask restored only afterward, delivering pending expiry into incomplete outcome"
+    }
+  ],
+  "prior_reviews_preserved": [
+    "pre-review/{freeze.json,capture.py,PLAN.json}",
+    "pre-review-round2/{freeze.json,capture.py,PLAN.json}"
+  ],
+  "outstanding_blockers": [],
+  "limitations": [
+    "Static review does not establish runtime equivalence of enabled hook frontend; its registers/frame/control flow change and disabled assertion locations differ. Shared tree object proves unchanged tree compilation only.",
+    "Enabled binary was not executed during preparation or this review. Captures must still satisfy unchanged runtime semantic assertions and PC sufficiency; failures/insufficiency stay preserved, without retry.",
+    "Timer-based PC locations are not cycles, exact instruction costs, latency, frequency or unbiased time shares. Ambiguous/coalesced bins cannot identify one cold symbol.",
+    "ACK idle/exclusive/publication assertions require root ownership discipline; review does not itself launch or authorize a capture.",
+    "Host failure/SIGKILL or absent safe-release evidence requires root ownership review; no permission/workaround change is proposed."
+  ],
+  "reviewed_evidence_sha256": {
+    "README.md": "31e3b9612bb143f2306a3c73b967bb6df3c48654e5111dccb853f5d5d793bfee",
+    "PLAN.json": "23a6955d8dd387c7563716b0f32d15fb27c593e9b3c1ab628ff76d857ca50532",
+    "capture.py": "0c9da1c6442d7a4537275d42b602581a8b8b1c2d765c276ff0959de3b99ef9bc",
+    "source-equivalence.json": "7755bca34ef9e778d9f0a4b4888b49facb02202e6b3bda3bf9f60a61c9f29489",
+    "validation.json": "9091191bd58a765741a8a6b48c4c91e0aa3168327e09307a33543ef0e4bc55f4",
+    "reused-tests.json": "3480447f87b106bebf0890d536e16b7194c893eb5b748ad88260529f5bb51f00",
+    "codegen.json": "bb36941850493736c928c0af90b30576839be177a6a58d96b89aabf95f9cd44b",
+    "PREPARATION.json": "a576c3f733d0fa3b3bfb714aa75ae8767fd106c21c24967f7cb2abbec0993ecd",
+    "commands.json": "d77d16b522ea4820543f2df995795867befc5e52e79f707f47e716e5c746efa7"
+  },
+  "new_builds_tests_profiles_or_timings": 0,
+  "new_agents": 0,
+  "shared_source_referee_permission_or_Git_changes": false
+}

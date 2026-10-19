@@ -90,7 +90,7 @@ new and original adapter measurements must stay separate. No tree optimization i
 
 ## Latest results — Apple M1, M6 and three AWS architectures
 
-M6 driver checkpoint: three exact decoder replications completed 19,200 serial processes; analysis and independent audits are in progress. The separate timing-method review selected NONE. [Live evidence](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/EXECUTION-SUMMARY.json). Tree source and optimization counts are unchanged.
+M6 driver checkpoint: three exact decoder replications and one fixed fresh confirmation completed 20,640 serial processes, with independent audits and all raw rows retained. All timing windows are below10ms; source selection remains NONE. A corrected-adapter member-index profile is preparing. [Latest evidence](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md).
 
 ### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members
 
@@ -178,6 +178,13 @@ no workload qualifies controls forbothadapters. This is a harness diagnostic;
 no tree optimization is accepted.
 
 ![M6 matched panic compiler contract: all six blocks and failed controls](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/adapter-diagnostic.png)
+
+The exact decoder replications retain a roughly−34.34% private full-leaf median
+for EXP-007 A on fresh seeds, but failed controls, guard losses and short windows
+prevent source adoption. EXP-008 fails all count16 gain gates. Every raw row is
+retained;16,512 expanded native/sanitizer correctness cells pass.
+
+![M6 decoder replications: all block effects, controls and short-window limits](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/decoder-replications.png)
 
 Recorded on this branch: **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. Concurrent M1 night populations

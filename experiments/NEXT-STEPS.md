@@ -1,18 +1,29 @@
-# Current M6 driver action — 19 October
+# Current M6 driver action — 19 October, 05:28 UTC
+
+The exact EXP-004/007/008 new-host replications are complete. Discovery audits
+pass all19,200 processes and2,476,800 batches, but every individual window is
+below10ms: full precision qualification0/210. EXP-008 fails its primary gain
+rules and selectsNONE. EXP-007 A repeats roughly−34% at its private bulk primary
+on fixed fresh seeds; failed controls and guard losses prohibit adoption. Fresh
+confirmation audit and combined chart are in progress. Do not repeat or retune
+these frozen schedules. [Evidence](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md).
+
+Next prepare a corrected-adapter baseline-only profile of lookup-hit, lookup-miss,
+rank and scan at100K/1M, seeds1/2,10M operations,16-byte members and three warmups.
+Capture only after exact-source correctness, driver review, published freeze and
+exclusive runner release. This diagnoses compact member-index locations; no new
+optimization hypothesis or implementation is selected. Required independent
+proposals/chair and isolated implementation selection still apply to any later
+candidate. Stop experiments07:15UTC; final reporting through08:00UTC/09:00Lisbon.
 
 The truthful standalone panic `_Noreturn` correction is on main13e459ff8.
-M1/AWS sessions must preserve their historical adapter identity and qualify fresh
-baselines before comparing tree candidates under the corrected adapter. Never
-subtract timings from different sessions/adapters to claim a gain.
-
-M6's matched old/new adapter diagnostic012 completed576processes but no workload
-has both controls qualified; all effects remainconditional. No tree candidate or
-cache replication is selected. Prepare a freshcorrected-adapter iterator profile,
-then use the required independent proposals/chair before implementation. Keep the
-same completed12candidatepopulations and0accepted/7rejected/5parked counts.
-
-Earlier next-step entries below are historical; completed M6 schedules are not
-requests to rerun them. Current host STATUS.md and source/harness identities govern.
+Historical decoder replications intentionally retain their original adapter.
+M1/AWS sessions must qualify fresh baselines before comparisons under the corrected
+adapter. Matched diagnostic012 has no jointly qualified workload; all effects
+remainconditional. Corrected iterator profile013 and metrology review017 are
+complete;017selectedNONE. No hardware counter route is qualified after016OSdenial.
+SourceNONE;12completed candidate populations,0accepted/7rejected/5parked unchanged.
+Earlier entries below are historical. Current host STATUS and frozen identities govern.
 
 # Next steps after EXP-008 (Apple M1)
 
