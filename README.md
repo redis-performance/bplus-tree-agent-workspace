@@ -88,15 +88,15 @@ Separate corrected-adapter baselines are complete on all three AWS hosts:
 stages pass on each host. [New four-host chart](#corrected-adapter-baselines-m6-and-three-aws-architectures).
 Earlier baselines and experiment decisions retain their original adapter identity.
 
-## M6 lookup follow-up — parked at baseline controls
+## M6 lookup — clock brackets applied, fresh baseline parked
 
-[Clock-bracket harness revision](experiments/M6-CLOCK-BRACKET-001/STATUS.md) passes native/sanitizer correctness and exact frontend checks; compiled-code review precedes the separate fixed controls and fresh A/A schedule. Earlier results below remain unchanged.
+The [new lookup harness](experiments/M6-CLOCK-BRACKET-001/RESULTS.md) records six timestamps around unchanged work. Both original43-test suites (native/ASan/UBSan),36 paired frontend checks and72 empirical control rows pass. Independent codegen review confirms all72 tree functions match after relocations. Fresh48-run A/A qualifies **100K6/6 and1M2/6**; the four failed1M blocks are+3.418%,+1.014%,−1.573% and+1.254%. **Baseline PARK; source NONE.** Native ownership is released, with no queued workload. Final raw audit is pending.
 
-[Shared session index](experiments/ACTIVE-SESSIONS.md) · [EXP-009 result and ownership](experiments/EXP-009/STATUS.md). Fresh corrected-baseline validation and profiles pass, but the48-run control check qualifies **100K6/6 and1M3/6 blocks**. Failed1Mblocks are−1.414%,+1.036% and+2.567% despite586–630ms windows. **PARK before candidate code or timing; source NONE.** The guarded lookup idea remains unresolved, and local M6 native ownership is released. [Complete results, raw rows and reviews](experiments/EXP-009/RESULTS.md).
+![Latest M6 clock brackets: all fresh lookup controls and all72 empirical rows](experiments/M6-CLOCK-BRACKET-001/clock-brackets.png)
 
-[New M6 offline diagnosis](experiments/M6-METROLOGY-001/README.md): the same three failed1M controls also exceed±1% on recorded threadCPUtime. The wall/thread residual alone does not explain the failures; clock accounting and the native cause remain unresolved. Three independent raw reconstructions agree; no corrective timing method is ready. No benchmark rerun or source change. [Original controls chart](experiments/EXP-009/aa-controls.png).
+Recorded lookup edge margins are0–4µs, while clock accuracy/accounting error remains unbounded. Three empty controls have inconsistent zero-error intervals and remain visible as inconclusive diagnostics. The thread clock never replaces the wall acceptance gate. [Shared session index](experiments/ACTIVE-SESSIONS.md) · [current status](experiments/M6-CLOCK-BRACKET-001/STATUS.md).
 
-![M6 lookup controls compared on wall and thread CPU clocks; all original blocks retained](experiments/M6-METROLOGY-001/wall-thread.png)
+Earlier [EXP-009](experiments/EXP-009/RESULTS.md) remains PARK before candidate code/timing (100K6/6,1M3/6), and its [original chart](experiments/EXP-009/aa-controls.png) is retained. The separate [offline clock diagnosis](experiments/M6-METROLOGY-001/RESULTS.md) and [wall/thread chart](experiments/M6-METROLOGY-001/wall-thread.png) also remain unchanged. These different frontends/sessions are not an old/new speed comparison. Historical M6 counts remain12 populations:0accepted/7rejected/5parked; the harness/qualification adds no source population.
 
 ## Build and test
 
