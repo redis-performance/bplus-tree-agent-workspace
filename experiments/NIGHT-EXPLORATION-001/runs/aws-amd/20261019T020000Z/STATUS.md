@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent ARM proposal 675346e5e sealed without peer reads: bounded native 16-byte exact matching, pending root chair and ARM controls. Intel B/referee review published 9b6e529b5; adoption remains PARK. AMD host idle; no Intel runner access or held-out seed use.
+Root explicitly granted idle Intel runner after independent idle proof at04:05:08UTC. Frozen5c29cb07f held-out primary AA now running under existing CPU2 lease/300s cap; B confirmation gated on full control qualification. AMD host remains idle; no rebuild or extra workload.
 
-AMD totals: 4 populations, 0 accepted, 3 rejected, 1 parked. Source NONE. Deadline 08:00 UTC; no new experiments after 07:15 UTC.
+Source NONE. AMD totals remain4 populations:0accepted,3rejected,1parked.
