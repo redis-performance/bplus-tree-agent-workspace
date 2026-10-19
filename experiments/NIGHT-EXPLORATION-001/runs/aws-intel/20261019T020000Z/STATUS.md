@@ -1,3 +1,3 @@
 # Intel native status
 
-2026-10-19T02:15:33.650823+00:00 — Lookup population REJECT/NONE: all three SSE2 variants slow both primary sizes in every block.432rows/108blocks, all exact-memory checks pass;100K qualified control,1M unqualified. One completed sequential population,0accepted/1rejected/0parked. Three patches preserved. Next separate update-path profile.
+2026-10-19T02:28:37.633984+00:00 — Lookup REJECT/NONE(1measured sequential population,3patches), update diagnosis NONE(no implementation population). Update360semanticchecks/15scopedprofiles+control/25censuscells/600baseline rows complete;2/25controls qualify. No steal or sibling interference recorded. Source unchanged. Evaluating optional queue and cross-host leads; no duplicate count-one race with ARM.

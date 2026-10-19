@@ -1,3 +1,3 @@
-# Intel handoff
+# Intel native handoff
 
-Lookup complete REJECT/NONE; all source remains baseline8fab511e. Read002-lookup/implementation-selection.md. Next separate update-path profile; no more scanner timing. Deadline08:00UTC, stop new experiments07:15UTC. All workloads through assigned runner bounded helper; PMU unavailable (paranoid4), use explicitly instrumented/scoped diagnostics.
+002lookup REJECT/NONE;003update diagnosis NONE with validated newreferee/profile/census/baseline. BothREADMEs link evidence. No target source changes. Root-reviewed lookup bounds+rawaudit; root-reviewed updatefixture code. Candidate counts1completedmeasured sequential population,0accepted/1rejected/0parked,3losingpatches. Next only profile-supported optional direction or a compelling exact cross-host contender; no repeatedfailedschedules/weakneighborpopulation. Deadline08:00UTC; no new experiments07:15UTC. PMUunavailable; no permissionchanges.
