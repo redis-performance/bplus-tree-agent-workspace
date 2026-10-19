@@ -97,13 +97,15 @@ Original charts and raw observations remain unchanged.
 
 ## Apple repository status
 
-M6 publication `fc7350a91` records the 07:15 UTC experimental cutoff and no queued
-native workload. Its corrected NEON replication is PARK before candidate timing after
+M6 final publication `85afa6c7b` records campaign closeout at 09:00 Lisbon, the
+07:15 UTC experimental cutoff and no queued native workload. Its corrected NEON replication is PARK before candidate timing after
 two 1M fresh-control failures. M1 publications `d41738b05` and `2baeafcef` resolve the
 earlier publication/DNS failures and record receipt of M6's decision at 06:50 UTC,
 with no further source experiment queued. Apple decisions and population counts remain
 separate from AWS. These are repository observations; this campaign did not control
 the Apple runners.
+
+[M6 final handoff](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/85afa6c7b/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md).
 
 ## Next measurement
 

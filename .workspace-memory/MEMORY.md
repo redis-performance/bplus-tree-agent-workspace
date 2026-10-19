@@ -20,7 +20,7 @@ Original five-host chart retained. Corrected-adapter chart covers M6/Intel/AMD/A
 3840 rows/160 cases, qualified5/10/11/21 of40 respectively; no corrected M1 baseline.
 Compiler/OS/affinity differences prevent causal architecture rankings. Apple ledgers
 remain separate. M1d41738b05/2baeafcef resolves earlier DNS/publication failures;
-M6fc7350a91 reports experimental cutoff/no queued workload. No Apple-host control.
+M6 final85afa6c7b reports campaign closed/no queued workload. No Apple-host control.
 
 [Morning report](../experiments/NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md) and
 [live handback proof](../experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json)
