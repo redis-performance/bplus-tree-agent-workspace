@@ -40,3 +40,5 @@ Validation: all four sources pass43 unchanged original tests per native/sanitize
 Independent static review: main434e39ef5, experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-iterator-cache-pre-screen.md. Every driver was compiled against its corresponding header. audit-screen.py reconstructs raw CSV rows, all141 effects, serial process windows, fixture/checksum identities, memory and frozen hashes. The two trailing rows are preserved but do not form an effect.
 
 Missing promotion gates: complete qualified primary/guard schedules, all masks and small/long/tie/zero workloads, iterator setup/range-delete costs, fresh independent confirmation, candidate profile validation and final adversarial review. One bounded matched scoped profile/codegen diagnosis is next; it cannot complete or repair this timing schedule. ARM replication is a separate architecture experiment on exact retained A/B patches. Root source8fab511e remains unchanged.
+
+[Matched profile diagnosis](MATCHED-PROFILE.md) is complete:36 captures/four disabled controls pass. It does not change PARK/NONE.

@@ -12,3 +12,5 @@
 2026-10-19T02:51:55.045776+00:00 Iterator cache validation passed:4sources×2builds×43originaltests and28,192statechecks,1,920fixturecells/source; two ASan reset-fault detections. Root review434e39ef5. Exact comparison frozen; exploratory576rows/300s next.
 
 2026-10-19T03:00:11.077038+00:00 Iterator decision PARK/NONE: fixed screen stopped300.30s at566/576 rows,141 full ABBA blocks +2 preserved tail; auditPASS. A/B conditional leads, C rejected. Additive oracle89,428 checks/source/build passes. Intel totals2 measured sequential populations (iterator partial),0 accepted/1 rejected/1 parked,6 patches. Root source unchanged.
+
+2026-10-19T03:03:49.809033+00:00 Matched iterator diagnosis complete:36 enabled captures/four disabled controls,55.61s including builds; all audit checks pass. Cache arithmetic bypass confirmed statically, C regression cause unresolved. PARK/NONE unchanged. Root independent raw audit847ed4096. Intel runner idle; separate AMD scan proposal review next, no new timing authorized by a hypothesis yet.
