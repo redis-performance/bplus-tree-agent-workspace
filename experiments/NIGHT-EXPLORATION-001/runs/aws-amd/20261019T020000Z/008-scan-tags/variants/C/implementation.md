@@ -1,0 +1,13 @@
+# Independent implementation C
+
+Author: `/root/aws_arm`, native Codex worker. Exact serving model and token/USD costs are unknown. Written independently from source8fab511e after chair0695cf415. I did not read AMD A or Intel B patches before this submission. No superficial differences were forced. Parent disclosed AMD's earlier tentative memchr direction after my original proposal was committed; C implements the selected exact SIMD hypothesis, not that alternative.
+
+The patch changes only the all-match helper, its descriptive comment and one guarded local SSE2 include. Complete16-byte chunks use memcpy into an SSE2 value, exact equality, optional zero-byte equality for tag1, and movemask. Set bits are enumerated in ascending physical order before the original reversed logical mapping. Scalar residual bytes remain bounds checked. Under targets without SSE2, the original SWAR implementation remains unchanged. `ZBT_LEAF_TAG_MATCHES_SCALAR` selects that unchanged fallback for correctness tests only; native timing flags must not define it.
+
+No early return after a match, no overread, no first-match reuse, no changed index masks, layouts, callbacks, allocator, hashing or target flags. Zero-length spans never dereference tags or subtract a position. The SIMD path compares byte bits exactly, including tags128–255. `memcpy` avoids alignment/aliasing assumptions for loads; count-pos>=16 proves each complete chunk remains inside the tag span.
+
+Local validation used isolated x86-64 source/builds and Ubuntu Clang18.1.3. The unchanged common oracle fromef63534a7 passes native-O3, ASan/UBSan-O1 and forced-scalar-O3:297,984 checks,78,376 returned positions,3,072 zero spans, identical digestf04089fc9f619605 in each mode. Original43 upstream tests pass native. Logs and final binary/source/patch hashes are preserved. A documentation-only clarification was made before the final oracle rebuild; final tests refer to the submitted source. Native assembly contains pcmpeqb/pmovmskb; no local timing or AMD speed claim is made. Local forced fallback is not native ARM or big-endian execution.
+
+AMD must still build all three immutable candidates with identical runner flags, execute the full original/additive scan oracle and fault-control matrix, freeze performance guards and retain its unqualified1M A/A status. Local checks do not replace that campaign validation or root static review. ARM iterator timing ran independently on its assigned host throughout; no extra ARM workload was launched for C.
+
+Signed `/root/aws_arm` (authorship, not a cryptographic signature). Submitted 2026-10-19T03:16:17.009511+00:00.

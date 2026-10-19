@@ -1,5 +1,5 @@
 # AWS AMD native checkpoint
 
-FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 2% improvement. A −0.609%/+0.380%, B +0.265%/+0.403%, C −0.824%/+0.854% median elapsed at 100K/1M. All patches/raw evidence retained. AMD totals: 3 populations, 0 accepted, 3 rejected, 0 parked. Baseline source unchanged.
+Three completed populations: LOWERBOUND-001, BUILDER-WRITE-001 and FULL-CHUNKS-001 all REJECT/NONE, all raw rows and losing patches retained. Baseline target source unchanged.
 
-Completed decisions:002-lowerbound,004-builder-write,005-full-chunks implementation-selection.md. Baseline source unchanged. Next: inspect repeated query SDS length loads, no hypothesis selected. Deadline08:00UTC, no new experiments after07:15UTC. No source adoption overnight.
+Current fourth population008-scan-tags: actual AMD/Intel/ARM proposals, root chair0695cf415 chose bounded16-byte SSE2 exact all-match scanner. AMD implementation A immutable d76d63b79. Extended baseline oracle fa2d07d7d passes299664checks in native/sanitizer modes; awaiting peer artifacts and root all-three review before serial validation. Fresh1M A/A fails, so planned fixed144process screen is exploratory only. Full performance guard gaps explicitly block adoption. Deadline08:00UTC, no new experiments after07:15UTC. SourceNONEovernight.
