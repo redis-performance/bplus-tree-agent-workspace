@@ -99,3 +99,5 @@
 - 2026-10-19T06:05:08.397157+00:00: Iterator029 baseline profile running under reviewed234f70f44 and ARM3adfc0c42/root grant: frozen600s lease, CPU2, no candidate. AA gated on full profile controls/audit/mapping.
 
 - 2026-10-19T06:06:08.263744+00:00: Iterator029 profile complete: 51 commands pass, 1218 scientific samples, known scope/disabled controls pass, sampled tree bytes map exactly to actual015. Caller differences retained. Fixed48 AA next under original grant; no candidate/sourceNONE.
+
+- 2026-10-19T06:08:12.636421+00:00: Iterator029 complete/NONE: profile51 commands pass,48 AA rows retained. 100K firstblock+2.430913% fails;1M allqualify(maxabs0.164846%), windows>=212ms. No retry/candidate. AMD owned jobs and btree processes zero; idle for root decision.
