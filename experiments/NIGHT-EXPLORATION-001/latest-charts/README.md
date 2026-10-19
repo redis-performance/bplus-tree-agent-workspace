@@ -43,3 +43,5 @@ From that checkout, run `python3 experiments/NIGHT-EXPLORATION-001/runs/apple-m6
 The main copies are byte-identical PNG/SVG/JSON artifacts.
 
 M6 member-index profile: `m6-member-profile.{png,svg,json}` is pinned to source commit `0e7325081`. Regenerate from the source directory with `uv run --with matplotlib python <source-directory>/plot.py`. The figure conserves all 16 captures and 2,469 observations; counts do not establish costs, time shares or speed. File hashes are in `m6-member-profile-publication.json`.
+
+M6 fresh SCAN controls: `m6-neon-aa.{png,svg,json}` is pinned to 8bcd75d704eae2b4f45131531a3d8177cb852c09. Regenerate with `uv run --with matplotlib python <source-directory>/plot-aa.py`. All twelve A/A blocks are shown; no candidate comparison ran. File hashes are in `m6-neon-aa-publication.json`.

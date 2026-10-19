@@ -145,7 +145,7 @@ Status snapshot: **19 October 2026, 02:03 UTC**. The host links show ongoing upd
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
-| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five trials rejected; adapter effects conditional; source NONE](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five trials rejected; NEON blocked at controls; source NONE](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel Sapphire Rapids (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 338.54s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/001-baseline/SUMMARY.md) | 27/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-intel-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/STATUS.md) |
 | AMD Zen 5 (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 325.44s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/001-baseline/SUMMARY.md) | 30/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-amd-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/STATUS.md) |
 | AWS Graviton / Neoverse V2 (arm64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 377.83s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/001-baseline/SUMMARY.md) | 19/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-arm-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/STATUS.md) |
@@ -272,9 +272,21 @@ now accounts for **16 captures and 2,469 observations**, with independent raw au
 unknown. Scan's inlined tag-matching ranges contain 184 observations; rank already
 vectorizes its child-count reduction. These are sampled locations, not cycle costs.
 The initial metadata failure and separate repair are preserved; no capture was
-repeated. Three independent proposals now review this evidence; source remains NONE.
+repeated. The resulting three-proposal review is complete; source remains NONE.
 
 ![M6 member-index profile: 16 audited captures, sampled locations only](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-member-profile.png)
+
+The [exact corrected NEON attempt](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8bcd75d704eae2b4f45131531a3d8177cb852c09/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/023-neon-replication/RESULTS.md)
+passes 141 validation commands and independent audits. All 48 fresh M6 baseline
+controls complete, but **1M fails two blocks: −1.467% and +1.641%** against the
+fixed ±1% gate. The 100K control qualifies in all six blocks; all windows exceed
+223 ms. **PARK before candidate timing:** no NEON speed result, retry or count
+change. The original three patches and authors remain unchanged.
+
+![M6 fresh scan controls: all twelve blocks, two failed controls and no candidate comparison](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-neon-aa.png)
+
+The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8bcd75d704eae2b4f45131531a3d8177cb852c09/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
+links the decisions, raw audits and limits. Final reporting continues to 09:00 Lisbon.
 
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
