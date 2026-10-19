@@ -1,0 +1,124 @@
+ Percent |	Source code & Disassembly of base-fifo2-profile for cycles:u (92 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------
+         : 0    0xa7a0 <zbtScoreFindLeaf>:
+    0.00 :   a7a0:        pushq   %rbp
+    0.00 :   a7a1:        movq    %rsp, %rbp
+    0.00 :   a7a4:        pushq   %r15
+    0.00 :   a7a6:        pushq   %r14
+    0.00 :   a7a8:        pushq   %r13
+    0.00 :   a7aa:        pushq   %r12
+    0.00 :   a7ac:        pushq   %rbx
+    0.00 :   a7ad:        subq    $0x18, %rsp
+    0.00 :   a7b1:        movq    %rdx, -0x30(%rbp)
+    0.00 :   a7b5:        movq    %rsi, -0x38(%rbp)
+    0.00 :   a7b9:        movsd   %xmm0, -0x40(%rbp)
+    0.00 :   a7be:        testq   %rdi, %rdi
+    0.00 :   a7c1:        je      0xa93a <zbtScoreFindLeaf+0x19a>
+    0.00 :   a7c7:        movq    %rdi, %rbx
+    0.00 :   a7ca:        jmp     0xa7df <zbtScoreFindLeaf+0x3f>
+    0.00 :   a7cc:        movl    $0xffffffff, %eax
+    0.00 :   a7d1:        addq    %rax, %rcx
+    0.00 :   a7d4:        movq    %rcx, %r12
+    2.16 :   a7d7:        movl    %r12d, %eax
+    9.13 :   a7da:        movq    0x18(%rbx,%rax,8), %rbx
+   12.93 :   a7df:        cmpb    $0x0, 0x12(%rbx)
+   35.74 :   a7e3:        jne     0xa93c <zbtScoreFindLeaf+0x19c>
+    0.00 :   a7e9:        movzbl  0x11(%rbx), %eax
+    1.08 :   a7ed:        movl    $0xffffffff, %r12d
+    1.08 :   a7f3:        testb   %al, %al
+    0.00 :   a7f5:        je      0xa7d7 <zbtScoreFindLeaf+0x37>
+    0.00 :   a7f7:        xorl    %r12d, %r12d
+    0.00 :   a7fa:        jmp     0xa80b <zbtScoreFindLeaf+0x6b>
+    0.00 :   a7fc:        nopl    (%rax)
+    4.29 :   a800:        incq    %r12
+    1.08 :   a803:        movzbl  %al, %ecx
+    0.00 :   a806:        cmpq    %rcx, %r12
+    1.08 :   a809:        jae     0xa7cc <zbtScoreFindLeaf+0x2c>
+    1.08 :   a80b:        movsd   0x218(%rbx,%r12,8), %xmm0
+    5.39 :   a815:        ucomisd -0x40(%rbp), %xmm0
+    5.40 :   a81a:        ja      0xa7d7 <zbtScoreFindLeaf+0x37>
+   17.38 :   a81c:        jne     0xa800 <zbtScoreFindLeaf+0x60>
+    0.00 :   a81e:        jp      0xa800 <zbtScoreFindLeaf+0x60>
+    0.00 :   a820:        movq    0x18(%rbx,%r12,8), %rax
+    0.00 :   a825:        cmpb    $0x0, 0x12(%rax)
+    0.00 :   a829:        jne     0xa83f <zbtScoreFindLeaf+0x9f>
+    0.00 :   a82b:        nopl    (%rax,%rax)
+    0.00 :   a830:        movzbl  0x11(%rax), %ecx
+    0.00 :   a834:        movq    0x10(%rax,%rcx,8), %rax
+    0.00 :   a839:        cmpb    $0x0, 0x12(%rax)
+    0.00 :   a83d:        je      0xa830 <zbtScoreFindLeaf+0x90>
+    0.00 :   a83f:        movzbl  0x11(%rax), %edx
+    0.00 :   a843:        movzbl  0x34(%rax), %ecx
+    0.00 :   a847:        testq   %rcx, %rcx
+    0.00 :   a84a:        je      0xa860 <zbtScoreFindLeaf+0xc0>
+    0.00 :   a84c:        imull   %edx, %ecx
+    0.00 :   a84f:        addl    $0x7, %ecx
+    0.00 :   a852:        shrl    $0x3, %ecx
+    0.00 :   a855:        addl    $0x9, %ecx
+    0.00 :   a858:        andl    $-0x2, %ecx
+    0.00 :   a85b:        jmp     0xa862 <zbtScoreFindLeaf+0xc2>
+    0.00 :   a85d:        nopl    (%rax)
+    0.00 :   a860:        xorl    %ecx, %ecx
+    0.00 :   a862:        movl    $0xffffffff, %esi
+    0.00 :   a867:        addq    %rsi, %rdx
+    0.00 :   a86a:        addq    %rax, %rcx
+    0.00 :   a86d:        cmpb    $0x0, 0x35(%rax)
+    0.00 :   a871:        movl    %edx, %edx
+    0.00 :   a873:        movl    $0x0, %esi
+    0.00 :   a878:        cmovneq %rsi, %rdx
+    0.00 :   a87c:        movzwl  0x38(%rcx,%rdx,2), %ecx
+    0.00 :   a881:        leaq    (%rax,%rcx), %r13
+    0.00 :   a885:        movzbl  (%rax,%rcx), %r14d
+    0.00 :   a88a:        cmpq    $0xfd, %r14
+    0.00 :   a891:        ja      0xa8a0 <zbtScoreFindLeaf+0x100>
+    0.00 :   a893:        incq    %r13
+    0.00 :   a896:        movq    %r13, %r15
+    0.00 :   a899:        jmp     0xa8fb <zbtScoreFindLeaf+0x15b>
+    0.00 :   a89b:        nopl    (%rax,%rax)
+    0.00 :   a8a0:        cmpl    $0xfe, %r14d
+    0.00 :   a8a7:        jne     0xa8b7 <zbtScoreFindLeaf+0x117>
+    0.00 :   a8a9:        movzwl  0x1(%r13), %r14d
+    0.00 :   a8ae:        addq    $0x3, %r13
+    0.00 :   a8b2:        movq    %r13, %r15
+    0.00 :   a8b5:        jmp     0xa8fb <zbtScoreFindLeaf+0x15b>
+    0.00 :   a8b7:        movq    0xd(%r13), %r15
+    0.00 :   a8bb:        testq   %r15, %r15
+    0.00 :   a8be:        jne     0xa8f7 <zbtScoreFindLeaf+0x157>
+    0.00 :   a8c0:        leaq    0x8e1a(%rip), %rdi  # 0x136e1
+    0.00 :   a8c7:        movl    $0x257, %esi
+    0.00 :   a8cc:        leaq    0x8f5c(%rip), %rdx  # 0x1382f
+    0.00 :   a8d3:        callq   0x11880 <standalone_panic>
+    0.00 :   a8d8:        cmpb    $-0x1, (%r13)
+    0.00 :   a8dd:        je      0xa8f7 <zbtScoreFindLeaf+0x157>
+    0.00 :   a8df:        leaq    0x8dfb(%rip), %rdi  # 0x136e1
+    0.00 :   a8e6:        movl    $0x237, %esi
+    0.00 :   a8eb:        leaq    0x8f49(%rip), %rdx  # 0x1383b
+    0.00 :   a8f2:        callq   0x11880 <standalone_panic>
+    0.00 :   a8f7:        movq    0x5(%r13), %r14
+    0.00 :   a8fb:        movq    -0x30(%rbp), %rax
+    0.00 :   a8ff:        cmpq    %r14, %rax
+    0.00 :   a902:        movq    %r14, %rdx
+    0.00 :   a905:        cmovbq  %rax, %rdx
+    0.00 :   a909:        movq    -0x38(%rbp), %rdi
+    0.00 :   a90d:        movq    %r15, %rsi
+    0.00 :   a910:        callq   0x1120 <_init+0x120>
+    0.00 :   a915:        testl   %eax, %eax
+    0.00 :   a917:        jne     0xa929 <zbtScoreFindLeaf+0x189>
+    0.00 :   a919:        cmpq    -0x30(%rbp), %r14
+    0.00 :   a91d:        ja      0xa7d7 <zbtScoreFindLeaf+0x37>
+    0.00 :   a923:        setb    %al
+    0.00 :   a926:        movzbl  %al, %eax
+    0.00 :   a929:        testl   %eax, %eax
+    0.00 :   a92b:        jle     0xa7d7 <zbtScoreFindLeaf+0x37>
+    0.00 :   a931:        movzbl  0x11(%rbx), %eax
+    0.00 :   a935:        jmp     0xa800 <zbtScoreFindLeaf+0x60>
+    0.00 :   a93a:        xorl    %ebx, %ebx
+    0.00 :   a93c:        movq    %rbx, %rax
+    1.08 :   a93f:        addq    $0x18, %rsp
+    0.00 :   a943:        popq    %rbx
+    0.00 :   a944:        popq    %r12
+    0.00 :   a946:        popq    %r13
+    0.00 :   a948:        popq    %r14
+    0.00 :   a94a:        popq    %r15
+    1.08 :   a94c:        popq    %rbp
+    0.00 :   a94d:        retq

@@ -1,0 +1,44 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -312,6 +312,15 @@
+     unsigned char *owner_record;
+ } zbtBuildElement;
+ 
++static int amd_active;
++static uint64_t amd_calls[33],amd_loops[33],amd_ties[33],amd_selected[33][32];
++void amdCensusReset(void) {memset(amd_calls,0,sizeof(amd_calls));memset(amd_loops,0,sizeof(amd_loops));memset(amd_ties,0,sizeof(amd_ties));memset(amd_selected,0,sizeof(amd_selected));amd_active=1;}
++void amdCensusDump(void) {
++ amd_active=0;fprintf(stderr,"{\"arities\":[");
++ for(unsigned n=0;n<33;n++) {fprintf(stderr,"%s{\"arity\":%u,\"calls\":%llu,\"loop_steps\":%llu,\"equal_score_checks\":%llu,\"selected\":[",n?",":"",n,(unsigned long long)amd_calls[n],(unsigned long long)amd_loops[n],(unsigned long long)amd_ties[n]);for(unsigned i=0;i<32;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_selected[n][i]);fprintf(stderr,"]}");}fprintf(stderr,"]}\n");
++}
++static unsigned int amdCensusSelect(unsigned int n,unsigned int i) {if(amd_active)amd_selected[n][i]++;return i;}
++
+ /* ------------------------- Packed score leaves -------------------------- */
+ 
+ /* Turn an IEEE double into an unsigned integer with the same ordering. This
+@@ -1224,17 +1233,20 @@
+ static unsigned int zbtScoreChild(zbtScoreInner *inner, double score,
+                                   const unsigned char *ele, size_t elelen)
+ {
++    if(amd_active)amd_calls[inner->n.count]++;
+     for (unsigned int i = 0; i < inner->n.count; i++) {
+-        if (score < inner->max_score[i]) return i;
++        if(amd_active)amd_loops[inner->n.count]++;
++        if (score < inner->max_score[i]) return amdCensusSelect(inner->n.count,i);
+         if (score == inner->max_score[i]) {
++            if(amd_active)amd_ties[inner->n.count]++;
+             size_t maxlen;
+             const unsigned char *maxele =
+                 zbtScoreNodeMaxElement(inner->child[i], &maxlen);
+             if (zbtCompareElements(ele, elelen, maxele, maxlen) <= 0)
+-                return i;
+-        }
+-    }
+-    return inner->n.count - 1;
++                return amdCensusSelect(inner->n.count,i);
++        }
++    }
++    return amdCensusSelect(inner->n.count,inner->n.count - 1);
+ }
+ 
+ /* Find the score leaf where a (score, member) pair belongs. */
