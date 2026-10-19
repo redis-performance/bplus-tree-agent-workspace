@@ -52,3 +52,11 @@ Iterator comparison is active under ddb4cf444, all1968fixed processes retained.
 ### 2026-10-19T10:06:07.252757+00:00 — Final REJECT and verified early handback
 
 Root raw audit+Intel d3cc358f2 independently reconstruct f30ac4330:1968processes/492blocks,9qualifiedall-sixREJECT/30PASS/4mixed/39unqualified,762.891763s. All nine losses score-only HARNESS004,medians+2.860..+8.519%; primary−7.78/−7.21 retained with distinctfrontend/no causal attribution. Sixphases total4272processes/5952rows. Profile and heldoutconfirmation UNEXECUTED after decisive rejection; no retries/retuning/newpopulation/adoption. Earlyrelease succeeded10:03:18 whiletimerarmed; timerstoppedaftersuccess. Freshliveproof10:03:25–27 OSSRUNNING/savedPIDmatches/inactiveslice/zeroownedunits+recursivePIDs/noerrors. Pendingreadonlyauditor cancelledafterproof. Private fleet RELEASED. FinalsourceNONE; allpatches/failures retained.
+
+### 2026-10-19T10:08:21.586778+00:00 — Final chart and report checks
+
+Added the reproducible final rejection chart: all12primary blocks and all54decisive guard blocks, separated by frozen frontend, with omitted guard categories explicitly counted. Visually inspected layout; no timings pooled or causal explanation claimed. Public README/report link the chart and real release proof. ARM ownbranch reporting closeout863a6ae99 preserves exact raw evidence and marks no queued work.
+
+### 2026-10-19T10:09:36.066665+00:00 — Final independent closure and verification
+
+AMD f509913cc independently confirms all nine qualified all-six losses and final closure; no material blocker. Root verified35existing report links plus the new immutable review, total4272processes/5952rows across six audits,54decisive guard blocks, currentREJECT/released/noqueue state and unchanged targetC/H hashes. git diff --check passes. Private fleet c8138f9e is pushed; ARM reporting863a6ae99 closed. No further runner work remains.

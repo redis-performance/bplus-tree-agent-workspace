@@ -13,6 +13,8 @@ held-out confirmation were not run after the decisive rejection.
 [Final evidence and charts](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md) ·
 [Activity log](experiments/ARM-MASK-FOLLOWUP-001/ACTIVITY.md).
 
+![ARM follow-up: primary gain and nine qualified guard regressions](experiments/ARM-MASK-FOLLOWUP-001/charts/final-rejection.png)
+
 **Fleet released:** ARM OSS restoration was verified at 11:03 Lisbon / 10:03 UTC,
 earlier than the follow-up deadline. Intel and AMD stayed released.
 [Fresh handback proof](experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json).
