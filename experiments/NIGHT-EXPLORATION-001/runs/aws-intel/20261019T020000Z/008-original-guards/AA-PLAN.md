@@ -1,0 +1,7 @@
+# Complete original-operation guard A/A freeze
+
+Calibration completed10 baseline processes /80 rows in92.330s driver execution. Sum of subprocess durations92.324s; fixed whole-phase A/A cap **1440s**, computed before launch as ceil-to60s(12×calibration process sum×1.25+30s). No candidate was timed. Baseline checksum/CPU2/raw identity checks pass. Calibration found12 windows below10ms (listed in calibration-audit.json), expected blockers rather than permission to change the referee.
+
+Exactly120 serial CPU2 processes /960 rows: five sizes100/1K/10K/100K/1M ×16/128-byte members × three same-binaryABBA blocks,seeds151/152/153. Each process runs all8 original operations with5M requested operations; insert/delete stay exactly n. Exact order aa-schedule.json. Same immutable baseline binary and unchanged original referee. Per-process cap120s within fixed phase deadline; stop preserving rows if cap hit, no retry/extension.
+
+Each of80 case/size/key cells qualifies only if all3 block effects remain within±1%, all windows>=10ms, checksum/operation count/tree-owned memory match exactly and CPU2 observations pass. Retain all failed cells and raw rows. No candidate comparison authorized by this plan alone. Full guard coverage remains blocked by any unqualified or missing cell. A later B comparison must preserve the declared qualified scope; no A fallback. Other focused guards, matched profiles and fresh201–203 primary confirmation stay separate.

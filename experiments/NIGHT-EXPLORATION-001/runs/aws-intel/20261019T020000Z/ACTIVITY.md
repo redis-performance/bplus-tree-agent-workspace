@@ -29,4 +29,6 @@
 
 2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
 
-03:43UTC: Discovery timing clarification:113.337s driver execution;133.451s bounded-helper lifetime includes cleanup. Full original5size×2keylength×8operation guard calibration preregistered,10 baseline processes only, before budget freeze and A/A.
+03:41:35UTC: Discovery timing clarification:113.337s driver execution;133.451s bounded-helper lifetime includes cleanup. Full original5size×2keylength×8operation guard calibration preregistered,10 baseline processes only, before budget freeze and A/A.
+
+2026-10-19T03:44:31.800666+00:00 Full original guard calibration complete10 processes80rows; 12 short windows. Fixed A/A120processes/960rows budget1440s preregistered before launch, baseline only.
