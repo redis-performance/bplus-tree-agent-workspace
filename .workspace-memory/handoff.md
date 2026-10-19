@@ -1,3 +1,12 @@
+<!-- PERFORMANCE-MCP-RULE -->
+User rule (19 October2026): every Codex and Claude investigation/optimization session
+must use the cpu-perf MCP from usamahz/cpu-performance-engineering. Read
+[docs/PERFORMANCE-MCP.md](../docs/PERFORMANCE-MCP.md): discover/library_status,
+ask with actual investigation context, follow source evidence, log actual calls and
+limits; explicitly record unavailable tools rather than inventing consultation.
+Keep retrieval/indexing off the measurement runner and preserve frozen protocols.
+<!-- PERFORMANCE-MCP-RULE-END -->
+
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
 ## Authorized continuation — ARM frontend diagnostic lease active
 

@@ -4,6 +4,10 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
+All Codex and Claude investigation sessions must use the
+[performance MCP workflow](docs/PERFORMANCE-MCP.md); consultation and limitations
+are recorded with the experiment evidence.
+
 **Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
 has acquired a fresh ARM-only lease through11:45UTC to investigate opposite timing
 directions in the original benchmark and iterator guards. Baseline controls are

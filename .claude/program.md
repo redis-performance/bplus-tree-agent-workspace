@@ -1,6 +1,7 @@
 # B+ tree optimisation playbook
 
-Profile first. No optimisation has been accepted or ruled out in this workspace yet.
+Use the mandatory [per-session performance MCP workflow](../docs/PERFORMANCE-MCP.md)
+from the repository root before proposing or interpreting changes. Profile first. No optimisation has been accepted or ruled out in this workspace yet.
 Historical PR report numbers are not standalone baseline measurements.
 
 | Evidence | Candidate family | Guard conditions |

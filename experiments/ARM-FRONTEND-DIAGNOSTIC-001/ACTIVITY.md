@@ -27,3 +27,7 @@ Operator70103fb6a completes144 baseline-only rows/36blocks in91.589s (helper91.7
 ## 2026-10-19T11:04:04.184399+00:00 — Exact native comparison granted
 
 Intelcb6bb2a43 independently clears all144 baseline rows/36blocks and six qualified cells. Root grants only the frozen144 baseline/A comparison with600s cap, new preflight and exact rawAA/fixture/source/lease joins. Prior candidate REJECT/sourceNONE remains unchanged; profile is still ungranted.
+
+## 2026-10-19T11:12:11.861784+00:00 — Mandatory CPU performance MCP rule
+
+User requires the CPU Performance Engineering MCP in every Codex and Claude investigation session. Added the shared rule to AGENTS.md, Claude instructions/playbook, README and persistent memory; docs/PERFORMANCE-MCP.md defines discovery, library_status, ask with real context, source follow-up, evidence checks and honest availability logging. Root actually invoked cpu-perf0.1.1 over local stdio MCP on the controller: library_status, ask, read_source and check_evidence. The bundled library reports0/287 indexed sources; the Arm guide fetch returned no manual text, so no source-backed causal claim follows. Heuristic metadata misses and truly unknown frequency/DVFS/SMT are disclosed. Worker availability checks/shared consumption are explicit. No runner indexing or frozen protocol change. See CPU-PERF-CONSULTATION.json.

@@ -1,7 +1,8 @@
 # Agent Notes — bplus-tree-agent-workspace
 
 Read this file, `.workspace-memory/MEMORY.md`, `.workspace-memory/LIVE-STATUS.md`,
-and `.workspace-memory/handoff.md` at the start of each session.
+and `.workspace-memory/handoff.md` at the start of each session. Apply the mandatory
+per-session workflow in `docs/PERFORMANCE-MCP.md` for both Codex and Claude.
 
 ## Scope
 
@@ -13,6 +14,24 @@ Redis server, command, persistence, client, or integration work to this campaign
 and the test entry point are the frozen referee during a candidate comparison.
 Harness fixes are separate commits followed by baseline requalification. Regression
 tests may be added, but never weaken existing checks to let a candidate pass.
+
+## Mandatory performance MCP use — every session
+
+Every investigation or optimization work session, whether run by Codex or Claude,
+must use the `cpu-perf` performance MCP from
+[usamahz/cpu-performance-engineering](https://github.com/usamahz/cpu-performance-engineering).
+This is a required part of the investigation, not an optional reference.
+
+At session start, discover the server/tools and check `library_status`; before
+proposing changes or interpreting performance, call `ask` with the actual question
+and relevant measured counters, assembly or compiler output. Use its source lookup
+and evidence-checking tools as needed. Record the calls, source/version information,
+findings, limitations and resulting decisions in the experiment/activity log.
+Follow [docs/PERFORMANCE-MCP.md](docs/PERFORMANCE-MCP.md) for the shared workflow.
+If unavailable, record the attempted connection and concrete blocker, use the linked
+primary sources as a disclosed fallback, and restore MCP use when possible. Never
+claim a consultation happened when it did not. Keep indexing and retrieval off the
+dedicated measurement runner; existing frozen protocols and acceptance gates remain.
 
 ## Required decision process
 
