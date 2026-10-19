@@ -1,14 +1,12 @@
 {
   "status": "running",
-  "updated_utc": "2026-10-19T06:05:09.869976+00:00",
+  "updated_utc": "2026-10-19T06:07:26.696993+00:00",
   "deadline": "2026-10-19T08:00:00Z",
-  "phase": "Fresh known-guard calibration completes30 baseline-only rows in1.975 seconds under60. Raw schedule/CPU2/fixture/output and actual/build pre/post identities pass. One count of1,316,073 traversals is now frozen for all701\u2013703 seeds, with both24-process AA/B schedules. Fixed120-second A/A next; no retry or count adaptation.",
+  "phase": "Corrected exact-B replication PARKED before candidate timing. The fresh known guard completes24 baseline-only A/A rows in4.953 seconds, but blocks1 and3 differ\u22121.417% and\u22121.047%, exceeding the frozen\u00b11% precision gate. All windows exceed199ms; schedule/CPU2/checksum/owned-byte/source/build identities pass. No candidate guard or primary comparison launched, no retry/count/source change. Original22 final artifact hashes unchanged and runner verified idle. The old-source B rejection remains final.",
   "model": "GPT-6 family; exact backend unknown",
   "token_cost": "unknown",
-  "runner_workload": "017 known-guard A/A queued",
-  "prepared_phases": [
-    "017 calibration/known-guard AA/B authorized only after all preceding gates pass; primary launch remains unauthorized"
-  ],
+  "runner_workload": "idle; corrected guard precision stop",
+  "prepared_phases": [],
   "owned_jobs_active": false,
   "full_original_guard_qualified_cells": 57,
   "full_original_guard_total_cells": 80,
@@ -25,13 +23,17 @@
     "011 focused:673validationcommands,324calibrationrows,864AA+864B;22 qualifiedguardpasses,14 noisycontrols;PARK",
     "013 corrected baseline: 120 processes/960 rows; 10/40 cells qualify, 11 short; source NONE",
     "014 supplemental: 756 validation commands, 684 calibration rows, 720 AA+720 B; 10 qualified controls, 8 guards pass, one demonstrated regression; REJECT/NONE",
-    "016 corrected baseline-only:60 captures, seven matched controls, exact actual timing map;48 A/A rows, both sizes qualify; no candidate timing"
+    "016 corrected baseline-only:60 captures, seven matched controls, exact actual timing map;48 A/A rows, both sizes qualify; no candidate timing",
+    "017 corrected exact-B: correctness/text parity pass;30 calibration+24 AA;known guard precision fails;PARK before all candidate timing"
   ],
-  "active_phase": "017 known-guard A/A",
+  "active_phase": "017 PARK; await root review",
   "supplemental_qualified_cells": 10,
   "supplemental_total_cells": 30,
   "supplemental_guard_pass_cells": 8,
   "supplemental_demonstrated_regressions": 1,
   "old_source_scan_decision": "REJECT",
-  "corrected_scan_qualified_sizes": 2
+  "corrected_scan_qualified_sizes": 2,
+  "corrected_replication_decision": "PARK before candidate timing",
+  "corrected_candidate_guard_rows": 0,
+  "corrected_candidate_primary_rows": 0
 }
