@@ -4,7 +4,7 @@
 was caught at an earlier exact-score assertion than the registered diagnostic expected.
 2,048 normal iterator checks passed; six commands never started. Root and independent
 AMD review verify the immutable failed prefix. A separately frozen six-command
-continuation is proposed; no timing authorized. ARM coordinator remains stopped,
+continuation is now granted once under 180s (`39d84533f`, review `7dbeae849`); no timing authorized. ARM coordinator remains stopped,
 with restoration armed for 10:15 UTC / 11:15 Lisbon.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
