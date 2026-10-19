@@ -1,0 +1,35 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1250,6 +1250,19 @@
+     return (zbtScoreLeaf *)node;
+ }
+ 
++/* Compare a leaf item, materializing its member only for a score tie. */
++static inline int zbtScoreLeafCompareAt(zbtScoreLeaf *leaf, unsigned int pos,
++                                       double score, const unsigned char *ele,
++                                       size_t elelen)
++{
++    double other = zbtScoreLeafScore(leaf, pos);
++    if (other < score) return -1;
++    if (other > score) return 1;
++    size_t len;
++    const unsigned char *member = zbtScoreLeafElement(leaf, pos, &len);
++    return zbtCompareElements(member, len, ele, elelen);
++}
++
+ /* Return the first logical position not below (score, member). */
+ static unsigned int zbtScoreLeafLowerBound(zbtScoreLeaf *leaf, double score,
+                                            const unsigned char *ele,
+@@ -1258,11 +1271,7 @@
+     unsigned int lo = 0, hi = leaf->n.count;
+     while (lo < hi) {
+         unsigned int mid = lo + (hi - lo) / 2;
+-        size_t midlen;
+-        const unsigned char *midele =
+-            zbtScoreLeafElement(leaf, mid, &midlen);
+-        int cmp = zbtScoreCompare(zbtScoreLeafScore(leaf, mid),
+-                                  midele, midlen, score, ele, elelen);
++        int cmp = zbtScoreLeafCompareAt(leaf, mid, score, ele, elelen);
+         if (cmp < 0) lo = mid + 1;
+         else hi = mid;
+     }

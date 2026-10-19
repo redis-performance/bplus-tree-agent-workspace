@@ -1,0 +1,24 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1258,11 +1258,16 @@
+     unsigned int lo = 0, hi = leaf->n.count;
+     while (lo < hi) {
+         unsigned int mid = lo + (hi - lo) / 2;
+-        size_t midlen;
+-        const unsigned char *midele =
+-            zbtScoreLeafElement(leaf, mid, &midlen);
+-        int cmp = zbtScoreCompare(zbtScoreLeafScore(leaf, mid),
+-                                  midele, midlen, score, ele, elelen);
++        double midscore = zbtScoreLeafScore(leaf, mid);
++        int cmp;
++        if (midscore < score) cmp = -1;
++        else if (midscore > score) cmp = 1;
++        else {
++            size_t midlen;
++            const unsigned char *midele =
++                zbtScoreLeafElement(leaf, mid, &midlen);
++            cmp = zbtCompareElements(midele, midlen, ele, elelen);
++        }
+         if (cmp < 0) lo = mid + 1;
+         else hi = mid;
+     }

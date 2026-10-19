@@ -1,0 +1,438 @@
+[
+  {
+    "name": "base-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:04.296672+00:00",
+    "end": "2026-10-19T02:06:08.412811+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:08.412916+00:00",
+    "end": "2026-10-19T02:06:09.646725+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-oracle",
+    "command": [
+      "build/native/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:09.646881+00:00",
+    "end": "2026-10-19T02:06:09.768088+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:09.768205+00:00",
+    "end": "2026-10-19T02:06:17.552300+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:17.552476+00:00",
+    "end": "2026-10-19T02:06:19.193733+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-oracle",
+    "command": [
+      "build/san/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:19.193933+00:00",
+    "end": "2026-10-19T02:06:19.501368+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-lowerbound-input/variants/A/candidate.patch"
+    ],
+    "start": "2026-10-19T02:06:19.503439+00:00",
+    "end": "2026-10-19T02:06:19.506799+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:19.506994+00:00",
+    "end": "2026-10-19T02:06:23.594541+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:23.594740+00:00",
+    "end": "2026-10-19T02:06:24.824714+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-oracle",
+    "command": [
+      "build/native/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:24.824913+00:00",
+    "end": "2026-10-19T02:06:24.939326+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:24.939464+00:00",
+    "end": "2026-10-19T02:06:32.700706+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:32.700942+00:00",
+    "end": "2026-10-19T02:06:34.345924+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-oracle",
+    "command": [
+      "build/san/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:34.346145+00:00",
+    "end": "2026-10-19T02:06:34.632921+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-lowerbound-input/variants/B/candidate.patch"
+    ],
+    "start": "2026-10-19T02:06:34.635030+00:00",
+    "end": "2026-10-19T02:06:34.637438+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:34.637669+00:00",
+    "end": "2026-10-19T02:06:38.740217+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:38.740460+00:00",
+    "end": "2026-10-19T02:06:39.977577+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-oracle",
+    "command": [
+      "build/native/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:39.977818+00:00",
+    "end": "2026-10-19T02:06:40.092678+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:40.092874+00:00",
+    "end": "2026-10-19T02:06:47.860955+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:47.861283+00:00",
+    "end": "2026-10-19T02:06:49.506946+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-oracle",
+    "command": [
+      "build/san/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:49.507208+00:00",
+    "end": "2026-10-19T02:06:49.791780+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-lowerbound-input/variants/C/candidate.patch"
+    ],
+    "start": "2026-10-19T02:06:49.793939+00:00",
+    "end": "2026-10-19T02:06:49.796385+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:49.796643+00:00",
+    "end": "2026-10-19T02:06:53.891108+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:06:53.891388+00:00",
+    "end": "2026-10-19T02:06:55.132167+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-oracle",
+    "command": [
+      "build/native/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:06:55.132439+00:00",
+    "end": "2026-10-19T02:06:55.245644+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:06:55.245853+00:00",
+    "end": "2026-10-19T02:07:02.977247+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "lowerbound-oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/lowerbound-oracle"
+    ],
+    "start": "2026-10-19T02:07:02.977550+00:00",
+    "end": "2026-10-19T02:07:04.618951+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-oracle",
+    "command": [
+      "build/san/lowerbound-oracle",
+      "17"
+    ],
+    "start": "2026-10-19T02:07:04.619235+00:00",
+    "end": "2026-10-19T02:07:04.904628+00:00",
+    "returncode": 0
+  }
+]
