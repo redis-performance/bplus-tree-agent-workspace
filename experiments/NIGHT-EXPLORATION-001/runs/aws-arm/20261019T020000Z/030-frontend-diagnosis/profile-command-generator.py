@@ -43,7 +43,7 @@ for front in ['primary','h4']:
  for v in ['control','A']:
   for san in [False,True]:add(f'{v}-{front}-census-small'+('-san' if san else '-native'),['build/'+front+'-census'+('-san' if san else ''),*args(c,1801)],v,'census',fix(c,1801))
 ctl=['-D','-1','--control=fifo:<job>/control.fifo,<job>/ack.fifo'];events='cycles:u,instructions:u,branches:u,branch-misses:u'
-def stat(label,binary,argv):return ['<perf>','stat',*ctl,'-x,','-e',events,'-o','<job>/profile/'+label+'.stat','--',binary,*argv]
+def stat(label,binary,argv):return ['<perf>','stat','--no-scale',*ctl,'-x,','-e',events,'-o','<job>/profile/'+label+'.stat','--',binary,*argv]
 def record(label,binary,argv):return ['<perf>','record','-q',*ctl,'-e','cycles:u','-F997','-g','--call-graph','fp','-o','<job>/profile/'+label+'.data','--',binary,*argv]
 for v in ['control','A']:
  for front in ['primary','h4']:

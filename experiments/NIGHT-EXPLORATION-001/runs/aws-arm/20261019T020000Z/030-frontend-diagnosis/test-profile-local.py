@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Small synthetic negative controls; no performance or ARM claims."""
 import copy,json,pathlib,tempfile
-from profile_common import counters,raw_samples,mapping,scope_validity,row
+from profile_common import counters,raw_samples,mapping,scope_validity,row,allocator_mode
 from native_common import HERE
 checks=[]
+assert allocator_mode({'command':['build/h4-census-san']})=='ASan_UBSan' and allocator_mode({'command':['build/h4-census']})=='native'
+checks.append(dict(name='allocator_modes_separate',pass_=True))
 def rejects(name,fn):
  try:fn()
  except (AssertionError,ValueError,KeyError):checks.append(dict(name=name,detected=True));return

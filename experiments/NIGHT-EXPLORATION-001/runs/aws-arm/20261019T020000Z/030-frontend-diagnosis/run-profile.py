@@ -2,7 +2,7 @@
 """Fixed dual-frontend diagnosis. Counter direction is evidence, never a validity filter."""
 import argparse,datetime,hashlib,json,os,pathlib,re,subprocess,sys,tarfile,time
 from native_common import HERE,IDS,sha,identities,same_semantics
-from profile_common import row,counters,census,elf_text
+from profile_common import row,counters,census,elf_text,allocator_mode
 sys.path.insert(0,str(HERE/'inputs'))
 from apply_exact import apply
 from profile_helpers import known_gate,samples,report
@@ -47,7 +47,7 @@ try:
   if kind=='original43':assert '43 passed, 0 failed, 43 total' in re.sub(r'\x1b\[[0-9;]*m','',stdout)
   if c['name']=='known-missing-disable-build':bind_binaries()
   if c['fixture'] is not None:
-   z=row(stdout,c['fixture']);r['row']=z;f=c['fixture'];key=f"{f['frontend']}/{f['direction']}/{f['size']}/{f['seed']}/{f['requested_ops']}";reference=s['controls'].setdefault(key,z);assert same_semantics(z,reference),(c['name'],'semantic parity')
+   z=row(stdout,c['fixture']);r['row']=z;f=c['fixture'];key=f"{f['frontend']}/{f['direction']}/{f['size']}/{f['seed']}/{f['requested_ops']}/{allocator_mode(c)}";reference=s['controls'].setdefault(key,z);assert same_semantics(z,reference),(c['name'],'semantic parity')
    if kind=='census':
     obs=census(stderr,f,z);r['census']=obs;ref=s['census_controls'].setdefault(key,obs);assert obs==ref
    elif kind in ['tree','instrument']:assert not stderr.strip(),c['name']

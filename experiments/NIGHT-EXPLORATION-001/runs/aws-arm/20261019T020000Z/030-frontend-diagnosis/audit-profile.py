@@ -2,7 +2,7 @@
 """Raw integrity/scope/attribution reconstruction; hypothesis direction is separate."""
 import collections,datetime,decimal,hashlib,json,pathlib,re,sys
 from native_common import HERE,IDS,sha,same_semantics
-from profile_common import row,counters,census,raw_samples,mapping,scope_validity
+from profile_common import row,counters,census,raw_samples,mapping,scope_validity,allocator_mode
 sys.path.insert(0,str(HERE/'inputs'))
 from arm_asm import parse
 from profile_helpers import known_gate,report,samples
@@ -29,7 +29,7 @@ for r,c in zip(s['commands'],contracts):
  if re.search(r'\b(lost|warning)\b',err,re.I):warnings.append(dict(command=c['name'],stderr=err))
  if c['kind']=='original43':assert '43 passed, 0 failed, 43 total' in re.sub(r'\x1b\[[0-9;]*m','',text)
  if c['fixture']:
-  f=c['fixture'];z=row(text,f);assert z==r['row'];rows[c['name']]=z;key=(f['frontend'],f['direction'],f['size'],f['seed'],f['requested_ops']);assert same_semantics(z,refs.setdefault(key,z))
+  f=c['fixture'];z=row(text,f);assert z==r['row'];rows[c['name']]=z;key=(f['frontend'],f['direction'],f['size'],f['seed'],f['requested_ops'],allocator_mode(c));assert same_semantics(z,refs.setdefault(key,z))
   if c['kind']=='census':obs=census(err,f,z);assert obs==r['census']==censuses.setdefault(key,obs)
   elif c['kind'] in ['instrument','tree']:assert not err.strip()
  if c['kind'] in ['tree-stat','disabled-stat','known-stat']:

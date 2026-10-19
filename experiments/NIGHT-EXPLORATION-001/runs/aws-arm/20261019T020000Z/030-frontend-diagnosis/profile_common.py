@@ -51,3 +51,6 @@ def mapping(fn,other,off):
 
 def scope_validity(all_losses,warnings,all_pc):
  return bool(all_losses and not warnings and all_pc)
+
+def allocator_mode(command):
+ return 'ASan_UBSan' if any(x.startswith('build/') and x.endswith('-san') for x in command['command']) else 'native'
