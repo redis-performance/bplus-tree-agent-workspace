@@ -56,3 +56,5 @@
 2026-10-19T04:38:00.615849+00:00 Focused validation339 commands complete,baseline half passed; candidate builds underway. Prepared separate root-approved supplemental refereeec21ce601 with original8fab+B,600s prep+180/480/480s calibration/AA/B caps; full30-cell B follows completed AA regardless qualified count. No supplemental execution; current011 immutable.
 
 2026-10-19T04:41:06.131457+00:00 Focused baseline/B validationPASS673 serial commands in312.77s:432 native/sanitizer models,216 census cells,43 originaltests per4builds,16 repeatedfault detections;36 fixturehashes and24 post-validation artifacthashes pass. No focused timing yet; frozen baseline calibration324 one-traversal windows/300s next. Source NONE/PARK unchanged.
+
+2026-10-19T04:45:28.941243+00:00 Focused baseline calibrationCOMPLETE324 serial rows in178.75s/300s. Raw schedule/CPU2/checksum/ownedbytes auditPASS;24 post-calibration hashes unchanged.36 fixedpasscounts1..942 frozen with both864-process AA/B schedules beforecomparison; allcounts below100000cap. Next baseline AA900s, no adaptation/retry/extension.
