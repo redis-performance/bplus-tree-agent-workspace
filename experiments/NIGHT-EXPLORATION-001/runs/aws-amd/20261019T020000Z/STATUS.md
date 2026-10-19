@@ -35,3 +35,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T07:31:16.037334+00:00: Final morning draft/release evidence review sealed: counts/outcomes agree; clarify570 validation=536 correctness/fault+34 preparation and Intel onefixture/twofailedAAblocks. Marker records release-attempt start; root to verify fresh savedRUNNING/livePIDs after08UTC. No workloads/runner access; leaseACTIVE/restorationpending.
 
 - 2026-10-19T08:10:47.865450+00:00: Fresh ARM mask continuation: preliminary adversarial source/evidence review034 finds no exact-patch semantic blocker; new027 preregistration review pending. Prior026 PARK/031 NONE retained; no runner access or implementation edits. Old fleet lease remains RELEASED; root owns new lease.
+
+- 2026-10-19T08:19:07.088106+00:00: ARM027 b56bf0cac plan review:7freeze/13imports/10source,82required iterator and29required+11diagnostic original cells verified. Qualified diagnostic regression rule needs explicit REJECT/PARK alignment before drivers; uniform-bit zero-width performance gap retained. No launch/runner access. Fresh ARM lease root-managed ACTIVE to10:15UTC; old lease RELEASED.
