@@ -1,14 +1,18 @@
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
-## Active: authorized ARM mask validation follow-up — 19 October 08:08 UTC
+## Active: authorized ARM mask validation follow-up — 19 October 08:50 UTC
 
-User explicitly authorized continuing the ARM mask validation and committing all work.
-This supersedes the expired overnight lease restriction only for a new ARM-only,
-bounded reservation (no later than10:15UTC/11:15Lisbon). Preparation in progress;
-no new timing yet. Same exactEXP005A/13e referee and preserved binaries; no retuning,
-new population or reuse of old-session A/A. Prior ARM lead remains PARK/sourceNONE.
-ARM prepares guarded continuation, AMD independent execution/semantic review, Intel
-independent held-out confirmation. Root handles lease and explicit execution gates.
-[Plan](../experiments/ARM-MASK-FOLLOWUP-001/README.md).
+Fresh ARM-only lease remains ACTIVE through10:15UTC/11:15Lisbon with independent
+restoration timer; Intel/AMD remain released. Original correctness attempt8cdebdcba
+remains FAILED on a diagnostic registration mismatch: injected fabs fault caught
+at the earlier copied-next exact-bit assertion. No source/referee error observed.
+Separate granted39d84533f suffix19fd53594 completes only six never-started commands;
+no reruns. Rootc95d07f81 audits all original published files/raw+513snapshot/6protected/
+4guard identities unchanged. Combined planned coverage includes2048 iterator modes,
+4original43 suites,12oracles,14detected faults. Composite closure and fresh timing
+review pending; no new timing yet. Same exact EXP005A/13e sources and binaries.
+Prior ARM lead remains PARK/sourceNONE; no new population. Root owns phase grants
+and must release/audit the new lease early on completion or at the fixed deadline.
+[Plan and live status](../experiments/ARM-MASK-FOLLOWUP-001/STATUS.md).
 <!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
 
 <!-- AWS-CURRENT-START -->
