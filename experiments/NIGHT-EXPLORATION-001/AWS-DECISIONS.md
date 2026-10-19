@@ -39,3 +39,23 @@ AWS completed measured populations: **2 — 0 accepted / 2 rejected / 0 parked**
 ARM's withdrawn, unmeasured index-mask proposal is excluded from this count.
 
 [Independent Intel raw audit](reviews/aws-intel-sse2-raw-audit.json).
+
+
+## 19 October — AWS AMD BUILDER-WRITE-001: REJECT / NONE
+
+[Published decision](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/f3fcad103/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/004-builder-write/implementation-selection.md).
+Three isolated implementations tested fixed encoding metadata while constructing a
+new forward leaf. Fresh controls qualified both primaries, and native/sanitizer plus
+finite-boundary, signed-zero and packed-decoder checks passed. Every measured primary
+block was slower. Median A/B/C effects were +1.039/+1.250/+5.777% at100K and
++1.362/+1.745/+2.766% at1M. Both cases used one million updates per process.
+
+Root independently reconstructed all144 raw processes and36 paired effects, verifying
+serial windows, CPU2 boundaries, fixed operations/seeds, checksums and owned memory.
+No fresh confirmation or full performance guards were warranted after rejection.
+All three patches remain available; source selection **NONE**.
+
+AWS completed measured populations: **3 — 0 accepted / 3 rejected / 0 parked**.
+Unmeasured chair-NONE diagnostics are excluded; ARM's decoder population is ongoing.
+
+[Independent builder raw audit](reviews/aws-amd-builder-write-raw-audit.json).

@@ -1132,3 +1132,13 @@ Intel raw processes. AWS count: 2 measured populations, 0 accepted / 2 rejected 
 0 parked; ARM's corrected-profile withdrawal was unmeasured and is excluded. No
 source adoption. Host workers continue distinct profile-led directions until the
 08:00 UTC deadline. See the central AWS-DECISIONS.md ledger and retained host patches.
+
+
+## 19 October — AMD builder-write rejection independently audited
+
+BUILDER-WRITE-001 qualified A/A but all three candidates slowed every primary block.
+Root reconstructed144rawprocesses/36effects; sourceNONE. AWS totals3measured
+populations,0accepted/3rejected/0parked. ARM's count-one exploratory population
+continues after failed longer-duration qualification. Intel's update diagnostic
+selectedNONE without implementations; bounded iterator profiling is underway.
+See experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md for exact evidence links.
