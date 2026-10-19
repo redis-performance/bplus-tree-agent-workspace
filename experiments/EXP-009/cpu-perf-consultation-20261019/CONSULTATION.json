@@ -1,0 +1,95 @@
+{
+  "recorded_utc": "2026-10-19T11:20:20.275433+00:00",
+  "participant": "/root",
+  "backend": "Codex/GPT-6 family; exact serving model/token/currency costs unknown",
+  "reason": "User requested latest repository status and cpu-perf context; newly fetched dfff5540f makes per-session consultation mandatory",
+  "timing": "Consultation after EXP-009 closure; no retroactive consultation/qualification claim",
+  "transport": "Local MCP stdio via uvx; direct tool registry exposed no cpu-perf tools. Compatible local stdio is explicitly permitted by docs/PERFORMANCE-MCP.md",
+  "initial_discovery": {
+    "direct_cpu_perf_tools": 0,
+    "matching_configured_cpu_perf_servers": 0,
+    "python_mcp_module_present_before_setup": false,
+    "offline_uvx_version_attempt": "Failed: cpu-perf package absent from local cache",
+    "remediation": "Documented uvx cpu-perf --version fetched controller dependencies and returned cpu-perf0.1.1. No agent permission/configuration settings changed."
+  },
+  "server": {
+    "name": "cpu-perf",
+    "version": "0.1.1",
+    "library_revision": "deb5a0bac467",
+    "library_date": "2026-10-05",
+    "provenance": "bundled wheel repository, automatic update disabled",
+    "discovered_tools": 13,
+    "tools": [
+      "ask",
+      "lookup",
+      "search",
+      "fetch",
+      "get_section",
+      "get_entry",
+      "reading_path",
+      "get_benchmark",
+      "editorial_record",
+      "check_evidence",
+      "read_source",
+      "read_file",
+      "library_status"
+    ]
+  },
+  "coverage": {
+    "initial_indexed_sources": 0,
+    "linked_sources": 287,
+    "after_explicit_primary_read_indexed_sources": 1,
+    "passages": 5,
+    "vectors": 0,
+    "embedder": "none; keyword only",
+    "automatic_indexing": false,
+    "primary_source": "https://llvm.org/docs/Benchmarking.html",
+    "scope": "Explicit source fetch on local controller; no reserved M6 benchmark or remote ARM runner used for indexing"
+  },
+  "actual_call_count": 8,
+  "tool_names": [
+    "ask",
+    "check_evidence",
+    "get_benchmark",
+    "library_status",
+    "read_source"
+  ],
+  "findings": [
+    {
+      "kind": "retrieved primary-source guidance",
+      "finding": "LLVM explains that noise reduction depends on the operating system and that low noise alone does not exclude measurement bias. Its Linux configuration commands were not applied to Apple M6.",
+      "source_url": "https://llvm.org/docs/Benchmarking.html"
+    },
+    {
+      "kind": "bundled method reference",
+      "finding": "Read measurement-pitfalls method/limits/code: retain observable outputs, repeat measurements and disclose machine conditions. Its M4 Pro measurements do not qualify this M6 experiment.",
+      "source_url": "https://github.com/usamahz/cpu-performance-engineering/tree/main/misc/benchmarks/05-measurement-pitfalls"
+    }
+  ],
+  "limitations": [
+    "Initial ask had no indexed source passages and used pasted context as search words; subsequent ask section5 was relevant but still returned unread-source leads until explicit read_source. No causal M6 diagnosis or PMU metrics resulted.",
+    "check_evidence is a heuristic editorial seven-field checker. Initial compact input misparsed4.80percent as80percent and missed supplied fields. Clarified input parsed the decimal/compiler/workload/baseline but still missed explicitly stated one-thread count and marked unverified microarchitecture present. Preserve those limitations; never infer missing facts from its verdict.",
+    "Both heuristic checks returned drop_number under the library editorial rule; this is not a replacement for our preregistered performance gates.",
+    "cpu-perf retrieves sources and assists evidence review; it does not collect hardware counters. Prior KPC denial is separate from MCP availability.",
+    "Raw responses/source passages and local library remain outside public Git; requests, concise findings, supporting links and response hashes are committed."
+  ],
+  "effect_on_decision": "NONE: EXP-009 remains PARK,sourceNONE; no source candidate, new timing, retry, count change, proposal population or guard relaxation. Future sessions must perform and record availability plus actual contextual consultation.",
+  "raw_client_sha256": {
+    "initial": "d34b9eca189afd96b60e0c4fd319d3411e1d879f5e862da5b538de3ef63d2df2",
+    "clarified": "d34b9eca189afd96b60e0c4fd319d3411e1d879f5e862da5b538de3ef63d2df2",
+    "primary_explicit_live_read": "3205c9773e2d75adbe328f12de0114ac9354cdcacecde7defb9cfdab591809dd"
+  },
+  "connection_command": [
+    "uvx",
+    "--offline",
+    "cpu-perf",
+    "serve",
+    "--no-auto-index",
+    "--no-auto-update",
+    "--embed-model",
+    "none",
+    "--data-dir",
+    "<controller-local-cache>"
+  ],
+  "live_reads": "Initially disabled; enabled only in separate explicit primary-read client; no automatic corpus crawl"
+}

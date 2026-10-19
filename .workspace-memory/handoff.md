@@ -7,6 +7,11 @@ limits; explicitly record unavailable tools rather than inventing consultation.
 Keep retrieval/indexing off the measurement runner and preserve frozen protocols.
 <!-- PERFORMANCE-MCP-RULE-END -->
 
+<!-- M6-CPU-PERF-CONSULTATION -->
+M6 controller CPU-perf consultation is now operational through local stdio (server0.1.1,bundleddeb5a0bac467). Actual calls and coverage/parser limits are recorded in experiments/EXP-009/cpu-perf-consultation-20261019/. This consultation occurred after EXP-009 closure; it changes no frozen inputs or PARK decision and queues no benchmark. Direct host tools remain unexposed; use the documented compatible stdio route and record each session accurately.
+<!-- M6-CPU-PERF-CONSULTATION-END -->
+
+
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
 ## ARM frontend diagnostic — native results audited, profiles granted
 
