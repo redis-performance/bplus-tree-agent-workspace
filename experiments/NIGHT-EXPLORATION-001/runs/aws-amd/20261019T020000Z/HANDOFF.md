@@ -28,3 +28,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T06:06:08.263744+00:00: Iterator029 profile complete: 51 commands pass, 1218 scientific samples, known scope/disabled controls pass, sampled tree bytes map exactly to actual015. Caller differences retained. Fixed48 AA next under original grant; no candidate/sourceNONE.
 
 - 2026-10-19T06:08:12.636421+00:00: Iterator029 complete/NONE: profile51 commands pass,48 AA rows retained. 100K firstblock+2.430913% fails;1M allqualify(maxabs0.164846%), windows>=212ms. No retry/candidate. AMD owned jobs and btree processes zero; idle for root decision.
+
+- 2026-10-19T06:09:49.162777+00:00: Read-only029 diagnosis complete: score-only path excludes member cache; dispatch/cross-byte/mask opportunities overlap EXP002/004/005. No distinct supported hypothesis, no extra runner work; failed100K controls final, sourceNONE, AMD idle pending independent ARM audit.
