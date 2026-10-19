@@ -55,3 +55,5 @@ without relabeling that failure or transferring night026 performance. New ARM-on
 lease remains ACTIVE until10:15UTC; original08UTC fleet release remains final.
 
 Fresh original comparison4c7668661 completes all120processes/960rows:17qualifiedguards pass; qualified100-member SCAN has a mixed+1.477795% block and remainsPARK. Eleven required controls plus11diagnostic controls remainunqualified. No all-six qualifiedguard regression found; no acceptance. Both full matrices and idleidentity proofs retained.
+
+Fresh027 iterator A/A completed all1,968 processes/82 required cells:43 qualify,39 fail precision, none below10ms. OverallPARK/sourceNONE; no retry or automatic comparison. See [fixed iterator control result](027-mask-followup/ITERATOR-AA-RESULT.md). Independent raw review pending; protected identities unchanged and owned runner idle.
