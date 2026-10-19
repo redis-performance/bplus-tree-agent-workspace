@@ -1,5 +1,5 @@
-# AWS AMD native handoff
+# AWS AMD native checkpoint
 
-BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+1.362%, B +1.250%/+1.745%, C +5.777%/+2.766% median elapsed at 100K/1M; no guards or confirmation. All patches/raw rows retained. AMD totals: 2 populations, 0 accepted, 2 rejected, 0 parked. Baseline source unchanged.
+FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 2% improvement. A −0.609%/+0.380%, B +0.265%/+0.403%, C −0.824%/+0.854% median elapsed at 100K/1M. All patches/raw evidence retained. AMD totals: 3 populations, 0 accepted, 3 rejected, 0 parked. Baseline source unchanged.
 
-Decisions: 002-lowerbound and 004-builder-write implementation-selection.md. Packed-move census in 003-packed-move; scoped FIFO profiler and failures in 002-lowerbound. Root baseline preserved. Current next investigation: constant 64-bit full chunks versus partial-tail packed shifts; no proposal or candidate yet. Intel SSE2 scanners are prior rejections, do not duplicate as new work.
+Completed decisions:002-lowerbound,004-builder-write,005-full-chunks implementation-selection.md. Baseline source unchanged. Next: inspect repeated query SDS length loads, no hypothesis selected. Deadline08:00UTC, no new experiments after07:15UTC. No source adoption overnight.

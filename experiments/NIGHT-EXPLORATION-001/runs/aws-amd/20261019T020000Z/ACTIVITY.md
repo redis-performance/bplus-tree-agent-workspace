@@ -19,3 +19,5 @@
 - 2026-10-19T02:46:29.443560+00:00: full-chunk59build/test commands pass, root7f833d000 review no blocker; fixed144process screen next.
 
 - 2026-10-19T02:47:20.296268+00:00: fail-closed publication scanner blocked two attempts because raw validation process commands contained private remote-root prefixes; no commit/push occurred. Sanitized public process commands, raw logs retained locally. Screen had started after first scanner failure because outer shell did not abort; scientific validation/review and frozen files predated screen, but publication lag is retained explicitly. Further composite commands use fail-fast sequencing.
+
+- 2026-10-19T02:51:26.101130+00:00: FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 2% improvement. A −0.609%/+0.380%, B +0.265%/+0.403%, C −0.824%/+0.854% median elapsed at 100K/1M. All patches/raw evidence retained. AMD totals: 3 populations, 0 accepted, 3 rejected, 0 parked. Baseline source unchanged.
