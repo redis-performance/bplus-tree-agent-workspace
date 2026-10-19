@@ -64,10 +64,11 @@ All 120 processes / 960 rows / 240 blocks completed in 377.718290 seconds.
 18 of 29 required cases qualify. The 11 required failures are precision failures
 (above ±1%); every required window is at least 10ms. All 11 prospectively declared
 diagnostic cases are shorter than 10ms, and eight also exceed the precision bound.
-These failures keep the candidate PARK regardless of later diagnostic results.
+These failures preclude acceptance regardless of later diagnostic results; a qualified
+guard loss can still make the final decision REJECT.
 
 [Root raw audit](ORIGINAL-AA-ROOT-AUDIT.json) and
-[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/0981f4afa/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-audit/original-AA-1329e440a/REVIEW.md).
+[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/0981f4afa/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-AA-1329e440a/REVIEW.md).
 The fixed comparison retains all 40 cases; only qualified controls support calibrated
 comparisons. No retry, count adjustment or post-result waiver is allowed. Remaining
 diagnostic phases run only if their full fixed cap fits before 10:15 UTC.
