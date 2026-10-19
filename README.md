@@ -104,7 +104,7 @@ Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing upd
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
-| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank diagnosis running; driver campaign through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank population rejected; update paths next through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
@@ -131,6 +131,18 @@ optimization has been adopted. Each candidate must beat its own host's baseline.
 The [earlier M1 preparation results](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md)
 and [chart](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg) remain
 separate from these overnight baselines. [Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
+
+### M6 rank decision
+
+[The first M6 rank population](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
+rejects all three shorter-side summation implementations: the 100K primary took
+about 3.4–3.9% longer by median block effect. The 1M signals remain inside A/A noise.
+Source stays unchanged; update-path profiling is next. Both population steps were
+sequential passes, with all patches preserved.
+
+Recorded on this branch: **8 populations; 0 accepted / 3 rejected / 5 parked;
+24 retained patches; 11 validated harnesses**. Concurrent M1 night populations
+remain separate pending log reconciliation.
 
 ### Decoder experiments
 

@@ -1,0 +1,1 @@
+The initial 1M-operation preserve captures yielded only8/8/40 PCs at10K/100K/1M. These are too sparse for a mechanism decision. Retain them unchanged; preregister one10M-operation preserve capture per size before proposal. Same source/sampler/fixtures, no timing qualification claim. This extends profile duration only, not the measurement referee or any comparison schedule.

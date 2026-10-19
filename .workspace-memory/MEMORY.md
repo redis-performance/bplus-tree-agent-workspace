@@ -1,5 +1,16 @@
 # Shared memory
 
+Latest, 19 October M6 round 1: [rank result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
+REJECT / NONE. Launcher baseline reused. New rank referee/profile, both sequential
+population steps and three isolated patches complete. All 100K candidate blocks
+regress; 1M effects within failed controls. Baseline source unchanged. No fresh
+confirmation/full candidate guard campaign/independent review/adoption profile.
+Branch-recorded totals now 8 populations (6 sequential + 2 multi-agent), 0 accepted /
+3 rejected / 5 parked, 24 patches, 11 harnesses. Concurrent M1 night populations are
+not yet reconciled. M6 is authorized until 08:00 UTC / 09:00 Lisbon; earlier stopped
+campaign notes below are historical. Next resume host HANDOFF.md for UPDATE-001.
+Coordinator alone commits/pushes; do not run Git writes. Exact model/cost unknown.
+
 Latest: [EXP-007 bulk decoder results](../experiments/EXP-007/RESULTS.md).
 Completed both real three-agent population steps. B shortlist gives -33.14% primary
 and about -43% aligned full-leaf elapsed time on fresh seeds, but three qualified

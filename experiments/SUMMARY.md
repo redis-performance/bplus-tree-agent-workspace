@@ -1,5 +1,24 @@
 # Experiment summary
 
+## Latest: M6 rank shorter-side population rejected, 19 October
+
+[Audited M6 result](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md):
+all three implementations regress the 100K primary in all six blocks; median effects
++3.81%, +3.42%, +3.87%. The 1M negative effects sit inside failed A/A variation.
+REJECT / source NONE. Both population steps used sequential passes by one worker,
+not independent agents. All three patches retained. Candidate native/sanitizer
+upstream tests and targeted checks pass; 216 serial processes / 648 batches, raw
+reconstruction and source/referee/patch audits pass. No fresh confirmation, remaining
+candidate guard campaign, independent review or adoption profile validation.
+
+The launcher baseline is reused (120 processes / 960 rows / 162.42s). A new rank
+referee and diagnosis are complete; A/A has 72 processes / 216 batches, all three
+cells fail strict precision. Calibration overlap is disclosed in the result. Next:
+UPDATE-001 path harness and profiles. Recorded totals on this branch are now eight
+populations (six sequential fallback, two multi-agent), 0 accepted / 3 rejected /
+5 parked, with all 24 patches retained. Concurrent M1 night populations have not
+been reconciled into these branch totals.
+
 ## Latest: EXP-008 short-range crossover, 19 October (Apple M1)
 
 [Raw-audited results](EXP-008/RESULTS.md): no cutoff qualifies; count16/count96 gains
@@ -15,8 +34,8 @@ pass. No confirmation or source adoption. [M6 replication guide](REPLICATE-LATES
 block universal adoption; experiment PARK / source NONE. Native/sanitizer checks and
 raw audits pass; both real three-agent population steps and cross-author reviews
 are complete.
-No scalar iterator gain is claimed. Current optimization totals are 0 accepted /
-2 rejected / 5 parked across seven populations; all 21 patches are retained.
+No scalar iterator gain is claimed. At that checkpoint, optimization totals were
+0 accepted / 2 rejected / 5 parked across seven populations; all 21 patches retained.
 
 ## Earlier: focused decoder benchmark, 19 October
 
@@ -30,11 +49,12 @@ were 0 accepted / 2 rejected / 3 parked. Overnight execution remains stopped.
 | Category | Count |
 |---|---:|
 | Preparation completed | 1 |
-| Harnesses locally validated (7 overnight + 2 focused decoder referees + EXP-008) | 10 |
+| Harnesses locally validated (7 historical overnight + 3 decoder + 1 M6 rank) | 11 |
 | Historical overnight baseline explorations | 13 |
 | Post-overnight focused A/A campaigns (decoder + two bulk campaigns) | 4 |
-| Optimisations accepted / rejected / parked | 0 / 2 / 5 |
-| Population rounds executed | 7 (5 sequential fallback + 2 multi-agent) |
+| M6 night baseline inventories / rank A/A campaigns / rank diagnoses | 1 / 1 / 1 |
+| Optimisations accepted / rejected / parked on this branch | 0 / 3 / 5 |
+| Population rounds recorded on this branch | 8 (6 sequential fallback + 2 multi-agent) |
 | Historical overnight additional measurement diagnostics | 34 |
 | Post-overnight focused decoder investigations | 3 |
 | Additional boundary oracle suites validated | 26 |

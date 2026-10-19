@@ -849,3 +849,37 @@ Actual CPU Apple M6 verified by launcher. Baseline source remains unchanged; the
 shared queue runs with a shorter host-specific budget and a 45-minute final report
 window. Publication/supervisor tests pass. This launch is orchestration, not a new
 optimization decision or population; existing counts unchanged.
+
+
+## 2026-10-19 — M6 RANK-001 REJECT / NONE, round 1
+
+[Result](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
+and [status](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md).
+Launcher-verified Apple M6, Apple Clang 21; direct worker sysctl unavailable, never
+retried. Reused completed five-size baseline: 120 processes / 960 rows / 162.42s;
+36 cells fail strict A/A, 14 have short windows. No baseline rerun or source change.
+
+One new public rank referee passes 138 native/sanitizer checks and detects a rank
+fault. Public self-profiles locate accumulation; Clang already vectorizes. Private
+term census is a separate diagnostic, not a subtracted public component. Targeted
+A/A completes 72 processes / 216 batches, all three cells fail. A brief summary
+calculation during calibration is disclosed; recorded A/A and candidate phases have
+no overlapping builds/tests/profiles/analysis. One external sample attach failure
+and one helper missing-include build failure are preserved.
+
+Both population steps complete as three sequential passes each, not independent
+agents. Three isolated shorter-side implementations preserve all referee hashes,
+pass 43 upstream tests per native/sanitizer build and 38 targeted checks each.
+The one frozen exploratory screen completes 216 processes / 648 batches / 32.629s.
+Every 100K block regresses: medians +3.808%, +3.425%, +3.871%; 1M apparent gains
+remain within control variation. Owned bytes match. Logical terms fall but static
+rank bodies grow. Reject the unconditional min-span policy for the declared two-primary
+objective; select NONE. No adoption profile, full candidate guards, confirmation or
+independent review. Exact M1 patch/harness replication NOT RUN/UNKNOWN.
+
+All three patches and failed/partial evidence retained; final audit reconstructs
+raw effects, patches and hashes. Recorded branch totals: 8 populations (6 sequential,
+2 multi-agent), 0 accepted / 3 rejected / 5 parked; 24 patches. Harnesses now 11;
+M6 night adds 1 baseline inventory, 1 A/A campaign and 1 rank diagnosis. Concurrent
+M1 night populations are not yet reconciled into those branch totals. Next target
+UPDATE-001; no more rank timing. Exact serving model and measured token cost unknown.

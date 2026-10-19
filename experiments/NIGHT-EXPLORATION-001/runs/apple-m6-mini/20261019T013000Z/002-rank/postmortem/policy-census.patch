@@ -1,0 +1,33 @@
+--- a/accumulation-diagnostic.c
++++ b/accumulation-diagnostic.c
+@@ -57,6 +57,7 @@
+         serverAssert(!zbtreeFindForAdd(tree, key, &old, &p));
+         zbtreeInsertNew(tree, (double)order[i], key, &p);
+     }
++    uint64_t shorter = 0, suffix_choices = 0;
+     uint64_t parents = 0, siblings = 0, max_parents = 0, max_siblings = 0;
+     for (size_t i = 0; i < n; i++) {
+         zbtreeInsertPosition p;
+@@ -71,6 +72,14 @@
+         while (node->parent) {
+             this_parents++;
+             this_siblings += node->parent_index;
++            uint64_t preceding = node->parent_index;
++            uint64_t following = node->parent->n.count - preceding - 1;
++            shorter += preceding < following ? preceding : following;
++            suffix_choices += following < preceding;
++            serverAssert(node->parent->child_count[preceding] == node->subtree);
++            unsigned long total = 0;
++            for (unsigned int j=0;j<node->parent->n.count;j++) total += node->parent->child_count[j];
++            serverAssert(total == node->parent->n.subtree);
+             node = &node->parent->n;
+         }
+         parents += this_parents; siblings += this_siblings;
+@@ -79,6 +88,7 @@
+ #endif
+     }
+ #ifdef COUNT_MODE
++    fprintf(stderr,"POLICY,shorter_terms,%" PRIu64 ",suffix_choices,%" PRIu64 "\n",shorter,suffix_choices);
+     printf("size,parents_total,siblings_total,max_parents,max_siblings,mean_parents,mean_siblings,tree_bytes\n");
+     printf("%zu,%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%.3f,%.3f,%zu\n",
+            n, parents, siblings, max_parents, max_siblings,

@@ -1,0 +1,168 @@
+{
+  "scope": "diagnostic scoped PCs in public FindForAdd+UpdateScore loop; not exact runtime shares or PMU",
+  "calibrations": [
+    {
+      "file": "profile/calibration-0.stderr",
+      "samples": 41,
+      "symbols": {
+        "sampler_probe": 41
+      },
+      "header": "PROFILE,sampler_probe,1000,41,0"
+    },
+    {
+      "file": "profile/calibration-1.stderr",
+      "samples": 38,
+      "symbols": {
+        "sampler_probe": 38
+      },
+      "header": "PROFILE,sampler_probe,1000,38,0"
+    }
+  ],
+  "profiles": [
+    {
+      "file": "profile/n10000-distant.stderr",
+      "samples": 33,
+      "symbols": {
+        "zbtBuildElementWrite": 2,
+        "_platform_memmove": 5,
+        "_xzm_xzone_malloc_freelist_outlined": 2,
+        "zbtScoreLeafLowerBound": 4,
+        "zbtScoreDeleteInPlace": 1,
+        "zbtScoreUpdateInPlace": 2,
+        "zbtScoreFindLeaf": 1,
+        "zbtScoreLeafBuild": 2,
+        "zbtScoreMergePair": 1,
+        "_platform_memcmp": 1,
+        "_platform_memchr": 6,
+        "zbtScoreInsertAt": 3,
+        "zbtreeUpdateScore": 1,
+        "siphash": 1,
+        "zbtIndexTableFindReference": 1
+      },
+      "header": "PROFILE,distant,1000,33,0"
+    },
+    {
+      "file": "profile/n10000-preserve.stderr",
+      "samples": 8,
+      "symbols": {
+        "_platform_memcmp": 2,
+        "_platform_memchr": 4,
+        "zbtScoreUpdateInPlace": 2
+      },
+      "header": "PROFILE,preserve,1000,8,0"
+    },
+    {
+      "file": "profile/n100000-distant.stderr",
+      "samples": 34,
+      "symbols": {
+        "_platform_memmove": 12,
+        "_xzm_xzone_malloc_freelist_outlined": 2,
+        "zbtScoreFindLeaf": 1,
+        "_platform_memchr": 3,
+        "zbtScoreLeafBuild": 4,
+        "zbtIndexMove": 1,
+        "zbtScoreDeleteInPlace": 1,
+        "zbtScoreLeafLowerBound": 2,
+        "siphash": 2,
+        "zbtScoreInsertAt": 3,
+        "zbtBuildElementWrite": 1,
+        "zbtreeFindForAdd": 1,
+        "zbtScoreMergePair": 1
+      },
+      "header": "PROFILE,distant,1000,34,0"
+    },
+    {
+      "file": "profile/n100000-preserve.stderr",
+      "samples": 8,
+      "symbols": {
+        "zbtScoreUpdateInPlace": 2,
+        "_platform_memcmp": 1,
+        "siphash": 2,
+        "_platform_memchr": 3
+      },
+      "header": "PROFILE,preserve,1000,8,0"
+    },
+    {
+      "file": "profile/n1000000-distant.stderr",
+      "samples": 72,
+      "symbols": {
+        "_xzm_xzone_malloc_freelist_outlined": 38,
+        "_platform_memmove": 4,
+        "zbtScoreLeafBuild": 3,
+        "zbtBuildElementWrite": 1,
+        "zbtScoreDeleteInPlace": 2,
+        "zbtIndexTableFindReference": 2,
+        "_platform_memchr": 7,
+        "zbtScoreLeafLowerBound": 4,
+        "zbtreeUpdateScore": 1,
+        "zbtScoreInsertAt": 3,
+        "siphash": 1,
+        "zbtScoreFindLeaf": 4,
+        "zbtScoreMergePair": 1,
+        "_xzm_chunk_list_slot_push": 1
+      },
+      "header": "PROFILE,distant,1000,72,0"
+    },
+    {
+      "file": "profile/n1000000-preserve.stderr",
+      "samples": 40,
+      "symbols": {
+        "_xzm_xzone_malloc_freelist_outlined": 11,
+        "siphash": 1,
+        "_platform_memchr": 9,
+        "update_loop": 2,
+        "zbtScoreUpdateInPlace": 3,
+        "_platform_memcmp": 1,
+        "zbtreeFindForAdd": 9,
+        "zbtScoreLeafFindMember": 4
+      },
+      "header": "PROFILE,preserve,1000,40,0"
+    }
+  ],
+  "long_profiles": [
+    {
+      "file": "profile/n10000-preserve-long.stderr",
+      "samples": 84,
+      "symbols": {
+        "zbtScoreLeafFindMember": 12,
+        "siphash": 5,
+        "_platform_memchr": 34,
+        "zbtreeFindForAdd": 14,
+        "zbtScoreUpdateInPlace": 7,
+        "zbtreeUpdateScore": 5,
+        "_platform_memcmp": 4,
+        "sdsfree.cold.1": 3
+      }
+    },
+    {
+      "file": "profile/n100000-preserve-long.stderr",
+      "samples": 128,
+      "symbols": {
+        "_platform_memchr": 51,
+        "zbtreeFindForAdd": 22,
+        "zbtScoreLeafFindMember": 17,
+        "zbtScoreUpdateInPlace": 12,
+        "siphash": 7,
+        "_platform_memcmp": 5,
+        "zbtreeUpdateScore": 3,
+        "update_loop": 9,
+        "sdsfree.cold.1": 2
+      }
+    },
+    {
+      "file": "profile/n1000000-preserve-long.stderr",
+      "samples": 409,
+      "symbols": {
+        "_platform_memchr": 207,
+        "_xzm_xzone_malloc_freelist_outlined": 9,
+        "zbtreeFindForAdd": 87,
+        "zbtScoreLeafFindMember": 48,
+        "_platform_memcmp": 11,
+        "zbtScoreUpdateInPlace": 27,
+        "zbtreeUpdateScore": 5,
+        "update_loop": 4,
+        "siphash": 11
+      }
+    }
+  ]
+}
