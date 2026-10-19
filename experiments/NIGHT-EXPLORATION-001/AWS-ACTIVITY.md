@@ -45,3 +45,5 @@ This is operational preparation, not an optimization decision. Counts unchanged.
   effects independently reconstructed by root. AWS measured populations 1;
   accepted/rejected/parked 0/1/0. ARM profile attribution corrected before timing;
   unmeasured exact-mask proposal withdrawn. Intel screen continues.
+
+- 2026-10-19T02:15:14.416994+00:00: aws-intel running at `46a052e8`: SSE2 lookup population build; A/A partial qualification; aws-amd running at `865beadd`: LOWERBOUND-001 REJECT/NONE; one scoped diagnostic pending; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
