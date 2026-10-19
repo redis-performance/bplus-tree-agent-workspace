@@ -1,5 +1,7 @@
 # Handoff
 
+M6 round5 decision/audit/report publishedc2b5d7105; seal34988 files verifies,9 launch hashes unchanged. Final handoff publication follows.
+
 Latest M6 round5: [DECODE-001](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md)
 REJECT universal policies / NONE. B/C count1 median≈−30% is exploratory; all three
 lose repeatedly on uncapped qualified guards. Primary A/A fails,41 cells capped,
