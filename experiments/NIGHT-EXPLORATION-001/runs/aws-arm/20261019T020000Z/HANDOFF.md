@@ -1,6 +1,6 @@
 # AWS ARM handoff
 
-Updated: 2026-10-19T06:15:57.445601+00:00
+Updated: 2026-10-19T07:18:13.612193+00:00
 
 Read [MORNING-REPORT.md](MORNING-REPORT.md) first. SourceNONE;2 measured populations
 (0accepted/1rejected/1parked), plus1 separate parked iterator replication. Baselines
@@ -26,4 +26,4 @@ Profile-only024 completed: [immutable result](024-corrected-iterator/PROFILE-RES
 
 024 baseline now complete: [result](024-corrected-iterator/RESULT.md),48 A/A rows/12 blocks; bothsizes qualify. SourceNONE/counts unchanged, no candidate/proposal authorized. Runner idle awaiting independent raw review/root decision.
 
-2026-10-19 07:18 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
+2026-10-19 07:17 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).

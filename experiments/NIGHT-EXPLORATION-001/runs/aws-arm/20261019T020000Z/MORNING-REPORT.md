@@ -1,14 +1,14 @@
 # AWS ARM morning results — 19 October 2026
 
 **Source adoption NONE. Two measured ARM optimization populations: 0 accepted,
-1 rejected, 1 parked. One separate architecture replication: PARK.** No qualified
+1 rejected, 1 parked. Two separate architecture replications: both PARK.** No qualified
 whole-tree gain is claimed. Host: AWS ARM Neoverse V2, Clang18.1.3, serialCPU2.
 
 **Campaign lease ACTIVE until08:00UTC /09:00Lisbon. Actual release and OSS coordinator
 restoration are PENDING and unverified.** This is a results report, not restoration
 proof. The ARM experiment runner is idle under root direction. No new experiments
 are planned; the campaign cutoff remains07:15UTC. Any final read-only ambient fleet
-observation is a separate root-owned action. Updated: 2026-10-19T06:15:57.445601+00:00.
+observation is a separate root-owned action. Updated: 2026-10-19T07:18:13.612193+00:00.
 
 ## Baselines and identities
 
@@ -17,6 +17,7 @@ observation is a separate root-owned action. Updated: 2026-10-19T06:15:57.445601
 | Original8fab511e | [001 summary](001-baseline/summary.csv),120 processes/960 rows/40 cells; five sizes100 through1M, eight operations,16-byte members, seeds1–3, six same-binary ABBA blocks |18/40 cells qualify at±1% and10ms;11 short and19 precision failures overlap. Root audited/published the five-host chart. |
 | Corrected adapter13e459ff8 | [013 result](013-corrected-adapter-baseline/RESULT.md),120 processes/960 rows/40 cells; same original matrix in an isolated detached checkout |21/40 qualify;11 short and15 precision failures overlap. `_Noreturn` adapter correction and isolated build path form a distinct harness identity. No old/new speed claim. |
 | Corrected SCAN controls | [015 result](015-corrected-scan-aa/RESULT.md),48 processes/12 blocks,100K/1M,5M requested operations, seeds401–403 twice |Both primaries qualify. Actual frozen binary869425ed... is the control for017 and019. |
+| Corrected score-only iterator controls | [024 result](024-corrected-iterator/RESULT.md),6 scoped captures and48 A/A rows/12blocks,50M operations, seeds701–703 twice |Both qualify; actual013 binary330b39a9 is the unchanged026 control. Independent AMD profile/AA reviews pass. |
 | Fresh fold-follow-up controls | [020 result](020-fold-predicate-aa/RESULT.md),48 processes/12 blocks, same binary and5M operations, seeds701–703 twice |Both qualify; minimum417.860/531.751ms. Controls support only their own session and do not rescue earlier failures. |
 
 Original source8fab511e0e6ec7d4808546cd50064c6bf299e695 and corrected adapter
@@ -24,7 +25,7 @@ Original source8fab511e0e6ec7d4808546cd50064c6bf299e695 and corrected adapter
 d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2 and header SHA
 496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83. Original source,
 referee, binaries and evidence were preserved. Corrected timings were never pooled
-with original8fab or another architecture. The current5M-op timing binary is
+with original8fab or another architecture. The corrected SCAN5M-op timing binary is
 869425ed06643058e561df05177d1b85c42c9f662c5a80654c25caca02349055.
 
 ## Measured decisions
@@ -33,6 +34,7 @@ with original8fab or another architecture. The current5M-op timing binary is
 | --- | --- |
 | Count-one decoder003 | **PARK/NONE.** [Result](003-decode/RESULT.md),2784 screen rows and1391 A/A rows. Required primary precision fails; conditional EXP-007B helper leads are not whole-tree/root gains. A/B/C executable text is identical, so no ranking. Root independent audit46c0ce2c2. Patches:[A](003-decode/variants/A/candidate.patch),[B](003-decode/variants/B/candidate.patch),[C](003-decode/variants/C/candidate.patch). |
 | Iterator005 replication | **PARK/NONE.** Exact Intel A/B hypotheses replicated on ARM with576 rows/144 paired blocks. Both primary controls fail; no qualified winner. A adds8 bytes iterator state; B preserves16 bytes. [Result](005-iterator/RESULT.md),[independent review](005-iterator/INDEPENDENT-REVIEW.md), rootb0c5a43e2. Patches:[A](005-iterator/variants/A/candidate.patch),[B](005-iterator/variants/B/candidate.patch). Counted separately from new populations. |
+| Exact historical EXP-005 A026 replication | **PARK/NONE.** [Result](026-exp005A-replication/RESULT.md),48 rows/12blocks, every primary passes:100K elapsed−7.86..−7.74%,1M−7.39..−6.96%. Missing broad guards, independent confirmation and matched profiling prevent acceptance. [Exact historical patch](026-exp005A-replication/candidate.patch),570 validation commands, root/AMD static reviews pass; final raw review pending. Separate replication, not a new population. |
 | Corrected native NEON017 | **REJECT/NONE.** Actual three independent proposals and three isolated implementations;145 validation commands pass, then all144 discovery rows/36 blocks complete. Every candidate fails both primary speed gates in every block. [Result](017-corrected-neon/RESULT.md),[comparison freeze](017-corrected-neon/comparison-freeze.json),[A](017-corrected-neon/variants/A/candidate.patch),[B](017-corrected-neon/variants/B/candidate.patch),[C](017-corrected-neon/variants/C/candidate.patch). |
 
 NEON paired elapsed increases at100K/1M: A+96.89–102.01%/+68.98–72.40%;
@@ -140,4 +142,4 @@ controls and actual013 code mapping. Fixed50M-op A/A completes48 rows/12 blocks:
 population counts and all prior decisions remain unchanged. Raw A/A review/root next
 step remain pending; runner is idle. LeaseACTIVE/restorationPENDING still applies.
 
-2026-10-19 07:18 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
+2026-10-19 07:17 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
