@@ -793,3 +793,6 @@ passed SSH preflight; OSS coordinators stopped, five-size baselines running from
 8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
 09:00Lisbon. [Live status](../experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
 completed evidence. No new optimization decision; population counts unchanged.
+
+
+19October2026 AWS Intel native lookup: **REJECT/NONE**,1completed sequential population(0accepted/1rejected/0parked),3retained patches.432rows/108blocks, all variants slow both primaries; baseline source unchanged. [Intel evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/002-lookup/implementation-selection.md). Other-host and historical counts remain separate.
