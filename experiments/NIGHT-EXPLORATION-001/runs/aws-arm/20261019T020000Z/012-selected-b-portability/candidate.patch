@@ -1,0 +1,56 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -15,6 +15,10 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ #include <string.h>
++
++#if defined(__SSE2__) && !defined(ZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE)
++#include <emmintrin.h>
++#endif
+ 
+ /*-----------------------------------------------------------------------------
+  * B+ tree implementation of the low level sorted set API
+@@ -4123,9 +4127,10 @@
+ /* Store the logical positions of the leaf tags that an index tag can stand
+  * for, and return their number. 'tags' is the physical array, which is in
+  * reverse order when 'reversed' is set. zbtIndexTag() folds leaf tag zero
+- * into one. Eight tags are compared at once. As with bucket tags, a mask bit
+- * can be set above a real match, so each candidate is checked against its
+- * byte. Only complete words are loaded: member records follow the tags. */
++ * into one. Portable masks compare eight tags at once and can set bits above
++ * a real match, so their candidates are checked against the original bytes.
++ * SSE2 masks are exact and compare complete sixteen-byte spans. All loads
++ * stay within the tag array: member records follow the tags. */
+ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+                                              unsigned int count, int reversed,
+                                              uint8_t tag,
+@@ -4134,7 +4139,27 @@
+     unsigned int found = 0;
+     unsigned int words = count / 8;
+     unsigned int last = reversed ? count - 1 : 0;
+-    for (unsigned int w = 0; w < words; w++) {
++    unsigned int w = 0;
++#if defined(__SSE2__) && !defined(ZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE)
++    const __m128i needle = _mm_set1_epi8((char)tag);
++    /* Exact masks need no byte verification. Consume only complete pairs of
++     * words, leaving the original bounded word and byte tails below. */
++    for (; w + 1 < words; w += 2) {
++        __m128i chunk;
++        memcpy(&chunk, tags + w * 8, sizeof(chunk));
++        __m128i equal = _mm_cmpeq_epi8(chunk, needle);
++        if (tag == 1)
++            equal = _mm_or_si128(equal,
++                                _mm_cmpeq_epi8(chunk, _mm_setzero_si128()));
++        unsigned int mask = (unsigned int)_mm_movemask_epi8(equal);
++        while (mask) {
++            unsigned int pos = w * 8 + (unsigned int)__builtin_ctz(mask);
++            positions[found++] = reversed ? last - pos : pos;
++            mask &= mask - 1;
++        }
++    }
++#endif
++    for (; w < words; w++) {
+         uint64_t word = zbtLeafTagWord(tags + w * 8);
+         uint64_t mask = zbtIndexTagMask(word, tag);
+         if (tag == 1) mask |= zbtIndexTagMask(word, 0);
