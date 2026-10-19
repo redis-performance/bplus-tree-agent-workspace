@@ -26,3 +26,7 @@
 - 2026-10-19T03:04Z: Fresh ARM iterator baseline8profiles supportexactA/Breplication: offsetgeometry0xb7d0–0xb7ec local11.08%/14.46%, explicitrecordheader hotspotexcluded. Baseline1920fixturecells,43originaltests/mode,89428additivechecks/mode pass. Exactcandidatevalidation running; no timing.
 
 - 2026-10-19T03:05:55.180279+00:00: Exactbase/A/B native+sanitizer validationpasses:1920fixtures/source,43originaltests/build,89428additivestatechecks/build. Measuredsizeofbase16,A24,B16. Baselinecalibrationstarted; allbinary/refereehashesfrozen in005-iterator/comparison-hashes.json.
+
+- 2026-10-19T03:08:31.224350+00:00: ARM iterator calibration audited and counts frozen before A/A; six-block qualification running. Independent AMD all-match scan proposal submitted in2d70dfd38 without reading peers. Root tentative memchr context arrived after submission and did not influence it. No added remote workload.
+
+- 2026-10-19T03:09:08.398837+00:00: Iterator A/A completes192 processes/48blocks; only1/8 cells qualifies. Both primaries fail (100K -2.523..+1.985%;1M -3.997..+0.735%). Fixed exploratoryA/B screens remain; no noise iteration or acceptance.
