@@ -10,7 +10,9 @@ The public referee requests forward score-only iteration: `zbtreeIteratorNext(&i
 
 There is material evidence in packed score decoding: exclusive sampled-period shares are 25.819%/29.350% for score decode at 100K/1M, plus separate 3.607%/4.032% ordered-to-score and 3.365%/3.866% physical-position shares. Iterator body is 22.980%/22.183%; those categories are exclusive, while same-IP inline-inclusive totals overlap. The caller accounts for 44.229%/40.568%. All sampled tree instructions match actual timing code, but caller mappings differ or are absent. This establishes a tree-code location worth inspecting, not a removable cost or expected elapsed improvement.
 
-## One specific future mechanism worth code-generation inspection
+## Historical mechanism identified; no new direction selected
+
+**Historical reconciliation after root review:** the expression below is exactly retained EXP-005 variant A, not a distinct hypothesis. EXP-005 is PARK/NONE, with fresh primary confidence gates unmet. I read its README, chair and all three retained patches after the initial critique. The initial publication `4ddc15853` omitted that overlap; this correction preserves that history and withdraws framing it as a fresh direction. Current selection remains NONE. A changed architecture or adapter alone does not justify rebranding or retrying EXP-005. The profile localizes historical work but supplies no novel mechanism or permission to revive it.
 
 Within the existing `bits != 0` block in `zbtScoreLeafScore`, the width mask is regenerated for each item. Actual `b8da..b8f6` builds a shifted all-ones mask, complements it and selects the all-ones result for width 64 before applying the mask. A possible future source-only simplification is expressing the mask as `UINT64_MAX >> (64 - bits)` for the established width range 1..64. This includes width 64 with shift zero and could remove the special-width select and some mask construction instructions while retaining the packed load/overflow-byte/score-shift logic unchanged. This is an algebraic direction for future compiler inspection, not a patch or a claim that Clang will produce faster code.
 

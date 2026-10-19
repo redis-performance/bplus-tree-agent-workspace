@@ -27,3 +27,5 @@ Helper sample attribution matches the actual timing binary's instructions and so
 See [EXPERIMENTS.md](EXPERIMENTS.md), [SUMMARY.md](SUMMARY.md), [ACTIVITY.md](ACTIVITY.md), and [NATIVE-STATUS.json](NATIVE-STATUS.json). Exact backend/model and measured token/USD costs are unknown.
 
 [Read-only AMD iterator critique](019-amd-iterator-review/REVIEW.md) distinguishes score-only decoding from the earlier member cache. It selects no candidate and does not change the counts or failed controls.
+
+[Morning report](MORNING-REPORT.md): no adopted source; lease remains ACTIVE until coordinator-verified 08:00 UTC release. The read-only mask discussion is exact historical EXP-005 A overlap, not a new hypothesis.
