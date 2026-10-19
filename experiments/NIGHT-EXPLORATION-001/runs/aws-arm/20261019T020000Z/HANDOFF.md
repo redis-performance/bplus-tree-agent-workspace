@@ -1,3 +1,5 @@
+**Latest ARM closeout 2026-10-19T11:28:34.271520+00:00: RELEASED, source NONE.** The dual-frontend diagnostic is complete; root verified live coordinator restoration11:24:35–37UTC at [132cf5be7](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/132cf5be7/experiments/ARM-FRONTEND-DIAGNOSTIC-001/RELEASE-FINAL.json). Exact candidate remains REJECT. Instrumented instruction reductions do not explain native timing: only2/12 source/cell transfers qualify (zero complete pairs), strict tree attribution stays FALSE. See [diagnostic closeout](030-frontend-diagnosis/CLOSEOUT.md). No additional runner work pending.
+
 # AWS ARM final handoff
 
 Updated: 2026-10-19T08:03:18.494652+00:00
