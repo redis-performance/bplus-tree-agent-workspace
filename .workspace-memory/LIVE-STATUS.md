@@ -1,19 +1,22 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:21 UTC
+## Current AWS overnight checkpoint — 19 October 04:33 UTC
 
 Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
 start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
 7, with 0 accepted / 4 rejected / 3 parked; separate ARM iterator replication PARK.
 AMD deletion and native ARM scan stopped at chair NONE after failed controls, before
 implementation. Intel scan B discovery and independent seeds 201–203 confirmation pass.
-Full original controls qualify 57/80; diagnostic B guards and matched/focused follow-ups
-remain. Intel owns its runner again after root verified idle state and live binary
+Full original guards finish with 56 passing qualified cells, one mixed iteration
+guard and 23 failed/short controls: 24/80 remain unresolved. Independent AMD raw
+audit verifies all rows and post-phase hashes. Matched/focused follow-ups remain. Intel owns its runner again after root verified idle state and live binary
 hashes at 04:09:44 UTC. All further workloads must run serially. Primary confirmation
 alone cannot support acceptance.
 
-AMD is independently auditing the pending full Intel guard comparison. ARM is
-preparing a separate baseline-only supplemental referee for fully reversed leaves,
-active resize and member-length boundaries; no candidate timing has begun there.
+AMD completed the independent full Intel guard audit. ARM published supplemental
+referee ec21ce601 for fully reversed leaves, active resize and member boundaries.
+Root audited 2,447 sealed files, 378 commands, 90 fixture hashes and 16 negative
+controls; its fixed 180/480/480-second performance phases are queued on Intel
+after the existing queue, with separate 600-second preparation. No timing yet.
 Intel matched-profile v2 is frozen before execution at 120 captures / 600 seconds.
 All AWS builds retain the original adapter; the separately reviewed main/M6
 `_Noreturn` correction does not change their frozen referee. Separate corrected-adapter

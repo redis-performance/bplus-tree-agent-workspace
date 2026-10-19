@@ -284,3 +284,21 @@ This closes only the fresh independent primary-confirmation gate. Full original
 controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
 remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
+
+
+## 19 October 04:33 UTC — Full original Intel B guards remain PARK
+
+Independent AMD review72553e841 reconstructs both120-process phases:1,920 raw rows,
+480 block effects, exact serial CPU2 schedule and fixture/memory identity. All22
+post-phase source/referee/binary hashes match. Of57 qualified cells,56 pass every
+guard block. The100-member/16-byte iteration guard has+0.304%,−0.825%,+1.329%;
+its mixed exceedance remains unresolved. No qualified cell has all three blocks
+above+1%. Another23 cells retain failed/short controls, leaving24/80 unresolved.
+Unqualified100/128 insert has three positive effects, retained as exploratory
+rather than silently passed or promoted to a demonstrated regression.
+
+PARK/source NONE. Independent primary confirmation remains valid only in its
+narrow scope. Matched profiles and focused/supplemental guards continue serially.
+Root verified the independent reports against their immutable publication.
+[Audit summary](reviews/aws-intel-original-guards-independent-summary.json).
+Measured AWS populations remain7:0 accepted/4 rejected/3 parked; no new population.

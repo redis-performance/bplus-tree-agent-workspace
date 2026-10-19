@@ -180,9 +180,11 @@ Both A and B passed the earlier discovery screen. B advanced under the predeclar
 source-maintenance preference; no A-versus-B speed superiority is claimed. The chart
 below preserves that discovery checkpoint.
 
-**Overall decision remains PARK.** Full original controls qualify only 57 of 80 cases:
-12 are too short and 11 fail precision checks. Diagnostic guard comparisons and
-matched profiles continue. The baseline source stays unchanged.
+**Overall decision remains PARK.** Of 57 cases with qualified controls, 56 pass every
+original guard block. One small iteration case has mixed effects, including +1.33%.
+Another 23 cases have short or noisy controls, leaving **24 of 80 cases unresolved**.
+[Independent guard audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-original-guards-independent-summary.json).
+Matched profiles and separate focused guards continue. The tree source stays unchanged.
 [Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),
 [decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
 [independent adversarial review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/27fed33a7/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/010-intel-scan-review/ADVERSARIAL-REVIEW.md).

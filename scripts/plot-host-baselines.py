@@ -74,6 +74,9 @@ def main():
                  'Apple M1 + M6') if combined else group[0][0]['label']
         compiler = ('Apple Clang 17 / 21 · AWS Clang 18.1.3' if len(group) == 5 else
                     'M1: Apple Clang 17 · M6: Apple Clang 21') if combined else group[0][0]['compiler']
+        if combined:
+            label = manifest.get('combined_label', label)
+            compiler = manifest.get('combined_compiler', compiler)
         fig.suptitle(f'{label} · whole-tree baseline',
                      fontsize=20, fontweight='bold', x=.07, ha='left', y=.98)
         fig.text(.07, .925, f'{compiler} · -O3 · 16-byte members · 24 observations per cell',
@@ -90,10 +93,13 @@ def main():
         note = ('Intel, AMD and Graviton: placeholders only; no measurements plotted.'
                 if combined and pending else
                 'Host series remain separate. Each panel has its own y-axis. Host/compiler differences are not candidate gains.')
+        if combined:
+            note = manifest.get('comparison_note', note)
         fig.text(.07, .035,
                  'Dots: median batch-average ns/op. Whiskers: observed min–max. Lower is less time.\n'+note,
                  fontsize=10, color='#475569', linespacing=1.5)
-        stem = args.directory/('m1-m6-baseline' if combined else group[0][0]['host']+'-baseline')
+        stem = args.directory/(manifest.get('combined_stem', 'm1-m6-baseline')
+                               if combined else group[0][0]['host']+'-baseline')
         fig.savefig(stem.with_suffix('.png'), dpi=150, facecolor='white', metadata={'Software': 'Matplotlib'})
         fig.savefig(stem.with_suffix('.svg'), facecolor='white', metadata={'Date': None})
         plt.close(fig)
