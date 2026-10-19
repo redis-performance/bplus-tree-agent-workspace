@@ -859,3 +859,39 @@ all36 retained fixture hashes, frozen schedules, serialCPU2, semantic/memory par
 retaining all failed-control cells. No new accepted source; completed AWS populations
 remain7 (0 accepted/4 rejected/3 parked), plus separate replications.
 [Focused control audit](NIGHT-EXPLORATION-001/reviews/aws-intel-focused-aa-independent-audit.json).
+
+
+## 19 October 05:18 UTC — ARM discovery approved after native review
+
+All three corrected ARM implementations pass the fixed native validation: 145 serial
+commands, eight original 43-test runs, 56 semantic suite runs, six forced-portable
+oracle runs and eight detected faults. Root independently checks every required
+outcome, source/referee/patch hash, native vector codegen and comparison binding.
+AMD independently reviews coverage/provenance, explicitly disclosing authorship of C.
+The rebuilt baseline text equality is supported by the completed frozen driver; neither
+reviewer claims to have independently rehashed unpublished section bytes. The overread
+fault fails a count/canary assertion before a page signal, so no signal proof is claimed.
+
+Root approves the exact 144-row, 300-second discovery schedule, source13e459ff8,
+actual baseline8694 and frozen candidate binaries from24a1694d6. No retry or source
+repair. Maintenance preference B,C,A applies only to complete primary survivors.
+[Native review and grant](NIGHT-EXPLORATION-001/reviews/aws-arm-corrected-scan-population/native-validation-review.json).
+Completed population counts remain seven until this round is measured.
+
+The independent full Intel focused audit223d6d7de reconstructs 2,052 processes and
+432 paired effects: all 22 qualified guard cases pass; 14 noisy controls remain
+unresolved. Across all candidate blocks, changes range from−24.951% to+0.260%, but
+unqualified rows remain exploratory. Original 24 guard gaps still block adoption.
+[Independent summary](NIGHT-EXPLORATION-001/reviews/aws-intel-focused-independent-summary.json).
+
+AMD's separate corrected rank/update profile survey4ed690fd1 completes 74 commands
+and 12 scoped captures with matched controls and actual timing-binary mapping.
+Sampled instruction locations identify index probing/ID stores as diagnostic topics;
+load/store adjacency and sampling skid prevent calling their arithmetic removable.
+No new hypothesis is selected. Intel's corrected baseline runs before its frozen
+supplemental guards; a distinct corrected SCAN profile/control plan is queued later.
+
+The05:08 live release preflight verifies all three coordinators remain stopped,
+all host timers still target08:00UTC/09:00Lisbon, and cgroup inspection reports no
+errors. This is not release proof; the final live auditor remains scheduled08:00:20.
+[Sanitized preflight](NIGHT-EXPLORATION-001/reviews/aws-release-preflight-0508.json).

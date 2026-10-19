@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:06 UTC
+## Current AWS overnight checkpoint — 19 October 05:18 UTC
 
 Campaign active until09:00Lisbon/08:00UTC; no new experiments after07:15UTC.
 Main tree source remains unchanged. Seven completed measured populations:
@@ -13,11 +13,14 @@ Fresh corrected ARM/AMD SCAN profiles and48-row A/A controls completed and root-
 both100K/1M qualify. Original failed8fab controls/decisions remain final.
 Root chair selects bounded16-byte native NEON exact leaf-tag matching after three
 actual independent ARM proposals, for three isolated implementations A=ARM,B=Intel,
-C=AMD. All patches sealed and root static review passes; native correctness/codegen
-and fixed144-row discovery remain pending. Maintenance preference B,C,A among primary
+C=AMD. All patches sealed;145 native validation commands and independent root/AMD
+coverage reviews pass. Fixed144-row discovery now approved,300s,exact24a1694d6 binaries. Maintenance preference B,C,A among primary
 survivors. AMD corrected exactB replication completed48rows: only2/6 blocks per primary
 reach2%; medians−1.848%/−1.785%, REJECT replication/NONE. No further candidate work.
-Intel focused controls complete864rows,22/36 qualified,14 noisy; fixed B phase continues.
+Intel focused controls/comparison complete:22/36 qualified cases pass every guard;
+14 noisy controls remain unresolved. Independent AMD audit checks2052processes.
+Intel corrected baseline runs, supplemental guards then correctedSCAN profile/AA queued.
+AMD corrected rank/update profile survey complete; no distinct hypothesis selected.
 No overnight tree source adoption; every required guard/profile/confirmation/review
 still applies. See AWS-DECISIONS.md and reviews/aws-arm-corrected-scan-population.
 

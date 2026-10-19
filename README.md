@@ -29,7 +29,9 @@ both primary gates and fresh independent confirmation; variant B continues guard
 AMD deletion and native ARM scan planning stopped before implementation because
 precision controls failed; their independent proposals are retained. A separate
 corrected-adapter ARM round now has qualified controls and three independent proposals;
-three isolated NEON implementations are sealed and await native validation/timing.
+three isolated NEON implementations pass native validation and begin a fixed
+144-run comparison. Intel’s focused guards pass all 22 qualified cases; 14 noisy
+controls and the original guard gaps remain unresolved.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
