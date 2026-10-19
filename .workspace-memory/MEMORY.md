@@ -1,33 +1,30 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:18 UTC
+## Current AWS overnight checkpoint — 19 October 05:29 UTC
 
-Campaign active until09:00Lisbon/08:00UTC; no new experiments after07:15UTC.
-Main tree source remains unchanged. Seven completed measured populations:
-0 accepted /4 rejected /3 parked; separate ARM iterator replication PARK.
-Original8fab Intel scan B passed discovery and independent primary confirmation;
-full guards retain24/80 unresolved cells. Matched-profile review completed; focused
-controls/comparison continue, followed by corrected baseline and supplemental guards.
+Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
+Main tree source remains unchanged; source adoption NONE. Seven previously audited
+measured populations: 0 accepted / 4 rejected / 3 parked. New corrected ARM NEON
+population completes 144 discovery rows; worker reports all three slower, REJECT/NONE.
+Root and independent AMD result audits are pending; no confirmation is eligible.
+All three implementations passed 145 native validation commands before discovery.
 
-Distinct corrected-adapter13e459ff8 matrices complete on M6,AMD,ARM; Intel queued.
-Fresh corrected ARM/AMD SCAN profiles and48-row A/A controls completed and root-audited:
-both100K/1M qualify. Original failed8fab controls/decisions remain final.
-Root chair selects bounded16-byte native NEON exact leaf-tag matching after three
-actual independent ARM proposals, for three isolated implementations A=ARM,B=Intel,
-C=AMD. All patches sealed;145 native validation commands and independent root/AMD
-coverage reviews pass. Fixed144-row discovery now approved,300s,exact24a1694d6 binaries. Maintenance preference B,C,A among primary
-survivors. AMD corrected exactB replication completed48rows: only2/6 blocks per primary
-reach2%; medians−1.848%/−1.785%, REJECT replication/NONE. No further candidate work.
-Intel focused controls/comparison complete:22/36 qualified cases pass every guard;
-14 noisy controls remain unresolved. Independent AMD audit checks2052processes.
-Intel corrected baseline runs, supplemental guards then correctedSCAN profile/AA queued.
-AMD corrected rank/update profile survey complete; no distinct hypothesis selected.
-No overnight tree source adoption; every required guard/profile/confirmation/review
-still applies. See AWS-DECISIONS.md and reviews/aws-arm-corrected-scan-population.
+Original-adapter Intel scan B passes discovery and independent primary confirmation;
+full original guards retain 24/80 unresolved cases. All 22 qualified focused guards
+pass, 14 noisy focused cases remain unresolved. Independent focused audit complete.
+Supplemental reverse/resize/length-boundary guards are running; corrected Intel
+baseline profile/control survey is frozen and queued afterward.
+Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
+AMD rank/update profile and index-reference diagnosis select no new hypothesis.
+
+Corrected-adapter baselines complete on M6 and all three AWS hosts. New separate
+four-host charts preserve 3,840 raw rows / 160 cells and exact source parity evidence.
+Qualified cases: M6 5/40, Intel 10/40, AMD 11/40, ARM 21/40. Original five-host chart
+unchanged; corrected M1 baseline absent. Never combine old/new adapter identities.
 
 All three OSS coordinators remain stopped for the reserved campaign. Release timers
-08:00UTC and corrected read-only auditor08:00:20UTC are armed/alive. Actual restoration
+08:00 UTC and corrected read-only auditor 08:00:20 UTC are armed/alive. Actual restoration
 is NOT YET verified; do not report completion before live proof. Native model/token/USD
-costs unknown; no upstream actions. M6 continues publishing; M1 latest01:33UTC checkpoint
+costs unknown; no upstream actions. M6 continues publishing; M1 latest 01:33 UTC checkpoint
 reports DNS unknown and its current runner state is unverified.
 <!-- AWS-CURRENT-END -->
 

@@ -43,8 +43,9 @@ and abort check; tree source and benchmark loops are unchanged.
 [fresh M6 baseline](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) pass correctness/raw audits.
 Only **5/40 cells qualify**, and **14 have short windows**. The five-host chart below
 retains the original adapter on every host; corrected-adapter rows have their own identity.
-Separate corrected-adapter baselines now qualify **11/40 AMD** and **21/40 ARM**
-cases; Intel remains queued. All seven validation stages pass on both hosts.
+Separate corrected-adapter baselines are complete on all three AWS hosts:
+**10/40 Intel**, **11/40 AMD** and **21/40 ARM** cases qualify. All seven validation
+stages pass on each host. [New four-host chart](#corrected-adapter-baselines-m6-and-three-aws-architectures).
 Earlier baselines and experiment decisions retain their original adapter identity.
 
 ## Build and test
@@ -135,7 +136,6 @@ Status snapshot: **19 October 2026, 02:03 UTC**. The host links show ongoing upd
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
 | Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five trials rejected; adapter effects conditional; source NONE](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
-| Apple M6 · corrected adapter | Apple Clang 21, `-O3` | [Complete; 160.05s measurement-phase wall](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/matrix/SUMMARY.md) | 35/40 | [Audited new adapter baseline; precision limited](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) |
 | Intel Sapphire Rapids (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 338.54s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/001-baseline/SUMMARY.md) | 27/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-intel-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/STATUS.md) |
 | AMD Zen 5 (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 325.44s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/001-baseline/SUMMARY.md) | 30/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-amd-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/STATUS.md) |
 | AWS Graviton / Neoverse V2 (arm64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 377.83s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/001-baseline/SUMMARY.md) | 19/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-arm-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/STATUS.md) |
@@ -178,6 +178,25 @@ The [earlier M1 preparation results](experiments/SIZE-MATRIX-001/apple-m1-five-s
 and [chart](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg) remain
 separate from these overnight baselines. [Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
 
+### Corrected-adapter baselines: M6 and three AWS architectures
+
+All four hosts pass native/sanitizer validation and independent raw reconstruction.
+This chart uses the corrected panic adapter on every host; the original five-host
+chart above keeps its original identity. There is no corrected M1 series.
+
+![Corrected-adapter baselines for M6, Intel, AMD and Graviton](experiments/NIGHT-EXPLORATION-001/corrected-adapter-charts/corrected-adapter-baseline.png)
+
+| Host | Qualified cases | Short windows | Other noisy cases |
+|---|---:|---:|---:|
+| Apple M6 | 5/40 | 14/40 | 21/40 |
+| AWS Intel | 10/40 | 11/40 | 19/40 |
+| AWS AMD | 11/40 | 11/40 | 18/40 |
+| AWS Graviton | 21/40 | 11/40 | 8/40 |
+
+These outcome columns are disjoint. Qualification requires all six A/A blocks within
+±1% and windows of at least 10 ms. Machine/compiler/OS/affinity differences are not
+candidate gains. [Exact data, 100K/1M tables, source parity and reproduction](experiments/NIGHT-EXPLORATION-001/corrected-adapter-charts/README.md).
+
 ### Intel scan replication: primary gates pass, broader qualification incomplete
 
 Independent confirmation on Intel measured **6.78% lower scan elapsed time at 100K
@@ -193,7 +212,9 @@ original guard block. One small iteration case has mixed effects, including +1.3
 Another 23 cases have short or noisy controls, leaving **24 of 80 cases unresolved**.
 [Independent guard audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-original-guards-independent-summary.json).
 Matched profiles provide directional support, strongest at 1M; the 100K sample gap
-is too coarse for a precise explanation. Separate focused guards continue.
+is too coarse for a precise explanation. Separate focused guards pass all 22
+qualified cases; 14 noisy controls remain unresolved.
+[Independent focused review](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-focused-independent-summary.json).
 [Profile review](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-matched-profile-independent-summary.json).
 The tree source stays unchanged.
 [Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),

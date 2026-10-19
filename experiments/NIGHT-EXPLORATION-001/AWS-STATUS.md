@@ -352,3 +352,19 @@ The05:08 live release preflight verifies all three coordinators remain stopped,
 all host timers still target08:00UTC/09:00Lisbon, and cgroup inspection reports no
 errors. This is not release proof; the final live auditor remains scheduled08:00:20.
 [Sanitized preflight](reviews/aws-release-preflight-0508.json).
+
+
+## 19 October 05:29 UTC — corrected four-host baseline charts published
+
+The corrected-adapter Intel baseline01a7b464d completes seven validation stages,
+120 processes and 960 rows. Root independently reconstructs all raw hashes, 240
+paired blocks, exact fixtures and source identities: 10/40 cases qualify; 11 have
+short windows and 19 further cases fail precision. No candidate gain is inferred.
+
+The new [corrected four-host charts](corrected-adapter-charts/README.md) include M6,
+Intel, AMD and Graviton, with separately audited 3,840 rows and 160 cells. Ten source
+files match exactly; the runner differs only in two Linux affinity metadata lines.
+Compiler/OS/affinity differences remain confounded. No corrected M1 data is present.
+The original five-host chart remains byte-identical. PNG/SVG, per-host summaries,
+source parity, reproduction commands and checksums are retained; the combined PNG
+was visually inspected. All source adoption remains NONE.

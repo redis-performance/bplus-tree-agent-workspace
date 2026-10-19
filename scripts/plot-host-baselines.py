@@ -95,6 +95,8 @@ def main():
                 'Host series remain separate. Each panel has its own y-axis. Host/compiler differences are not candidate gains.')
         if combined:
             note = manifest.get('comparison_note', note)
+        else:
+            note = manifest.get('individual_note', note)
         fig.text(.07, .035,
                  'Dots: median batch-average ns/op. Whiskers: observed min–max. Lower is less time.\n'+note,
                  fontsize=10, color='#475569', linespacing=1.5)

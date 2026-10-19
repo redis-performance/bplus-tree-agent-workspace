@@ -1,0 +1,81 @@
+{
+  "description": "Corrected-adapter coverage baselines only; separate host/compiler/OS/affinity observations, no pooled rows or candidate speedup claims.",
+  "hosts": [
+    {
+      "host": "apple-m6",
+      "label": "Apple M6",
+      "compiler": "Apple Clang 21",
+      "file": "apple-m6.json",
+      "source_commit": "ce4a5e47ceee3371948c660f4fd3cda1b4670a36",
+      "source_path": "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/matrix/summary.json",
+      "source_url": "https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47ceee3371948c660f4fd3cda1b4670a36/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/matrix/summary.json",
+      "sha256": "4274fbc53ab1b18e968641523c87395ce999b01a31b7340106d2a30e92766a05",
+      "baseline_source_commit": "7f299a5f5d2742141e5e9d9963e8f71e9a421466",
+      "cpu_affinity": "unpinned",
+      "qualified_cells": 5,
+      "short_cells": 14,
+      "independent_audit": "../reviews/corrected-apple-m6-baseline-audit.json",
+      "precision_failure_cells": 35
+    },
+    {
+      "host": "aws-intel",
+      "label": "AWS Intel",
+      "compiler": "Clang 18.1.3",
+      "file": "aws-intel.json",
+      "source_commit": "01a7b464ddfbc3104b312ec27643ffd536c53422",
+      "source_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/results/summary.json",
+      "source_url": "https://github.com/redis-performance/bplus-tree-agent-workspace/blob/01a7b464ddfbc3104b312ec27643ffd536c53422/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/013-corrected-adapter-baseline/results/summary.json",
+      "sha256": "fc3a1ca6b64086a9f95f1761977d09946e53271be71b2729db04f1c0293c6448",
+      "baseline_source_commit": "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "cpu_affinity": [
+        2
+      ],
+      "qualified_cells": 10,
+      "short_cells": 11,
+      "independent_audit": "../reviews/corrected-aws-intel-baseline-audit.json",
+      "precision_failure_cells": 27
+    },
+    {
+      "host": "aws-amd",
+      "label": "AWS AMD",
+      "compiler": "Clang 18.1.3",
+      "file": "aws-amd.json",
+      "source_commit": "9c92e92a2290480734511826d432b47658fc82f1",
+      "source_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/015-adapter-requalification/results/summary.json",
+      "source_url": "https://github.com/redis-performance/bplus-tree-agent-workspace/blob/9c92e92a2290480734511826d432b47658fc82f1/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/015-adapter-requalification/results/summary.json",
+      "sha256": "6b559495c5784eb18cd9cd970db8f09fb88c3e9041675f527a43b88aa42b13c7",
+      "baseline_source_commit": "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "cpu_affinity": [
+        2
+      ],
+      "qualified_cells": 11,
+      "short_cells": 11,
+      "independent_audit": "../reviews/corrected-aws-amd-baseline-audit.json",
+      "precision_failure_cells": 25
+    },
+    {
+      "host": "aws-arm",
+      "label": "AWS Graviton",
+      "compiler": "Clang 18.1.3",
+      "file": "aws-arm.json",
+      "source_commit": "4422d99ea5d0a8577a1a7e195045d9f42b241566",
+      "source_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/013-corrected-adapter-baseline/result/summary.json",
+      "source_url": "https://github.com/redis-performance/bplus-tree-agent-workspace/blob/4422d99ea5d0a8577a1a7e195045d9f42b241566/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/013-corrected-adapter-baseline/result/summary.json",
+      "sha256": "3992139699de4d769c04c3a38a6b5461b74d43ed737e350041dbdb83f5045caf",
+      "baseline_source_commit": "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "cpu_affinity": [
+        2
+      ],
+      "qualified_cells": 21,
+      "short_cells": 11,
+      "independent_audit": "../reviews/corrected-aws-arm-baseline-audit.json",
+      "precision_failure_cells": 15
+    }
+  ],
+  "pending_hosts": [],
+  "combined_label": "Corrected adapter: M6 + AWS Intel / AMD / Graviton",
+  "combined_compiler": "M6: Apple Clang 21 \u00b7 AWS: Clang 18.1.3",
+  "combined_stem": "corrected-adapter-baseline",
+  "comparison_note": "Corrected adapter only. Host/compiler/OS/affinity differ; noisy or short cells are coverage, not qualified optimization evidence.",
+  "individual_note": "Corrected adapter; unchanged tree and benchmark loops. Noisy/short cells are coverage, not qualified optimization evidence."
+}
