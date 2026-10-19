@@ -17,3 +17,7 @@ Continue only authorized review/report work. Never modify frozen referees/result
 retry failed controls, pool machines, restart failed external CLI supervisors or
 change permissions. No candidate adoption/upstream action is authorized by a result.
 The [activity log](ACTIVITY.md) and Git retain chronological milestone states.
+
+## Additive preparation update — 2026-10-19T06:22:00.520959+00:00
+
+Root requested a separate [corrected ARM score-only iterator diagnosis](024-corrected-iterator/PLAN.md). Plan/execution freeze prepared; no launch, pending root and independent AMD review plus post-ambient idle handoff. Morning results and all prior decisions remain unchanged.

@@ -18,3 +18,7 @@ actual release and OSS restoration PENDING.** No new experiments are planned.
 
 Earlier milestone descriptions and superseded states remain in ACTIVITY and Git;
 immutable experiment reports and evidence seals are unchanged.
+
+## Additive preparation update — 2026-10-19T06:22:00.520959+00:00
+
+Root requested a separate [corrected ARM score-only iterator diagnosis](024-corrected-iterator/PLAN.md). Plan/execution freeze prepared; no launch, pending root and independent AMD review plus post-ambient idle handoff. Morning results and all prior decisions remain unchanged.
