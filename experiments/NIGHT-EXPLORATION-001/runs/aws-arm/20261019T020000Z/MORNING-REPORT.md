@@ -152,3 +152,9 @@ step remain pending; runner is idle. LeaseACTIVE/restorationPENDING still applie
 Independent Intel raw review [16f074fbe](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md) verifies all48 rows/12blocks of exact historical EXP-005 A replication, schedules, semantics, memory and identities. The outcome remains PARK/sourceNONE; qualified broader guards, fresh confirmation and matched profiling are still missing.
 
 Earlier timestamped pending/active statements above are retained as historical milestones and are superseded by this verified final state. No experiment decision or sealed artifact changed.
+
+2026-10-19T10:07:19.561680+00:00
+
+Fresh follow-up completed and ARM lease RELEASED. Root's [immutable live release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/2a53fc3f3/experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) verifies the OSS coordinator RUNNING, saved/live identity agreement, inactive owned slice, no owned jobs or processes and no inspection errors at 2026-10-19T10:03:25.494971+00:00–2026-10-19T10:03:27.123716+00:00. The10:03:18 marker identifies release-attempt start, not exact restoration completion. No further workload is pending.
+
+Fresh exact historical mask replication is REJECT/sourceNONE: nine qualified iterator guards lose >1% in every block. Intel independent raw auditd3cc358f2 confirms all1,968 comparison and1,968 AA rows,43 qualified cells (9REJECT/30PASS/4mixed) and39 unresolved controls. The50M primary gain does not override those guards. Matched profile and held-out confirmation remain UNEXECUTED. Historical overnight026 PARK and08UTC fleet release remain separate. See [consolidated fresh result](027-mask-followup/FOLLOWUP-RESULT.md).

@@ -31,3 +31,9 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19T09:48:31.805464+00:00: root grant ddb4cf444 and Intel independent AA review d68b27aa2 authorize exactly one fixed iterator-comparison. Actual phase start09:47:58.664364UTC;1968processes/82cells,1500s cap,CPU2. Fresh preflight passed lease/full-cap/idle/OSS checks.43 controls qualified,39 unresolved. OverallPARK/sourceNONE; qualified losses retain frozen decision rules. No automatic profile or confirmation.
 
 2026-10-19T10:01:18.513790+00:00: fixed027 iterator-comparison complete; 1968processes/1968rows, REJECT, requiredqualified=False. SourceNONE; no automatic next phase. See027-mask-followup/ITERATOR-COMPARISON-RESULT.md.
+
+2026-10-19T10:07:19.561680+00:00
+
+Fresh follow-up completed and ARM lease RELEASED. Root's [immutable live release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/2a53fc3f3/experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) verifies the OSS coordinator RUNNING, saved/live identity agreement, inactive owned slice, no owned jobs or processes and no inspection errors at 2026-10-19T10:03:25.494971+00:00–2026-10-19T10:03:27.123716+00:00. The10:03:18 marker identifies release-attempt start, not exact restoration completion. No further workload is pending.
+
+Fresh exact historical mask replication is REJECT/sourceNONE: nine qualified iterator guards lose >1% in every block. Intel independent raw auditd3cc358f2 confirms all1,968 comparison and1,968 AA rows,43 qualified cells (9REJECT/30PASS/4mixed) and39 unresolved controls. The50M primary gain does not override those guards. Matched profile and held-out confirmation remain UNEXECUTED. Historical overnight026 PARK and08UTC fleet release remain separate. See [consolidated fresh result](027-mask-followup/FOLLOWUP-RESULT.md).

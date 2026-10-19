@@ -33,3 +33,9 @@ All semantic output and tree-owned byte comparisons passed. Both original and co
 - Uniform identical-bit width-zero performance coverage remains missing; alternating signed-zero ties do not fill it. Unqualified cells remain unresolved. No new runs, retries, changes to counts or discarded blocks occurred.
 
 The final independent raw review and fresh lease restoration proof are recorded additively in campaign status after publication. At this report's preparation the runner was verified idle; fresh lease release was still pending parent verification. Original 08 UTC release history is separate.
+
+## Final independent review and release
+
+Intel independent raw audit [d3cc358f2](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d3cc358f2/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/iterator-comparison-f30ac4330/REVIEW.md) confirms the complete comparison and A/A reconstruction and REJECT decision. Root independently reaches the same decision.
+
+ARM lease is RELEASED. The [canonical immutable live proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/2a53fc3f3/experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) records coordinator RUNNING with matching saved/live process identity, inactive owned slice, zero owned units/processes and no inspection errors, verified 2026-10-19T10:03:25.494971+00:00–2026-10-19T10:03:27.123716+00:00. The release-attempt marker is10:03:18UTC; it is not an exact restoration-completion timestamp. No further workloads are pending.
