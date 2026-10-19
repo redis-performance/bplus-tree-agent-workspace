@@ -20,6 +20,7 @@ def write(path, value):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('kind', choices=['input', 'timing'])
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     relative = lambda p: str(p.relative_to(R))
     if args.kind == 'input':
@@ -52,7 +53,7 @@ def main():
             assert final_status['status'] == 'COMPLETE' and final_status['release_safe']
         assert len(read(schedule_path)) == 48
         identities = dict(build['files_sha256'])
-        for path in [E/'input-manifest.json', build_path, build_status_path]:
+        for path in [R/build['input_manifest_path'], build_path, build_status_path]:
             identities[relative(path)] = digest(path)
         for directory in [E/'bench-results/calibrate', E/'profile-results/run',
                           R/'scratch/exp009-driver/calibrate',
@@ -70,7 +71,10 @@ def main():
                      profile_status_path=relative(profile_path),
                      scope='48 fixed serial baseline A/A runs; no candidate timing')
     value['sealed_utc'] = datetime.now(timezone.utc).isoformat()
-    destination = E/(args.kind+'-manifest.json')
+    destination = args.output if args.output else E/(args.kind+'-manifest.json')
+    if not destination.is_absolute():
+        destination = R/destination
+    assert destination.parent == E, 'manifest must stay in this experiment'
     write(destination, value)
     print(json.dumps(dict(path=relative(destination), sha256=digest(destination),
                           entries=len(identities))))

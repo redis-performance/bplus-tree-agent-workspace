@@ -3,7 +3,7 @@
 from pathlib import Path
 from datetime import datetime,timezone
 import argparse,array,csv,hashlib,io,json,math,os,re,signal,subprocess,sys,time
-R=Path.cwd(); E=Path(__file__).resolve().parent; REL=E.relative_to(R)
+R=Path.cwd(); E=Path(__file__).resolve().parent.relative_to(R); REL=E
 BUILD=Path('build/exp009-baseline'); PRIVATE=Path('scratch/exp009-driver')
 ENV={'PATH':'/usr/bin:/bin:/usr/sbin:/sbin','LANG':'C','LC_ALL':'C','TZ':'UTC'}
 SIGS={signal.SIGALRM,signal.SIGINT,signal.SIGTERM,signal.SIGHUP}
