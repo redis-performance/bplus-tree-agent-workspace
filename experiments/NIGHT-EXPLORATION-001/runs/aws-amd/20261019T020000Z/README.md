@@ -8,3 +8,5 @@ Independent [Intel original-guard audit](013-intel-original-guard-audit/RESULT.m
 [Corrected-adapter scan baseline controls](017-corrected-scan/RESULT.md):fresh5M-op AA qualifies bothsizes; relevant scoped helper attribution, no candidate yet. This does not repair original8fabAMD controls.
 
 [Corrected iterator baseline diagnosis](029-corrected-iterator-plan/RESULT.md): scope controls/profile pass; 48-row fresh AA fails100K first block(+2.431%),1M qualifies. NONE/no retry/no candidate; AMD idle. Counts remain4populations,0accepted/3rejected/1parked.
+
+[AMD morning results and handoff](MORNING-REPORT.md): complete evidence index, sourceNONE. Lease ACTIVE until08:00UTC; OSS restoration pending. This report is not release proof.
