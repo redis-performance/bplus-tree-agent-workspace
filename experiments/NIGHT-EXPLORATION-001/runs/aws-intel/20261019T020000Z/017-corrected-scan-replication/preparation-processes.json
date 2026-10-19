@@ -1,0 +1,884 @@
+[
+  {
+    "tag": "compiler-version",
+    "command": [
+      "clang",
+      "--version"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:00:35.788956+00:00",
+    "finished_utc": "2026-10-19T06:00:35.804630+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-primary-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/corrected-adapter-intel/btree-bench"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/base",
+    "started_utc": "2026-10-19T06:00:35.894249+00:00",
+    "finished_utc": "2026-10-19T06:00:37.389401+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-supplement-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base",
+      "--out",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:00:37.390574+00:00",
+    "finished_utc": "2026-10-19T06:00:42.714405+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/base",
+    "started_utc": "2026-10-19T06:00:42.714633+00:00",
+    "finished_utc": "2026-10-19T06:00:44.228771+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-v2",
+    "command": [
+      "build/native-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/base",
+    "started_utc": "2026-10-19T06:00:44.228922+00:00",
+    "finished_utc": "2026-10-19T06:00:44.251592+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-supplement-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base",
+      "--out",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san",
+      "--sanitize"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:00:44.251740+00:00",
+    "finished_utc": "2026-10-19T06:00:51.368248+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/base",
+    "started_utc": "2026-10-19T06:00:51.368472+00:00",
+    "finished_utc": "2026-10-19T06:00:53.314182+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-v2",
+    "command": [
+      "build/san-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/base",
+    "started_utc": "2026-10-19T06:00:53.314360+00:00",
+    "finished_utc": "2026-10-19T06:00:53.368378+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-supplement-validation",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/validate.py",
+      "--native",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement",
+      "--sanitize",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/validation-base",
+      "--seconds",
+      "582"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:00:53.368667+00:00",
+    "finished_utc": "2026-10-19T06:01:15.696858+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-701-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.697147+00:00",
+    "finished_utc": "2026-10-19T06:01:15.698999+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-701-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.699210+00:00",
+    "finished_utc": "2026-10-19T06:01:15.700004+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-701-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.700552+00:00",
+    "finished_utc": "2026-10-19T06:01:15.708653+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-701-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.708853+00:00",
+    "finished_utc": "2026-10-19T06:01:15.715918+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-702-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.716334+00:00",
+    "finished_utc": "2026-10-19T06:01:15.717029+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-702-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.717220+00:00",
+    "finished_utc": "2026-10-19T06:01:15.717893+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-702-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.718589+00:00",
+    "finished_utc": "2026-10-19T06:01:15.725887+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-702-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.726124+00:00",
+    "finished_utc": "2026-10-19T06:01:15.734361+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-703-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.735032+00:00",
+    "finished_utc": "2026-10-19T06:01:15.735823+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-native-fresh-703-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.736050+00:00",
+    "finished_utc": "2026-10-19T06:01:15.738152+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-703-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.738909+00:00",
+    "finished_utc": "2026-10-19T06:01:15.746012+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-fresh-703-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/base/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:15.746261+00:00",
+    "finished_utc": "2026-10-19T06:01:15.753684+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/candidate.patch"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:15.857836+00:00",
+    "finished_utc": "2026-10-19T06:01:15.859186+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-primary-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/corrected-adapter-intel/btree-bench"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:15.859862+00:00",
+    "finished_utc": "2026-10-19T06:01:17.346240+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-supplement-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B",
+      "--out",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:17.346517+00:00",
+    "finished_utc": "2026-10-19T06:01:22.711585+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:22.712103+00:00",
+    "finished_utc": "2026-10-19T06:01:24.208364+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-v2",
+    "command": [
+      "build/native-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:24.208637+00:00",
+    "finished_utc": "2026-10-19T06:01:24.229483+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-portable-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native-portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:24.229735+00:00",
+    "finished_utc": "2026-10-19T06:01:25.703726+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-portable-v2",
+    "command": [
+      "build/native-portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:25.704029+00:00",
+    "finished_utc": "2026-10-19T06:01:25.726469+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-portable-original-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-DREDIS_TEST",
+      "-DREDIS_DEBUG",
+      "tests/upstream.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native-portable-original-tests"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:25.726768+00:00",
+    "finished_utc": "2026-10-19T06:01:28.064050+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-portable-original-tests",
+    "command": [
+      "build/native-portable-original-tests"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:28.064334+00:00",
+    "finished_utc": "2026-10-19T06:01:29.305368+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-supplement-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B",
+      "--out",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san",
+      "--sanitize"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:29.305668+00:00",
+    "finished_utc": "2026-10-19T06:01:36.461130+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:36.461551+00:00",
+    "finished_utc": "2026-10-19T06:01:38.421552+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-v2",
+    "command": [
+      "build/san-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:38.421866+00:00",
+    "finished_utc": "2026-10-19T06:01:38.478455+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-portable-v2-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san-portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:38.478744+00:00",
+    "finished_utc": "2026-10-19T06:01:40.441421+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-portable-v2",
+    "command": [
+      "build/san-portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:40.441739+00:00",
+    "finished_utc": "2026-10-19T06:01:40.495574+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-portable-original-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-DREDIS_TEST",
+      "-DREDIS_DEBUG",
+      "tests/upstream.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san-portable-original-tests"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:40.495852+00:00",
+    "finished_utc": "2026-10-19T06:01:43.437542+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-portable-original-tests",
+    "command": [
+      "build/san-portable-original-tests"
+    ],
+    "cwd": "scratch/intel-corrected-scan-replication/B",
+    "started_utc": "2026-10-19T06:01:43.437946+00:00",
+    "finished_utc": "2026-10-19T06:01:47.715462+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-supplement-validation",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/referee/validate.py",
+      "--native",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement",
+      "--sanitize",
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/017-corrected-scan-replication/validation-B",
+      "--seconds",
+      "528"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:01:47.715841+00:00",
+    "finished_utc": "2026-10-19T06:02:10.075857+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-701-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.076318+00:00",
+    "finished_utc": "2026-10-19T06:02:10.077085+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-701-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.077419+00:00",
+    "finished_utc": "2026-10-19T06:02:10.078138+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-701-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.079363+00:00",
+    "finished_utc": "2026-10-19T06:02:10.086486+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-701-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.086799+00:00",
+    "finished_utc": "2026-10-19T06:02:10.093962+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-702-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.095067+00:00",
+    "finished_utc": "2026-10-19T06:02:10.095864+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-702-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.096211+00:00",
+    "finished_utc": "2026-10-19T06:02:10.097009+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-702-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.098186+00:00",
+    "finished_utc": "2026-10-19T06:02:10.106281+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-702-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "702",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.106662+00:00",
+    "finished_utc": "2026-10-19T06:02:10.114833+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-703-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.116149+00:00",
+    "finished_utc": "2026-10-19T06:02:10.116950+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-fresh-703-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement/scan-census",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.117266+00:00",
+    "finished_utc": "2026-10-19T06:02:10.117966+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-703-public",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-supplement",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.119374+00:00",
+    "finished_utc": "2026-10-19T06:02:10.126419+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-fresh-703-census",
+    "command": [
+      "<workspace>/repo/scratch/intel-corrected-scan-replication/B/build/supplement-san/scan-census",
+      "run",
+      "trim",
+      "319",
+      "703",
+      "2",
+      "0",
+      "0"
+    ],
+    "cwd": ".",
+    "started_utc": "2026-10-19T06:02:10.126856+00:00",
+    "finished_utc": "2026-10-19T06:02:10.133875+00:00",
+    "returncode": 0
+  }
+]
