@@ -69,3 +69,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T10:36:32.802610+00:00: Independent035 two-frontend diagnostic requirements prepared from immutable sources/profile024/unexecuted029. Concrete checksum/score/warmup/allocation/caller differences identified; cause remains unmeasured. PriorREJECT/NONE preserved. No peer new analysis read, runner access, measurements or variants.
 
 - 2026-10-19T10:41:35.665053+00:00: New frontend lease initial static review requires fail-closed container/unit query handling and exact inactive release-state verification. Timer-before-stop/ERR restore and recursive fresh-PID auditor inspected; no scripts or host actions executed. Generic input hashes retained; acquisition not cleared.
+
+- 2026-10-19T10:45:54.875592+00:00: Corrected frontend lease operations static review resolves both initial blockers: checked query assignments and exact successful inactive state before restore.11 stub cases bound to exact generated script inspected, not rerun. Lease NOT_ACQUIRED; no SSH/execution. Await concrete diagnostic freeze.
