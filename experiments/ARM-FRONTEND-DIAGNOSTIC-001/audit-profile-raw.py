@@ -27,7 +27,20 @@ for name,got in s['identities_before']['sources'].items():
  if name.startswith('h4-'):want['bench/iterator_modes.c']=sha(files['inputs/iterator_modes.c'])
  assert got==want
 assert audit['result_sha256']==sha(files['profile/result.json'])
-for n,h in audit['raw_files_sha256'].items():assert sha(files['profile/'+n])==h,n
+publication=j('profile/PUBLICATION.json');seal=j('profile-evidence-seal.json')
+for n,h in seal['files'].items():assert sha(files[n])==h,n
+for n,h in audit['raw_files_sha256'].items():
+ assert publication[n]['raw_sha256']==h and publication[n]['public_sha256']==sha(files['profile/'+n]),n
+for n,h in s['raw_data_sha256'].items():assert publication[n]['raw_sha256']==h
+for n in ['profile-preflight.json','profile-postcheck.json']:
+ proof=j(n);assert proof['identities']==s['identities_before'] and proof['frozen_inputs']==f['files']
+ assert proof['profile_freeze_sha256']==s['execution_freeze_sha256'] and proof['lease_scope']==s['lease_scope']
+ assert not proof['owned_units'] and not proof['owned_cgroup_pids'] and proof['lease_sha256']==s['lease_sha256']
+ if n=='profile-preflight.json':
+  assert dt(proof['checked_utc'])<dt(s['started_utc']) and proof['remaining_seconds']>=1220 and proof['containers_empty'] is True and proof['release_timer_active']=='active'
+  assert proof['coordinator_status']['returncode']==3 and 'STOPPED' in proof['coordinator_status']['stdout'] and not proof['coordinator_status']['stderr']
+  assert proof['coordinator_pid']==dict(returncode=7,stdout='0',stderr='')
+ else:assert dt(proof['checked_utc'])>dt(s['finished_utc'])
 assert audit['raw_data_sha256']==s['raw_data_sha256'] and len(s['raw_data_sha256'])==38
 semantics=['case','size','seed','requested_ops','member_bytes','operations','traversals','checksum','warmup_passes','tree_bytes','direction','mask','encoding','expected_checksum','construction_fingerprint']
 refs={};rows={};stat={};census={};instrument=collections.defaultdict(list);last=dt(s['started_utc']);warnings=[]
