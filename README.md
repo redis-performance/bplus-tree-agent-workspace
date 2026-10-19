@@ -1,6 +1,6 @@
 # Standalone B+ tree experiments
 
-M6 checkpoint — 06:48 UTC. Reporting audits pass: claims/counts, six input seals and chart/link publication. All 1,295 overlapping pins across 879 path keys match; this is not a distinct-file count. Root source and retained losing patches are unchanged. The publication audit verifies 15 M6 assets and 105 links. Observation/target wording and stale labels are being corrected; no numerical result or decision changes.
+M6 checkpoint — 06:48 UTC. Reporting audits pass: claims/counts, six input seals and chart/link publication. All 1,295 overlapping pins across 879 path keys match; this is not a distinct-file count. Root source and retained losing patches are unchanged. The publication audit verifies 15 M6 assets and 105 links. Observation/target wording and stale labels are corrected on main at d7cf967a8; no numerical result or decision changes.
 
 Latest experiment 023 remains PARK / source NONE: 48 A/A processes, 27.621759 seconds; 100K qualifies 6/6 blocks, 1M 4/6. No candidate comparison or retry. Independent raw audit and cleanup pass. Existing thread-clock/endpoint metadata has a separate independent review; it does not requalify controls or identify a cause. Counts stay at 12 populations, 0 accepted / 7 rejected / 5 parked, 36 patches and 15 harnesses. No further native workload is queued. Root continues shared reporting to 08:00 UTC / 09:00 Lisbon, with the 07:15 experimental cutoff intact. Consolidated evidence: host MORNING-REPORT.md and 024-final-audit/.
 
