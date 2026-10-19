@@ -1,4 +1,4 @@
-# M6 driver campaign — rank profile complete, A/A next
+# M6 driver campaign — rank controls PARK; exploratory proposal next
 
 Updated 2026-10-19T01:43:06.281580+00:00. Deadline08:00UTC; no new experiments after07:15UTC.
 Actual Apple M6,12 physical/logical cores,arm64,macOS27,Apple Clang21.
@@ -18,8 +18,10 @@ Acknowledgements: baseline48b00870; public rank referee ca5cacfb.
 public self-profile/calibrations/assembly and private census. Exact identities in
 freeze.json; profile helper include correction in PROFILE-ERRATUM.json. Fixed counts
 {'10000': 1788014, '100000': 807246, '1000000': 240090}. CALIBRATION-LIMITATION.md records lightweight summary work while
-calibration driver was active; no comparative claim. Strict fully serial A/A next.
-External sample denied once. CPU MCP unavailable. M1 context cached published commit
+calibration driver was active; no comparative claim. Fully serial A/A complete:72processes/216batches, all3cells fail±1%; windows42.807ms or longer. No rerun.
+External sample attachment failed under sandbox, exact reason unknown; no retry. CPU MCP unavailable. M1 context cached published commit
 4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9; remote refresh failed DNS
 at01:41UTC, latest remote outcome UNKNOWN. No candidate population yet, no adoption.
 Exact backend model and measured token costs unknown; no agents used.
+
+Latest acknowledgement210c06a2. 2026-10-19T01:44:38.181856+00:00 — rank AA maximum effects10K8.840%,100K1.886%,1M7.406%; no adoption-qualified cell. No candidate yet.

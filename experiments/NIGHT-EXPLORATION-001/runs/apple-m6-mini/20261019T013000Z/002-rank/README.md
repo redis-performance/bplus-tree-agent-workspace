@@ -37,3 +37,18 @@ backend exact model and measured token costs unknown. Network refresh of M1/main
 failed DNS once; cached published M1 revision remains the context only.
 
 Updated 2026-10-19T01:43:06.281580+00:00. Next run fully serial A/A, then proposal/chair passes if still useful.
+
+## A/A completed 2026-10-19T01:44:38.181856+00:00
+
+72 serial processes /216 batches, 10.53s measured windows; raw
+checksums, owned-memory equality and reconstruction pass. No cell qualifies.
+
+| Size | Max absolute block effect | Minimum window ms | Strict gate |
+|---:|---:|---:|---|
+| 10000 | 8.840% | 46.677 | PARK |
+| 100000 | 1.886% | 48.626 | PARK |
+| 1000000 | 7.406% | 42.807 | PARK |
+
+This is the single frozen A/A schedule; no block repeated or outlier removed.
+A profile-supported exploratory screen may run once, beside these controls, but
+no strict adoption or candidate ranking for small effects within noise is allowed.
