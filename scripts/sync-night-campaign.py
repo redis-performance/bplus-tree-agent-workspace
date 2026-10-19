@@ -57,8 +57,10 @@ def publication_paths(config, requested):
         path = Path(value)
         if path.is_absolute() or '..' in path.parts or not path.parts:
             raise ValueError('invalid requested publication path')
-        if path.parts[0] not in ('bench', 'scripts', 'tests', 'docs', 'experiments') and value != 'Makefile':
+        if path.parts[0] not in ('bench', 'scripts', 'tests', 'docs', 'experiments', 'compat') and value != 'Makefile':
             raise ValueError('requested path outside harness/documentation scope')
+        if path.parts[0] == 'compat' and value not in ('compat/server.h', 'compat/standalone.c'):
+            raise ValueError('only the two standalone adapter files may be published')
         if (value == 'tests/upstream.c' or (worktree / path).is_dir()
                 or not (worktree / path).resolve().is_relative_to(worktree)):
             raise ValueError('referee entry point or external path cannot be published')
@@ -76,7 +78,10 @@ def publish(config, round_number, requested=()):
     if not evidence.exists():
         return 'No evidence directory yet'
     # All content is public; refuse obvious credential/private-path mistakes.
-    needles = (b'/Users/', b'gho_', b'github_pat_', b'Authorization: Bearer')
+    # Split source literals so publishing this scanner does not match its own rules.
+    # Runtime patterns remain exact, including the synthetic privacy test fixture.
+    needles = (b'/' + b'Users/', b'gh' + b'o_', b'github' + b'_pat_',
+               b'Authorization' + b': Bearer')
     for file in evidence.rglob('*'):
         if file.is_file() and file.suffix not in ('.svg', '.png'):
             payload = file.read_bytes()

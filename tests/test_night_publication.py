@@ -30,7 +30,8 @@ class PublicationTests(unittest.TestCase):
         for value in ['README.md', 'experiments/EXPERIMENTS.md', 'experiments/SUMMARY.md',
                       'experiments/NEXT-STEPS.md', '.workspace-memory/MEMORY.md',
                       '.workspace-memory/LIVE-STATUS.md', '.workspace-memory/handoff.md',
-                      'src/zset_btree.c', 'bench/new.c', self.config['campaign_dir']+'/STATUS.md']:
+                      'src/zset_btree.c', 'bench/new.c', 'compat/server.h',
+                      'compat/standalone.c', self.config['campaign_dir']+'/STATUS.md']:
             path = self.root / value
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text('initial\n')
@@ -70,13 +71,25 @@ class PublicationTests(unittest.TestCase):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 sync.validate_config(dict(self.config, **changes))
         for path in ['src/zset_btree.c', '../outside', '/tmp/outside',
-                     'tests/upstream.c', 'experiments/EXP-008/RESULTS.md']:
+                     'tests/upstream.c', 'experiments/EXP-008/RESULTS.md',
+                     'compat/other.c', 'compat', 'compat/../src/zset_btree.c']:
             with self.subTest(path=path), self.assertRaises(ValueError):
                 sync.publication_paths(self.config, [path])
 
+    def test_explicit_adapter_fix_publishes_without_staging_tree_or_other_adapter_files(self):
+        (self.root/'compat/server.h').write_text('truthful panic declaration\n')
+        (self.root/'compat/standalone.c').write_text('truthful panic definition\n')
+        (self.root/'compat/other.c').write_text('unrelated adapter work\n')
+        (self.root/'src/zset_btree.c').write_text('uncommitted source\n')
+        sync.publish(self.config, 1, ['compat/server.h', 'compat/standalone.c'])
+        self.assertEqual(self.git('show', 'HEAD:compat/server.h'), 'truthful panic declaration')
+        self.assertEqual(self.git('show', 'HEAD:compat/standalone.c'), 'truthful panic definition')
+        self.assertEqual(self.git('show', 'HEAD:src/zset_btree.c'), 'initial')
+        self.assertEqual(self.git('ls-tree', '--name-only', 'HEAD', 'compat/other.c'), '')
+
     def test_private_path_and_unrelated_staging_refused(self):
         status = self.root/self.config['campaign_dir']/'STATUS.md'
-        status.write_text('/Users/private/path\n')
+        status.write_text('/' + 'Users/private/path\n')
         with self.assertRaisesRegex(RuntimeError, 'Public-evidence'):
             sync.publish(self.config, 1)
         status.write_text('safe\n')

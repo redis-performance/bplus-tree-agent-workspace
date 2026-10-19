@@ -13,7 +13,7 @@
 static char min_sentinel, max_sentinel;
 struct standalone_shared shared = { &min_sentinel, &max_sentinel };
 
-void standalone_panic(const char *file, int line, const char *message) {
+_Noreturn void standalone_panic(const char *file, int line, const char *message) {
     fprintf(stderr, "%s:%d: %s\n", file, line, message);
     abort();
 }

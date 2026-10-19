@@ -1,5 +1,18 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Operator adapter checkpoint: two independent reviews approve the exact C11
+_Noreturn declaration/definition for always-aborting standalone_panic.43 native,
+43 sanitizer tests and8abort probes pass. Tree source/header/referees unchanged.
+Root applied the exact two-line harness fix; coordinator must acknowledge its
+separate commit before011 fresh baseline launch. Old adapter binaries/results remain
+frozen in their old worktrees and retain validity for that identity. No tree speed
+claim, acceptance or cache replication.009 profile:16 sufficient captures,303/1054
+PCs in frame regions (not cycles). Newbaseline uses isolated build path, original
+40-cell/960-row inventory. Counts unchanged; one adapter revision separately.
+No agent permissions changed. Coordinator alone publishes; its file selector now
+explicitly permits only the two adapter files, with five real-Git tests passing.
+
+
 Operator03:48UTC:007baseline geometry sealed41commands;008three actual independent
 proposals andchairchooseNONE, causal latency evidence absent. No008implementations
 or timing; counts12completedcandidatepopulations/36patches/15harnesses plusone

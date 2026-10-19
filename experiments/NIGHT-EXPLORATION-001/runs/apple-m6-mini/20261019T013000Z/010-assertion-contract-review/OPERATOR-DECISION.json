@@ -1,0 +1,14 @@
+{
+  "decided_utc": "2026-10-19T03:58:55.947767+00:00",
+  "decision": "APPLY truthful adapter contract as a separate harness correction",
+  "root_changes": [
+    "compat/server.h: declaration _Noreturn",
+    "compat/standalone.c: definition _Noreturn"
+  ],
+  "tree_source": "unchanged",
+  "independent_review": "ADVERSARIAL-A approves exact patch after verifying all evidence",
+  "validation": "43 native +43 sanitizer tests and8 SIGABRT probes; no post-panic marker",
+  "speed_claim": "NONE; static code change only",
+  "baseline_action": "Fresh baseline qualification in011 after separate commit",
+  "publisher": "Existing single-writer coordinator explicitly supports exactly these two adapter files; arbitrary compat and all src paths remain refused. Five real Git publication tests pass. No agent permission setting changes."
+}

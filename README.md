@@ -82,6 +82,12 @@ noise, then against the candidate. For bulk decoding and scalar/bulk cutoffs, us
 See the [decoder guide](docs/DECODER-MICROBENCHMARK.md) and
 [tree benchmark guide](docs/MICROBENCHMARKS.md) for measurement details.
 
+**Standalone adapter update:** the panic function now declares its existing
+non-returning contract. A separate [reviewed harness correction](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/010-assertion-contract-review/README.md)
+preserves all assertions and abort behavior. The [new M6 baseline](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/README.md)
+is preparing. The five-host chart below retains the original adapter on every host;
+new and original adapter measurements must stay separate. No tree optimization is accepted.
+
 ## Latest results — Apple M1, M6 and three AWS architectures
 
 ### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members

@@ -1,0 +1,153 @@
+{
+  "status": "preregistered before captures",
+  "created_utc": "2026-10-19T03:49:26.538488+00:00",
+  "type": "baseline-only local public iterator PC profile; no optimization selected",
+  "contracts": [
+    {
+      "id": "integer-full-forward",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "forward"
+    },
+    {
+      "id": "integer-full-reverse",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "reverse"
+    },
+    {
+      "id": "integer-score-forward",
+      "encoding": "integer",
+      "mask": 4,
+      "direction": "forward"
+    },
+    {
+      "id": "fraction-full-forward",
+      "encoding": "fraction",
+      "mask": 7,
+      "direction": "forward"
+    }
+  ],
+  "validation": "native+ASan/UBSan: four contracts,size1000,requested_ops2003,seed1,warmup1;8runs total",
+  "captures": [
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    }
+  ],
+  "minimum_pcs": 25,
+  "requested_sample_interval_us": 1000,
+  "no_retry": true,
+  "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "participant": "/root/followup_proposal_b",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token usage/cost unknown",
+  "scope": "Existing sampler hooks include QoS/CPU/thread-clock observations around traversal; fixture setup,warmup and semantic verification excluded. Sampled PC counts are not unbiased time shares or hardware costs."
+}

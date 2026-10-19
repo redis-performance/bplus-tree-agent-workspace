@@ -1,0 +1,798 @@
+{
+  "participant": "/root/followup_proposal_c",
+  "backend": "GPT-6/Codex family",
+  "exact_serving_model": null,
+  "token_usage": null,
+  "monetary_cost": null,
+  "started_utc": "2026-10-19T03:53:34.994493+00:00",
+  "root_before": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "commands": [
+    {
+      "name": "base-build-iterator",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "referee/iterator.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/iterator"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.004062+00:00",
+      "finished_utc": "2026-10-19T03:53:35.570677+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-iterator.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-iterator.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "base-otool",
+      "command": [
+        "otool",
+        "-tvV",
+        "build/iterator"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.570800+00:00",
+      "finished_utc": "2026-10-19T03:53:35.588689+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-otool.stdout",
+          "sha256": "5c65f4bb68b03bde2eb493df05f29629745c9cc59eacb3b6a3d66f1b94f67a10"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-otool.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "base-build-abort",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "abort-probe.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/abort"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.589210+00:00",
+      "finished_utc": "2026-10-19T03:53:35.667264+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-abort.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-abort.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "base-abort-assert",
+      "command": [
+        "build/abort",
+        "assert"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.667394+00:00",
+      "finished_utc": "2026-10-19T03:53:35.850071+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-assert.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-assert.stderr",
+          "sha256": "6af1dbe8f71e07958b103fc2e30467947f7fd6f1986c976db1539ac17a341d8c"
+        }
+      }
+    },
+    {
+      "name": "base-abort-panic",
+      "command": [
+        "build/abort",
+        "panic"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.850363+00:00",
+      "finished_utc": "2026-10-19T03:53:35.854997+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-panic.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-panic.stderr",
+          "sha256": "b16038bc3ae0d326f14f0cbf31ab912b42e0f3a79bbd94a565a36f7a7d80916e"
+        }
+      }
+    },
+    {
+      "name": "base-build-abort-san",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "abort-probe.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/abort-san"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.855257+00:00",
+      "finished_utc": "2026-10-19T03:53:35.968271+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-abort-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-build-abort-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "base-abort-san-assert",
+      "command": [
+        "build/abort-san",
+        "assert"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:35.968484+00:00",
+      "finished_utc": "2026-10-19T03:53:36.113891+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-san-assert.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-san-assert.stderr",
+          "sha256": "6af1dbe8f71e07958b103fc2e30467947f7fd6f1986c976db1539ac17a341d8c"
+        }
+      }
+    },
+    {
+      "name": "base-abort-san-panic",
+      "command": [
+        "build/abort-san",
+        "panic"
+      ],
+      "cwd": "scratch/m6-assertion-contract/base",
+      "started_utc": "2026-10-19T03:53:36.114102+00:00",
+      "finished_utc": "2026-10-19T03:53:36.121211+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-san-panic.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/base-abort-san-panic.stderr",
+          "sha256": "b16038bc3ae0d326f14f0cbf31ab912b42e0f3a79bbd94a565a36f7a7d80916e"
+        }
+      }
+    },
+    {
+      "name": "noreturn-build-iterator",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "referee/iterator.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/iterator"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.127733+00:00",
+      "finished_utc": "2026-10-19T03:53:36.737042+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-iterator.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-iterator.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-otool",
+      "command": [
+        "otool",
+        "-tvV",
+        "build/iterator"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.737212+00:00",
+      "finished_utc": "2026-10-19T03:53:36.755049+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-otool.stdout",
+          "sha256": "7e192df3ce3fc3a13d97a9c91b9090f68b0396ea467c68f64c9b132d5823d385"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-otool.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-build-abort",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "abort-probe.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/abort"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.755626+00:00",
+      "finished_utc": "2026-10-19T03:53:36.835215+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-abort.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-abort.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-abort-assert",
+      "command": [
+        "build/abort",
+        "assert"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.835367+00:00",
+      "finished_utc": "2026-10-19T03:53:36.984891+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-assert.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-assert.stderr",
+          "sha256": "6af1dbe8f71e07958b103fc2e30467947f7fd6f1986c976db1539ac17a341d8c"
+        }
+      }
+    },
+    {
+      "name": "noreturn-abort-panic",
+      "command": [
+        "build/abort",
+        "panic"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.985177+00:00",
+      "finished_utc": "2026-10-19T03:53:36.989024+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-panic.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-panic.stderr",
+          "sha256": "b16038bc3ae0d326f14f0cbf31ab912b42e0f3a79bbd94a565a36f7a7d80916e"
+        }
+      }
+    },
+    {
+      "name": "noreturn-build-upstream",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-DREDIS_TEST",
+        "-DREDIS_DEBUG",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "tests/upstream.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/upstream"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:36.989274+00:00",
+      "finished_utc": "2026-10-19T03:53:37.845849+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-upstream.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-upstream.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-upstream",
+      "command": [
+        "build/upstream"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:37.846018+00:00",
+      "finished_utc": "2026-10-19T03:53:38.615805+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-upstream.stdout",
+          "sha256": "e96d03e92d8c5b1881d32bb33879ecd7373302a762de55b195deda64657dccca"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-upstream.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-build-abort-san",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "abort-probe.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/abort-san"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:38.616137+00:00",
+      "finished_utc": "2026-10-19T03:53:38.702091+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-abort-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-abort-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-abort-san-assert",
+      "command": [
+        "build/abort-san",
+        "assert"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:38.702255+00:00",
+      "finished_utc": "2026-10-19T03:53:38.867457+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-san-assert.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-san-assert.stderr",
+          "sha256": "6af1dbe8f71e07958b103fc2e30467947f7fd6f1986c976db1539ac17a341d8c"
+        }
+      }
+    },
+    {
+      "name": "noreturn-abort-san-panic",
+      "command": [
+        "build/abort-san",
+        "panic"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:38.867795+00:00",
+      "finished_utc": "2026-10-19T03:53:38.879055+00:00",
+      "returncode": -6,
+      "expected": "SIGABRT",
+      "child_core_limit_zero": true,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-san-panic.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-abort-san-panic.stderr",
+          "sha256": "b16038bc3ae0d326f14f0cbf31ab912b42e0f3a79bbd94a565a36f7a7d80916e"
+        }
+      }
+    },
+    {
+      "name": "noreturn-build-upstream-san",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-DREDIS_TEST",
+        "-DREDIS_DEBUG",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "tests/upstream.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/upstream-san"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:38.879273+00:00",
+      "finished_utc": "2026-10-19T03:53:39.894969+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-upstream-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-build-upstream-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "noreturn-upstream-san",
+      "command": [
+        "build/upstream-san"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:39.895139+00:00",
+      "finished_utc": "2026-10-19T03:53:41.788956+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-upstream-san.stdout",
+          "sha256": "f54c0948474f071dfe989e7d5106e30ea758a885a803e83a1c8f1ac7779f578d"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/noreturn-upstream-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "c11-pedantic-declaration",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-pedantic-errors",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-fsyntax-only",
+        "abort-probe.c"
+      ],
+      "cwd": "scratch/m6-assertion-contract/noreturn",
+      "started_utc": "2026-10-19T03:53:41.789239+00:00",
+      "finished_utc": "2026-10-19T03:53:41.808342+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/c11-pedantic-declaration.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/c11-pedantic-declaration.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "clang-version",
+      "command": [
+        "clang",
+        "--version"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-10-19T03:53:41.808522+00:00",
+      "finished_utc": "2026-10-19T03:53:41.815657+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/clang-version.stdout",
+          "sha256": "4e8a77bcb032deb6591b0db384ff9808d01d9030f00e2d877394df88a12a2536"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/clang-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "gcc-command-version",
+      "command": [
+        "gcc",
+        "--version"
+      ],
+      "cwd": ".",
+      "started_utc": "2026-10-19T03:53:41.815806+00:00",
+      "finished_utc": "2026-10-19T03:53:41.825438+00:00",
+      "returncode": 0,
+      "expected": 0,
+      "child_core_limit_zero": false,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-assertion-contract/logs/gcc-command-version.stdout",
+          "sha256": "4e8a77bcb032deb6591b0db384ff9808d01d9030f00e2d877394df88a12a2536"
+        },
+        "stderr": {
+          "path": "scratch/m6-assertion-contract/logs/gcc-command-version.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  ],
+  "iterator_codegen": {
+    "base": {
+      "instructions": 155,
+      "assembly_sha256": "f49bc9d54fbe82c591f16a51ac4f0a955975435314c2a5d8041cd943910f67bb",
+      "frames": [],
+      "register_pair_stack_stores": [
+        "stp\tx28, x27, [sp, #-0x60]!",
+        "stp\tx26, x25, [sp, #0x10]",
+        "stp\tx24, x23, [sp, #0x20]",
+        "stp\tx22, x21, [sp, #0x30]",
+        "stp\tx20, x19, [sp, #0x40]",
+        "stp\tx29, x30, [sp, #0x50]"
+      ],
+      "calls": [
+        "bl\t_standalone_panic",
+        "bl\t_standalone_panic"
+      ],
+      "unconditional_branches": [],
+      "binary_sha256": "c1ffcc773dc4154e80b2a0f2f1402253471ee5bc797f1783bd6c0dde167e9fe5",
+      "preindexed_stack_allocations": [
+        "stp\tx28, x27, [sp, #-0x60]!"
+      ],
+      "normal_path_stack_frame_bytes": 96,
+      "maximum_static_frame_bytes": 96,
+      "normal_path_calls": 0
+    },
+    "noreturn": {
+      "instructions": 114,
+      "assembly_sha256": "aada4d0c1e6caa65ab69e0be600cbf5ac26317b61f944d10d6a9335bfceb0027",
+      "frames": [],
+      "register_pair_stack_stores": [
+        "stp\tx29, x30, [sp, #-0x10]!"
+      ],
+      "calls": [
+        "bl\t_standalone_panic"
+      ],
+      "unconditional_branches": [],
+      "binary_sha256": "ed1f6f871305e798a8f501dfc7c9a4610f874424d221ce8840d9982f9e589b7a",
+      "preindexed_stack_allocations": [
+        "stp\tx29, x30, [sp, #-0x10]!"
+      ],
+      "normal_path_stack_frame_bytes": 0,
+      "maximum_static_frame_bytes": 16,
+      "normal_path_calls": 0
+    }
+  },
+  "compiler_versions": {
+    "clang": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix",
+    "gcc-command": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix"
+  },
+  "root_after": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "private_sources": {
+    "base": {
+      "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+      "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+      "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+      "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+      "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+      "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+    },
+    "noreturn": {
+      "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+      "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+      "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+      "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3",
+      "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+      "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+    }
+  },
+  "status": "PASS; PRIVATE ADAPTER CONTRACT REVIEW ONLY",
+  "failed_command_count": 0,
+  "adapter_patch_sha256": "d5d951c9677eda78fb21774af4313083d8043cc38ef9bf1faa14c2b203c2aa8f",
+  "review_script_sha256": "98ea28a9658ed35086c4322b46166bb1128ac972f57cabbd72d6d0c3d2339aee",
+  "finished_utc": "2026-10-19T03:53:41.826256+00:00",
+  "baseline_static_reproduction": {
+    "frozen_009_asm_sha256": "13ba1b19993080fa123b2cd82aaf913613b5db96f2a29d007cafbca7ec548d7c",
+    "same_normalized_instructions": true,
+    "note": "Normalize instruction addresses, local branch destinations, page and literal placement; preserve operations and source-line constants."
+  },
+  "normal_frame_annotation_method": "Read-only path inspection: original pre-indexed six-pair96-byte prologue executes before loading iterator leaf; corrected sole16-byte frame/panic call is reachable only after external ptr==NULL. Every ordinary return precedes that cold prologue.",
+  "original_009_frozen_files_unchanged": {
+    "src/zset_btree.c": true,
+    "src/zset_btree.h": true,
+    "compat/standalone.c": true,
+    "compat/server.h": true,
+    "vendor/redis/siphash.c": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/iterator.c": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/microbench.c": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/apple-sampler-bridge.c": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/../002-rank/night-rank-sampler.h": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/LOCAL-PLAN.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/009-iterator-profile/run.py": true
+  },
+  "interpretation": {
+    "contract_issue": true,
+    "functional_bug_demonstrated": false,
+    "scope": "Standalone adapter declaration/definition; original tree and assertion expressions unchanged",
+    "compiler_knowledge": "Without LTO the tree translation unit sees the header declaration only. The old declaration permits returning; corrected _Noreturn exposes the existing unconditional abort contract.",
+    "classification": "Harness/adapter correction requiring separate commit and subsequent baseline requalification, not a tree optimization or accepted candidate.",
+    "old_evidence": "All original frozen comparisons and decisions remain evidence for their exact old adapter. Do not pool or compare old-adapter baseline with corrected-adapter candidates as an optimization effect.",
+    "portability": "C11 _Noreturn spelling accepted by local Apple Clang21 with pedantic-errors. The local gcc command reports the same Apple Clang21, so GNU GCC and other architectures were not tested. No architecture intrinsic added.",
+    "future_contract": "Any future replacement panic implementation must not return; violating _Noreturn would be undefined behavior. No signal/process-termination API behavior is changed by the annotation.",
+    "performance": "No comparative timing, sampled profiles or speed claim. Static frame/instruction differences do not establish end-to-end benefit."
+  },
+  "original_009_binaries_unchanged": {
+    "iterator-native": true,
+    "iterator-san": true,
+    "iterator-profile": true
+  }
+}

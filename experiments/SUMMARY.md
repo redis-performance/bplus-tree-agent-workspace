@@ -1,5 +1,19 @@
 # Experiment summary
 
+## 2026-10-19 — Standalone panic contract correction
+
+[Two independent reviews](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/010-assertion-contract-review/README.md)
+approve C11 `_Noreturn` on the adapter's always-aborting declaration/definition.
+All 43 native and 43 sanitizer tests and eight abort probes pass. Iterator static
+code changes155→114 instructions and loses its96-byte normal-path frame; no speed
+claim. This is a separate harness correction, not a tree optimization. Tree source,
+headers, frozen benchmark, hashing, allocation and assertion policy are unchanged.
+[Fresh baseline preregistration](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/PLAN.json).
+Prior evidence stays tied to its original adapter. Completed candidate counts remain
+12 populations,0 accepted/7 rejected/5 parked,36patches/15performance harnesses;
+add one reviewed adapter revision and one proposal-only NONE review.
+
+
 ## 2026-10-19 — M6 geometry diagnosis and proposal-only NONE
 
 [007 census](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/007-profile/RESULTS.md)

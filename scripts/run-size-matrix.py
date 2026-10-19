@@ -24,6 +24,7 @@ def sha(path):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--out', required=True, help='New directory; never overwritten')
+    p.add_argument('--build', default='build/size-matrix', help='Build directory; use an isolated path for requalification')
     p.add_argument('--ops', type=int, default=1000000)
     p.add_argument('--member-bytes', type=int, default=16)
     p.add_argument('--budget-seconds', type=int, default=300)
@@ -34,7 +35,7 @@ def main():
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=False)
     (out/'raw').mkdir()
-    build = Path('build/size-matrix')
+    build = Path(a.build)
     files = ['Makefile', 'bench/microbench.c', 'src/zset_btree.c', 'src/zset_btree.h',
              'compat/standalone.c', 'compat/server.h', 'vendor/redis/siphash.c',
              'vendor/redis/sds.h', 'vendor/redis/testhelp.h', 'scripts/run-size-matrix.py',

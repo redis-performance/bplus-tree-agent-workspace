@@ -1,0 +1,1 @@
+First analysis-script parse failed because a prose apostrophe was not quoted correctly in its generated Python string. Rephrased only that prose. No profile, validation, target, binary or referee was changed or rerun.

@@ -11,7 +11,7 @@ struct standalone_shared { sds minstring, maxstring; };
 extern struct standalone_shared shared;
 
 #define UNUSED(x) ((void)(x))
-void standalone_panic(const char *file, int line, const char *message);
+_Noreturn void standalone_panic(const char *file, int line, const char *message);
 #define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)
 #define serverPanic(msg) standalone_panic(__FILE__, __LINE__, (msg))
 #ifdef REDIS_DEBUG
