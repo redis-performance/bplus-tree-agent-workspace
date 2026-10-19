@@ -264,3 +264,23 @@ remain in the separately frozen diagnostic B comparison.
 Root independently verified the Intel runner idle at04:05:08UTC and granted AMD
 the frozen independent confirmation protocol5c29cb07f. Intel waits until explicit
 return. Source NONE; measured population counts unchanged.
+
+
+## 19 October 04:11 UTC — Independent Intel B primary confirmation passes
+
+Independent AMD operator on the Intel runner completed48 held-out A/A and48 B
+comparison processes, seeds201–203 twice. All12 controls qualify and all12 candidate
+blocks improve at least2%. B median elapsed changes are−6.783% at100K and−3.656%
+at1M; ranges−6.858..−6.344% and−3.735..−3.580%. This is an Intel result, not an AMD
+machine result. Immutable operator evidence27fed33a7; no retries/exclusions.
+
+Root independently reconstructed all96 rows/24 blocks, frozen protocol, exact schedule,
+serialCPU2, callbacks/checksums/owned memory across both phases, and source/referee/
+binary hash records. Root also read the live binary hashes and independently verified
+the runner idle04:09:44UTC before returning ownership to Intel.
+[Root audit](reviews/aws-intel-scan-confirmation-raw-audit.json).
+
+This closes only the fresh independent primary-confirmation gate. Full original
+controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
+remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
+Measured population counts remain7 (0 accepted/4 rejected/3 parked).

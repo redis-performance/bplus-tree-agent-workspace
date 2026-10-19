@@ -23,7 +23,8 @@ Source adoption remains NONE.
 
 AWS completed measured populations: **7 — 0 accepted / 4 rejected / 3 parked**.
 One additional ARM architecture replication is parked. Intel scan replication passed
-both primary gates; variant B is undergoing guards and confirmation, with no adoption.
+both primary gates and fresh independent confirmation; variant B is undergoing
+guards and profile validation, with no adoption.
 AMD deletion and native ARM scan planning stopped before implementation because
 precision controls failed; their independent proposals are retained.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
@@ -164,8 +165,10 @@ The exact all-match scan variants pass all six primary blocks at100K and1M,
 with qualified same-session A/A controls. B advances under the predeclared source
 preference: median elapsed changes−6.665% and−3.661%. This is **discovery only**;
 full original controls qualify57/80 cases (12 short and11 other precision failures).
-Fresh confirmation, diagnostic guard comparisons and matched profiles are separate
-follow-ups. Source stays unchanged; the chart records the discovery checkpoint.
+Fresh independent confirmation passes: **−6.783% at100K /−3.656% at1M**, every block
+above the2% improvement gate. [Confirmation audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-confirmation-raw-audit.json).
+Diagnostic guard comparisons and matched profiles remain. Source stays unchanged;
+the chart records the earlier discovery checkpoint.
 [Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),
 [decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
 [independent adversarial review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/9b6e529b5/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/010-intel-scan-review/ADVERSARIAL-REVIEW.md).

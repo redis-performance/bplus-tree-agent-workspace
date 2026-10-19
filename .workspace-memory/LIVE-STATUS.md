@@ -1,13 +1,14 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:03 UTC
+## Current AWS overnight checkpoint — 19 October 04:11 UTC
 
 Campaign remains active until19October09:00Lisbon/08:00UTC; no new experiments after
 07:15UTC. Source remains original8fab511e. Completed measured populations:7,
 0 accepted/4 rejected/3 parked; separate ARM iterator replication PARK. AMD deletion
 and native ARM scan stopped at chairNONE after failed controls, before implementation.
-Intel exact scan B primary discovery qualifies; full original controls are finishing,
-then an explicit idle-runner handoff to AMD for independently authored confirmation
-using untouched201–203. Subsequent guards/profile remain prepared and must run serially.
+Intel exact scan B discovery and independent201–203 confirmation pass. Full original
+controls qualify57/80; diagnostic B guards and matched/focused follow-ups remain.
+Intel owns its runner again after root verified idle and live binary hashes04:09:44UTC.
+All further workloads must run serially; no acceptance is available from primary alone.
 AMD/ARM own runners are idle and reserved, not released. Three OSS coordinators were
 stopped for this campaign;08:00UTC host timers and independent live auditor are armed,
 but successful restoration is NOT YET verified. Do not report completion before proof.
@@ -236,3 +237,23 @@ All proposals/profile/controls remain. No candidate or new measured population.
 [raw audit](../experiments/NIGHT-EXPLORATION-001/reviews/aws-arm-native-scan-aa-audit.json).
 Intel B remains in follow-up; independent untouched-seed confirmation will run only
 after its current baseline guard job explicitly hands over the idle runner.
+
+
+## 19 October 04:11 UTC — Independent Intel B primary confirmation passes
+
+Independent AMD operator on the Intel runner completed48 held-out A/A and48 B
+comparison processes, seeds201–203 twice. All12 controls qualify and all12 candidate
+blocks improve at least2%. B median elapsed changes are−6.783% at100K and−3.656%
+at1M; ranges−6.858..−6.344% and−3.735..−3.580%. This is an Intel result, not an AMD
+machine result. Immutable operator evidence27fed33a7; no retries/exclusions.
+
+Root independently reconstructed all96 rows/24 blocks, frozen protocol, exact schedule,
+serialCPU2, callbacks/checksums/owned memory across both phases, and source/referee/
+binary hash records. Root also read the live binary hashes and independently verified
+the runner idle04:09:44UTC before returning ownership to Intel.
+[Root audit](../experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-confirmation-raw-audit.json).
+
+This closes only the fresh independent primary-confirmation gate. Full original
+controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
+remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
+Measured population counts remain7 (0 accepted/4 rejected/3 parked).
