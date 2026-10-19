@@ -60,3 +60,5 @@ Intel raw processes. AWS count: 2 measured populations, 0 accepted / 2 rejected 
 0 parked; ARM's corrected-profile withdrawal was unmeasured and is excluded. No
 source adoption. Host workers continue distinct profile-led directions until the
 08:00 UTC deadline. See the central AWS-DECISIONS.md ledger and retained host patches.
+
+- 2026-10-19T02:20:45.851012+00:00: aws-intel running at `bc4de81c`: five-pattern update referee validated; scoped gprof running; aws-amd running at `a97f04c0`: LOWERBOUND-001 complete; packed-score move census next; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
