@@ -1,5 +1,5 @@
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
-## Active ARM follow-up — 19 October 09:32 UTC
+## Active ARM follow-up — 19 October 09:48 UTC
 
 Fresh primary controls53e193c5b and candidate451456c2f pass all12blocks; medians
 −7.780706% at100K / −7.212021% at1M, identical outputs/memory. Root/AMD verify.
@@ -7,9 +7,12 @@ Original controls1329e440a qualify18/29 required;11 noisy required +11 short dia
 cells remain unresolved. Comparison4c7668661:17 qualified passes,100-member SCAN mixed
 (one +1.477795% block,five small improvements). Root/Intel73f66fe89 raw audits agree.
 PARK/source NONE; acceptance/heldout confirmation blocked. Qualified losses can REJECT.
-Root e522a7bf8 grants only fixed iterator-AA:1968 baseline processes/82 cells,1500s,
-60s children, CPU2, freeze380ef3109. No retries/retuning/automatic next phase. Full cap
-plus20s must fit10:15UTC. Matched profile0a1040780 reviewed but not yet granted.
+Iterator controls8ed45423c complete1968rows/492blocks in764.223s:43/82qualify,
+39noisy required,no shortwindows(min44.7965ms). Root/Intel d68b27aa2 audits agree.
+Root ddb4cf444 grants only fixed iteratorcomparison:1968processes/82cases,1500s,
+60schild CPU2 freeze380ef3109; allcasesretained,43calibrated. No retry/retuning/
+automatic nextphase. Fullcap+20 mustfit10:15UTC. Matched profile0a1040780 reviewed
+but ungranted; heldoutconfirmation blocked. Additional qualified loss can REJECT.
 Correctness composite preserves originalFAILED8cdebdcba + six-only19fd53594;2048 modes,
 4original43/12oracles/14faults. No new population/source. Historical AWS8:0accepted,
 5rejected,3parked unchanged. ARM-only lease ACTIVE; independent restore timer and

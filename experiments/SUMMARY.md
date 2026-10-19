@@ -1082,3 +1082,11 @@ block, five improvements). Eleven noisy required controls and 11 short diagnosti
 remain unqualified. Root/Intel audits agree. Fixed 82-cell iterator controls granted;
 no automatic comparison or profile. PARK/NONE, held-out confirmation blocked;
 no new population and historical counts unchanged. Lease ends 10:15 UTC.
+
+### ARM iterator controls: PARK, 09:48 UTC
+
+[Complete evidence](ARM-MASK-FOLLOWUP-001/RESULTS.md) adds1,968 baseline processes /
+492blocks:43/82required iterator cells qualify,39 fail precision,none short.
+Root and independent Intel d68b27aa2 audits agree. Fixed comparison of all82cells
+is separately granted1500seconds before10:15UTC; qualified losses remain decisive.
+No confirmation eligibility, source adoption, new population or count change.

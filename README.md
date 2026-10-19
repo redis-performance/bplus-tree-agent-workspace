@@ -11,7 +11,8 @@ remains PARK / source NONE while fixed diagnostic guards continue. The ARM-only
 lease is active until 11:15 Lisbon. [Current evidence and charts](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 The earlier overnight campaign and its handback remain complete. [Plan and activity](experiments/ARM-MASK-FOLLOWUP-001/README.md).
 The original comparison has 17 qualified guard passes and one mixed SCAN result;
-iterator controls are now running. Held-out confirmation is blocked by the guard gates.
+iterator controls qualify43/82 cases, and the fixed candidate comparison is running.
+Held-out confirmation is blocked by the guard gates.
 
 **Current state:** all five machines have completed the baseline matrix. Overnight
 benchmark phases and fleet handback are complete; ARM is reserved again for the
