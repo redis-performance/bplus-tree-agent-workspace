@@ -1,0 +1,16 @@
+# Independent Intel B primary confirmation — frozen before runner handover
+
+Author/operator: actual AMD native agent, independently authored driver and raw audit. Exact inherited model, measured token costs and USD costs are unknown. Root assigned this protocol. No Intel runner access or held-out execution occurred during preparation.
+
+Use baseline source8fab511e and exact immutable Intel B source204edc2ccd40e42dff5d9d794e499422247f5e68db798f93b7af633636c16e23. Reuse existing validated timing binaries from Intel007, with baseline SHA256b598d273956f17e79480f0343eaaed5f9bd96170dfa36058b3d679e5f1adbdc2 and B12a19e50d7ec0d59b9d9b509433f9d14be42ea166bfdad8c4758c608e890fb24. Verify source/header/referee/compat/hash/test/Makefile and timing binary hashes before and after each phase against expected-hashes.json. No rebuild, source or fixture mutation.
+
+Two separate bounded lease jobs, serial CPU2, with an explicit root/Intel idle handover before the first. Each has a fixed300-second total cap and30-second per-process timeout. Outputs use fresh unique directories and preserve all stdout/stderr/process boundaries including failures. Return runner immediately after result acquisition; no other diagnostics or timing on this handover.
+
+1. A/A: original scan; sizes100000 then1000000; 16-byte members; 5000000 requested operations; six blocks per size; seeds201,202,203,201,202,203. Four baseline processes per block, interpreted as outer A / inner A. Total48 processes. Require every block absolute elapsed-per-actual-callback effect<=1%, every elapsed window>=10ms, exact callbacks/checksum/tree-owned memory/traversals/warmup, CPU2 and frozen binary identity. No retries, seed substitution, duration change or row exclusion. Both sizes must qualify.
+2. Only after complete independent audit qualifies both A/A sizes: execute the same48-process schedule and fixtures, with baseline/B/B/baseline in each block under its own300-second cap. Every candidate block must improve elapsed per actual callback by>=2%; require identical semantics/memory both within blocks and against A/A for each exact fixture. Preserve requested versus duplicate-inclusive actual callbacks. Any failed window/control/correctness/hash/budget gate blocks confirmation; partial rows remain evidence.
+
+ABBA effect is100*((inner1 elapsed/actual + inner2 elapsed/actual)/(outer1 elapsed/actual + outer2 elapsed/actual)-1), using unrounded nanoseconds. Report every block and medians, but medians cannot override an individual failed gate. The second seed cycle remains part of the frozen schedule; no adaptation based on the first.
+
+A successful result confirms only these Intel primary fixtures. Missing original/focused/length/resize/reversal guards and matched profile remain separate adoption gates. Source selection remains NONE. This is not a new optimization population or an AMD-machine result. Seeds201–203 are held out from prior discovery and are first consumed by the fixed independent A/A phase, followed by confirmation if eligible.
+
+Local preparation validation: Python syntax compilation only; an initial compile command had a mistyped local directory and failed without running either driver, then the corrected command passed. No test or benchmark process was started locally or remotely.
