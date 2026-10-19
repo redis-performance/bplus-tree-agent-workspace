@@ -2,8 +2,12 @@ from pathlib import Path
 import subprocess,json,hashlib,datetime,time,io,tarfile,os,csv
 root=Path.cwd();p=Path(__file__).parent.resolve();d=root/'scratch/intel-scan-profile-matched';d.mkdir(exist_ok=False);(p/'profiles').mkdir(exist_ok=True);records=[];start=time.monotonic();hashes={}
 def sha(f):return hashlib.sha256(f.read_bytes()).hexdigest()
+inputs=json.loads((p/'inputs.json').read_text())
+assert sha(p/'run-profile.py')==inputs['prepared_driver_sha256'] and sha(p/'PLAN.md')==inputs['plan_sha256']
+for name,h in inputs['files'].items():assert sha(p/name)==h
+assert sha(p/'capture-schedule.json')==inputs['schedule_sha256']
 def run(cmd,tag,cwd,env=None):
- left=300-(time.monotonic()-start);assert left>0
+ left=600-(time.monotonic()-start);assert left>0
  t=datetime.datetime.now(datetime.timezone.utc).isoformat();r=subprocess.run(cmd,cwd=cwd,capture_output=True,text=True,env=env,timeout=min(left,120))
  (p/'profiles'/(tag+'.stdout')).write_text(r.stdout);(p/'profiles'/(tag+'.stderr')).write_text(r.stderr)
  records.append(dict(tag=tag,command=cmd,cwd=str(cwd.relative_to(root)),started_utc=t,finished_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),returncode=r.returncode));(p/'processes.json').write_text(json.dumps(records,indent=2)+'\n');r.check_returncode();return r.stdout
@@ -40,12 +44,13 @@ for v in ['base','B']:
  a=scan(v,'original-sanitize',1000,1000,301,v+'-original-san-control');b=scan(v,'disabled-sanitize',1000,1000,301,v+'-disabled-san-control');assert all(a[k]==b[k] for k in fields);assert sum(int(r['count']) for r in csv.DictReader((p/'profiles'/(v+'-disabled-san-control.hist.csv')).open()))==0;semantic.append(dict(variant=v,mode='sanitizer',size=1000,fields_equal=True))
 (p/'semantic-controls.json').write_text(json.dumps(semantic,indent=2)+'\n')
 captures=[]
-for seed in [301,302,303]:
- for n in [100000,1000000]:
-  pair=[]
-  for v in (['base','B'] if seed%2 else ['B','base']):
-   tag=f'{v}-scan-{n}-seed{seed}';row=scan(v,'profile',n,5000000,seed,tag);pair.append(row);captures.append(dict(variant=v,size=n,seed=seed,tag=tag,row=row));(p/'captures.json').write_text(json.dumps(captures,indent=2)+'\n')
-  assert all(pair[0][k]==pair[1][k] for k in fields)
+for repeat in range(10):
+ for seed in [301,302,303]:
+  for n in [100000,1000000]:
+   pair=[]
+   for v in (['base','B'] if (seed+repeat)%2 else ['B','base']):
+    tag=f'r{repeat:02d}-{v}-scan-{n}-seed{seed}';row=scan(v,'profile',n,5000000,seed,tag);pair.append(row);captures.append(dict(repeat=repeat,variant=v,size=n,seed=seed,tag=tag,row=row));(p/'captures.json').write_text(json.dumps(captures,indent=2)+'\n')
+   assert all(pair[0][k]==pair[1][k] for k in fields)
 for v in ['base','B']:
  syms=run(['nm','-n','-S','build/profile'],v+'-symbols',d/v);base=[int(x.split()[0],16) for x in syms.splitlines() if x.split()[-1]=='__executable_start'][0];offsets=set()
  for c in captures:
@@ -53,4 +58,4 @@ for v in ['base','B']:
  cmd=['llvm-symbolizer-18','--inlining','--output-style=JSON','--obj=build/profile']+[hex(base+x) for x in sorted(offsets)];mapping=run(cmd,v+'-inline-map',d/v);json.loads(mapping)
  (p/(v+'-mapping.json')).write_text(json.dumps(dict(linker_base=base,bucket_count=len(offsets),command=cmd),indent=2)+'\n')
  run(['objdump','-d','--disassemble=zbtIndexScanSlot','build/profile'],v+'-scan-slot',d/v)
-(p/'complete.json').write_text(json.dumps(dict(status='complete',elapsed_seconds=time.monotonic()-start,captures=len(captures)),indent=2)+'\n');print('PASS12 matched captures, known-work and matched-mode controls')
+(p/'complete.json').write_text(json.dumps(dict(status='complete',elapsed_seconds=time.monotonic()-start,captures=len(captures)),indent=2)+'\n');print('PASS120 matched captures, known-work and matched-mode controls')
