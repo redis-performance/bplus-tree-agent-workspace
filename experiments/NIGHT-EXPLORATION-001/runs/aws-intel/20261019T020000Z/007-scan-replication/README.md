@@ -18,3 +18,7 @@ This is architecture replication of the existing independent AMD/Intel/ARM popul
 Next: only B may enter full original-operation/long-key guards, focused dense/folded/reversed/resize guards, fresh primary confirmation seeds201–203 and separate matched profiles. No fallback to A after a guard rejection. Root independently audits and reviews. This discovery does not qualify those guards or establish portable performance. Main/root tree source stays frozen.
 
 Evidence: [plan](SCREEN-PLAN.md), [controls](AA-REPORT.md), [validation](VALIDATION.md), [imports](import-manifest.json), [binary freeze](candidate-freeze.json), [schedule/driver freeze](screen-freeze.json), [raw rows](screen.json), [audit](screen-audit.json). Actual backend/model identity and token cost unknown; participant /root/aws_intel. Root chair's predeclared B source preference is recorded before timing.
+
+## Independent primary confirmation
+
+AMD agent independently authored and executed held-out201–203 controls and B confirmation after explicit idle handoff. All12 A/A blocks qualify and all12 B blocks pass; B medians−6.783%100K/−3.656%1M, minimum block gain3.580%. This closes narrow independent primary confirmation only. Full original A/A qualifies57/80 cells; guards/profile/length/resize/reversal gaps retain **PARK/source NONE**. [Immutable independent report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/27fed33a7/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/012-intel-confirmation/RESULT.md).
