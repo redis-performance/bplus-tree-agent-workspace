@@ -1,5 +1,14 @@
 # Shared memory
 
+Operator corrected-baseline checkpoint: adapter fix7f299a5f5 is published.011
+finished120 processes/960 rows and all7 validations; independent audit PASS.5/40
+cells qualify,35 noisy,14 short (preliminary15 corrected). Measurement subprocess
+wall160.052971s; operation timers71.958584s. Source C/header remain unchanged.
+Old adapter results stay separate.012 prepares a longer same-session old/new adapter
+diagnostic; no timings until driver review and published freeze, and no source
+optimization/cache replication selected. Candidate counts unchanged.
+
+
 Operator adapter checkpoint: two independent reviews approve the exact C11
 _Noreturn declaration/definition for always-aborting standalone_panic.43 native,
 43 sanitizer tests and8abort probes pass. Tree source/header/referees unchanged.

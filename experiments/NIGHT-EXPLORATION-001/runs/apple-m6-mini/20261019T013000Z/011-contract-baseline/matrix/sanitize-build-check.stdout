@@ -1,0 +1,75 @@
+mkdir -p scratch/m6-contract-baseline/build/sanitize
+clang -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize=address,undefined bench/microbench.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/m6-contract-baseline/build/sanitize/btree-bench
+clang -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all -DREDIS_TEST -DREDIS_DEBUG -fsanitize=address,undefined tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o scratch/m6-contract-baseline/build/sanitize/btree-test
+scratch/m6-contract-baseline/build/sanitize/btree-test
+Testing B+ tree zbtreeReserve()
+1 - Batch append tolerates an underestimated reserve: [32mPASSED[0m
+2 - zbtreeReserve presizes an empty index: [32mPASSED[0m
+3 - Reserved set still holds every inserted member: [32mPASSED[0m
+4 - zbtreeReserve is a no-op once the set is non-empty: [32mPASSED[0m
+Testing B+ tree zbtIndexScanSlot() tag-only fast path
+5 - Cursor-driven scan visits every live member at least once: [32mPASSED[0m
+Testing B+ tree ZSCAN mid-incremental-rehash
+6 - member_rehash is still in progress after the scan: [32mPASSED[0m
+7 - Scan mid-incremental-rehash visits every live member: [32mPASSED[0m
+Testing B+ tree zbtreeInsertNewAppend() vs the general insert path
+8 - Append and general insert build sets of the same length: [32mPASSED[0m
+9 - Forward iteration is byte-identical between the two trees: [32mPASSED[0m
+10 - Reverse iteration is byte-identical between the two trees: [32mPASSED[0m
+Testing B+ tree ZSCAN across a same-tag slot exchange (M1)
+11 - M1: found X/Y with same tag and overlapping probe runs: [32mPASSED[0m
+    X=member:1100 Y=member:5302 tag=253 b1=706/3 b2=709/5 leafY=50
+12 - M1: cursor is between b1 and b2: [32mPASSED[0m
+13 - M1: X now lives in Y's leaf: [32mPASSED[0m
+14 - M1: both slots now name Y's leaf: [32mPASSED[0m
+15 - M1: X moved to another leaf: [32mPASSED[0m
+    after moves: slot b1 -> leaf 69, slot b2 -> leaf 50, X leaf 69
+    X seen 1 time(s); total members missed: 0
+16 - ZSCAN returns every member despite same-tag slot exchanges: [32mPASSED[0m
+Testing B+ tree memory after deleting most members
+17 - Survivors are intact after deleting 95% of the members: [32mPASSED[0m
+18 - Sparse leaves release memory after mass deletion: [32mPASSED[0m
+Testing B+ tree memory when end deletions stop at one member
+19 - Stopping end deletions at one member releases the leaf's unused space: [32mPASSED[0m
+20 - Stopping end deletions at one member releases the leaf's unused space: [32mPASSED[0m
+Testing B+ tree random deletes at both ends and in the middle
+21 - Random pops, deletes and updates match a reference: [32mPASSED[0m
+Testing B+ tree first-leaf pop with mixed signed zero scores
+    b found=1 score=0 signbit=0
+    c found=1 score=0 signbit=0
+    d found=1 score=-0 signbit=1
+22 - Popping the first member keeps signed zero scores exact: [32mPASSED[0m
+Testing B+ tree leaf IDs and the narrow member index
+23 - Score changes start widening a narrow member index: [32mPASSED[0m
+24 - Score changes finish widening the member index: [32mPASSED[0m
+25 - Score changes at the narrow ID limit widen first: [32mPASSED[0m
+    narrow resize with 299 leaves, IDs from 40000: widening after 58 moves
+26 - A narrow resize past the widening point finishes early: [32mPASSED[0m
+    narrow resize with 299 leaves, IDs from 65531: widening after 1 moves
+27 - A narrow resize next to the ID limit finishes before a split: [32mPASSED[0m
+28 - A split during a late widening keeps old entries narrow: [32mPASSED[0m
+29 - An emptied set reuses a high leaf ID with a wide table: [32mPASSED[0m
+Testing B+ tree leaf density under score changes
+    319 byte members: 834 leaves fresh, 1453 after moves, fewest possible 819 (1.77x), memory 1.26 of live
+30 - Score changes keep 319 byte leaves dense: [32mPASSED[0m
+    short members: 105 leaves fresh, 178 after moves, fewest possible 105 (1.70x), memory 1.82 of live
+31 - Score changes keep short leaves dense: [32mPASSED[0m
+    mixed 1-319 byte members: 424 leaves fresh, 779 after moves, fewest possible 419 (1.86x), memory 1.23 of live
+32 - Score changes keep mixed 1-319 byte leaves dense: [32mPASSED[0m
+    mixed 1-600 byte members: 252 leaves fresh, 472 after moves, fewest possible 250 (1.89x), memory 1.08 of live
+33 - Score changes keep mixed 1-600 byte leaves dense: [32mPASSED[0m
+34 - A sparse leaf joins a neighbor with much shorter members: [32mPASSED[0m
+    520 of 3000 moves during the resize, leaves 713 -> 1234
+35 - Score change maintenance during a resize keeps ownership: [32mPASSED[0m
+Testing B+ tree leaf tag lanes
+36 - Leaf tag words put byte i in lane i: [32mPASSED[0m
+37 - Leaf tag matching agrees with a byte by byte search: [32mPASSED[0m
+Testing B+ tree ZSCAN while member tables keep changing
+    29 calls, 17 table replacements, up to 128 groups, 0 anchors missed
+38 - ZSCAN finishes while member tables keep being replaced: [32mPASSED[0m
+39 - ZSCAN returns every anchor across table replacements: [32mPASSED[0m
+40 - ZSCAN cursors stay below the group count: [32mPASSED[0m
+41 - ZSCAN cursor steps match reversed binary increments: [32mPASSED[0m
+42 - ZSCAN accepts any cursor and still finishes: [32mPASSED[0m
+43 - ZSCAN of a one-group table finishes in one call: [32mPASSED[0m
+  Tests:       [32m43 passed[0m, 0 failed, 43 total

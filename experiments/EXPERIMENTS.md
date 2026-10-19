@@ -964,3 +964,14 @@ headers, frozen benchmark, hashing, allocation and assertion policy are unchange
 Prior evidence stays tied to its original adapter. Completed candidate counts remain
 12 populations,0 accepted/7 rejected/5 parked,36patches/15performance harnesses;
 add one reviewed adapter revision and one proposal-only NONE review.
+
+## 2026-10-19 — Corrected-adapter M6 baseline audited
+
+[011 results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md):
+120 processes/960 rows, all seven validations and independent raw/identity audit pass.
+5/40 cells qualify;35 noisy,14 short. Measurement-phase wall160.052971s; operation
+timers sum71.958584s. The preliminary15-short count is corrected. No source optimization
+or historical timing subtraction. Source C/header unchanged; reviewed adapter identity
+new. Original baselines stay frozen. Twelve completed populations and0/7/5 stay unchanged.
+A separately preregistered long-iterator adapter diagnostic is preparing in012; no
+source candidate or cache replication is selected.

@@ -1,5 +1,17 @@
 # Experiment summary
 
+## 2026-10-19 — Corrected-adapter M6 baseline audited
+
+[011 results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md):
+120 processes/960 rows, all seven validations and independent raw/identity audit pass.
+5/40 cells qualify;35 noisy,14 short. Measurement-phase wall160.052971s; operation
+timers sum71.958584s. The preliminary15-short count is corrected. No source optimization
+or historical timing subtraction. Source C/header unchanged; reviewed adapter identity
+new. Original baselines stay frozen. Twelve completed populations and0/7/5 stay unchanged.
+A separately preregistered long-iterator adapter diagnostic is preparing in012; no
+source candidate or cache replication is selected.
+
+
 ## 2026-10-19 — Standalone panic contract correction
 
 [Two independent reviews](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/010-assertion-contract-review/README.md)
