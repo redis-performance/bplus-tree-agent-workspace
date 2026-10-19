@@ -1,3 +1,3 @@
 # Intel native status
 
-2026-10-19T02:51:55.045776+00:00 — Lookup REJECT/NONE; update diagnosis NONE. Iterator cache baseline/A/B/C validation passes; two state-reset faults detected. Fixed exploratory screen frozen, source unchanged. Intel measured count remains1 completed population pending current screen.
+2026-10-19T03:00:11.077038+00:00 — Iterator **PARK / NONE**:566/576 rows,141 complete blocks +2 tail,300s fixed stop. A/B conditional leads; C rejected. Additional direction/mutation reinitialization oracle passes. Lookup REJECT/NONE; update diagnosis NONE. Intel2 measured populations (second partial),0 accepted/1 rejected/1 parked,6 retained patches. Root source unchanged. One bounded matched profile diagnosis next; ARM separate replication planned.

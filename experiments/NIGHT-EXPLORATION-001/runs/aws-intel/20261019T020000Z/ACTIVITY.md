@@ -10,3 +10,5 @@
 02:48UTC Iterator cache variants build successfully; first new oracle failed baseline because unequal-score SeekLex was incorrectly assumed. Attempt001 retained; corrected common-score contract and added sentinel checks. No candidate timing yet. Root static review434e39ef5 cleared semantic review.
 
 2026-10-19T02:51:55.045776+00:00 Iterator cache validation passed:4sources×2builds×43originaltests and28,192statechecks,1,920fixturecells/source; two ASan reset-fault detections. Root review434e39ef5. Exact comparison frozen; exploratory576rows/300s next.
+
+2026-10-19T03:00:11.077038+00:00 Iterator decision PARK/NONE: fixed screen stopped300.30s at566/576 rows,141 full ABBA blocks +2 preserved tail; auditPASS. A/B conditional leads, C rejected. Additive oracle89,428 checks/source/build passes. Intel totals2 measured sequential populations (iterator partial),0 accepted/1 rejected/1 parked,6 patches. Root source unchanged.

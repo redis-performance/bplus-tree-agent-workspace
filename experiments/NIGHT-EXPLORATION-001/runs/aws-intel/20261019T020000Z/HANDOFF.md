@@ -1,3 +1,3 @@
-# Intel native handoff
+# Intel handoff
 
-002lookup REJECT/NONE;003update diagnosis NONE with validated newreferee/profile/census/baseline. BothREADMEs link evidence. No target source changes. Root-reviewed lookup bounds+rawaudit; root-reviewed updatefixture code. Candidate counts1completedmeasured sequential population,0accepted/1rejected/0parked,3losingpatches. Next only profile-supported optional direction or a compelling exact cross-host contender; no repeatedfailedschedules/weakneighborpopulation. Deadline08:00UTC; no new experiments07:15UTC. PMUunavailable; no permissionchanges.
+Current source selection NONE. Lookup REJECT; update diagnosis NONE; iterator PARK with partial fixed screen. See004-iterator/README.md, comparison-freeze.json and discovery-audit.json. Commit58ee8315e freezes patches/referee. Root review434e39ef5. Two additional state-reset faults detected; additive oracle89,428 checks/build/source passes. No failed timing schedule may be extended or rerun. Next matched profiles are diagnostic only. Deadline08:00UTC, no new experiments after07:15UTC. Exact model/backend and token cost unknown.
