@@ -1,0 +1,9 @@
+# Corrected-source Intel SCAN diagnosis
+
+Corrected baseline profile completes all 60 frozen captures and seven matched controls. Known-work control66/66, disabled0; overflow/serial/CPU2/raw checks pass. Helper368/1315 captured samples at100K (27.985%) and478/1740 at1M (27.471%); exact opcode/source map covers542/552 ScanSlot instructions and every sampled helper bucket. Actual/diagnostic identities and22 original post-phase hashes remain unchanged. Metadata-only correction preserved the initial failed driver and completed within original600-second deadline (268.15s total wall time), with no measurement reruns. Fresh48-row A/A is next; no candidate timing or source adoption.
+
+Exact source13e459ff8 and actual013 timing binary are unchanged. Each size has30 captures, seeds1–3 repeated ten times,16-byte members and5M requested operations. Actual callbacks total153,922,500 and150,267,200; helper samples per million callbacks2.3908 and3.1810. These are software samples in captured executable text, not whole CPU time or cycles; libc/outside/missed samples are excluded or unknown. Inline shares overlap and two-byte bucket boundaries are approximate. Ten opcode/source mismatches are retained even though no sampled ScanSlot bucket landed on them.
+
+The initial driver completed all captures then failed in read-only metadata because actual binary has no unreferenced `__executable_start`. `METADATA-CORRECTION.md`, the original failed job/driver and additive audit v2 preserve this history. The reviewed correction uses actual ELF headers and function symbols, leaves absent linker symbol null, and performs no benchmark/control/capture reruns.
+
+Fresh A/A remains the frozen48 processes/12 blocks, seeds401–403 twice,300 seconds; no candidate timing until root reviews controls and profile. Old-source SSE2 B remains rejected by supplemental guards.
