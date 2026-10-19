@@ -25,3 +25,5 @@
 - 2026-10-19T02:55:19.091910+00:00: query-length annotation points to first header access, not redundant second decode; no population. New inner-child linear-search census and matched annotation preparation, no candidate.
 
 - 2026-10-19T03:00:54.075227+00:00: bounded12-capture matched inner-child profile confirms limited nominal1M loop headroom1.940%; chair NONE, no candidate population. Raw periods/census preserved. Distinct index-scan baseline investigation next, avoiding iterator duplication.
+
+- 2026-10-19T03:04:56.955369+00:00: distinct all-match scan profile/census published as common packet for actual independent AMD/Intel/ARM proposals, rootchair; no hypothesis selected. Fresh A/A next.
