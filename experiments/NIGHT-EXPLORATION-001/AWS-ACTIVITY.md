@@ -41,3 +41,7 @@ This is operational preparation, not an optimization decision. Counts unchanged.
 - 2026-10-19T02:12:11.009958+00:00: aws-intel running, 2 rounds, publication native worker commits; aws-amd running, 2 rounds, publication native worker commits; aws-arm running, 1 rounds, publication native worker commits.
 
 - 2026-10-19T02:13:50.819937+00:00: aws-intel running, 2 rounds, publication native worker commits; aws-amd running, 2 rounds, publication native worker commits; aws-arm running, 1 rounds, publication native worker commits.
+- AMD LOWERBOUND-001 rejected: three candidates, 144 serial processes, 36 paired
+  effects independently reconstructed by root. AWS measured populations 1;
+  accepted/rejected/parked 0/1/0. ARM profile attribution corrected before timing;
+  unmeasured exact-mask proposal withdrawn. Intel screen continues.
