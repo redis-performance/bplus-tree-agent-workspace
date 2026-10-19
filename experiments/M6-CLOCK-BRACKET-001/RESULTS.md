@@ -92,8 +92,13 @@ relative to its different frontend/session.
 [Full raw rows and integer sums](results/aa/summary.json) · [serial journal](results/aa/commands.jsonl) ·
 [final state](results/aa/status.json) · [chart inputs/hashes](chart.json).
 
-Independent raw audit and final measurement-validity review are pending at this
-publication. Their final reports will be linked here. No new measurement is queued.
+[Independent raw audit B](review/RAW-AUDIT-B.md) and
+[final measurement-validity review C](review/FINAL-DECISION-C.md) both PASS. They
+independently reconstruct every wall gate and preserve the physical-attribution
+limits. B verifies all134 journal commands/268 streams and640 overlapping pins
+(388 distinct paths); C independently verifies clocks/control decisions. Root
+checks all12 exact sums agree and verifies the old69/297-entry EXP-009 seals remain
+intact. [Final verification](final-verification.json). No new measurement is queued.
 
 ## Decision and limits
 
@@ -111,7 +116,10 @@ The tool misclassified arm64 assembly and later our CSV as perf-counter data; it
 asserted multiplexing and Intel/AMD suggestions are excluded. No counters were
 collected. Retrieved LLVM/Linux documentation supplies general concepts, not a Darwin
 accuracy bound. Full source bodies stay local; inputs/times/response hashes are public.
-All actual backend/model/token/currency unknowns are retained as unknown.
+Actual participants are root (harness/driver/operator), A (independently authored
+controls analyzer), B (driver/codegen/raw reviewer) and C (instrumentation/decision
+reviewer). These roles are not a source proposal/implementation population. Backend
+is Codex/GPT-6 family; exact serving model, measured token and currency costs are unknown.
 
 Native reservation is released: all49 control/A/A child processes reaped, groups
 empty, no owned lock, fresh known-target process check empty. [Release proof](native-release.json).

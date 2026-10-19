@@ -90,13 +90,15 @@ Earlier baselines and experiment decisions retain their original adapter identit
 
 ## M6 lookup — clock brackets applied, fresh baseline parked
 
-The [new lookup harness](experiments/M6-CLOCK-BRACKET-001/RESULTS.md) records six timestamps around unchanged work. Both original43-test suites (native/ASan/UBSan),36 paired frontend checks and72 empirical control rows pass. Independent codegen review confirms all72 tree functions match after relocations. Fresh48-run A/A qualifies **100K6/6 and1M2/6**; the four failed1M blocks are+3.418%,+1.014%,−1.573% and+1.254%. **Baseline PARK; source NONE.** Native ownership is released, with no queued workload. Final raw audit is pending.
+The [lookup harness](experiments/M6-CLOCK-BRACKET-001/RESULTS.md) now records six timestamps around unchanged work. The original 43 tests pass in native and ASan/UBSan builds, all 36 paired frontend checks match, and 72 empirical controls pass. Independent codegen review confirms all 72 tree functions match after accounting for relocations.
 
-![Latest M6 clock brackets: all fresh lookup controls and all72 empirical rows](experiments/M6-CLOCK-BRACKET-001/clock-brackets.png)
+Fresh A/A qualifies **100K: 6/6 blocks; 1M: 2/6 blocks**. The four failed 1M contrasts are +3.418%, +1.014%, −1.573% and +1.254%. **Baseline PARK; source NONE.** Independent raw audit and final decision review pass. Native ownership is released, with no queued workload.
 
-Recorded lookup edge margins are0–4µs, while clock accuracy/accounting error remains unbounded. Three empty controls have inconsistent zero-error intervals and remain visible as inconclusive diagnostics. The thread clock never replaces the wall acceptance gate. [Shared session index](experiments/ACTIVE-SESSIONS.md) · [current status](experiments/M6-CLOCK-BRACKET-001/STATUS.md).
+![Latest M6 clock brackets: all fresh lookup controls and all 72 empirical rows](experiments/M6-CLOCK-BRACKET-001/clock-brackets.png)
 
-Earlier [EXP-009](experiments/EXP-009/RESULTS.md) remains PARK before candidate code/timing (100K6/6,1M3/6), and its [original chart](experiments/EXP-009/aa-controls.png) is retained. The separate [offline clock diagnosis](experiments/M6-METROLOGY-001/RESULTS.md) and [wall/thread chart](experiments/M6-METROLOGY-001/wall-thread.png) also remain unchanged. These different frontends/sessions are not an old/new speed comparison. Historical M6 counts remain12 populations:0accepted/7rejected/5parked; the harness/qualification adds no source population.
+Recorded lookup edge margins are 0–4 µs; clock accuracy and accounting error remain unbounded. Three empty controls have inconsistent zero-error intervals and remain visible as inconclusive diagnostics. The thread clock never replaces the wall acceptance gate. [Shared session index](experiments/ACTIVE-SESSIONS.md) · [Current status](experiments/M6-CLOCK-BRACKET-001/STATUS.md).
+
+Earlier [EXP-009](experiments/EXP-009/RESULTS.md) remains PARK before candidate code or timing (100K: 6/6; 1M: 3/6), with its [original chart](experiments/EXP-009/aa-controls.png) retained. The separate [offline clock diagnosis](experiments/M6-METROLOGY-001/RESULTS.md) and [wall/thread chart](experiments/M6-METROLOGY-001/wall-thread.png) remain unchanged. These different frontends and sessions do not establish an old/new speed comparison. Historical M6 totals remain 12 populations: 0 accepted / 7 rejected / 5 parked; this harness and qualification add no source population.
 
 ## Build and test
 

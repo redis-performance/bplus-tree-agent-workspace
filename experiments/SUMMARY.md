@@ -1132,3 +1132,20 @@ design stays unimplemented/unexecuted. Actual MCPcalls/coverage/parserlimits and
 review ownership are retained. EXP-009 PARK/sourceNONE unchanged; historical M6
 counts12populations,0accepted/7rejected/5parked unchanged. New README dual-clock chart.
 No nativelease/work queued or upstreamaction.
+
+## 19 October — six-read M6 lookup harness applied; fresh baseline PARK
+
+[M6-CLOCK-BRACKET-001](M6-CLOCK-BRACKET-001/RESULTS.md) implements and independently
+validates benchmark-only w0/t0/w1-body-w2/t1/w3 instrumentation. Tree source stays
+unchanged.85serial build commands/11.7586s pass original43tests native+san and36
+paired frontend checks;72controlrows pass sensitivity with3empty model intervals
+retained INCONCLUSIVE. Native codegen72treefunctions/16025instructions matches
+recognized relocations. Fresh48AArows/43.77916s qualify100K6/6 and1M2/6; failures
++3.418%,+1.014%,−1.573%,+1.254% keep PARK/sourceNONE. Native windows594.536–650.797ms,
+observed margins0–4µs; accuracy/accounting bounds remain UNVALIDATED. No clock
+substitution, rerun or candidate. B raw audit134commands/268streams/640overlapping
+pins and C decision review PASS; old69/297pins unchanged. Native lease released,
+no queued work. One new harness, one empirical diagnostic and one fresh baseline;
+zero source populations. Historical M6 totals12:0accepted/7rejected/5parked unchanged.
+[Combined chart](M6-CLOCK-BRACKET-001/clock-brackets.png) is visible in mainREADME.
+Actual MCP calls/logged parser limits retained; no invented counter claim.
