@@ -171,3 +171,5 @@ Fresh exact historical mask replication is REJECT/sourceNONE: nine qualified ite
 2026-10-19T11:07:31.111794+00:00:030 native-comparison complete144rows/36blocks, 6/6 qualified. Exact identities and owned idle verified. New diagnostic lease ACTIVE11:45UTC; prior027 release/result remain historical. Comparison/profile separately gated; prior REJECT/sourceNONE unchanged. See030-frontend-diagnosis/NATIVE-COMPARISON-RESULT.md.
 
 2026-10-19T11:12:33.952591+00:00: Required cpu-perf availability check found zero exposed callable tools in this worker. Read shared PERFORMANCE-MCP workflow; controller local stdio consultation receipt pending. No own library_status/ask call or tool-derived mechanism claimed. Frozen profile unchanged.
+
+2026-10-19T11:12:51.548587+00:00: Consumed shared root cpu-perf consultation dfff5540f (library_status/ask/read_source/check_evidence, cpu-perf0.1.1/deb5a0bac467). Direct worker tools unavailable; no own calls claimed. Index0/287 and empty Arm retrieval provide no mechanism evidence; heuristic metadata misses do not replace raw audits. Unknown clock metadata and existing rejection preserved; frozen protocol unchanged.
