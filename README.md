@@ -5,9 +5,10 @@ member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
 **Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
-is preparing matched profiles of the original benchmark and iterator guards to
-investigate their opposite timing directions. No new performance lease is active;
-the completed rejection and release below remain intact.
+has acquired a fresh ARM-only lease through11:45UTC to investigate opposite timing
+directions in the original benchmark and iterator guards. Baseline controls are
+granted; comparisons and matched profiles require separate reviewed grants. The
+prior mask rejection remains final; its historical handback is recorded below.
 
 **ARM follow-up complete — REJECT, source NONE.** The primary benchmark reproduced
 −7.78% / −7.21% elapsed-time changes, but nine qualified score-only iterator guard
@@ -20,7 +21,7 @@ held-out confirmation were not run after the decisive rejection.
 
 ![ARM follow-up: primary gain and nine qualified guard regressions](experiments/ARM-MASK-FOLLOWUP-001/charts/final-rejection.png)
 
-**Fleet released:** ARM OSS restoration was verified at 11:03 Lisbon / 10:03 UTC,
+**Previous follow-up released:** ARM OSS restoration was verified at 11:03 Lisbon / 10:03 UTC,
 earlier than the follow-up deadline. Intel and AMD stayed released.
 [Fresh handback proof](experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json).
 All five machines completed their original baseline matrix. M6's final evidence is

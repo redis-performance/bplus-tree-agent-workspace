@@ -1,15 +1,16 @@
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
-## Authorized continuation — ARM frontend diagnostic preparation
+## Authorized continuation — ARM frontend diagnostic lease active
 
-User asked to continue the optimization effort. New ARM-FRONTEND-DIAGNOSTIC-001
-investigates opposite primary/H4 timing directions before proposing new target code.
-No new performance lease or measurement; prior mask REJECT and release unchanged.
-Existing ARM prepares protocol, Intel audits frontend comparability, AMD audits
-profile attribution controls. Read-only archived-binary retrieval authorized on the
-previously user-selected ARM host. Six modes/sizes; proposed native AA144/comparison144
-and bounded dual-frontend scoped profiles. Executable freeze/review precedes fresh
-lease/grants. Source NONE; no new population; unknown serving-model/token/cost values.
-[Plan](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md).
+Fresh ARM-only lease acquired after reviewed attempt2; independent OSS restoration
+11:45UTC, read-only live audit11:45:10UTC. Attempt1 failed on expected stopped PID
+exit7, automatically restored OSS, live proof10:52:01–02UTC passed; failure retained.
+Root ef9ecb4ca grants native-AA144/600s only using frozenfa190bd9b and independent
+Intel5fa4ec90c/AMD130d5c904 review. Comparison and1200s matched profiles ungranted.
+Actual four ELF maps: IteratorNext114control/113A, H4mask4 already unswitched.
+Distinct score/consumer/warmup/allocations forbid causal pooling. Prior maskREJECT
+and sourceNONE unchanged; no new population. Raw evidence/audits and profile
+preparation continue. Unknown serving-model/token/cost values remain unknown.
+[Status](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md).
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT-END -->
 
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->

@@ -5,9 +5,11 @@ rejection. This diagnostic investigates the opposite timing directions in the
 original benchmark and HARNESS-004. The rejected candidate remains rejected; no
 new implementation or source adoption is authorized by a favorable diagnostic.
 
-Status: **PREPARATION; no performance runner acquired or workload started.**
-The prior ARM lease is released. Read-only retrieval of previously authorized ARM
-binary hashes and disassembly is allowed to complete the evidence inventory.
+Status: **Fresh ARM lease ACQUIRED; native baseline controls granted.**
+Independent restoration timer11:45UTC and read-only audit11:45:10UTC are armed.
+Comparison and matched profile phases remain ungranted. Attempt1 failed before
+measurement and automatically restored OSS; its verified handback is retained.
+[Live status](STATUS.md) and [lease/grant](NATIVE-AA-GRANT.json) track execution.
 
 ## Question and falsifiable hypothesis
 
