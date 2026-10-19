@@ -1,59 +1,30 @@
-# M6 morning report — interim operator checkpoint
+# M6 overnight evidence — 19 October 2026
 
-Updated 2026-10-19T04:48:15.397181+00:00. Active through08:00UTC/09:00Lisbon; experiments end07:15UTC.
-Source selection **NONE**. All five M6 candidate trials reject their declared gates.
+Checkpoint at 06:41 UTC / 07:41 Lisbon; final audit and reporting continue to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
 
-| Trial | Finding | Decision |
+The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
+
+| Evidence | Result | Practical limit |
 |---|---|---|
-| Rank |100K regressions in everyblock|REJECT|
-| Update repacking |1M lead,100K gate fails|REJECT dualprimary|
-| Physical-score lookup | B100K−4.80%,1M gate fails|REJECT dualprimary|
-| Count-one decoder |~30%privatecount-one lead; qualified guard losses|REJECT universal policy|
-| [Caller specialization](006-followup/RESULTS.md) | A100K−2.712%everyblock;1M2/6blocks reach2%|REJECT dualprimary|
+| [M6 rank](002-rank/RESULTS.md), [update](003-update/RESULTS.md), [lookup](004-lookup/RESULTS.md), [count-one decode](005-decode/RESULTS.md), [caller specialization](006-followup/RESULTS.md) | Five night families rejected; all patches retained | Local leads fail dual-primary, guard or precision gates |
+| [Fresh corrected baseline](011-contract-baseline/RESULTS.md) | 120 processes / 960 rows; correctness and raw audit pass | Only 5/40 cells fully qualify; 14 short cells among unresolved controls |
+| [Matched adapter diagnostic](012-contract-diagnostic/RESULTS.md) | 576 processes; iterator median effects around −5% to −8% in selected full-output cases | No workload has jointly qualified old/new controls; all effects conditional |
+| [Corrected iterator profile](013-corrected-iterator-profile/RESULTS.md) | 16 sufficient captures / 937 observations; no normal iterator frame | Sample locations are not cycles or speed savings |
+| [Counter capability](016-cpu-profiler-capability/RESULTS.md) | OS denied KPC configuration | Hardware cycle weights remain unqualified; no permission change or retry |
+| [Exact decoder replications](018-decoder-replications/RESULTS.md) | 20,640 serial processes / 2,662,560 batches; independent audits pass | Every window below 10 ms; private fresh bulk lead stays PARK with failed controls and guard losses |
+| [Corrected member-index profile](020-member-index-profile-continuation/RESULTS.md) | 16 unique captures / 2,469 observations; every observation conserved | 10 import targets remain unknown; original metadata failure and separate repair preserved |
+| [Exact NEON replication](023-neon-replication/RESULTS.md) | Validation and independent audits pass; all 48 fresh controls retained | 1M fails two controls; PARK before candidate timing, no retry |
 
-Latest trial has three actual independent proposal agents and three isolated
-implementations. All original native/sanitizer tests and exact-bit oracles pass.
-The independent audit verifies2871rows/66frozen artifacts. Baseline101-cellAA:
-39qualify,62noisy,0short;100Kprimary qualifies,1Mfails. No eligible fullcandidate
-guards, fresh confirmation or adoption profile. [Chart](006-followup/candidate-screens.png).
+![Latest fresh M6 scan controls](023-neon-replication/aa-controls.png)
 
-The [baseline geometry census](007-profile/RESULTS.md) is sealed. The three
-independent [follow-up proposals](008-review/selection.md) choose NONE: geometry
-and assembly do not establish a paid score-load stall.
+The last attempt qualifies all six 100K controls, but only four of six 1M controls. Failed blocks are −1.466505207% and +1.641392986%; all windows are 223.938–259.910 ms. The fixed dual-size gate blocks comparison. There is no M6 NEON speed result, and the Graviton rejections do not count as M6 measurements.
 
-The [iterator profile](009-iterator-profile/RESULTS.md) has 16 sufficient local
-captures, 1054 sampled PCs. Frame regions account for 303 PCs, a descriptive count
-rather than cycle cost. This exposed an incomplete compiler contract in the
-standalone adapter: `standalone_panic` always aborts but lacked `_Noreturn`.
-[Two independent reviews](010-assertion-contract-review/README.md) verified the
-exact two-line adapter correction, 43 native and 43 sanitizer tests, and eight
-abort probes. Tree C/header stay unchanged. Static iterator code shrinks from
-155 to 114 instructions and its normal stack frame disappears; this is not a
-measured speed claim. The separately committed correction is now on main at
-13e459ff8 and on this exploration branch at 7f299a5f5.
+The [member-index chart](020-member-index-profile-continuation/member-index-profile.png) separates 1,422 program-text, 1,037 external-library and 10 unknown import-stub observations. Scan's inlined tag matcher contains 184 observations. Rank already vectorizes a separate child-count sum. These are code locations, not recoverable time fractions. Counter configuration remains unavailable.
 
-The [corrected baseline](011-contract-baseline/RESULTS.md) completes 120 processes,
-960 rows and seven validations; independent raw audit PASS. Five of 40 cells
-qualify, 35 are noisy, and 14 include short windows. Operation timers sum to
-71.958584 seconds; subprocess-loop wall time is 160.052971 seconds. Historical
-old-adapter rows remain separate and cannot be subtracted to infer improvement.
-The five-host README chart retains its original-adapter identity.
+The [combined decoder chart](018-decoder-replications/decoder-replications.png) retains every displayed block and marks the failed controls and short windows. The private EXP-007 A fresh median is −34.344992%, but that is not a tree speedup or accepted optimization. EXP-008's expanded original correctness matrix passes all 16,512 native/sanitizer cells.
 
-The [matched adapter diagnostic](012-contract-diagnostic/RESULTS.md) completes
-384A/A and192old/newABBA processes. All checks pass, all windows exceed10ms, and
-owned memory is identical. Only3/16adapter/workload controls qualify; zero ofeight
-workloads qualify onbothadapters. Thus all effects remainconditional. Fullinteger
-forward/reverse medians are−6.081%/−8.122% at100K and−4.674%/−7.058% at1M,
-all observed blocks negative. Failed controls prevent a qualified speed claim.
-This is harness-only; no candidate population/adoption. Independent audit PASS576rows/144exact effects; chart complete. Corrected-adapter baseline-only profile013 completes16sufficient captures,937PCs; region analysis and independent audit PASS. These are sampled locations, not cycle costs.
-Static codegen inventory015 also shows broader inlining/code-size changes; these are not speed results. Countercapability014 records one exact-checksum/signposted self-probe, but neither installed hardware-counter schema appears in its TOC. Recorder success is verified; hardware metrics remain unqualified, with no retry. 016CPUProfilerexplicitlyfailsKPCconfigurationwithOperationnotpermitted; exactprobeandcleanup pass, no retry/authoritychanges.017threeindependentmetrologyproposals reviewnewbaselinequalificationmethods. No cache replication or new source optimization is selected.
+Completed campaign counts remain 12 candidate populations (nine sequential and three actual multi-agent), 0 accepted / 7 rejected / 5 parked, 36 retained patches and 15 validated harnesses. Exact-family host replications, proposal-only NONE reviews, profiles and the adapter revision are recorded separately. No losing variant or failed capture is discarded. Exact backend model, token and currency costs remain unknown where unavailable.
 
-Totals12completedpopulations(9sequential+3multi-agent),0accepted/7rejected/5parked,
-36retainedpatches/15validatedharnesses. M1 night and concurrent AWS populations
-are separate. [Shared live scoreboard](STATUS.md). [Measured supervisor usage](USAGE.json)
-excludes unknown interactive-root/collaboration-agent accounting.
+M1's latest observed remote checkpoint remains 01:33 UTC at `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9`, reporting unresolved DNS. M6 milestones are public in Git; consumption by M1 is unverified. The main README overlays measured M1/M6/Intel/AMD/Graviton baselines and keeps the corrected-adapter series separate. No host's timings qualify another host.
 
-The prior worker checkpoint is preserved in
-[REPORTING-WORKER-ROUND010-MORNING.md](REPORTING-WORKER-ROUND010-MORNING.md).
-An ownership barrier ended its empty reporting loop at round10; the interactive
-root continues the campaign and invokes the same single-writer publisher.
+Resume from [STATUS](STATUS.md), exact frozen source identities and recorded decisions. Do not retry completed failed schedules, adopt a private-kernel lead, carry old-adapter controls forward or treat source NONE as a missing publication. Any future source acceptance still requires qualified controls, all applicable guards and memory checks, held-out confirmation, matched profile and independent adversarial review.
