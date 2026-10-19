@@ -157,6 +157,17 @@ The [earlier M1 preparation results](experiments/SIZE-MATRIX-001/apple-m1-five-s
 and [chart](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg) remain
 separate from these overnight baselines. [Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
 
+### Intel scan replication: primary gates pass, guards pending
+
+The exact all-match scan variants pass all six primary blocks at100K and1M,
+with qualified same-session A/A controls. B advances under the predeclared source
+preference: median elapsed changes−6.665% and−3.661%. This is **discovery only**;
+full guards, fresh confirmation and matched profiles remain. Source stays unchanged.
+[Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),
+[decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
+
+![Intel scan discovery: all six paired blocks, qualified controls and observed ranges; source unchanged](experiments/NIGHT-EXPLORATION-001/latest-charts/intel-scan-discovery.png)
+
 ### M6 campaign decisions
 
 [The first M6 rank population](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
