@@ -36,3 +36,7 @@ python3 scripts/plot-host-baselines.py experiments/NIGHT-EXPLORATION-001/baselin
 
 The generator verifies SHA256,200host cells,24observations/cell and min/median/max
 ordering before rendering. PNGs are embedded for GitHub; SVGs are exportable.
+
+[Source parity audit](source-parity.json): target source/header, referee, adapter,
+vendored support, upstream test entry point and Makefile are byte-identical across
+all five baselines. Compiler, OS, allocator and placement differences remain.
