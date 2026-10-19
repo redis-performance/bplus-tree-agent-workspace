@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4036,7 +4036,7 @@
+ 
+     if (reverse) {
+         if (pos != 0) {
+-            iter->pos--;
++            iter->pos = 0;
+         } else {
+             leaf = leaf->prev;
+             iter->leaf = leaf;

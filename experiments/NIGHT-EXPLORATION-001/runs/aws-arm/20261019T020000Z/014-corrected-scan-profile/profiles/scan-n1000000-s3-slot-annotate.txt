@@ -1,0 +1,512 @@
+ Percent |	Source code & Disassembly of diagnostic for cycles:u (466 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------
+         : 0     0x10574 <zbtIndexScanSlot>:
+    0.00 :   10574:        stp     x29, x30, [sp, #-0x60]!
+    0.00 :   10578:        stp     x28, x27, [sp, #0x10]
+    0.00 :   1057c:        stp     x26, x25, [sp, #0x20]
+    0.21 :   10580:        stp     x24, x23, [sp, #0x30]
+    0.21 :   10584:        stp     x22, x21, [sp, #0x40]
+    0.00 :   10588:        stp     x20, x19, [sp, #0x50]
+    0.00 :   1058c:        mov     x29, sp
+    0.21 :   10590:        sub     sp, sp, #0x1b0
+    0.00 :   10594:        ldr     x8, [x2]
+    0.00 :   10598:        lsl     w9, w3, #3
+    0.21 :   1059c:        ldr     w10, [x1, #0x20]
+    0.42 :   105a0:        mov     x21, x5
+    0.00 :   105a4:        mov     x23, x2
+    0.21 :   105a8:        stp     x6, x7, [sp, #0x18]
+    0.00 :   105ac:        lsr     x9, x8, x9
+    0.00 :   105b0:        mov     w8, w3
+    0.21 :   105b4:        cbz     w10, 0x105d0 <zbtIndexScanSlot+0x5c>
+    0.00 :   105b8:        add     x8, x23, x8, lsl #2
+    0.00 :   105bc:        ldr     w8, [x8, #0x10]
+    0.00 :   105c0:        ands    x12, x9, #0xff
+    0.00 :   105c4:        mov     x25, xzr
+    0.00 :   105c8:        b.ne    0x105f0 <zbtIndexScanSlot+0x7c>
+    0.00 :   105cc:        b       0x10794 <zbtIndexScanSlot+0x220>
+    0.00 :   105d0:        add     x8, x23, x8, lsl #1
+    0.00 :   105d4:        mov     w11, #0xffff
+    0.00 :   105d8:        ldrh    w8, [x8, #0x10]
+    0.00 :   105dc:        cmp     w8, w11
+    0.42 :   105e0:        csinv   w8, w8, wzr, ne
+    0.00 :   105e4:        ands    x12, x9, #0xff
+    0.00 :   105e8:        mov     x25, xzr
+    0.21 :   105ec:        b.eq    0x10794 <zbtIndexScanSlot+0x220>
+    0.00 :   105f0:        cmn     w8, #0x1
+    0.00 :   105f4:        b.eq    0x10794 <zbtIndexScanSlot+0x220>
+    0.00 :   105f8:        cbz     x21, 0x10684 <zbtIndexScanSlot+0x110>
+    0.00 :   105fc:        cmp     x4, x21
+    0.00 :   10600:        mov     x11, x4
+    0.00 :   10604:        b.hs    0x1067c <zbtIndexScanSlot+0x108>
+    0.00 :   10608:        mov     x11, #0x7c15
+    0.00 :   1060c:        cmp     w10, #0x0
+    0.00 :   10610:        mov     w10, #0x30
+    0.00 :   10614:        movk    x11, #0x7f4a, lsl #16
+    0.00 :   10618:        mov     w13, #0x20
+    0.00 :   1061c:        ldr     x14, [x1]
+    0.00 :   10620:        movk    x11, #0x79b9, lsl #32
+    0.00 :   10624:        csel    x10, x13, x10, eq
+    0.00 :   10628:        mov     w15, #0x1
+    0.00 :   1062c:        movk    x11, #0x9e37, lsl #48
+    0.00 :   10630:        madd    x14, x10, x4, x14
+    0.00 :   10634:        lsl     x16, x15, x9
+    0.00 :   10638:        mul     x11, x12, x11
+    0.00 :   1063c:        add     x14, x14, #0x8
+    0.00 :   10640:        lsr     x13, x11, #58
+    0.00 :   10644:        lsr     x11, x11, #36
+    0.00 :   10648:        lsl     x13, x15, x13
+    0.00 :   1064c:        lsl     x11, x15, x11
+    0.00 :   10650:        orr     x13, x13, x16
+    0.00 :   10654:        orr     x13, x13, x11
+    0.00 :   10658:        mov     x11, x4
+    0.00 :   1065c:        ldr     x15, [x14]
+    0.00 :   10660:        bics    xzr, x13, x15
+    0.00 :   10664:        b.eq    0x1067c <zbtIndexScanSlot+0x108>
+    0.00 :   10668:        add     x11, x11, #0x1
+    0.00 :   1066c:        add     x14, x14, x10
+    0.00 :   10670:        cmp     x21, x11
+    0.00 :   10674:        b.ne    0x1065c <zbtIndexScanSlot+0xe8>
+    0.00 :   10678:        b       0x10790 <zbtIndexScanSlot+0x21c>
+    0.00 :   1067c:        cmp     x11, x21
+    0.00 :   10680:        b.eq    0x10790 <zbtIndexScanSlot+0x21c>
+    0.00 :   10684:        ldr     w10, [x0, #0x54]
+    0.00 :   10688:        cmp     w8, w10
+    0.00 :   1068c:        b.hs    0x1077c <zbtIndexScanSlot+0x208>
+    0.00 :   10690:        ldr     x10, [x0, #0x48]
+    0.00 :   10694:        ldr     x26, [x10, w8, uxtw #3]
+    0.00 :   10698:        cbz     x26, 0x1077c <zbtIndexScanSlot+0x208>
+    0.00 :   1069c:        tbnz    w26, #0x0, 0x1077c <zbtIndexScanSlot+0x208>
+    0.00 :   106a0:        ldr     w10, [x26, #0x30]
+    1.30 :   106a4:        cmp     w10, w8
+    0.00 :   106a8:        b.ne    0x10d38 <zbtIndexScanSlot+0x7c4>
+    0.00 :   106ac:        ldr     x8, [x0, #0x40]
+    0.00 :   106b0:        cbz     x8, 0x106d4 <zbtIndexScanSlot+0x160>
+    0.00 :   106b4:        ldrh    w10, [x26, #0x16]
+    0.00 :   106b8:        ldrh    w11, [x8, #0x2c]
+    0.00 :   106bc:        cmp     w10, w11
+    0.00 :   106c0:        cset    w10, eq
+    0.00 :   106c4:        cmp     x8, x1
+    0.00 :   106c8:        cset    w8, ne
+    0.00 :   106cc:        cmp     w8, w10
+    0.00 :   106d0:        b.eq    0x10790 <zbtIndexScanSlot+0x21c>
+    0.00 :   106d4:        ldrb    w10, [x26, #0x34]
+    0.00 :   106d8:        ldrb    w8, [x26, #0x11]
+    0.00 :   106dc:        mov     w15, #0x7
+    0.63 :   106e0:        cbz     x10, 0x106f4 <zbtIndexScanSlot+0x180>
+    0.00 :   106e4:        madd    w10, w8, w10, w15
+    0.00 :   106e8:        lsr     w10, w10, #3
+    0.00 :   106ec:        add     w10, w10, #0x9
+    0.00 :   106f0:        and     x10, x10, #0x7ffe
+    0.00 :   106f4:        ldrb    w11, [x26, #0x35]
+    0.42 :   106f8:        cmp     w8, #0x8
+    0.21 :   106fc:        and     w9, w9, #0xff
+    0.00 :   10700:        add     x3, x26, #0x38
+    0.00 :   10704:        stp     x4, x1, [sp]
+    0.00 :   10708:        str     w15, [sp, #0x14]
+    0.00 :   1070c:        b.hs    0x107b8 <zbtIndexScanSlot+0x244>
+    0.00 :   10710:        mov     w28, wzr
+    0.00 :   10714:        tst     w8, #0x7
+    0.00 :   10718:        b.eq    0x10a54 <zbtIndexScanSlot+0x4e0>
+    0.63 :   1071c:        cmp     w9, #0x1
+    0.00 :   10720:        and     x12, x8, #0xf8
+    0.00 :   10724:        b.ne    0x10860 <zbtIndexScanSlot+0x2ec>
+    0.00 :   10728:        cbz     w11, 0x109d0 <zbtIndexScanSlot+0x45c>
+    0.00 :   1072c:        mvn     w9, w8
+    0.00 :   10730:        add     x10, x10, x8, lsl #1
+    0.00 :   10734:        add     x12, x12, #0x38
+    0.00 :   10738:        orr     w9, w9, #0xffffff07
+    0.00 :   1073c:        add     x11, sp, #0x28
+    0.00 :   10740:        add     w9, w9, w8
+    0.00 :   10744:        add     x10, x26, x10
+    0.00 :   10748:        b       0x10760 <zbtIndexScanSlot+0x1ec>
+    0.00 :   1074c:        sub     x13, x12, #0x37
+    0.00 :   10750:        add     x12, x12, #0x1
+    0.00 :   10754:        sub     w9, w9, #0x1
+    0.00 :   10758:        cmp     x13, x8
+    0.00 :   1075c:        b.hs    0x10a54 <zbtIndexScanSlot+0x4e0>
+    0.00 :   10760:        ldrb    w13, [x10, x12]
+    0.00 :   10764:        cmp     w13, #0x1
+    0.00 :   10768:        b.hi    0x1074c <zbtIndexScanSlot+0x1d8>
+    0.00 :   1076c:        add     w13, w28, #0x1
+    0.00 :   10770:        str     w9, [x11, w28, uxtw #2]
+    0.00 :   10774:        mov     w28, w13
+    0.00 :   10778:        b       0x1074c <zbtIndexScanSlot+0x1d8>
+    0.00 :   1077c:        ldr     x8, [x0, #0x40]
+    0.00 :   10780:        cbz     x8, 0x10d20 <zbtIndexScanSlot+0x7ac>
+    0.00 :   10784:        add     x8, x0, #0x18
+    0.00 :   10788:        cmp     x8, x1
+    0.00 :   1078c:        b.ne    0x10d20 <zbtIndexScanSlot+0x7ac>
+    0.00 :   10790:        mov     x25, xzr
+    0.21 :   10794:        mov     x0, x25
+    0.00 :   10798:        add     sp, sp, #0x1b0
+    0.00 :   1079c:        ldp     x20, x19, [sp, #0x50]
+    0.00 :   107a0:        ldp     x22, x21, [sp, #0x40]
+    0.00 :   107a4:        ldp     x24, x23, [sp, #0x30]
+    0.00 :   107a8:        ldp     x26, x25, [sp, #0x20]
+    0.00 :   107ac:        ldp     x28, x27, [sp, #0x10]
+    0.00 :   107b0:        ldp     x29, x30, [sp], #0x60
+    0.00 :   107b4:        ret
+    0.21 :   107b8:        mov     x13, #0x101010101010101
+    0.00 :   107bc:        mul     x14, x12, x13
+    0.00 :   107c0:        add     x12, x3, x10
+    0.00 :   107c4:        lsr     x13, x8, #3
+    0.00 :   107c8:        add     x12, x12, x8, lsl #1
+    0.00 :   107cc:        cbz     w11, 0x108b4 <zbtIndexScanSlot+0x340>
+    0.00 :   107d0:        cmp     w9, #0x1
+    0.00 :   107d4:        sub     w15, w8, #0x1
+    0.00 :   107d8:        b.ne    0x10954 <zbtIndexScanSlot+0x3e0>
+    0.00 :   107dc:        mov     x14, xzr
+    0.00 :   107e0:        mov     w28, wzr
+    0.00 :   107e4:        add     x16, sp, #0x28
+    0.00 :   107e8:        b       0x107f8 <zbtIndexScanSlot+0x284>
+    0.00 :   107ec:        add     x14, x14, #0x1
+    0.00 :   107f0:        cmp     x14, x13
+    0.00 :   107f4:        b.eq    0x10714 <zbtIndexScanSlot+0x1a0>
+    0.00 :   107f8:        lsl     x17, x14, #3
+    0.00 :   107fc:        mov     x1, #-0x101010101010102
+    0.00 :   10800:        movk    x1, #0xfeff
+    0.00 :   10804:        ldr     x18, [x12, x17]
+    0.00 :   10808:        eor     x0, x18, #0x101010101010101
+    0.00 :   1080c:        add     x0, x0, x1
+    0.00 :   10810:        add     x1, x18, x1
+    0.00 :   10814:        orr     x0, x0, x1
+    0.00 :   10818:        bic     x18, x0, x18
+    0.00 :   1081c:        ands    x18, x18, #0x8080808080808080
+    0.00 :   10820:        b.ne    0x10834 <zbtIndexScanSlot+0x2c0>
+    0.00 :   10824:        b       0x107ec <zbtIndexScanSlot+0x278>
+    0.00 :   10828:        sub     x0, x18, #0x1
+    0.00 :   1082c:        ands    x18, x0, x18
+    0.00 :   10830:        b.eq    0x107ec <zbtIndexScanSlot+0x278>
+    0.00 :   10834:        rbit    x0, x18
+    0.00 :   10838:        clz     x0, x0
+    0.00 :   1083c:        orr     w0, w17, w0, lsr #3
+    0.00 :   10840:        ldrb    w1, [x12, w0, uxtw]
+    0.00 :   10844:        cmp     w1, #0x1
+    0.00 :   10848:        b.hi    0x10828 <zbtIndexScanSlot+0x2b4>
+    0.00 :   1084c:        add     w1, w28, #0x1
+    0.00 :   10850:        sub     w0, w15, w0
+    0.00 :   10854:        str     w0, [x16, w28, uxtw #2]
+    0.00 :   10858:        mov     w28, w1
+    0.00 :   1085c:        b       0x10828 <zbtIndexScanSlot+0x2b4>
+    0.00 :   10860:        add     x13, x10, x8, lsl #1
+    0.00 :   10864:        cbz     w11, 0x10a14 <zbtIndexScanSlot+0x4a0>
+    0.00 :   10868:        mvn     w10, w8
+    0.00 :   1086c:        add     x12, x12, #0x38
+    0.00 :   10870:        add     x11, x26, x13
+    0.00 :   10874:        orr     w10, w10, #0xffffff07
+    0.00 :   10878:        add     x13, sp, #0x28
+    0.00 :   1087c:        add     w10, w10, w8
+    0.00 :   10880:        b       0x10898 <zbtIndexScanSlot+0x324>
+    0.00 :   10884:        sub     x14, x12, #0x37
+    0.00 :   10888:        add     x12, x12, #0x1
+    0.00 :   1088c:        sub     w10, w10, #0x1
+    0.00 :   10890:        cmp     x14, x8
+    0.00 :   10894:        b.hs    0x10a54 <zbtIndexScanSlot+0x4e0>
+    0.00 :   10898:        ldrb    w14, [x11, x12]
+    0.00 :   1089c:        cmp     w14, w9
+    0.00 :   108a0:        b.ne    0x10884 <zbtIndexScanSlot+0x310>
+    0.00 :   108a4:        add     w14, w28, #0x1
+    0.00 :   108a8:        str     w10, [x13, w28, uxtw #2]
+    0.00 :   108ac:        mov     w28, w14
+    0.00 :   108b0:        b       0x10884 <zbtIndexScanSlot+0x310>
+    0.21 :   108b4:        mov     x15, xzr
+    0.00 :   108b8:        mov     w28, wzr
+    0.42 :   108bc:        add     x16, sp, #0x28
+    0.00 :   108c0:        b       0x108d0 <zbtIndexScanSlot+0x35c>
+    0.84 :   108c4:        add     x15, x15, #0x1
+    0.84 :   108c8:        cmp     x15, x13
+    0.00 :   108cc:        b.eq    0x10714 <zbtIndexScanSlot+0x1a0>
+    0.00 :   108d0:        lsl     x17, x15, #3
+    0.00 :   108d4:        mov     x2, #-0x101010101010102
+    0.84 :   108d8:        cmp     w9, #0x1
+    0.00 :   108dc:        movk    x2, #0xfeff
+    0.42 :   108e0:        ldr     x18, [x12, x17]
+    0.84 :   108e4:        eor     x0, x18, x14
+   12.67 :   108e8:        add     x1, x0, x2
+    0.21 :   108ec:        add     x2, x18, x2
+    0.21 :   108f0:        bic     x0, x1, x0
+    0.00 :   108f4:        bic     x18, x2, x18
+    0.42 :   108f8:        and     x0, x0, #0x8080808080808080
+    0.00 :   108fc:        and     x18, x18, #0x8080808080808080
+    0.21 :   10900:        orr     x18, x0, x18
+    0.00 :   10904:        csel    x18, x0, x18, ne
+    0.42 :   10908:        cbnz    x18, 0x1091c <zbtIndexScanSlot+0x3a8>
+    4.22 :   1090c:        b       0x108c4 <zbtIndexScanSlot+0x350>
+    0.21 :   10910:        sub     x0, x18, #0x1
+    0.00 :   10914:        ands    x18, x0, x18
+    0.00 :   10918:        b.eq    0x108c4 <zbtIndexScanSlot+0x350>
+    1.05 :   1091c:        rbit    x0, x18
+    1.88 :   10920:        cmp     w9, #0x1
+    0.00 :   10924:        clz     x0, x0
+    0.21 :   10928:        orr     w0, w17, w0, lsr #3
+    0.00 :   1092c:        ldrb    w1, [x12, w0, uxtw]
+    1.27 :   10930:        ccmp    w1, #0x0, #0x0, eq
+    2.11 :   10934:        cset    w2, eq
+    0.00 :   10938:        cmp     w1, w9
+    0.00 :   1093c:        ccmp    w2, #0x0, #0x0, ne
+    0.21 :   10940:        b.eq    0x10910 <zbtIndexScanSlot+0x39c>
+    1.48 :   10944:        add     w1, w28, #0x1
+    0.21 :   10948:        str     w0, [x16, w28, uxtw #2]
+    0.00 :   1094c:        mov     w28, w1
+    0.00 :   10950:        b       0x10910 <zbtIndexScanSlot+0x39c>
+    0.00 :   10954:        mov     x16, xzr
+    0.00 :   10958:        mov     w28, wzr
+    0.00 :   1095c:        add     x17, sp, #0x28
+    0.00 :   10960:        b       0x10970 <zbtIndexScanSlot+0x3fc>
+    0.00 :   10964:        add     x16, x16, #0x1
+    0.00 :   10968:        cmp     x16, x13
+    0.00 :   1096c:        b.eq    0x10714 <zbtIndexScanSlot+0x1a0>
+    0.00 :   10970:        lsl     x18, x16, #3
+    0.00 :   10974:        mov     x1, #-0x101010101010102
+    0.00 :   10978:        movk    x1, #0xfeff
+    0.00 :   1097c:        ldr     x0, [x12, x18]
+    0.00 :   10980:        eor     x0, x0, x14
+    0.00 :   10984:        add     x1, x0, x1
+    0.00 :   10988:        bic     x0, x1, x0
+    0.00 :   1098c:        ands    x0, x0, #0x8080808080808080
+    0.00 :   10990:        b.ne    0x109a4 <zbtIndexScanSlot+0x430>
+    0.00 :   10994:        b       0x10964 <zbtIndexScanSlot+0x3f0>
+    0.00 :   10998:        sub     x1, x0, #0x1
+    0.00 :   1099c:        ands    x0, x1, x0
+    0.00 :   109a0:        b.eq    0x10964 <zbtIndexScanSlot+0x3f0>
+    0.00 :   109a4:        rbit    x1, x0
+    0.00 :   109a8:        clz     x1, x1
+    0.00 :   109ac:        orr     w1, w18, w1, lsr #3
+    0.00 :   109b0:        ldrb    w2, [x12, w1, uxtw]
+    0.00 :   109b4:        cmp     w2, w9
+    0.00 :   109b8:        b.ne    0x10998 <zbtIndexScanSlot+0x424>
+    0.00 :   109bc:        add     w2, w28, #0x1
+    0.00 :   109c0:        sub     w1, w15, w1
+    0.00 :   109c4:        str     w1, [x17, w28, uxtw #2]
+    0.00 :   109c8:        mov     w28, w2
+    0.00 :   109cc:        b       0x10998 <zbtIndexScanSlot+0x424>
+    0.00 :   109d0:        add     x9, x10, x8, lsl #1
+    0.00 :   109d4:        add     x10, x12, #0x38
+    0.00 :   109d8:        add     x11, sp, #0x28
+    0.00 :   109dc:        add     x9, x26, x9
+    0.00 :   109e0:        b       0x109f4 <zbtIndexScanSlot+0x480>
+    0.00 :   109e4:        sub     x12, x10, #0x37
+    0.00 :   109e8:        add     x10, x10, #0x1
+    0.00 :   109ec:        cmp     x12, x8
+    0.00 :   109f0:        b.hs    0x10a54 <zbtIndexScanSlot+0x4e0>
+    0.00 :   109f4:        ldrb    w12, [x9, x10]
+    0.00 :   109f8:        cmp     w12, #0x1
+    0.00 :   109fc:        b.hi    0x109e4 <zbtIndexScanSlot+0x470>
+    0.00 :   10a00:        add     w12, w28, #0x1
+    0.00 :   10a04:        sub     w13, w10, #0x38
+    0.00 :   10a08:        str     w13, [x11, w28, uxtw #2]
+    0.00 :   10a0c:        mov     w28, w12
+    0.00 :   10a10:        b       0x109e4 <zbtIndexScanSlot+0x470>
+    0.42 :   10a14:        add     x11, x12, #0x38
+    0.00 :   10a18:        add     x10, x26, x13
+    0.00 :   10a1c:        add     x12, sp, #0x28
+    0.00 :   10a20:        b       0x10a34 <zbtIndexScanSlot+0x4c0>
+    0.84 :   10a24:        sub     x13, x11, #0x37
+    0.00 :   10a28:        add     x11, x11, #0x1
+    0.42 :   10a2c:        cmp     x13, x8
+    0.00 :   10a30:        b.hs    0x10a54 <zbtIndexScanSlot+0x4e0>
+    0.00 :   10a34:        ldrb    w13, [x10, x11]
+    2.33 :   10a38:        cmp     w13, w9
+    0.00 :   10a3c:        b.ne    0x10a24 <zbtIndexScanSlot+0x4b0>
+    0.00 :   10a40:        add     w13, w28, #0x1
+    0.00 :   10a44:        sub     w14, w11, #0x38
+    0.00 :   10a48:        str     w14, [x12, w28, uxtw #2]
+    0.42 :   10a4c:        mov     w28, w13
+    0.00 :   10a50:        b       0x10a24 <zbtIndexScanSlot+0x4b0>
+    0.00 :   10a54:        cbz     w28, 0x10d50 <zbtIndexScanSlot+0x7dc>
+    2.95 :   10a58:        cmp     x21, #0x0
+    0.00 :   10a5c:        mov     x20, xzr
+    0.00 :   10a60:        mov     x25, xzr
+    0.00 :   10a64:        ccmp    w28, #0x1, #0x0, eq
+    0.54 :   10a68:        mov     w22, w28
+    0.00 :   10a6c:        mov     x19, x3
+    0.00 :   10a70:        cset    w24, ne
+    0.00 :   10a74:        b       0x10ad0 <zbtIndexScanSlot+0x55c>
+    0.21 :   10a78:        mov     x12, #-0x1
+    0.00 :   10a7c:        cmp     w8, #0x40
+    0.00 :   10a80:        lsl     x11, x12, x8
+    0.00 :   10a84:        csinv   x8, x12, x11, hs
+    0.00 :   10a88:        ldrb    w11, [x26, #0x13]
+    0.00 :   10a8c:        and     x8, x10, x8
+    0.00 :   10a90:        lsl     x8, x8, x11
+    0.00 :   10a94:        ldr     x10, [x26, #0x28]
+    0.00 :   10a98:        cmp     w9, #0x0
+    0.00 :   10a9c:        cneg    x8, x8, ne
+    0.00 :   10aa0:        add     x8, x10, x8
+    0.00 :   10aa4:        and     x9, x8, #0x7fffffffffffffff
+    0.00 :   10aa8:        cmp     x8, #0x0
+    0.00 :   10aac:        csinv   x8, x9, x8, lt
+    0.00 :   10ab0:        fmov    d0, x8
+    0.00 :   10ab4:        ldp     x8, x0, [sp, #0x18]
+    0.00 :   10ab8:        blr     x8
+    0.00 :   10abc:        add     x25, x25, #0x1
+    0.00 :   10ac0:        mov     x3, x19
+    0.63 :   10ac4:        add     x20, x20, #0x1
+    0.00 :   10ac8:        cmp     x20, x22
+    0.00 :   10acc:        b.eq    0x10ce8 <zbtIndexScanSlot+0x774>
+    0.21 :   10ad0:        add     x8, sp, #0x28
+    0.21 :   10ad4:        ldr     w27, [x8, x20, lsl #2]
+    2.74 :   10ad8:        cbz     w24, 0x10bfc <zbtIndexScanSlot+0x688>
+    0.21 :   10adc:        ldrb    w8, [x26, #0x34]
+    0.21 :   10ae0:        cbz     x8, 0x10afc <zbtIndexScanSlot+0x588>
+    0.00 :   10ae4:        ldrb    w9, [x26, #0x11]
+    0.00 :   10ae8:        ldr     w10, [sp, #0x14]
+    0.00 :   10aec:        madd    w8, w9, w8, w10
+    0.00 :   10af0:        lsr     w8, w8, #3
+    0.00 :   10af4:        add     w8, w8, #0x9
+    0.00 :   10af8:        and     x8, x8, #0x7ffe
+    0.00 :   10afc:        ldrb    w10, [x26, #0x35]
+    0.00 :   10b00:        mov     w9, w27
+    0.00 :   10b04:        cbz     w10, 0x10b14 <zbtIndexScanSlot+0x5a0>
+    0.00 :   10b08:        ldrb    w9, [x26, #0x11]
+    0.00 :   10b0c:        mvn     w10, w27
+    0.00 :   10b10:        add     w9, w9, w10
+    0.00 :   10b14:        add     x8, x3, x8
+    0.00 :   10b18:        ldrh    w8, [x8, w9, uxtw #1]
+    0.21 :   10b1c:        add     x8, x26, x8
+    0.84 :   10b20:        ldrb    w1, [x8]
+    7.50 :   10b24:        cmp     w1, #0xfe
+    0.00 :   10b28:        b.eq    0x10b48 <zbtIndexScanSlot+0x5d4>
+    0.21 :   10b2c:        cmp     w1, #0xff
+    0.00 :   10b30:        b.ne    0x10b54 <zbtIndexScanSlot+0x5e0>
+    0.00 :   10b34:        ldur    w9, [x8, #0x1]
+    0.00 :   10b38:        ldr     x8, [sp, #0x8]
+    0.00 :   10b3c:        ldr     x8, [x8, #0x8]
+    0.00 :   10b40:        cbnz    x21, 0x10b74 <zbtIndexScanSlot+0x600>
+    0.00 :   10b44:        b       0x10b90 <zbtIndexScanSlot+0x61c>
+    0.00 :   10b48:        ldurh   w1, [x8, #0x1]
+    0.00 :   10b4c:        mov     w9, #0x3
+    0.00 :   10b50:        b       0x10b58 <zbtIndexScanSlot+0x5e4>
+    0.00 :   10b54:        mov     w9, #0x1
+    0.00 :   10b58:        add     x0, x8, x9
+    0.00 :   10b5c:        bl      0x10f68 <dictGenHashFunction>
+    0.00 :   10b60:        and     x9, x0, #0xffffffff
+    0.00 :   10b64:        mov     x3, x19
+    0.00 :   10b68:        ldr     x8, [sp, #0x8]
+    0.00 :   10b6c:        ldr     x8, [x8, #0x8]
+    0.00 :   10b70:        cbz     x21, 0x10b90 <zbtIndexScanSlot+0x61c>
+    0.00 :   10b74:        sub     w10, w8, #0x1
+    0.00 :   10b78:        ldr     x11, [sp]
+    0.00 :   10b7c:        and     x10, x10, x9
+    0.00 :   10b80:        cmp     x10, x11
+    0.00 :   10b84:        b.lo    0x10ac4 <zbtIndexScanSlot+0x550>
+    0.00 :   10b88:        cmp     x10, x21
+    0.00 :   10b8c:        b.hs    0x10ac4 <zbtIndexScanSlot+0x550>
+    0.00 :   10b90:        cmp     w28, #0x1
+    0.00 :   10b94:        b.eq    0x10bfc <zbtIndexScanSlot+0x688>
+    0.00 :   10b98:        cbz     x8, 0x10ac4 <zbtIndexScanSlot+0x550>
+    0.00 :   10b9c:        ldr     x11, [sp, #0x8]
+    0.00 :   10ba0:        sub     x10, x8, #0x1
+    0.00 :   10ba4:        mov     w13, #0x20
+    0.00 :   10ba8:        ldr     w12, [x11, #0x20]
+    0.00 :   10bac:        ldr     x11, [x11]
+    0.00 :   10bb0:        cmp     w12, #0x0
+    0.00 :   10bb4:        and     x12, x10, x9
+    0.00 :   10bb8:        mov     w9, #0x30
+    0.00 :   10bbc:        csel    x9, x13, x9, eq
+    0.00 :   10bc0:        madd    x13, x12, x9, x11
+    0.00 :   10bc4:        cmp     x13, x23
+    0.00 :   10bc8:        b.eq    0x10bfc <zbtIndexScanSlot+0x688>
+    2.05 :   10bcc:        ldr     x13, [x13]
+   10.15 :   10bd0:        mov     x14, #-0x101010101010102
+    1.76 :   10bd4:        movk    x14, #0xfeff
+    0.00 :   10bd8:        add     x14, x13, x14
+    0.00 :   10bdc:        bic     x13, x14, x13
+    0.00 :   10be0:        tst     x13, #0x8080808080808080
+    0.00 :   10be4:        b.ne    0x10ac4 <zbtIndexScanSlot+0x550>
+    0.00 :   10be8:        add     x12, x12, #0x1
+    0.00 :   10bec:        subs    x8, x8, #0x1
+    0.00 :   10bf0:        and     x12, x12, x10
+    0.00 :   10bf4:        b.ne    0x10bc0 <zbtIndexScanSlot+0x64c>
+    0.00 :   10bf8:        b       0x10ac4 <zbtIndexScanSlot+0x550>
+    0.21 :   10bfc:        ldrb    w8, [x26, #0x34]
+    0.63 :   10c00:        cbz     w8, 0x10cc0 <zbtIndexScanSlot+0x74c>
+    0.00 :   10c04:        ldrb    w9, [x26, #0x11]
+    0.00 :   10c08:        ldr     w10, [sp, #0x14]
+    0.21 :   10c0c:        madd    w9, w9, w8, w10
+    0.21 :   10c10:        lsr     w9, w9, #3
+    0.00 :   10c14:        add     w9, w9, #0x9
+    0.00 :   10c18:        and     x10, x9, #0x7ffe
+    0.00 :   10c1c:        ldrb    w9, [x26, #0x35]
+    0.00 :   10c20:        mov     w11, w27
+    0.00 :   10c24:        cbz     w9, 0x10c34 <zbtIndexScanSlot+0x6c0>
+    0.00 :   10c28:        ldrb    w11, [x26, #0x11]
+    0.00 :   10c2c:        mvn     w12, w27
+    0.00 :   10c30:        add     w11, w11, w12
+    0.00 :   10c34:        add     x10, x3, x10
+    0.00 :   10c38:        ldrh    w10, [x10, w11, uxtw #1]
+    0.00 :   10c3c:        add     x10, x26, x10
+    4.43 :   10c40:        ldrb    w2, [x10]
+   20.99 :   10c44:        cmp     w2, #0xfd
+    0.00 :   10c48:        b.hi    0x10ca4 <zbtIndexScanSlot+0x730>
+    0.42 :   10c4c:        add     x1, x10, #0x1
+    0.00 :   10c50:        cbz     w8, 0x10cb8 <zbtIndexScanSlot+0x744>
+    0.00 :   10c54:        cbz     w9, 0x10c64 <zbtIndexScanSlot+0x6f0>
+    0.00 :   10c58:        ldrb    w10, [x26, #0x11]
+    0.00 :   10c5c:        mvn     w11, w27
+    0.00 :   10c60:        add     w27, w10, w11
+    0.00 :   10c64:        umull   x10, w8, w27
+    0.00 :   10c68:        lsr     x11, x10, #3
+    0.21 :   10c6c:        and     x14, x10, #0x7
+    0.00 :   10c70:        ands    w12, w10, #0x7
+    0.00 :   10c74:        ldr     x13, [x3, x11]
+    0.00 :   10c78:        lsr     x10, x13, x14
+    0.00 :   10c7c:        b.eq    0x10a78 <zbtIndexScanSlot+0x504>
+    0.00 :   10c80:        mov     w13, #0x40
+    0.00 :   10c84:        sub     w12, w13, w12
+    0.21 :   10c88:        cmp     w12, w8
+    0.00 :   10c8c:        b.hs    0x10a78 <zbtIndexScanSlot+0x504>
+    0.00 :   10c90:        add     x11, x11, x26
+    0.00 :   10c94:        ldrb    w11, [x11, #0x40]
+    0.00 :   10c98:        lsl     x11, x11, x12
+    0.00 :   10c9c:        orr     x10, x11, x10
+    0.00 :   10ca0:        b       0x10a78 <zbtIndexScanSlot+0x504>
+    0.00 :   10ca4:        cmp     w2, #0xfe
+    0.00 :   10ca8:        b.ne    0x10cd4 <zbtIndexScanSlot+0x760>
+    0.00 :   10cac:        ldurh   w2, [x10, #0x1]
+    0.00 :   10cb0:        add     x1, x10, #0x3
+    0.00 :   10cb4:        cbnz    w8, 0x10c54 <zbtIndexScanSlot+0x6e0>
+    0.00 :   10cb8:        mov     x8, xzr
+    0.00 :   10cbc:        b       0x10a94 <zbtIndexScanSlot+0x520>
+    0.00 :   10cc0:        mov     x10, xzr
+    0.00 :   10cc4:        ldrb    w9, [x26, #0x35]
+    0.00 :   10cc8:        mov     w11, w27
+    0.00 :   10ccc:        cbnz    w9, 0x10c28 <zbtIndexScanSlot+0x6b4>
+    0.00 :   10cd0:        b       0x10c34 <zbtIndexScanSlot+0x6c0>
+    0.00 :   10cd4:        ldur    x1, [x10, #0xd]
+    0.00 :   10cd8:        cbz     x1, 0x10d08 <zbtIndexScanSlot+0x794>
+    0.00 :   10cdc:        ldur    x2, [x10, #0x5]
+    0.00 :   10ce0:        cbnz    w8, 0x10c54 <zbtIndexScanSlot+0x6e0>
+    0.00 :   10ce4:        b       0x10cb8 <zbtIndexScanSlot+0x744>
+    0.00 :   10ce8:        orr     x8, x21, x25
+    0.00 :   10cec:        cbnz    x8, 0x10794 <zbtIndexScanSlot+0x220>
+    0.00 :   10cf0:        adrp    x0, 1 // 0x11000
+    0.00 :   10cf4:        add     x0, x0, #0xc2c
+    0.00 :   10cf8:        adrp    x2, 2 // 0x12000
+    0.00 :   10cfc:        add     x2, x2, #0x1ae
+    0.00 :   10d00:        mov     w1, #0x107d
+    0.00 :   10d04:        bl      0x10d68 <standalone_panic>
+    0.00 :   10d08:        adrp    x0, 1 // 0x11000
+    0.00 :   10d0c:        add     x0, x0, #0xc2c
+    0.00 :   10d10:        adrp    x2, 1 // 0x11000
+    0.00 :   10d14:        add     x2, x2, #0xd58
+    0.00 :   10d18:        mov     w1, #0x257
+    0.00 :   10d1c:        bl      0x10d68 <standalone_panic>
+    0.00 :   10d20:        adrp    x0, 1 // 0x11000
+    0.00 :   10d24:        add     x0, x0, #0xc2c
+    0.00 :   10d28:        adrp    x2, 1 // 0x11000
+    0.00 :   10d2c:        add     x2, x2, #0xda4
+    0.00 :   10d30:        mov     w1, #0x1055
+    0.00 :   10d34:        bl      0x10d68 <standalone_panic>
+    0.00 :   10d38:        adrp    x0, 1 // 0x11000
+    0.00 :   10d3c:        add     x0, x0, #0xc2c
+    0.00 :   10d40:        adrp    x2, 1 // 0x11000
+    0.00 :   10d44:        add     x2, x2, #0xd85
+    0.00 :   10d48:        mov     w1, #0x1058
+    0.00 :   10d4c:        bl      0x10d68 <standalone_panic>
+    0.00 :   10d50:        adrp    x0, 1 // 0x11000
+    0.00 :   10d54:        add     x0, x0, #0xc2c
+    0.00 :   10d58:        adrp    x2, 2 // 0x12000
+    0.00 :   10d5c:        add     x2, x2, #0x1a3
+    0.00 :   10d60:        mov     w1, #0x1066
+    0.00 :   10d64:        bl      0x10d68 <standalone_panic>

@@ -1,0 +1,46 @@
+{
+  "status": "LOCALLY_RENDERED_ONLY_NO_LEASE_ACQUIRED_NO_REMOTE_STAGING",
+  "prepared_config_sha256": "c0b10556fba1fd841ffea21851a43618fab16f79e1e4aa5b9a7d6f3fc8f1bfa0",
+  "deadline": "2026-10-19T11:45:00+00:00",
+  "deployed_helper_sha256": "88b8617b455f8d332bd230c0c9d07b9cb1ad7f324e824f94d8c856633fd0bf99",
+  "remote_job_relative_path": "scratch/arm-frontend-diagnostic-20261019",
+  "native_execution_freeze_sha256": "bd246aabf90e59672f8a87230a6b9c6f6f7fdb93bc1918857a613db1cccece6d",
+  "entries": {
+    "native-AA": {
+      "helper_job_name": "arm030-native-aa",
+      "limit_seconds": 600,
+      "template_sha256": "ea6d8c0963efeac1162aa1b167c8972a7960077a54bfe5bded206fac64a38b65",
+      "rendered_launcher_sha256": "20a7c80e42b542c480533042162b7100fd64950c673317ca0cfeb9743f538361",
+      "command": [
+        "python3",
+        "<checkout>/scripts/remote-bounded-job.py",
+        "--lease",
+        "<NEW_frontend_lease>",
+        "--name",
+        "arm030-native-aa",
+        "--seconds",
+        "600",
+        "--script",
+        "<operational_launcher>"
+      ]
+    },
+    "native-comparison": {
+      "helper_job_name": "arm030-native-comparison",
+      "limit_seconds": 600,
+      "template_sha256": "5c7a230d41f02f64b92fefb18185834ea012970ceae89ee6550dcfec6f6863d3",
+      "rendered_launcher_sha256": "fc1485474398c7a9a9c880d4a4307197440044d8d2f05750da3ce062c4fa7572",
+      "command": [
+        "python3",
+        "<checkout>/scripts/remote-bounded-job.py",
+        "--lease",
+        "<NEW_frontend_lease>",
+        "--name",
+        "arm030-native-comparison",
+        "--seconds",
+        "600",
+        "--script",
+        "<operational_launcher>"
+      ]
+    }
+  }
+}

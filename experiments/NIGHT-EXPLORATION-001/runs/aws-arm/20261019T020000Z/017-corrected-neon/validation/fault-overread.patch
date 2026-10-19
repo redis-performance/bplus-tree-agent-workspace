@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4146,7 +4146,7 @@
+ #ifdef ZBT_LEAF_TAG_MATCHES_NEON
+     if (words >= 2) {
+         uint8x16_t query = vdupq_n_u8(tag);
+-        for (; first_word + 2 <= words; first_word += 2) {
++        for (; first_word < words; first_word += 2) {
+             uint8x16_t bytes = vld1q_u8(tags + first_word * 8);
+             uint8x16_t equal = vceqq_u8(bytes, query);
+             if (tag == 1)

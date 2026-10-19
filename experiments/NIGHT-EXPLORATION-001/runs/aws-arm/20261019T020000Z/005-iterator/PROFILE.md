@@ -1,0 +1,7 @@
+# ARM iterator baseline profile
+
+Eight unchanged-baseline PMU captures complete,50M visited items each, with setup/final verification included. Native/sanitizer original43tests and1,920 existing output-fixture cells pass; both baseline additive-oracle builds pass89,428 state checks,including direction toggles and mutation followed byexplicit reinitialization. Baseline iterator size16bytes.
+
+Integerfullforward IteratorNext accounts for68.56% of whole-process cycle samples at100K and26.88% at1M; setup strongly dilutes the1M capture. Score-onlyforward shares42.97%/16.50%. These contracts are distinct; do not compare their ns/item as a speedup. Exact assembly0xb7d0–0xb7ec recomputes packed-score byte length fromscore_bits andcount beforeoffset-array access. The following0xb7f0–0xb804 handlesphysical reversal andremainsneeded;0xb810 loadsrecordoffset,0xb818 loadsrecordheader,0xb81c comparesrecordencoding. The large0xb81c sample is not an offset-geometry instruction and is not claimed removable bycache.
+
+Offset-geometry sample sums are inprofile-attribution.json. They are locality evidence, not isolated instruction latency, and may include loaddependency/skid. Exactsource/staticcodegen plusIntel pairedlead support one bounded ARM replication oftheexistingcachehypothesis. No speedprediction or adoptionclaim. Proceed with exactA/B only, fullmatching-header builds andunchangedreferees. Root reviewedresetsemantics in434e39ef5; independent final review remainsrequired.

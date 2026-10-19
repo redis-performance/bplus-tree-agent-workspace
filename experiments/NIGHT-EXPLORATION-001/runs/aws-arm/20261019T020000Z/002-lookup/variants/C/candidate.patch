@@ -1,0 +1,43 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1834,6 +1834,25 @@
+            UINT64_C(0x8080808080808080);
+ }
+ 
++/* Return exactly the high bits of bytes equal to tag. This lookup mask
++ * needs no candidate-byte verification; the general scan mask is unchanged. */
++static inline uint64_t zbtIndexExactTagMask(uint64_t tags, uint8_t tag) {
++#if defined(__GNUC__) || defined(__clang__)
++    typedef uint8_t zbtTagVector __attribute__((vector_size(8)));
++    zbtTagVector bytes;
++    zbtTagVector query = {tag, tag, tag, tag, tag, tag, tag, tag};
++    memcpy(&bytes, &tags, sizeof(bytes));
++    zbtTagVector equal = bytes == query;
++    uint64_t mask;
++    memcpy(&mask, &equal, sizeof(mask));
++    return mask & UINT64_C(0x8080808080808080);
++#else
++    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
++    const uint64_t low = UINT64_C(0x7f7f7f7f7f7f7f7f);
++    return ~(((x & low) + low) | x | low);
++#endif
++}
++
+ /* Return the first matching byte position in a non-zero tag mask. */
+ static inline unsigned int zbtIndexFirstTag(uint64_t mask) {
+     return __builtin_ctzll(mask) >> 3;
+@@ -1936,13 +1955,9 @@
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
+-        uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
++        uint64_t matches = zbtIndexExactTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+-                matches &= matches - 1;
+-                continue;
+-            }
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {

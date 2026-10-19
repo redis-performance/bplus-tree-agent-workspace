@@ -1,0 +1,52 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 56  of event 'cycles:u'
+# Event count (approx.): 168652378
+#
+# Overhead  Symbol                  IPC   [IPC Coverage]
+# ........  ......................  ....................
+#
+    51.30%  [.] zbtreeIteratorNext  -      -            
+            |          
+            |--36.10%--zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          traverse
+            |          main
+            |          0xf646080b84c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--11.81%--zbtreeIteratorNext
+            |          traverse
+            |          main
+            |          0xf646080b84c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --3.39%--zbtOrderedToScore (inlined)
+                       zbtScoreLeafScore (inlined)
+                       zbtreeIteratorNext
+                       traverse
+                       main
+                       0xf646080b84c4
+                       __libc_start_main
+                       _start
+
+    48.70%  [.] traverse            -      -            
+            |
+            ---main
+               0xf646080b84c4
+               __libc_start_main
+               _start
+
+     0.00%  [k] 0xffffc7baa1777520  -      -            
+     0.00%  [.] profile_control     -      -            
+     0.00%  [.] read@plt            -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

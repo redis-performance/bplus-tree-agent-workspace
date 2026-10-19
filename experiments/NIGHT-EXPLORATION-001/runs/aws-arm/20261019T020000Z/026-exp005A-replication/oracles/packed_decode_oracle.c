@@ -1,0 +1,49 @@
+/* White-box bitstream oracle: synthetic valid finite score leaves, no tree edits. */
+#include "../src/zset_btree.c"
+#include <math.h>
+#include <inttypes.h>
+static uint64_t checks,fixtures,crossings,fullwidth,zeros,reverse_checks;
+static uint64_t random_word(uint64_t *s){*s^=*s<<13;*s^=*s>>7;*s^=*s<<17;return *s;}
+static uint64_t bits_of(double d){uint64_t u;memcpy(&u,&d,8);return u;}
+static uint64_t ieee_from_order(uint64_t u){return u>>63?u^UINT64_C(0x8000000000000000):~u;}
+static void put_scalar(unsigned char *p,size_t offset,unsigned width,uint64_t value){
+    for(unsigned b=0;b<width;b++){
+        size_t pos=offset+b;unsigned char mask=(unsigned char)(1u<<(pos%8));
+        p[pos/8]=(p[pos/8]&~mask)|((value>>b&1)?mask:0);
+    }
+}
+static void one(unsigned count,unsigned width,unsigned shift,unsigned reverse,uint64_t *rng){
+    const uint64_t minimum=UINT64_C(0x0010000000000000),maximum=UINT64_C(0xffefffffffffffff);
+    uint64_t limit=(maximum-minimum)>>shift,expected[96];
+    size_t bytes=zbtScoreLeafScoreBytes(count,width);
+    zbtScoreLeaf *leaf=zmalloc(sizeof(*leaf)+bytes);memset(leaf,0,sizeof(*leaf));memset(leaf->data,0xa5,bytes);
+    leaf->n.count=count;leaf->score_bits=width;leaf->n.score_shift=shift;leaf->reversed=reverse;
+    leaf->score_base=reverse?maximum:minimum;
+    uint64_t mask=0;for(unsigned b=0;b<width;b++)mask|=UINT64_C(1)<<b;
+    for(unsigned logical=0;logical<count;logical++){
+        uint64_t delta=random_word(rng)&mask;
+        if(logical%4==0)delta=0;else if(logical%4==1)delta=mask;
+        if(delta>limit)delta%=limit+1;
+        unsigned physical=reverse?count-1-logical:logical;size_t pos=(size_t)physical*width;
+        put_scalar(leaf->data,pos,width,delta);
+        uint64_t ordered=reverse?maximum-(delta<<shift):minimum+(delta<<shift);
+        expected[logical]=ieee_from_order(ordered);
+        crossings+=width>64-(pos&7);fullwidth+=width==64;zeros+=width==0;reverse_checks+=reverse;
+    }
+    for(unsigned logical=0;logical<count;logical++){
+        double actual=zbtScoreLeafScore(leaf,logical);serverAssert(isfinite(actual));
+        if(bits_of(actual)!=expected[logical]){
+            fprintf(stderr,"count=%u width=%u shift=%u reverse=%u position=%u actual=%016"PRIx64" expected=%016"PRIx64"\n",count,width,shift,reverse,logical,bits_of(actual),expected[logical]);abort();
+        }
+        checks++;
+    }
+    zfree(leaf);fixtures++;
+}
+int main(void){
+    unsigned counts[]={1,2,3,7,8,9,31,48,95,96};uint64_t seeds[]={1703,11213};
+    for(unsigned s=0;s<2;s++)for(unsigned c=0;c<sizeof(counts)/sizeof(*counts);c++)
+      for(unsigned width=0;width<=64;width++)for(unsigned shift=0;shift<=63 && width+shift<=64;shift++)
+        for(unsigned reverse=0;reverse<2;reverse++)one(counts[c],width,shift,reverse,&seeds[s]);
+    serverAssert(crossings>0 && fullwidth>0 && zeros>0 && reverse_checks>0);
+    printf("PASS fixtures=%"PRIu64" checks=%"PRIu64" cross_word=%"PRIu64" width64=%"PRIu64" width0=%"PRIu64" reversed=%"PRIu64"\n",fixtures,checks,crossings,fullwidth,zeros,reverse_checks);
+}

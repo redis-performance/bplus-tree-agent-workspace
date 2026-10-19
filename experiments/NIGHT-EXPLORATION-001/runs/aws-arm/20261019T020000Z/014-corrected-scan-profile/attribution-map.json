@@ -1,0 +1,1527 @@
+{
+  "diagnostic_start": "0x10574",
+  "original_start": "0x10298",
+  "same_opcode_instructions": 209,
+  "regions": {
+    "all_match_including_local_pointer_setup": [
+      [
+        "0x160",
+        "0x208"
+      ],
+      [
+        "0x244",
+        "0x4e0"
+      ]
+    ],
+    "forward_word_loop": [
+      [
+        "0x340",
+        "0x3e0"
+      ]
+    ],
+    "reversed_folded_word_loop": [
+      [
+        "0x268",
+        "0x2ec"
+      ]
+    ],
+    "reversed_ordinary_word_loop": [
+      [
+        "0x3e0",
+        "0x45c"
+      ]
+    ],
+    "scalar_tails": [
+      [
+        "0x1a0",
+        "0x208"
+      ],
+      [
+        "0x2ec",
+        "0x340"
+      ],
+      [
+        "0x45c",
+        "0x4e0"
+      ]
+    ],
+    "forward_word_mask_and_fold_select": [
+      [
+        "0x35c",
+        "0x394"
+      ]
+    ],
+    "forward_word_candidate_recheck": [
+      [
+        "0x3b8",
+        "0x3d0"
+      ]
+    ]
+  },
+  "instructions": [
+    {
+      "offset": "0x160",
+      "diagnostic_address": "0x106d4",
+      "original_address": "0x103f8",
+      "opcode": "3940d34a",
+      "instruction": "ldrb\tw10, [x26, #52]"
+    },
+    {
+      "offset": "0x164",
+      "diagnostic_address": "0x106d8",
+      "original_address": "0x103fc",
+      "opcode": "39404748",
+      "instruction": "ldrb\tw8, [x26, #17]"
+    },
+    {
+      "offset": "0x168",
+      "diagnostic_address": "0x106dc",
+      "original_address": "0x10400",
+      "opcode": "528000ef",
+      "instruction": "mov\tw15, #0x7                   \t// #7"
+    },
+    {
+      "offset": "0x16c",
+      "diagnostic_address": "0x106e0",
+      "original_address": "0x10404",
+      "opcode": "b40000aa",
+      "instruction": "cbz\tx10, 106f4 <zbtIndexScanSlot+0x180>"
+    },
+    {
+      "offset": "0x170",
+      "diagnostic_address": "0x106e4",
+      "original_address": "0x10408",
+      "opcode": "1b0a3d0a",
+      "instruction": "madd\tw10, w8, w10, w15"
+    },
+    {
+      "offset": "0x174",
+      "diagnostic_address": "0x106e8",
+      "original_address": "0x1040c",
+      "opcode": "53037d4a",
+      "instruction": "lsr\tw10, w10, #3"
+    },
+    {
+      "offset": "0x178",
+      "diagnostic_address": "0x106ec",
+      "original_address": "0x10410",
+      "opcode": "1100254a",
+      "instruction": "add\tw10, w10, #0x9"
+    },
+    {
+      "offset": "0x17c",
+      "diagnostic_address": "0x106f0",
+      "original_address": "0x10414",
+      "opcode": "927f354a",
+      "instruction": "and\tx10, x10, #0x7ffe"
+    },
+    {
+      "offset": "0x180",
+      "diagnostic_address": "0x106f4",
+      "original_address": "0x10418",
+      "opcode": "3940d74b",
+      "instruction": "ldrb\tw11, [x26, #53]"
+    },
+    {
+      "offset": "0x184",
+      "diagnostic_address": "0x106f8",
+      "original_address": "0x1041c",
+      "opcode": "7100211f",
+      "instruction": "cmp\tw8, #0x8"
+    },
+    {
+      "offset": "0x188",
+      "diagnostic_address": "0x106fc",
+      "original_address": "0x10420",
+      "opcode": "12001d29",
+      "instruction": "and\tw9, w9, #0xff"
+    },
+    {
+      "offset": "0x18c",
+      "diagnostic_address": "0x10700",
+      "original_address": "0x10424",
+      "opcode": "9100e343",
+      "instruction": "add\tx3, x26, #0x38"
+    },
+    {
+      "offset": "0x190",
+      "diagnostic_address": "0x10704",
+      "original_address": "0x10428",
+      "opcode": "a90007e4",
+      "instruction": "stp\tx4, x1, [sp]"
+    },
+    {
+      "offset": "0x194",
+      "diagnostic_address": "0x10708",
+      "original_address": "0x1042c",
+      "opcode": "b90017ef",
+      "instruction": "str\tw15, [sp, #20]"
+    },
+    {
+      "offset": "0x198",
+      "diagnostic_address": "0x1070c",
+      "original_address": "0x10430",
+      "opcode": "54000562",
+      "instruction": "b.cs\t107b8 <zbtIndexScanSlot+0x244>  // b.hs, b.nlast"
+    },
+    {
+      "offset": "0x19c",
+      "diagnostic_address": "0x10710",
+      "original_address": "0x10434",
+      "opcode": "2a1f03fc",
+      "instruction": "mov\tw28, wzr"
+    },
+    {
+      "offset": "0x1a0",
+      "diagnostic_address": "0x10714",
+      "original_address": "0x10438",
+      "opcode": "7200091f",
+      "instruction": "tst\tw8, #0x7"
+    },
+    {
+      "offset": "0x1a4",
+      "diagnostic_address": "0x10718",
+      "original_address": "0x1043c",
+      "opcode": "540019e0",
+      "instruction": "b.eq\t10a54 <zbtIndexScanSlot+0x4e0>  // b.none"
+    },
+    {
+      "offset": "0x1a8",
+      "diagnostic_address": "0x1071c",
+      "original_address": "0x10440",
+      "opcode": "7100053f",
+      "instruction": "cmp\tw9, #0x1"
+    },
+    {
+      "offset": "0x1ac",
+      "diagnostic_address": "0x10720",
+      "original_address": "0x10444",
+      "opcode": "927d110c",
+      "instruction": "and\tx12, x8, #0xf8"
+    },
+    {
+      "offset": "0x1b0",
+      "diagnostic_address": "0x10724",
+      "original_address": "0x10448",
+      "opcode": "540009e1",
+      "instruction": "b.ne\t10860 <zbtIndexScanSlot+0x2ec>  // b.any"
+    },
+    {
+      "offset": "0x1b4",
+      "diagnostic_address": "0x10728",
+      "original_address": "0x1044c",
+      "opcode": "3400154b",
+      "instruction": "cbz\tw11, 109d0 <zbtIndexScanSlot+0x45c>"
+    },
+    {
+      "offset": "0x1b8",
+      "diagnostic_address": "0x1072c",
+      "original_address": "0x10450",
+      "opcode": "2a2803e9",
+      "instruction": "mvn\tw9, w8"
+    },
+    {
+      "offset": "0x1bc",
+      "diagnostic_address": "0x10730",
+      "original_address": "0x10454",
+      "opcode": "8b08054a",
+      "instruction": "add\tx10, x10, x8, lsl #1"
+    },
+    {
+      "offset": "0x1c0",
+      "diagnostic_address": "0x10734",
+      "original_address": "0x10458",
+      "opcode": "9100e18c",
+      "instruction": "add\tx12, x12, #0x38"
+    },
+    {
+      "offset": "0x1c4",
+      "diagnostic_address": "0x10738",
+      "original_address": "0x1045c",
+      "opcode": "32186929",
+      "instruction": "orr\tw9, w9, #0xffffff07"
+    },
+    {
+      "offset": "0x1c8",
+      "diagnostic_address": "0x1073c",
+      "original_address": "0x10460",
+      "opcode": "9100a3eb",
+      "instruction": "add\tx11, sp, #0x28"
+    },
+    {
+      "offset": "0x1cc",
+      "diagnostic_address": "0x10740",
+      "original_address": "0x10464",
+      "opcode": "0b080129",
+      "instruction": "add\tw9, w9, w8"
+    },
+    {
+      "offset": "0x1d0",
+      "diagnostic_address": "0x10744",
+      "original_address": "0x10468",
+      "opcode": "8b0a034a",
+      "instruction": "add\tx10, x26, x10"
+    },
+    {
+      "offset": "0x1d4",
+      "diagnostic_address": "0x10748",
+      "original_address": "0x1046c",
+      "opcode": "14000006",
+      "instruction": "b\t10760 <zbtIndexScanSlot+0x1ec>"
+    },
+    {
+      "offset": "0x1d8",
+      "diagnostic_address": "0x1074c",
+      "original_address": "0x10470",
+      "opcode": "d100dd8d",
+      "instruction": "sub\tx13, x12, #0x37"
+    },
+    {
+      "offset": "0x1dc",
+      "diagnostic_address": "0x10750",
+      "original_address": "0x10474",
+      "opcode": "9100058c",
+      "instruction": "add\tx12, x12, #0x1"
+    },
+    {
+      "offset": "0x1e0",
+      "diagnostic_address": "0x10754",
+      "original_address": "0x10478",
+      "opcode": "51000529",
+      "instruction": "sub\tw9, w9, #0x1"
+    },
+    {
+      "offset": "0x1e4",
+      "diagnostic_address": "0x10758",
+      "original_address": "0x1047c",
+      "opcode": "eb0801bf",
+      "instruction": "cmp\tx13, x8"
+    },
+    {
+      "offset": "0x1e8",
+      "diagnostic_address": "0x1075c",
+      "original_address": "0x10480",
+      "opcode": "540017c2",
+      "instruction": "b.cs\t10a54 <zbtIndexScanSlot+0x4e0>  // b.hs, b.nlast"
+    },
+    {
+      "offset": "0x1ec",
+      "diagnostic_address": "0x10760",
+      "original_address": "0x10484",
+      "opcode": "386c694d",
+      "instruction": "ldrb\tw13, [x10, x12]"
+    },
+    {
+      "offset": "0x1f0",
+      "diagnostic_address": "0x10764",
+      "original_address": "0x10488",
+      "opcode": "710005bf",
+      "instruction": "cmp\tw13, #0x1"
+    },
+    {
+      "offset": "0x1f4",
+      "diagnostic_address": "0x10768",
+      "original_address": "0x1048c",
+      "opcode": "54ffff28",
+      "instruction": "b.hi\t1074c <zbtIndexScanSlot+0x1d8>  // b.pmore"
+    },
+    {
+      "offset": "0x1f8",
+      "diagnostic_address": "0x1076c",
+      "original_address": "0x10490",
+      "opcode": "1100078d",
+      "instruction": "add\tw13, w28, #0x1"
+    },
+    {
+      "offset": "0x1fc",
+      "diagnostic_address": "0x10770",
+      "original_address": "0x10494",
+      "opcode": "b83c5969",
+      "instruction": "str\tw9, [x11, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x200",
+      "diagnostic_address": "0x10774",
+      "original_address": "0x10498",
+      "opcode": "2a0d03fc",
+      "instruction": "mov\tw28, w13"
+    },
+    {
+      "offset": "0x204",
+      "diagnostic_address": "0x10778",
+      "original_address": "0x1049c",
+      "opcode": "17fffff5",
+      "instruction": "b\t1074c <zbtIndexScanSlot+0x1d8>"
+    },
+    {
+      "offset": "0x244",
+      "diagnostic_address": "0x107b8",
+      "original_address": "0x104dc",
+      "opcode": "b200c3ed",
+      "instruction": "mov\tx13, #0x101010101010101     \t// #72340172838076673"
+    },
+    {
+      "offset": "0x248",
+      "diagnostic_address": "0x107bc",
+      "original_address": "0x104e0",
+      "opcode": "9b0d7d8e",
+      "instruction": "mul\tx14, x12, x13"
+    },
+    {
+      "offset": "0x24c",
+      "diagnostic_address": "0x107c0",
+      "original_address": "0x104e4",
+      "opcode": "8b0a006c",
+      "instruction": "add\tx12, x3, x10"
+    },
+    {
+      "offset": "0x250",
+      "diagnostic_address": "0x107c4",
+      "original_address": "0x104e8",
+      "opcode": "d343fd0d",
+      "instruction": "lsr\tx13, x8, #3"
+    },
+    {
+      "offset": "0x254",
+      "diagnostic_address": "0x107c8",
+      "original_address": "0x104ec",
+      "opcode": "8b08058c",
+      "instruction": "add\tx12, x12, x8, lsl #1"
+    },
+    {
+      "offset": "0x258",
+      "diagnostic_address": "0x107cc",
+      "original_address": "0x104f0",
+      "opcode": "3400074b",
+      "instruction": "cbz\tw11, 108b4 <zbtIndexScanSlot+0x340>"
+    },
+    {
+      "offset": "0x25c",
+      "diagnostic_address": "0x107d0",
+      "original_address": "0x104f4",
+      "opcode": "7100053f",
+      "instruction": "cmp\tw9, #0x1"
+    },
+    {
+      "offset": "0x260",
+      "diagnostic_address": "0x107d4",
+      "original_address": "0x104f8",
+      "opcode": "5100050f",
+      "instruction": "sub\tw15, w8, #0x1"
+    },
+    {
+      "offset": "0x264",
+      "diagnostic_address": "0x107d8",
+      "original_address": "0x104fc",
+      "opcode": "54000be1",
+      "instruction": "b.ne\t10954 <zbtIndexScanSlot+0x3e0>  // b.any"
+    },
+    {
+      "offset": "0x268",
+      "diagnostic_address": "0x107dc",
+      "original_address": "0x10500",
+      "opcode": "aa1f03ee",
+      "instruction": "mov\tx14, xzr"
+    },
+    {
+      "offset": "0x26c",
+      "diagnostic_address": "0x107e0",
+      "original_address": "0x10504",
+      "opcode": "2a1f03fc",
+      "instruction": "mov\tw28, wzr"
+    },
+    {
+      "offset": "0x270",
+      "diagnostic_address": "0x107e4",
+      "original_address": "0x10508",
+      "opcode": "9100a3f0",
+      "instruction": "add\tx16, sp, #0x28"
+    },
+    {
+      "offset": "0x274",
+      "diagnostic_address": "0x107e8",
+      "original_address": "0x1050c",
+      "opcode": "14000004",
+      "instruction": "b\t107f8 <zbtIndexScanSlot+0x284>"
+    },
+    {
+      "offset": "0x278",
+      "diagnostic_address": "0x107ec",
+      "original_address": "0x10510",
+      "opcode": "910005ce",
+      "instruction": "add\tx14, x14, #0x1"
+    },
+    {
+      "offset": "0x27c",
+      "diagnostic_address": "0x107f0",
+      "original_address": "0x10514",
+      "opcode": "eb0d01df",
+      "instruction": "cmp\tx14, x13"
+    },
+    {
+      "offset": "0x280",
+      "diagnostic_address": "0x107f4",
+      "original_address": "0x10518",
+      "opcode": "54fff900",
+      "instruction": "b.eq\t10714 <zbtIndexScanSlot+0x1a0>  // b.none"
+    },
+    {
+      "offset": "0x284",
+      "diagnostic_address": "0x107f8",
+      "original_address": "0x1051c",
+      "opcode": "d37df1d1",
+      "instruction": "lsl\tx17, x14, #3"
+    },
+    {
+      "offset": "0x288",
+      "diagnostic_address": "0x107fc",
+      "original_address": "0x10520",
+      "opcode": "b207dbe1",
+      "instruction": "mov\tx1, #0xfefefefefefefefe    \t// #-72340172838076674"
+    },
+    {
+      "offset": "0x28c",
+      "diagnostic_address": "0x10800",
+      "original_address": "0x10524",
+      "opcode": "f29fdfe1",
+      "instruction": "movk\tx1, #0xfeff"
+    },
+    {
+      "offset": "0x290",
+      "diagnostic_address": "0x10804",
+      "original_address": "0x10528",
+      "opcode": "f8716992",
+      "instruction": "ldr\tx18, [x12, x17]"
+    },
+    {
+      "offset": "0x294",
+      "diagnostic_address": "0x10808",
+      "original_address": "0x1052c",
+      "opcode": "d200c240",
+      "instruction": "eor\tx0, x18, #0x101010101010101"
+    },
+    {
+      "offset": "0x298",
+      "diagnostic_address": "0x1080c",
+      "original_address": "0x10530",
+      "opcode": "8b010000",
+      "instruction": "add\tx0, x0, x1"
+    },
+    {
+      "offset": "0x29c",
+      "diagnostic_address": "0x10810",
+      "original_address": "0x10534",
+      "opcode": "8b010241",
+      "instruction": "add\tx1, x18, x1"
+    },
+    {
+      "offset": "0x2a0",
+      "diagnostic_address": "0x10814",
+      "original_address": "0x10538",
+      "opcode": "aa010000",
+      "instruction": "orr\tx0, x0, x1"
+    },
+    {
+      "offset": "0x2a4",
+      "diagnostic_address": "0x10818",
+      "original_address": "0x1053c",
+      "opcode": "8a320012",
+      "instruction": "bic\tx18, x0, x18"
+    },
+    {
+      "offset": "0x2a8",
+      "diagnostic_address": "0x1081c",
+      "original_address": "0x10540",
+      "opcode": "f201c252",
+      "instruction": "ands\tx18, x18, #0x8080808080808080"
+    },
+    {
+      "offset": "0x2ac",
+      "diagnostic_address": "0x10820",
+      "original_address": "0x10544",
+      "opcode": "540000a1",
+      "instruction": "b.ne\t10834 <zbtIndexScanSlot+0x2c0>  // b.any"
+    },
+    {
+      "offset": "0x2b0",
+      "diagnostic_address": "0x10824",
+      "original_address": "0x10548",
+      "opcode": "17fffff2",
+      "instruction": "b\t107ec <zbtIndexScanSlot+0x278>"
+    },
+    {
+      "offset": "0x2b4",
+      "diagnostic_address": "0x10828",
+      "original_address": "0x1054c",
+      "opcode": "d1000640",
+      "instruction": "sub\tx0, x18, #0x1"
+    },
+    {
+      "offset": "0x2b8",
+      "diagnostic_address": "0x1082c",
+      "original_address": "0x10550",
+      "opcode": "ea120012",
+      "instruction": "ands\tx18, x0, x18"
+    },
+    {
+      "offset": "0x2bc",
+      "diagnostic_address": "0x10830",
+      "original_address": "0x10554",
+      "opcode": "54fffde0",
+      "instruction": "b.eq\t107ec <zbtIndexScanSlot+0x278>  // b.none"
+    },
+    {
+      "offset": "0x2c0",
+      "diagnostic_address": "0x10834",
+      "original_address": "0x10558",
+      "opcode": "dac00240",
+      "instruction": "rbit\tx0, x18"
+    },
+    {
+      "offset": "0x2c4",
+      "diagnostic_address": "0x10838",
+      "original_address": "0x1055c",
+      "opcode": "dac01000",
+      "instruction": "clz\tx0, x0"
+    },
+    {
+      "offset": "0x2c8",
+      "diagnostic_address": "0x1083c",
+      "original_address": "0x10560",
+      "opcode": "2a400e20",
+      "instruction": "orr\tw0, w17, w0, lsr #3"
+    },
+    {
+      "offset": "0x2cc",
+      "diagnostic_address": "0x10840",
+      "original_address": "0x10564",
+      "opcode": "38604981",
+      "instruction": "ldrb\tw1, [x12, w0, uxtw]"
+    },
+    {
+      "offset": "0x2d0",
+      "diagnostic_address": "0x10844",
+      "original_address": "0x10568",
+      "opcode": "7100043f",
+      "instruction": "cmp\tw1, #0x1"
+    },
+    {
+      "offset": "0x2d4",
+      "diagnostic_address": "0x10848",
+      "original_address": "0x1056c",
+      "opcode": "54ffff08",
+      "instruction": "b.hi\t10828 <zbtIndexScanSlot+0x2b4>  // b.pmore"
+    },
+    {
+      "offset": "0x2d8",
+      "diagnostic_address": "0x1084c",
+      "original_address": "0x10570",
+      "opcode": "11000781",
+      "instruction": "add\tw1, w28, #0x1"
+    },
+    {
+      "offset": "0x2dc",
+      "diagnostic_address": "0x10850",
+      "original_address": "0x10574",
+      "opcode": "4b0001e0",
+      "instruction": "sub\tw0, w15, w0"
+    },
+    {
+      "offset": "0x2e0",
+      "diagnostic_address": "0x10854",
+      "original_address": "0x10578",
+      "opcode": "b83c5a00",
+      "instruction": "str\tw0, [x16, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x2e4",
+      "diagnostic_address": "0x10858",
+      "original_address": "0x1057c",
+      "opcode": "2a0103fc",
+      "instruction": "mov\tw28, w1"
+    },
+    {
+      "offset": "0x2e8",
+      "diagnostic_address": "0x1085c",
+      "original_address": "0x10580",
+      "opcode": "17fffff3",
+      "instruction": "b\t10828 <zbtIndexScanSlot+0x2b4>"
+    },
+    {
+      "offset": "0x2ec",
+      "diagnostic_address": "0x10860",
+      "original_address": "0x10584",
+      "opcode": "8b08054d",
+      "instruction": "add\tx13, x10, x8, lsl #1"
+    },
+    {
+      "offset": "0x2f0",
+      "diagnostic_address": "0x10864",
+      "original_address": "0x10588",
+      "opcode": "34000d8b",
+      "instruction": "cbz\tw11, 10a14 <zbtIndexScanSlot+0x4a0>"
+    },
+    {
+      "offset": "0x2f4",
+      "diagnostic_address": "0x10868",
+      "original_address": "0x1058c",
+      "opcode": "2a2803ea",
+      "instruction": "mvn\tw10, w8"
+    },
+    {
+      "offset": "0x2f8",
+      "diagnostic_address": "0x1086c",
+      "original_address": "0x10590",
+      "opcode": "9100e18c",
+      "instruction": "add\tx12, x12, #0x38"
+    },
+    {
+      "offset": "0x2fc",
+      "diagnostic_address": "0x10870",
+      "original_address": "0x10594",
+      "opcode": "8b0d034b",
+      "instruction": "add\tx11, x26, x13"
+    },
+    {
+      "offset": "0x300",
+      "diagnostic_address": "0x10874",
+      "original_address": "0x10598",
+      "opcode": "3218694a",
+      "instruction": "orr\tw10, w10, #0xffffff07"
+    },
+    {
+      "offset": "0x304",
+      "diagnostic_address": "0x10878",
+      "original_address": "0x1059c",
+      "opcode": "9100a3ed",
+      "instruction": "add\tx13, sp, #0x28"
+    },
+    {
+      "offset": "0x308",
+      "diagnostic_address": "0x1087c",
+      "original_address": "0x105a0",
+      "opcode": "0b08014a",
+      "instruction": "add\tw10, w10, w8"
+    },
+    {
+      "offset": "0x30c",
+      "diagnostic_address": "0x10880",
+      "original_address": "0x105a4",
+      "opcode": "14000006",
+      "instruction": "b\t10898 <zbtIndexScanSlot+0x324>"
+    },
+    {
+      "offset": "0x310",
+      "diagnostic_address": "0x10884",
+      "original_address": "0x105a8",
+      "opcode": "d100dd8e",
+      "instruction": "sub\tx14, x12, #0x37"
+    },
+    {
+      "offset": "0x314",
+      "diagnostic_address": "0x10888",
+      "original_address": "0x105ac",
+      "opcode": "9100058c",
+      "instruction": "add\tx12, x12, #0x1"
+    },
+    {
+      "offset": "0x318",
+      "diagnostic_address": "0x1088c",
+      "original_address": "0x105b0",
+      "opcode": "5100054a",
+      "instruction": "sub\tw10, w10, #0x1"
+    },
+    {
+      "offset": "0x31c",
+      "diagnostic_address": "0x10890",
+      "original_address": "0x105b4",
+      "opcode": "eb0801df",
+      "instruction": "cmp\tx14, x8"
+    },
+    {
+      "offset": "0x320",
+      "diagnostic_address": "0x10894",
+      "original_address": "0x105b8",
+      "opcode": "54000e02",
+      "instruction": "b.cs\t10a54 <zbtIndexScanSlot+0x4e0>  // b.hs, b.nlast"
+    },
+    {
+      "offset": "0x324",
+      "diagnostic_address": "0x10898",
+      "original_address": "0x105bc",
+      "opcode": "386c696e",
+      "instruction": "ldrb\tw14, [x11, x12]"
+    },
+    {
+      "offset": "0x328",
+      "diagnostic_address": "0x1089c",
+      "original_address": "0x105c0",
+      "opcode": "6b0901df",
+      "instruction": "cmp\tw14, w9"
+    },
+    {
+      "offset": "0x32c",
+      "diagnostic_address": "0x108a0",
+      "original_address": "0x105c4",
+      "opcode": "54ffff21",
+      "instruction": "b.ne\t10884 <zbtIndexScanSlot+0x310>  // b.any"
+    },
+    {
+      "offset": "0x330",
+      "diagnostic_address": "0x108a4",
+      "original_address": "0x105c8",
+      "opcode": "1100078e",
+      "instruction": "add\tw14, w28, #0x1"
+    },
+    {
+      "offset": "0x334",
+      "diagnostic_address": "0x108a8",
+      "original_address": "0x105cc",
+      "opcode": "b83c59aa",
+      "instruction": "str\tw10, [x13, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x338",
+      "diagnostic_address": "0x108ac",
+      "original_address": "0x105d0",
+      "opcode": "2a0e03fc",
+      "instruction": "mov\tw28, w14"
+    },
+    {
+      "offset": "0x33c",
+      "diagnostic_address": "0x108b0",
+      "original_address": "0x105d4",
+      "opcode": "17fffff5",
+      "instruction": "b\t10884 <zbtIndexScanSlot+0x310>"
+    },
+    {
+      "offset": "0x340",
+      "diagnostic_address": "0x108b4",
+      "original_address": "0x105d8",
+      "opcode": "aa1f03ef",
+      "instruction": "mov\tx15, xzr"
+    },
+    {
+      "offset": "0x344",
+      "diagnostic_address": "0x108b8",
+      "original_address": "0x105dc",
+      "opcode": "2a1f03fc",
+      "instruction": "mov\tw28, wzr"
+    },
+    {
+      "offset": "0x348",
+      "diagnostic_address": "0x108bc",
+      "original_address": "0x105e0",
+      "opcode": "9100a3f0",
+      "instruction": "add\tx16, sp, #0x28"
+    },
+    {
+      "offset": "0x34c",
+      "diagnostic_address": "0x108c0",
+      "original_address": "0x105e4",
+      "opcode": "14000004",
+      "instruction": "b\t108d0 <zbtIndexScanSlot+0x35c>"
+    },
+    {
+      "offset": "0x350",
+      "diagnostic_address": "0x108c4",
+      "original_address": "0x105e8",
+      "opcode": "910005ef",
+      "instruction": "add\tx15, x15, #0x1"
+    },
+    {
+      "offset": "0x354",
+      "diagnostic_address": "0x108c8",
+      "original_address": "0x105ec",
+      "opcode": "eb0d01ff",
+      "instruction": "cmp\tx15, x13"
+    },
+    {
+      "offset": "0x358",
+      "diagnostic_address": "0x108cc",
+      "original_address": "0x105f0",
+      "opcode": "54fff240",
+      "instruction": "b.eq\t10714 <zbtIndexScanSlot+0x1a0>  // b.none"
+    },
+    {
+      "offset": "0x35c",
+      "diagnostic_address": "0x108d0",
+      "original_address": "0x105f4",
+      "opcode": "d37df1f1",
+      "instruction": "lsl\tx17, x15, #3"
+    },
+    {
+      "offset": "0x360",
+      "diagnostic_address": "0x108d4",
+      "original_address": "0x105f8",
+      "opcode": "b207dbe2",
+      "instruction": "mov\tx2, #0xfefefefefefefefe    \t// #-72340172838076674"
+    },
+    {
+      "offset": "0x364",
+      "diagnostic_address": "0x108d8",
+      "original_address": "0x105fc",
+      "opcode": "7100053f",
+      "instruction": "cmp\tw9, #0x1"
+    },
+    {
+      "offset": "0x368",
+      "diagnostic_address": "0x108dc",
+      "original_address": "0x10600",
+      "opcode": "f29fdfe2",
+      "instruction": "movk\tx2, #0xfeff"
+    },
+    {
+      "offset": "0x36c",
+      "diagnostic_address": "0x108e0",
+      "original_address": "0x10604",
+      "opcode": "f8716992",
+      "instruction": "ldr\tx18, [x12, x17]"
+    },
+    {
+      "offset": "0x370",
+      "diagnostic_address": "0x108e4",
+      "original_address": "0x10608",
+      "opcode": "ca0e0240",
+      "instruction": "eor\tx0, x18, x14"
+    },
+    {
+      "offset": "0x374",
+      "diagnostic_address": "0x108e8",
+      "original_address": "0x1060c",
+      "opcode": "8b020001",
+      "instruction": "add\tx1, x0, x2"
+    },
+    {
+      "offset": "0x378",
+      "diagnostic_address": "0x108ec",
+      "original_address": "0x10610",
+      "opcode": "8b020242",
+      "instruction": "add\tx2, x18, x2"
+    },
+    {
+      "offset": "0x37c",
+      "diagnostic_address": "0x108f0",
+      "original_address": "0x10614",
+      "opcode": "8a200020",
+      "instruction": "bic\tx0, x1, x0"
+    },
+    {
+      "offset": "0x380",
+      "diagnostic_address": "0x108f4",
+      "original_address": "0x10618",
+      "opcode": "8a320052",
+      "instruction": "bic\tx18, x2, x18"
+    },
+    {
+      "offset": "0x384",
+      "diagnostic_address": "0x108f8",
+      "original_address": "0x1061c",
+      "opcode": "9201c000",
+      "instruction": "and\tx0, x0, #0x8080808080808080"
+    },
+    {
+      "offset": "0x388",
+      "diagnostic_address": "0x108fc",
+      "original_address": "0x10620",
+      "opcode": "9201c252",
+      "instruction": "and\tx18, x18, #0x8080808080808080"
+    },
+    {
+      "offset": "0x38c",
+      "diagnostic_address": "0x10900",
+      "original_address": "0x10624",
+      "opcode": "aa120012",
+      "instruction": "orr\tx18, x0, x18"
+    },
+    {
+      "offset": "0x390",
+      "diagnostic_address": "0x10904",
+      "original_address": "0x10628",
+      "opcode": "9a921012",
+      "instruction": "csel\tx18, x0, x18, ne\t// ne = any"
+    },
+    {
+      "offset": "0x394",
+      "diagnostic_address": "0x10908",
+      "original_address": "0x1062c",
+      "opcode": "b50000b2",
+      "instruction": "cbnz\tx18, 1091c <zbtIndexScanSlot+0x3a8>"
+    },
+    {
+      "offset": "0x398",
+      "diagnostic_address": "0x1090c",
+      "original_address": "0x10630",
+      "opcode": "17ffffee",
+      "instruction": "b\t108c4 <zbtIndexScanSlot+0x350>"
+    },
+    {
+      "offset": "0x39c",
+      "diagnostic_address": "0x10910",
+      "original_address": "0x10634",
+      "opcode": "d1000640",
+      "instruction": "sub\tx0, x18, #0x1"
+    },
+    {
+      "offset": "0x3a0",
+      "diagnostic_address": "0x10914",
+      "original_address": "0x10638",
+      "opcode": "ea120012",
+      "instruction": "ands\tx18, x0, x18"
+    },
+    {
+      "offset": "0x3a4",
+      "diagnostic_address": "0x10918",
+      "original_address": "0x1063c",
+      "opcode": "54fffd60",
+      "instruction": "b.eq\t108c4 <zbtIndexScanSlot+0x350>  // b.none"
+    },
+    {
+      "offset": "0x3a8",
+      "diagnostic_address": "0x1091c",
+      "original_address": "0x10640",
+      "opcode": "dac00240",
+      "instruction": "rbit\tx0, x18"
+    },
+    {
+      "offset": "0x3ac",
+      "diagnostic_address": "0x10920",
+      "original_address": "0x10644",
+      "opcode": "7100053f",
+      "instruction": "cmp\tw9, #0x1"
+    },
+    {
+      "offset": "0x3b0",
+      "diagnostic_address": "0x10924",
+      "original_address": "0x10648",
+      "opcode": "dac01000",
+      "instruction": "clz\tx0, x0"
+    },
+    {
+      "offset": "0x3b4",
+      "diagnostic_address": "0x10928",
+      "original_address": "0x1064c",
+      "opcode": "2a400e20",
+      "instruction": "orr\tw0, w17, w0, lsr #3"
+    },
+    {
+      "offset": "0x3b8",
+      "diagnostic_address": "0x1092c",
+      "original_address": "0x10650",
+      "opcode": "38604981",
+      "instruction": "ldrb\tw1, [x12, w0, uxtw]"
+    },
+    {
+      "offset": "0x3bc",
+      "diagnostic_address": "0x10930",
+      "original_address": "0x10654",
+      "opcode": "7a400820",
+      "instruction": "ccmp\tw1, #0x0, #0x0, eq\t// eq = none"
+    },
+    {
+      "offset": "0x3c0",
+      "diagnostic_address": "0x10934",
+      "original_address": "0x10658",
+      "opcode": "1a9f17e2",
+      "instruction": "cset\tw2, eq\t// eq = none"
+    },
+    {
+      "offset": "0x3c4",
+      "diagnostic_address": "0x10938",
+      "original_address": "0x1065c",
+      "opcode": "6b09003f",
+      "instruction": "cmp\tw1, w9"
+    },
+    {
+      "offset": "0x3c8",
+      "diagnostic_address": "0x1093c",
+      "original_address": "0x10660",
+      "opcode": "7a401840",
+      "instruction": "ccmp\tw2, #0x0, #0x0, ne\t// ne = any"
+    },
+    {
+      "offset": "0x3cc",
+      "diagnostic_address": "0x10940",
+      "original_address": "0x10664",
+      "opcode": "54fffe80",
+      "instruction": "b.eq\t10910 <zbtIndexScanSlot+0x39c>  // b.none"
+    },
+    {
+      "offset": "0x3d0",
+      "diagnostic_address": "0x10944",
+      "original_address": "0x10668",
+      "opcode": "11000781",
+      "instruction": "add\tw1, w28, #0x1"
+    },
+    {
+      "offset": "0x3d4",
+      "diagnostic_address": "0x10948",
+      "original_address": "0x1066c",
+      "opcode": "b83c5a00",
+      "instruction": "str\tw0, [x16, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x3d8",
+      "diagnostic_address": "0x1094c",
+      "original_address": "0x10670",
+      "opcode": "2a0103fc",
+      "instruction": "mov\tw28, w1"
+    },
+    {
+      "offset": "0x3dc",
+      "diagnostic_address": "0x10950",
+      "original_address": "0x10674",
+      "opcode": "17fffff0",
+      "instruction": "b\t10910 <zbtIndexScanSlot+0x39c>"
+    },
+    {
+      "offset": "0x3e0",
+      "diagnostic_address": "0x10954",
+      "original_address": "0x10678",
+      "opcode": "aa1f03f0",
+      "instruction": "mov\tx16, xzr"
+    },
+    {
+      "offset": "0x3e4",
+      "diagnostic_address": "0x10958",
+      "original_address": "0x1067c",
+      "opcode": "2a1f03fc",
+      "instruction": "mov\tw28, wzr"
+    },
+    {
+      "offset": "0x3e8",
+      "diagnostic_address": "0x1095c",
+      "original_address": "0x10680",
+      "opcode": "9100a3f1",
+      "instruction": "add\tx17, sp, #0x28"
+    },
+    {
+      "offset": "0x3ec",
+      "diagnostic_address": "0x10960",
+      "original_address": "0x10684",
+      "opcode": "14000004",
+      "instruction": "b\t10970 <zbtIndexScanSlot+0x3fc>"
+    },
+    {
+      "offset": "0x3f0",
+      "diagnostic_address": "0x10964",
+      "original_address": "0x10688",
+      "opcode": "91000610",
+      "instruction": "add\tx16, x16, #0x1"
+    },
+    {
+      "offset": "0x3f4",
+      "diagnostic_address": "0x10968",
+      "original_address": "0x1068c",
+      "opcode": "eb0d021f",
+      "instruction": "cmp\tx16, x13"
+    },
+    {
+      "offset": "0x3f8",
+      "diagnostic_address": "0x1096c",
+      "original_address": "0x10690",
+      "opcode": "54ffed40",
+      "instruction": "b.eq\t10714 <zbtIndexScanSlot+0x1a0>  // b.none"
+    },
+    {
+      "offset": "0x3fc",
+      "diagnostic_address": "0x10970",
+      "original_address": "0x10694",
+      "opcode": "d37df212",
+      "instruction": "lsl\tx18, x16, #3"
+    },
+    {
+      "offset": "0x400",
+      "diagnostic_address": "0x10974",
+      "original_address": "0x10698",
+      "opcode": "b207dbe1",
+      "instruction": "mov\tx1, #0xfefefefefefefefe    \t// #-72340172838076674"
+    },
+    {
+      "offset": "0x404",
+      "diagnostic_address": "0x10978",
+      "original_address": "0x1069c",
+      "opcode": "f29fdfe1",
+      "instruction": "movk\tx1, #0xfeff"
+    },
+    {
+      "offset": "0x408",
+      "diagnostic_address": "0x1097c",
+      "original_address": "0x106a0",
+      "opcode": "f8726980",
+      "instruction": "ldr\tx0, [x12, x18]"
+    },
+    {
+      "offset": "0x40c",
+      "diagnostic_address": "0x10980",
+      "original_address": "0x106a4",
+      "opcode": "ca0e0000",
+      "instruction": "eor\tx0, x0, x14"
+    },
+    {
+      "offset": "0x410",
+      "diagnostic_address": "0x10984",
+      "original_address": "0x106a8",
+      "opcode": "8b010001",
+      "instruction": "add\tx1, x0, x1"
+    },
+    {
+      "offset": "0x414",
+      "diagnostic_address": "0x10988",
+      "original_address": "0x106ac",
+      "opcode": "8a200020",
+      "instruction": "bic\tx0, x1, x0"
+    },
+    {
+      "offset": "0x418",
+      "diagnostic_address": "0x1098c",
+      "original_address": "0x106b0",
+      "opcode": "f201c000",
+      "instruction": "ands\tx0, x0, #0x8080808080808080"
+    },
+    {
+      "offset": "0x41c",
+      "diagnostic_address": "0x10990",
+      "original_address": "0x106b4",
+      "opcode": "540000a1",
+      "instruction": "b.ne\t109a4 <zbtIndexScanSlot+0x430>  // b.any"
+    },
+    {
+      "offset": "0x420",
+      "diagnostic_address": "0x10994",
+      "original_address": "0x106b8",
+      "opcode": "17fffff4",
+      "instruction": "b\t10964 <zbtIndexScanSlot+0x3f0>"
+    },
+    {
+      "offset": "0x424",
+      "diagnostic_address": "0x10998",
+      "original_address": "0x106bc",
+      "opcode": "d1000401",
+      "instruction": "sub\tx1, x0, #0x1"
+    },
+    {
+      "offset": "0x428",
+      "diagnostic_address": "0x1099c",
+      "original_address": "0x106c0",
+      "opcode": "ea000020",
+      "instruction": "ands\tx0, x1, x0"
+    },
+    {
+      "offset": "0x42c",
+      "diagnostic_address": "0x109a0",
+      "original_address": "0x106c4",
+      "opcode": "54fffe20",
+      "instruction": "b.eq\t10964 <zbtIndexScanSlot+0x3f0>  // b.none"
+    },
+    {
+      "offset": "0x430",
+      "diagnostic_address": "0x109a4",
+      "original_address": "0x106c8",
+      "opcode": "dac00001",
+      "instruction": "rbit\tx1, x0"
+    },
+    {
+      "offset": "0x434",
+      "diagnostic_address": "0x109a8",
+      "original_address": "0x106cc",
+      "opcode": "dac01021",
+      "instruction": "clz\tx1, x1"
+    },
+    {
+      "offset": "0x438",
+      "diagnostic_address": "0x109ac",
+      "original_address": "0x106d0",
+      "opcode": "2a410e41",
+      "instruction": "orr\tw1, w18, w1, lsr #3"
+    },
+    {
+      "offset": "0x43c",
+      "diagnostic_address": "0x109b0",
+      "original_address": "0x106d4",
+      "opcode": "38614982",
+      "instruction": "ldrb\tw2, [x12, w1, uxtw]"
+    },
+    {
+      "offset": "0x440",
+      "diagnostic_address": "0x109b4",
+      "original_address": "0x106d8",
+      "opcode": "6b09005f",
+      "instruction": "cmp\tw2, w9"
+    },
+    {
+      "offset": "0x444",
+      "diagnostic_address": "0x109b8",
+      "original_address": "0x106dc",
+      "opcode": "54ffff01",
+      "instruction": "b.ne\t10998 <zbtIndexScanSlot+0x424>  // b.any"
+    },
+    {
+      "offset": "0x448",
+      "diagnostic_address": "0x109bc",
+      "original_address": "0x106e0",
+      "opcode": "11000782",
+      "instruction": "add\tw2, w28, #0x1"
+    },
+    {
+      "offset": "0x44c",
+      "diagnostic_address": "0x109c0",
+      "original_address": "0x106e4",
+      "opcode": "4b0101e1",
+      "instruction": "sub\tw1, w15, w1"
+    },
+    {
+      "offset": "0x450",
+      "diagnostic_address": "0x109c4",
+      "original_address": "0x106e8",
+      "opcode": "b83c5a21",
+      "instruction": "str\tw1, [x17, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x454",
+      "diagnostic_address": "0x109c8",
+      "original_address": "0x106ec",
+      "opcode": "2a0203fc",
+      "instruction": "mov\tw28, w2"
+    },
+    {
+      "offset": "0x458",
+      "diagnostic_address": "0x109cc",
+      "original_address": "0x106f0",
+      "opcode": "17fffff3",
+      "instruction": "b\t10998 <zbtIndexScanSlot+0x424>"
+    },
+    {
+      "offset": "0x45c",
+      "diagnostic_address": "0x109d0",
+      "original_address": "0x106f4",
+      "opcode": "8b080549",
+      "instruction": "add\tx9, x10, x8, lsl #1"
+    },
+    {
+      "offset": "0x460",
+      "diagnostic_address": "0x109d4",
+      "original_address": "0x106f8",
+      "opcode": "9100e18a",
+      "instruction": "add\tx10, x12, #0x38"
+    },
+    {
+      "offset": "0x464",
+      "diagnostic_address": "0x109d8",
+      "original_address": "0x106fc",
+      "opcode": "9100a3eb",
+      "instruction": "add\tx11, sp, #0x28"
+    },
+    {
+      "offset": "0x468",
+      "diagnostic_address": "0x109dc",
+      "original_address": "0x10700",
+      "opcode": "8b090349",
+      "instruction": "add\tx9, x26, x9"
+    },
+    {
+      "offset": "0x46c",
+      "diagnostic_address": "0x109e0",
+      "original_address": "0x10704",
+      "opcode": "14000005",
+      "instruction": "b\t109f4 <zbtIndexScanSlot+0x480>"
+    },
+    {
+      "offset": "0x470",
+      "diagnostic_address": "0x109e4",
+      "original_address": "0x10708",
+      "opcode": "d100dd4c",
+      "instruction": "sub\tx12, x10, #0x37"
+    },
+    {
+      "offset": "0x474",
+      "diagnostic_address": "0x109e8",
+      "original_address": "0x1070c",
+      "opcode": "9100054a",
+      "instruction": "add\tx10, x10, #0x1"
+    },
+    {
+      "offset": "0x478",
+      "diagnostic_address": "0x109ec",
+      "original_address": "0x10710",
+      "opcode": "eb08019f",
+      "instruction": "cmp\tx12, x8"
+    },
+    {
+      "offset": "0x47c",
+      "diagnostic_address": "0x109f0",
+      "original_address": "0x10714",
+      "opcode": "54000322",
+      "instruction": "b.cs\t10a54 <zbtIndexScanSlot+0x4e0>  // b.hs, b.nlast"
+    },
+    {
+      "offset": "0x480",
+      "diagnostic_address": "0x109f4",
+      "original_address": "0x10718",
+      "opcode": "386a692c",
+      "instruction": "ldrb\tw12, [x9, x10]"
+    },
+    {
+      "offset": "0x484",
+      "diagnostic_address": "0x109f8",
+      "original_address": "0x1071c",
+      "opcode": "7100059f",
+      "instruction": "cmp\tw12, #0x1"
+    },
+    {
+      "offset": "0x488",
+      "diagnostic_address": "0x109fc",
+      "original_address": "0x10720",
+      "opcode": "54ffff48",
+      "instruction": "b.hi\t109e4 <zbtIndexScanSlot+0x470>  // b.pmore"
+    },
+    {
+      "offset": "0x48c",
+      "diagnostic_address": "0x10a00",
+      "original_address": "0x10724",
+      "opcode": "1100078c",
+      "instruction": "add\tw12, w28, #0x1"
+    },
+    {
+      "offset": "0x490",
+      "diagnostic_address": "0x10a04",
+      "original_address": "0x10728",
+      "opcode": "5100e14d",
+      "instruction": "sub\tw13, w10, #0x38"
+    },
+    {
+      "offset": "0x494",
+      "diagnostic_address": "0x10a08",
+      "original_address": "0x1072c",
+      "opcode": "b83c596d",
+      "instruction": "str\tw13, [x11, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x498",
+      "diagnostic_address": "0x10a0c",
+      "original_address": "0x10730",
+      "opcode": "2a0c03fc",
+      "instruction": "mov\tw28, w12"
+    },
+    {
+      "offset": "0x49c",
+      "diagnostic_address": "0x10a10",
+      "original_address": "0x10734",
+      "opcode": "17fffff5",
+      "instruction": "b\t109e4 <zbtIndexScanSlot+0x470>"
+    },
+    {
+      "offset": "0x4a0",
+      "diagnostic_address": "0x10a14",
+      "original_address": "0x10738",
+      "opcode": "9100e18b",
+      "instruction": "add\tx11, x12, #0x38"
+    },
+    {
+      "offset": "0x4a4",
+      "diagnostic_address": "0x10a18",
+      "original_address": "0x1073c",
+      "opcode": "8b0d034a",
+      "instruction": "add\tx10, x26, x13"
+    },
+    {
+      "offset": "0x4a8",
+      "diagnostic_address": "0x10a1c",
+      "original_address": "0x10740",
+      "opcode": "9100a3ec",
+      "instruction": "add\tx12, sp, #0x28"
+    },
+    {
+      "offset": "0x4ac",
+      "diagnostic_address": "0x10a20",
+      "original_address": "0x10744",
+      "opcode": "14000005",
+      "instruction": "b\t10a34 <zbtIndexScanSlot+0x4c0>"
+    },
+    {
+      "offset": "0x4b0",
+      "diagnostic_address": "0x10a24",
+      "original_address": "0x10748",
+      "opcode": "d100dd6d",
+      "instruction": "sub\tx13, x11, #0x37"
+    },
+    {
+      "offset": "0x4b4",
+      "diagnostic_address": "0x10a28",
+      "original_address": "0x1074c",
+      "opcode": "9100056b",
+      "instruction": "add\tx11, x11, #0x1"
+    },
+    {
+      "offset": "0x4b8",
+      "diagnostic_address": "0x10a2c",
+      "original_address": "0x10750",
+      "opcode": "eb0801bf",
+      "instruction": "cmp\tx13, x8"
+    },
+    {
+      "offset": "0x4bc",
+      "diagnostic_address": "0x10a30",
+      "original_address": "0x10754",
+      "opcode": "54000122",
+      "instruction": "b.cs\t10a54 <zbtIndexScanSlot+0x4e0>  // b.hs, b.nlast"
+    },
+    {
+      "offset": "0x4c0",
+      "diagnostic_address": "0x10a34",
+      "original_address": "0x10758",
+      "opcode": "386b694d",
+      "instruction": "ldrb\tw13, [x10, x11]"
+    },
+    {
+      "offset": "0x4c4",
+      "diagnostic_address": "0x10a38",
+      "original_address": "0x1075c",
+      "opcode": "6b0901bf",
+      "instruction": "cmp\tw13, w9"
+    },
+    {
+      "offset": "0x4c8",
+      "diagnostic_address": "0x10a3c",
+      "original_address": "0x10760",
+      "opcode": "54ffff41",
+      "instruction": "b.ne\t10a24 <zbtIndexScanSlot+0x4b0>  // b.any"
+    },
+    {
+      "offset": "0x4cc",
+      "diagnostic_address": "0x10a40",
+      "original_address": "0x10764",
+      "opcode": "1100078d",
+      "instruction": "add\tw13, w28, #0x1"
+    },
+    {
+      "offset": "0x4d0",
+      "diagnostic_address": "0x10a44",
+      "original_address": "0x10768",
+      "opcode": "5100e16e",
+      "instruction": "sub\tw14, w11, #0x38"
+    },
+    {
+      "offset": "0x4d4",
+      "diagnostic_address": "0x10a48",
+      "original_address": "0x1076c",
+      "opcode": "b83c598e",
+      "instruction": "str\tw14, [x12, w28, uxtw #2]"
+    },
+    {
+      "offset": "0x4d8",
+      "diagnostic_address": "0x10a4c",
+      "original_address": "0x10770",
+      "opcode": "2a0d03fc",
+      "instruction": "mov\tw28, w13"
+    },
+    {
+      "offset": "0x4dc",
+      "diagnostic_address": "0x10a50",
+      "original_address": "0x10774",
+      "opcode": "17fffff5",
+      "instruction": "b\t10a24 <zbtIndexScanSlot+0x4b0>"
+    }
+  ],
+  "scope": "New corrected-binary source-linked half-open ranges. Includes count/scorebytes/tag-pointer and loop setup; excludes leaf-ID assertion0x12c..0x138, resize checks, count!=0 assertion at0x4e0 and later decode/hash/callback. Overlapping subregions must not be summed. No SIMD in mapped all-match range. No old/new speed claim."
+}

@@ -1,0 +1,16 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -6041,8 +6041,10 @@
+         out[i] = zbtOrderedToScore(ordered);
+     }
+ }
+-/* Control policy always delegates to frozen EXP-007 bulk decoder. */
++/* Handle the empty range before selecting the sole scalar case. */
+ static void zbtScoreLeafDecodePolicy(zbtScoreLeaf *leaf, unsigned start,
+                                    unsigned count, double *out) {
+-    zbtScoreLeafDecodeRange(leaf, start, count, out);
+-}
++    if (count == 0) return;
++    if (count == 1) out[0] = zbtScoreLeafScore(leaf, start);
++    else zbtScoreLeafDecodeRange(leaf, start, count, out);
++}

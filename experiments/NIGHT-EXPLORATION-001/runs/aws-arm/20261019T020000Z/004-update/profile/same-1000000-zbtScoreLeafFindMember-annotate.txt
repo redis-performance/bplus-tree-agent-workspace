@@ -1,0 +1,162 @@
+ Percent |	Source code & Disassembly of update-native for armv8_pmuv3_0/cycles/P (1343 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         : 0    0xa704 <zbtScoreLeafFindMember>:
+    0.07 :   a704:        sub     sp, sp, #0x90
+    0.22 :   a708:        stp     x29, x30, [sp, #0x30]
+    0.15 :   a70c:        stp     x28, x27, [sp, #0x40]
+    0.00 :   a710:        stp     x26, x25, [sp, #0x50]
+    0.07 :   a714:        stp     x24, x23, [sp, #0x60]
+    0.07 :   a718:        stp     x22, x21, [sp, #0x70]
+    0.00 :   a71c:        stp     x20, x19, [sp, #0x80]
+    0.07 :   a720:        add     x29, sp, #0x30
+    0.22 :   a724:        ldrb    w9, [x0, #0x34]
+    0.00 :   a728:        mov     x22, x3
+    0.07 :   a72c:        mov     x21, x0
+    0.07 :   a730:        mov     x11, x0
+    0.00 :   a734:        stur    x2, [x29, #-0x8]
+    0.00 :   a738:        stur    w1, [x29, #-0xc]
+    0.07 :   a73c:        cbz     x9, 0xa768 <zbtScoreLeafFindMember+0x64>
+    0.22 :   a740:        ldrb    w8, [x11, #0x11]!
+    1.41 :   a744:        mov     w10, #0x7
+    0.00 :   a748:        madd    w9, w8, w9, w10
+    0.07 :   a74c:        lsr     w9, w9, #3
+    0.00 :   a750:        add     w9, w9, #0x9
+    0.00 :   a754:        and     x9, x9, #0x7ffe
+    0.00 :   a758:        add     x10, x21, x9
+    0.00 :   a75c:        add     x26, x10, #0x38
+    0.00 :   a760:        cbnz    x8, 0xa774 <zbtScoreLeafFindMember+0x70>
+    0.00 :   a764:        b       0xa87c <zbtScoreLeafFindMember+0x178>
+    0.00 :   a768:        ldrb    w8, [x11, #0x11]!
+    0.00 :   a76c:        add     x26, x11, #0x27
+    0.00 :   a770:        cbz     x8, 0xa87c <zbtScoreLeafFindMember+0x178>
+    0.30 :   a774:        add     x10, x21, #0x38
+    0.00 :   a778:        stp     x11, x4, [sp, #0x8]
+    0.15 :   a77c:        add     x9, x10, x9
+    0.07 :   a780:        str     x5, [sp, #0x18]
+    0.00 :   a784:        add     x20, x9, x8, lsl #1
+    0.00 :   a788:        ldur    w9, [x29, #-0xc]
+    0.07 :   a78c:        str     x10, [sp]
+    0.00 :   a790:        lsr     w25, w9, #24
+    0.00 :   a794:        add     x23, x20, x8
+    0.07 :   a798:        mov     x0, x20
+    0.00 :   a79c:        b       0xa7c0 <zbtScoreLeafFindMember+0xbc>
+    0.07 :   a7a0:        ldur    x1, [x29, #-0x8]
+    0.00 :   a7a4:        mov     x0, x19
+    0.00 :   a7a8:        mov     x2, x22
+    0.15 :   a7ac:        bl      0xb70 <_init+0xe8>
+    0.15 :   a7b0:        cbz     w0, 0xa8a0 <zbtScoreLeafFindMember+0x19c>
+    0.37 :   a7b4:        add     x0, x28, #0x1
+    0.45 :   a7b8:        cmp     x0, x23
+    0.00 :   a7bc:        b.hs    0xa87c <zbtScoreLeafFindMember+0x178>
+    0.74 :   a7c0:        sub     x2, x23, x0
+    0.00 :   a7c4:        mov     w1, w25
+    0.00 :   a7c8:        bl      0xc10 <_init+0x188>
+    3.72 :   a7cc:        cbz     x0, 0xa880 <zbtScoreLeafFindMember+0x17c>
+    3.72 :   a7d0:        sub     x27, x0, x20
+    0.00 :   a7d4:        mov     x28, x0
+    0.07 :   a7d8:        ldrh    w8, [x26, w27, uxtw #1]
+    2.01 :   a7dc:        add     x24, x21, x8
+    5.14 :   a7e0:        ldrb    w8, [x24]
+   74.01 :   a7e4:        cmp     w8, #0xfe
+    0.00 :   a7e8:        b.eq    0xa858 <zbtScoreLeafFindMember+0x154>
+    0.45 :   a7ec:        cmp     w8, #0xff
+    0.00 :   a7f0:        b.ne    0xa86c <zbtScoreLeafFindMember+0x168>
+    0.00 :   a7f4:        ldur    w8, [x24, #0x1]
+    0.00 :   a7f8:        ldur    w9, [x29, #-0xc]
+    0.00 :   a7fc:        cmp     w8, w9
+    0.00 :   a800:        b.ne    0xa7b4 <zbtScoreLeafFindMember+0xb0>
+    0.00 :   a804:        ldur    x19, [x24, #0xd]
+    0.00 :   a808:        cbnz    x19, 0xa848 <zbtScoreLeafFindMember+0x144>
+    0.00 :   a80c:        adrp    x0, 6 // 0x10000
+    0.00 :   a810:        add     x0, x0, #0xf9f
+    0.00 :   a814:        mov     w1, #0x257
+    0.00 :   a818:        adrp    x2, 7 // 0x11000
+    0.00 :   a81c:        add     x2, x2, #0xcb
+    0.00 :   a820:        bl      0x1027c <standalone_panic>
+    0.00 :   a824:        ldrb    w8, [x24]
+    0.00 :   a828:        cmp     w8, #0xff
+    0.00 :   a82c:        b.eq    0xa848 <zbtScoreLeafFindMember+0x144>
+    0.00 :   a830:        adrp    x0, 6 // 0x10000
+    0.00 :   a834:        add     x0, x0, #0xf9f
+    0.00 :   a838:        mov     w1, #0x237
+    0.00 :   a83c:        adrp    x2, 7 // 0x11000
+    0.00 :   a840:        add     x2, x2, #0xd7
+    0.00 :   a844:        bl      0x1027c <standalone_panic>
+    0.00 :   a848:        ldur    x8, [x24, #0x5]
+    0.00 :   a84c:        cmp     x8, x22
+    0.00 :   a850:        b.ne    0xa7b4 <zbtScoreLeafFindMember+0xb0>
+    0.00 :   a854:        b       0xa7a0 <zbtScoreLeafFindMember+0x9c>
+    0.00 :   a858:        ldurh   w8, [x24, #0x1]
+    0.00 :   a85c:        add     x19, x24, #0x3
+    0.00 :   a860:        cmp     x8, x22
+    0.00 :   a864:        b.eq    0xa7a0 <zbtScoreLeafFindMember+0x9c>
+    0.00 :   a868:        b       0xa7b4 <zbtScoreLeafFindMember+0xb0>
+    0.15 :   a86c:        add     x19, x24, #0x1
+    0.07 :   a870:        cmp     x8, x22
+    0.00 :   a874:        b.ne    0xa7b4 <zbtScoreLeafFindMember+0xb0>
+    0.82 :   a878:        b       0xa7a0 <zbtScoreLeafFindMember+0x9c>
+    0.00 :   a87c:        mov     w0, wzr
+    0.07 :   a880:        ldp     x20, x19, [sp, #0x80]
+    0.15 :   a884:        ldp     x22, x21, [sp, #0x70]
+    0.07 :   a888:        ldp     x24, x23, [sp, #0x60]
+    0.00 :   a88c:        ldp     x26, x25, [sp, #0x50]
+    0.07 :   a890:        ldp     x28, x27, [sp, #0x40]
+    0.00 :   a894:        ldp     x29, x30, [sp, #0x30]
+    0.00 :   a898:        add     sp, sp, #0x90
+    0.00 :   a89c:        ret
+    2.16 :   a8a0:        ldrb    w8, [x21, #0x35]
+    0.00 :   a8a4:        cbz     w8, 0xa8c4 <zbtScoreLeafFindMember+0x1c0>
+    0.00 :   a8a8:        ldp     x11, x16, [sp, #0x8]
+    0.00 :   a8ac:        mvn     w10, w27
+    0.00 :   a8b0:        ldr     x15, [sp, #0x18]
+    0.00 :   a8b4:        ldrb    w9, [x11]
+    0.00 :   a8b8:        add     w27, w9, w10
+    0.00 :   a8bc:        cbnz    x16, 0xa8d0 <zbtScoreLeafFindMember+0x1cc>
+    0.00 :   a8c0:        b       0xa970 <zbtScoreLeafFindMember+0x26c>
+    0.00 :   a8c4:        ldp     x16, x15, [sp, #0x10]
+    0.07 :   a8c8:        ldr     x11, [sp, #0x8]
+    0.00 :   a8cc:        cbz     x16, 0xa970 <zbtScoreLeafFindMember+0x26c>
+    0.00 :   a8d0:        ldrb    w9, [x21, #0x34]
+    0.15 :   a8d4:        cbz     w9, 0xa94c <zbtScoreLeafFindMember+0x248>
+    0.07 :   a8d8:        mov     w10, w27
+    0.07 :   a8dc:        cbz     w8, 0xa8ec <zbtScoreLeafFindMember+0x1e8>
+    0.00 :   a8e0:        ldrb    w10, [x11]
+    0.00 :   a8e4:        mvn     w11, w27
+    0.00 :   a8e8:        add     w10, w10, w11
+    0.15 :   a8ec:        umull   x10, w9, w10
+    0.07 :   a8f0:        ldr     x12, [sp]
+    0.00 :   a8f4:        lsr     x11, x10, #3
+    0.00 :   a8f8:        and     x14, x10, #0x7
+    0.07 :   a8fc:        ldr     x13, [x12, x11]
+    0.07 :   a900:        ands    w12, w10, #0x7
+    0.07 :   a904:        lsr     x10, x13, x14
+    0.00 :   a908:        b.eq    0xa92c <zbtScoreLeafFindMember+0x228>
+    0.15 :   a90c:        mov     w13, #0x40
+    0.00 :   a910:        sub     w12, w13, w12
+    0.07 :   a914:        cmp     w12, w9
+    0.00 :   a918:        b.hs    0xa92c <zbtScoreLeafFindMember+0x228>
+    0.00 :   a91c:        add     x11, x11, x21
+    0.00 :   a920:        ldrb    w11, [x11, #0x40]
+    0.00 :   a924:        lsl     x11, x11, x12
+    0.00 :   a928:        orr     x10, x11, x10
+    0.00 :   a92c:        mov     x11, #-0x1
+    0.00 :   a930:        cmp     w9, #0x40
+    0.00 :   a934:        lsl     x12, x11, x9
+    0.00 :   a938:        csinv   x9, x11, x12, hs
+    0.15 :   a93c:        ldrb    w11, [x21, #0x13]
+    0.00 :   a940:        and     x9, x10, x9
+    0.00 :   a944:        lsl     x9, x9, x11
+    0.07 :   a948:        b       0xa950 <zbtScoreLeafFindMember+0x24c>
+    0.00 :   a94c:        mov     x9, xzr
+    0.15 :   a950:        ldr     x10, [x21, #0x28]
+    0.00 :   a954:        cmp     w8, #0x0
+    0.30 :   a958:        cneg    x8, x9, ne
+    0.00 :   a95c:        add     x8, x10, x8
+    0.00 :   a960:        and     x9, x8, #0x7fffffffffffffff
+    0.07 :   a964:        cmp     x8, #0x0
+    0.00 :   a968:        csinv   x8, x9, x8, lt
+    0.00 :   a96c:        str     x8, [x16]
+    0.00 :   a970:        cbz     x15, 0xa978 <zbtScoreLeafFindMember+0x274>
+    0.00 :   a974:        str     w27, [x15]
+    0.00 :   a978:        mov     w0, #0x1
+    0.07 :   a97c:        b       0xa880 <zbtScoreLeafFindMember+0x17c>

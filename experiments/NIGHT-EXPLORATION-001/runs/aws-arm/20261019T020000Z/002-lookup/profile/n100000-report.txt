@@ -1,0 +1,192 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'armv8_pmuv3_0/cycles/P'
+# Event count (approx.): 8180558281
+#
+# Overhead  Command  Shared Object     Symbol                        
+# ........  .......  ................  ..............................
+#
+    36.00%  base     base              [.] zbtreeScoreRaw
+            |          
+            |--14.27%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--13.45%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--3.25%--zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--2.57%--zbtIndexGetId (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--1.20%--zbtIndexFirstTag (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.65%--zbtreeScoreRaw
+                       |          
+                        --0.58%--main
+                                  0xe16644c384c4
+                                  __libc_start_main
+                                  _start
+
+    21.52%  base     base              [.] zbtScoreLeafFindMember
+            |          
+            |--18.75%--zbtScoreLeafFindMember
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--1.06%--zbtScoreLeafScoreBytes (inlined)
+            |          zbtScoreLeafOffsets (inlined)
+            |          zbtScoreLeafFindMember
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeScoreRaw
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.92%--zbtScoreLeafPhysicalPos (inlined)
+                       |          
+                        --0.89%--zbtScoreLeafFindMember
+                                  zbtIndexTableFind (inlined)
+                                  zbtIndexFind (inlined)
+                                  zbtreeScoreRaw
+                                  main
+                                  0xe16644c384c4
+                                  __libc_start_main
+                                  _start
+
+    16.12%  base     base              [.] zbtreeScore
+            |          
+            |--15.33%--zbtreeScore
+            |          main
+            |          0xe16644c384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.75%--sdslen (inlined)
+                       zbtreeScore
+                       main
+                       0xe16644c384c4
+                       __libc_start_main
+                       _start
+
+     7.13%  base     base              [.] main
+            |          
+             --7.02%--main
+                       0xe16644c384c4
+                       __libc_start_main
+                       _start
+
+     3.49%  base     libc.so.6         [.] 0x00000000000a13d4
+            |
+            ---0xe16644cb13d4
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeScoreRaw
+               main
+               0xe16644c384c4
+               __libc_start_main
+               _start
+
+     3.15%  base     libc.so.6         [.] 0x00000000000a1408
+            |
+            ---0xe16644cb1408
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeScoreRaw
+               main
+               0xe16644c384c4
+               __libc_start_main
+               _start
+
+     2.63%  base     libc.so.6         [.] memcmp
+            |
+            ---memcmp
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeScoreRaw
+               main
+               0xe16644c384c4
+               __libc_start_main
+               _start
+
+     2.19%  base     base              [.] siphash
+            |
+            ---siphash
+               |          
+                --2.16%--zbtreeScoreRaw
+                          main
+                          0xe16644c384c4
+                          __libc_start_main
+                          _start
+
+     1.30%  base     libc.so.6         [.] 0x00000000000a13cc
+            |
+            ---0xe16644cb13cc
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeScoreRaw
+               main
+               0xe16644c384c4
+               __libc_start_main
+               _start
+
+     0.92%  base     libc.so.6         [.] 0x00000000000a13ec
+            |
+            ---0xe16644cb13ec
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeScoreRaw
+               main
+               0xe16644c384c4
+               __libc_start_main
+               _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

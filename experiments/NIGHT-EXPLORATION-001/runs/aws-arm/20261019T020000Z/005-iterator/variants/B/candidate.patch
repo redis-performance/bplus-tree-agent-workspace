@@ -1,0 +1,117 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3827,6 +3827,7 @@
+ {
+     if (rank >= zs->length) {
+         iter->leaf = NULL;
++        iter->member_offsets = 0;
+         iter->pos = 0;
+         return 0;
+     }
+@@ -3842,6 +3843,7 @@
+         node = inner->child[pos];
+     }
+     iter->leaf = node;
++    iter->member_offsets = 0;
+     iter->pos = rank;
+     return 1;
+ }
+@@ -3877,6 +3879,7 @@
+     zbtScoreNode *node = zs->score_root;
+     if (node == NULL) {
+         iter->leaf = NULL;
++        iter->member_offsets = 0;
+         iter->pos = 0;
+         return 0;
+     }
+@@ -3910,6 +3913,7 @@
+             pos--;
+         }
+         iter->leaf = leaf;
++        iter->member_offsets = 0;
+         iter->pos = pos;
+     } else {
+         unsigned int pos = zbtScoreLeafScoreBound(leaf, score, exclusive);
+@@ -3919,6 +3923,7 @@
+             pos = 0;
+         }
+         iter->leaf = leaf;
++        iter->member_offsets = 0;
+         iter->pos = pos;
+     }
+     if (rank)
+@@ -3927,6 +3932,7 @@
+ 
+ notfound:
+     iter->leaf = NULL;
++    iter->member_offsets = 0;
+     iter->pos = 0;
+     return 0;
+ }
+@@ -3995,12 +4001,14 @@
+     }
+ 
+     iter->leaf = leaf;
++    iter->member_offsets = 0;
+     iter->pos = pos;
+     if (rank) *rank = zbtScoreRank(leaf, pos);
+     return 1;
+ 
+ notfound:
+     iter->leaf = NULL;
++    iter->member_offsets = 0;
+     iter->pos = 0;
+     return 0;
+ }
+@@ -4012,6 +4020,7 @@
+ {
+     zbtScoreLeaf *leaf = reverse ? zs->score_last : zs->score_first;
+     iter->leaf = leaf;
++    iter->member_offsets = 0;
+     iter->pos = leaf ? (reverse ? leaf->n.count - 1 : 0) : 0;
+     return leaf != NULL;
+ }
+@@ -4026,9 +4035,15 @@
+ 
+     unsigned int pos = iter->pos;
+     if (ele || len) {
++        if (iter->member_offsets == 0)
++            iter->member_offsets = (uint32_t)
++                ((unsigned char *)zbtScoreLeafOffsets(leaf) - (unsigned char *)leaf);
++        const uint16_t *offsets = (const uint16_t *)
++            ((unsigned char *)leaf + iter->member_offsets);
+         size_t elelen;
+-        const unsigned char *element =
+-            zbtScoreLeafElement(leaf, pos, &elelen);
++        const unsigned char *element = zbtPackedData(
++            (unsigned char *)leaf + offsets[zbtScoreLeafPhysicalPos(leaf, pos)],
++            &elelen);
+         if (ele) *ele = element;
+         if (len) *len = elelen;
+     }
+@@ -4040,6 +4055,7 @@
+         } else {
+             leaf = leaf->prev;
+             iter->leaf = leaf;
++            iter->member_offsets = 0;
+             if (leaf) iter->pos = leaf->n.count - 1;
+         }
+     } else {
+@@ -4048,6 +4064,7 @@
+         } else {
+             leaf = leaf->next;
+             iter->leaf = leaf;
++            iter->member_offsets = 0;
+             iter->pos = 0;
+         }
+     }
+--- a/src/zset_btree.h
++++ b/src/zset_btree.h
+@@ -34,6 +34,7 @@
+ typedef struct {
+     void *leaf;
+     unsigned int pos;
++    uint32_t member_offsets; /* Lazy byte offset from leaf; zero means unset. */
+ } zbtreeIterator;
+ 
+ /* This state exists only while active defragmentation is visiting a large

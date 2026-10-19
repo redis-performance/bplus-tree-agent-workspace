@@ -1,0 +1,27 @@
+--- original/h4-scoped.c
++++ diagnostic/h4-scoped.c
+@@ -3,6 +3,7 @@
+ #include "microbench.c"
+ #undef main
+ #include <math.h>
++#include "profile-control.h"
+ 
+ static uint64_t score_bits(double s) { uint64_t u; memcpy(&u, &s, sizeof u); return u; }
+ static double model_score(size_t i, size_t n, const char *encoding) {
+@@ -97,9 +98,14 @@
+     verify(tree,keys,n,reverse,mask,encoding);
+     uint64_t warmstart=now_ns();serverAssert(traverse(tree,n,passes,reverse,mask)==expected*passes);uint64_t warm=now_ns()-warmstart;
+     size_t traversals=1+(ops-1)/n,count=traversals*n,owned=zbtreeAllocSize(tree);
+-    int p0,p1;const char *q0=qos_reported(&p0);int cpu0=cpu_id();int64_t t0=thread_ns();uint64_t w0=now_ns();
++    int p0,p1;const char *q0=qos_reported(&p0);int cpu0=cpu_id();int64_t t0=thread_ns();
++    int enable_profile=getenv("PROFILE_DISABLE")==NULL;
++    if(enable_profile)profile_control("enable\n");
++    uint64_t w0=now_ns();
+     uint64_t checksum=traverse(tree,n,traversals,reverse,mask);
+-    uint64_t elapsed=now_ns()-w0;int64_t t1=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&p1);
++    uint64_t elapsed=now_ns()-w0;
++    if(enable_profile)profile_control("disable\n");
++    int64_t t1=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&p1);
+     serverAssert(checksum==expected*traversals && zbtreeLength(tree)==n && zbtreeAllocSize(tree)==owned);
+     verify(tree,keys,n,reverse,mask,encoding);sink^=checksum;
+     puts("case,size,requested_ops,operations,member_bytes,seed,direction,mask,encoding,traversals,checksum,expected_checksum,tree_bytes,elapsed_ns,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,warmup_passes,warmup_elapsed_ns,construction_fingerprint");

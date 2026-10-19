@@ -1,0 +1,487 @@
+
+build/known-control:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+0000000000000748 <_init>:
+_init():
+ 748:	d503201f 	nop
+ 74c:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 750:	910003fd 	mov	x29, sp
+ 754:	94000048 	bl	874 <call_weak_fn>
+ 758:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 75c:	d65f03c0 	ret
+
+Disassembly of section .plt:
+
+0000000000000760 <.plt>:
+ 760:	a9bf7bf0 	stp	x16, x30, [sp, #-16]!
+ 764:	f00000f0 	adrp	x16, 1f000 <__FRAME_END__+0x1e0e0>
+ 768:	f947fe11 	ldr	x17, [x16, #4088]
+ 76c:	913fe210 	add	x16, x16, #0xff8
+ 770:	d61f0220 	br	x17
+ 774:	d503201f 	nop
+ 778:	d503201f 	nop
+ 77c:	d503201f 	nop
+
+0000000000000780 <strlen@plt>:
+ 780:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 784:	f9400211 	ldr	x17, [x16]
+ 788:	91000210 	add	x16, x16, #0x0
+ 78c:	d61f0220 	br	x17
+
+0000000000000790 <__libc_start_main@plt>:
+ 790:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 794:	f9400611 	ldr	x17, [x16, #8]
+ 798:	91002210 	add	x16, x16, #0x8
+ 79c:	d61f0220 	br	x17
+
+00000000000007a0 <__cxa_finalize@plt>:
+ 7a0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7a4:	f9400a11 	ldr	x17, [x16, #16]
+ 7a8:	91004210 	add	x16, x16, #0x10
+ 7ac:	d61f0220 	br	x17
+
+00000000000007b0 <open@plt>:
+ 7b0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7b4:	f9400e11 	ldr	x17, [x16, #24]
+ 7b8:	91006210 	add	x16, x16, #0x18
+ 7bc:	d61f0220 	br	x17
+
+00000000000007c0 <close@plt>:
+ 7c0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7c4:	f9401211 	ldr	x17, [x16, #32]
+ 7c8:	91008210 	add	x16, x16, #0x20
+ 7cc:	d61f0220 	br	x17
+
+00000000000007d0 <__gmon_start__@plt>:
+ 7d0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7d4:	f9401611 	ldr	x17, [x16, #40]
+ 7d8:	9100a210 	add	x16, x16, #0x28
+ 7dc:	d61f0220 	br	x17
+
+00000000000007e0 <write@plt>:
+ 7e0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7e4:	f9401a11 	ldr	x17, [x16, #48]
+ 7e8:	9100c210 	add	x16, x16, #0x30
+ 7ec:	d61f0220 	br	x17
+
+00000000000007f0 <abort@plt>:
+ 7f0:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 7f4:	f9401e11 	ldr	x17, [x16, #56]
+ 7f8:	9100e210 	add	x16, x16, #0x38
+ 7fc:	d61f0220 	br	x17
+
+0000000000000800 <read@plt>:
+ 800:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 804:	f9402211 	ldr	x17, [x16, #64]
+ 808:	91010210 	add	x16, x16, #0x40
+ 80c:	d61f0220 	br	x17
+
+0000000000000810 <printf@plt>:
+ 810:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 814:	f9402611 	ldr	x17, [x16, #72]
+ 818:	91012210 	add	x16, x16, #0x48
+ 81c:	d61f0220 	br	x17
+
+0000000000000820 <__assert_fail@plt>:
+ 820:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 824:	f9402a11 	ldr	x17, [x16, #80]
+ 828:	91014210 	add	x16, x16, #0x50
+ 82c:	d61f0220 	br	x17
+
+0000000000000830 <getenv@plt>:
+ 830:	90000110 	adrp	x16, 20000 <strlen@GLIBC_2.17>
+ 834:	f9402e11 	ldr	x17, [x16, #88]
+ 838:	91016210 	add	x16, x16, #0x58
+ 83c:	d61f0220 	br	x17
+
+Disassembly of section .text:
+
+0000000000000840 <_start>:
+_start():
+ 840:	d503201f 	nop
+ 844:	d280001d 	mov	x29, #0x0                   	// #0
+ 848:	d280001e 	mov	x30, #0x0                   	// #0
+ 84c:	aa0003e5 	mov	x5, x0
+ 850:	f94003e1 	ldr	x1, [sp]
+ 854:	910023e2 	add	x2, sp, #0x8
+ 858:	910003e6 	mov	x6, sp
+ 85c:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e0e0>
+ 860:	f947ec00 	ldr	x0, [x0, #4056]
+ 864:	d2800003 	mov	x3, #0x0                   	// #0
+ 868:	d2800004 	mov	x4, #0x0                   	// #0
+ 86c:	97ffffc9 	bl	790 <__libc_start_main@plt>
+ 870:	97ffffe0 	bl	7f0 <abort@plt>
+
+0000000000000874 <call_weak_fn>:
+call_weak_fn():
+ 874:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e0e0>
+ 878:	f947e800 	ldr	x0, [x0, #4048]
+ 87c:	b4000040 	cbz	x0, 884 <call_weak_fn+0x10>
+ 880:	17ffffd4 	b	7d0 <__gmon_start__@plt>
+ 884:	d65f03c0 	ret
+ 888:	d503201f 	nop
+ 88c:	d503201f 	nop
+
+0000000000000890 <deregister_tm_clones>:
+deregister_tm_clones():
+ 890:	90000100 	adrp	x0, 20000 <strlen@GLIBC_2.17>
+ 894:	9101c000 	add	x0, x0, #0x70
+ 898:	90000101 	adrp	x1, 20000 <strlen@GLIBC_2.17>
+ 89c:	9101c021 	add	x1, x1, #0x70
+ 8a0:	eb00003f 	cmp	x1, x0
+ 8a4:	540000c0 	b.eq	8bc <deregister_tm_clones+0x2c>  // b.none
+ 8a8:	f00000e1 	adrp	x1, 1f000 <__FRAME_END__+0x1e0e0>
+ 8ac:	f947e021 	ldr	x1, [x1, #4032]
+ 8b0:	b4000061 	cbz	x1, 8bc <deregister_tm_clones+0x2c>
+ 8b4:	aa0103f0 	mov	x16, x1
+ 8b8:	d61f0200 	br	x16
+ 8bc:	d65f03c0 	ret
+
+00000000000008c0 <register_tm_clones>:
+register_tm_clones():
+ 8c0:	90000100 	adrp	x0, 20000 <strlen@GLIBC_2.17>
+ 8c4:	9101c000 	add	x0, x0, #0x70
+ 8c8:	90000101 	adrp	x1, 20000 <strlen@GLIBC_2.17>
+ 8cc:	9101c021 	add	x1, x1, #0x70
+ 8d0:	cb000021 	sub	x1, x1, x0
+ 8d4:	d37ffc22 	lsr	x2, x1, #63
+ 8d8:	8b810c41 	add	x1, x2, x1, asr #3
+ 8dc:	9341fc21 	asr	x1, x1, #1
+ 8e0:	b40000c1 	cbz	x1, 8f8 <register_tm_clones+0x38>
+ 8e4:	f00000e2 	adrp	x2, 1f000 <__FRAME_END__+0x1e0e0>
+ 8e8:	f947f042 	ldr	x2, [x2, #4064]
+ 8ec:	b4000062 	cbz	x2, 8f8 <register_tm_clones+0x38>
+ 8f0:	aa0203f0 	mov	x16, x2
+ 8f4:	d61f0200 	br	x16
+ 8f8:	d65f03c0 	ret
+ 8fc:	d503201f 	nop
+
+0000000000000900 <__do_global_dtors_aux>:
+__do_global_dtors_aux():
+ 900:	d503233f 	paciasp
+ 904:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 908:	910003fd 	mov	x29, sp
+ 90c:	f9000bf3 	str	x19, [sp, #16]
+ 910:	90000113 	adrp	x19, 20000 <strlen@GLIBC_2.17>
+ 914:	3941c260 	ldrb	w0, [x19, #112]
+ 918:	37000140 	tbnz	w0, #0, 940 <__do_global_dtors_aux+0x40>
+ 91c:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e0e0>
+ 920:	f947e400 	ldr	x0, [x0, #4040]
+ 924:	b4000080 	cbz	x0, 934 <__do_global_dtors_aux+0x34>
+ 928:	90000100 	adrp	x0, 20000 <strlen@GLIBC_2.17>
+ 92c:	f9403400 	ldr	x0, [x0, #104]
+ 930:	97ffff9c 	bl	7a0 <__cxa_finalize@plt>
+ 934:	97ffffd7 	bl	890 <deregister_tm_clones>
+ 938:	52800020 	mov	w0, #0x1                   	// #1
+ 93c:	3901c260 	strb	w0, [x19, #112]
+ 940:	f9400bf3 	ldr	x19, [sp, #16]
+ 944:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 948:	d50323bf 	autiasp
+ 94c:	d65f03c0 	ret
+
+0000000000000950 <frame_dummy>:
+frame_dummy():
+ 950:	d503245f 	bti	c
+ 954:	17ffffdb 	b	8c0 <register_tm_clones>
+
+0000000000000958 <main>:
+main():
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:43
+    volatile uint64_t value = initial;
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+        value = value * UINT64_C(6364136223846793005) + UINT64_C(1442695040888963407);
+    return value;
+}
+int main(void) {
+ 958:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 95c:	a9014ff4 	stp	x20, x19, [sp, #16]
+ 960:	910003fd 	mov	x29, sp
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:44
+    uint64_t before = outside_work(1);
+ 964:	52800020 	mov	w0, #0x1                   	// #1
+ 968:	9400001d 	bl	9dc <outside_work>
+ 96c:	aa0003f3 	mov	x19, x0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:45
+    int enabled = getenv("PROFILE_DISABLE") == NULL;
+ 970:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 974:	91312000 	add	x0, x0, #0xc48
+ 978:	97ffffae 	bl	830 <getenv@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:46
+    if (enabled) profile_control("enable\n");
+ 97c:	b4000080 	cbz	x0, 98c <main+0x34>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:47
+    uint64_t inside = known_work(3);
+ 980:	94000099 	bl	be4 <known_work>
+ 984:	aa0003f4 	mov	x20, x0
+ 988:	14000009 	b	9ac <main+0x54>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:46
+    if (enabled) profile_control("enable\n");
+ 98c:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 990:	91316000 	add	x0, x0, #0xc58
+ 994:	94000026 	bl	a2c <profile_control>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:47
+    uint64_t inside = known_work(3);
+ 998:	94000093 	bl	be4 <known_work>
+ 99c:	aa0003f4 	mov	x20, x0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:48
+    if (enabled) profile_control("disable\n");
+ 9a0:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 9a4:	91318000 	add	x0, x0, #0xc60
+ 9a8:	94000021 	bl	a2c <profile_control>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:49
+    uint64_t after = outside_work(7);
+ 9ac:	528000e0 	mov	w0, #0x7                   	// #7
+ 9b0:	9400000b 	bl	9dc <outside_work>
+ 9b4:	aa0003e3 	mov	x3, x0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:50
+    printf("{\"rounds\":100000000,\"before\":\"%016" PRIx64
+ 9b8:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 9bc:	9131a400 	add	x0, x0, #0xc69
+ 9c0:	aa1303e1 	mov	x1, x19
+ 9c4:	aa1403e2 	mov	x2, x20
+ 9c8:	97ffff92 	bl	810 <printf@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:53
+           "\",\"inside\":\"%016" PRIx64 "\",\"after\":\"%016" PRIx64 "\"}\n",
+           before, inside, after);
+    return 0;
+ 9cc:	2a1f03e0 	mov	w0, wzr
+ 9d0:	a9414ff4 	ldp	x20, x19, [sp, #16]
+ 9d4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 9d8:	d65f03c0 	ret
+
+00000000000009dc <outside_work>:
+outside_work():
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:37
+__attribute__((noinline)) static uint64_t outside_work(uint64_t initial) {
+ 9dc:	d10043ff 	sub	sp, sp, #0x10
+ 9e0:	d28fe5a9 	mov	x9, #0x7f2d                	// #32557
+ 9e4:	d29029ea 	mov	x10, #0x814f                	// #33103
+ 9e8:	529c2008 	mov	w8, #0xe100                	// #57600
+ 9ec:	f2a992a9 	movk	x9, #0x4c95, lsl #16
+ 9f0:	f2beecea 	movk	x10, #0xf767, lsl #16
+ 9f4:	72a0bea8 	movk	w8, #0x5f5, lsl #16
+ 9f8:	f2de85a9 	movk	x9, #0xf42d, lsl #32
+ 9fc:	f2cf6fca 	movk	x10, #0x7b7e, lsl #32
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:38
+    volatile uint64_t value = initial;
+ a00:	f90007e0 	str	x0, [sp, #8]
+ a04:	f2eb0a29 	movk	x9, #0x5851, lsl #48
+ a08:	f2e280aa 	movk	x10, #0x1405, lsl #48
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:40
+        value = value * UINT64_C(6364136223846793005) + UINT64_C(1442695040888963407);
+ a0c:	f94007eb 	ldr	x11, [sp, #8]
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:39
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+ a10:	f1000508 	subs	x8, x8, #0x1
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:40
+        value = value * UINT64_C(6364136223846793005) + UINT64_C(1442695040888963407);
+ a14:	9b09296b 	madd	x11, x11, x9, x10
+ a18:	f90007eb 	str	x11, [sp, #8]
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:39
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+ a1c:	54ffff81 	b.ne	a0c <outside_work+0x30>  // b.any
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:41
+    return value;
+ a20:	f94007e0 	ldr	x0, [sp, #8]
+ a24:	910043ff 	add	sp, sp, #0x10
+ a28:	d65f03c0 	ret
+
+0000000000000a2c <profile_control>:
+profile_control():
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:12
+static void profile_control(const char *cmd) {
+ a2c:	d10103ff 	sub	sp, sp, #0x40
+ a30:	a9017bfd 	stp	x29, x30, [sp, #16]
+ a34:	a90257f6 	stp	x22, x21, [sp, #32]
+ a38:	a9034ff4 	stp	x20, x19, [sp, #48]
+ a3c:	910043fd 	add	x29, sp, #0x10
+ a40:	aa0003f5 	mov	x21, x0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:13
+    const char *ctl_path = getenv("BPLUS_PERF_CTL");
+ a44:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ a48:	9132d000 	add	x0, x0, #0xcb4
+ a4c:	97ffff79 	bl	830 <getenv@plt>
+ a50:	aa0003f3 	mov	x19, x0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:14
+    const char *ack_path = getenv("BPLUS_PERF_ACK");
+ a54:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ a58:	91330c00 	add	x0, x0, #0xcc3
+ a5c:	97ffff75 	bl	830 <getenv@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:15
+    assert(ctl_path && ack_path);
+ a60:	b4000833 	cbz	x19, b64 <profile_control+0x138>
+ a64:	aa0003f4 	mov	x20, x0
+ a68:	b40007e0 	cbz	x0, b64 <profile_control+0x138>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:16
+    int ctl = open(ctl_path, O_WRONLY), ack = open(ack_path, O_RDONLY);
+ a6c:	aa1303e0 	mov	x0, x19
+ a70:	52800021 	mov	w1, #0x1                   	// #1
+ a74:	97ffff4f 	bl	7b0 <open@plt>
+ a78:	2a0003f3 	mov	w19, w0
+ a7c:	aa1403e0 	mov	x0, x20
+ a80:	2a1f03e1 	mov	w1, wzr
+ a84:	97ffff4b 	bl	7b0 <open@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:17
+    assert(ctl >= 0 && ack >= 0);
+ a88:	2a130008 	orr	w8, w0, w19
+ a8c:	37f807c8 	tbnz	w8, #31, b84 <profile_control+0x158>
+ a90:	2a0003f4 	mov	w20, w0
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:18
+    assert(write(ctl, cmd, strlen(cmd)) == (ssize_t)strlen(cmd));
+ a94:	aa1503e0 	mov	x0, x21
+ a98:	97ffff3a 	bl	780 <strlen@plt>
+ a9c:	aa0003e2 	mov	x2, x0
+ aa0:	2a1303e0 	mov	w0, w19
+ aa4:	aa1503e1 	mov	x1, x21
+ aa8:	97ffff4e 	bl	7e0 <write@plt>
+ aac:	aa0003f6 	mov	x22, x0
+ ab0:	aa1503e0 	mov	x0, x21
+ ab4:	97ffff33 	bl	780 <strlen@plt>
+ ab8:	eb0002df 	cmp	x22, x0
+ abc:	54000741 	b.ne	ba4 <profile_control+0x178>  // b.any
+ ac0:	aa1f03f5 	mov	x21, xzr
+ ac4:	d10013b6 	sub	x22, x29, #0x4
+ ac8:	14000006 	b	ae0 <profile_control+0xb4>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:23
+        reply[used++] = byte;
+ acc:	910006a9 	add	x9, x21, #0x1
+ ad0:	38356ac8 	strb	w8, [x22, x21]
+ ad4:	aa0903f5 	mov	x21, x9
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:20
+    while (used < sizeof(reply)) {
+ ad8:	f100113f 	cmp	x9, #0x4
+ adc:	540001a2 	b.cs	b10 <profile_control+0xe4>  // b.hs, b.nlast
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:21
+        char byte; ssize_t n = read(ack, &byte, 1); assert(n == 1);
+ ae0:	910023e1 	add	x1, sp, #0x8
+ ae4:	2a1403e0 	mov	w0, w20
+ ae8:	52800022 	mov	w2, #0x1                   	// #1
+ aec:	97ffff45 	bl	800 <read@plt>
+ af0:	f100041f 	cmp	x0, #0x1
+ af4:	54000281 	b.ne	b44 <profile_control+0x118>  // b.any
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:22
+        if (byte == '\0' && used == 0) continue;
+ af8:	394023e8 	ldrb	w8, [sp, #8]
+ afc:	b5fffe95 	cbnz	x21, acc <profile_control+0xa0>
+ b00:	35fffe68 	cbnz	w8, acc <profile_control+0xa0>
+ b04:	aa1f03f5 	mov	x21, xzr
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:20
+    while (used < sizeof(reply)) {
+ b08:	f10012bf 	cmp	x21, #0x4
+ b0c:	54fffea3 	b.cc	ae0 <profile_control+0xb4>  // b.lo, b.ul, b.last
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:25
+    assert(!memcmp(reply, "ack\n", 4));
+ b10:	b85fc3a8 	ldur	w8, [x29, #-4]
+ b14:	528c6c29 	mov	w9, #0x6361                	// #25441
+ b18:	72a14d69 	movk	w9, #0xa6b, lsl #16
+ b1c:	6b09011f 	cmp	w8, w9
+ b20:	54000521 	b.ne	bc4 <profile_control+0x198>  // b.any
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:26
+    close(ctl); close(ack);
+ b24:	2a1303e0 	mov	w0, w19
+ b28:	97ffff26 	bl	7c0 <close@plt>
+ b2c:	2a1403e0 	mov	w0, w20
+ b30:	a9434ff4 	ldp	x20, x19, [sp, #48]
+ b34:	a94257f6 	ldp	x22, x21, [sp, #32]
+ b38:	a9417bfd 	ldp	x29, x30, [sp, #16]
+ b3c:	910103ff 	add	sp, sp, #0x40
+ b40:	17ffff20 	b	7c0 <close@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:21
+        char byte; ssize_t n = read(ack, &byte, 1); assert(n == 1);
+ b44:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ b48:	9135a800 	add	x0, x0, #0xd6a
+ b4c:	90000001 	adrp	x1, 0 <__abi_tag-0x278>
+ b50:	91339c21 	add	x1, x1, #0xce7
+ b54:	90000003 	adrp	x3, 0 <__abi_tag-0x278>
+ b58:	9133f463 	add	x3, x3, #0xcfd
+ b5c:	528002a2 	mov	w2, #0x15                  	// #21
+ b60:	97ffff30 	bl	820 <__assert_fail@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:15
+    assert(ctl_path && ack_path);
+ b64:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ b68:	91334800 	add	x0, x0, #0xcd2
+ b6c:	90000001 	adrp	x1, 0 <__abi_tag-0x278>
+ b70:	91339c21 	add	x1, x1, #0xce7
+ b74:	90000003 	adrp	x3, 0 <__abi_tag-0x278>
+ b78:	9133f463 	add	x3, x3, #0xcfd
+ b7c:	528001e2 	mov	w2, #0xf                   	// #15
+ b80:	97ffff28 	bl	820 <__assert_fail@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:17
+    assert(ctl >= 0 && ack >= 0);
+ b84:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ b88:	91348000 	add	x0, x0, #0xd20
+ b8c:	90000001 	adrp	x1, 0 <__abi_tag-0x278>
+ b90:	91339c21 	add	x1, x1, #0xce7
+ b94:	90000003 	adrp	x3, 0 <__abi_tag-0x278>
+ b98:	9133f463 	add	x3, x3, #0xcfd
+ b9c:	52800222 	mov	w2, #0x11                  	// #17
+ ba0:	97ffff20 	bl	820 <__assert_fail@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:18
+    assert(write(ctl, cmd, strlen(cmd)) == (ssize_t)strlen(cmd));
+ ba4:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ ba8:	9134d400 	add	x0, x0, #0xd35
+ bac:	90000001 	adrp	x1, 0 <__abi_tag-0x278>
+ bb0:	91339c21 	add	x1, x1, #0xce7
+ bb4:	90000003 	adrp	x3, 0 <__abi_tag-0x278>
+ bb8:	9133f463 	add	x3, x3, #0xcfd
+ bbc:	52800242 	mov	w2, #0x12                  	// #18
+ bc0:	97ffff18 	bl	820 <__assert_fail@plt>
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:25
+    assert(!memcmp(reply, "ack\n", 4));
+ bc4:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ bc8:	9135d800 	add	x0, x0, #0xd76
+ bcc:	90000001 	adrp	x1, 0 <__abi_tag-0x278>
+ bd0:	91339c21 	add	x1, x1, #0xce7
+ bd4:	90000003 	adrp	x3, 0 <__abi_tag-0x278>
+ bd8:	9133f463 	add	x3, x3, #0xcfd
+ bdc:	52800322 	mov	w2, #0x19                  	// #25
+ be0:	97ffff10 	bl	820 <__assert_fail@plt>
+
+0000000000000be4 <known_work>:
+known_work():
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:31
+__attribute__((noinline)) static uint64_t known_work(uint64_t initial) {
+ be4:	d10043ff 	sub	sp, sp, #0x10
+ be8:	d2961fa9 	mov	x9, #0xb0fd                	// #45309
+ bec:	52800068 	mov	w8, #0x3                   	// #3
+ bf0:	529e65aa 	mov	w10, #0xf32d                	// #62253
+ bf4:	f2b0f609 	movk	x9, #0x87b0, lsl #16
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:32
+    volatile uint64_t value = initial;
+ bf8:	f90007e8 	str	x8, [sp, #8]
+ bfc:	529c2008 	mov	w8, #0xe100                	// #57600
+ c00:	f2c5dcc9 	movk	x9, #0x2ee6, lsl #32
+ c04:	72a0bea8 	movk	w8, #0x5f5, lsl #16
+ c08:	72b6a08a 	movk	w10, #0xb504, lsl #16
+ c0c:	f2e4f769 	movk	x9, #0x27bb, lsl #48
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:34
+        value = value * UINT64_C(2862933555777941757) + UINT64_C(3037000493);
+ c10:	f94007eb 	ldr	x11, [sp, #8]
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:33
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+ c14:	f1000508 	subs	x8, x8, #0x1
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:34
+        value = value * UINT64_C(2862933555777941757) + UINT64_C(3037000493);
+ c18:	9b09296b 	madd	x11, x11, x9, x10
+ c1c:	f90007eb 	str	x11, [sp, #8]
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:33
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+ c20:	54ffff81 	b.ne	c10 <known_work+0x2c>  // b.any
+<remote_repo>/scratch/arm-corrected-iterator-13e459ff8/source/bench/known-control.c:35
+    return value;
+ c24:	f94007e0 	ldr	x0, [sp, #8]
+ c28:	910043ff 	add	sp, sp, #0x10
+ c2c:	d65f03c0 	ret
+
+Disassembly of section .fini:
+
+0000000000000c30 <_fini>:
+_fini():
+ c30:	d503201f 	nop
+ c34:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ c38:	910003fd 	mov	x29, sp
+ c3c:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ c40:	d65f03c0 	ret

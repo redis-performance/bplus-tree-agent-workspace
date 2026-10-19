@@ -1,0 +1,1088 @@
+
+build/btree-bench:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .text:
+
+0000000000010298 <zbtIndexScanSlot>:
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4195
+                                      unsigned int slot_pos,
+                                      unsigned long home_start,
+                                      unsigned long home_end,
+                                      zbtreeScanFunction *fn,
+                                      void *privdata)
+{
+   10298:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+   1029c:	a9016ffc 	stp	x28, x27, [sp, #16]
+   102a0:	a90267fa 	stp	x26, x25, [sp, #32]
+   102a4:	a9035ff8 	stp	x24, x23, [sp, #48]
+   102a8:	a90457f6 	stp	x22, x21, [sp, #64]
+   102ac:	a9054ff4 	stp	x20, x19, [sp, #80]
+   102b0:	910003fd 	mov	x29, sp
+   102b4:	d10703ff 	sub	sp, sp, #0x1c0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4196
+    uint8_t tag = zbtIndexTags(bucket) >> (slot_pos * 8);
+   102b8:	f9400048 	ldr	x8, [x2]
+   102bc:	531d7069 	lsl	w9, w3, #3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4197
+    uint32_t id = zbtIndexGetId(table, bucket, slot_pos);
+   102c0:	b940202a 	ldr	w10, [x1, #32]
+   102c4:	aa0503f5 	mov	x21, x5
+   102c8:	aa0203f7 	mov	x23, x2
+   102cc:	a9019fe6 	stp	x6, x7, [sp, #24]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4196
+    uint8_t tag = zbtIndexTags(bucket) >> (slot_pos * 8);
+   102d0:	9ac92508 	lsr	x8, x8, x9
+   102d4:	2a0303e9 	mov	w9, w3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1782
+    if (table->wide_ids) return bucket->wide.id[pos];
+   102d8:	340000ea 	cbz	w10, 102f4 <zbtIndexScanSlot+0x5c>
+   102dc:	8b090ae9 	add	x9, x23, x9, lsl #2
+   102e0:	b9401129 	ldr	w9, [x9, #16]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4198
+    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;
+   102e4:	f2401d0e 	ands	x14, x8, #0xff
+   102e8:	aa1f03f9 	mov	x25, xzr
+   102ec:	54000141 	b.ne	10314 <zbtIndexScanSlot+0x7c>  // b.any
+   102f0:	140000aa 	b	10598 <zbtIndexScanSlot+0x300>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1783
+    uint16_t id = bucket->narrow.id[pos];
+   102f4:	8b0906e9 	add	x9, x23, x9, lsl #1
+   102f8:	529fffeb 	mov	w11, #0xffff                	// #65535
+   102fc:	79402129 	ldrh	w9, [x9, #16]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1784
+    return id == UINT16_MAX ? ZBT_INDEX_DELETED_ID : id;
+   10300:	6b0b013f 	cmp	w9, w11
+   10304:	5a9f1129 	csinv	w9, w9, wzr, ne	// ne = any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4198
+    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;
+   10308:	f2401d0e 	ands	x14, x8, #0xff
+   1030c:	aa1f03f9 	mov	x25, xzr
+   10310:	54001440 	b.eq	10598 <zbtIndexScanSlot+0x300>  // b.none
+   10314:	3100053f 	cmn	w9, #0x1
+   10318:	54001400 	b.eq	10598 <zbtIndexScanSlot+0x300>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4199
+    if (home_end) {
+   1031c:	b4000475 	cbz	x21, 103a8 <zbtIndexScanSlot+0x110>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4202
+        uint64_t bits = zbtIndexTagBits(tag);
+        unsigned long home;
+        for (home = home_start; home < home_end; home++) {
+   10320:	eb15009f 	cmp	x4, x21
+   10324:	aa0403eb 	mov	x11, x4
+   10328:	540003c2 	b.cs	103a0 <zbtIndexScanSlot+0x108>  // b.hs, b.nlast
+   1032c:	d28f82ab 	mov	x11, #0x7c15                	// #31765
+   10330:	7100015f 	cmp	w10, #0x0
+   10334:	5280060a 	mov	w10, #0x30                  	// #48
+   10338:	f2afe94b 	movk	x11, #0x7f4a, lsl #16
+   1033c:	5280040c 	mov	w12, #0x20                  	// #32
+   10340:	f940002d 	ldr	x13, [x1]
+   10344:	f2cf372b 	movk	x11, #0x79b9, lsl #32
+   10348:	9a8a018a 	csel	x10, x12, x10, eq	// eq = none
+   1034c:	5280002f 	mov	w15, #0x1                   	// #1
+   10350:	f2f3c6eb 	movk	x11, #0x9e37, lsl #48
+   10354:	9b04354d 	madd	x13, x10, x4, x13
+   10358:	9ac821f0 	lsl	x16, x15, x8
+   1035c:	9b0b7dcb 	mul	x11, x14, x11
+   10360:	910021ad 	add	x13, x13, #0x8
+   10364:	d37afd6c 	lsr	x12, x11, #58
+   10368:	d364fd6b 	lsr	x11, x11, #36
+   1036c:	9acc21ec 	lsl	x12, x15, x12
+   10370:	9acb21eb 	lsl	x11, x15, x11
+   10374:	aa10018c 	orr	x12, x12, x16
+   10378:	aa0b018c 	orr	x12, x12, x11
+   1037c:	aa0403eb 	mov	x11, x4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4203
+            if ((*zbtIndexHomeTagsAt(table, home) & bits) == bits) break;
+   10380:	f94001af 	ldr	x15, [x13]
+   10384:	ea2f019f 	bics	xzr, x12, x15
+   10388:	540000c0 	b.eq	103a0 <zbtIndexScanSlot+0x108>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4202
+        for (home = home_start; home < home_end; home++) {
+   1038c:	9100056b 	add	x11, x11, #0x1
+   10390:	8b0a01ad 	add	x13, x13, x10
+   10394:	eb0b02bf 	cmp	x21, x11
+   10398:	54ffff41 	b.ne	10380 <zbtIndexScanSlot+0xe8>  // b.any
+   1039c:	1400007e 	b	10594 <zbtIndexScanSlot+0x2fc>
+   103a0:	eb15017f 	cmp	x11, x21
+   103a4:	54000f80 	b.eq	10594 <zbtIndexScanSlot+0x2fc>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4207
+        }
+        if (home == home_end) return 0;
+    }
+    zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?
+   103a8:	b940540a 	ldr	w10, [x0, #84]
+   103ac:	6b0a013f 	cmp	w9, w10
+   103b0:	54000e82 	b.cs	10580 <zbtIndexScanSlot+0x2e8>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4208
+        zs->score_leaf_by_id[id] : NULL;
+   103b4:	f940240a 	ldr	x10, [x0, #72]
+   103b8:	f869595a 	ldr	x26, [x10, w9, uxtw #3]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4209
+    if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {
+   103bc:	b4000e3a 	cbz	x26, 10580 <zbtIndexScanSlot+0x2e8>
+   103c0:	37000e1a 	tbnz	w26, #0, 10580 <zbtIndexScanSlot+0x2e8>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4213
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+        return 0;
+    }
+    serverAssert(leaf->id == id);
+   103c4:	b940334a 	ldr	w10, [x26, #48]
+   103c8:	6b09015f 	cmp	w10, w9
+   103cc:	540045a1 	b.ne	10c80 <zbtIndexScanSlot+0x9e8>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4214
+    if (zs->member_rehash) {
+   103d0:	f9402009 	ldr	x9, [x0, #64]
+   103d4:	b4000129 	cbz	x9, 103f8 <zbtIndexScanSlot+0x160>
+zbtIndexLeafMigrated():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:2093
+           leaf->n.index_resize == zs->member_rehash->resize_id;
+   103d8:	79402f4a 	ldrh	w10, [x26, #22]
+   103dc:	7940592b 	ldrh	w11, [x9, #44]
+   103e0:	6b0b015f 	cmp	w10, w11
+   103e4:	1a9f17ea 	cset	w10, eq	// eq = none
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4216
+        int in_new = table == &zs->member_rehash->table;
+        if (in_new != zbtIndexLeafMigrated(zs, leaf)) return 0;
+   103e8:	eb01013f 	cmp	x9, x1
+   103ec:	1a9f07e9 	cset	w9, ne	// ne = any
+   103f0:	6b0a013f 	cmp	w9, w10
+   103f4:	54000d00 	b.eq	10594 <zbtIndexScanSlot+0x2fc>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:365
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   103f8:	3940d34a 	ldrb	w10, [x26, #52]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:370
+    return (uint8_t *)(zbtScoreLeafOffsets(leaf) + leaf->n.count);
+   103fc:	39404749 	ldrb	w9, [x26, #17]
+   10400:	528000f0 	mov	w16, #0x7                   	// #7
+zbtScoreLeafScoreBytes():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:357
+    if (score_bits == 0) return 0;
+   10404:	b40000aa 	cbz	x10, 10418 <zbtIndexScanSlot+0x180>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:358
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   10408:	1b0a412a 	madd	w10, w9, w10, w16
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:359
+    return (bytes + 8 + 1) & ~(size_t)1;
+   1040c:	53037d4a 	lsr	w10, w10, #3
+   10410:	1100254a 	add	w10, w10, #0x9
+   10414:	927f354a 	and	x10, x10, #0x7ffe
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:364
+    return (uint16_t *)(leaf->data +
+   10418:	9100e34b 	add	x11, x26, #0x38
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4143
+    unsigned int words = count / 8;
+   1041c:	d343fd2d 	lsr	x13, x9, #3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4148
+    for (; count - base >= 16; base += 16) {
+   10420:	7100413f 	cmp	w9, #0x10
+   10424:	f90017eb 	str	x11, [sp, #40]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:364
+    return (uint16_t *)(leaf->data +
+   10428:	8b0a016b 	add	x11, x11, x10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4144
+    unsigned int last = reversed ? count - 1 : 0;
+   1042c:	5100052f 	sub	w15, w9, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:370
+    return (uint8_t *)(zbtScoreLeafOffsets(leaf) + leaf->n.count);
+   10430:	8b09056c 	add	x12, x11, x9, lsl #1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4225
+     * tag is the member's real hash >> 24 and is only copied forward from an
+     * already correct leaf, so a match already implies zbtIndexTag(hash) ==
+     * tag. */
+    unsigned int positions[ZBT_SCORE_LEAF_MAX];
+    unsigned int count = zbtLeafTagMatches(zbtScoreLeafHashTags(leaf),
+                                           leaf->n.count, leaf->reversed,
+   10434:	3940d74b 	ldrb	w11, [x26, #53]
+   10438:	a90007e4 	stp	x4, x1, [sp]
+   1043c:	b90017f0 	str	w16, [sp, #20]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4148
+    for (; count - base >= 16; base += 16) {
+   10440:	54000be3 	b.cc	105bc <zbtIndexScanSlot+0x324>  // b.lo, b.ul, b.last
+   10444:	2f00e621 	movi	d1, #0xff000000ff
+   10448:	52800032 	mov	w18, #0x1                   	// #1
+   1044c:	1e270103 	fmov	s3, w8
+   10450:	1e270242 	fmov	s2, w18
+   10454:	4e010d00 	dup	v0.16b, w8
+   10458:	121c0d30 	and	w16, w9, #0xf0
+   1045c:	aa1f03f1 	mov	x17, xzr
+   10460:	2a1f03fb 	mov	w27, wzr
+   10464:	0e211c42 	and	v2.8b, v2.8b, v1.8b
+   10468:	0e211c61 	and	v1.8b, v3.8b, v1.8b
+   1046c:	2ea28c21 	cmeq	v1.2s, v1.2s, v2.2s
+   10470:	0e040422 	dup	v2.2s, v1.s[0]
+   10474:	1e260020 	fmov	w0, s1
+   10478:	0e0c3c52 	mov	w18, v2.s[1]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   1047c:	3400108b 	cbz	w11, 1068c <zbtIndexScanSlot+0x3f4>
+   10480:	9100e3e6 	add	x6, sp, #0x38
+   10484:	14000005 	b	10498 <zbtIndexScanSlot+0x200>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4148
+    for (; count - base >= 16; base += 16) {
+   10488:	91004231 	add	x17, x17, #0x10
+   1048c:	4b110122 	sub	w2, w9, w17
+   10490:	71003c5f 	cmp	w2, #0xf
+   10494:	54000989 	b.ls	105c4 <zbtIndexScanSlot+0x32c>  // b.plast
+   10498:	3900dbe0 	strb	w0, [sp, #54]
+   1049c:	3900dff2 	strb	w18, [sp, #55]
+   104a0:	79406fe2 	ldrh	w2, [sp, #54]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4149
+        uint8x16_t bytes = vld1q_u8(tags + base);
+   104a4:	3cf16982 	ldr	q2, [x12, x17]
+   104a8:	12000044 	and	w4, w2, #0x1
+   104ac:	53010443 	ubfx	w3, w2, #1, #1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4151
+        if (tag == 1)
+   104b0:	4e209843 	cmeq	v3.16b, v2.16b, #0
+   104b4:	1e270081 	fmov	s1, w4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4150
+        uint8x16_t equal = vceqq_u8(bytes, wanted);
+   104b8:	6e208c42 	cmeq	v2.16b, v2.16b, v0.16b
+   104bc:	4e031c61 	mov	v1.b[1], w3
+   104c0:	53020843 	ubfx	w3, w2, #2, #1
+   104c4:	4e051c61 	mov	v1.b[2], w3
+   104c8:	53030c43 	ubfx	w3, w2, #3, #1
+   104cc:	4e071c61 	mov	v1.b[3], w3
+   104d0:	53041043 	ubfx	w3, w2, #4, #1
+   104d4:	4e091c61 	mov	v1.b[4], w3
+   104d8:	53051443 	ubfx	w3, w2, #5, #1
+   104dc:	4e0b1c61 	mov	v1.b[5], w3
+   104e0:	53061843 	ubfx	w3, w2, #6, #1
+   104e4:	4e0d1c61 	mov	v1.b[6], w3
+   104e8:	53071c43 	ubfx	w3, w2, #7, #1
+   104ec:	4e0f1c61 	mov	v1.b[7], w3
+   104f0:	53082043 	ubfx	w3, w2, #8, #1
+   104f4:	4e111c61 	mov	v1.b[8], w3
+   104f8:	53092443 	ubfx	w3, w2, #9, #1
+   104fc:	4e131c61 	mov	v1.b[9], w3
+   10500:	530a2843 	ubfx	w3, w2, #10, #1
+   10504:	4e151c61 	mov	v1.b[10], w3
+   10508:	530b2c43 	ubfx	w3, w2, #11, #1
+   1050c:	4e171c61 	mov	v1.b[11], w3
+   10510:	530c3043 	ubfx	w3, w2, #12, #1
+   10514:	4e191c61 	mov	v1.b[12], w3
+   10518:	530d3443 	ubfx	w3, w2, #13, #1
+   1051c:	4e1b1c61 	mov	v1.b[13], w3
+   10520:	530e3843 	ubfx	w3, w2, #14, #1
+   10524:	530f7c42 	lsr	w2, w2, #15
+   10528:	4e1d1c61 	mov	v1.b[14], w3
+   1052c:	4e1f1c41 	mov	v1.b[15], w2
+   10530:	4e231c21 	and	v1.16b, v1.16b, v3.16b
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4151
+        if (tag == 1)
+   10534:	4ea21c21 	orr	v1.16b, v1.16b, v2.16b
+   10538:	4f0f5421 	shl	v1.16b, v1.16b, #7
+   1053c:	4e20a821 	cmlt	v1.16b, v1.16b, #0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4156
+        uint8x8_t nibbles = vshrn_n_u16(vreinterpretq_u16_u8(equal), 4);
+   10540:	0f0c8421 	shrn	v1.8b, v1.8h, #4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4157
+        uint64_t mask = vget_lane_u64(vreinterpret_u64_u8(nibbles), 0) &
+   10544:	9e660022 	fmov	x2, d1
+   10548:	f200e042 	ands	x2, x2, #0x1111111111111111
+   1054c:	54fff9e0 	b.eq	10488 <zbtIndexScanSlot+0x1f0>  // b.none
+   10550:	2a1b03e3 	mov	w3, w27
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4160
+            unsigned int pos = base + (unsigned int)(__builtin_ctzll(mask) >> 2);
+   10554:	dac00044 	rbit	x4, x2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4162
+            mask &= mask - 1;
+   10558:	d1000445 	sub	x5, x2, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   1055c:	1100047b 	add	w27, w3, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4162
+            mask &= mask - 1;
+   10560:	ea0200a2 	ands	x2, x5, x2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4160
+            unsigned int pos = base + (unsigned int)(__builtin_ctzll(mask) >> 2);
+   10564:	dac01084 	clz	x4, x4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   10568:	2a440a24 	orr	w4, w17, w4, lsr #2
+   1056c:	4b0401e4 	sub	w4, w15, w4
+   10570:	b82358c4 	str	w4, [x6, w3, uxtw #2]
+   10574:	2a1b03e3 	mov	w3, w27
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4159
+        while (mask) {
+   10578:	54fffee1 	b.ne	10554 <zbtIndexScanSlot+0x2bc>  // b.any
+   1057c:	17ffffc3 	b	10488 <zbtIndexScanSlot+0x1f0>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4210
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+   10580:	f9402008 	ldr	x8, [x0, #64]
+   10584:	b4003728 	cbz	x8, 10c68 <zbtIndexScanSlot+0x9d0>
+   10588:	91006008 	add	x8, x0, #0x18
+   1058c:	eb01011f 	cmp	x8, x1
+   10590:	540036c1 	b.ne	10c68 <zbtIndexScanSlot+0x9d0>  // b.any
+   10594:	aa1f03f9 	mov	x25, xzr
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4252
+        fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
+        emitted++;
+    }
+    serverAssert(home_end || emitted != 0);
+    return emitted;
+}
+   10598:	aa1903e0 	mov	x0, x25
+   1059c:	910703ff 	add	sp, sp, #0x1c0
+   105a0:	a9454ff4 	ldp	x20, x19, [sp, #80]
+   105a4:	a94457f6 	ldp	x22, x21, [sp, #64]
+   105a8:	a9435ff8 	ldp	x24, x23, [sp, #48]
+   105ac:	a94267fa 	ldp	x26, x25, [sp, #32]
+   105b0:	a9416ffc 	ldp	x28, x27, [sp, #16]
+   105b4:	a8c67bfd 	ldp	x29, x30, [sp], #96
+   105b8:	d65f03c0 	ret
+   105bc:	2a1f03f0 	mov	w16, wzr
+   105c0:	2a1f03fb 	mov	w27, wzr
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4166
+    for (unsigned int w = base / 8; w < words; w++) {
+   105c4:	53037e10 	lsr	w16, w16, #3
+   105c8:	b207dbf3 	mov	x19, #0xfefefefefefefefe    	// #-72340172838076674
+   105cc:	f29fdff3 	movk	x19, #0xfeff
+   105d0:	6b0d021f 	cmp	w16, w13
+   105d4:	540013a2 	b.cs	10848 <zbtIndexScanSlot+0x5b0>  // b.hs, b.nlast
+   105d8:	b200c3f1 	mov	x17, #0x101010101010101     	// #72340172838076673
+   105dc:	9b117dce 	mul	x14, x14, x17
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4173
+                positions[found++] = reversed ? last - pos : pos;
+   105e0:	34000e4b 	cbz	w11, 107a8 <zbtIndexScanSlot+0x510>
+   105e4:	9100e3f1 	add	x17, sp, #0x38
+   105e8:	14000004 	b	105f8 <zbtIndexScanSlot+0x360>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4166
+    for (unsigned int w = base / 8; w < words; w++) {
+   105ec:	91000610 	add	x16, x16, #0x1
+   105f0:	eb0d021f 	cmp	x16, x13
+   105f4:	540012a0 	b.eq	10848 <zbtIndexScanSlot+0x5b0>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4167
+        uint64_t word = zbtLeafTagWord(tags + w * 8);
+   105f8:	d37df212 	lsl	x18, x16, #3
+   105fc:	b207dbe3 	mov	x3, #0xfefefefefefefefe    	// #-72340172838076674
+   10600:	f29fdfe3 	movk	x3, #0xfeff
+   10604:	927d7e40 	and	x0, x18, #0x7fffffff8
+   10608:	f8606980 	ldr	x0, [x12, x0]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1839
+    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+   1060c:	ca0e0001 	eor	x1, x0, x14
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1840
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   10610:	8b030022 	add	x2, x1, x3
+   10614:	8b030003 	add	x3, x0, x3
+   10618:	8a210041 	bic	x1, x2, x1
+   1061c:	8a200060 	bic	x0, x3, x0
+   10620:	12001d02 	and	w2, w8, #0xff
+   10624:	9201c021 	and	x1, x1, #0x8080808080808080
+   10628:	9201c000 	and	x0, x0, #0x8080808080808080
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4169
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   1062c:	7100045f 	cmp	w2, #0x1
+   10630:	aa000020 	orr	x0, x1, x0
+   10634:	9a801020 	csel	x0, x1, x0, ne	// ne = any
+   10638:	b50000a0 	cbnz	x0, 1064c <zbtIndexScanSlot+0x3b4>
+   1063c:	17ffffec 	b	105ec <zbtIndexScanSlot+0x354>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4174
+            mask &= mask - 1;
+   10640:	d1000401 	sub	x1, x0, #0x1
+   10644:	ea000020 	ands	x0, x1, x0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4170
+        while (mask) {
+   10648:	54fffd20 	b.eq	105ec <zbtIndexScanSlot+0x354>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1846
+    return __builtin_ctzll(mask) >> 3;
+   1064c:	dac00001 	rbit	x1, x0
+   10650:	12001d02 	and	w2, w8, #0xff
+   10654:	7100045f 	cmp	w2, #0x1
+   10658:	dac01021 	clz	x1, x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4171
+            unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+   1065c:	2a410e41 	orr	w1, w18, w1, lsr #3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4172
+            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   10660:	38614983 	ldrb	w3, [x12, w1, uxtw]
+   10664:	7a400860 	ccmp	w3, #0x0, #0x0, eq	// eq = none
+   10668:	1a9f17e4 	cset	w4, eq	// eq = none
+   1066c:	6b02007f 	cmp	w3, w2
+   10670:	7a401880 	ccmp	w4, #0x0, #0x0, ne	// ne = any
+   10674:	54fffe60 	b.eq	10640 <zbtIndexScanSlot+0x3a8>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4173
+                positions[found++] = reversed ? last - pos : pos;
+   10678:	11000762 	add	w2, w27, #0x1
+   1067c:	4b0101e1 	sub	w1, w15, w1
+   10680:	b83b5a21 	str	w1, [x17, w27, uxtw #2]
+   10684:	2a0203fb 	mov	w27, w2
+   10688:	17ffffee 	b	10640 <zbtIndexScanSlot+0x3a8>
+   1068c:	9100e3f3 	add	x19, sp, #0x38
+   10690:	14000005 	b	106a4 <zbtIndexScanSlot+0x40c>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4148
+    for (; count - base >= 16; base += 16) {
+   10694:	91004231 	add	x17, x17, #0x10
+   10698:	4b110122 	sub	w2, w9, w17
+   1069c:	71003c5f 	cmp	w2, #0xf
+   106a0:	54fff929 	b.ls	105c4 <zbtIndexScanSlot+0x32c>  // b.plast
+   106a4:	3900d3e0 	strb	w0, [sp, #52]
+   106a8:	3900d7f2 	strb	w18, [sp, #53]
+   106ac:	79406be2 	ldrh	w2, [sp, #52]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4149
+        uint8x16_t bytes = vld1q_u8(tags + base);
+   106b0:	3cf16982 	ldr	q2, [x12, x17]
+   106b4:	12000044 	and	w4, w2, #0x1
+   106b8:	53010443 	ubfx	w3, w2, #1, #1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4151
+        if (tag == 1)
+   106bc:	4e209843 	cmeq	v3.16b, v2.16b, #0
+   106c0:	1e270081 	fmov	s1, w4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4150
+        uint8x16_t equal = vceqq_u8(bytes, wanted);
+   106c4:	6e208c42 	cmeq	v2.16b, v2.16b, v0.16b
+   106c8:	4e031c61 	mov	v1.b[1], w3
+   106cc:	53020843 	ubfx	w3, w2, #2, #1
+   106d0:	4e051c61 	mov	v1.b[2], w3
+   106d4:	53030c43 	ubfx	w3, w2, #3, #1
+   106d8:	4e071c61 	mov	v1.b[3], w3
+   106dc:	53041043 	ubfx	w3, w2, #4, #1
+   106e0:	4e091c61 	mov	v1.b[4], w3
+   106e4:	53051443 	ubfx	w3, w2, #5, #1
+   106e8:	4e0b1c61 	mov	v1.b[5], w3
+   106ec:	53061843 	ubfx	w3, w2, #6, #1
+   106f0:	4e0d1c61 	mov	v1.b[6], w3
+   106f4:	53071c43 	ubfx	w3, w2, #7, #1
+   106f8:	4e0f1c61 	mov	v1.b[7], w3
+   106fc:	53082043 	ubfx	w3, w2, #8, #1
+   10700:	4e111c61 	mov	v1.b[8], w3
+   10704:	53092443 	ubfx	w3, w2, #9, #1
+   10708:	4e131c61 	mov	v1.b[9], w3
+   1070c:	530a2843 	ubfx	w3, w2, #10, #1
+   10710:	4e151c61 	mov	v1.b[10], w3
+   10714:	530b2c43 	ubfx	w3, w2, #11, #1
+   10718:	4e171c61 	mov	v1.b[11], w3
+   1071c:	530c3043 	ubfx	w3, w2, #12, #1
+   10720:	4e191c61 	mov	v1.b[12], w3
+   10724:	530d3443 	ubfx	w3, w2, #13, #1
+   10728:	4e1b1c61 	mov	v1.b[13], w3
+   1072c:	530e3843 	ubfx	w3, w2, #14, #1
+   10730:	530f7c42 	lsr	w2, w2, #15
+   10734:	4e1d1c61 	mov	v1.b[14], w3
+   10738:	4e1f1c41 	mov	v1.b[15], w2
+   1073c:	4e231c21 	and	v1.16b, v1.16b, v3.16b
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4151
+        if (tag == 1)
+   10740:	4ea21c21 	orr	v1.16b, v1.16b, v2.16b
+   10744:	4f0f5421 	shl	v1.16b, v1.16b, #7
+   10748:	4e20a821 	cmlt	v1.16b, v1.16b, #0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4156
+        uint8x8_t nibbles = vshrn_n_u16(vreinterpretq_u16_u8(equal), 4);
+   1074c:	0f0c8421 	shrn	v1.8b, v1.8h, #4
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4157
+        uint64_t mask = vget_lane_u64(vreinterpret_u64_u8(nibbles), 0) &
+   10750:	9e660022 	fmov	x2, d1
+   10754:	9200e042 	and	x2, x2, #0x1111111111111111
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   10758:	9e670041 	fmov	d1, x2
+   1075c:	0e205821 	cnt	v1.8b, v1.8b
+   10760:	2e303821 	uaddlv	h1, v1.8b
+   10764:	1e260024 	fmov	w4, s1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4159
+        while (mask) {
+   10768:	34fff964 	cbz	w4, 10694 <zbtIndexScanSlot+0x3fc>
+   1076c:	0b040363 	add	w3, w27, w4
+   10770:	11000484 	add	w4, w4, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4160
+            unsigned int pos = base + (unsigned int)(__builtin_ctzll(mask) >> 2);
+   10774:	dac00045 	rbit	x5, x2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4159
+        while (mask) {
+   10778:	51000484 	sub	w4, w4, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   1077c:	11000766 	add	w6, w27, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4162
+            mask &= mask - 1;
+   10780:	d1000447 	sub	x7, x2, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4159
+        while (mask) {
+   10784:	7100089f 	cmp	w4, #0x2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4160
+            unsigned int pos = base + (unsigned int)(__builtin_ctzll(mask) >> 2);
+   10788:	dac010a5 	clz	x5, x5
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4162
+            mask &= mask - 1;
+   1078c:	8a0200e2 	and	x2, x7, x2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4160
+            unsigned int pos = base + (unsigned int)(__builtin_ctzll(mask) >> 2);
+   10790:	2a450a25 	orr	w5, w17, w5, lsr #2
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4161
+            positions[found++] = reversed ? last - pos : pos;
+   10794:	b83b5a65 	str	w5, [x19, w27, uxtw #2]
+   10798:	2a0603fb 	mov	w27, w6
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4159
+        while (mask) {
+   1079c:	54fffec2 	b.cs	10774 <zbtIndexScanSlot+0x4dc>  // b.hs, b.nlast
+   107a0:	2a0303fb 	mov	w27, w3
+   107a4:	17ffffbc 	b	10694 <zbtIndexScanSlot+0x3fc>
+   107a8:	9100e3ef 	add	x15, sp, #0x38
+   107ac:	14000004 	b	107bc <zbtIndexScanSlot+0x524>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4166
+    for (unsigned int w = base / 8; w < words; w++) {
+   107b0:	91000610 	add	x16, x16, #0x1
+   107b4:	eb0d021f 	cmp	x16, x13
+   107b8:	54000480 	b.eq	10848 <zbtIndexScanSlot+0x5b0>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4167
+        uint64_t word = zbtLeafTagWord(tags + w * 8);
+   107bc:	d37df211 	lsl	x17, x16, #3
+   107c0:	b207dbe2 	mov	x2, #0xfefefefefefefefe    	// #-72340172838076674
+   107c4:	f29fdfe2 	movk	x2, #0xfeff
+   107c8:	927d7e32 	and	x18, x17, #0x7fffffff8
+   107cc:	f8726992 	ldr	x18, [x12, x18]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1839
+    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+   107d0:	ca0e0240 	eor	x0, x18, x14
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1840
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   107d4:	8b020001 	add	x1, x0, x2
+   107d8:	8b020242 	add	x2, x18, x2
+   107dc:	8a200020 	bic	x0, x1, x0
+   107e0:	8a320041 	bic	x1, x2, x18
+   107e4:	12001d12 	and	w18, w8, #0xff
+   107e8:	9201c000 	and	x0, x0, #0x8080808080808080
+   107ec:	9201c021 	and	x1, x1, #0x8080808080808080
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4169
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   107f0:	7100065f 	cmp	w18, #0x1
+   107f4:	aa010001 	orr	x1, x0, x1
+   107f8:	9a811000 	csel	x0, x0, x1, ne	// ne = any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4170
+        while (mask) {
+   107fc:	b50000a0 	cbnz	x0, 10810 <zbtIndexScanSlot+0x578>
+   10800:	17ffffec 	b	107b0 <zbtIndexScanSlot+0x518>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4174
+            mask &= mask - 1;
+   10804:	d1000401 	sub	x1, x0, #0x1
+   10808:	ea000020 	ands	x0, x1, x0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4170
+        while (mask) {
+   1080c:	54fffd20 	b.eq	107b0 <zbtIndexScanSlot+0x518>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1846
+    return __builtin_ctzll(mask) >> 3;
+   10810:	dac00001 	rbit	x1, x0
+   10814:	7100065f 	cmp	w18, #0x1
+   10818:	dac01021 	clz	x1, x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4171
+            unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+   1081c:	2a410e21 	orr	w1, w17, w1, lsr #3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4172
+            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   10820:	38614982 	ldrb	w2, [x12, w1, uxtw]
+   10824:	7a400840 	ccmp	w2, #0x0, #0x0, eq	// eq = none
+   10828:	1a9f17e3 	cset	w3, eq	// eq = none
+   1082c:	6b12005f 	cmp	w2, w18
+   10830:	7a401860 	ccmp	w3, #0x0, #0x0, ne	// ne = any
+   10834:	54fffe80 	b.eq	10804 <zbtIndexScanSlot+0x56c>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4173
+                positions[found++] = reversed ? last - pos : pos;
+   10838:	11000762 	add	w2, w27, #0x1
+   1083c:	b83b59e1 	str	w1, [x15, w27, uxtw #2]
+   10840:	2a0203fb 	mov	w27, w2
+   10844:	17fffff0 	b	10804 <zbtIndexScanSlot+0x56c>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4177
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   10848:	7200093f 	tst	w9, #0x7
+   1084c:	54000a00 	b.eq	1098c <zbtIndexScanSlot+0x6f4>  // b.none
+   10850:	12001d0c 	and	w12, w8, #0xff
+   10854:	7100059f 	cmp	w12, #0x1
+   10858:	927d112c 	and	x12, x9, #0xf8
+   1085c:	540002c1 	b.ne	108b4 <zbtIndexScanSlot+0x61c>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4179
+            positions[found++] = reversed ? last - pos : pos;
+   10860:	3400054b 	cbz	w11, 10908 <zbtIndexScanSlot+0x670>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4177
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   10864:	2a2903e8 	mvn	w8, w9
+   10868:	8b09054a 	add	x10, x10, x9, lsl #1
+   1086c:	9100e18c 	add	x12, x12, #0x38
+   10870:	32186908 	orr	w8, w8, #0xffffff07
+   10874:	9100e3eb 	add	x11, sp, #0x38
+   10878:	0b090108 	add	w8, w8, w9
+   1087c:	8b0a034a 	add	x10, x26, x10
+   10880:	14000006 	b	10898 <zbtIndexScanSlot+0x600>
+   10884:	d100dd8d 	sub	x13, x12, #0x37
+   10888:	9100058c 	add	x12, x12, #0x1
+   1088c:	51000508 	sub	w8, w8, #0x1
+   10890:	eb0901bf 	cmp	x13, x9
+   10894:	540007c2 	b.cs	1098c <zbtIndexScanSlot+0x6f4>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4178
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   10898:	386c694d 	ldrb	w13, [x10, x12]
+   1089c:	710005bf 	cmp	w13, #0x1
+   108a0:	54ffff28 	b.hi	10884 <zbtIndexScanSlot+0x5ec>  // b.pmore
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4179
+            positions[found++] = reversed ? last - pos : pos;
+   108a4:	1100076d 	add	w13, w27, #0x1
+   108a8:	b83b5968 	str	w8, [x11, w27, uxtw #2]
+   108ac:	2a0d03fb 	mov	w27, w13
+   108b0:	17fffff5 	b	10884 <zbtIndexScanSlot+0x5ec>
+   108b4:	8b09054d 	add	x13, x10, x9, lsl #1
+   108b8:	340004ab 	cbz	w11, 1094c <zbtIndexScanSlot+0x6b4>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4177
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   108bc:	2a2903ea 	mvn	w10, w9
+   108c0:	9100e18c 	add	x12, x12, #0x38
+   108c4:	8b0d034b 	add	x11, x26, x13
+   108c8:	3218694a 	orr	w10, w10, #0xffffff07
+   108cc:	9100e3ed 	add	x13, sp, #0x38
+   108d0:	0b09014a 	add	w10, w10, w9
+   108d4:	14000006 	b	108ec <zbtIndexScanSlot+0x654>
+   108d8:	d100dd8e 	sub	x14, x12, #0x37
+   108dc:	9100058c 	add	x12, x12, #0x1
+   108e0:	5100054a 	sub	w10, w10, #0x1
+   108e4:	eb0901df 	cmp	x14, x9
+   108e8:	54000522 	b.cs	1098c <zbtIndexScanSlot+0x6f4>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4178
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   108ec:	386c696e 	ldrb	w14, [x11, x12]
+   108f0:	6b2801df 	cmp	w14, w8, uxtb
+   108f4:	54ffff21 	b.ne	108d8 <zbtIndexScanSlot+0x640>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4179
+            positions[found++] = reversed ? last - pos : pos;
+   108f8:	1100076e 	add	w14, w27, #0x1
+   108fc:	b83b59aa 	str	w10, [x13, w27, uxtw #2]
+   10900:	2a0e03fb 	mov	w27, w14
+   10904:	17fffff5 	b	108d8 <zbtIndexScanSlot+0x640>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4177
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   10908:	8b090548 	add	x8, x10, x9, lsl #1
+   1090c:	9100e18a 	add	x10, x12, #0x38
+   10910:	9100e3eb 	add	x11, sp, #0x38
+   10914:	8b080348 	add	x8, x26, x8
+   10918:	14000005 	b	1092c <zbtIndexScanSlot+0x694>
+   1091c:	d100dd4c 	sub	x12, x10, #0x37
+   10920:	9100054a 	add	x10, x10, #0x1
+   10924:	eb09019f 	cmp	x12, x9
+   10928:	54000322 	b.cs	1098c <zbtIndexScanSlot+0x6f4>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4178
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   1092c:	386a690c 	ldrb	w12, [x8, x10]
+   10930:	7100059f 	cmp	w12, #0x1
+   10934:	54ffff48 	b.hi	1091c <zbtIndexScanSlot+0x684>  // b.pmore
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4179
+            positions[found++] = reversed ? last - pos : pos;
+   10938:	1100076c 	add	w12, w27, #0x1
+   1093c:	5100e14d 	sub	w13, w10, #0x38
+   10940:	b83b596d 	str	w13, [x11, w27, uxtw #2]
+   10944:	2a0c03fb 	mov	w27, w12
+   10948:	17fffff5 	b	1091c <zbtIndexScanSlot+0x684>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4177
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   1094c:	9100e18b 	add	x11, x12, #0x38
+   10950:	8b0d034a 	add	x10, x26, x13
+   10954:	9100e3ec 	add	x12, sp, #0x38
+   10958:	14000005 	b	1096c <zbtIndexScanSlot+0x6d4>
+   1095c:	d100dd6d 	sub	x13, x11, #0x37
+   10960:	9100056b 	add	x11, x11, #0x1
+   10964:	eb0901bf 	cmp	x13, x9
+   10968:	54000122 	b.cs	1098c <zbtIndexScanSlot+0x6f4>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4178
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   1096c:	386b694d 	ldrb	w13, [x10, x11]
+   10970:	6b2801bf 	cmp	w13, w8, uxtb
+   10974:	54ffff41 	b.ne	1095c <zbtIndexScanSlot+0x6c4>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4179
+            positions[found++] = reversed ? last - pos : pos;
+   10978:	1100076d 	add	w13, w27, #0x1
+   1097c:	5100e16e 	sub	w14, w11, #0x38
+   10980:	b83b598e 	str	w14, [x12, w27, uxtw #2]
+   10984:	2a0d03fb 	mov	w27, w13
+   10988:	17fffff5 	b	1095c <zbtIndexScanSlot+0x6c4>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4227
+    serverAssert(count != 0);
+   1098c:	3400187b 	cbz	w27, 10c98 <zbtIndexScanSlot+0xa00>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4199
+    if (home_end) {
+   10990:	f10002bf 	cmp	x21, #0x0
+   10994:	aa1f03f6 	mov	x22, xzr
+   10998:	aa1f03f9 	mov	x25, xzr
+   1099c:	7a410b60 	ccmp	w27, #0x1, #0x0, eq	// eq = none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4230
+    for (unsigned int i = 0; i < count; i++) {
+   109a0:	2a1b03f8 	mov	w24, w27
+   109a4:	1a9f07f4 	cset	w20, ne	// ne = any
+   109a8:	14000016 	b	10a00 <zbtIndexScanSlot+0x768>
+   109ac:	9280000c 	mov	x12, #0xffffffffffffffff    	// #-1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:518
+        if (bits < 64)
+   109b0:	7101011f 	cmp	w8, #0x40
+   109b4:	9ac8218b 	lsl	x11, x12, x8
+   109b8:	da8b2188 	csinv	x8, x12, x11, cs	// cs = hs, nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:520
+        delta <<= leaf->n.score_shift;
+   109bc:	39404f4b 	ldrb	w11, [x26, #19]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:518
+        if (bits < 64)
+   109c0:	8a080148 	and	x8, x10, x8
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:520
+        delta <<= leaf->n.score_shift;
+   109c4:	9acb2108 	lsl	x8, x8, x11
+   109c8:	f940174a 	ldr	x10, [x26, #40]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:522
+    uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+   109cc:	7100013f 	cmp	w9, #0x0
+   109d0:	da880508 	cneg	x8, x8, ne	// ne = any
+   109d4:	8b080148 	add	x8, x10, x8
+zbtOrderedToScore():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:338
+    if (ordered & (UINT64_C(1) << 63))
+   109d8:	9240f909 	and	x9, x8, #0x7fffffffffffffff
+   109dc:	f100011f 	cmp	x8, #0x0
+   109e0:	da88b128 	csinv	x8, x9, x8, lt	// lt = tstop
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:342
+    memcpy(&score, &bits, sizeof(score));
+   109e4:	9e670100 	fmov	d0, x8
+   109e8:	a94183e8 	ldp	x8, x0, [sp, #24]
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4247
+        fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
+   109ec:	d63f0100 	blr	x8
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4248
+        emitted++;
+   109f0:	91000739 	add	x25, x25, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4230
+    for (unsigned int i = 0; i < count; i++) {
+   109f4:	910006d6 	add	x22, x22, #0x1
+   109f8:	eb1802df 	cmp	x22, x24
+   109fc:	540011a0 	b.eq	10c30 <zbtIndexScanSlot+0x998>  // b.none
+   10a00:	9100e3e8 	add	x8, sp, #0x38
+   10a04:	b876791c 	ldr	w28, [x8, x22, lsl #2]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4236
+        if (count > 1 || home_end) {
+   10a08:	340009b4 	cbz	w20, 10b3c <zbtIndexScanSlot+0x8a4>
+zbtScoreLeafOffset():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:365
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   10a0c:	3940d348 	ldrb	w8, [x26, #52]
+   10a10:	b40000e8 	cbz	x8, 10a2c <zbtIndexScanSlot+0x794>
+   10a14:	39404749 	ldrb	w9, [x26, #17]
+   10a18:	b94017ea 	ldr	w10, [sp, #20]
+zbtScoreLeafScoreBytes():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:358
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   10a1c:	1b082928 	madd	w8, w9, w8, w10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:359
+    return (bytes + 8 + 1) & ~(size_t)1;
+   10a20:	53037d08 	lsr	w8, w8, #3
+   10a24:	11002508 	add	w8, w8, #0x9
+   10a28:	927f3508 	and	x8, x8, #0x7ffe
+zbtScoreLeafPhysicalPos():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:379
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   10a2c:	3940d74a 	ldrb	w10, [x26, #53]
+   10a30:	2a1c03e9 	mov	w9, w28
+   10a34:	3400008a 	cbz	w10, 10a44 <zbtIndexScanSlot+0x7ac>
+   10a38:	39404749 	ldrb	w9, [x26, #17]
+   10a3c:	2a3c03ea 	mvn	w10, w28
+   10a40:	0b0a0129 	add	w9, w9, w10
+zbtScoreLeafOffset():
+   10a44:	f94017ea 	ldr	x10, [sp, #40]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:364
+    return (uint16_t *)(leaf->data +
+   10a48:	8b080148 	add	x8, x10, x8
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:386
+    return zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)];
+   10a4c:	78695908 	ldrh	w8, [x8, w9, uxtw #1]
+zbtScoreLeafRecord():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:616
+    return (unsigned char *)leaf + zbtScoreLeafOffset(leaf, pos);
+   10a50:	8b080348 	add	x8, x26, x8
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:632
+    if (record[0] == ZBT_PACKED_EXTERNAL)
+   10a54:	39400101 	ldrb	w1, [x8]
+   10a58:	7103f83f 	cmp	w1, #0xfe
+   10a5c:	54000100 	b.eq	10a7c <zbtIndexScanSlot+0x7e4>  // b.none
+   10a60:	7103fc3f 	cmp	w1, #0xff
+   10a64:	540001e1 	b.ne	10aa0 <zbtIndexScanSlot+0x808>  // b.any
+zbtExternalHash():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:568
+    memcpy(&hash, record + ZBT_EXTERNAL_HASH_OFFSET, sizeof(hash));
+   10a68:	b8401109 	ldur	w9, [x8, #1]
+   10a6c:	f94007e8 	ldr	x8, [sp, #8]
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4238
+            unsigned long home = hash & (table->size - 1);
+   10a70:	f9400508 	ldr	x8, [x8, #8]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4239
+            if (home_end && (home < home_start || home >= home_end))
+   10a74:	b5000255 	cbnz	x21, 10abc <zbtIndexScanSlot+0x824>
+   10a78:	14000018 	b	10ad8 <zbtIndexScanSlot+0x840>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:601
+        memcpy(&shortlen, record + 1, sizeof(shortlen));
+   10a7c:	78401101 	ldurh	w1, [x8, #1]
+   10a80:	52800069 	mov	w9, #0x3                   	// #3
+   10a84:	8b090100 	add	x0, x8, x9
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:636
+    return (uint32_t)dictGenHashFunction(ele, len);
+   10a88:	9400010a 	bl	10eb0 <dictGenHashFunction>
+   10a8c:	92407c09 	and	x9, x0, #0xffffffff
+   10a90:	f94007e8 	ldr	x8, [sp, #8]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4238
+            unsigned long home = hash & (table->size - 1);
+   10a94:	f9400508 	ldr	x8, [x8, #8]
+   10a98:	b5000135 	cbnz	x21, 10abc <zbtIndexScanSlot+0x824>
+   10a9c:	1400000f 	b	10ad8 <zbtIndexScanSlot+0x840>
+   10aa0:	52800029 	mov	w9, #0x1                   	// #1
+   10aa4:	8b090100 	add	x0, x8, x9
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:636
+    return (uint32_t)dictGenHashFunction(ele, len);
+   10aa8:	94000102 	bl	10eb0 <dictGenHashFunction>
+   10aac:	92407c09 	and	x9, x0, #0xffffffff
+   10ab0:	f94007e8 	ldr	x8, [sp, #8]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4238
+            unsigned long home = hash & (table->size - 1);
+   10ab4:	f9400508 	ldr	x8, [x8, #8]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4239
+            if (home_end && (home < home_start || home >= home_end))
+   10ab8:	b4000115 	cbz	x21, 10ad8 <zbtIndexScanSlot+0x840>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4238
+            unsigned long home = hash & (table->size - 1);
+   10abc:	5100050a 	sub	w10, w8, #0x1
+   10ac0:	f94003eb 	ldr	x11, [sp]
+   10ac4:	8a09014a 	and	x10, x10, x9
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4239
+            if (home_end && (home < home_start || home >= home_end))
+   10ac8:	eb0b015f 	cmp	x10, x11
+   10acc:	54fff943 	b.cc	109f4 <zbtIndexScanSlot+0x75c>  // b.lo, b.ul, b.last
+   10ad0:	eb15015f 	cmp	x10, x21
+   10ad4:	54fff902 	b.cs	109f4 <zbtIndexScanSlot+0x75c>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4241
+            if (count > 1 && !zbtIndexHashReachesBucket(table, hash, bucket))
+   10ad8:	7100077f 	cmp	w27, #0x1
+   10adc:	54000300 	b.eq	10b3c <zbtIndexScanSlot+0x8a4>  // b.none
+zbtIndexHashReachesBucket():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4111
+    for (unsigned long probes = 0; probes < table->size; probes++) {
+   10ae0:	b4fff8a8 	cbz	x8, 109f4 <zbtIndexScanSlot+0x75c>
+   10ae4:	f94007eb 	ldr	x11, [sp, #8]
+   10ae8:	d100050a 	sub	x10, x8, #0x1
+   10aec:	5280040d 	mov	w13, #0x20                  	// #32
+   10af0:	b940216c 	ldr	w12, [x11, #32]
+   10af4:	f940016b 	ldr	x11, [x11]
+   10af8:	7100019f 	cmp	w12, #0x0
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4109
+    unsigned long index = hash & mask;
+   10afc:	8a09014c 	and	x12, x10, x9
+   10b00:	52800609 	mov	w9, #0x30                  	// #48
+   10b04:	9a8901a9 	csel	x9, x13, x9, eq	// eq = none
+zbtIndexBucketAt():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1766
+    return (zbtIndexBucket *)((unsigned char *)table->buckets +
+   10b08:	9b092d8d 	madd	x13, x12, x9, x11
+zbtIndexHashReachesBucket():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4113
+        if (bucket == target) return 1;
+   10b0c:	eb1701bf 	cmp	x13, x23
+   10b10:	54000160 	b.eq	10b3c <zbtIndexScanSlot+0x8a4>  // b.none
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4114
+        if (zbtIndexTagMask(zbtIndexTags(bucket), 0)) return 0;
+   10b14:	f94001ad 	ldr	x13, [x13]
+zbtIndexTagMask():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:1840
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   10b18:	8b1301ae 	add	x14, x13, x19
+   10b1c:	8a2d01cd 	bic	x13, x14, x13
+   10b20:	f201c1bf 	tst	x13, #0x8080808080808080
+zbtIndexHashReachesBucket():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4114
+        if (zbtIndexTagMask(zbtIndexTags(bucket), 0)) return 0;
+   10b24:	54fff681 	b.ne	109f4 <zbtIndexScanSlot+0x75c>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4115
+        index = (index + 1) & mask;
+   10b28:	9100058c 	add	x12, x12, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4111
+    for (unsigned long probes = 0; probes < table->size; probes++) {
+   10b2c:	f1000508 	subs	x8, x8, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4115
+        index = (index + 1) & mask;
+   10b30:	8a0a018c 	and	x12, x12, x10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4111
+    for (unsigned long probes = 0; probes < table->size; probes++) {
+   10b34:	54fffea1 	b.ne	10b08 <zbtIndexScanSlot+0x870>  // b.any
+   10b38:	17ffffaf 	b	109f4 <zbtIndexScanSlot+0x75c>
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:365
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   10b3c:	3940d348 	ldrb	w8, [x26, #52]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:357
+    if (score_bits == 0) return 0;
+   10b40:	34000648 	cbz	w8, 10c08 <zbtIndexScanSlot+0x970>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:365
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   10b44:	39404749 	ldrb	w9, [x26, #17]
+   10b48:	b94017ea 	ldr	w10, [sp, #20]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:358
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   10b4c:	1b082929 	madd	w9, w9, w8, w10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:359
+    return (bytes + 8 + 1) & ~(size_t)1;
+   10b50:	53037d29 	lsr	w9, w9, #3
+   10b54:	11002529 	add	w9, w9, #0x9
+   10b58:	927f352a 	and	x10, x9, #0x7ffe
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:379
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   10b5c:	3940d749 	ldrb	w9, [x26, #53]
+   10b60:	2a1c03eb 	mov	w11, w28
+   10b64:	34000089 	cbz	w9, 10b74 <zbtIndexScanSlot+0x8dc>
+   10b68:	3940474b 	ldrb	w11, [x26, #17]
+   10b6c:	2a3c03ec 	mvn	w12, w28
+   10b70:	0b0c016b 	add	w11, w11, w12
+   10b74:	f94017ec 	ldr	x12, [sp, #40]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:364
+    return (uint16_t *)(leaf->data +
+   10b78:	8b0a018a 	add	x10, x12, x10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:386
+    return zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)];
+   10b7c:	786b594a 	ldrh	w10, [x10, w11, uxtw #1]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:616
+    return (unsigned char *)leaf + zbtScoreLeafOffset(leaf, pos);
+   10b80:	8b0a034a 	add	x10, x26, x10
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:596
+    if (record[0] < ZBT_PACKED_SHORT) {
+   10b84:	39400142 	ldrb	w2, [x10]
+   10b88:	7103f45f 	cmp	w2, #0xfd
+   10b8c:	54000308 	b.hi	10bec <zbtIndexScanSlot+0x954>  // b.pmore
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:598
+        return record + 1;
+   10b90:	91000541 	add	x1, x10, #0x1
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:510
+    if (bits != 0) {
+   10b94:	34000368 	cbz	w8, 10c00 <zbtIndexScanSlot+0x968>
+zbtScoreLeafPhysicalPos():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:379
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   10b98:	34000089 	cbz	w9, 10ba8 <zbtIndexScanSlot+0x910>
+   10b9c:	3940474a 	ldrb	w10, [x26, #17]
+   10ba0:	2a3c03eb 	mvn	w11, w28
+   10ba4:	0b0b015c 	add	w28, w10, w11
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:511
+        size_t bitpos = (size_t)zbtScoreLeafPhysicalPos(leaf, pos) * bits;
+   10ba8:	9bbc7d0a 	umull	x10, w8, w28
+   10bac:	f94017ec 	ldr	x12, [sp, #40]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:512
+        size_t byte = bitpos / 8;
+   10bb0:	d343fd4b 	lsr	x11, x10, #3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:515
+        delta = intrev64ifbe(delta) >> shift;
+   10bb4:	9240094e 	and	x14, x10, #0x7
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:514
+        memcpy(&delta, leaf->data + byte, sizeof(delta));
+   10bb8:	f86b698d 	ldr	x13, [x12, x11]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:513
+        unsigned int shift = bitpos & 7;
+   10bbc:	7200094c 	ands	w12, w10, #0x7
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:515
+        delta = intrev64ifbe(delta) >> shift;
+   10bc0:	9ace25aa 	lsr	x10, x13, x14
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:516
+        if (shift && bits > 64 - shift)
+   10bc4:	54ffef40 	b.eq	109ac <zbtIndexScanSlot+0x714>  // b.none
+   10bc8:	5280080d 	mov	w13, #0x40                  	// #64
+   10bcc:	4b0c01ac 	sub	w12, w13, w12
+   10bd0:	6b08019f 	cmp	w12, w8
+   10bd4:	54ffeec2 	b.cs	109ac <zbtIndexScanSlot+0x714>  // b.hs, b.nlast
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:517
+            delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+   10bd8:	8b1a016b 	add	x11, x11, x26
+   10bdc:	3941016b 	ldrb	w11, [x11, #64]
+   10be0:	9acc216b 	lsl	x11, x11, x12
+   10be4:	aa0a016a 	orr	x10, x11, x10
+   10be8:	17ffff71 	b	109ac <zbtIndexScanSlot+0x714>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:599
+    } else if (record[0] == ZBT_PACKED_SHORT) {
+   10bec:	7103f85f 	cmp	w2, #0xfe
+   10bf0:	54000161 	b.ne	10c1c <zbtIndexScanSlot+0x984>  // b.any
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:601
+        memcpy(&shortlen, record + 1, sizeof(shortlen));
+   10bf4:	78401142 	ldurh	w2, [x10, #1]
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:603
+        return record + 3;
+   10bf8:	91000d41 	add	x1, x10, #0x3
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:510
+    if (bits != 0) {
+   10bfc:	35fffce8 	cbnz	w8, 10b98 <zbtIndexScanSlot+0x900>
+   10c00:	aa1f03e8 	mov	x8, xzr
+   10c04:	17ffff71 	b	109c8 <zbtIndexScanSlot+0x730>
+   10c08:	aa1f03ea 	mov	x10, xzr
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:379
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   10c0c:	3940d749 	ldrb	w9, [x26, #53]
+   10c10:	2a1c03eb 	mov	w11, w28
+   10c14:	35fffaa9 	cbnz	w9, 10b68 <zbtIndexScanSlot+0x8d0>
+   10c18:	17ffffd7 	b	10b74 <zbtIndexScanSlot+0x8dc>
+zbtExternalPointer():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:583
+    memcpy(&ptr, record + ZBT_EXTERNAL_POINTER_OFFSET, sizeof(ptr));
+   10c1c:	f840d141 	ldur	x1, [x10, #13]
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:606
+        serverAssert(ptr != NULL);
+   10c20:	b4000181 	cbz	x1, 10c50 <zbtIndexScanSlot+0x9b8>
+zbtExternalLength():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:575
+    memcpy(&len, record + ZBT_EXTERNAL_LENGTH_OFFSET, sizeof(len));
+   10c24:	f8405142 	ldur	x2, [x10, #5]
+zbtIndexScanSlot():
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:510
+    if (bits != 0) {
+   10c28:	35fffb88 	cbnz	w8, 10b98 <zbtIndexScanSlot+0x900>
+   10c2c:	17fffff5 	b	10c00 <zbtIndexScanSlot+0x968>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4199
+    if (home_end) {
+   10c30:	aa1902a8 	orr	x8, x21, x25
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4250
+    serverAssert(home_end || emitted != 0);
+   10c34:	b5ffcb28 	cbnz	x8, 10598 <zbtIndexScanSlot+0x300>
+   10c38:	b0000000 	adrp	x0, 11000 <sdsnew+0x84>
+   10c3c:	912b3800 	add	x0, x0, #0xace
+   10c40:	d0000002 	adrp	x2, 12000 <_IO_stdin_used+0xa80>
+   10c44:	91014042 	add	x2, x2, #0x50
+   10c48:	52821341 	mov	w1, #0x109a                	// #4250
+   10c4c:	94000019 	bl	10cb0 <standalone_panic>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:606
+        serverAssert(ptr != NULL);
+   10c50:	b0000000 	adrp	x0, 11000 <sdsnew+0x84>
+   10c54:	912b3800 	add	x0, x0, #0xace
+   10c58:	b0000002 	adrp	x2, 11000 <sdsnew+0x84>
+   10c5c:	912fe842 	add	x2, x2, #0xbfa
+   10c60:	52804bc1 	mov	w1, #0x25e                 	// #606
+   10c64:	94000013 	bl	10cb0 <standalone_panic>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4210
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+   10c68:	b0000000 	adrp	x0, 11000 <sdsnew+0x84>
+   10c6c:	912b3800 	add	x0, x0, #0xace
+   10c70:	b0000002 	adrp	x2, 11000 <sdsnew+0x84>
+   10c74:	91311842 	add	x2, x2, #0xc46
+   10c78:	52820e41 	mov	w1, #0x1072                	// #4210
+   10c7c:	9400000d 	bl	10cb0 <standalone_panic>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4213
+    serverAssert(leaf->id == id);
+   10c80:	b0000000 	adrp	x0, 11000 <sdsnew+0x84>
+   10c84:	912b3800 	add	x0, x0, #0xace
+   10c88:	b0000002 	adrp	x2, 11000 <sdsnew+0x84>
+   10c8c:	91309c42 	add	x2, x2, #0xc27
+   10c90:	52820ea1 	mov	w1, #0x1075                	// #4213
+   10c94:	94000007 	bl	10cb0 <standalone_panic>
+<repo>/scratch/arm-corrected-neon/C/src/zset_btree.c:4227
+    serverAssert(count != 0);
+   10c98:	b0000000 	adrp	x0, 11000 <sdsnew+0x84>
+   10c9c:	912b3800 	add	x0, x0, #0xace
+   10ca0:	d0000002 	adrp	x2, 12000 <_IO_stdin_used+0xa80>
+   10ca4:	91011442 	add	x2, x2, #0x45
+   10ca8:	52821061 	mov	w1, #0x1083                	// #4227
+   10cac:	94000001 	bl	10cb0 <standalone_panic>
+
+Disassembly of section .fini:

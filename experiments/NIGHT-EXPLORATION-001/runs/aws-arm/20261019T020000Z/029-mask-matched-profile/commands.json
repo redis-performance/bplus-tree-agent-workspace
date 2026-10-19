@@ -1,0 +1,3135 @@
+[
+  {
+    "name": "source-archive",
+    "command": [
+      "git",
+      "archive",
+      "--format=tar",
+      "--output",
+      "<job>/source.tar",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "src",
+      "compat",
+      "vendor/redis",
+      "tests",
+      "bench",
+      "Makefile"
+    ],
+    "cwd": "<checkout>",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "archive",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "compiler-version",
+    "command": [
+      "clang",
+      "--version"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "compiler",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-original-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-profile-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-original-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original-san"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-profile-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile-san"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-original43",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/original-check",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "check"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "original43",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "A-original-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-profile-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-original-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original-san"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-profile-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile-san"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-original43",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/original-check",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "check"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "original43",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "known-control-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/known-control.c",
+      "-o",
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1401-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1401-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1401-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1401-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1402-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1402-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1402-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1402-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1403-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1403-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1403-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1403-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-san-original",
+    "command": [
+      "build/original-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1400"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000,
+      "seed": 1400,
+      "requested_ops": 2001,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-san-disabled",
+    "command": [
+      "build/profile-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1400"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000,
+      "seed": 1400,
+      "requested_ops": 2001,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-san-original",
+    "command": [
+      "build/original-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1400"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000,
+      "seed": 1400,
+      "requested_ops": 2001,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-san-disabled",
+    "command": [
+      "build/profile-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1400"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000,
+      "seed": 1400,
+      "requested_ops": 2001,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-disabled-zero",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-disabled.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-disabled-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-disabled-zero",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-disabled.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-disabled-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "known-plain",
+    "command": [
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "known",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-disabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/known-disabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "known-stat",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-enabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/known-enabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "known-stat",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/known.data",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "known",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/known.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/known.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "known-gate",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "known-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/known-control"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-original-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/original"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-profile-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/profile"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-timing-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "<checkout>/scratch/adapter-worktree-13e459ff8/build/adapter-requalification/btree-bench"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "A-original-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/original"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-profile-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/profile"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-timing-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "<checkout>/scratch/arm-exp005A-replication-13e459ff8/A/build/adapter-requalification/btree-bench"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1401-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1401.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1401-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1401.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1401-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1401.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1401-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1401.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1401-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1401.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1401-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1401.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1401-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1401.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1401-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1401.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1401.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1401.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1401.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1401-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1401.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1401.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1401.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1401.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1401-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1401.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1401"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1401,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1402-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1402.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1402-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1402.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1402-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1402.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1402-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1402.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1402-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1402.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1402-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1402.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1402-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1402.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1402-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1402.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1402.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1402.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1402.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1402-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1402.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1402.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1402.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1402.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1402-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1402.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1402"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1402,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1403-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1403.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n100000-s1403-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1403.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1403-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n100000-s1403.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n100000-s1403-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n100000-s1403.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1403-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1403.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n100000-s1403-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1403.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1403-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n100000-s1403.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n100000-s1403-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n100000-s1403.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 100000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1403.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1403.data"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/A-iterate-n1000000-s1403.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "A",
+    "fixture": null
+  },
+  {
+    "name": "A-iterate-n1000000-s1403-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/A-iterate-n1000000-s1403.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/A",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "A",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1403.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1403.data"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<job>/profile/control-iterate-n1000000-s1403.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "kind": "plain",
+    "variant": "control",
+    "fixture": null
+  },
+  {
+    "name": "control-iterate-n1000000-s1403-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<job>/control.fifo,<job>/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<job>/profile/control-iterate-n1000000-s1403.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1403"
+    ],
+    "cwd": "<job>/control",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<job>/control.fifo",
+      "BPLUS_PERF_ACK": "<job>/ack.fifo"
+    },
+    "kind": "tree-stat",
+    "variant": "control",
+    "fixture": {
+      "size": 1000000,
+      "seed": 1403,
+      "requested_ops": 50000000,
+      "member_bytes": 16,
+      "case": "iterate"
+    }
+  }
+]

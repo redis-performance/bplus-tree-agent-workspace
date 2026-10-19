@@ -1,0 +1,20 @@
+--- a/bench/decoder_bench.c
++++ b/duration-driver.c
+@@ -116,7 +116,7 @@
+     for (int i = 1; i < argc; i++) {
+         const char *arg = argv[i];
+         if (!strcmp(arg, "--help")) {
+-            puts("decoder-bench [--width 0..64] [--score-shift 0..63] [--reversed 0|1] [--count 1..96] [--leaves 1..64] [--rounds 1..65536] [--samples 1..4096] [--warmup 1..1024] [--seed 1..100000000] [--counters] [--self-test]"); return 0;
++            puts("decoder-bench [--width 0..64] [--score-shift 0..63] [--reversed 0|1] [--count 1..96] [--leaves 1..64] [--rounds 1..100000000] [--samples 1..4096] [--warmup 1..1024] [--seed 1..100000000] [--counters] [--self-test]"); return 0;
+         }
+         if (!strcmp(arg, "--counters")) { counters = 1; continue; }
+         if (!strcmp(arg, "--self-test")) { testing = 1; continue; }
+@@ -127,7 +127,7 @@
+         else if (!strcmp(arg, "--reversed")) reversed = number(value, 0, 1);
+         else if (!strcmp(arg, "--count")) count = number(value, 1, 96);
+         else if (!strcmp(arg, "--leaves")) leaves = number(value, 1, 64);
+-        else if (!strcmp(arg, "--rounds")) rounds = number(value, 1, 65536);
++        else if (!strcmp(arg, "--rounds")) rounds = number(value, 1, 100000000);
+         else if (!strcmp(arg, "--samples")) samples = number(value, 1, 4096);
+         else if (!strcmp(arg, "--warmup")) warmup = number(value, 1, 1024);
+         else if (!strcmp(arg, "--seed")) seed = number(value, 1, 100000000);

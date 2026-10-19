@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4032,7 +4032,7 @@
+         if (ele) *ele = element;
+         if (len) *len = elelen;
+     }
+-    if (score) *score = zbtScoreLeafScore(leaf, pos);
++    if (score) *score = fabs(zbtScoreLeafScore(leaf, pos));
+ 
+     if (reverse) {
+         if (pos != 0) {

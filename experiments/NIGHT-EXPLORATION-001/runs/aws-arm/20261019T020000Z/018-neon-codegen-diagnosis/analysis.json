@@ -1,0 +1,2176 @@
+{
+  "scope": "Static existing zbtIndexScanSlot disassembly only; no new timing, build, profiling or source change. Address intervals are half-open. Counts are instructions, not cycles or dynamic samples.",
+  "variants": {
+    "base": {
+      "artifact": "017-corrected-neon/validation/base-native-codegen.stdout",
+      "sha256": "5ba61de227e141d4e371e5f66ce9a4c25a661e37ba783672fd9f575c93989dd9",
+      "static_instructions": 509,
+      "static_bytes": 2036,
+      "stack_frame_bytes": 528,
+      "predicate_reconstruction": [],
+      "forward_continuing_zero_mask_path": {
+        "chunk_bytes": 8,
+        "instructions": 19,
+        "ranges": [
+          [
+            "0x105f4",
+            "0x10634"
+          ],
+          [
+            "0x105e8",
+            "0x105f4"
+          ]
+        ],
+        "exact_instructions": [
+          {
+            "address": "0x105f4",
+            "opcode": "d37df1f1",
+            "instruction": "lsl\tx17, x15, #3"
+          },
+          {
+            "address": "0x105f8",
+            "opcode": "b207dbe2",
+            "instruction": "mov\tx2, #0xfefefefefefefefe    \t// #-72340172838076674"
+          },
+          {
+            "address": "0x105fc",
+            "opcode": "7100053f",
+            "instruction": "cmp\tw9, #0x1"
+          },
+          {
+            "address": "0x10600",
+            "opcode": "f29fdfe2",
+            "instruction": "movk\tx2, #0xfeff"
+          },
+          {
+            "address": "0x10604",
+            "opcode": "f8716992",
+            "instruction": "ldr\tx18, [x12, x17]"
+          },
+          {
+            "address": "0x10608",
+            "opcode": "ca0e0240",
+            "instruction": "eor\tx0, x18, x14"
+          },
+          {
+            "address": "0x1060c",
+            "opcode": "8b020001",
+            "instruction": "add\tx1, x0, x2"
+          },
+          {
+            "address": "0x10610",
+            "opcode": "8b020242",
+            "instruction": "add\tx2, x18, x2"
+          },
+          {
+            "address": "0x10614",
+            "opcode": "8a200020",
+            "instruction": "bic\tx0, x1, x0"
+          },
+          {
+            "address": "0x10618",
+            "opcode": "8a320052",
+            "instruction": "bic\tx18, x2, x18"
+          },
+          {
+            "address": "0x1061c",
+            "opcode": "9201c000",
+            "instruction": "and\tx0, x0, #0x8080808080808080"
+          },
+          {
+            "address": "0x10620",
+            "opcode": "9201c252",
+            "instruction": "and\tx18, x18, #0x8080808080808080"
+          },
+          {
+            "address": "0x10624",
+            "opcode": "aa120012",
+            "instruction": "orr\tx18, x0, x18"
+          },
+          {
+            "address": "0x10628",
+            "opcode": "9a921012",
+            "instruction": "csel\tx18, x0, x18, ne\t// ne = any"
+          },
+          {
+            "address": "0x1062c",
+            "opcode": "b50000b2",
+            "instruction": "cbnz\tx18, 10640 <zbtIndexScanSlot+0x3a8>"
+          },
+          {
+            "address": "0x10630",
+            "opcode": "17ffffee",
+            "instruction": "b\t105e8 <zbtIndexScanSlot+0x350>"
+          },
+          {
+            "address": "0x105e8",
+            "opcode": "910005ef",
+            "instruction": "add\tx15, x15, #0x1"
+          },
+          {
+            "address": "0x105ec",
+            "opcode": "eb0d01ff",
+            "instruction": "cmp\tx15, x13"
+          },
+          {
+            "address": "0x105f0",
+            "opcode": "54fff240",
+            "instruction": "b.eq\t10438 <zbtIndexScanSlot+0x1a0>  // b.none"
+          }
+        ]
+      },
+      "forward_population_count_instructions": []
+    },
+    "A": {
+      "artifact": "017-corrected-neon/validation/A-native-codegen.stdout",
+      "sha256": "c8a7ec5dad359aeeb6b2e777f3c38dd9bb5c44599aa68adee51c1964e02621fe",
+      "static_instructions": 654,
+      "static_bytes": 2616,
+      "stack_frame_bytes": 544,
+      "predicate_reconstruction": [
+        {
+          "direction": "reversed",
+          "enclosing_halfopen": [
+            "0x10498",
+            "0x1052c"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x10498",
+              "opcode": "3900dbf2",
+              "instruction": "strb\tw18, [sp, #54]"
+            },
+            {
+              "address": "0x1049c",
+              "opcode": "3900dff1",
+              "instruction": "strb\tw17, [sp, #55]"
+            },
+            {
+              "address": "0x104a0",
+              "opcode": "79406fe2",
+              "instruction": "ldrh\tw2, [sp, #54]"
+            },
+            {
+              "address": "0x104a4",
+              "opcode": "12000044",
+              "instruction": "and\tw4, w2, #0x1"
+            },
+            {
+              "address": "0x104a8",
+              "opcode": "53010443",
+              "instruction": "ubfx\tw3, w2, #1, #1"
+            },
+            {
+              "address": "0x104ac",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x104b0",
+              "opcode": "4e031c61",
+              "instruction": "mov\tv1.b[1], w3"
+            },
+            {
+              "address": "0x104b4",
+              "opcode": "53020843",
+              "instruction": "ubfx\tw3, w2, #2, #1"
+            },
+            {
+              "address": "0x104b8",
+              "opcode": "4e051c61",
+              "instruction": "mov\tv1.b[2], w3"
+            },
+            {
+              "address": "0x104bc",
+              "opcode": "53030c43",
+              "instruction": "ubfx\tw3, w2, #3, #1"
+            },
+            {
+              "address": "0x104c0",
+              "opcode": "4e071c61",
+              "instruction": "mov\tv1.b[3], w3"
+            },
+            {
+              "address": "0x104c4",
+              "opcode": "53041043",
+              "instruction": "ubfx\tw3, w2, #4, #1"
+            },
+            {
+              "address": "0x104c8",
+              "opcode": "4e091c61",
+              "instruction": "mov\tv1.b[4], w3"
+            },
+            {
+              "address": "0x104cc",
+              "opcode": "53051443",
+              "instruction": "ubfx\tw3, w2, #5, #1"
+            },
+            {
+              "address": "0x104d0",
+              "opcode": "4e0b1c61",
+              "instruction": "mov\tv1.b[5], w3"
+            },
+            {
+              "address": "0x104d4",
+              "opcode": "53061843",
+              "instruction": "ubfx\tw3, w2, #6, #1"
+            },
+            {
+              "address": "0x104d8",
+              "opcode": "4e0d1c61",
+              "instruction": "mov\tv1.b[6], w3"
+            },
+            {
+              "address": "0x104dc",
+              "opcode": "53071c43",
+              "instruction": "ubfx\tw3, w2, #7, #1"
+            },
+            {
+              "address": "0x104e0",
+              "opcode": "4e0f1c61",
+              "instruction": "mov\tv1.b[7], w3"
+            },
+            {
+              "address": "0x104e4",
+              "opcode": "53082043",
+              "instruction": "ubfx\tw3, w2, #8, #1"
+            },
+            {
+              "address": "0x104e8",
+              "opcode": "4e111c61",
+              "instruction": "mov\tv1.b[8], w3"
+            },
+            {
+              "address": "0x104ec",
+              "opcode": "53092443",
+              "instruction": "ubfx\tw3, w2, #9, #1"
+            },
+            {
+              "address": "0x104f0",
+              "opcode": "4e131c61",
+              "instruction": "mov\tv1.b[9], w3"
+            },
+            {
+              "address": "0x104f4",
+              "opcode": "530a2843",
+              "instruction": "ubfx\tw3, w2, #10, #1"
+            },
+            {
+              "address": "0x104f8",
+              "opcode": "4e151c61",
+              "instruction": "mov\tv1.b[10], w3"
+            },
+            {
+              "address": "0x104fc",
+              "opcode": "530b2c43",
+              "instruction": "ubfx\tw3, w2, #11, #1"
+            },
+            {
+              "address": "0x10500",
+              "opcode": "4e171c61",
+              "instruction": "mov\tv1.b[11], w3"
+            },
+            {
+              "address": "0x10504",
+              "opcode": "530c3043",
+              "instruction": "ubfx\tw3, w2, #12, #1"
+            },
+            {
+              "address": "0x10508",
+              "opcode": "4e191c61",
+              "instruction": "mov\tv1.b[12], w3"
+            },
+            {
+              "address": "0x1050c",
+              "opcode": "530d3443",
+              "instruction": "ubfx\tw3, w2, #13, #1"
+            },
+            {
+              "address": "0x10510",
+              "opcode": "4e1b1c61",
+              "instruction": "mov\tv1.b[13], w3"
+            },
+            {
+              "address": "0x10514",
+              "opcode": "530e3843",
+              "instruction": "ubfx\tw3, w2, #14, #1"
+            },
+            {
+              "address": "0x10518",
+              "opcode": "530f7c42",
+              "instruction": "lsr\tw2, w2, #15"
+            },
+            {
+              "address": "0x1051c",
+              "opcode": "4e1d1c61",
+              "instruction": "mov\tv1.b[14], w3"
+            },
+            {
+              "address": "0x10528",
+              "opcode": "4e1f1c41",
+              "instruction": "mov\tv1.b[15], w2"
+            }
+          ]
+        },
+        {
+          "direction": "forward",
+          "enclosing_halfopen": [
+            "0x106bc",
+            "0x10750"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x106bc",
+              "opcode": "3900d3f2",
+              "instruction": "strb\tw18, [sp, #52]"
+            },
+            {
+              "address": "0x106c0",
+              "opcode": "3900d7f1",
+              "instruction": "strb\tw17, [sp, #53]"
+            },
+            {
+              "address": "0x106c4",
+              "opcode": "79406be2",
+              "instruction": "ldrh\tw2, [sp, #52]"
+            },
+            {
+              "address": "0x106c8",
+              "opcode": "12000044",
+              "instruction": "and\tw4, w2, #0x1"
+            },
+            {
+              "address": "0x106cc",
+              "opcode": "53010443",
+              "instruction": "ubfx\tw3, w2, #1, #1"
+            },
+            {
+              "address": "0x106d0",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x106d4",
+              "opcode": "4e031c61",
+              "instruction": "mov\tv1.b[1], w3"
+            },
+            {
+              "address": "0x106d8",
+              "opcode": "53020843",
+              "instruction": "ubfx\tw3, w2, #2, #1"
+            },
+            {
+              "address": "0x106dc",
+              "opcode": "4e051c61",
+              "instruction": "mov\tv1.b[2], w3"
+            },
+            {
+              "address": "0x106e0",
+              "opcode": "53030c43",
+              "instruction": "ubfx\tw3, w2, #3, #1"
+            },
+            {
+              "address": "0x106e4",
+              "opcode": "4e071c61",
+              "instruction": "mov\tv1.b[3], w3"
+            },
+            {
+              "address": "0x106e8",
+              "opcode": "53041043",
+              "instruction": "ubfx\tw3, w2, #4, #1"
+            },
+            {
+              "address": "0x106ec",
+              "opcode": "4e091c61",
+              "instruction": "mov\tv1.b[4], w3"
+            },
+            {
+              "address": "0x106f0",
+              "opcode": "53051443",
+              "instruction": "ubfx\tw3, w2, #5, #1"
+            },
+            {
+              "address": "0x106f4",
+              "opcode": "4e0b1c61",
+              "instruction": "mov\tv1.b[5], w3"
+            },
+            {
+              "address": "0x106f8",
+              "opcode": "53061843",
+              "instruction": "ubfx\tw3, w2, #6, #1"
+            },
+            {
+              "address": "0x106fc",
+              "opcode": "4e0d1c61",
+              "instruction": "mov\tv1.b[6], w3"
+            },
+            {
+              "address": "0x10700",
+              "opcode": "53071c43",
+              "instruction": "ubfx\tw3, w2, #7, #1"
+            },
+            {
+              "address": "0x10704",
+              "opcode": "4e0f1c61",
+              "instruction": "mov\tv1.b[7], w3"
+            },
+            {
+              "address": "0x10708",
+              "opcode": "53082043",
+              "instruction": "ubfx\tw3, w2, #8, #1"
+            },
+            {
+              "address": "0x1070c",
+              "opcode": "4e111c61",
+              "instruction": "mov\tv1.b[8], w3"
+            },
+            {
+              "address": "0x10710",
+              "opcode": "53092443",
+              "instruction": "ubfx\tw3, w2, #9, #1"
+            },
+            {
+              "address": "0x10714",
+              "opcode": "4e131c61",
+              "instruction": "mov\tv1.b[9], w3"
+            },
+            {
+              "address": "0x10718",
+              "opcode": "530a2843",
+              "instruction": "ubfx\tw3, w2, #10, #1"
+            },
+            {
+              "address": "0x1071c",
+              "opcode": "4e151c61",
+              "instruction": "mov\tv1.b[10], w3"
+            },
+            {
+              "address": "0x10720",
+              "opcode": "530b2c43",
+              "instruction": "ubfx\tw3, w2, #11, #1"
+            },
+            {
+              "address": "0x10724",
+              "opcode": "4e171c61",
+              "instruction": "mov\tv1.b[11], w3"
+            },
+            {
+              "address": "0x10728",
+              "opcode": "530c3043",
+              "instruction": "ubfx\tw3, w2, #12, #1"
+            },
+            {
+              "address": "0x1072c",
+              "opcode": "4e191c61",
+              "instruction": "mov\tv1.b[12], w3"
+            },
+            {
+              "address": "0x10730",
+              "opcode": "530d3443",
+              "instruction": "ubfx\tw3, w2, #13, #1"
+            },
+            {
+              "address": "0x10734",
+              "opcode": "4e1b1c61",
+              "instruction": "mov\tv1.b[13], w3"
+            },
+            {
+              "address": "0x10738",
+              "opcode": "530e3843",
+              "instruction": "ubfx\tw3, w2, #14, #1"
+            },
+            {
+              "address": "0x1073c",
+              "opcode": "530f7c42",
+              "instruction": "lsr\tw2, w2, #15"
+            },
+            {
+              "address": "0x10740",
+              "opcode": "4e1d1c61",
+              "instruction": "mov\tv1.b[14], w3"
+            },
+            {
+              "address": "0x1074c",
+              "opcode": "4e1f1c41",
+              "instruction": "mov\tv1.b[15], w2"
+            }
+          ]
+        }
+      ],
+      "forward_continuing_zero_mask_path": {
+        "chunk_bytes": 16,
+        "instructions": 56,
+        "ranges": [
+          [
+            "0x106bc",
+            "0x1078c"
+          ],
+          [
+            "0x106ac",
+            "0x106bc"
+          ]
+        ],
+        "exact_instructions": [
+          {
+            "address": "0x106bc",
+            "opcode": "3900d3f2",
+            "instruction": "strb\tw18, [sp, #52]"
+          },
+          {
+            "address": "0x106c0",
+            "opcode": "3900d7f1",
+            "instruction": "strb\tw17, [sp, #53]"
+          },
+          {
+            "address": "0x106c4",
+            "opcode": "79406be2",
+            "instruction": "ldrh\tw2, [sp, #52]"
+          },
+          {
+            "address": "0x106c8",
+            "opcode": "12000044",
+            "instruction": "and\tw4, w2, #0x1"
+          },
+          {
+            "address": "0x106cc",
+            "opcode": "53010443",
+            "instruction": "ubfx\tw3, w2, #1, #1"
+          },
+          {
+            "address": "0x106d0",
+            "opcode": "1e270081",
+            "instruction": "fmov\ts1, w4"
+          },
+          {
+            "address": "0x106d4",
+            "opcode": "4e031c61",
+            "instruction": "mov\tv1.b[1], w3"
+          },
+          {
+            "address": "0x106d8",
+            "opcode": "53020843",
+            "instruction": "ubfx\tw3, w2, #2, #1"
+          },
+          {
+            "address": "0x106dc",
+            "opcode": "4e051c61",
+            "instruction": "mov\tv1.b[2], w3"
+          },
+          {
+            "address": "0x106e0",
+            "opcode": "53030c43",
+            "instruction": "ubfx\tw3, w2, #3, #1"
+          },
+          {
+            "address": "0x106e4",
+            "opcode": "4e071c61",
+            "instruction": "mov\tv1.b[3], w3"
+          },
+          {
+            "address": "0x106e8",
+            "opcode": "53041043",
+            "instruction": "ubfx\tw3, w2, #4, #1"
+          },
+          {
+            "address": "0x106ec",
+            "opcode": "4e091c61",
+            "instruction": "mov\tv1.b[4], w3"
+          },
+          {
+            "address": "0x106f0",
+            "opcode": "53051443",
+            "instruction": "ubfx\tw3, w2, #5, #1"
+          },
+          {
+            "address": "0x106f4",
+            "opcode": "4e0b1c61",
+            "instruction": "mov\tv1.b[5], w3"
+          },
+          {
+            "address": "0x106f8",
+            "opcode": "53061843",
+            "instruction": "ubfx\tw3, w2, #6, #1"
+          },
+          {
+            "address": "0x106fc",
+            "opcode": "4e0d1c61",
+            "instruction": "mov\tv1.b[6], w3"
+          },
+          {
+            "address": "0x10700",
+            "opcode": "53071c43",
+            "instruction": "ubfx\tw3, w2, #7, #1"
+          },
+          {
+            "address": "0x10704",
+            "opcode": "4e0f1c61",
+            "instruction": "mov\tv1.b[7], w3"
+          },
+          {
+            "address": "0x10708",
+            "opcode": "53082043",
+            "instruction": "ubfx\tw3, w2, #8, #1"
+          },
+          {
+            "address": "0x1070c",
+            "opcode": "4e111c61",
+            "instruction": "mov\tv1.b[8], w3"
+          },
+          {
+            "address": "0x10710",
+            "opcode": "53092443",
+            "instruction": "ubfx\tw3, w2, #9, #1"
+          },
+          {
+            "address": "0x10714",
+            "opcode": "4e131c61",
+            "instruction": "mov\tv1.b[9], w3"
+          },
+          {
+            "address": "0x10718",
+            "opcode": "530a2843",
+            "instruction": "ubfx\tw3, w2, #10, #1"
+          },
+          {
+            "address": "0x1071c",
+            "opcode": "4e151c61",
+            "instruction": "mov\tv1.b[10], w3"
+          },
+          {
+            "address": "0x10720",
+            "opcode": "530b2c43",
+            "instruction": "ubfx\tw3, w2, #11, #1"
+          },
+          {
+            "address": "0x10724",
+            "opcode": "4e171c61",
+            "instruction": "mov\tv1.b[11], w3"
+          },
+          {
+            "address": "0x10728",
+            "opcode": "530c3043",
+            "instruction": "ubfx\tw3, w2, #12, #1"
+          },
+          {
+            "address": "0x1072c",
+            "opcode": "4e191c61",
+            "instruction": "mov\tv1.b[12], w3"
+          },
+          {
+            "address": "0x10730",
+            "opcode": "530d3443",
+            "instruction": "ubfx\tw3, w2, #13, #1"
+          },
+          {
+            "address": "0x10734",
+            "opcode": "4e1b1c61",
+            "instruction": "mov\tv1.b[13], w3"
+          },
+          {
+            "address": "0x10738",
+            "opcode": "530e3843",
+            "instruction": "ubfx\tw3, w2, #14, #1"
+          },
+          {
+            "address": "0x1073c",
+            "opcode": "530f7c42",
+            "instruction": "lsr\tw2, w2, #15"
+          },
+          {
+            "address": "0x10740",
+            "opcode": "4e1d1c61",
+            "instruction": "mov\tv1.b[14], w3"
+          },
+          {
+            "address": "0x10744",
+            "opcode": "d37df203",
+            "instruction": "lsl\tx3, x16, #3"
+          },
+          {
+            "address": "0x10748",
+            "opcode": "3ce36982",
+            "instruction": "ldr\tq2, [x12, x3]"
+          },
+          {
+            "address": "0x1074c",
+            "opcode": "4e1f1c41",
+            "instruction": "mov\tv1.b[15], w2"
+          },
+          {
+            "address": "0x10750",
+            "opcode": "4e209843",
+            "instruction": "cmeq\tv3.16b, v2.16b, #0"
+          },
+          {
+            "address": "0x10754",
+            "opcode": "6e208c42",
+            "instruction": "cmeq\tv2.16b, v2.16b, v0.16b"
+          },
+          {
+            "address": "0x10758",
+            "opcode": "4e231c21",
+            "instruction": "and\tv1.16b, v1.16b, v3.16b"
+          },
+          {
+            "address": "0x1075c",
+            "opcode": "4ea21c21",
+            "instruction": "orr\tv1.16b, v1.16b, v2.16b"
+          },
+          {
+            "address": "0x10760",
+            "opcode": "4f0f5421",
+            "instruction": "shl\tv1.16b, v1.16b, #7"
+          },
+          {
+            "address": "0x10764",
+            "opcode": "4e20a821",
+            "instruction": "cmlt\tv1.16b, v1.16b, #0"
+          },
+          {
+            "address": "0x10768",
+            "opcode": "0f0c8421",
+            "instruction": "shrn\tv1.8b, v1.8h, #4"
+          },
+          {
+            "address": "0x1076c",
+            "opcode": "9e660022",
+            "instruction": "fmov\tx2, d1"
+          },
+          {
+            "address": "0x10770",
+            "opcode": "9200e044",
+            "instruction": "and\tx4, x2, #0x1111111111111111"
+          },
+          {
+            "address": "0x10774",
+            "opcode": "aa0603e2",
+            "instruction": "mov\tx2, x6"
+          },
+          {
+            "address": "0x10778",
+            "opcode": "9e670081",
+            "instruction": "fmov\td1, x4"
+          },
+          {
+            "address": "0x1077c",
+            "opcode": "0e205821",
+            "instruction": "cnt\tv1.8b, v1.8b"
+          },
+          {
+            "address": "0x10780",
+            "opcode": "2e303821",
+            "instruction": "uaddlv\th1, v1.8b"
+          },
+          {
+            "address": "0x10784",
+            "opcode": "1e260025",
+            "instruction": "fmov\tw5, s1"
+          },
+          {
+            "address": "0x10788",
+            "opcode": "34fff925",
+            "instruction": "cbz\tw5, 106ac <zbtIndexScanSlot+0x414>"
+          },
+          {
+            "address": "0x106ac",
+            "opcode": "91000846",
+            "instruction": "add\tx6, x2, #0x2"
+          },
+          {
+            "address": "0x106b0",
+            "opcode": "91000a10",
+            "instruction": "add\tx16, x16, #0x2"
+          },
+          {
+            "address": "0x106b4",
+            "opcode": "eb0f00df",
+            "instruction": "cmp\tx6, x15"
+          },
+          {
+            "address": "0x106b8",
+            "opcode": "54fff8c8",
+            "instruction": "b.hi\t105d0 <zbtIndexScanSlot+0x338>  // b.pmore"
+          }
+        ]
+      },
+      "forward_population_count_instructions": [
+        {
+          "address": "0x1077c",
+          "opcode": "0e205821",
+          "instruction": "cnt\tv1.8b, v1.8b"
+        },
+        {
+          "address": "0x10780",
+          "opcode": "2e303821",
+          "instruction": "uaddlv\th1, v1.8b"
+        }
+      ]
+    },
+    "B": {
+      "artifact": "017-corrected-neon/validation/B-native-codegen.stdout",
+      "sha256": "6634e0f728af78baaa12165ac6a050be2387683fb245eaaf90fa58b35aed58c9",
+      "static_instructions": 642,
+      "static_bytes": 2568,
+      "stack_frame_bytes": 544,
+      "predicate_reconstruction": [
+        {
+          "direction": "reversed",
+          "enclosing_halfopen": [
+            "0x1049c",
+            "0x10530"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x1049c",
+              "opcode": "3900dbf2",
+              "instruction": "strb\tw18, [sp, #54]"
+            },
+            {
+              "address": "0x104a0",
+              "opcode": "3900dff1",
+              "instruction": "strb\tw17, [sp, #55]"
+            },
+            {
+              "address": "0x104a4",
+              "opcode": "79406fe3",
+              "instruction": "ldrh\tw3, [sp, #54]"
+            },
+            {
+              "address": "0x104a8",
+              "opcode": "12000064",
+              "instruction": "and\tw4, w3, #0x1"
+            },
+            {
+              "address": "0x104ac",
+              "opcode": "53010462",
+              "instruction": "ubfx\tw2, w3, #1, #1"
+            },
+            {
+              "address": "0x104b0",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x104b4",
+              "opcode": "4e031c41",
+              "instruction": "mov\tv1.b[1], w2"
+            },
+            {
+              "address": "0x104b8",
+              "opcode": "53020862",
+              "instruction": "ubfx\tw2, w3, #2, #1"
+            },
+            {
+              "address": "0x104bc",
+              "opcode": "4e051c41",
+              "instruction": "mov\tv1.b[2], w2"
+            },
+            {
+              "address": "0x104c0",
+              "opcode": "53030c62",
+              "instruction": "ubfx\tw2, w3, #3, #1"
+            },
+            {
+              "address": "0x104c4",
+              "opcode": "4e071c41",
+              "instruction": "mov\tv1.b[3], w2"
+            },
+            {
+              "address": "0x104c8",
+              "opcode": "53041062",
+              "instruction": "ubfx\tw2, w3, #4, #1"
+            },
+            {
+              "address": "0x104cc",
+              "opcode": "4e091c41",
+              "instruction": "mov\tv1.b[4], w2"
+            },
+            {
+              "address": "0x104d0",
+              "opcode": "53051462",
+              "instruction": "ubfx\tw2, w3, #5, #1"
+            },
+            {
+              "address": "0x104d4",
+              "opcode": "4e0b1c41",
+              "instruction": "mov\tv1.b[5], w2"
+            },
+            {
+              "address": "0x104d8",
+              "opcode": "53061862",
+              "instruction": "ubfx\tw2, w3, #6, #1"
+            },
+            {
+              "address": "0x104dc",
+              "opcode": "4e0d1c41",
+              "instruction": "mov\tv1.b[6], w2"
+            },
+            {
+              "address": "0x104e0",
+              "opcode": "53071c62",
+              "instruction": "ubfx\tw2, w3, #7, #1"
+            },
+            {
+              "address": "0x104e4",
+              "opcode": "4e0f1c41",
+              "instruction": "mov\tv1.b[7], w2"
+            },
+            {
+              "address": "0x104e8",
+              "opcode": "53082062",
+              "instruction": "ubfx\tw2, w3, #8, #1"
+            },
+            {
+              "address": "0x104ec",
+              "opcode": "4e111c41",
+              "instruction": "mov\tv1.b[8], w2"
+            },
+            {
+              "address": "0x104f0",
+              "opcode": "53092462",
+              "instruction": "ubfx\tw2, w3, #9, #1"
+            },
+            {
+              "address": "0x104f4",
+              "opcode": "4e131c41",
+              "instruction": "mov\tv1.b[9], w2"
+            },
+            {
+              "address": "0x104f8",
+              "opcode": "530a2862",
+              "instruction": "ubfx\tw2, w3, #10, #1"
+            },
+            {
+              "address": "0x104fc",
+              "opcode": "4e151c41",
+              "instruction": "mov\tv1.b[10], w2"
+            },
+            {
+              "address": "0x10500",
+              "opcode": "530b2c62",
+              "instruction": "ubfx\tw2, w3, #11, #1"
+            },
+            {
+              "address": "0x10504",
+              "opcode": "4e171c41",
+              "instruction": "mov\tv1.b[11], w2"
+            },
+            {
+              "address": "0x10508",
+              "opcode": "530c3062",
+              "instruction": "ubfx\tw2, w3, #12, #1"
+            },
+            {
+              "address": "0x1050c",
+              "opcode": "4e191c41",
+              "instruction": "mov\tv1.b[12], w2"
+            },
+            {
+              "address": "0x10510",
+              "opcode": "530d3462",
+              "instruction": "ubfx\tw2, w3, #13, #1"
+            },
+            {
+              "address": "0x10514",
+              "opcode": "4e1b1c41",
+              "instruction": "mov\tv1.b[13], w2"
+            },
+            {
+              "address": "0x10518",
+              "opcode": "530e3862",
+              "instruction": "ubfx\tw2, w3, #14, #1"
+            },
+            {
+              "address": "0x1051c",
+              "opcode": "530f7c63",
+              "instruction": "lsr\tw3, w3, #15"
+            },
+            {
+              "address": "0x10520",
+              "opcode": "4e1d1c41",
+              "instruction": "mov\tv1.b[14], w2"
+            },
+            {
+              "address": "0x1052c",
+              "opcode": "4e1f1c61",
+              "instruction": "mov\tv1.b[15], w3"
+            }
+          ]
+        },
+        {
+          "direction": "forward",
+          "enclosing_halfopen": [
+            "0x1059c",
+            "0x10630"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x1059c",
+              "opcode": "3900d3f2",
+              "instruction": "strb\tw18, [sp, #52]"
+            },
+            {
+              "address": "0x105a0",
+              "opcode": "3900d7f1",
+              "instruction": "strb\tw17, [sp, #53]"
+            },
+            {
+              "address": "0x105a4",
+              "opcode": "79406be3",
+              "instruction": "ldrh\tw3, [sp, #52]"
+            },
+            {
+              "address": "0x105a8",
+              "opcode": "12000064",
+              "instruction": "and\tw4, w3, #0x1"
+            },
+            {
+              "address": "0x105ac",
+              "opcode": "53010462",
+              "instruction": "ubfx\tw2, w3, #1, #1"
+            },
+            {
+              "address": "0x105b0",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x105b4",
+              "opcode": "4e031c41",
+              "instruction": "mov\tv1.b[1], w2"
+            },
+            {
+              "address": "0x105b8",
+              "opcode": "53020862",
+              "instruction": "ubfx\tw2, w3, #2, #1"
+            },
+            {
+              "address": "0x105bc",
+              "opcode": "4e051c41",
+              "instruction": "mov\tv1.b[2], w2"
+            },
+            {
+              "address": "0x105c0",
+              "opcode": "53030c62",
+              "instruction": "ubfx\tw2, w3, #3, #1"
+            },
+            {
+              "address": "0x105c4",
+              "opcode": "4e071c41",
+              "instruction": "mov\tv1.b[3], w2"
+            },
+            {
+              "address": "0x105c8",
+              "opcode": "53041062",
+              "instruction": "ubfx\tw2, w3, #4, #1"
+            },
+            {
+              "address": "0x105cc",
+              "opcode": "4e091c41",
+              "instruction": "mov\tv1.b[4], w2"
+            },
+            {
+              "address": "0x105d0",
+              "opcode": "53051462",
+              "instruction": "ubfx\tw2, w3, #5, #1"
+            },
+            {
+              "address": "0x105d4",
+              "opcode": "4e0b1c41",
+              "instruction": "mov\tv1.b[5], w2"
+            },
+            {
+              "address": "0x105d8",
+              "opcode": "53061862",
+              "instruction": "ubfx\tw2, w3, #6, #1"
+            },
+            {
+              "address": "0x105dc",
+              "opcode": "4e0d1c41",
+              "instruction": "mov\tv1.b[6], w2"
+            },
+            {
+              "address": "0x105e0",
+              "opcode": "53071c62",
+              "instruction": "ubfx\tw2, w3, #7, #1"
+            },
+            {
+              "address": "0x105e4",
+              "opcode": "4e0f1c41",
+              "instruction": "mov\tv1.b[7], w2"
+            },
+            {
+              "address": "0x105e8",
+              "opcode": "53082062",
+              "instruction": "ubfx\tw2, w3, #8, #1"
+            },
+            {
+              "address": "0x105ec",
+              "opcode": "4e111c41",
+              "instruction": "mov\tv1.b[8], w2"
+            },
+            {
+              "address": "0x105f0",
+              "opcode": "53092462",
+              "instruction": "ubfx\tw2, w3, #9, #1"
+            },
+            {
+              "address": "0x105f4",
+              "opcode": "4e131c41",
+              "instruction": "mov\tv1.b[9], w2"
+            },
+            {
+              "address": "0x105f8",
+              "opcode": "530a2862",
+              "instruction": "ubfx\tw2, w3, #10, #1"
+            },
+            {
+              "address": "0x105fc",
+              "opcode": "4e151c41",
+              "instruction": "mov\tv1.b[10], w2"
+            },
+            {
+              "address": "0x10600",
+              "opcode": "530b2c62",
+              "instruction": "ubfx\tw2, w3, #11, #1"
+            },
+            {
+              "address": "0x10604",
+              "opcode": "4e171c41",
+              "instruction": "mov\tv1.b[11], w2"
+            },
+            {
+              "address": "0x10608",
+              "opcode": "530c3062",
+              "instruction": "ubfx\tw2, w3, #12, #1"
+            },
+            {
+              "address": "0x1060c",
+              "opcode": "4e191c41",
+              "instruction": "mov\tv1.b[12], w2"
+            },
+            {
+              "address": "0x10610",
+              "opcode": "530d3462",
+              "instruction": "ubfx\tw2, w3, #13, #1"
+            },
+            {
+              "address": "0x10614",
+              "opcode": "4e1b1c41",
+              "instruction": "mov\tv1.b[13], w2"
+            },
+            {
+              "address": "0x10618",
+              "opcode": "530e3862",
+              "instruction": "ubfx\tw2, w3, #14, #1"
+            },
+            {
+              "address": "0x1061c",
+              "opcode": "530f7c63",
+              "instruction": "lsr\tw3, w3, #15"
+            },
+            {
+              "address": "0x10620",
+              "opcode": "4e1d1c41",
+              "instruction": "mov\tv1.b[14], w2"
+            },
+            {
+              "address": "0x1062c",
+              "opcode": "4e1f1c61",
+              "instruction": "mov\tv1.b[15], w3"
+            }
+          ]
+        }
+      ],
+      "forward_continuing_zero_mask_path": {
+        "chunk_bytes": 16,
+        "instructions": 51,
+        "ranges": [
+          [
+            "0x1059c",
+            "0x10654"
+          ],
+          [
+            "0x10588",
+            "0x1059c"
+          ]
+        ],
+        "exact_instructions": [
+          {
+            "address": "0x1059c",
+            "opcode": "3900d3f2",
+            "instruction": "strb\tw18, [sp, #52]"
+          },
+          {
+            "address": "0x105a0",
+            "opcode": "3900d7f1",
+            "instruction": "strb\tw17, [sp, #53]"
+          },
+          {
+            "address": "0x105a4",
+            "opcode": "79406be3",
+            "instruction": "ldrh\tw3, [sp, #52]"
+          },
+          {
+            "address": "0x105a8",
+            "opcode": "12000064",
+            "instruction": "and\tw4, w3, #0x1"
+          },
+          {
+            "address": "0x105ac",
+            "opcode": "53010462",
+            "instruction": "ubfx\tw2, w3, #1, #1"
+          },
+          {
+            "address": "0x105b0",
+            "opcode": "1e270081",
+            "instruction": "fmov\ts1, w4"
+          },
+          {
+            "address": "0x105b4",
+            "opcode": "4e031c41",
+            "instruction": "mov\tv1.b[1], w2"
+          },
+          {
+            "address": "0x105b8",
+            "opcode": "53020862",
+            "instruction": "ubfx\tw2, w3, #2, #1"
+          },
+          {
+            "address": "0x105bc",
+            "opcode": "4e051c41",
+            "instruction": "mov\tv1.b[2], w2"
+          },
+          {
+            "address": "0x105c0",
+            "opcode": "53030c62",
+            "instruction": "ubfx\tw2, w3, #3, #1"
+          },
+          {
+            "address": "0x105c4",
+            "opcode": "4e071c41",
+            "instruction": "mov\tv1.b[3], w2"
+          },
+          {
+            "address": "0x105c8",
+            "opcode": "53041062",
+            "instruction": "ubfx\tw2, w3, #4, #1"
+          },
+          {
+            "address": "0x105cc",
+            "opcode": "4e091c41",
+            "instruction": "mov\tv1.b[4], w2"
+          },
+          {
+            "address": "0x105d0",
+            "opcode": "53051462",
+            "instruction": "ubfx\tw2, w3, #5, #1"
+          },
+          {
+            "address": "0x105d4",
+            "opcode": "4e0b1c41",
+            "instruction": "mov\tv1.b[5], w2"
+          },
+          {
+            "address": "0x105d8",
+            "opcode": "53061862",
+            "instruction": "ubfx\tw2, w3, #6, #1"
+          },
+          {
+            "address": "0x105dc",
+            "opcode": "4e0d1c41",
+            "instruction": "mov\tv1.b[6], w2"
+          },
+          {
+            "address": "0x105e0",
+            "opcode": "53071c62",
+            "instruction": "ubfx\tw2, w3, #7, #1"
+          },
+          {
+            "address": "0x105e4",
+            "opcode": "4e0f1c41",
+            "instruction": "mov\tv1.b[7], w2"
+          },
+          {
+            "address": "0x105e8",
+            "opcode": "53082062",
+            "instruction": "ubfx\tw2, w3, #8, #1"
+          },
+          {
+            "address": "0x105ec",
+            "opcode": "4e111c41",
+            "instruction": "mov\tv1.b[8], w2"
+          },
+          {
+            "address": "0x105f0",
+            "opcode": "53092462",
+            "instruction": "ubfx\tw2, w3, #9, #1"
+          },
+          {
+            "address": "0x105f4",
+            "opcode": "4e131c41",
+            "instruction": "mov\tv1.b[9], w2"
+          },
+          {
+            "address": "0x105f8",
+            "opcode": "530a2862",
+            "instruction": "ubfx\tw2, w3, #10, #1"
+          },
+          {
+            "address": "0x105fc",
+            "opcode": "4e151c41",
+            "instruction": "mov\tv1.b[10], w2"
+          },
+          {
+            "address": "0x10600",
+            "opcode": "530b2c62",
+            "instruction": "ubfx\tw2, w3, #11, #1"
+          },
+          {
+            "address": "0x10604",
+            "opcode": "4e171c41",
+            "instruction": "mov\tv1.b[11], w2"
+          },
+          {
+            "address": "0x10608",
+            "opcode": "530c3062",
+            "instruction": "ubfx\tw2, w3, #12, #1"
+          },
+          {
+            "address": "0x1060c",
+            "opcode": "4e191c41",
+            "instruction": "mov\tv1.b[12], w2"
+          },
+          {
+            "address": "0x10610",
+            "opcode": "530d3462",
+            "instruction": "ubfx\tw2, w3, #13, #1"
+          },
+          {
+            "address": "0x10614",
+            "opcode": "4e1b1c41",
+            "instruction": "mov\tv1.b[13], w2"
+          },
+          {
+            "address": "0x10618",
+            "opcode": "530e3862",
+            "instruction": "ubfx\tw2, w3, #14, #1"
+          },
+          {
+            "address": "0x1061c",
+            "opcode": "530f7c63",
+            "instruction": "lsr\tw3, w3, #15"
+          },
+          {
+            "address": "0x10620",
+            "opcode": "4e1d1c41",
+            "instruction": "mov\tv1.b[14], w2"
+          },
+          {
+            "address": "0x10624",
+            "opcode": "d37df202",
+            "instruction": "lsl\tx2, x16, #3"
+          },
+          {
+            "address": "0x10628",
+            "opcode": "3ce26982",
+            "instruction": "ldr\tq2, [x12, x2]"
+          },
+          {
+            "address": "0x1062c",
+            "opcode": "4e1f1c61",
+            "instruction": "mov\tv1.b[15], w3"
+          },
+          {
+            "address": "0x10630",
+            "opcode": "4e209843",
+            "instruction": "cmeq\tv3.16b, v2.16b, #0"
+          },
+          {
+            "address": "0x10634",
+            "opcode": "6e208c42",
+            "instruction": "cmeq\tv2.16b, v2.16b, v0.16b"
+          },
+          {
+            "address": "0x10638",
+            "opcode": "4e231c21",
+            "instruction": "and\tv1.16b, v1.16b, v3.16b"
+          },
+          {
+            "address": "0x1063c",
+            "opcode": "4ea21c21",
+            "instruction": "orr\tv1.16b, v1.16b, v2.16b"
+          },
+          {
+            "address": "0x10640",
+            "opcode": "4f0f5421",
+            "instruction": "shl\tv1.16b, v1.16b, #7"
+          },
+          {
+            "address": "0x10644",
+            "opcode": "4e20a821",
+            "instruction": "cmlt\tv1.16b, v1.16b, #0"
+          },
+          {
+            "address": "0x10648",
+            "opcode": "0f0c8421",
+            "instruction": "shrn\tv1.8b, v1.8h, #4"
+          },
+          {
+            "address": "0x1064c",
+            "opcode": "9e660023",
+            "instruction": "fmov\tx3, d1"
+          },
+          {
+            "address": "0x10650",
+            "opcode": "b4fff9c3",
+            "instruction": "cbz\tx3, 10588 <zbtIndexScanSlot+0x2f0>"
+          },
+          {
+            "address": "0x10588",
+            "opcode": "91000e03",
+            "instruction": "add\tx3, x16, #0x3"
+          },
+          {
+            "address": "0x1058c",
+            "opcode": "91000a02",
+            "instruction": "add\tx2, x16, #0x2"
+          },
+          {
+            "address": "0x10590",
+            "opcode": "eb0f007f",
+            "instruction": "cmp\tx3, x15"
+          },
+          {
+            "address": "0x10594",
+            "opcode": "aa0203f0",
+            "instruction": "mov\tx16, x2"
+          },
+          {
+            "address": "0x10598",
+            "opcode": "540009a2",
+            "instruction": "b.cs\t106cc <zbtIndexScanSlot+0x434>  // b.hs, b.nlast"
+          }
+        ]
+      },
+      "forward_population_count_instructions": []
+    },
+    "C": {
+      "artifact": "017-corrected-neon/validation/C-native-codegen.stdout",
+      "sha256": "899653ebefd4c5c7dc3fe7406f7fd274331822b819ec82bb7830d2a266e77770",
+      "static_instructions": 646,
+      "static_bytes": 2584,
+      "stack_frame_bytes": 544,
+      "predicate_reconstruction": [
+        {
+          "direction": "reversed",
+          "enclosing_halfopen": [
+            "0x10498",
+            "0x10530"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x10498",
+              "opcode": "3900dbe0",
+              "instruction": "strb\tw0, [sp, #54]"
+            },
+            {
+              "address": "0x1049c",
+              "opcode": "3900dff2",
+              "instruction": "strb\tw18, [sp, #55]"
+            },
+            {
+              "address": "0x104a0",
+              "opcode": "79406fe2",
+              "instruction": "ldrh\tw2, [sp, #54]"
+            },
+            {
+              "address": "0x104a8",
+              "opcode": "12000044",
+              "instruction": "and\tw4, w2, #0x1"
+            },
+            {
+              "address": "0x104ac",
+              "opcode": "53010443",
+              "instruction": "ubfx\tw3, w2, #1, #1"
+            },
+            {
+              "address": "0x104b4",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x104bc",
+              "opcode": "4e031c61",
+              "instruction": "mov\tv1.b[1], w3"
+            },
+            {
+              "address": "0x104c0",
+              "opcode": "53020843",
+              "instruction": "ubfx\tw3, w2, #2, #1"
+            },
+            {
+              "address": "0x104c4",
+              "opcode": "4e051c61",
+              "instruction": "mov\tv1.b[2], w3"
+            },
+            {
+              "address": "0x104c8",
+              "opcode": "53030c43",
+              "instruction": "ubfx\tw3, w2, #3, #1"
+            },
+            {
+              "address": "0x104cc",
+              "opcode": "4e071c61",
+              "instruction": "mov\tv1.b[3], w3"
+            },
+            {
+              "address": "0x104d0",
+              "opcode": "53041043",
+              "instruction": "ubfx\tw3, w2, #4, #1"
+            },
+            {
+              "address": "0x104d4",
+              "opcode": "4e091c61",
+              "instruction": "mov\tv1.b[4], w3"
+            },
+            {
+              "address": "0x104d8",
+              "opcode": "53051443",
+              "instruction": "ubfx\tw3, w2, #5, #1"
+            },
+            {
+              "address": "0x104dc",
+              "opcode": "4e0b1c61",
+              "instruction": "mov\tv1.b[5], w3"
+            },
+            {
+              "address": "0x104e0",
+              "opcode": "53061843",
+              "instruction": "ubfx\tw3, w2, #6, #1"
+            },
+            {
+              "address": "0x104e4",
+              "opcode": "4e0d1c61",
+              "instruction": "mov\tv1.b[6], w3"
+            },
+            {
+              "address": "0x104e8",
+              "opcode": "53071c43",
+              "instruction": "ubfx\tw3, w2, #7, #1"
+            },
+            {
+              "address": "0x104ec",
+              "opcode": "4e0f1c61",
+              "instruction": "mov\tv1.b[7], w3"
+            },
+            {
+              "address": "0x104f0",
+              "opcode": "53082043",
+              "instruction": "ubfx\tw3, w2, #8, #1"
+            },
+            {
+              "address": "0x104f4",
+              "opcode": "4e111c61",
+              "instruction": "mov\tv1.b[8], w3"
+            },
+            {
+              "address": "0x104f8",
+              "opcode": "53092443",
+              "instruction": "ubfx\tw3, w2, #9, #1"
+            },
+            {
+              "address": "0x104fc",
+              "opcode": "4e131c61",
+              "instruction": "mov\tv1.b[9], w3"
+            },
+            {
+              "address": "0x10500",
+              "opcode": "530a2843",
+              "instruction": "ubfx\tw3, w2, #10, #1"
+            },
+            {
+              "address": "0x10504",
+              "opcode": "4e151c61",
+              "instruction": "mov\tv1.b[10], w3"
+            },
+            {
+              "address": "0x10508",
+              "opcode": "530b2c43",
+              "instruction": "ubfx\tw3, w2, #11, #1"
+            },
+            {
+              "address": "0x1050c",
+              "opcode": "4e171c61",
+              "instruction": "mov\tv1.b[11], w3"
+            },
+            {
+              "address": "0x10510",
+              "opcode": "530c3043",
+              "instruction": "ubfx\tw3, w2, #12, #1"
+            },
+            {
+              "address": "0x10514",
+              "opcode": "4e191c61",
+              "instruction": "mov\tv1.b[12], w3"
+            },
+            {
+              "address": "0x10518",
+              "opcode": "530d3443",
+              "instruction": "ubfx\tw3, w2, #13, #1"
+            },
+            {
+              "address": "0x1051c",
+              "opcode": "4e1b1c61",
+              "instruction": "mov\tv1.b[13], w3"
+            },
+            {
+              "address": "0x10520",
+              "opcode": "530e3843",
+              "instruction": "ubfx\tw3, w2, #14, #1"
+            },
+            {
+              "address": "0x10524",
+              "opcode": "530f7c42",
+              "instruction": "lsr\tw2, w2, #15"
+            },
+            {
+              "address": "0x10528",
+              "opcode": "4e1d1c61",
+              "instruction": "mov\tv1.b[14], w3"
+            },
+            {
+              "address": "0x1052c",
+              "opcode": "4e1f1c41",
+              "instruction": "mov\tv1.b[15], w2"
+            }
+          ]
+        },
+        {
+          "direction": "forward",
+          "enclosing_halfopen": [
+            "0x106a4",
+            "0x1073c"
+          ],
+          "instructions": 35,
+          "breakdown": {
+            "stack_byte_stores": 2,
+            "stack_halfword_reload": 1,
+            "scalar_bit_extracts": 16,
+            "scalar_to_vector_transfers": 16
+          },
+          "exact_instructions": [
+            {
+              "address": "0x106a4",
+              "opcode": "3900d3e0",
+              "instruction": "strb\tw0, [sp, #52]"
+            },
+            {
+              "address": "0x106a8",
+              "opcode": "3900d7f2",
+              "instruction": "strb\tw18, [sp, #53]"
+            },
+            {
+              "address": "0x106ac",
+              "opcode": "79406be2",
+              "instruction": "ldrh\tw2, [sp, #52]"
+            },
+            {
+              "address": "0x106b4",
+              "opcode": "12000044",
+              "instruction": "and\tw4, w2, #0x1"
+            },
+            {
+              "address": "0x106b8",
+              "opcode": "53010443",
+              "instruction": "ubfx\tw3, w2, #1, #1"
+            },
+            {
+              "address": "0x106c0",
+              "opcode": "1e270081",
+              "instruction": "fmov\ts1, w4"
+            },
+            {
+              "address": "0x106c8",
+              "opcode": "4e031c61",
+              "instruction": "mov\tv1.b[1], w3"
+            },
+            {
+              "address": "0x106cc",
+              "opcode": "53020843",
+              "instruction": "ubfx\tw3, w2, #2, #1"
+            },
+            {
+              "address": "0x106d0",
+              "opcode": "4e051c61",
+              "instruction": "mov\tv1.b[2], w3"
+            },
+            {
+              "address": "0x106d4",
+              "opcode": "53030c43",
+              "instruction": "ubfx\tw3, w2, #3, #1"
+            },
+            {
+              "address": "0x106d8",
+              "opcode": "4e071c61",
+              "instruction": "mov\tv1.b[3], w3"
+            },
+            {
+              "address": "0x106dc",
+              "opcode": "53041043",
+              "instruction": "ubfx\tw3, w2, #4, #1"
+            },
+            {
+              "address": "0x106e0",
+              "opcode": "4e091c61",
+              "instruction": "mov\tv1.b[4], w3"
+            },
+            {
+              "address": "0x106e4",
+              "opcode": "53051443",
+              "instruction": "ubfx\tw3, w2, #5, #1"
+            },
+            {
+              "address": "0x106e8",
+              "opcode": "4e0b1c61",
+              "instruction": "mov\tv1.b[5], w3"
+            },
+            {
+              "address": "0x106ec",
+              "opcode": "53061843",
+              "instruction": "ubfx\tw3, w2, #6, #1"
+            },
+            {
+              "address": "0x106f0",
+              "opcode": "4e0d1c61",
+              "instruction": "mov\tv1.b[6], w3"
+            },
+            {
+              "address": "0x106f4",
+              "opcode": "53071c43",
+              "instruction": "ubfx\tw3, w2, #7, #1"
+            },
+            {
+              "address": "0x106f8",
+              "opcode": "4e0f1c61",
+              "instruction": "mov\tv1.b[7], w3"
+            },
+            {
+              "address": "0x106fc",
+              "opcode": "53082043",
+              "instruction": "ubfx\tw3, w2, #8, #1"
+            },
+            {
+              "address": "0x10700",
+              "opcode": "4e111c61",
+              "instruction": "mov\tv1.b[8], w3"
+            },
+            {
+              "address": "0x10704",
+              "opcode": "53092443",
+              "instruction": "ubfx\tw3, w2, #9, #1"
+            },
+            {
+              "address": "0x10708",
+              "opcode": "4e131c61",
+              "instruction": "mov\tv1.b[9], w3"
+            },
+            {
+              "address": "0x1070c",
+              "opcode": "530a2843",
+              "instruction": "ubfx\tw3, w2, #10, #1"
+            },
+            {
+              "address": "0x10710",
+              "opcode": "4e151c61",
+              "instruction": "mov\tv1.b[10], w3"
+            },
+            {
+              "address": "0x10714",
+              "opcode": "530b2c43",
+              "instruction": "ubfx\tw3, w2, #11, #1"
+            },
+            {
+              "address": "0x10718",
+              "opcode": "4e171c61",
+              "instruction": "mov\tv1.b[11], w3"
+            },
+            {
+              "address": "0x1071c",
+              "opcode": "530c3043",
+              "instruction": "ubfx\tw3, w2, #12, #1"
+            },
+            {
+              "address": "0x10720",
+              "opcode": "4e191c61",
+              "instruction": "mov\tv1.b[12], w3"
+            },
+            {
+              "address": "0x10724",
+              "opcode": "530d3443",
+              "instruction": "ubfx\tw3, w2, #13, #1"
+            },
+            {
+              "address": "0x10728",
+              "opcode": "4e1b1c61",
+              "instruction": "mov\tv1.b[13], w3"
+            },
+            {
+              "address": "0x1072c",
+              "opcode": "530e3843",
+              "instruction": "ubfx\tw3, w2, #14, #1"
+            },
+            {
+              "address": "0x10730",
+              "opcode": "530f7c42",
+              "instruction": "lsr\tw2, w2, #15"
+            },
+            {
+              "address": "0x10734",
+              "opcode": "4e1d1c61",
+              "instruction": "mov\tv1.b[14], w3"
+            },
+            {
+              "address": "0x10738",
+              "opcode": "4e1f1c41",
+              "instruction": "mov\tv1.b[15], w2"
+            }
+          ]
+        }
+      ],
+      "forward_continuing_zero_mask_path": {
+        "chunk_bytes": 16,
+        "instructions": 54,
+        "ranges": [
+          [
+            "0x106a4",
+            "0x1076c"
+          ],
+          [
+            "0x10694",
+            "0x106a4"
+          ]
+        ],
+        "exact_instructions": [
+          {
+            "address": "0x106a4",
+            "opcode": "3900d3e0",
+            "instruction": "strb\tw0, [sp, #52]"
+          },
+          {
+            "address": "0x106a8",
+            "opcode": "3900d7f2",
+            "instruction": "strb\tw18, [sp, #53]"
+          },
+          {
+            "address": "0x106ac",
+            "opcode": "79406be2",
+            "instruction": "ldrh\tw2, [sp, #52]"
+          },
+          {
+            "address": "0x106b0",
+            "opcode": "3cf16982",
+            "instruction": "ldr\tq2, [x12, x17]"
+          },
+          {
+            "address": "0x106b4",
+            "opcode": "12000044",
+            "instruction": "and\tw4, w2, #0x1"
+          },
+          {
+            "address": "0x106b8",
+            "opcode": "53010443",
+            "instruction": "ubfx\tw3, w2, #1, #1"
+          },
+          {
+            "address": "0x106bc",
+            "opcode": "4e209843",
+            "instruction": "cmeq\tv3.16b, v2.16b, #0"
+          },
+          {
+            "address": "0x106c0",
+            "opcode": "1e270081",
+            "instruction": "fmov\ts1, w4"
+          },
+          {
+            "address": "0x106c4",
+            "opcode": "6e208c42",
+            "instruction": "cmeq\tv2.16b, v2.16b, v0.16b"
+          },
+          {
+            "address": "0x106c8",
+            "opcode": "4e031c61",
+            "instruction": "mov\tv1.b[1], w3"
+          },
+          {
+            "address": "0x106cc",
+            "opcode": "53020843",
+            "instruction": "ubfx\tw3, w2, #2, #1"
+          },
+          {
+            "address": "0x106d0",
+            "opcode": "4e051c61",
+            "instruction": "mov\tv1.b[2], w3"
+          },
+          {
+            "address": "0x106d4",
+            "opcode": "53030c43",
+            "instruction": "ubfx\tw3, w2, #3, #1"
+          },
+          {
+            "address": "0x106d8",
+            "opcode": "4e071c61",
+            "instruction": "mov\tv1.b[3], w3"
+          },
+          {
+            "address": "0x106dc",
+            "opcode": "53041043",
+            "instruction": "ubfx\tw3, w2, #4, #1"
+          },
+          {
+            "address": "0x106e0",
+            "opcode": "4e091c61",
+            "instruction": "mov\tv1.b[4], w3"
+          },
+          {
+            "address": "0x106e4",
+            "opcode": "53051443",
+            "instruction": "ubfx\tw3, w2, #5, #1"
+          },
+          {
+            "address": "0x106e8",
+            "opcode": "4e0b1c61",
+            "instruction": "mov\tv1.b[5], w3"
+          },
+          {
+            "address": "0x106ec",
+            "opcode": "53061843",
+            "instruction": "ubfx\tw3, w2, #6, #1"
+          },
+          {
+            "address": "0x106f0",
+            "opcode": "4e0d1c61",
+            "instruction": "mov\tv1.b[6], w3"
+          },
+          {
+            "address": "0x106f4",
+            "opcode": "53071c43",
+            "instruction": "ubfx\tw3, w2, #7, #1"
+          },
+          {
+            "address": "0x106f8",
+            "opcode": "4e0f1c61",
+            "instruction": "mov\tv1.b[7], w3"
+          },
+          {
+            "address": "0x106fc",
+            "opcode": "53082043",
+            "instruction": "ubfx\tw3, w2, #8, #1"
+          },
+          {
+            "address": "0x10700",
+            "opcode": "4e111c61",
+            "instruction": "mov\tv1.b[8], w3"
+          },
+          {
+            "address": "0x10704",
+            "opcode": "53092443",
+            "instruction": "ubfx\tw3, w2, #9, #1"
+          },
+          {
+            "address": "0x10708",
+            "opcode": "4e131c61",
+            "instruction": "mov\tv1.b[9], w3"
+          },
+          {
+            "address": "0x1070c",
+            "opcode": "530a2843",
+            "instruction": "ubfx\tw3, w2, #10, #1"
+          },
+          {
+            "address": "0x10710",
+            "opcode": "4e151c61",
+            "instruction": "mov\tv1.b[10], w3"
+          },
+          {
+            "address": "0x10714",
+            "opcode": "530b2c43",
+            "instruction": "ubfx\tw3, w2, #11, #1"
+          },
+          {
+            "address": "0x10718",
+            "opcode": "4e171c61",
+            "instruction": "mov\tv1.b[11], w3"
+          },
+          {
+            "address": "0x1071c",
+            "opcode": "530c3043",
+            "instruction": "ubfx\tw3, w2, #12, #1"
+          },
+          {
+            "address": "0x10720",
+            "opcode": "4e191c61",
+            "instruction": "mov\tv1.b[12], w3"
+          },
+          {
+            "address": "0x10724",
+            "opcode": "530d3443",
+            "instruction": "ubfx\tw3, w2, #13, #1"
+          },
+          {
+            "address": "0x10728",
+            "opcode": "4e1b1c61",
+            "instruction": "mov\tv1.b[13], w3"
+          },
+          {
+            "address": "0x1072c",
+            "opcode": "530e3843",
+            "instruction": "ubfx\tw3, w2, #14, #1"
+          },
+          {
+            "address": "0x10730",
+            "opcode": "530f7c42",
+            "instruction": "lsr\tw2, w2, #15"
+          },
+          {
+            "address": "0x10734",
+            "opcode": "4e1d1c61",
+            "instruction": "mov\tv1.b[14], w3"
+          },
+          {
+            "address": "0x10738",
+            "opcode": "4e1f1c41",
+            "instruction": "mov\tv1.b[15], w2"
+          },
+          {
+            "address": "0x1073c",
+            "opcode": "4e231c21",
+            "instruction": "and\tv1.16b, v1.16b, v3.16b"
+          },
+          {
+            "address": "0x10740",
+            "opcode": "4ea21c21",
+            "instruction": "orr\tv1.16b, v1.16b, v2.16b"
+          },
+          {
+            "address": "0x10744",
+            "opcode": "4f0f5421",
+            "instruction": "shl\tv1.16b, v1.16b, #7"
+          },
+          {
+            "address": "0x10748",
+            "opcode": "4e20a821",
+            "instruction": "cmlt\tv1.16b, v1.16b, #0"
+          },
+          {
+            "address": "0x1074c",
+            "opcode": "0f0c8421",
+            "instruction": "shrn\tv1.8b, v1.8h, #4"
+          },
+          {
+            "address": "0x10750",
+            "opcode": "9e660022",
+            "instruction": "fmov\tx2, d1"
+          },
+          {
+            "address": "0x10754",
+            "opcode": "9200e042",
+            "instruction": "and\tx2, x2, #0x1111111111111111"
+          },
+          {
+            "address": "0x10758",
+            "opcode": "9e670041",
+            "instruction": "fmov\td1, x2"
+          },
+          {
+            "address": "0x1075c",
+            "opcode": "0e205821",
+            "instruction": "cnt\tv1.8b, v1.8b"
+          },
+          {
+            "address": "0x10760",
+            "opcode": "2e303821",
+            "instruction": "uaddlv\th1, v1.8b"
+          },
+          {
+            "address": "0x10764",
+            "opcode": "1e260024",
+            "instruction": "fmov\tw4, s1"
+          },
+          {
+            "address": "0x10768",
+            "opcode": "34fff964",
+            "instruction": "cbz\tw4, 10694 <zbtIndexScanSlot+0x3fc>"
+          },
+          {
+            "address": "0x10694",
+            "opcode": "91004231",
+            "instruction": "add\tx17, x17, #0x10"
+          },
+          {
+            "address": "0x10698",
+            "opcode": "4b110122",
+            "instruction": "sub\tw2, w9, w17"
+          },
+          {
+            "address": "0x1069c",
+            "opcode": "71003c5f",
+            "instruction": "cmp\tw2, #0xf"
+          },
+          {
+            "address": "0x106a0",
+            "opcode": "54fff929",
+            "instruction": "b.ls\t105c4 <zbtIndexScanSlot+0x32c>  // b.plast"
+          }
+        ]
+      },
+      "forward_population_count_instructions": [
+        {
+          "address": "0x1075c",
+          "opcode": "0e205821",
+          "instruction": "cnt\tv1.8b, v1.8b"
+        },
+        {
+          "address": "0x10760",
+          "opcode": "2e303821",
+          "instruction": "uaddlv\th1, v1.8b"
+        }
+      ]
+    }
+  }
+}

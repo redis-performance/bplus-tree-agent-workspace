@@ -1,0 +1,2 @@
+mkdir -p build/adapter-requalification
+clang -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3  bench/microbench.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o build/adapter-requalification/btree-bench

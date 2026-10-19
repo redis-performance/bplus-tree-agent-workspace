@@ -1,0 +1,15 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -2633,11 +2633,7 @@
+     }
+     /* +0.0 and -0.0 compare equal and are ordered by member, so the last
+      * logical score need not have the largest ordered value. */
+-    uint64_t base = zbtScoreToOrdered(scores[0]);
+-    for (unsigned int i = 1; i < count; i++) {
+-        uint64_t ordered = zbtScoreToOrdered(scores[i]);
+-        if (ordered > base) base = ordered;
+-    }
++    uint64_t base = zbtScoreToOrdered(scores[count - 1]);
+     leaf->score_base = base;
+     leaf->reversed = 1;
+     memset(leaf->data, 0, zbtScoreLeafScoreBytes(count, leaf->score_bits));

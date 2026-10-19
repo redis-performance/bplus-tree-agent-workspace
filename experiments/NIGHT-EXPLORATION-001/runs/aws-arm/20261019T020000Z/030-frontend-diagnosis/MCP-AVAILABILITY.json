@@ -1,0 +1,43 @@
+{
+  "checked_utc": "2026-10-19T11:12:33.952591+00:00",
+  "actual_agent": "/root/aws_arm",
+  "backend": "native Codex",
+  "exact_model": null,
+  "cost": null,
+  "discovery": "ALL_TOOLS metadata filter for cpu-perf / library_status",
+  "exposed_matches": [],
+  "own_library_status_called": false,
+  "own_ask_called": false,
+  "blocker": "No matching callable MCP tools exposed in this worker session",
+  "shared_consultation": {
+    "commit": "dfff5540f",
+    "path": "experiments/ARM-FRONTEND-DIAGNOSTIC-001/CPU-PERF-CONSULTATION.json",
+    "caller": "/root",
+    "consumed_utc": "2026-10-19T11:12:51.548587+00:00",
+    "server": "cpu-perf0.1.1",
+    "repository": "deb5a0bac467",
+    "transport": "controller local stdio MCP",
+    "calls": [
+      "library_status",
+      "ask",
+      "read_source",
+      "check_evidence"
+    ],
+    "findings": "0/287 indexed; Arm source fetch empty; no source-backed mechanism passages; context heuristic false negatives and genuinely unknown frequency/DVFS/SMT retained",
+    "decision": "No frozen source/schedule/gate changes. No causal explanation or unread-source citation. Prior REJECT/sourceNONE preserved."
+  },
+  "workflow_read": "docs/PERFORMANCE-MCP.md from current main workspace",
+  "frozen_profile_changed_by_discovery": false,
+  "shared_followup": {
+    "commit": "132cf5be7",
+    "path": "experiments/ARM-FRONTEND-DIAGNOSTIC-001/CPU-PERF-PROFILE-FOLLOWUP.json",
+    "caller": "/root",
+    "tools": [
+      "library_status",
+      "ask"
+    ],
+    "consumed_utc": "2026-10-19T11:28:34.271520+00:00",
+    "findings": "No source passages; instrumented-only instruction direction, failed transfer/map retained, no native causal explanation",
+    "own_calls": false
+  }
+}
