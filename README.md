@@ -5,7 +5,7 @@ member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
 **Current state:** all five machines have completed the baseline matrix. Overnight
-benchmark phases are closed; evidence audits and the09:00 Lisbon closeout continue. No optimization
+benchmark phases are closed and all three AWS OSS coordinators are restored. No optimization
 has been merged into `src/`; candidate patches and measured decisions live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
@@ -17,11 +17,12 @@ rule. Earlier DNS and write failures are historical; both hosts retain source NO
 See the latest results and live status links below.
 
 <!-- AWS-NIGHT-START -->
-The **AWS Intel, AMD and Graviton campaign** is bounded to **19 October,
-09:00 Lisbon / 08:00 UTC**. [Baselines and plan](experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md),
-[live workers and activity](experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
-Each host publishes its completed decisions and evidence on a separate branch.
-Source adoption remains NONE.
+The **AWS Intel, AMD and Graviton campaign is complete**. All three OSS coordinators
+are restored, verified after the **19 October, 09:00 Lisbon / 08:00 UTC** deadline.
+[Morning report](experiments/NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md) ·
+[Live handback proof](experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json) ·
+[Activity log](experiments/NIGHT-EXPLORATION-001/AWS-ACTIVITY.md).
+Source adoption remains NONE; all candidate patches and decisions are retained.
 <!-- AWS-NIGHT-END -->
 
 AWS completed measured populations: **8 — 0 accepted / 5 rejected / 3 parked**.

@@ -1040,3 +1040,8 @@ audits pass. No further benchmarkphases after07:15; no sourceadoption. Separate
 replication only; AWS8populations remain0accepted/5rejected/3parked.
 [Decision](NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·
 [Chart](NIGHT-EXPLORATION-001/latest-charts/aws-arm-mask-primary.png).
+
+
+AWS campaign closed on19 October: all three OSS coordinators restored, live verified
+08:00:20–08:00:25 UTC. Eight measured populations remain0 accepted/5 rejected/3 parked;
+source adoption NONE. [Morning report](NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md).

@@ -1,53 +1,31 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 07:22 UTC
+## AWS overnight campaign complete — 19 October 08:01 UTC
 
-Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
-Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
-ARM NEON completes 144 discovery rows, every block slower: REJECT/NONE. Root and
-independent AMD raw audits pass; held-out confirmation is ineligible/unexecuted.
-All three implementations passed 145 native validation commands before discovery.
+All three requested AWS hosts were reached by SSH, their OSS coordinators stopped
+for the campaign, and original/corrected baselines completed. Live fleet release
+verified during 08:00:20–08:00:25 UTC: coordinators RUNNING with live/matching saved PIDs,
+fresh files, inactive owned slices, zero owned units/recursive PIDs, no query errors.
+Private fleet reservation RELEASED and pushed. No further runner work is authorized
+by the expired overnight lease. Main tree source remains unchanged; adoption NONE.
 
-Original-adapter Intel scan B is REJECT: qualified trim/319-byte/signed-zero guard
-regresses all six blocks (+4.931% median). Root independently audits all1,440 rows;
-independent AMD full2,124-process review1217ba80a complete. Earlier primary/focused gains do not override loss.
-No A fallback or retry. Corrected Intel60 profiles/48 AA rows root-audited; both primary
-controls qualify. Corrected exactB guard-first replication PARK: two of six fresh guard AA blocks
-fail precision. Root audits1,744 immutable files; no candidate timing or retry. Metadata failure preserved, read-only completion only, no reruns.
-ARM existing-binary12-capture profile independently audited: exact predicate17.67%/
-16.87% of timed sampled period, not causal or recoverable cost. Fresh02048 AA rows
-qualify both sizes. Three actual proposals reviewed: ARM conditional dispatch, Intel/AMD
-NONE. Root chair selects NONE; no implementation. Previous017 rejection remains final.
-AMD baseline-only iterator51 profile commands/48 AA complete. Root and independent
-ARM58fec78b7 raw audits pass;100K precision fails,1M qualifies. NONE/no candidate.
-Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
-AMD rank/update profile and index-reference diagnosis select no new hypothesis.
+Eight measured AWS populations: 0 accepted / 5 rejected / 3 parked, 24 retained
+patches (21 public-tree patches, 3 private decoder-control variants). Replications
+are separate: original Intel scan REJECT after qualified +4.93% trim guard; corrected
+Intel PARK before candidate timing; corrected AMD exact-B REJECT. ARM has two parked
+architecture replications. Latest historical EXP005A screen passes all12 primary
+blocks, medians−7.77%/−7.10%, but remains PARK pending guards, fresh confirmation and
+matched candidate profile.570 validation commands include536 correctness/fault checks.
 
-Corrected-adapter baselines complete on M6 and all three AWS hosts. New separate
-four-host charts preserve 3,840 raw rows / 160 cells and exact source parity evidence.
-Qualified cases: M6 5/40, Intel 10/40, AMD 11/40, ARM 21/40. Original five-host chart
-unchanged; corrected M1 baseline absent. Never combine old/new adapter identities.
+Original five-host chart retained. Corrected-adapter chart covers M6/Intel/AMD/ARM,
+3840 rows/160 cases, qualified5/10/11/21 of40 respectively; no corrected M1 baseline.
+Compiler/OS/affinity differences prevent causal architecture rankings. Apple ledgers
+remain separate. M1d41738b05/2baeafcef resolves earlier DNS/publication failures;
+M6fc7350a91 reports experimental cutoff/no queued workload. No Apple-host control.
 
-All three OSS coordinators remain stopped for the reserved campaign. Release timers
-08:00 UTC and corrected read-only auditor 08:00:20 UTC are armed/alive. Actual restoration
-is NOT YET verified; do not report completion before live proof. Native model/token/USD
-costs unknown; no upstream actions. M6fc7350a91 reports07:15experimentalcutoff, noqueued
-workload. M1d41738b05/2baeafcef resolves earlier publication/DNS failures and records
-06:50 M6decision receipt, no further sourceexperimentqueued. Applecounts separate.
-
-All24 measured-population patches indexed;21 public-tree apply checks pass,3 target
-private decoder control. Ambient observations complete:183snapshots/180valid intervals,
-root+independentIntel0c6d47cd6 audits pass; currentidleonly, no historicalnoise explanation.
-Fresh06:26:07 allhosts zeroownedunits/PIDs,OSSstopped,timers08UTC intact.
-ARM024 nativecorrected score-only iterator profile4e43c9f59 complete51commands/970samples.
-Root136file andindependentAMDd42ca4ef2 profileaudits pass. Fixed48rowAA73c9e313f
-qualifiesbothsizes; root235file/AMD41e1ce8cc rawaudits pass. HistoricalEXP005A026
-6bcd8e575 PARK:570validationcommands/93.39s, independentlyreviewed4to3maskcodegen,
-48primaryrows/all12passmedians−7.766545%/−7.101923%. Root105seal/Intel16f074fbe
-rawaudits pass; missingguards/freshconfirmation/profile. Separateoldreplication, not
-newpopulation; twoARMreplicationsnowPARK. Allbenchmarkphasesclosed; no more launches.
-Actual013330b39a9 preserved; post07:16:28zeroownedunits/PIDs. OSSrestorationpending.
-Latest observed M6 publicationfc7350a91:correctedNEONreplicationPARKbeforecandidate
-aftertwo1Mcontrolfailures;20640decoderprocesses/allshort;sourceNONE.
+[Morning report](../experiments/NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md) and
+[live handback proof](../experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json)
+are the current entry points. Historical entries below retain prior task states.
+Native model/token/currency costs unknown. No upstream actions.
 <!-- AWS-CURRENT-END -->
 
 # Handoff

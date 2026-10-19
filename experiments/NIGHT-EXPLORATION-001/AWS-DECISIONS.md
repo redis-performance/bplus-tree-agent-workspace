@@ -619,3 +619,15 @@ This is idleness, not completed OSS restoration.08:00UTC release proof remains p
 Counts remain8 measured AWS populations:0 accepted/5 rejected/3 parked. ARM now has
 two additional separately parked architecture replications. All24 population patches
 and the exact historical replication patch remain retained.
+
+
+## 19 October 08:01 UTC — campaign complete, fleet restored
+
+Live checks during 08:00:20–08:00:25 UTC verify all three OSS coordinators RUNNING with live
+PIDs and matching saved status, fresh release files, inactive owned slices, zero
+owned units/processes and no inspection errors. Marker times identify attempt start.
+The private fleet reservation is RELEASED and pushed. No source optimization adopted.
+AWS totals: eight measured populations, zero accepted, five rejected, three parked;
+replications remain separate. All 24 population patches and raw evidence are retained.
+
+[Morning report](AWS-MORNING-REPORT.md) · [Live proof](reviews/aws-release-final.json).
