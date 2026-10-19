@@ -1,24 +1,26 @@
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
-## Active ARM follow-up — 19 October 09:48 UTC
+## ARM follow-up closed — 19 October 10:03 UTC handback
 
-Fresh primary controls53e193c5b and candidate451456c2f pass all12blocks; medians
-−7.780706% at100K / −7.212021% at1M, identical outputs/memory. Root/AMD verify.
-Original controls1329e440a qualify18/29 required;11 noisy required +11 short diagnostic
-cells remain unresolved. Comparison4c7668661:17 qualified passes,100-member SCAN mixed
-(one +1.477795% block,five small improvements). Root/Intel73f66fe89 raw audits agree.
-PARK/source NONE; acceptance/heldout confirmation blocked. Qualified losses can REJECT.
-Iterator controls8ed45423c complete1968rows/492blocks in764.223s:43/82qualify,
-39noisy required,no shortwindows(min44.7965ms). Root/Intel d68b27aa2 audits agree.
-Root ddb4cf444 grants only fixed iteratorcomparison:1968processes/82cases,1500s,
-60schild CPU2 freeze380ef3109; allcasesretained,43calibrated. No retry/retuning/
-automatic nextphase. Fullcap+20 mustfit10:15UTC. Matched profile0a1040780 reviewed
-but ungranted; heldoutconfirmation blocked. Additional qualified loss can REJECT.
-Correctness composite preserves originalFAILED8cdebdcba + six-only19fd53594;2048 modes,
-4original43/12oracles/14faults. No new population/source. Historical AWS8:0accepted,
-5rejected,3parked unchanged. ARM-only lease ACTIVE; independent restore timer and
-local auditor armed. Root must verify live handback early when finished or10:15UTC /
-11:15Lisbon. Intel/AMD remain released. No upstream actions.
-[Results](../experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md) · [Live status](../experiments/ARM-MASK-FOLLOWUP-001/STATUS.md).
+Final REJECT / source NONE. All six fixed timing phases completed: 4,272 processes /
+5,952 rows. Primary451456c2f retains −7.780706% / −7.212021%, but iterator comparison
+f30ac4330 has nine qualified all-six-block losses (median +2.860% to +8.519%),
+30 qualified passes, four mixed cases and39 unqualified controls. Root and independent
+Intel d3cc358f2 verify rows, exact AA/fixture/checksum/memory/source/binary joins.
+All nine losses are score-only under the distinct frozen guard frontend; cause of
+the disagreement with the primary frontend remains unmeasured. No retry/retuning.
+Original controls/comparison retain11 required noisy cells,11 short diagnostics,
+17 qualified passes and one mixed100-member SCAN. Earlier PARK checkpoints preserved.
+Correctness composite preserves FAILED8cdebdcba + six-only19fd53594; passes2,048 mode
+runs, four original43-test suites,12 oracles,14 faults. No source/referee weakening.
+Matched profile0a1040780 and held-out confirmation are UNEXECUTED after rejection.
+No queued workload, no current runner lease, no adoption or upstream action.
+Early owned release script succeeded10:03:18UTC while timer armed; timer stopped
+only after success. Independent live audit10:03:25–27 verifies OSS RUNNING with
+matching live/saved PID, fresh marker, inactive slice, zero owned units/recursive PIDs,
+no errors. Pending read-only auditor cancelled only after proof. Private fleet
+reservation RELEASED. Intel/AMD stayed released. Historical eight AWS populations
+remain0 accepted /5 rejected /3 parked; this exact-candidate continuation adds none.
+[Final report](../experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md) · [Live proof](../experiments/ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json).
 <!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
 
 <!-- AWS-CURRENT-START -->

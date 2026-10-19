@@ -48,3 +48,7 @@ independent known-work/physical-byte/final-gate reconstruction. Only AST/local m
 checks have run. No scientific profile result or profile grant is implied. Prepared
 auditors remain useful even if guard outcome/deadline leaves profiling unexecuted.
 Iterator comparison is active under ddb4cf444, all1968fixed processes retained.
+
+### 2026-10-19T10:06:07.252757+00:00 — Final REJECT and verified early handback
+
+Root raw audit+Intel d3cc358f2 independently reconstruct f30ac4330:1968processes/492blocks,9qualifiedall-sixREJECT/30PASS/4mixed/39unqualified,762.891763s. All nine losses score-only HARNESS004,medians+2.860..+8.519%; primary−7.78/−7.21 retained with distinctfrontend/no causal attribution. Sixphases total4272processes/5952rows. Profile and heldoutconfirmation UNEXECUTED after decisive rejection; no retries/retuning/newpopulation/adoption. Earlyrelease succeeded10:03:18 whiletimerarmed; timerstoppedaftersuccess. Freshliveproof10:03:25–27 OSSRUNNING/savedPIDmatches/inactiveslice/zeroownedunits+recursivePIDs/noerrors. Pendingreadonlyauditor cancelledafterproof. Private fleet RELEASED. FinalsourceNONE; allpatches/failures retained.

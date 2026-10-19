@@ -1,8 +1,49 @@
-# ARM mask follow-up — current evidence
+# ARM mask follow-up — final result
 
-**PARK / source NONE:** the primary gain reproduces, but 11 of 29 required original
-operation controls fail precision. Independent confirmation is ineligible. No production source change or new
-optimization population. This is a fresh-session replication of exact historical EXP-005 A.
+**REJECT / source NONE.** The primary benchmark repeats a7–8% elapsed-time reduction,
+but nine qualified iterator guard cases regress in every one of six blocks. Their
+median slowdowns range from **+2.860% to +8.519%**, exceeding the preregistered1% guard
+limit. Root and independent Intel raw audits agree. No optimization was adopted.
+
+All six frozen timing phases completed: **4,272 processes /5,952 rows**. The original
+failed correctness attempt and its separate six-command closure remain preserved.
+Matched profiling and independent held-out confirmation were **not run** after the
+decisive rejection. The ARM runner was released early: live OSS restoration verified
+at **10:03:25–10:03:27 UTC /11:03 Lisbon**, before the10:15UTC hard deadline.
+[Release proof](RELEASE-FINAL.json) · [Decision data](FINAL-DECISION.json).
+
+## Decisive iterator guards
+
+Comparison `f30ac4330` completes all1,968 processes /492 ABBA blocks in762.891763seconds.
+Its controls `8ed45423c` qualify43/82required cases;39 fail precision,none are short.
+Among the43qualified comparisons: **9REJECT /30PASS /4mixedPARK**. Every rejected case
+is score-only output(mask4),16-byte members,20M visits and three warm-up passes under
+HARNESS-004. All output checksums and tree-owned memory match. Every raw block is retained.
+
+| Case | Members | Encoding | Direction | Median elapsed change | Six-block range |
+|---|---:|---|---|---:|---:|
+| g004 | 100,000 | integer | forward | +2.865% | +2.573% to +2.997% |
+| g012 | 100,000 | integer | reverse | +8.415% | +8.271% to +8.510% |
+| g020 | 1,000,000 | integer | forward | +2.953% | +2.712% to +3.104% |
+| g028 | 1,000,000 | integer | reverse | +3.147% | +2.964% to +3.523% |
+| g033 | 100,000 | fraction | forward | +2.872% | +2.755% to +2.987% |
+| g037 | 100,000 | fraction | reverse | +8.519% | +8.485% to +8.635% |
+| g041 | 100,000 | wide | forward | +2.860% | +2.651% to +3.083% |
+| g049 | 100,000 | zero | forward | +2.898% | +2.711% to +3.005% |
+| g053 | 100,000 | zero | reverse | +8.395% | +7.327% to +8.490% |
+
+[Root iterator comparison audit](ITERATOR-COMPARISON-ROOT-AUDIT.json) ·
+[Root iterator controls audit](ITERATOR-AA-ROOT-AUDIT.json) ·
+[Independent Intel comparison review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d3cc358f2/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/iterator-comparison-f30ac4330/REVIEW.md) ·
+[Independent Intel controls review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d68b27aa2/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/iterator-AA-8ed45423c/REVIEW.md).
+
+The guard frontend differs from the primary benchmark below. Even forward integer
+score-only guards at the same100K/1M sizes regress. The direction disagreement is
+observed; its cause is **unmeasured**. No claim about caller layout, branch behavior,
+or removable cycles is inferred from timing alone. The primary gain cannot justify
+a universal decoder change or an untested special-case workaround.
+
+## Preserved primary result
 
 | Fresh primary fixture | Control blocks qualified | Candidate blocks passing ≥2% | Median elapsed change | Candidate block range |
 |---|---:|---:|---:|---:|
@@ -36,80 +77,50 @@ runs, 12 additional oracle runs, and 14 detected injected faults. Both phases pr
 and four native guard binaries. Root and independent AMD audits agree. All public raw
 artifacts, failure records, patches, plans and reviews remain in Git.
 
-## Remaining gates and limits
+## Original-operation guards
 
-The frozen plan contains 82 required iterator guard cells plus 29 required original-operation
-cells; 11 original cells are prospectively declared diagnostics. A qualified diagnostic
-loss still blocks progression. Unqualified required controls mean PARK; no retries,
-threshold changes or post-result count tuning are permitted. Every phase needs a separate
-root grant and must fit the fixed 10:15UTC lease deadline. Live handback proof is required.
+Original controls `1329e440a` complete120processes /960rows in377.718290seconds:
+18/29required cases qualify;11fail precision despite windows of at least10ms.
+All11prospectively declared diagnostic cells are short; eight also fail precision.
+Comparison `4c7668661` completes120processes /960rows in377.539413seconds:17qualified
+passes and one mixed100-member SCAN. Its +1.477795% block is retained beside five
+small improvements; its negative median does not rescue it. The22unqualified cells
+remain diagnostic. This earlier checkpoint was PARK; the later iterator losses
+make the final follow-up REJECT. No historical result was overwritten.
 
-Uniform identical-bit width-zero performance remains an explicit fixture gap. Existing
-alternating signed-zero coverage does not close it. ARM timings do not qualify other
-architectures or imply portable adoption. Independent held-out seeds 1201–1203 and matched
-profiles remain unexecuted at this checkpoint; primary instruction differences alone do
-not establish the cause of the timing improvement. Exact serving model/token/currency
-costs are unknown. Historical eight AWS populations remain 0 accepted / 5 rejected / 3 parked.
+![Every qualified original guard block](charts/original-qualified-guards.png)
 
-## Immutable raw evidence
+[Original controls audit](ORIGINAL-AA-ROOT-AUDIT.json) ·
+[Original comparison audit](ORIGINAL-COMPARISON-ROOT-AUDIT.json) ·
+[Independent original comparison review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/73f66fe89/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-comparison-4c7668661/REVIEW.md).
 
-- [Original failed preparation8cdebdcba](https://github.com/redis-performance/bplus-tree-agent-workspace/tree/8cdebdcba/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/027-mask-followup/validation)
-- [Six-command suffix19fd53594](https://github.com/redis-performance/bplus-tree-agent-workspace/tree/19fd53594/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/028-mask-validation-continuation)
-- [Fresh controls53e193c5b](https://github.com/redis-performance/bplus-tree-agent-workspace/tree/53e193c5b/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/027-mask-followup/primary-AA)
-- [Fresh primary comparison451456c2f](https://github.com/redis-performance/bplus-tree-agent-workspace/tree/451456c2f/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/027-mask-followup/primary-replication)
+## Unexecuted work and limits
 
-## Original-operation controls
+Matched profile freeze `0a1040780` and its reviewed auditors were prepared but never
+launched. No PMU/candidate-profile result or explanation of elapsed magnitude is claimed.
+Held-out seeds1201–1203 were not used; required control failures already made confirmation
+ineligible, and the decisive guard rejection ends this continuation. Neither phase is
+presented as a deadline-truncated run. No retry, retuning, averaging rescue or source
+adoption occurred. Uniform identical-bit width-zero performance remains uncovered;
+alternating signed-zero ties do not substitute for it. ARM evidence does not qualify
+other architectures or imply Redis server performance.
 
-All 120 processes / 960 rows / 240 blocks completed in 377.718290 seconds.
-18 of 29 required cases qualify. The 11 required failures are precision failures
-(above ±1%); every required window is at least 10ms. All 11 prospectively declared
-diagnostic cases are shorter than 10ms, and eight also exceed the precision bound.
-These failures preclude acceptance regardless of later diagnostic results; a qualified
-guard loss can still make the final decision REJECT.
+Root independently reconstructed all six timing phases; AMD independently reviewed
+primary evidence/correctness and the intermediate claims; Intel independently reviewed
+original and iterator guards. The [adversarial claim review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8569bb06c/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/034-arm-mask-continuation-review/ADVERSARIAL-CLAIMS-REVIEW-13470335e.md)
+covers the earlier PARK checkpoint, not an independent confirmation run. Exact serving
+model/token/currency costs remain unknown. This is a continuation of the exact historical
+candidate, not a new population: eight historical AWS populations remain0accepted /
+5rejected /3parked. Their historical PARK decisions and all patches remain intact.
 
-[Root raw audit](ORIGINAL-AA-ROOT-AUDIT.json) and
-[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/0981f4afa/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-AA-1329e440a/REVIEW.md).
-The fixed comparison retains all 40 cases; only qualified controls support calibrated
-comparisons. No retry, count adjustment or post-result waiver is allowed. Remaining
-diagnostic phases run only if their full fixed cap fits before 10:15 UTC.
+## Runner handback
 
-## Original-operation comparison
+The owned release script succeeded10:03:18UTC while its failover timer remained armed.
+That timer was stopped only after success. A separate fresh audit at10:03:25–27 verifies
+OSS RUNNING with matching saved/livePID2927719, fresh marker, inactive owned slice,
+zero owned units/recursive processes and no inspection errors. The marker denotes
+release-attempt start, not exact restoration completion. The pending read-only auditor
+was cancelled only after this proof. Intel/AMD hosts remained released throughout.
 
-Result `4c7668661` completes 120 processes / 960 rows / 240 ABBA blocks in
-377.539413 seconds. Of the 18 qualified cases, 17 pass; 100-member SCAN is mixed:
-block 3 / seed 1301 is +1.477795%, with five improvements from −0.275% to −0.471%.
-Its −0.382% median cannot erase the failing block. No qualified all-six-block loss
-is demonstrated. Eleven required noisy cells and 11 short diagnostics remain
-unqualified. Overall PARK, source NONE; independent held-out confirmation blocked.
-
-[Root audit](ORIGINAL-COMPARISON-ROOT-AUDIT.json) and
-[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/73f66fe89/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-comparison-4c7668661/REVIEW.md)
-verify immutable rows, controls, source/binary identities, memory and post-idle proof.
-The separately granted fixed iterator A/A is diagnostic follow-up, not acceptance.
-
-![All six blocks of each qualified original guard](charts/original-qualified-guards.png)
-
-[SVG](charts/original-qualified-guards.svg) · [Reproducible renderer](render-original-guards.py).
-The 22 unqualified cells remain in the complete raw audit; this chart shows only
-comparisons with qualified controls.
-
-## Independent adversarial claim review
-
-[AMD review8569bb06c](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8569bb06c/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/034-arm-mask-continuation-review/ADVERSARIAL-CLAIMS-REVIEW-13470335e.md)
-reconstructs all 1,920 original-control/comparison rows and agrees with PARK/NONE.
-It confirms the primary claim is confined to forward score-only iteration on this
-ARM host. A historical authorization flag was clarified in146f816ff; evidence and
-gates did not change. Later favorable diagnostics cannot repair the failed controls.
-
-## Iterator controls
-
-Result `8ed45423c` completes all 1,968 baseline processes across 82 required iterator
-cases in 764.223122 seconds. **43 cases qualify; 39 fail precision.** No window is
-below 10 ms (minimum 44.796530 ms). These additional required failures keep PARK.
-[Root raw audit](ITERATOR-AA-ROOT-AUDIT.json) verifies every row, frozen schedule,
-identity, same-fixture memory and post-idle proof. A fixed subsequent comparison
-can be diagnostic only; it cannot qualify the 39 noisy controls or repair the
-original-operation blockers. All cells and failed blocks remain in the evidence.
-
-[Independent Intel iterator-control review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d68b27aa2/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/iterator-AA-8ed45423c/REVIEW.md) agrees: integer21/32, encoding14/24, storage3/20, signed-zero ties5/6 qualify.
-The fixed comparison is separately granted under1500seconds; all82cases retained.
+[Release action](EARLY-RELEASE-ACTION.json) · [Fresh live proof](RELEASE-FINAL.json) ·
+[Activity](ACTIVITY.md) · [Plan and frozen sources](README.md).

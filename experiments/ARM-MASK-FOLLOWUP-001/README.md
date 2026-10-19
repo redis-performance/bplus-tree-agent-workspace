@@ -1,9 +1,16 @@
 # ARM mask follow-up — 19 October 2026
 
-Status: primary gain reproduced (−7.78% / −7.21% elapsed); original comparison has 17 qualified passes and one mixed SCAN; iterator controls qualify43/82 and the fixed comparison is granted. [Current results](RESULTS.md). The user authorized completing validation of the existing ARM
-mask lead after the overnight handback, including Git publication. This is a new,
-bounded ARM-only runner lease, ending no later than 10:15 UTC (11:15 Lisbon), with
-early release on completion. Intel and AMD runners remain released.
+**Closed: REJECT / source NONE; runner RELEASED.** All six timing phases completed:
+4,272 processes / 5,952 rows. Nine qualified iterator guards regress in all six
+blocks, with median slowdowns +2.860% to +8.519%, despite the preserved primary gain.
+Root and independent Intel audits agree. Matched profiling and held-out confirmation
+were not run after rejection. Live OSS handback verified 10:03:25–27 UTC / 11:03 Lisbon.
+[Final results](RESULTS.md) · [Live release proof](RELEASE-FINAL.json) · [Activity](ACTIVITY.md).
+
+The plan below records the user's authorized ARM-only continuation of the exact
+historical mask candidate, with a hard deadline of 10:15 UTC and early release on
+completion. Intel and AMD runners remained released. No new population or source
+adoption; all earlier evidence and failed attempts remain preserved in Git.
 
 ## Fixed candidate and prior evidence
 

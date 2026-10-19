@@ -1090,3 +1090,17 @@ no new population and historical counts unchanged. Lease ends 10:15 UTC.
 Root and independent Intel d68b27aa2 audits agree. Fixed comparison of all82cells
 is separately granted1500seconds before10:15UTC; qualified losses remain decisive.
 No confirmation eligibility, source adoption, new population or count change.
+
+### ARM follow-up closed: REJECT, runner released 10:03 UTC
+
+[Final result](ARM-MASK-FOLLOWUP-001/RESULTS.md): all six phases complete, 4,272
+processes / 5,952 rows. Nine qualified iterator guards regress in every block
+(medians +2.860% to +8.519%); 30 pass, four are mixed and 39 remain unqualified.
+Root and independent Intel d3cc358f2 raw audits agree. Primary gains −7.78% / −7.21%
+remain scoped to their different frozen frontend; the cause of the disagreement is
+unmeasured. Profile and held-out confirmation were not run after decisive rejection.
+Exact candidate rejected; source NONE. Earlier PARK checkpoints remain historical.
+No new population: eight historical AWS populations stay 0 accepted / 5 rejected /
+3 parked. [Fresh live handback](ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) verifies OSS
+restored at 10:03:25–27 UTC with inactive owned slice and zero owned processes.
+Private fleet reservation released; Intel and AMD remained released.
