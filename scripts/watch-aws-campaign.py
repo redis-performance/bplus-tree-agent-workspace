@@ -43,20 +43,25 @@ def main():
             sync = args.controller/'scratch'/f"{config['host_label']}-launch-sync-status.json"
             publication = json.loads(sync.read_text()) if sync.exists() else {}
             branch_commit = run(['git', 'rev-parse', 'origin/' + config['branch']], args.checkout)
+            public_native = subprocess.run(
+                ['git', 'show', branch_commit + ':' + config['campaign_dir'] + '/NATIVE-STATUS.json'],
+                cwd=args.checkout, text=True, capture_output=True, timeout=30)
+            published = json.loads(public_native.stdout) if public_native.returncode == 0 else {}
+            phase = str(published.get('phase', published.get('stage', 'awaiting native status'))).replace('|', '/')
             records.append(dict(host=config['host_label'], state=native_status.get('status', 'running') if native_status else status['status'],
                 rounds=sum(r['status'] != 'running' for r in status['rounds']),
                 publication='native worker commits' if native_status else publication.get('status', 'pending first completed round'),
-                head=branch_commit,
+                head=branch_commit, phase=phase,
                 branch=config['branch'], path=config['campaign_dir']))
         fingerprint = hashlib.sha256(json.dumps(records, sort_keys=True).encode()).hexdigest()
         if fingerprint != previous:
             run(['git','merge','--ff-only','origin/main'], args.checkout)
             stamp = datetime.now(timezone.utc).isoformat()
             text = '# AWS worker publication status\n\nUpdated '+stamp+'. Deadline08:00UTC /09:00Lisbon.\n\n'
-            text += '| Host | Worker | Historical CLI rounds | Publication | Latest evidence |\n|---|---|---:|---|---|\n'
+            text += '| Host | Worker | Published phase | Revision | Latest evidence |\n|---|---|---|---|---|\n'
             for record in records:
                 url = 'https://github.com/redis-performance/bplus-tree-agent-workspace/blob/'+record['branch']+'/'+record['path']
-                text += f"| {record['host']} | {record['state']} | {record['rounds']} | {record['publication']} `{record['head'][:8]}` | [Status]({url}/STATUS.md), [activity]({url}/ACTIVITY.md), [handoff]({url}/HANDOFF.md) |\n"
+                text += f"| {record['host']} | {record['state']} | {record['phase']} | `{record['head'][:8]}` | [Status]({url}/STATUS.md), [activity]({url}/ACTIVITY.md), [handoff]({url}/HANDOFF.md) |\n"
             text += '\nDetached CLI launchers failed before shell execution (bwrap uid-map failure) and were stopped. Native session agents continue via already-available authorized tools; no permission settings changed. Historical CLI usage is separate from native-agent usage, which is unknown.\nRaw results, decisions and losing patches are retained on each host branch.\nNo baseline source change or cross-host pooled performance claim is made here.\n'
             if re.search(r'/home/|\.pem|\b(?:\d{1,3}\.){3}\d{1,3}\b', text):
                 raise RuntimeError('private-detail guard')
@@ -75,7 +80,7 @@ Source adoption remains NONE.
             readme.write_text(body)
             activity=args.checkout/'experiments/NIGHT-EXPLORATION-001/AWS-ACTIVITY.md'
             with activity.open('a') as stream:
-                stream.write('\n- '+stamp+': '+ '; '.join(f"{r['host']} {r['state']}, {r['rounds']} rounds, publication {r['publication']}" for r in records)+'.\n')
+                stream.write('\n- '+stamp+': '+ '; '.join(f"{r['host']} {r['state']} at `{r['head'][:8]}`: {r['phase']}" for r in records)+'.\n')
             run(['git','add','README.md','experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md','experiments/NIGHT-EXPLORATION-001/AWS-ACTIVITY.md'], args.checkout)
             run(['git','commit','-m','Refresh AWS overnight worker status and activity'], args.checkout)
             # Another session may publish main; incorporate it without overwriting edits.
