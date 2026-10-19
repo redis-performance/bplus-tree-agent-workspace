@@ -1,6 +1,6 @@
 # M6 overnight evidence — 19 October 2026
 
-Checkpoint at 07:15 UTC / 08:15 Lisbon; the experimental cutoff has passed. Final reporting continues to 09:00 Lisbon. No further native workload is authorized.
+Final handoff at 08:01 UTC / 09:01 Lisbon. The campaign and reporting are closed; no native workload remains queued.
 
 The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
 
@@ -33,10 +33,12 @@ The [final report review](024-final-audit/REPORT-REVIEW-A.md), [integrity audit]
 
 [Existing clock metadata](023-neon-replication/AA-METADATA-DIAGNOSIS.md) has a [separate independent review](024-final-audit/METADATA-REVIEW-A.md). The two failed 1M blocks have thread-clock differences of −1.440359% and +1.587803%. Twenty of 48 runs have different CPU endpoints; endpoints do not establish full residency or a migration count. The original wall-clock gate and PARK decision remain unchanged. No cause or alternative qualification metric is inferred.
 
-Main README editorial corrections are published at `d7cf967a8`; chart bytes are unchanged. All planned native work is complete or parked. Shared status monitoring continues to the agreed 09:00 Lisbon handoff.
+Main README editorial corrections are published at `d7cf967a8`; chart bytes are unchanged. All planned native work is complete or parked. Shared status monitoring finished at the agreed 09:00 Lisbon handoff.
 
 The [experimental cutoff receipt](EXPERIMENTAL-CUTOFF.json) records closure at 07:15 UTC. The last timing phase ended at 06:36:04 UTC; no new native workload ran to fill the remaining experimental window. Root source/referee hashes still match, and the original supervisor stop settings are unchanged.
 
 A [late ARM historical mask lead](027-late-arm-mask-lead/README.md) is pinned for future review: the other host reports −7.77%/−7.10% primary medians, but remains PARK with guards, fresh confirmation and profile missing. It arrived after M6's cutoff; no M6 selection or measurement follows from it.
 
 A read-only [inspection of retained M6 baseline assembly](027-late-arm-mask-lead/M6-BASELINE-MECHANISM.md) confirms the historical mask-selection pattern exists locally. The five-line window includes its constant load and final AND. No modified build, timing, cycle attribution or source selection was performed after the cutoff.
+
+The [final closure receipt](FINAL-HANDOFF.json) records source parity with the observed main commit, unchanged tree/referee identities and the completed M1 decision handoff. No tree optimization is accepted. The late ARM lead remains unselected for M6 and requires a new qualified campaign.

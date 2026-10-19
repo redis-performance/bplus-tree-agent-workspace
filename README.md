@@ -1,9 +1,9 @@
 # Standalone B+ tree experiments
 
-Experimental cutoff reached — 07:15 UTC / 08:15 Lisbon. M6 is reporting only until 09:00 Lisbon. The last timing phase finished at 06:36:04 UTC with every owned child reaped and no further native workload queued. Source selection remains NONE; 023 is PARK before candidate timing. No source/referee change or failed-schedule retry followed. M1 explicitly confirms consuming the published M6 decision. See EXPERIMENTAL-CUTOFF.json and MORNING-REPORT.md in the host run.
+Campaign closed — 09:00 Lisbon / 08:00 UTC. M6 experiments and reporting are complete. The last timing phase finished at 06:36:04 UTC; no native workload followed the 07:15 experimental cutoff or remains queued. Source selection is NONE; the latest NEON attempt is PARK before candidate timing. M1 explicitly confirmed consuming the M6 decision and queued no further source trial. Charts, raw rows, retained patches and independent audits are published. Resume from the host MORNING-REPORT.md and FINAL-HANDOFF.json; any future campaign needs a new frozen plan and qualified controls.
 
 
-Shared checkpoint — 07:03 UTC. M1 now explicitly confirms consuming M6 commit e74bdb3a4 at 06:50 UTC. Post-round M1 commit d41738b05 records no further source experiment queued under the M6-priority rule. Its earlier DNS/write failures are historical. Head 2baeafcef separately changes a metadata fallback; no such change is applied to frozen M6 inputs. Gate confirmation: 026-m1-gate-confirmation/.
+Prior shared checkpoint — 07:03 UTC. M1 now explicitly confirms consuming M6 commit e74bdb3a4 at 06:50 UTC. Post-round M1 commit d41738b05 records no further source experiment queued under the M6-priority rule. Its earlier DNS/write failures are historical. Head 2baeafcef separately changes a metadata fallback; no such change is applied to frozen M6 inputs. Gate confirmation: 026-m1-gate-confirmation/.
 
 The earlier M1 round-three receipt is independently verified from four archives: 6,720 outputs / 866,880 sample rows, all below 10 ms and zero of 70 qualified A/A cells. M1 has nine total populations with mixed inherited provenance; local rank/decoder passes were sequential. Host ledgers are not summed. M6 remains source NONE, with 023 PARK before candidate timing. Native validation, raw audits and reporting checks pass. Tree C/H and frozen referees are unchanged; M6 counts remain 12 populations, 0 accepted / 7 rejected / 5 parked, 36 patches and 15 harnesses. No native workload is queued. Root monitors shared status through 08:00 UTC / 09:00 Lisbon; experimental cutoff 07:15 UTC remains intact.
 
@@ -11,17 +11,17 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
-**Current state:** the benchmarks work. Bulk score decoding shows a promising local
-speedup, but short-range regressions still prevent adoption. No optimization has
+**Current state:** the campaign is closed with source selection NONE. Private bulk
+decoder leads remain unqualified or blocked by guards. No optimization has
 been merged into `src/`; experimental implementations and results live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
-is running on separate M1 and M6 host branches: rank, update paths, single-query
+ran on separate M1 and M6 host branches: rank, update paths, single-query
 lookup, and an optional decoder experiment. Both hosts have completed the
 **100 / 1K / 10K / 100K / 1M** baseline. See the latest results and live status links below.
 
 The [M6 driver campaign](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md)
-is running through **19 October, 09:00 Lisbon**. Its host branch publishes each
+closed at **19 October, 09:00 Lisbon**. Its host branch publishes each
 status/decision milestone so the M1 session can follow the M6 evidence separately.
 
 ## Build and test
