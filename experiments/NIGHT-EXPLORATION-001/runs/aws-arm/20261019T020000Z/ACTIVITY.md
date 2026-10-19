@@ -147,3 +147,5 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19T09:13:57.030804+00:00: fixed027 original-AA complete; 120processes/960rows, PARK, requiredqualified=False. SourceNONE; no automatic next phase. See027-mask-followup/ORIGINAL-AA-RESULT.md.
 
 Fresh originalcomparison granted78071092f and launching fixed120process600s.18qualified guardcells meaningful;22unqualifiedcellsdiagnostic. Requiredcontrolnoise blocks acceptance; qualifieddemonstratedloss canREJECT. NATIVE status now scopes historical08UTC proof underovernight_release_history and marks fresh10:15UTC release pending explicitly.
+
+2026-10-19T09:25:15.611715+00:00: fixed027 original-comparison complete; 120processes/960rows, PARK, requiredqualified=False. SourceNONE; no automatic next phase. See027-mask-followup/ORIGINAL-COMPARISON-RESULT.md.
