@@ -556,3 +556,19 @@ review. It uses exact corrected source, actual013 baseline, native scoped contro
 and fixed50M score-only iterator visits. A/A still requires separate raw review and
 grant; no candidate work is authorized.
 [Execution review](reviews/aws-arm-iterator-execution-review.json).
+
+
+## 19 October 06:33 UTC — ARM profile audited; fresh controls next
+
+ARM024 completes all51 profile commands and970 scientific samples. Root reconstructs
+136 immutable public files and the known-work/disabled controls; independent AMD
+d42ca4ef2 confirms raw scope and mapping.501 physical tree sample events match the
+actual013 baseline, with caller mapping differences and two unsampled assertion-address
+words retained. Score decoding accounts for29.35%/38.92% of sampled period at100K/1M;
+these are diagnostic shares, not predicted gains.
+[Root audit](reviews/aws-arm-iterator-profile-independent-audit.json).
+
+Only the frozen48-row300s baseline A/A phase is now granted. No candidate or new
+proposal round is authorized. Counts and sourceNONE remain unchanged. Intel's
+independent observation audit0c6d47cd6 also reconstructs all183 idle snapshots and180
+intervals; prior precision decisions remain final.

@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 06:18 UTC
+## Current AWS overnight checkpoint — 19 October 06:33 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -34,9 +34,12 @@ costs unknown; no upstream actions. M6 continues publishing; M1 latest 01:33 UTC
 reports DNS unknown and its current runner state is unverified.
 
 All24 measured-population patches indexed;21 public-tree apply checks pass,3 target
-private decoder control. One read-only ambient observer perhost runs~06:15–06:25UTC
-under620s caps, outside target sibling set. No benchmark/candidate during observation.
-ARM prepares distinct corrected score-only iterator profile/AA; no launch grant yet.
+private decoder control. Ambient observations complete:183snapshots/180valid intervals,
+root+independentIntel0c6d47cd6 audits pass; currentidleonly, no historicalnoise explanation.
+Fresh06:26:07 allhosts zeroownedunits/PIDs,OSSstopped,timers08UTC intact.
+ARM024 nativecorrected score-only iterator profile4e43c9f59 complete51commands/970samples.
+Root136file andindependentAMDd42ca4ef2 rawaudits pass. Fixed48row300s AAonly nowgranted,
+no candidate/proposal untilcontrols reviewed. Actual013330b39a9 preserved;caller gaps retained.
 Latest observed M6 publication913683def:20640 decoder processes/allshort, sourceNONE;
 corrected index profiles complete and native proposal review/replication preparing.
 <!-- AWS-CURRENT-END -->
