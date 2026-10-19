@@ -591,3 +591,37 @@ All three patches remain available; source selection **NONE**.
 
 AWS completed measured populations: **3 — 0 accepted / 3 rejected / 0 parked**.
 Unmeasured chair-NONE diagnostics are excluded; ARM's decoder population is ongoing.
+
+
+## 19 October — AWS ARM COUNT-ONE-001: PARK / NONE
+
+[Published decision](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/e4c5398b2/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/003-decode/RESULT.md).
+Three sequential isolated source implementations completed29-cell screens, alongside
+the unchanged scalar-root adapter:2784 processes/696 paired effects. Relative to the
+unadopted EXP007B bulk helper, A/B/C primary medians were−8.321/−8.263/−11.372%.
+Count-eight guard medians were+1.931/+1.725/+1.804%. These are conditional private
+helper observations, not whole-tree gains or strictly qualified regression claims.
+
+Longer controls still failed both primary A/A gates; the count-eight bulk control
+also narrowly failed. Its final unrelated guard block stopped at the fixed budget,
+leaving three uninterpreted rows. All candidate linked text sections match, so their
+sampled differences cannot select an implementation. Native/sanitizer checks passed;
+full176-cell guards, fresh confirmation and candidate profile validation were not run.
+Root independently audited4175 raw CSVs (1391 longer-control+2784 comparison rows),
+including hashes, serial windows, CPU2 boundaries, fixture outputs and fixture bytes.
+Source adoption and implementation winner remain **NONE**.
+
+
+## 19 October — AWS AMD FULL-CHUNKS-001: REJECT / NONE
+
+[Published decision](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/b02b79b30/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/005-full-chunks/implementation-selection.md).
+Three sequential isolated implementations separated full64-bit packed-move chunks
+from the partial tail. Correctness and both fresh primary A/A controls passed, but
+no measured primary block reached2% improvement. Median A/B/C effects were
+−0.609/+0.265/−0.824% at100K and+0.380/+0.403/+0.854% at1M.
+Root independently reconstructed144 raw processes/36 effects and verified serial
+CPU2 runs, exact operations/seeds, checksums and owned-byte equality. No full guards
+or fresh confirmation were warranted. All patches remain available; source **NONE**.
+
+AWS completed measured populations: **5 — 0 accepted / 4 rejected / 1 parked**.
+Intel's iterator population is ongoing. Unmeasured chair-NONE diagnostics are excluded.

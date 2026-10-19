@@ -824,3 +824,14 @@ populations,0accepted/3rejected/0parked. ARM's count-one exploratory population
 continues after failed longer-duration qualification. Intel's update diagnostic
 selectedNONE without implementations; bounded iterator profiling is underway.
 See experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md for exact evidence links.
+
+
+## 19 October — ARM decoder parked; AMD full chunks rejected
+
+Root independently audited ARM's4175 longer-control/comparison CSVs and AMD's144
+full-chunk screen CSVs. ARM has a conditional private-helper count-one lead but failed
+precision and guard concerns; identical candidate text cannot select a winner.
+AMD full-chunk candidates all miss2% in every primary block. SourceNONE. AWS totals
+5completed measured populations:0accepted/4rejected/1parked. Intel iterator screen
+continues; ARM public-update profiling and AMD SDS-length assembly inspection are
+new diagnostics, not selected winners. See central AWS-DECISIONS.md for exact links.
