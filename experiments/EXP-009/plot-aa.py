@@ -59,6 +59,8 @@ fig.legend(handles=[Line2D([0],[0],marker='o',linestyle='None',markersize=8,colo
 fig.text(.085,.025,'48/48 windows exceed 10 ms. Points are observed block effects; no candidate comparison is shown.',fontsize=11.5,color='#42566b')
 fig.savefig(E/'aa-controls.png',dpi=180,facecolor='white',metadata={'Title':'EXP-009 baseline A/A controls','Description':'Same-binary baseline controls; PARK; no candidate speedup claim'})
 fig.savefig(E/'aa-controls.svg',facecolor='white',metadata={'Title':'EXP-009 baseline A/A controls','Date':None,'Description':'Same-binary baseline controls; PARK; no candidate speedup claim'})
+svg=E/'aa-controls.svg'
+svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
 plt.close(fig)
 assert sha(SOURCE)==source_sha,'input changed during render'
 metadata['artifact_sha256']={name:sha(E/name) for name in ['aa-controls.png','aa-controls.svg']}
