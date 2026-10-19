@@ -1,5 +1,14 @@
 # M6 live scoreboard
 
+Operator matched-adapter diagnostic checkpoint:012 final driver root and independent
+reviews PASS;18inputs/fourbinaries frozen,16semantic and sixsynthetic controls pass.
+No measured phase yet. Publish exact freeze before exclusive-runner authorization.
+384both-adapterAA then192old/newABBA processes,100Mitems each;04:45UTCabsolute stop.
+This is harness-only, counts unchanged, no tree candidate/adoption. Main adapter
+correction and corrected-baseline note published13e459ff8; originalfive-hostchart
+retains old-adapteridentity. Source C/header unchanged. Rootcontinues through08UTC.
+
+
 Operator corrected-baseline checkpoint: adapter fix7f299a5f5 is published.011
 finished120 processes/960 rows and all7 validations; independent audit PASS.5/40
 cells qualify,35 noisy,14 short (preliminary15 corrected). Measurement subprocess
@@ -34,7 +43,10 @@ Previous scoreboard updated 2026-10-19T03:36:36.711231+00:00. Active driver: int
 | [LOOKUP-CALLER-001](006-followup/RESULTS.md) | REJECT/NONE | A100K−2.712%lead; no dual-primary winner|
 | [Geometry diagnosis](007-profile/RESULTS.md) | COMPLETE | Geometry only; no cache/speed claim|
 | [Proposal-only follow-up](008-review/selection.md) | NONE | Three independent proposals find insufficient causal evidence|
-| [Iterator baseline profile](009-iterator-profile/) | PREPARING | Separate architecture diagnosis; no replication selected|
+| [Iterator baseline profile](009-iterator-profile/RESULTS.md) | COMPLETE | Descriptive PCs; no cache replication selected|
+| [Adapter contract correction](010-assertion-contract-review/README.md) | REVIEWED/APPLIED | Separate harness correction; source unchanged|
+| [Corrected baseline](011-contract-baseline/RESULTS.md) | COMPLETE | 960 rows; 5/40 qualify; 14 short|
+| [Matched adapter diagnostic](012-contract-diagnostic/README.md) | PREPARING | Freeze/review pending; no measured claim|
 
 Caller follow-up: three actual independent proposals plus three isolated implementations.
 Full baseline101-cellAA complete2424rows;39qualify,62noisy,0short.100Kprimary qualifies,

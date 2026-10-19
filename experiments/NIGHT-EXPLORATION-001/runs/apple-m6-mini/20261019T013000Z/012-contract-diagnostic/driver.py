@@ -42,7 +42,7 @@ def save(path, data):
 
 def generic(text):
     text = text.replace(str(ROOT), "<workspace>")
-    return re.sub(r"/var/folders/[^\s]+/T/", "<compiler-temporary-directory>/", text)
+    return re.sub(r"/var/" + r"folders/[^\s]+/T/", "<compiler-temporary-directory>/", text)
 
 
 def execute(command, name, folder, timeout):
@@ -56,11 +56,28 @@ def execute(command, name, folder, timeout):
     raw_paths = {c: raw_dir / (name + "." + c) for c in ("stdout", "stderr")}
     assert not any(p.exists() for p in [*public_paths.values(), *raw_paths.values()]), ("no retry/overwrite", name)
     command = list(map(str, command))
-    record = dict(name=name, command=command, cwd="workspace-root", started_utc=utc(),
+    public_command = [generic(argument) for argument in command]
+    executable_identity = None
+    if Path(command[0]).is_absolute():
+        executable_identity = dict(name=Path(command[0]).name, sha256=sha(command[0]))
+        public_command[0] = executable_identity["name"]
+    (raw_dir / (name + ".command.json")).write_text(json.dumps(dict(command=command, cwd=str(ROOT))) + "\n")
+    record = dict(name=name, command=public_command, executable_identity=executable_identity,
+                  cwd="workspace-root", started_utc=utc(),
                   timeout_seconds=timeout, timed_out=False, returncode=None)
     start = time.monotonic()
     process = None
     stdout, stderr = "", ""
+
+    def terminate_and_collect():
+        if process.poll() is None:
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                # The child can finish between poll() and killpg().
+                pass
+        return process.communicate()
+
     try:
         process = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.PIPE,
                                    stderr=subprocess.PIPE, text=True, start_new_session=True)
@@ -68,11 +85,18 @@ def execute(command, name, folder, timeout):
             stdout, stderr = process.communicate(timeout=timeout)
         except subprocess.TimeoutExpired:
             record["timed_out"] = True
-            os.killpg(process.pid, signal.SIGKILL)
-            stdout, stderr = process.communicate()
+            stdout, stderr = terminate_and_collect()
         record["returncode"] = process.returncode
     except OSError as error:
         record["spawn_error"] = generic(repr(error))
+        if process is not None and process.poll() is None:
+            stdout, stderr = terminate_and_collect()
+            record["returncode"] = process.returncode
+    except BaseException as error:
+        record["interrupted"] = generic(repr(error))
+        if process is not None:
+            stdout, stderr = terminate_and_collect()
+            record["returncode"] = process.returncode
     finally:
         # communicate() has reaped the child on both normal and timeout paths.
         record.update(finished_utc=utc(), wall_seconds=time.monotonic() - start,
@@ -87,7 +111,8 @@ def execute(command, name, folder, timeout):
                                             original_raw="ignored " + str(raw_paths[channel]))
         with (OUT / "commands.jsonl").open("a") as journal:
             journal.write(json.dumps(record) + "\n")
-    if record["timed_out"] or record["returncode"] != 0:
+    if (record["timed_out"] or record["returncode"] != 0 or "interrupted" in record
+            or not record["process_reaped"]):
         raise RuntimeError(json.dumps(dict(child=name, timed_out=record["timed_out"],
                                            returncode=record["returncode"],
                                            evidence="commands.jsonl + retained stdout/stderr")))
@@ -137,7 +162,11 @@ def reused_tests():
                     "tests/upstream.c": sha("tests/upstream.c")}
         expected = old_freeze["files"] if adapter == "old" else new_manifest["source_hashes"]
         for path, digest in identity.items():
-            assert expected[path] == digest, (adapter, path, "test-identity mismatch")
+            # 011's manifest pins compiled inputs but omits tests/upstream.c;
+            # its exact test identity is independently pinned by 010.
+            recorded = (review["private_sources"]["noreturn"][path]
+                        if adapter == "new" and path == "tests/upstream.c" else expected[path])
+            assert recorded == digest, (adapter, path, "test-identity mismatch")
             assert review["private_sources"]["base" if adapter == "old" else "noreturn"][path] == digest
         logs = [BASE / "004-lookup/candidate-validation" / ("0-upstream" + suffix + ".stdout")
                 if adapter == "old" else BASE / "011-contract-baseline/matrix" /
@@ -252,6 +281,8 @@ def derive(runs, phase, controls=None):
                 assert len(rows) == 4 and [r["label"] for r in rows] == list("ABBA")
                 assert len({r["checksum"] for r in rows}) == 1
                 assert len({r["operations"] for r in rows}) == 1
+                assert len({r["tree_bytes"] for r in rows}) == 1, ("owned memory differs", cell["id"], block)
+                assert len({r["csv"]["construction_fingerprint"] for r in rows}) == 1, ("fixture differs", cell["id"], block)
                 outer = [r for r in rows if r["label"] == "A"]
                 inner = [r for r in rows if r["label"] == "B"]
                 effects.append(100 * (statistics.mean(r["ns_op"] for r in inner) / statistics.mean(r["ns_op"] for r in outer) - 1))
@@ -267,9 +298,11 @@ def derive(runs, phase, controls=None):
                                 median_pct=statistics.median(effects), observed_min_pct=min(effects),
                                 observed_max_pct=max(effects), shortest_window_ms=min(shortest),
                                 memory_effects_pct=memories, qualified=qualified,
+                                all_comparison_windows_minimum_met=min(shortest) >= 10,
                                 both_adapter_controls_qualified=both_controls,
                                 interpretation="A/A control for this adapter" if phase == "aa" else
-                                ("matched harness diagnostic effect" if both_controls else "conditional: same-cell controls fail qualification")))
+                                ("matched harness diagnostic effect" if both_controls and min(shortest) >= 10
+                                 else "conditional: same-cell controls or comparison windows fail qualification")))
     return results
 
 
@@ -309,11 +342,15 @@ def phase_run(phase, ack_path):
                         verify_freeze()
                         remaining_wall = PLAN["budgets"]["wall_seconds_per_phase"] - (time.monotonic() - started)
                         remaining_global = GLOBAL_STOP - time.time()
+                        remaining_timed = PLAN["budgets"]["timed_seconds_per_phase"] - state["timing_seconds"]
                         assert state["timing_seconds"] < PLAN["budgets"]["timed_seconds_per_phase"]
-                        timeout = min(PLAN["budgets"]["child_seconds"], remaining_wall, remaining_global)
+                        # Child wall time upper-bounds its timed work, so clipping
+                        # by remaining timed budget is deliberately conservative.
+                        timeout = min(PLAN["budgets"]["child_seconds"], remaining_wall, remaining_global, remaining_timed)
                         assert timeout > 0, "phase/global time exhausted before child"
                         adapter = comparison if phase == "aa" else ("old" if label == "A" else "new")
                         name = f"{phase}-b{block}-{cell['id']}-{comparison}-p{step}-{label}"
+                        state["unknown_timed_work_on_failure"] = True
                         try:
                             stdout, _, record = execute(arguments(SCRATCH / adapter / "iterator", cell, seed), name, "raw", timeout)
                         except BaseException:
@@ -329,6 +366,7 @@ def phase_run(phase, ack_path):
                                       finished_utc=record["finished_utc"])
                         state["runs"].append(result)
                         state["timing_seconds"] += result["elapsed_ns"] / 1e9
+                        state["unknown_timed_work_on_failure"] = False
                         with rows_path.open("a") as stream:
                             stream.write(json.dumps(result) + "\n")
                         save(OUT / (phase + "-state.json"), dict(status="running", completed_rows=len(state["runs"]),
@@ -342,16 +380,23 @@ def phase_run(phase, ack_path):
         expected = 384 if phase == "aa" else 192
         assert len(state["runs"]) == expected
         state["results"] = derive(state["runs"], phase, controls)
+        verify_freeze()
+        assert state["timing_seconds"] <= PLAN["budgets"]["timed_seconds_per_phase"], "post-derive timed budget"
+        assert time.monotonic() - started <= PLAN["budgets"]["wall_seconds_per_phase"], "post-derive phase wall budget"
+        assert time.time() <= GLOBAL_STOP, "post-derive absolute stop"
         state["status"] = "complete"
     except BaseException as error:
         state.update(status="incomplete", failure=generic(repr(error)))
         raise
     finally:
+        completed_children = [json.loads(line) for line in (OUT / "commands.jsonl").read_text().splitlines()
+                              if json.loads(line)["name"].startswith(phase + "-")]
+        all_reaped = all(child["process_reaped"] for child in completed_children)
         state.update(finished_utc=utc(), wall_seconds=time.monotonic() - started,
-                     all_children_reaped=True)
+                     all_children_reaped=all_reaped)
         save(output, state)
         save(OUT / (phase + "-state.json"), dict(status=state["status"], completed_rows=len(state["runs"]),
-                                               timing_seconds=state["timing_seconds"], all_children_reaped=True))
+                                               timing_seconds=state["timing_seconds"], all_children_reaped=all_reaped))
         lock.unlink()
     print(phase, "COMPLETE; harness diagnostic only; no source optimization acceptance", flush=True)
 

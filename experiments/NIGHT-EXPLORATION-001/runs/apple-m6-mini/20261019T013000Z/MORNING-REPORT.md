@@ -1,6 +1,6 @@
 # M6 morning report — interim operator checkpoint
 
-Updated 2026-10-19T03:39:22.056759+00:00. Active through08:00UTC/09:00Lisbon; experiments end07:15UTC.
+Updated 2026-10-19T04:15:02.401889+00:00. Active through08:00UTC/09:00Lisbon; experiments end07:15UTC.
 Source selection **NONE**. All five M6 candidate trials reject their declared gates.
 
 | Trial | Finding | Decision |
@@ -17,14 +17,33 @@ The independent audit verifies2871rows/66frozen artifacts. Baseline101-cellAA:
 39qualify,62noisy,0short;100Kprimary qualifies,1Mfails. No eligible fullcandidate
 guards, fresh confirmation or adoption profile. [Chart](006-followup/candidate-screens.png).
 
-The [baseline geometry census](007-profile/) is a new baseline-only diagnosis.
-It does not select a new optimization or establish cache misses. Detailed sealed
-report is pending. Baseline src/header/referees remain unchanged.
+The [baseline geometry census](007-profile/RESULTS.md) is sealed. The three
+independent [follow-up proposals](008-review/selection.md) choose NONE: geometry
+and assembly do not establish a paid score-load stall.
 
-007geometry diagnosis is sealed;008proposal-only review endedNONE with three
-independent proposals. No score-load bottleneck is established.009nowprepares
-a local baseline iterator profile to assess published Intel/ARM cache leads.
-No architecture replication or new candidate is selected yet.
+The [iterator profile](009-iterator-profile/RESULTS.md) has 16 sufficient local
+captures, 1054 sampled PCs. Frame regions account for 303 PCs, a descriptive count
+rather than cycle cost. This exposed an incomplete compiler contract in the
+standalone adapter: `standalone_panic` always aborts but lacked `_Noreturn`.
+[Two independent reviews](010-assertion-contract-review/README.md) verified the
+exact two-line adapter correction, 43 native and 43 sanitizer tests, and eight
+abort probes. Tree C/header stay unchanged. Static iterator code shrinks from
+155 to 114 instructions and its normal stack frame disappears; this is not a
+measured speed claim. The separately committed correction is now on main at
+13e459ff8 and on this exploration branch at 7f299a5f5.
+
+The [corrected baseline](011-contract-baseline/RESULTS.md) completes 120 processes,
+960 rows and seven validations; independent raw audit PASS. Five of 40 cells
+qualify, 35 are noisy, and 14 include short windows. Operation timers sum to
+71.958584 seconds; subprocess-loop wall time is 160.052971 seconds. Historical
+old-adapter rows remain separate and cannot be subtracted to infer improvement.
+The five-host README chart retains its original-adapter identity.
+
+A [matched adapter diagnostic](012-contract-diagnostic/README.md) is preparing
+long fixed iterator windows, both-adapter A/A and old/new ABBA. It is harness-only,
+not a tree candidate/population. No measured phase starts until final driver
+reviews, source/binary freeze publication and exclusive-runner authorization.
+No cache replication or new source optimization is selected.
 
 Totals12completedpopulations(9sequential+3multi-agent),0accepted/7rejected/5parked,
 36retainedpatches/15validatedharnesses. M1 night and concurrent AWS populations

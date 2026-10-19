@@ -109,7 +109,8 @@
     "timed_seconds_per_phase": 300,
     "wall_seconds_per_phase": 900,
     "child_seconds": 120,
-    "absolute_stop_utc": "2026-10-19T04:45:00+00:00"
+    "absolute_stop_utc": "2026-10-19T04:45:00+00:00",
+    "child_timeout_clip": "minimum(child120,remaining phase wall,remaining global wall,remaining timed work conservatively as wall bound)"
   },
   "qualification": {
     "aa_max_abs_pct": 1,
@@ -119,5 +120,7 @@
   "interpretation": "Comparison runs once even if controls noisy. Effects conditional unless BOTH same-cell adapter controls qualify. No source optimization acceptance or historical timing subtraction; no old/new adapter pooling.",
   "authorization": "Root and independent driver PASS reviews plus exact frozen-hash Git publication ACK required before either measured phase; exclusive idle runner acknowledged.",
   "participant": "/root/followup_proposal_b",
-  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/cost unknown"
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/cost unknown",
+  "validation_metadata": "Only011 omitted upstream.c test identity is supplied by010; every compiled input still must match011/original frozen identities.",
+  "comparison_invariants": "EveryABBA: exact operations/checksum/construction_fingerprint/tree_bytes equality; min10ms comparison windows or effects conditional"
 }
