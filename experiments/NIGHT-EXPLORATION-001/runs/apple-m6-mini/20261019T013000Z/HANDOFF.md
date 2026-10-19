@@ -25,3 +25,9 @@ M6-LOOKUP-PHYSICAL-001 in004-lookup/selection.md, a distinct score decode mechan
 retaining memchr. Next acknowledge chair then three copied source/build variants,
 original/targeted native+sanitizer tests, publish candidate freeze, fixed screen.
 Never rerun calibration/A/A. All source/referee hashes unchanged.
+
+Candidate validation complete all4sources/bothbuilds,2deliberatefaults detected.
+See004-lookup/candidate-validation.json,physical-fault-controls.json,codegen/summary.json.
+comparison-freeze.json holds identities; next matching ack then compare.py discover
+exactly once. Do not rerun completed validation/calibration/A/A. No candidate source
+adoption. Full guards/freshconfirmation/independentreview absent;1M control failed.

@@ -33,3 +33,13 @@ Launcher proves Apple M6; direct sysctl unavailable. Frequency/DVFS/core residen
 within-window migration/PMU unknown. Public self-sampler PC regions are diagnostic.
 Counts remain9 completed populations(7 sequential+2 multi-agent),0accepted/4rejected/
 5parked,27patches/12harnesses until lookup decision. No baseline src changes.
+
+2026-10-19T02:32:18.947100+00:00: chair acknowledged e1f3b73c. Three isolated 0/A/B/C copies complete,
+all43 original tests/build pass native+ASan/UBSan;20 public lookup size/length cells
+per build pass. Private oracle4160cells/515840exact-score-position-outputchecks per
+source/build passes, signed-zero/reversed/width0..64/tags collisions included. Both
+reversed-base/logical-output deliberate faults detected. Leaf release assembly
+161instructions(control) vs153/151/153(A/B/C),same memchr/memcmp call sites; static
+size is not performance. Original/isolate control instruction text exactly matches.
+[Freeze](004-lookup/comparison-freeze.json) records exact patch/source/referee/binary
+identity. Candidate freeze publication precedes serial exploratory primary screen.

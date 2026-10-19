@@ -1,0 +1,33 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -495,6 +495,16 @@
+         leaf->data[byte + 8] |= delta >> (64 - shift);
+ }
+ 
++/* Read-only lookup already knows the physical slot. */
++static double zbtScoreLeafPhysicalScore(zbtScoreLeaf *leaf, unsigned int physical) {
++    uint64_t delta = leaf->score_bits ?
++        zbtReadBits(leaf->data, (size_t)physical * leaf->score_bits,
++                    leaf->score_bits) << leaf->n.score_shift : 0;
++    uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
++                                         leaf->score_base + delta;
++    return zbtOrderedToScore(ordered);
++}
++
+ /* Decode the score at logical position 'pos'. */
+ static double zbtScoreLeafScore(zbtScoreLeaf *leaf, unsigned int pos) {
+     unsigned int bits = leaf->score_bits;
+@@ -1301,10 +1311,9 @@
+         const unsigned char *stored = zbtPackedData(record, &len);
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+-            unsigned int logical =
+-                zbtScoreLeafPhysicalPos(leaf, physical);
+-            if (score) *score = zbtScoreLeafScore(leaf, logical);
+-            if (position) *position = logical;
++            if (score) *score = zbtScoreLeafPhysicalScore(leaf, physical);
++            if (position)
++                *position = zbtScoreLeafPhysicalPos(leaf, physical);
+             return 1;
+         }
+         next = found + 1;

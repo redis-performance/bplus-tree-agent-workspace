@@ -1,0 +1,45 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -495,13 +495,13 @@
+         leaf->data[byte + 8] |= delta >> (64 - shift);
+ }
+ 
+-/* Decode the score at logical position 'pos'. */
+-static double zbtScoreLeafScore(zbtScoreLeaf *leaf, unsigned int pos) {
++/* Decode directly from a physical packed-score slot. */
++static double zbtScoreLeafPhysicalScore(zbtScoreLeaf *leaf, unsigned int physical) {
+     unsigned int bits = leaf->score_bits;
+     uint64_t delta = 0;
+ 
+     if (bits != 0) {
+-        size_t bitpos = (size_t)zbtScoreLeafPhysicalPos(leaf, pos) * bits;
++        size_t bitpos = (size_t)physical * bits;
+         size_t byte = bitpos / 8;
+         unsigned int shift = bitpos & 7;
+         memcpy(&delta, leaf->data + byte, sizeof(delta));
+@@ -515,6 +515,11 @@
+     uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+                                          leaf->score_base + delta;
+     return zbtOrderedToScore(ordered);
++}
++
++/* Decode the score at logical position 'pos'. */
++static double zbtScoreLeafScore(zbtScoreLeaf *leaf, unsigned int pos) {
++    return zbtScoreLeafPhysicalScore(leaf, zbtScoreLeafPhysicalPos(leaf, pos));
+ }
+ 
+ /* Return the raw hash byte stored with a member. */
+@@ -1301,10 +1306,9 @@
+         const unsigned char *stored = zbtPackedData(record, &len);
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+-            unsigned int logical =
+-                zbtScoreLeafPhysicalPos(leaf, physical);
+-            if (score) *score = zbtScoreLeafScore(leaf, logical);
+-            if (position) *position = logical;
++            if (score) *score = zbtScoreLeafPhysicalScore(leaf, physical);
++            if (position)
++                *position = zbtScoreLeafPhysicalPos(leaf, physical);
+             return 1;
+         }
+         next = found + 1;
