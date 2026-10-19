@@ -1,0 +1,183 @@
+{
+  "revision": "a3db7053af779f7ee2572963cf4d79d3629b650f",
+  "integrity": "BLOCKED_MISSING_SEALED_FILE",
+  "sealed_files": 64,
+  "missing_sealed_files": [
+    "inputs/__pycache__/arm_asm.cpython-312.pyc"
+  ],
+  "read_only_retrieval_commands": 20,
+  "binary_bindings": {
+    "primary-control": {
+      "relative_path": "scratch/adapter-worktree-13e459ff8/build/adapter-requalification/btree-bench",
+      "expected_sha256": "330b39a991573985c421194cfe83f21b44797e1a83372f623120672eb910b3bc",
+      "local_binary_sha256": "330b39a991573985c421194cfe83f21b44797e1a83372f623120672eb910b3bc"
+    },
+    "primary-A": {
+      "relative_path": "scratch/arm-exp005A-replication-13e459ff8/A/build/adapter-requalification/btree-bench",
+      "expected_sha256": "b1cb9e4b2a1df204a75b4b4a3264364c3f0b5b46dbf475bae72c3c9a3ee5811d",
+      "local_binary_sha256": "b1cb9e4b2a1df204a75b4b4a3264364c3f0b5b46dbf475bae72c3c9a3ee5811d"
+    },
+    "h4-control": {
+      "relative_path": "scratch/arm-mask-followup-20261019/control/build/native/modes",
+      "expected_sha256": "0af4cb0a636074bd4b7b4be4ac98c2188b4b085709130f7a6709883c9496b830",
+      "local_binary_sha256": "0af4cb0a636074bd4b7b4be4ac98c2188b4b085709130f7a6709883c9496b830"
+    },
+    "h4-A": {
+      "relative_path": "scratch/arm-mask-followup-20261019/A/build/native/modes",
+      "expected_sha256": "6c68cd2e5ff78914f9662266af5d31fc4fe59956b2df1fbd22c95fd7e6cf9361",
+      "local_binary_sha256": "6c68cd2e5ff78914f9662266af5d31fc4fe59956b2df1fbd22c95fd7e6cf9361"
+    }
+  },
+  "actual_maps": {
+    "control": {
+      "iterator_instructions": 114,
+      "primary_start": "0xa4b4",
+      "h4_start": "0xbe3c",
+      "different_offsets": [
+        "0x1b0",
+        "0x1b4",
+        "0x1b8",
+        "0x1bc"
+      ],
+      "h4_traverse_instructions": 282,
+      "mask4_loop": [
+        {
+          "pc": 14636,
+          "word": "f94007e8",
+          "asm": "ldr\tx8, [sp, #8]"
+        },
+        {
+          "pc": 14640,
+          "word": "d10043a0",
+          "asm": "sub\tx0, x29, #0x10"
+        },
+        {
+          "pc": 14644,
+          "word": "2a1303e1",
+          "asm": "mov\tw1, w19"
+        },
+        {
+          "pc": 14648,
+          "word": "aa1703e2",
+          "asm": "mov\tx2, x23"
+        },
+        {
+          "pc": 14652,
+          "word": "aa1803e3",
+          "asm": "mov\tx3, x24"
+        },
+        {
+          "pc": 14656,
+          "word": "aa1903e4",
+          "asm": "mov\tx4, x25"
+        },
+        {
+          "pc": 14660,
+          "word": "8b080348",
+          "asm": "add\tx8, x26, x8"
+        },
+        {
+          "pc": 14664,
+          "word": "910006b5",
+          "asm": "add\tx21, x21, #0x1"
+        },
+        {
+          "pc": 14668,
+          "word": "9100051a",
+          "asm": "add\tx26, x8, #0x1"
+        },
+        {
+          "pc": 14672,
+          "word": "9400213b",
+          "asm": "bl\tbe3c <zbtreeIteratorNext>"
+        },
+        {
+          "pc": 14676,
+          "word": "35fffec0",
+          "asm": "cbnz\tw0, 392c <traverse+0xd4>"
+        }
+      ]
+    },
+    "A": {
+      "iterator_instructions": 113,
+      "primary_start": "0xa490",
+      "h4_start": "0xbe18",
+      "different_offsets": [
+        "0x1ac",
+        "0x1b0",
+        "0x1b4",
+        "0x1b8"
+      ],
+      "h4_traverse_instructions": 282,
+      "mask4_loop": [
+        {
+          "pc": 14636,
+          "word": "f94007e8",
+          "asm": "ldr\tx8, [sp, #8]"
+        },
+        {
+          "pc": 14640,
+          "word": "d10043a0",
+          "asm": "sub\tx0, x29, #0x10"
+        },
+        {
+          "pc": 14644,
+          "word": "2a1303e1",
+          "asm": "mov\tw1, w19"
+        },
+        {
+          "pc": 14648,
+          "word": "aa1703e2",
+          "asm": "mov\tx2, x23"
+        },
+        {
+          "pc": 14652,
+          "word": "aa1803e3",
+          "asm": "mov\tx3, x24"
+        },
+        {
+          "pc": 14656,
+          "word": "aa1903e4",
+          "asm": "mov\tx4, x25"
+        },
+        {
+          "pc": 14660,
+          "word": "8b080348",
+          "asm": "add\tx8, x26, x8"
+        },
+        {
+          "pc": 14664,
+          "word": "910006b5",
+          "asm": "add\tx21, x21, #0x1"
+        },
+        {
+          "pc": 14668,
+          "word": "9100051a",
+          "asm": "add\tx26, x8, #0x1"
+        },
+        {
+          "pc": 14672,
+          "word": "94002132",
+          "asm": "bl\tbe18 <zbtreeIteratorNext>"
+        },
+        {
+          "pc": 14676,
+          "word": "35fffec0",
+          "asm": "cbnz\tw0, 392c <traverse+0xd4>"
+        }
+      ]
+    }
+  },
+  "schedule_counts": {
+    "native-AA": 144,
+    "native-comparison": 144,
+    "instrument-AA": 144,
+    "instrument-perturbation": 144,
+    "cycle-captures": 36,
+    "scoped-stats": 36
+  },
+  "limitations": [
+    "Public assembly and recorded binary hashes verified; raw ELF bytes not rehashed by this reviewer.",
+    "No executable driver/profile mapping implementation reviewed; preparation is not launch approval."
+  ]
+}
