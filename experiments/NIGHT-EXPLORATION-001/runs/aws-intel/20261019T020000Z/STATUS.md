@@ -36,4 +36,4 @@
 
 2026-10-19T05:22:31.112702+00:00 Supplemental correctness preparation passes: 756 validator commands, 90 fixture models per source, native/sanitizer public-census parity, 43 original tests per build and 32 total negative controls. Exact reviewed model manifests match, baseline/B outputs agree within build modes, and 38 post-preparation hashes remain unchanged. Completed in 69.55 seconds under the 600-second cap. Frozen baseline calibration is next; no supplemental candidate timing yet.
 
-2026-10-19T05:24:16.815272+00:00 Supplemental calibration completes 684 baseline-only rows in 34.24 seconds under 180 seconds. Raw schedule, CPU2, semantic identity and 38 post-phase hashes pass. All 30 counts and both complete 720-process schedules frozen before comparison; next A/A has a fixed 480-second cap. No retry or adaptation.
+2026-10-19T05:24:16.815272+00:00 Supplemental calibration completes 684 baseline-only rows in 34.219 seconds under 180 seconds. Raw schedule, CPU2, semantic identity and 38 post-phase hashes pass. All 30 counts and both complete 720-process schedules frozen before comparison; next A/A has a fixed 480-second cap. No retry or adaptation.

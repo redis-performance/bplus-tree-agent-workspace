@@ -4,4 +4,4 @@ Supplemental correctness preparation passes: 756 validator commands, 90 fixture 
 
 Imported referee ec21ce601 and frozen protocol 7dbfe8259. Original 8fab baseline and exact SSE2 B are distinct from the corrected-adapter source. This covers 30 cells with lengths 8/319/320/321/1024, three score encodings including signed zero, small fully reversed leaves and active paused resize. All original guard gaps remain unresolved. Source adoption NONE.
 
-Supplemental calibration completes 684 baseline-only rows in 34.24 seconds under 180 seconds. Raw schedule, CPU2, semantic identity and 38 post-phase hashes pass. All 30 counts and both complete 720-process schedules frozen before comparison; next A/A has a fixed 480-second cap. No retry or adaptation.
+Supplemental calibration completes 684 baseline-only rows in 34.219 seconds under 180 seconds. Raw schedule, CPU2, semantic identity and 38 post-phase hashes pass. All 30 counts and both complete 720-process schedules frozen before comparison; next A/A has a fixed 480-second cap. No retry or adaptation.
