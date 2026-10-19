@@ -41,3 +41,5 @@ Pinned source: `a9df242d4c0b68c4c1bc6482a155f7d16c199a7f`. [Report](https://gith
 [raw and audits](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications).
 From that checkout, run `python3 experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/plot.py` with Matplotlib.
 The main copies are byte-identical PNG/SVG/JSON artifacts.
+
+M6 member-index profile: `m6-member-profile.{png,svg,json}` is pinned to source commit `0e7325081`. Regenerate from the source directory with `uv run --with matplotlib python <source-directory>/plot.py`. The figure conserves all 16 captures and 2,469 observations; counts do not establish costs, time shares or speed. File hashes are in `m6-member-profile-publication.json`.

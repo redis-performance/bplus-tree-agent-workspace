@@ -271,6 +271,8 @@ vectorizes its child-count reduction. These are sampled locations, not cycle cos
 The initial metadata failure and separate repair are preserved; no capture was
 repeated. Three independent proposals now review this evidence; source remains NONE.
 
+![M6 member-index profile: 16 audited captures, sampled locations only](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-member-profile.png)
+
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
 
