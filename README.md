@@ -70,9 +70,11 @@ Separate corrected-adapter baselines are complete on all three AWS hosts:
 stages pass on each host. [New four-host chart](#corrected-adapter-baselines-m6-and-three-aws-architectures).
 Earlier baselines and experiment decisions retain their original adapter identity.
 
-## Active follow-up — guarded M6 lookup
+## M6 lookup follow-up — parked at baseline controls
 
-[Shared session index](experiments/ACTIVE-SESSIONS.md) · [EXP-009 plan and live ownership](experiments/EXP-009/STATUS.md): a new, user-authorized follow-up investigates the scoped 100K lookup lead using the current corrected baseline and a semantic dispatch condition. PREPARING; no accepted optimization. All checkpoints and evidence publish on main for cross-session coordination.
+[Shared session index](experiments/ACTIVE-SESSIONS.md) · [EXP-009 result and ownership](experiments/EXP-009/STATUS.md). Fresh corrected-baseline validation and profiles pass, but the48-run control check qualifies **100K6/6 and1M3/6 blocks**. Failed1Mblocks are−1.414%,+1.036% and+2.567% despite586–630ms windows. **PARK before candidate code or timing; source NONE.** The guarded lookup idea remains unresolved, and local M6 native ownership is released. [Complete results, raw rows and reviews](experiments/EXP-009/RESULTS.md).
+
+![Latest M6 lookup controls: six qualified100Kblocks, three failed1Mblocks; no candidate comparison](experiments/EXP-009/aa-controls.png)
 
 ## Build and test
 

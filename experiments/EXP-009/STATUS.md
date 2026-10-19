@@ -1,5 +1,7 @@
 # EXP-009 shared live status
 
+**Current: PARK before candidate work.**100K6/6 and1M3/6 fresh controls qualify; source NONE. Local native ownership released. [Results and chart](RESULTS.md); independent raw integrity and decision reviews pass. Prior checkpoints below are historical.
+
 2026-10-19T08:12:13.277927+00:00 — PREPARING. Owner: interactive M6 root. New user-authorized follow-up; overnight campaign remains closed. No native work launched, no source selected. Three existing independent agents inspect historical code/harness without building or measuring.
 
 Next: publish frozen harness and prerequisites on main, collect current corrected-adapter baseline profile and fresh long-window A/A, then independent proposals/chair if qualified. No timing from other sessions on M6 during the later explicit measurement lease.
@@ -21,3 +23,5 @@ Next: publish frozen harness and prerequisites on main, collect current correcte
 2026-10-19T08:33:18.673504+00:00 — AA_AUTHORIZED. Frozen297identities and48-run schedule are onmain; root owns serial fresh baseline A/A, fixed counts and six seeds/blocks atbothsizes. Allthree agentsidle; freshprofilegatepassed. Completeallscheduledruns beforedecision, no candidate timing or post-resultcountchanges.
 
 2026-10-19T08:35:33.256291+00:00 — PARK_AA_PREREQUISITE. All48runs/12blocks complete, all297timing identities match, every child reaped/groupempty.100K6/6blocksqualify;1M3/6, failing−1.414059%,+1.036273%,+2.567325%againstfixed±1%. Allwindows586.347–630.314ms (exact raw-row range). No proposal/implementation population or candidate timing. Native lease released; no retry/countchange. All96rawAAstreams copied byte-identicallyforGit; raw audit/decisionreview/chartreportingonly.
+
+2026-10-19T08:42:01.920008+00:00 — FINAL_PARK. Independent raw audit A and decision review C PASS; all48rows/12integergates and250rawstream hashes reconstructed; overlapping69/241/297-entry seals unchanged. All125journaledcommandsserial/reaped/release-safe. Bothchartpanels/12points visually inspected. No newproposal/implementationpopulation or candidatepatch/timing; originalovernightcountsunchanged. Finalresult/chart/rawdata/sharedmemory publishonmain; no furtherlocalnativework queued.

@@ -1,6 +1,6 @@
 # Experiment log
 
-New authorized follow-up — EXP-009 guarded M6 physical-slot lookup is PREPARING, owned by interactive M6 root. All new evidence/checkpoints publish to main. No source selected or native work launched. Read experiments/EXP-009/STATUS.md before overlapping M6 work. Overnight campaign below remains closed; counts unchanged.
+EXP-009 guarded M6 lookup follow-up: PARK before proposal/implementation/candidate timing. Fresh native/sanitizer/oracle validation and profiles pass;48A/A runs qualify100K6/6 but1M3/6, with−1.414%,+1.036%,+2.567% failed controls despite586–630ms windows. Source NONE; local M6 native ownership released, no workloads queued. All new evidence publishes on main; read experiments/EXP-009/RESULTS.md and STATUS.md. Historical overnight counts unchanged; remote ARM follow-up remains separate.
 
 ## 19 October: focused decoder diagnostic
 
