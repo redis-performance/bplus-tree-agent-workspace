@@ -628,3 +628,17 @@ decision at06:50UTC and queues no further source experiment; earlier DNS/publica
 failures are historical. M1head2baeafcef adds a separate metadata fallback, not applied
 to frozen AWS inputs. Host ledgers and counts remain separate; AWS did not control
 Apple runners.
+
+
+## 19 October 07:33 UTC — reporting review and pre-handback check
+
+Independent chart review `208dff5cc` passes all 61 immutable inputs and the visual
+PARK presentation. Independent draft/release review `b3c2eb5fd` confirms counts;
+command-accounting wording is corrected in `3251f89a2`. No new runner workload.
+[Review resolution](reviews/aws-final-reporting-review-resolution.json).
+
+The [07:33:32 live inspection](reviews/aws-prehandback-0733.json) confirms all three
+OSS coordinators remain stopped, no owned units or processes remain, release files
+are absent, and timers remain scheduled for 08:00 UTC. Actual restoration is pending.
+The marker will record release-attempt start; completion requires fresh saved RUNNING
+status and live coordinator checks after the timer fires.
