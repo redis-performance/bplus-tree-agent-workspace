@@ -356,7 +356,7 @@
     "nominal_three_candidate_primary_screen_seconds": 14.4,
     "nominal_discovery_seconds": 256.8
   },
-  "status": "A/B STATIC CROSS-AUTHOR REVIEW PASS; COMMON BUILD-PATH GATE REQUIRED BEFORE MEASUREMENT; OWN C REVIEW NOT INDEPENDENT; NO ADOPTION",
+  "status": "A/B STATIC CROSS-AUTHOR REVIEW PASS; D1-D5 CORRECTED BEFORE FREEZE; DISCOVERY WALL-ACCOUNTING NOTE; OWN C REVIEW NOT INDEPENDENT; NO ADOPTION",
   "static_method": "Read-only otool -tvV inspection of existing validation binaries; no build, execution, benchmark or profile. Instruction normalization preserves operations and local branch targets, normalizes absolute relocation/page/literal addresses, and normalizes source-line immediates passed to standalone_panic. Function-level equivalence is static evidence only, not whole-binary identity.",
   "measurement_conditions": [
     "Common relative frontend build path required; C validation used long campaign path while A/B used referee/lookup-bench.c, affecting __FILE__ literals and placement. Root must rebuild common timing binaries.",
@@ -405,5 +405,27 @@
       "common frontend source paths/flags and prefix maps repair validation-binary path differences"
     ],
     "limitation": "Read-only source review, not executed driver tests. Root owns revisions and independent checks."
-  }
+  },
+  "driver_followup_review": {
+    "driver_sha256": "bd7cd797af4a6c58d3b294d3e81d34908c129df95c1b04f2010935ee1c28e38f",
+    "status": "D1-D5 resolved by static inspection; cumulative discovery wall-budget interpretation remains noted",
+    "resolved_ids": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "checks": [
+      "command timeout clipped to experiment deadline and supplied phase wall allowance",
+      "timeout partial stdout/stderr and command record preserved",
+      "per-ref expected counts and seed/member/batch/replica fields checked",
+      "post-row timed/wall/global deadline checks prevent over-bound phase from completing",
+      "screens rotates ABC/BCA/CAB by block in one serial cumulative budget",
+      "old single-variant screen entry rejected"
+    ],
+    "remaining_note": "guards adds all earlier primary-screen timed seconds but resets900s wall allowance; if900s is whole discovery, deduct one common screens phase_wall_seconds from the guard allowance. All three screen JSONs contain the same phase wall, so do not sum3.",
+    "execution_scope": "Static read-only inspection; root reports common32 builds and semantic validation PASS, not rerun by this reviewer."
+  },
+  "finished_utc": "2026-10-19T03:20:36.019754+00:00"
 }

@@ -9,8 +9,9 @@ Only this review and `review-caller.json` were written.
 **A/B source review passes with measurement prerequisites. No adoption is approved.**
 All three patches reconstruct their isolated sources from the frozen baseline, and
 all preserve the decoder text and original scanner body. Their reported validation
-logs and binaries match their sealed hashes. The common timing driver additionally
-requires the pre-freeze corrections below; root has received those findings.
+logs and binaries match their sealed hashes. All five initial driver findings below
+were corrected before freeze and verified by static inspection of the revised
+driver. One cumulative wall-budget interpretation remains noted at the end.
 
 ## Semantic and hypothesis review
 
@@ -132,6 +133,22 @@ Initial pre-freeze driver findings sent to root:
 5. Apply the cumulative discovery timing budget through all screens, not only when
    the later guard phase adds previous screen totals.
 
-These are orchestration findings, not production-source failures. Root owns fixes,
-tests and final freeze. The JSON retains the inspected driver hash and review state;
-this document does not approve an unreviewed revision or claim driver execution.
+These are orchestration findings, not production-source failures. Static follow-up
+inspection confirms all five corrected: child timeouts are clipped, timeout command
+evidence is retained, per-referee output assertions are present, post-row bounds
+prevent an over-bound phase from recording complete, and `screens()` rotates
+ABC/BCA/CAB by block with one cumulative timed budget. The old single-variant screen
+entry is rejected. Root reports all 32 common builds and common native/sanitizer
+semantic checks passed; this reviewer did not execute those checks.
+
+One budget interpretation remains: guards include prior screen timed seconds but
+start a new 900-second wall allowance. If PLAN's 900-second wall phase applies to
+the whole discovery comparison, deduct the single shared screen-phase wall duration
+from the guard allowance. Every screen JSON stores that same common duration, so
+use one value rather than summing it three times. Root received this note before
+freeze. The JSON retains the revised driver hash and the exact static-review scope.
+This review approves no uninspected later revision and claims no driver execution.
+
+All review reading and static inspection are finished. No test, build or profile
+work remains active in this agent; root can proceed with its final freeze and
+serial measurements after resolving the stated wall-budget interpretation.
