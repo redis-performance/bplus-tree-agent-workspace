@@ -84,3 +84,5 @@ Additional local review: [ARM024 iterator adaptation](030-arm-iterator-review/RE
 Independent ARM026 [validation/codegen gate review](032-arm-exp005A-review/CODEGEN-REVIEW.md) passes; this is static diagnostic eligibility, not a performance result or acceptance. Earlier NONE proposal remains preserved.
 
 [Final reporting and release-evidence review](033-final-report-review/REVIEW.md) found no material count/outcome error and recorded two wording clarifications. Lease remains ACTIVE; release proof is pending.
+
+- 2026-10-19T10:09:08.399751+00:00: Final ARM follow-up2a53fc3f3 adversarial closure supports REJECT/NONE:9qualified all-six iterator regressions,4272processes/5952rows. Profile/heldout unexecuted, source unchanged, historicalFAILED/PARK preserved. Fresh OSS restoration and empty owned work verified in immutable10:03:25–27 record; ARM continuation RELEASED.

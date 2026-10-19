@@ -151,3 +151,5 @@
 - 2026-10-19T09:34:05.236956+00:00: Adversarial current-claim review supports PARK/NONE;1,920 original guard rows reconstructed,17 qualified passes+1mixed SCAN+11required noisy. Authorization ambiguity corrected by root146f816ff. No median rescue, confirmation ineligible, profile unexecuted; lease ACTIVE pending actual proof.
 
 - 2026-10-19T09:39:21.994346+00:00: Independent raw matched-profile auditor prepared for exact0a1040780 freeze, unexecuted on scientific data. Local AST/arithmetic/synthetic-parser metadata only; all104commands/scope/PMU/loss/map/final validity reconstruction ready if immutable results arrive. No profiling grant or runner access.
+
+- 2026-10-19T10:09:08.399751+00:00: Final ARM follow-up2a53fc3f3 adversarial closure supports REJECT/NONE:9qualified all-six iterator regressions,4272processes/5952rows. Profile/heldout unexecuted, source unchanged, historicalFAILED/PARK preserved. Fresh OSS restoration and empty owned work verified in immutable10:03:25–27 record; ARM continuation RELEASED.
