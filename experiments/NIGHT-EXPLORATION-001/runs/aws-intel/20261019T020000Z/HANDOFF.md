@@ -1,5 +1,13 @@
 # Intel handoff
 
+Final update 2026-10-19T08:03:11.134250+00:00
+
+**COMPLETE; lease RELEASED.** The coordinator verified all three live OSS coordinators RUNNING during 2026-10-19 08:00:20–08:00:25 UTC (09:00 Lisbon), with inactive owned slices, zero owned units/processes and fresh saved RUNNING status matching live PIDs. The private fleet reservation was released and pushed. [Immutable release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json). Release markers identify attempt start, not restoration completion; this worker checked the retained proof locally and performed no additional runner access.
+
+Source adoption remains **NONE**. Intel measured populations remain two: lookup REJECT and full-member iterator cache PARK (0 accepted / 1 rejected / 1 parked; six retained patches). The separate original-source SCAN replication remains REJECT; corrected-source guard-first replication remains PARK before candidate timing. All experiments and reporting work are complete; no workload or follow-up phase is queued.
+
+## Historical checkpoints
+
 Current source selection NONE. Lookup REJECT; update diagnosis NONE; iterator PARK with partial fixed screen. See004-iterator/README.md, comparison-freeze.json and discovery-audit.json. Commit58ee8315e freezes patches/referee. Root review434e39ef5. Two additional state-reset faults detected; additive oracle89,428 checks/build/source passes. No failed timing schedule may be extended or rerun. Next matched profiles are diagnostic only. Deadline08:00UTC, no new experiments after07:15UTC. Exact model/backend and token cost unknown.
 
 Matched profile diagnosis now complete; see004-iterator/MATCHED-PROFILE.md. Independent root raw audit847ed4096. Next separate AMD index-scan evidence review, without local source edits or Intel timing.
