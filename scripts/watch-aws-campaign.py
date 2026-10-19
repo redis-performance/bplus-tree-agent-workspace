@@ -21,6 +21,24 @@ def run(command, cwd):
     return result.stdout.strip()
 
 
+def publish(checkout):
+    # Fetch/rebase and push are separate operations; another writer can publish
+    # between them. Retry only that race, preserving every local commit.
+    for attempt in range(5):
+        run(['git', 'fetch', 'origin'], checkout)
+        run(['git', 'rebase', 'origin/main'], checkout)
+        result = subprocess.run(['git', 'push', 'origin', 'HEAD:main'],
+            cwd=checkout, text=True, capture_output=True, timeout=120)
+        if result.returncode == 0:
+            return
+        races = ('cannot lock ref', 'non-fast-forward', 'fetch first')
+        if not any(message in result.stderr for message in races):
+            raise RuntimeError('dashboard push failed: ' + result.stderr[-300:])
+        if attempt < 4:
+            time.sleep(1)
+    raise RuntimeError('dashboard push still racing after five preserved-commit attempts')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--controller', type=Path, required=True)
@@ -84,8 +102,7 @@ Source adoption remains NONE.
             run(['git','add','README.md','experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md','experiments/NIGHT-EXPLORATION-001/AWS-ACTIVITY.md'], args.checkout)
             run(['git','commit','-m','Refresh AWS overnight worker status and activity'], args.checkout)
             # Another session may publish main; incorporate it without overwriting edits.
-            run(['git','pull','--rebase','origin','main'], args.checkout)
-            run(['git','push','origin','HEAD:main'], args.checkout)
+            publish(args.checkout)
             previous=fingerprint
             print(stamp+' published worker status',flush=True)
         final = all(r['state'] not in ('running','starting') for r in records)
