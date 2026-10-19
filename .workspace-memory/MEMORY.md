@@ -848,3 +848,16 @@ owned-byte parity. Source NONE. AWS totals6 measured populations:0accepted/4reje
 investigates index scan after inner-child chairNONE. Live workers/decisions are in
 experiments/NIGHT-EXPLORATION-001. Release timers remain08:00UTC; read-only auditor
 scheduled08:00:20UTC, actual restoration still unverified before deadline.
+
+
+## 19 October03:19 UTC — ARM iterator replication independently audited
+
+Exact Intel A/B patches completed all 576 ARM raw processes / 144 blocks. Both
+primary A/A controls fail; favorable primary observations remain PARK, no winner.
+Root verifies every row, frozen schedule/hash, serial CPU2 windows, fixture/owned
+bytes, result seal and fresh live binary hashes. A state24 bytes, B16. No adoption
+or timing pooling. AWS counts remain6 populations (0 accepted/4 rejected/2 parked),
+plus1 parked architecture replication. AMD's distinct all-match SSE2 round now
+has3 actual independent proposals and implementations, root chair/static review
+0695cf415/e47157087; serial correctness/fault controls precede its fixed exploratory
+screen.1M scan A/A fails, so acceptance is unavailable. Lease/release08:00UTC intact.

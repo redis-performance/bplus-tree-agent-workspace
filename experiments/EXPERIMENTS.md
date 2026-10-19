@@ -975,3 +975,25 @@ replication; its measurements cannot repair this Intel schedule. Source remains 
 AWS completed measured populations: **6 — 0 accepted / 4 rejected / 2 parked**.
 Unmeasured diagnostics and architecture replications are not new implementation
 populations. Decision: Intel branch `f320d3f67`.
+
+
+## 19 October — ARM iterator architecture replication: PARK / NONE
+
+Exact Intel iterator A/B patches completed independent ARM screens: 192 A/A plus
+192 processes per candidate, 576 total and 144 complete ABBA blocks. Both primary
+controls fail (100K −2.523..+1.985%; 1M −3.997..+0.735%), so favorable observations
+remain conditional. Primary medians for A/B are −10.812/−12.623% at 100K and
+−7.446/−9.631% at 1M. There is no qualified A-versus-B ranking. A uses 24-byte
+iterator state and B 16 bytes on this host; tree-owned bytes are identical.
+
+Root independently reconstructed every raw row and effect, checked the full seal,
+exact frozen schedules, serial windows, CPU2, fixture/checksum and memory parity.
+A fresh read-only SSH check confirms the baseline/A/B binaries still match the
+pre-screen hash manifest. Original tests and additive state checks pass. Broader
+guards, fresh confirmation and candidate profiles remain absent. Source NONE.
+
+This is one parked architecture replication of an existing population. Completed
+AWS population counts stay **6 — 0 accepted / 4 rejected / 2 parked**, plus
+**1 parked architecture replication**. Intel and ARM timings are not pooled.
+Result pin: ARM `ca5ffa2a8`; independent audit is
+`reviews/aws-arm-iterator-cache-raw-audit.json` in the night campaign.
