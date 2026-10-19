@@ -75,3 +75,10 @@ Next calibration then fixed A/A and three176-cell serial comparisons, no overlap
 Candidate freeze published6e9e4ec8. Baseline calibration complete:528 observations
 for176 cells; fixed round counts in005-decode/calibration.json apply to all variants.
 No per-candidate adaptive counts. Next six-block all-cell baseline A/A.
+
+DECODE A/A complete:4224 serial processes,176 cells,6 ABBA blocks;
+53/176 numerically qualify; minimum window11.162ms. Primary effects
+[-3.447324281174524, -2.618455838663347, -6.331260495140977, -5.231520182782601, -2.6268800807368042, 1.1952139812649198]; primary qualified=False.
+41 cap-limited cells cannot reach50ms target; CAP-LIMIT.md records them.
+No adoption qualification from noisy/cap-limited guards. Proceed only with the
+predeclared fixed exploratory A/B/C comparisons; no noise retries or sample removal.
