@@ -92,3 +92,11 @@ The separately granted fixed iterator A/A is diagnostic follow-up, not acceptanc
 [SVG](charts/original-qualified-guards.svg) · [Reproducible renderer](render-original-guards.py).
 The 22 unqualified cells remain in the complete raw audit; this chart shows only
 comparisons with qualified controls.
+
+## Independent adversarial claim review
+
+[AMD review8569bb06c](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8569bb06c/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/034-arm-mask-continuation-review/ADVERSARIAL-CLAIMS-REVIEW-13470335e.md)
+reconstructs all 1,920 original-control/comparison rows and agrees with PARK/NONE.
+It confirms the primary claim is confined to forward score-only iteration on this
+ARM host. A historical authorization flag was clarified in146f816ff; evidence and
+gates did not change. Later favorable diagnostics cannot repair the failed controls.
