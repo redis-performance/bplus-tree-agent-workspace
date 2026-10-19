@@ -4,11 +4,11 @@
 1 rejected, 1 parked. Two separate architecture replications: both PARK.** No qualified
 whole-tree gain is claimed. Host: AWS ARM Neoverse V2, Clang18.1.3, serialCPU2.
 
-**Campaign lease ACTIVE until08:00UTC /09:00Lisbon. Actual release and OSS coordinator
-restoration are PENDING and unverified.** This is a results report, not restoration
-proof. The ARM experiment runner is idle under root direction. No new experiments
-are planned; the campaign cutoff remains07:15UTC. Any final read-only ambient fleet
-observation is a separate root-owned action. Updated: 2026-10-19T07:18:13.612193+00:00.
+**Campaign complete; lease RELEASED and OSS coordinator restoration VERIFIED.** Root observed all three live coordinators RUNNING during08:00:20–08:00:25UTC /09:00:20–09:00:25Lisbon, with inactive owned slices, no owned units/PIDs and fresh saved RUNNING status matching live PIDs. [Immutable release proof06785a454](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454b6f7b6ef2b45a8db4bafe12a40531a6/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json). This records the observed audit interval, not guaranteed future uptime.
+
+Independent Intel raw review [16f074fbe](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md) verifies all48 rows/12blocks of exact historical EXP-005 A replication, schedules, semantics, memory and identities. The outcome remains PARK/sourceNONE; qualified broader guards, fresh confirmation and matched profiling are still missing.
+
+Updated: 2026-10-19T08:03:18.494652+00:00.
 
 ## Baselines and identities
 
@@ -34,7 +34,7 @@ with original8fab or another architecture. The corrected SCAN5M-op timing binary
 | --- | --- |
 | Count-one decoder003 | **PARK/NONE.** [Result](003-decode/RESULT.md),2784 screen rows and1391 A/A rows. Required primary precision fails; conditional EXP-007B helper leads are not whole-tree/root gains. A/B/C executable text is identical, so no ranking. Root independent audit46c0ce2c2. Patches:[A](003-decode/variants/A/candidate.patch),[B](003-decode/variants/B/candidate.patch),[C](003-decode/variants/C/candidate.patch). |
 | Iterator005 replication | **PARK/NONE.** Exact Intel A/B hypotheses replicated on ARM with576 rows/144 paired blocks. Both primary controls fail; no qualified winner. A adds8 bytes iterator state; B preserves16 bytes. [Result](005-iterator/RESULT.md),[independent review](005-iterator/INDEPENDENT-REVIEW.md), rootb0c5a43e2. Patches:[A](005-iterator/variants/A/candidate.patch),[B](005-iterator/variants/B/candidate.patch). Counted separately from new populations. |
-| Exact historical EXP-005 A026 replication | **PARK/NONE.** [Result](026-exp005A-replication/RESULT.md),48 rows/12blocks, every primary passes:100K elapsed−7.86..−7.74%,1M−7.39..−6.96%. Missing broad guards, independent confirmation and matched profiling prevent acceptance. [Exact historical patch](026-exp005A-replication/candidate.patch),570 validation commands, root/AMD static reviews pass; final raw review pending. Separate replication, not a new population. |
+| Exact historical EXP-005 A026 replication | **PARK/NONE.** [Result](026-exp005A-replication/RESULT.md),48 rows/12blocks, every primary passes:100K elapsed−7.86..−7.74%,1M−7.39..−6.96%. Missing broad guards, independent confirmation and matched profiling prevent acceptance. [Exact historical patch](026-exp005A-replication/candidate.patch),570 validation commands, root/AMD static reviews pass; final independent Intel raw review16f074fbe passes. Separate replication, not a new population. |
 | Corrected native NEON017 | **REJECT/NONE.** Actual three independent proposals and three isolated implementations;145 validation commands pass, then all144 discovery rows/36 blocks complete. Every candidate fails both primary speed gates in every block. [Result](017-corrected-neon/RESULT.md),[comparison freeze](017-corrected-neon/comparison-freeze.json),[A](017-corrected-neon/variants/A/candidate.patch),[B](017-corrected-neon/variants/B/candidate.patch),[C](017-corrected-neon/variants/C/candidate.patch). |
 
 NEON paired elapsed increases at100K/1M: A+96.89–102.01%/+68.98–72.40%;
@@ -143,3 +143,12 @@ population counts and all prior decisions remain unchanged. Raw A/A review/root 
 step remain pending; runner is idle. LeaseACTIVE/restorationPENDING still applies.
 
 2026-10-19 07:17 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
+
+
+## Final handback and review
+
+**Campaign complete; lease RELEASED and OSS coordinator restoration VERIFIED.** Root observed all three live coordinators RUNNING during08:00:20–08:00:25UTC /09:00:20–09:00:25Lisbon, with inactive owned slices, no owned units/PIDs and fresh saved RUNNING status matching live PIDs. [Immutable release proof06785a454](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454b6f7b6ef2b45a8db4bafe12a40531a6/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json). This records the observed audit interval, not guaranteed future uptime.
+
+Independent Intel raw review [16f074fbe](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md) verifies all48 rows/12blocks of exact historical EXP-005 A replication, schedules, semantics, memory and identities. The outcome remains PARK/sourceNONE; qualified broader guards, fresh confirmation and matched profiling are still missing.
+
+Earlier timestamped pending/active statements above are retained as historical milestones and are superseded by this verified final state. No experiment decision or sealed artifact changed.

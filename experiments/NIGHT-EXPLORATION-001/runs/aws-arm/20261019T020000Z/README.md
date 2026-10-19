@@ -4,8 +4,9 @@
 replications, both PARK.** See the [morning report](MORNING-REPORT.md) for complete decisions,
 evidence, patches, baseline identities and remaining gates.
 
-The experiment runner is idle. **Campaign lease ACTIVE until08:00UTC /09:00Lisbon;
-actual release and OSS restoration PENDING.** No new experiments are planned.
+**Campaign complete; lease RELEASED and OSS coordinator restoration VERIFIED.** Root observed all three live coordinators RUNNING during08:00:20–08:00:25UTC /09:00:20–09:00:25Lisbon, with inactive owned slices, no owned units/PIDs and fresh saved RUNNING status matching live PIDs. [Immutable release proof06785a454](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454b6f7b6ef2b45a8db4bafe12a40531a6/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json). This records the observed audit interval, not guaranteed future uptime.
+
+Independent Intel raw review [16f074fbe](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md) verifies all48 rows/12blocks of exact historical EXP-005 A replication, schedules, semantics, memory and identities. The outcome remains PARK/sourceNONE; qualified broader guards, fresh confirmation and matched profiling are still missing.
 
 - [Original baseline](001-baseline/summary.csv):120 processes/960 rows,18/40 qualified.
 - [Corrected adapter baseline](013-corrected-adapter-baseline/RESULT.md):120 processes/
@@ -20,7 +21,9 @@ actual release and OSS restoration PENDING.** No new experiments are planned.
 Earlier milestone descriptions and superseded states remain in ACTIVITY and Git;
 immutable experiment reports and evidence seals are unchanged.
 
-## Additive preparation update — 2026-10-19T06:22:00.520959+00:00
+## Historical milestone log (superseded by final status above)
+
+### Additive preparation update — 2026-10-19T06:22:00.520959+00:00
 
 Root requested a separate [corrected ARM score-only iterator diagnosis](024-corrected-iterator/PLAN.md). Plan/execution freeze prepared; no launch, pending root and independent AMD review plus post-ambient idle handoff. Morning results and all prior decisions remain unchanged.
 
