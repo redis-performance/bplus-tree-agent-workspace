@@ -28,7 +28,10 @@ One additional ARM architecture replication is parked. Intel scan replication pa
 both primary gates and fresh independent confirmation; variant B is undergoing
 guards and profile validation, with no adoption.
 AMD deletion and native ARM scan planning stopped before implementation because
-precision controls failed; their independent proposals are retained.
+precision controls failed; their independent proposals are retained. A separate
+corrected-adapter ARM round now has qualified controls and three independent proposals;
+three isolated NEON implementations are being prepared. AMD separately validates the
+existing SSE2 candidate under the corrected adapter. Neither has candidate timings yet.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
 **Standalone adapter correction:** the panic declaration now conveys its existing

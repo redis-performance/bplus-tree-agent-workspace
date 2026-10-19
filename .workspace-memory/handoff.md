@@ -1,39 +1,29 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:42 UTC
+## Current AWS overnight checkpoint — 19 October 05:00 UTC
 
-Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
-start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
-7, with 0 accepted / 4 rejected / 3 parked; separate ARM iterator replication PARK.
-AMD deletion and native ARM scan stopped at chair NONE after failed controls, before
-implementation. Intel scan B discovery and independent seeds 201–203 confirmation pass.
-Full original guards finish with 56 passing qualified cells, one mixed iteration
-guard and 23 failed/short controls: 24/80 remain unresolved. Independent AMD raw
-audit verifies all rows and post-phase hashes. Matched/focused follow-ups remain. Intel owns its runner again after root verified idle state and live binary
-hashes at 04:09:44 UTC. All further workloads must run serially. Primary confirmation
-alone cannot support acceptance.
+Campaign active until09:00Lisbon/08:00UTC; no new experiments after07:15UTC.
+Main tree source remains unchanged. Seven completed measured populations:
+0 accepted /4 rejected /3 parked; separate ARM iterator replication PARK.
+Original8fab Intel scan B passed discovery and independent primary confirmation;
+full guards retain24/80 unresolved cells. Matched-profile review completed; focused
+controls/comparison continue, followed by corrected baseline and supplemental guards.
 
-AMD completed the independent full Intel guard audit. ARM published supplemental
-referee ec21ce601 for fully reversed leaves, active resize and member boundaries.
-Root audited 2,447 sealed files, 378 commands, 90 fixture hashes and 16 negative
-controls; its fixed 180/480/480-second performance phases are queued on Intel
-after the existing queue, with separate 600-second preparation. No timing yet.
-Intel matched-profile v2 completed 120 captures and independent review; direction
-supports the mechanism most clearly at 1M, without a precise elapsed/cycle claim.
-All AWS builds retain the original adapter; the separately reviewed main/M6
-`_Noreturn` correction does not change their frozen referee. Separate corrected-adapter
-baseline matrices from 13e459ff8 now qualify 11/40 AMD and 21/40 ARM cases;
-Intel remains queued. AMD/ARM prepare separately frozen scan baseline profiles and
-fresh A/A under this distinct adapter. No candidate timing is authorized there yet,
-and old controls/decisions cannot be reinterpreted.
+Distinct corrected-adapter13e459ff8 matrices complete on M6,AMD,ARM; Intel queued.
+Fresh corrected ARM/AMD SCAN profiles and48-row A/A controls completed and root-audited:
+both100K/1M qualify. Original failed8fab controls/decisions remain final.
+Root chair selects bounded16-byte native NEON exact leaf-tag matching after three
+actual independent ARM proposals, for three isolated implementations A=ARM,B=Intel,
+C=AMD. No candidate timings yet; fixed144-row discovery only after correctness and
+root static/freeze review. AMD separately validates exact selected SSE2B under the
+corrected adapter, then fixed48-row primary replication if correctness passes.
+No overnight tree source adoption; every required guard/profile/confirmation/review
+still applies. See AWS-DECISIONS.md and reviews/aws-arm-corrected-scan-population.
 
-AMD and ARM hosts remain reserved, not released. Three OSS coordinators were
-stopped for this campaign. The 08:00 UTC host timers and independent live auditor are
-armed, but successful restoration is NOT YET verified. Do not report completion before
-that proof.
-
-Latest decisions/activity: [AWS ledger](../experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
-[live workers](../experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
-Native participant backend/model/token/USD costs are unknown. No upstream actions.
+All three OSS coordinators remain stopped for the reserved campaign. Release timers
+08:00UTC and corrected read-only auditor08:00:20UTC are armed/alive. Actual restoration
+is NOT YET verified; do not report completion before live proof. Native model/token/USD
+costs unknown; no upstream actions. M6 continues publishing; M1 latest01:33UTC checkpoint
+reports DNS unknown and its current runner state is unverified.
 <!-- AWS-CURRENT-END -->
 
 # Handoff

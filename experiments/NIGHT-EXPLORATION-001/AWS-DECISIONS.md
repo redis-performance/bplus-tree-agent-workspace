@@ -335,3 +335,22 @@ separately frozen baseline profiles and48-row A/A controls at5M requested operat
 Failed controls stop that new comparison without retry. These new harness results
 do not repair or replace any original8fab511e decision. Source NONE; measured
 AWS population counts remain7:0 accepted/4 rejected/3 parked.
+
+
+## 19 October 05:00 UTC — corrected ARM population selected; AMD exact replication
+
+Fresh corrected-adapter scan controls qualify on both ARM and AMD. Root independently
+reconstructed each48-row/12-block schedule, CPU2 serial windows, checksums/callbacks,
+exact owned memory and source/referee/binary identities. Maximum absolute A/A changes:
+ARM0.398%/0.762%, AMD0.504%/0.890% at100K/1M. Scoped profiles link to the actual timing
+binaries; this is a distinct13e459ff8 source identity, not a rescue of old8fab controls.
+
+Three actual independently authored ARM proposals agree on bounded16-byte native NEON
+exact tag matching. Root selects that one hypothesis for three isolated implementations,
+with fixed correctness,144-row discovery and held-out confirmation contracts. Existing
+21 patches and seven completed populations remain unchanged until this new round is
+measured. [Chair and proposals](reviews/aws-arm-corrected-scan-population/selection.md).
+AMD separately validates exact selected x86B under the corrected adapter before its
+fixed48-row comparison; no new x86 population or candidate switching. Intel continues
+its frozen old-adapter focused guards, then its corrected baseline and supplemental
+guards. All source adoption remains NONE; no claim of a completed optimization.
