@@ -1,3 +1,11 @@
+# Current ARM campaign status — 2026-10-19T05:24:53.398519+00:00
+
+2026-10-19T05:24:53.398519+00:00: Corrected ARM NEON discovery complete, 144 rows/36 blocks. Primary survivors []; fixed maintenance selection NONE for further gates only. Runner idle pending root audit/explicit handoff. Source adoption NONE. Two measured ARM populations: decoder PARK plus corrected NEON REJECT; one separate iterator replication PARK. Old 8fab control failure remains final.
+
+See [discovery result](017-corrected-neon/RESULT.md) and [frozen confirmation plan](017-corrected-neon/CONFIRMATION-PLAN.md). No new experiment after 07:15UTC; fleet release at 08:00UTC remains unverified. All earlier entries below are chronological history and may describe superseded phases.
+
+---
+
 # AWS ARM current status
 
 No source adoption and no active runner job. Native supervision remains available until
