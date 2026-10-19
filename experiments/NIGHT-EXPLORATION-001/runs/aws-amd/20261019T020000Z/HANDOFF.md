@@ -56,3 +56,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T08:10:47.865450+00:00: Fresh ARM mask continuation: preliminary adversarial source/evidence review034 finds no exact-patch semantic blocker; new027 preregistration review pending. Prior026 PARK/031 NONE retained; no runner access or implementation edits. Old fleet lease remains RELEASED; root owns new lease.
 
 - 2026-10-19T08:19:07.088106+00:00: ARM027 b56bf0cac plan review:7freeze/13imports/10source,82required iterator and29required+11diagnostic original cells verified. Qualified diagnostic regression rule needs explicit REJECT/PARK alignment before drivers; uniform-bit zero-width performance gap retained. No launch/runner access. Fresh ARM lease root-managed ACTIVE to10:15UTC; old lease RELEASED.
+
+- 2026-10-19T08:23:44.807180+00:00: ARM027 ca16799da preparation review passes28inputs/2124commands and Cartesian/native/san/source protections, conditional root600s newlease grant. No timing grant. Prior diagnostic-loss ambiguity resolved; uniform-width0/broaderarchitecture gaps explicit. Intel confirmation receipt repairs pending.
