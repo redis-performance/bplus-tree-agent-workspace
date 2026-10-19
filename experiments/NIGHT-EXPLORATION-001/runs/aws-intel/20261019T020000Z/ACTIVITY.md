@@ -62,3 +62,5 @@
 2026-10-19T04:49:50.160698+00:00 Submitted independent corrected-ARM scan proposal from common9cd8689db: bounded16-byte NEON exactmatch/nibble enumeration with original residual/fallback, subjectto root freshAA audit. Priorold8fab NONE remainsfinal; priorSIMD context disclosed, no peerproposal reads or implementation. Intel011 A/A continues unchanged.
 
 2026-10-19T04:57:05.237822+00:00 Focused AA COMPLETE864 rows/216 blocks in611.62s under900s;22/36 cells qualify,14 precision-failed,zero shortwindows. Raw schedule/CPU2/serial/checksum/ownedbytes auditPASS;24 post-AA hashes unchanged. Full frozen864-row B diagnostic next under900s,including everyfailedcontrol label; no adaptation/retry/source switch. Overall PARK/source NONE.
+
+2026-10-19T05:01:15.445116+00:00 Independent corrected-ARM implementationB sealed from13e459ff8,src only; boundedNEON exactnibble masks with original residual/fallback. Native/forcedportable freestandingcrosscompile smoke passes, no nativecorrectness/performanceclaim. No peerpatchread; ARM owns validation/timing. Intel focusedB864/900s remains sole hostworkload.
