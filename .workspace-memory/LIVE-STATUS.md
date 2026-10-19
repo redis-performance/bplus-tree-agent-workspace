@@ -1,17 +1,20 @@
 <!-- AWS-CURRENT-START -->
 ## Current AWS overnight checkpoint — 19 October 04:11 UTC
 
-Campaign remains active until19October09:00Lisbon/08:00UTC; no new experiments after
-07:15UTC. Source remains original8fab511e. Completed measured populations:7,
-0 accepted/4 rejected/3 parked; separate ARM iterator replication PARK. AMD deletion
-and native ARM scan stopped at chairNONE after failed controls, before implementation.
-Intel exact scan B discovery and independent201–203 confirmation pass. Full original
-controls qualify57/80; diagnostic B guards and matched/focused follow-ups remain.
-Intel owns its runner again after root verified idle and live binary hashes04:09:44UTC.
-All further workloads must run serially; no acceptance is available from primary alone.
-AMD/ARM own runners are idle and reserved, not released. Three OSS coordinators were
-stopped for this campaign;08:00UTC host timers and independent live auditor are armed,
-but successful restoration is NOT YET verified. Do not report completion before proof.
+Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
+start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
+7, with 0 accepted / 4 rejected / 3 parked; separate ARM iterator replication PARK.
+AMD deletion and native ARM scan stopped at chair NONE after failed controls, before
+implementation. Intel scan B discovery and independent seeds 201–203 confirmation pass.
+Full original controls qualify 57/80; diagnostic B guards and matched/focused follow-ups
+remain. Intel owns its runner again after root verified idle state and live binary
+hashes at 04:09:44 UTC. All further workloads must run serially. Primary confirmation
+alone cannot support acceptance.
+
+AMD and ARM runners are idle and reserved, not released. Three OSS coordinators were
+stopped for this campaign. The 08:00 UTC host timers and independent live auditor are
+armed, but successful restoration is NOT YET verified. Do not report completion before
+that proof.
 
 Latest decisions/activity: [AWS ledger](../experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
 [live workers](../experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
