@@ -36,9 +36,11 @@ controls and the original guard gaps remain unresolved. The supplemental failure
 is decisive despite those earlier scoped gains. Corrected-source Intel controls now
 qualify, but the separate known-guard A/A fails two of six blocks, so the corrected
 replication is parked before candidate timing. AMD’s baseline score-only iterator
-profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM follow-up
+profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM NEON follow-up
 proposal review selected NONE despite qualified controls; all three proposals and
-the conditional implementation dissent are retained. No new candidate.
+the conditional implementation dissent are retained. A separate corrected ARM score-only
+iterator baseline now has qualified controls; three independent proposals are under
+review. No new candidate has been selected.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·
