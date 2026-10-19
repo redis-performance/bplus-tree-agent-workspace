@@ -65,3 +65,5 @@
 - 2026-10-19T04:39:02.477458+00:00: Corrected-adapter AMD baseline complete:7validationstagesPASS,120processes/960rows/240effects;11of40qualified,11short+18othernoisy retained without retries. Separate13e459ff8 chart/manifest published; originalHEAD/source unchanged. Intel matched-profile independent review5bffe4d28 complete with coarse100K/stronger1M directional attribution. AMD host idle; sourceNONE.
 
 - 2026-10-19T04:45:00.190930+00:00: Corrected-adapter baseline-only scan profile1b7d261b0 running under600sCPU2 lease; exactvalidatedFIFO scope/disabledcontrols and fixed6sample+6counter captures. Fresh401–403 AA separately preregistered48rows/300s follows successful profile controls. No candidate authorized or timed; old8fabfailedAA/profilediscrepancy remain unchanged.
+
+- 2026-10-19T04:48:13.743873+00:00: Corrected13e459ff8 scan baseline profile/control phase complete44commands; helper period31.277%100K/29.900%1M. FreshAA48process/12blocks both qualify,maxabs0.504%/0.890%,min338/434ms. No candidate measured or authorized; sourceNONE pending root replication decision. AMD idle; original8fabPARK/discrepancy unchanged.
