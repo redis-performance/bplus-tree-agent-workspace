@@ -158,3 +158,5 @@
 2026-10-19T11:12:31.030461+00:00 Profilec370e444f staticreview:35inputs/642commands/24syntheticchecks verified; blocker native/sanitizer parity keys omitmode,3smallfixturegroups collide underusable-size allocator. Requested mode separation and explicit--no-scale/reportingprecision. CPU-perf MCP notcallable inworker; rootsharedconsultation pending evidence. No remote/build/profile work; oldREJECT remains.
 
 2026-10-19T11:13:37.598508+00:00 Correctiveprofile2d4e93924 review:36inputsPASS;modekeys separate16sanitizer/500nativefixturecommands;all42statcommandsno-scale,600othercommandsunchanged. No staticblocker fromIntel; runtimegrantroot-owned. Sharedactualcpu-perfconsultationdfff5540f consumedhonestly(ownunavailable,rootcaller,0indexed/noArmguidepassages,nocausal support). No remote/build/PMUwork.
+
+2026-10-19T11:22:19.215701+00:00 Prepared independent ARM030 profile raw auditor033 before result publication:65 synthetic/contract checks, exact counters/census/fixtures/serial identities, full physical-PC/encoded-word mapping and known-negative scope checks. No producer imports or runner work. Shared root MCP consultation identified honestly; old REJECT unchanged.
