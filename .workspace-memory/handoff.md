@@ -1,5 +1,5 @@
 <!-- M6-BRACKET-CURRENT -->
-M6-CLOCK-BRACKET-001 PREPARING: user authorized benchmark clock-bracketing implementation and fresh qualification. Separate referee revision; fixed72controlrows/48A/Aprocesses, unchanged±1%/10ms wall gates, no retries or source candidates. No timing lease yet. Prior decisions frozen; see experiments/M6-CLOCK-BRACKET-001/README.md.
+M6-CLOCK-BRACKET-001 BUILD_READY: independent C/B reviews PASS after documented pre-native protocol/driver fixes;11 analyzer and4 driver faultcontrols PASS. Separate harness/inputseal publishes before build, fresh controls/A/A remain unexecuted. No timing lease yet; source NONE and all old decisions frozen. See experiments/M6-CLOCK-BRACKET-001/STATUS.md.
 <!-- M6-BRACKET-CURRENT-END -->
 
 <!-- M6-METROLOGY-CURRENT -->

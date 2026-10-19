@@ -1,6 +1,7 @@
 # M6-CLOCK-BRACKET-001 — harness revision and fresh qualification
 
-PREPARING. User authorized “y go” after the clock-bracketing recommendation.
+Protocol revision2, frozen before native build. [Current status](STATUS.md).
+User authorized “y go” after the clock-bracketing recommendation.
 Interactive M6 controller owns this separate harness campaign; source selection NONE.
 No tree implementation/proposal population is started. This is a new referee revision;
 EXP-009 and M6-METROLOGY-001 remain frozen with their original decisions.
@@ -40,3 +41,13 @@ reserved local M6 timing; no remote runner or private SSH access is used. Publis
 ownership before timing and release it afterward. Corrected baseline source, compiler,
 flags and allocator match EXP-009. Clock bounds are conditional diagnostics; wall
 qualification alone never constitutes accepted optimization. Counts remain unchanged.
+
+## Pre-native review refinement (protocol revision2)
+
+Before any native execution, independent C review identified that a zero-error empty
+conditional interval can reflect clock quantization/accounting uncertainty, especially
+on empty bodies. Preserve these flags as attribution-INCONCLUSIVE; they are not fatal
+structural/sensitivity failures. Valid clocks, counts, checksums, sleep sensitivity and
+wall A/A gates remain mandatory. No guessed tolerance or accuracy claim is introduced.
+Original PLANv1 is retained in plan-history; PLAN.json records its hash/reason.
+The inner sleep bracket uses the same monotonic clock; it is not an independent clock.

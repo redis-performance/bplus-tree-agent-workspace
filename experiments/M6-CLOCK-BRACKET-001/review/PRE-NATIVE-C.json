@@ -1,0 +1,268 @@
+{
+  "status": "PASS_PRE_NATIVE_HARNESS_AND_PROTOCOL_REVIEW",
+  "participant": "/root/followup_proposal_c",
+  "backend": "Codex/GPT-6 family; exact serving model/token/currency unknown",
+  "created_utc": "2026-10-19T15:00:40.290514+00:00",
+  "scope": "Harness and protocol before native build/timing only. Driver implementation/cleanup/CSV parser and actual compiled codegen require separate review. No launch authorization or source/candidate acceptance.",
+  "native_commands": 0,
+  "source_selection": "NONE",
+  "source_population_started": false,
+  "exact_unchanged_source_and_adapter": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3"
+  },
+  "source_equivalence": {
+    "lookup_loop_byte_identical": true,
+    "lookup_loop_sha256": "c9b3bf4d886ffc05a0c64861e3a429369e98034b69f938d04df0e54b64b8a82c",
+    "seeded_key_query_fixtures_byte_identical": true,
+    "warmup_byte_identical": true,
+    "final_full_hit_miss_assertions_byte_identical": true,
+    "old22_csv_columns_preserved": true,
+    "new_columns": [
+      "w0_ns",
+      "t0_ns",
+      "w1_ns",
+      "w2_ns",
+      "t1_ns",
+      "w3_ns",
+      "wall_resolution_ns",
+      "thread_resolution_ns"
+    ]
+  },
+  "clock_order": {
+    "begin": [
+      "w0=CLOCK_MONOTONIC",
+      "t0=CLOCK_THREAD_CPUTIME_ID",
+      "w1=CLOCK_MONOTONIC"
+    ],
+    "end": [
+      "w2=CLOCK_MONOTONIC",
+      "t1=CLOCK_THREAD_CPUTIME_ID",
+      "w3=CLOCK_MONOTONIC"
+    ],
+    "cpu_qos": "Both snapshots outside the entire six-read bracket",
+    "nominal_resolution": "Outside bracket; not accuracy/accounting bound",
+    "timing": "Old elapsed_ns now exactlyw2-w1; old thread_elapsed_ns exactlyt1-t0; no profile/count compilation permitted"
+  },
+  "conditional_model": {
+    "definitions": "I=w2-w1;T=t1-t0;M=(w1-w0)+(w3-w2)",
+    "inner_cpu": "[max(0,T-M),min(T,I)] conditional on reliable clocks/accounting; invalid empty interval preserved",
+    "off_cpu": "[I-T,I-T+M] intersect[0,I], same assumptions",
+    "physical_attribution": "UNVALIDATED; no worst-case error/lag bound inferred from empirical controls or clock_getres"
+  },
+  "control_protocol": {
+    "rows": 72,
+    "repetitions": 24,
+    "order": [
+      "empty",
+      "cpu",
+      "block"
+    ],
+    "cpu_iterations": 2000000,
+    "independent_affine_expected_checksum": 3294929107973101697,
+    "empty_and_block_checksum": 1,
+    "block_requested_ns": 20000000,
+    "nanosleep_eintr": "Retry only remaining sleep within one control; record interruptions and overshoot. Not a schedule retry.",
+    "fatal_gates": "API success/within-clock monotonicity; exact counts/checksums; every block same-clock inner sleep elapsed>=20ms and residual>=18ms; no exclusions",
+    "empirical_limits": "CPU result cannot be dead, but compiler may transform loop; verify actual native control codegen before timing. sleep_wall uses the same monotonic clock and is not independent accuracy evidence."
+  },
+  "aa_protocol": {
+    "processes": 48,
+    "blocks": 12,
+    "sizes": [
+      100000,
+      1000000
+    ],
+    "seeds": [
+      1,
+      2,
+      3,
+      1,
+      2,
+      3
+    ],
+    "operations": {
+      "100000": 13834448,
+      "1000000": 4978427
+    },
+    "order": "ABBA each block, alternating size order",
+    "every_block_aa": "abs(Bsum-Asum)*100<=Asum on equal operations/results/memory",
+    "minimum_wall_ns": 10000000,
+    "control_failure": "Skip AA; retain controls/failure",
+    "aa_failure": "PARK; preserve all scheduled control rows; no retries, tuning, new candidates or source population"
+  },
+  "prereg_refinement": {
+    "before_any_native": true,
+    "original_plan_sha256": "13a54e9306de2dcfa65f3970af5cc2b9e55fb676f4aa4d4c1ff189ab40eea1c8",
+    "revised_plan_sha256": "b50d0fe0d7c553f872075815b70f4c7e066a30efb33c77ab4f3e4c1d6aea2c5e",
+    "reason": "Independent quantized clocks can produce a zero-error empty interval on empty work even without a harness bug; model assumption failure is not necessarily structural/sensitivity failure.",
+    "resolution": "Revision2 separates fatal structural/checksum/count/block sensitivity from conditional nonempty flags; model-empty rows attributionINCONCLUSIVE. No guessed tolerance or accuracy claim. Wall gates unchanged.",
+    "toy_counterexample": {
+      "actual_times_ns": {
+        "w0": 200,
+        "t0_event": 300,
+        "w1": 400,
+        "w2": 400,
+        "t1_event": 500,
+        "w3": 600,
+        "t0_cpu": 950,
+        "t1_cpu": 1150
+      },
+      "quantum_ns": 1000,
+      "recorded": {
+        "w0": 0,
+        "w1": 0,
+        "w2": 0,
+        "w3": 0,
+        "t0_cpu": 0,
+        "t1_cpu": 1000
+      },
+      "I": 0,
+      "T": 1000,
+      "M": 0,
+      "conditional_cpu_interval": [
+        1000,
+        0
+      ],
+      "note": "Mathematical counterexample only, not M6 observation or calibrated error estimate."
+    },
+    "history_files": [
+      {
+        "path": "experiments/M6-CLOCK-BRACKET-001/plan-history/PLAN-v1.json",
+        "sha256": "13a54e9306de2dcfa65f3970af5cc2b9e55fb676f4aa4d4c1ff189ab40eea1c8"
+      }
+    ]
+  },
+  "mcp": {
+    "own_availability_check": "Searched actual enabled tool metadata for cpu-perf/performance-engineering/library_status/check_evidence; zero directly callable matching tools. No reviewer-owned server calls claimed.",
+    "shared_connection": "Root actual local stdio initialize/tools-list/library_status/ask/read_source consumed explicitly perPERFORMANCE-MCP worker rule",
+    "server": "cpu-perf0.1.1",
+    "bundled_library_revision": "deb5a0bac467",
+    "initial_coverage": "0/287indexed;0passages;keywordonly",
+    "limits": "Shared ask context unrecognised/no source passages; live LLVM read supplies OS-specific measurement caution, not validation of bracket algebra or Darwin accounting accuracy. No M4 benchmark figures transferred.",
+    "calls": [
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/discover-calls.jsonl",
+        "file_sha256": "da219df2b3c61717133a84a4605ee58661e0cc4641f97db15ec5a5f74bae92be",
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "m6-driver-local-stdio",
+            "version": "1"
+          }
+        },
+        "started_utc": "2026-10-19T14:55:22.255649+00:00",
+        "finished_utc": "2026-10-19T14:55:22.854181+00:00",
+        "response_sha256": "94f9e6263ec985723193fbc586aa2d74d483edbcfca236463cba43f2d14e8ec1"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/discover-calls.jsonl",
+        "file_sha256": "da219df2b3c61717133a84a4605ee58661e0cc4641f97db15ec5a5f74bae92be",
+        "method": "tools/list",
+        "params": {},
+        "started_utc": "2026-10-19T14:55:22.854339+00:00",
+        "finished_utc": "2026-10-19T14:55:22.855159+00:00",
+        "response_sha256": "8b6c76b96502db52f8a2b29f5b604cb515664e75c19b11731a9acd96d2ea56c1"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/discover-calls.jsonl",
+        "file_sha256": "da219df2b3c61717133a84a4605ee58661e0cc4641f97db15ec5a5f74bae92be",
+        "method": "tools/call",
+        "params": {
+          "name": "library_status",
+          "arguments": {}
+        },
+        "started_utc": "2026-10-19T14:55:22.855433+00:00",
+        "finished_utc": "2026-10-19T14:55:22.857155+00:00",
+        "response_sha256": "9c006e3723e37f7e306fce2cea9b5b74ea081dd7fec5e9e6b49eeb4230c4e36d"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/consult-calls.jsonl",
+        "file_sha256": "a471566c9dc8aacb2f88c392720e236264e97aaa841f4a8bfa79960e5ac85e9b",
+        "method": "initialize",
+        "params": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "m6-driver-local-stdio",
+            "version": "1"
+          }
+        },
+        "started_utc": "2026-10-19T14:55:31.808801+00:00",
+        "finished_utc": "2026-10-19T14:55:32.205467+00:00",
+        "response_sha256": "94f9e6263ec985723193fbc586aa2d74d483edbcfca236463cba43f2d14e8ec1"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/consult-calls.jsonl",
+        "file_sha256": "a471566c9dc8aacb2f88c392720e236264e97aaa841f4a8bfa79960e5ac85e9b",
+        "method": "tools/call",
+        "params": {
+          "name": "library_status",
+          "arguments": {}
+        },
+        "started_utc": "2026-10-19T14:55:32.205696+00:00",
+        "finished_utc": "2026-10-19T14:55:32.207565+00:00",
+        "response_sha256": "879c1e0ff8eab46fce19273839b836828183796f40321e0efb4d87610b01c10d"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/consult-calls.jsonl",
+        "file_sha256": "a471566c9dc8aacb2f88c392720e236264e97aaa841f4a8bfa79960e5ac85e9b",
+        "method": "tools/call",
+        "params": {
+          "name": "ask",
+          "arguments": {
+            "question": "Review benchmark-only instrumentation w0,t0,w1 / unchanged lookup body / w2,t1,w3 plus empty, deterministic CPU-work and blocking controls. Can measured wall margins bound bracket CPU conditionally, and how must unknown CPU-accounting error be reported? We will keep wall-clock A/A gates unchanged and distinguish empirical controls from worst-case accuracy.",
+            "context": "User authorizes implementation and fresh qualification on Apple M6 macOS arm64. Standalone packed B+ tree C SHA d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2 at main95ccb4ad6, corrected abort adapter. AppleClang21.0.0 C11 -O3 -g -Wall -Wextra -Werror -fno-omit-frame-pointer -fno-lto; unchanged malloc. Prior frozen native clock ordering thread0/wall0/body/wall1/thread1: all3failed1Mwall A/A contrasts also fail thread CPU -1.401384%,+1.008640%,+2.542454%; residual contrast <=0.029pp. No measured wrapper/accountingerror bound; nearest threadmargin105.605us. New harness will capture6rawtimestamps and clock_getres outside body, without changing lookup loop/checksum/fixtures. Profile/counter hooks prohibited in this timing frontend. Conditional bounds I=w2-w1,T=t1-t0,M=(w1-w0)+(w3-w2), CPU interval[max(0,T-M),min(T,I)] require reliable accounting; nominal resolution/empty samples do not prove worstcaseerror. Six fresh samebinary ABBA blocks per100K/1M, \u00b11%everywallblock and10msminimum unchanged. No source candidate or oldPARKreinterpretation.",
+            "section": 5,
+            "detail": "brief",
+            "max_passages": 4
+          }
+        },
+        "started_utc": "2026-10-19T14:55:32.207692+00:00",
+        "finished_utc": "2026-10-19T14:55:32.217877+00:00",
+        "response_sha256": "d991982ea5154230f9aca50b5fd24742a08678b32cbb1e07a2fd0c72c23b18ad"
+      },
+      {
+        "ownership": "shared-root, consumed explicitly; not reviewer-owned calls",
+        "file": "scratch/cpu-perf-m6-bracket-20261019/consult-calls.jsonl",
+        "file_sha256": "a471566c9dc8aacb2f88c392720e236264e97aaa841f4a8bfa79960e5ac85e9b",
+        "method": "tools/call",
+        "params": {
+          "name": "read_source",
+          "arguments": {
+            "ref": "https://llvm.org/docs/Benchmarking.html",
+            "max_chars": 4500
+          }
+        },
+        "started_utc": "2026-10-19T14:55:32.218045+00:00",
+        "finished_utc": "2026-10-19T14:55:32.959363+00:00",
+        "response_sha256": "3b22bb5c2e644cb4b419c4ddd5dd72b9e0f9ac167a6f8768584ef0a32cc00294"
+      }
+    ]
+  },
+  "requirements_before_native_timing": [
+    "Publish frozen separate harness/plan/driver/manifests and root+independent reviews",
+    "Native and ASan/UBSan original43 and stated fixture/oracle smoke validation",
+    "Inspect actual sixclock call order and nontrivial CPU control work; compare identical tree function bodies",
+    "Root-owned bounded serial processes, cleanup, write-once paths, frozen timestamps/hashes and phase ACKs; all reviewers idle",
+    "Driver must preserve every model flag and empirical failure; reject structural errors separately without retroactive tolerances"
+  ],
+  "inputs_sha256": {
+    "experiments/M6-CLOCK-BRACKET-001/README.md": "e0418a71a46280e030c8f8d7415e1bb5dce51b95d283c05f2eb098f659b41330",
+    "experiments/M6-CLOCK-BRACKET-001/PLAN.json": "b50d0fe0d7c553f872075815b70f4c7e066a30efb33c77ab4f3e4c1d6aea2c5e",
+    "experiments/M6-CLOCK-BRACKET-001/harness/clock-bracket.h": "74f83a8ccdecba0b03a4089ecdc92ddacf8225e26c04d67562c9f44112f34581",
+    "experiments/M6-CLOCK-BRACKET-001/harness/lookup.c": "5b05314ccf22c9530d099ffb4b4733ed217c3908d4052f2b1a74ea3abc1187d9",
+    "experiments/M6-CLOCK-BRACKET-001/harness/controls.c": "c6e76f69b3c025d938243e5e48dc6cdac8a5a06ce39950d69b23c464698472bd",
+    "experiments/EXP-009/harness/lookup.c": "7569d802357a8ca937ba8eaa668f9fe2c17652b6cd8b957d952129b6cab87cf5"
+  }
+}

@@ -1,1 +1,1 @@
-PREPARING harness revision; no timing lease yet. PLAN.json published before native work. Source NONE; old decisions frozen.
+BUILD_READY: independent harness/protocol C and driver B reviews PASS;11 analyzer synthetic controls and4 driver fault controls PASS. Inputs frozen before native execution. No timing lease yet; next serial build/correctness/codegen phase. Source NONE, old decisions unchanged.

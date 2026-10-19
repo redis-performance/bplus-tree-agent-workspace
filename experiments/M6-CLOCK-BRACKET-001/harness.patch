@@ -1,0 +1,44 @@
+--- EXP-009/harness/lookup.c
++++ M6-CLOCK-BRACKET-001/harness/lookup.c
+@@ -17,2 +17,2 @@
+-#ifdef LOOKUP_PROFILE
+-#include "sampler.h"
++#if defined(LOOKUP_PROFILE) || defined(LOOKUP_COUNTS)
++#error "Clock-bracket timing frontend does not support profiling/counter hooks"
+@@ -36,9 +36 @@
+-/* Observations, not affinity or frequency controls. -1 means unavailable. */
+-static int64_t thread_ns(void) {
+-#if defined(CLOCK_THREAD_CPUTIME_ID)
+-    struct timespec ts;
+-    if (clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts) == 0)
+-        return (int64_t)ts.tv_sec * INT64_C(1000000000) + ts.tv_nsec;
+-#endif
+-    return -1;
+-}
++#include "clock-bracket.h"
+@@ -163 +155,3 @@
+-    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns");
++    uint64_t wall_resolution = cb_resolution(CLOCK_MONOTONIC);
++    uint64_t thread_resolution = cb_resolution(CLOCK_THREAD_CPUTIME_ID);
++    puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns," CB_HEADER);
+@@ -190 +183,0 @@
+-        int64_t thread_start = thread_ns();
+@@ -199 +192,2 @@
+-        uint64_t start = now_ns();
++        clock_bracket bracket;
++        cb_begin(&bracket);
+@@ -242 +236,2 @@
+-        uint64_t elapsed = now_ns() - start;
++        cb_end(&bracket);
++        uint64_t elapsed = bracket.w2 - bracket.w1;
+@@ -250 +244,0 @@
+-        int64_t thread_end = thread_ns();
+@@ -253 +247 @@
+-        int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
++        int64_t thread_elapsed = bracket.t1 - bracket.t0;
+@@ -283 +277 @@
+-        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 "\n",
++        printf("%s,%zu,%zu,%zu,%" PRIu64 ",%zu,%" PRIu64 ",%.3f,%.3f,%zu,%" PRIu64 ",%" PRId64 ",%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%" PRIu64 ",",
+@@ -287,0 +282,2 @@
++        cb_emit(&bracket, wall_resolution, thread_resolution);
++        putchar('\n');

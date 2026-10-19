@@ -39,7 +39,7 @@
   ],
   "control_cpu_iterations": 2000000,
   "control_block_ns": 20000000,
-  "control_validation": "all clocks valid/monotonic; exact checksum;24rows each; block inner independent sleep wall>=20ms; recorded residual>=90% requested blocking in every block control; conditional interval nonempty, no physical accuracy bound claimed",
+  "control_validation": "fatal: all clocks valid/within-clock monotonic; exact checksum;24rows each; block same-clock inner sleep wall>=20ms and recorded residual>=90% requested blocking in every block control; zero-error model-empty intervals are INCONCLUSIVE attribution, not fatal structural/sensitivity failure",
   "clock_error_model": "conditional reliable-accounting model only; nominal resolution and empirical controls are NOT worstcase accuracy bounds; physical attribution always UNVALIDATED",
   "qualified_result": "fresh wall A/A precision result for new harness only; previous experiments unchanged",
   "native_flags": [
@@ -52,5 +52,10 @@
     "-fno-omit-frame-pointer",
     "-fno-lto"
   ],
-  "backend": "Codex/GPT-6 family; exact model/token/currency costs unknown"
+  "backend": "Codex/GPT-6 family; exact model/token/currency costs unknown",
+  "protocol_revision": 2,
+  "pre_native_refinement": {
+    "reason": "independent C review: quantized short clocks can produce empty zero-error intervals without proving a harness bug; accuracy/accounting bounds unknown. Separate fatal sensitivity/structural tests from model consistency, no guessed tolerance. No native run has occurred.",
+    "v1_sha256": "13a54e9306de2dcfa65f3970af5cc2b9e55fb676f4aa4d4c1ff189ab40eea1c8"
+  }
 }
