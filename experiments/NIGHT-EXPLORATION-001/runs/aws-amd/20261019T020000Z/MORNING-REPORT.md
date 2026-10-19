@@ -68,3 +68,5 @@ README, activity, status and immutable evidence commits are updated. Root owns t
 Additional local review: [ARM024 iterator adaptation](030-arm-iterator-review/REVIEW.md), immutable d5105925e. No execution blocker; source/binary/scope/schedule/ARM parser checked. Root idle handoff and profile/A/A phase grants remain required; this is preparation review, not a new AMD experiment.
 
 [Independent ARM024 raw profile review](030-arm-iterator-review/RAW-PROFILE-REVIEW.md) reconstructs51 commands/970 scientific samples and actual013 mapping. Profile passes; A/A remains separately gated, no source adoption.
+
+[Independent ARM024 A/A review](030-arm-iterator-review/RAW-AA-REVIEW.md): all48 rows/12blocks reconstruct; bothsizes qualify on unchanged actual013. This is baseline precision, not candidate benefit; no new AMD workload or adopted source.

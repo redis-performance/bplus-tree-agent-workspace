@@ -109,3 +109,5 @@
 - 2026-10-19T06:24:41.982725+00:00: Independent ARM024 adaptation review complete: no execution blocker in d5105925e;24files/10source/16importpins and actual013binary verified,8 synthetic parser checks pass. Imported AMD harness authorship disclosed. No runner access/new experiment. Lease ACTIVE/restoration pending.
 
 - 2026-10-19T06:32:35.714221+00:00: Independent ARM024 raw profile audit passes4e43c9f59:51commands/21semanticrows/970scientificsamples,known234/238/outside0,501treeevents exactactual013.110public artifact hashes verified;7rawperf hashes attested. Caller/body differences retained. No AA or runner access; sourceNONE, leaseACTIVE/restorationpending.
+
+- 2026-10-19T06:37:10.669128+00:00: Independent ARM024 AA audit73c9e313f passes48rows/12blocks,98public artifacts/100AAseal/112profile entries. Both sizes qualify(maxabs0.053911%/0.371524%,min166.24/186.78ms). Exactactual013/source/profile freeze unchanged. No proposal/candidate/runner access; sourceNONE, leaseACTIVE/restorationpending.
