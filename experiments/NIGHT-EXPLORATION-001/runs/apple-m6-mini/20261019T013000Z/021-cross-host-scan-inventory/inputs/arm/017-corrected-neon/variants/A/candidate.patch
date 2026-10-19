@@ -1,0 +1,59 @@
+diff --git a/src/zset_btree.c b/src/zset_btree.c
+index d77420c87..2d6ba1337 100644
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -16,6 +16,13 @@
+ #include <stdint.h>
+ #include <string.h>
+ 
++#if defined(__aarch64__) && defined(__ARM_NEON) && \
++    defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__ && \
++    !defined(ZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE)
++#include <arm_neon.h>
++#define ZBT_LEAF_TAG_MATCHES_NEON 1
++#endif
++
+ /*-----------------------------------------------------------------------------
+  * B+ tree implementation of the low level sorted set API
+  *----------------------------------------------------------------------------*/
+@@ -4123,7 +4130,8 @@ static inline uint64_t zbtLeafTagWord(const uint8_t *tags) {
+ /* Store the logical positions of the leaf tags that an index tag can stand
+  * for, and return their number. 'tags' is the physical array, which is in
+  * reverse order when 'reversed' is set. zbtIndexTag() folds leaf tag zero
+- * into one. Eight tags are compared at once. As with bucket tags, a mask bit
++ * into one. The portable path compares eight tags at once. As with bucket
++ * tags, a mask bit
+  * can be set above a real match, so each candidate is checked against its
+  * byte. Only complete words are loaded: member records follow the tags. */
+ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+@@ -4134,7 +4142,29 @@ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+     unsigned int found = 0;
+     unsigned int words = count / 8;
+     unsigned int last = reversed ? count - 1 : 0;
+-    for (unsigned int w = 0; w < words; w++) {
++    unsigned int first_word = 0;
++#ifdef ZBT_LEAF_TAG_MATCHES_NEON
++    if (words >= 2) {
++        uint8x16_t query = vdupq_n_u8(tag);
++        for (; first_word + 2 <= words; first_word += 2) {
++            uint8x16_t bytes = vld1q_u8(tags + first_word * 8);
++            uint8x16_t equal = vceqq_u8(bytes, query);
++            if (tag == 1)
++                equal = vorrq_u8(equal, vceqq_u8(bytes, vdupq_n_u8(0)));
++            /* On little-endian ARM each pair narrows to two exact nibbles.
++             * Keep one bit per nibble: bit 4*i represents physical lane i. */
++            uint8x8_t nibbles = vshrn_n_u16(vreinterpretq_u16_u8(equal), 4);
++            uint64_t mask = vget_lane_u64(vreinterpret_u64_u8(nibbles), 0) &
++                            UINT64_C(0x1111111111111111);
++            while (mask) {
++                unsigned int pos = first_word * 8 + (__builtin_ctzll(mask) >> 2);
++                positions[found++] = reversed ? last - pos : pos;
++                mask &= mask - 1;
++            }
++        }
++    }
++#endif
++    for (unsigned int w = first_word; w < words; w++) {
+         uint64_t word = zbtLeafTagWord(tags + w * 8);
+         uint64_t mask = zbtIndexTagMask(word, tag);
+         if (tag == 1) mask |= zbtIndexTagMask(word, 0);

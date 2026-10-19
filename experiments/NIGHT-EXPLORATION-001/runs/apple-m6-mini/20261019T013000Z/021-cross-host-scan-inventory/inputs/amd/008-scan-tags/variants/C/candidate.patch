@@ -1,0 +1,63 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -15,6 +15,10 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ #include <string.h>
++
++#if defined(__SSE2__) && !defined(ZBT_LEAF_TAG_MATCHES_SCALAR)
++#include <emmintrin.h>
++#endif
+ 
+ /*-----------------------------------------------------------------------------
+  * B+ tree implementation of the low level sorted set API
+@@ -4123,14 +4127,38 @@
+ /* Store the logical positions of the leaf tags that an index tag can stand
+  * for, and return their number. 'tags' is the physical array, which is in
+  * reverse order when 'reversed' is set. zbtIndexTag() folds leaf tag zero
+- * into one. Eight tags are compared at once. As with bucket tags, a mask bit
+- * can be set above a real match, so each candidate is checked against its
+- * byte. Only complete words are loaded: member records follow the tags. */
++ * into one. SSE2 compares sixteen tags with exact masks. The portable path
++ * compares eight and verifies possible false positives, as with bucket tags.
++ * Only complete chunks are loaded: member records follow the tags. */
+ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+                                              unsigned int count, int reversed,
+                                              uint8_t tag,
+                                              unsigned int *positions)
+ {
++#if defined(__SSE2__) && !defined(ZBT_LEAF_TAG_MATCHES_SCALAR)
++    unsigned int found = 0, pos = 0;
++    const __m128i needle = _mm_set1_epi8((char)tag);
++    const __m128i zero = _mm_setzero_si128();
++    while (count - pos >= 16) {
++        __m128i word;
++        memcpy(&word, tags + pos, sizeof(word));
++        __m128i equal = _mm_cmpeq_epi8(word, needle);
++        if (tag == 1)
++            equal = _mm_or_si128(equal, _mm_cmpeq_epi8(word, zero));
++        unsigned int mask = (unsigned int)_mm_movemask_epi8(equal);
++        while (mask) {
++            unsigned int physical = pos + (unsigned int)__builtin_ctz(mask);
++            positions[found++] = reversed ? count - 1 - physical : physical;
++            mask &= mask - 1;
++        }
++        pos += 16;
++    }
++    for (; pos < count; pos++) {
++        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
++            positions[found++] = reversed ? count - 1 - pos : pos;
++    }
++    return found;
++#else
+     unsigned int found = 0;
+     unsigned int words = count / 8;
+     unsigned int last = reversed ? count - 1 : 0;
+@@ -4150,6 +4178,7 @@
+             positions[found++] = reversed ? last - pos : pos;
+     }
+     return found;
++#endif
+ }
+ 
+ /* Return the members represented by one physical table slot. If home_end is

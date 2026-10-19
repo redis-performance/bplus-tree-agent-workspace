@@ -1,5 +1,12 @@
 # Shared memory
 
+M6 checkpoint — 06:11 UTC. Corrected-adapter member-index profiling is complete: 16 fixed captures, 2,469 observations, all sufficient and uncapped. Independent raw audit accounts for 1,422 program-text observations, 1,037 external-library observations and 10 import-stub observations whose targets remain unknown. No observation was dropped. These are locations, not cycle costs.
+
+Attempt 019 remains preserved as incomplete after three successful captures; separate continuation 020 captured only the 13 unstarted cases. Combined capture time was 18.689094 seconds, with the 931.704861-second metadata-repair pause recorded separately. All 53/86 frozen identities and owned-process cleanup pass. Scan has 184 observations within the inlined tag-matching ranges; rank already vectorizes its child-count reduction.
+
+The pinned cross-host inventory records rejection of all three corrected Graviton NEON scan variants and failed AMD SSE2 advancement gates. No cross-machine timing is pooled. Review 022 now freezes 39 inputs for three independent proposals and a chair decision; implementation remains NONE pending that decision. Source selection NONE; counts unchanged at 12 populations, 0 accepted / 7 rejected / 5 parked, 36 retained patches / 15 harnesses. Main decoder chart is visible at a9dedf618. Experiments stop 07:15 UTC; final reporting continues through 08:00 UTC / 09:00 Lisbon.
+
+
 M6 checkpoint — 05:55 UTC. The decoder replications are complete and audited; the combined chart is on main at a9dedf618. Source selection remains NONE and the 12-population counts are unchanged.
 
 Profile attempt 019 stopped after three successful, reaped processes because its address map omitted import stubs. All 455 observations and the original incomplete record are preserved. Separate continuation 020 reconstructs those three captures offline and plans only the 13 unstarted cases. All 64 independent boundary/fault controls pass; 86 inputs are frozen. Publication and final independent review precede exclusive capture release. No capture has been repeated, and source/binaries are unchanged. Root continues through 08:00 UTC; experiments stop at 07:15 UTC.

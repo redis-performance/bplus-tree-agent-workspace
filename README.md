@@ -1,5 +1,12 @@
 # Standalone B+ tree experiments
 
+M6 checkpoint — 06:11 UTC. Corrected-adapter member-index profiling is complete: 16 fixed captures, 2,469 observations, all sufficient and uncapped. Independent raw audit accounts for 1,422 program-text observations, 1,037 external-library observations and 10 import-stub observations whose targets remain unknown. No observation was dropped. These are locations, not cycle costs.
+
+Attempt 019 remains preserved as incomplete after three successful captures; separate continuation 020 captured only the 13 unstarted cases. Combined capture time was 18.689094 seconds, with the 931.704861-second metadata-repair pause recorded separately. All 53/86 frozen identities and owned-process cleanup pass. Scan has 184 observations within the inlined tag-matching ranges; rank already vectorizes its child-count reduction.
+
+The pinned cross-host inventory records rejection of all three corrected Graviton NEON scan variants and failed AMD SSE2 advancement gates. No cross-machine timing is pooled. Review 022 now freezes 39 inputs for three independent proposals and a chair decision; implementation remains NONE pending that decision. Source selection NONE; counts unchanged at 12 populations, 0 accepted / 7 rejected / 5 parked, 36 retained patches / 15 harnesses. Main decoder chart is visible at a9dedf618. Experiments stop 07:15 UTC; final reporting continues through 08:00 UTC / 09:00 Lisbon.
+
+
 Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
