@@ -1,0 +1,22 @@
+{
+  "frozen_template": "preparation-job.sh",
+  "frozen_template_sha256": "e041579357fdf54835dac7464a244645a0f5d4b99cb8bb8fe02e20b94d11aaba",
+  "separate_launcher_relative_path": "scratch/arm027-preparation.sh",
+  "rendered_launcher_sha256": "4ddb031dd59c6bb23277f0216b1905a1941794ef87e1af11629cc1a1378c4fc0",
+  "private_config_sha256": "d342e3796de8986ea926cbcf5e65b308351dcb6484b803bbbc742a111710704e",
+  "new_lease_path": "provided root-owned fresh ARM follow-up lease; distinct from released night lease",
+  "new_lease_sha256": "root to bind from owned lease before grant; no worker SSH performed",
+  "command": [
+    "python3",
+    "<checkout>/scripts/remote-bounded-job.py",
+    "--lease",
+    "<fresh-followup-lease>",
+    "--name",
+    "arm027-preparation",
+    "--seconds",
+    "600",
+    "--script",
+    "<checkout>/scratch/arm027-preparation.sh"
+  ],
+  "note": "Template stages unchanged under new job directory; separately rendered launcher is written to distinct scratch path. No mutation of frozen28 inputs. No runner staging/execution yet."
+}
