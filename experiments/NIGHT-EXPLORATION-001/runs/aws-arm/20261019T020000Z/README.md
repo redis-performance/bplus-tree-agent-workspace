@@ -38,3 +38,18 @@ Profile-only024 completed: [immutable result](024-corrected-iterator/PROFILE-RES
 The overnight lease/release proof above remains final. A separate user-authorized ARM-only lease now runs until10:15UTC. Exact historical EXP-005 A follow-up027 preparation is running after rootf90655754 and AMDd17da59d9 reviews; no timing has begun. SourceNONE, all old decisions and evidence unchanged. [Frozen plan](027-mask-followup/PLAN.md), [preparation](027-mask-followup/PREPARATION.md). Fresh lease is ACTIVE; its later restoration has not yet occurred.
 
 2026-10-19 08:34 UTC: fresh027 preparation FAILED2118/2124 at retainedzero-sign fault diagnostic mismatch; normal4original43/2048mode/12oracle checks passed, but fullnegative-control gate incomplete. No timing/retry. Independent postidentity/frozen/idle proof passes; freshleaseACTIVE, oldreleasehistoryunchanged. [Immutable failure](027-mask-followup/PREPARATION-RESULT.md).
+
+## Fresh mask continuation —09:15UTC checkpoint
+
+Exact historical EXP005A remains unadopted. Fresh-session primary A/A and all12
+primary comparison blocks pass (451456c2f), reproducing7% elapsed improvements on
+this ARM host. The full original-operation A/A matrix (1329e440a) qualifies18/29
+required cells;11required cells fail precision and all11diagnostic cells are short.
+Overall status is PARK, sourceNONE, without retries or retuning. Remaining fixed
+guard phases, matched profile and final adversarial review require separate grants;
+independent held-out confirmation was reserved for a fully eligible candidate.
+
+Original027 preparationFAILED is preserved. Separately reviewed six-command028
+suffix plus immutable composite receipt380ef3109 closes correctness eligibility,
+without relabeling that failure or transferring night026 performance. New ARM-only
+lease remains ACTIVE until10:15UTC; original08UTC fleet release remains final.
