@@ -1,11 +1,11 @@
-# Round5 live handoff — DECODE comparison B complete
+# Round5 live handoff — DECODE comparison C complete
 
-Saved 2026-10-19T02:56:48.564397+00:00. Round ends03:08:25UTC; clean up by03:06:30UTC.
+Saved 2026-10-19T03:00:51.025443+00:00. Round ends03:08:25UTC; clean up by03:06:30UTC.
 Source NONE. Baseline/rank/update/lookup completed and closed. Never rerun.
 
 # M6 scoreboard — DECODE-001 fixed comparison
 
-Updated 2026-10-19T02:56:48.564397+00:00. Round5 ends03:08:25UTC; handoff by03:06:55UTC.
+Updated 2026-10-19T03:00:51.025443+00:00. Round5 ends03:08:25UTC; handoff by03:06:55UTC.
 Campaign ends08:00UTC/09:00Lisbon; no new experiments after07:15UTC.
 Source selection **NONE**. Baseline src/referee hashes unchanged.
 
@@ -15,7 +15,7 @@ Source selection **NONE**. Baseline src/referee hashes unchanged.
 | RANK-001 | REJECT/NONE | Skip exact candidates;002-rank/RESULTS.md |
 | UPDATE-001 | REJECT/NONE | Skip exact candidates;003-update/RESULTS.md |
 | LOOKUP-001 | REJECT/NONE | No dual-primary winner;100K B exploratory only |
-| DECODE-001 | Comparison B complete | All176 cells; no qualified adoption |
+| DECODE-001 | Comparison C complete | All176 cells; no qualified adoption |
 | ITERATE-001 | SKIPPED | Same optional slot, no second target |
 | Fresh confirmation | NOT ELIGIBLE | Failed primary controls; no shortlist |
 
@@ -33,7 +33,7 @@ A/A:53/176 numerical qualifiers, primary fails (−6.331..+1.195%), all windows>
 |---|---:|---:|---:|
 | A | -16.914% | -20.263..-0.192% | 21 |
 | B | -29.952% | -34.328..-27.469% | 24 |
-| C | pending | pending | pending |
+| C | -30.160% | -36.649..-21.475% | 22 |
 
 All native/sanitizer existing decoder oracles and2080 extended geometries/build pass.
 Two policy faults detected. Original tree baseline validation reused from launcher.
