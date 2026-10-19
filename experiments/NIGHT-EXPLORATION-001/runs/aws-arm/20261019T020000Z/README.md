@@ -46,3 +46,7 @@ externalCLI failures are preserved separately. Exactmodel/token/monetarycost unk
 ## 2026-10-19T04:46:24.460168+00:00 — Corrected SCAN profile and fresh controls complete
 
 014 six5M scopedcaptures: all-match+localsetup36.93%/33.13% sampledperiod at100K/1M;209 matching original/diagnostic opcodes, sixsemantic controls anddisabledzero pass.015 fixed48row A/A bothsizes qualify, allsix±1%, min415.775/535.062ms. Distinct corrected13e459ff8 identity, no repair of original8fab failure, no candidate/population/acceptance. Await root independent review and any actualproposal assignment. ARMrunner idle.
+
+## 2026-10-19T05:14:09.131506+00:00 — Corrected NEON native validation complete
+
+017 allthree implementations pass145command full native/sanitizer/referee/portable validation in392.6s.8 isolatedfaults detected, overread fault caught by cardinality rather than guard-page signal (explicit). Native cmeq/shrn codegen retained. Exact baseline8694 unchanged;144row/300s discovery and actual binaries frozen, awaiting root timing review. No new measuredpopulation/count change yet.

@@ -76,3 +76,7 @@
 017 variantsA/B/C sealed before peer reads; combined600s leased correctness is running with retainedoriginal/V2/interval/wide/live-widen/resize suites and isolated faultcontrols. Exact144row discovery schedule/driver prepared, pending native results and root timing review. Main source and originalAA binary unchanged.
 
 Dashboard clarification: inherited unscoped AA/timing fields moved into explicitly historical pre-corrected metadata. Corrected NEON candidate_timings_started=false and scoped015 qualification now explicit; no immutable evidence changed.
+
+## 2026-10-19T05:14:09.131506+00:00 — Corrected NEON native validation complete
+
+017 allthree implementations pass145command full native/sanitizer/referee/portable validation in392.6s.8 isolatedfaults detected, overread fault caught by cardinality rather than guard-page signal (explicit). Native cmeq/shrn codegen retained. Exact baseline8694 unchanged;144row/300s discovery and actual binaries frozen, awaiting root timing review. No new measuredpopulation/count change yet.
