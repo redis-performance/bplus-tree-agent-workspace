@@ -27,3 +27,7 @@ completedwork; ACTIVITY preserveschronology. Keep the ARM runner idle and remain
 ## 2026-10-19T04:41:27.685766+00:00 — Corrected adapter baseline complete
 
 013 passed120processes/960rows/40cells;21 qualify at±1%/10ms.11short/15precision failures overlap. Exact13e459ff8 detached source/livehashes and binary unchanged. Same-binary baseline only; no old/new speedup or repair of original8fab controls. Root queued new014 corrected SCAN profile and015 fresh401–403 A/A, both preregistered before data; no candidate/proposal yet.
+
+## 2026-10-19T04:46:24.460168+00:00 — Corrected SCAN profile and fresh controls complete
+
+014 six5M scopedcaptures: all-match+localsetup36.93%/33.13% sampledperiod at100K/1M;209 matching original/diagnostic opcodes, sixsemantic controls anddisabledzero pass.015 fixed48row A/A bothsizes qualify, allsix±1%, min415.775/535.062ms. Distinct corrected13e459ff8 identity, no repair of original8fab failure, no candidate/population/acceptance. Await root independent review and any actualproposal assignment. ARMrunner idle.
