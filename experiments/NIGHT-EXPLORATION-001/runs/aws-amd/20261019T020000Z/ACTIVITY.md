@@ -165,3 +165,5 @@
 - 2026-10-19T10:52:02.354264+00:00: ARM030 native fa190bd9b independently reviewed: all15 hashes, unchanged13 inputs, schedules/oracles verified; initial3 findings closed. Native phases only subject to root grants, profile unfrozen. PriorREJECT/NONE unchanged; no runner access.
 
 - 2026-10-19T10:54:29.759774+00:00: Attempt2 acquisition static review passed: exact stopped status3/PID7+0, fresh lease/release unit and dynamic auditor timer identity.19 recorded checks bind current script; original failed attempt/release proof preserved. No SSH/execution; profile still separate.
+
+- 2026-10-19T11:10:42.998285+00:00: Independent ARM030 profile c370 freeze review:35 inputs/642 commands/288 instrumentation/36samples+36PMU/all6 census digests verified; no static blocker subject to root grant. Scope/attribution/direction distinct, priorREJECT/NONE retained. No runner work.
