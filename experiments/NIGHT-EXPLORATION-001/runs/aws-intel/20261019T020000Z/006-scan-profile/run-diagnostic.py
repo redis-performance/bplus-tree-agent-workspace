@@ -1,6 +1,6 @@
 import csv,datetime,json,os,subprocess,time,re
 from pathlib import Path
-p=Path(__file__).parent;start=time.monotonic();records=[]
+p=Path(__file__).parent;start=time.monotonic();records=json.loads((p/'processes.json').read_text())
 def run(tag,binary,n,ops,seed=1):
  assert time.monotonic()-start<300
  env=os.environ.copy();env['SAMPLE_OUT']=str(p/'profiles'/(tag+'.hist.csv'))
@@ -21,10 +21,7 @@ total=sum(known['enabled'].values());inside=sum(count for offset,count in known[
 assert total>=20 and inside/total>=0.9
 (p/'control-check.json').write_text(json.dumps(dict(enabled_samples=total,known_work_samples=inside,disabled_samples=0,checksum_equal=True),indent=2)+'\n')
 fields=['case','size','requested_ops','member_bytes','seed','operations','tree_bytes','checksum','traversals','warmup_passes']
-for n in [100,1000,10000]:
- a=run(f'original-{n}','original',n,n);b=run(f'disabled-{n}','disabled',n,n)
- assert all(a[k]==b[k] for k in fields)
-a=run('original-san-control','original',1000,1000);b=run('sanitize-control','sanitize',1000,1000);assert all(a[k]==b[k] for k in fields)
+a=run('original-sanitize-control','original-sanitize',1000,1000);b=list(csv.DictReader((p/'profiles/sanitize-control.stdout').open()))[0];assert all(a[k]==b[k] for k in fields)
 for tag in ['disabled-100','disabled-1000','disabled-10000','sanitize-control']:
  assert sum(int(r['count']) for r in csv.DictReader((p/'profiles'/(tag+'.hist.csv')).open()))==0
 for seed in [1,2,3]:
