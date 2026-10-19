@@ -139,3 +139,5 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19 08:47UTC: separate028 six never-started correctness commands complete; original027 remainsFAILED. All identities unchanged and owned runner idle. Independent composite closure pending; no fresh timing. See028-mask-validation-continuation/RESULT.md.
 
 2026-10-19 08:58UTC: fresh027 primary A/A complete48/48; both100K/1M qualify allsixblocks. Identities unchanged/runneridle. No fresh candidate timing; awaiting independent review/grant. See027-mask-followup/PRIMARY-AA-RESULT.md.
+
+2026-10-19 09:04UTC: fresh027 primary replication48/48 passes all12blocks (100K−7.92..−7.53%,1M−7.70..−6.59%). All identities/ownedmemory unchanged, runneridle. Noacceptance: guards/confirmation/profile/adversarial review outstanding. See027-mask-followup/PRIMARY-REPLICATION-RESULT.md.
