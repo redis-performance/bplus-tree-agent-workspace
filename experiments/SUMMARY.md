@@ -528,3 +528,8 @@ completed evidence. No new optimization decision; population counts unchanged.
 ## AWS AMD overnight — LOWERBOUND-001
 
 [Lazy lower-bound member decoding](NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/002-lowerbound/implementation-selection.md): REJECT/NONE,3sequential proposals and3isolated implementations,144comparison rows. AMD totals1population,0accepted/1rejected/0parked. Allprimary2%gates fail; sourcebaseline unchanged.
+
+
+## AWS AMD BUILDER-WRITE-001 — 19 October 2026
+
+BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+1.362%, B +1.250%/+1.745%, C +5.777%/+2.766% median elapsed at 100K/1M; no guards or confirmation. All patches/raw rows retained. AMD totals: 2 populations, 0 accepted, 2 rejected, 0 parked. Baseline source unchanged. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/004-builder-write/implementation-selection.md`.

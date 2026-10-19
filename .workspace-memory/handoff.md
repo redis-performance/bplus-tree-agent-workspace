@@ -1116,3 +1116,8 @@ completed evidence. No new optimization decision; population counts unchanged.
 ## AWS AMD native checkpoint — 19 October 2026
 
 [LOWERBOUND-001](../experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/002-lowerbound/implementation-selection.md) is REJECT/NONE: three sequential proposals and three isolated implementations, 144 comparison rows. All three fail both 2% primary gates. Root independent review/audit supports the decision. All patches and raw rows retained; baseline source unchanged. AMD totals: one completed population, zero accepted, one rejected, zero parked. Scoped perf control failures and corrected FIFO controls retained. Packed-score census complete; new builder-write preparation has fresh profiles and full-pass A/A running. Deadline08:00UTC, no new experiments after07:15UTC.
+
+
+## AWS AMD BUILDER-WRITE-001 — 19 October 2026
+
+BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+1.362%, B +1.250%/+1.745%, C +5.777%/+2.766% median elapsed at 100K/1M; no guards or confirmation. All patches/raw rows retained. AMD totals: 2 populations, 0 accepted, 2 rejected, 0 parked. Baseline source unchanged. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/004-builder-write/implementation-selection.md`.
