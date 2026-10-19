@@ -190,3 +190,16 @@ one parked ARM replication and the in-progress Intel replication. ARM prepares
 focused guard fixtures; AMD profiles a distinct deletion offset-adjust loop.
 See AWS-DECISIONS.md and reviews/aws-intel-scan-raw-audit.json under NIGHT-EXPLORATION-001.
 Lease release remains08:00UTC; live restoration verification is still required.
+
+
+## 19 October 03:47 UTC — AMD deletion proposal chair selects NONE
+
+Three actual independent proposals agree on a plausible portable rewrite of the final
+offset-adjust loop, conditional on precision qualification. The fixed1M A/A fails;
+root independently audited48 rows /12 blocks, including exact schedule, serialCPU2,
+checksums, actual deletes and owned memory.100K qualifies;1M ranges+0.499..+4.682%.
+The chair selects NONE before implementation; no retry, candidate or new measured
+population. All proposals and baseline profile/census/control evidence are retained.
+AWS counts remain7 populations (0 accepted/4 rejected/3 parked), plus a parked ARM
+replication and Intel scan B follow-up. Source NONE.
+[Chair and participant evidence](../experiments/NIGHT-EXPLORATION-001/reviews/aws-amd-delete-population/selection.md).

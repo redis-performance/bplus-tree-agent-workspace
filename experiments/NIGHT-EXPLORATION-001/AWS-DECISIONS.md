@@ -19,7 +19,8 @@ because both primary controls failed; no qualified architecture confirmation.
 
 Active work: Intel completed qualified exact scan A/B primary replication; B advances
 to guards under the predeclared source preference. ARM is preparing focused scan
-guards. AMD is profiling deletion. Neither replication is an accepted optimization.
+guards. AMD deletion planning stopped at NONE after failed1M controls. Neither
+replication is an accepted optimization.
 The [scan chair decision](reviews/aws-amd-scan-population/selection.md) preserves the
 three separately authored proposals and implementation assignments.
 Failed controls cannot be overridden by favorable candidate timings. See the
@@ -221,3 +222,16 @@ AWS counts remain7 populations (0 accepted/4 rejected/3 parked), one parked ARM
 replication and this Intel replication in progress.
 
 [Independent raw audit](reviews/aws-intel-scan-raw-audit.json).
+
+
+## 19 October 03:47 UTC — AMD deletion proposal chair selects NONE
+
+Three actual independent proposals agree on a plausible portable rewrite of the final
+offset-adjust loop, conditional on precision qualification. The fixed1M A/A fails;
+root independently audited48 rows /12 blocks, including exact schedule, serialCPU2,
+checksums, actual deletes and owned memory.100K qualifies;1M ranges+0.499..+4.682%.
+The chair selects NONE before implementation; no retry, candidate or new measured
+population. All proposals and baseline profile/census/control evidence are retained.
+AWS counts remain7 populations (0 accepted/4 rejected/3 parked), plus a parked ARM
+replication and Intel scan B follow-up. Source NONE.
+[Chair and participant evidence](reviews/aws-amd-delete-population/selection.md).

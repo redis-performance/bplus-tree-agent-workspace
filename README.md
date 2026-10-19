@@ -24,6 +24,7 @@ Source adoption remains NONE.
 AWS completed measured populations: **7 — 0 accepted / 4 rejected / 3 parked**.
 One additional ARM architecture replication is parked. Intel scan replication passed
 both primary gates; variant B is undergoing guards and confirmation, with no adoption.
+AMD deletion planning stopped before implementation because precision controls failed.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
 ## Build and test
