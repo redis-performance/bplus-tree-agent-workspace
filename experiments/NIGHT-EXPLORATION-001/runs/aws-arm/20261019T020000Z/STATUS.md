@@ -17,3 +17,5 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19 08:34 UTC: fresh027 preparation FAILED2118/2124 at retainedzero-sign fault diagnostic mismatch; normal4original43/2048mode/12oracle checks passed, but fullnegative-control gate incomplete. No timing/retry. Independent postidentity/frozen/idle proof passes; freshleaseACTIVE, oldreleasehistoryunchanged. [Immutable failure](027-mask-followup/PREPARATION-RESULT.md).
 
 2026-10-19 08:47UTC: separate028 six never-started correctness commands complete; original027 remainsFAILED. All identities unchanged and owned runner idle. Independent composite closure pending; no fresh timing. See028-mask-validation-continuation/RESULT.md.
+
+2026-10-19 08:58UTC: fresh027 primary A/A complete48/48; both100K/1M qualify allsixblocks. Identities unchanged/runneridle. No fresh candidate timing; awaiting independent review/grant. See027-mask-followup/PRIMARY-AA-RESULT.md.
