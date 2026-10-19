@@ -1,6 +1,6 @@
 # ARM mask follow-up — 19 October 2026
 
-Status: fresh primary controls qualify at both sizes; exact candidate comparison granted. The user authorized completing validation of the existing ARM
+Status: primary gain reproduced (−7.78% / −7.21% elapsed); original-operation control phase granted. [Current results](RESULTS.md). The user authorized completing validation of the existing ARM
 mask lead after the overnight handback, including Git publication. This is a new,
 bounded ARM-only runner lease, ending no later than 10:15 UTC (11:15 Lisbon), with
 early release on completion. Intel and AMD runners remain released.

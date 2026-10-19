@@ -5,8 +5,9 @@ member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
 **Active follow-up:** the user authorized completing validation of the ARM mask lead.
-The ARM-only lease is active until 11:15 Lisbon. Correctness coverage is complete
-across two preserved attempts; composite closure and fresh timing review are pending.
+The fresh ARM primary comparison reproduces −7.78% / −7.21% elapsed-time gains at
+100K / 1M members. Regression guards are next; source remains NONE. The ARM-only
+lease is active until 11:15 Lisbon. [Current evidence and charts](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 The earlier overnight campaign and its handback remain complete. [Plan and activity](experiments/ARM-MASK-FOLLOWUP-001/README.md).
 The candidate remains PARK pending the new controls, guards, confirmation and profile.
 

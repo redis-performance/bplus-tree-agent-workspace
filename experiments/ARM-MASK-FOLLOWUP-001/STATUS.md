@@ -1,10 +1,11 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; fresh primary controls QUALIFIED, candidate comparison granted.**
-All12 controlblocks pass; largest absolute baseline differences0.490%/0.281% at100K/1M.
-Root and independentAMD raw audits agree. One300s/48process exactcandidate comparison
-may run; no guard/confirmation/profile grant yet. SourceNONE; originalFAILED preparation
-and separate correctness closure retained. Restoration armed for10:15UTC /11:15Lisbon.
+**ACTIVE lease; fresh primary gain reproduced, original-operation controls granted.**
+All 12 primary blocks pass: median elapsed changes −7.78% at 100K and −7.21% at 1M,
+with identical tree-owned bytes. Root and AMD raw audits agree. One 600s job may run
+120 baseline-only processes / 960 rows across the original 40-case matrix. Regression
+guards, confirmation and profile remain pending; source NONE. Restoration is armed
+for 10:15 UTC / 11:15 Lisbon. [Current results](RESULTS.md).
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 
