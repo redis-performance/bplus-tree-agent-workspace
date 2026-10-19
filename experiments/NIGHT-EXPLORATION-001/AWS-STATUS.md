@@ -50,3 +50,14 @@ session coordinates review, Git updates and reporting through the deadline.
 Each host branch has STATUS.md, HANDOFF.md, ACTIVITY.md and NATIVE-STATUS.json.
 [Worker dashboard](AWS-WORKERS.md) tracks published host revisions. Sequential
 three-pass populations are explicitly labelled when independent slots are unavailable.
+
+## Release verification
+
+A separate read-only controller auditor is scheduled for08:00:20UTC using
+`scripts/audit-aws-release.py`. Its02:59UTC live preflight found all three OSS
+coordinators still stopped, no active owned job units at that instant, and all
+three release timers scheduled for08:00UTC. This is not release proof. The final
+audit requires a release marker, saved status, live coordinator PID, inactive
+owned slice, and no active owned jobs or remaining cgroup processes. Connection
+details and pending output remain private; publish verified generic results after
+the timers actually fire. The auditor changes no service state.
