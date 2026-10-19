@@ -101,3 +101,5 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 - 2026-10-19T06:02:14.102268+00:00: Independent AMD029 execution review234f70f44 complete:21 freeze hashes,51-command contract,6 profile/48 AA schedules, five independent scope-parser checks; no blocker for fixed baseline diagnosis. Mapping/context and post-profile literal-contract limits retained. No runner actions, source edits or optimization selection.
 
 2026-10-19T06:10:36.175824+00:00: Independent AMD029 raw review passes51 profile commands/1218 scientific samples/110 public hashes and48 A/A rows/12 blocks/98 public hashes.100K first block+2.4309% fails;1M qualifies. Actual015 mapping verified with caller limits; sourceNONE. No runner access or new measurement. See023-amd-iterator-review/RAW-REVIEW.md.
+
+2026-10-19T06:15:57.445601+00:00: Published canonical ARM MORNING-REPORT and reconciled current README/STATUS/HANDOFF. SourceNONE;2 measured populations0accepted/1rejected/1parked plus1 parked architecture replication. Runner idle; lease ACTIVE until08UTC, actual release/OSS restoration PENDING. No new experiments. Immutable evidence and Git chronology retained.
