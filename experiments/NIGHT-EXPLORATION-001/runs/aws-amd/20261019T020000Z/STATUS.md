@@ -45,3 +45,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T08:37:29.951227+00:00: IndependentARM027 failure8cdebdcba verified:2118attempted/2117registeredpass,2048normalmodes,−6 expected signfault caught by earliercopied-next assertion; originalregistrationFAILED. Only6never-started commands may be considered under separate narrowfreeze/rootgrant with allsnapshotprepostchecks. No timing/rerun/sourcechanges.
 
 - 2026-10-19T08:39:51.138472+00:00: Intel confirmation revised46cd73c35 staticdelta passes17inputs; qualifieddiagnosticgate/rawAAauditjoin/30schildaudit resolved. No launch: actualARMcorrectnessclosure/freshguards/receipts/idlehandoff stillpending. Await six-onlyARMcontinuationfreeze; sourceNONE.
+
+- 2026-10-19T08:45:18.884747+00:00: ARM02839d84533f six-only staticreview passes9inputs/4241oldraw/513snapshot/28freeze/6protected/4guardbindings; exact2119–2124 and3outputabsence checks. Conditional root180s helpergrant only; originalFAILED retained, no timingeligibility. No runneraccess.
