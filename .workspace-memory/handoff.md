@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:11 UTC
+## Current AWS overnight checkpoint — 19 October 04:24 UTC
 
 Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
 start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
@@ -11,7 +11,14 @@ remain. Intel owns its runner again after root verified idle state and live bina
 hashes at 04:09:44 UTC. All further workloads must run serially. Primary confirmation
 alone cannot support acceptance.
 
-AMD and ARM runners are idle and reserved, not released. Three OSS coordinators were
+AMD is independently auditing the pending full Intel guard comparison. ARM is
+preparing a separate baseline-only supplemental referee for fully reversed leaves,
+active resize and member-length boundaries; no candidate timing has begun there.
+Intel matched-profile v2 is frozen before execution at 120 captures / 600 seconds.
+All AWS builds retain the original adapter; the separately reviewed main/M6
+`_Noreturn` correction does not change their frozen referee.
+
+AMD and ARM hosts remain reserved, not released. Three OSS coordinators were
 stopped for this campaign. The 08:00 UTC host timers and independent live auditor are
 armed, but successful restoration is NOT YET verified. Do not report completion before
 that proof.

@@ -163,3 +163,20 @@ This closes only the fresh independent primary-confirmation gate. Full original
 controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
 remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
+
+
+## 19 October 04:24 UTC — Guard and profile follow-ups
+
+Intel B original-operation guards run serially under the frozen 1440-second cap;
+AMD independently audits the raw comparison after publication. The matched profile
+revision was frozen before any candidate capture: 120 fixed captures / 600 seconds,
+with all captures retained and callback-normalized counts. The unexecuted original
+12-capture plan remains preserved. This increases sample coverage without changing
+source, scope or requested operations; it is not a retry after profile outcomes.
+
+ARM prepares a separate baseline-only supplemental referee covering fully reversed
+leaves, active resize, 8/319/320/321/1024-byte members and ordinary/tied/signed-zero
+scores. This is correctness and coverage engineering, with no candidate timing yet.
+Existing focused guards remain immutable. AWS source/referee stays pinned to
+8fab511e, including its original adapter; the separate main/M6 adapter correction
+is a different baseline identity. No population counts or decisions change.

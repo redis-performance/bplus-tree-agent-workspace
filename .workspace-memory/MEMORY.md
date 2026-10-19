@@ -1,3 +1,33 @@
+<!-- AWS-CURRENT-START -->
+## Current AWS overnight checkpoint — 19 October 04:24 UTC
+
+Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
+start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
+7, with 0 accepted / 4 rejected / 3 parked; separate ARM iterator replication PARK.
+AMD deletion and native ARM scan stopped at chair NONE after failed controls, before
+implementation. Intel scan B discovery and independent seeds 201–203 confirmation pass.
+Full original controls qualify 57/80; diagnostic B guards and matched/focused follow-ups
+remain. Intel owns its runner again after root verified idle state and live binary
+hashes at 04:09:44 UTC. All further workloads must run serially. Primary confirmation
+alone cannot support acceptance.
+
+AMD is independently auditing the pending full Intel guard comparison. ARM is
+preparing a separate baseline-only supplemental referee for fully reversed leaves,
+active resize and member-length boundaries; no candidate timing has begun there.
+Intel matched-profile v2 is frozen before execution at 120 captures / 600 seconds.
+All AWS builds retain the original adapter; the separately reviewed main/M6
+`_Noreturn` correction does not change their frozen referee.
+
+AMD and ARM hosts remain reserved, not released. Three OSS coordinators were
+stopped for this campaign. The 08:00 UTC host timers and independent live auditor are
+armed, but successful restoration is NOT YET verified. Do not report completion before
+that proof.
+
+Latest decisions/activity: [AWS ledger](../experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
+[live workers](../experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
+Native participant backend/model/token/USD costs are unknown. No upstream actions.
+<!-- AWS-CURRENT-END -->
+
 # Shared memory
 
 Latest: [EXP-007 bulk decoder results](../experiments/EXP-007/RESULTS.md).
