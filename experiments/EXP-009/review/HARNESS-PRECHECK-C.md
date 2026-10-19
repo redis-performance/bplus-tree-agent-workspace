@@ -1,6 +1,6 @@
 # EXP-009 harness precheck C
 
-Status: **source-copy precheck PASS; launch review PENDING driver and exact profile/calibration contract**. Preparation only; source selection NONE. No build, native execution, timing, profiling or new disassembly. This review does not authorize launch.
+Status: **PASS — final static harness/driver/mapper/seal review for baseline prerequisites only**. Source selection NONE. No build, native execution, timing, profiling or new disassembly. Root publication, exact frozen manifests/ACKs and exclusive idle-runner release remain required before launch. Earlier pending paragraphs below are preserved review chronology; the final verdict at the end governs.
 
 Reviewer `/root/followup_proposal_c`, Codex/GPT-6 family; exact serving variant/token/currency cost unknown. Prior006 C author disclosed. Root is sole launcher/publisher. Reviewed main7b4d2153b plan and the current preparation worktree files. Remote ARM work is a separate host and is not evidence for M6.
 
@@ -41,3 +41,39 @@ Root supplied PLAN.json and host.json during review. PLAN now pins source d13b35
 Sampler scope boundary note: all-PC-in-probe is a deliberately strict initial-control gate. A boundary PC elsewhere is a retained failed control, not authority to exclude that PC or rerun. Other profiled lookup captures may legitimately include imports/unknowns; conservation applies without an on-probe requirement there. Profile failure must block source proposals alongside A/A failure; it cannot become a posthoc sample-cost explanation.
 - `PLAN.json`: `4bb978e9c6f5ecec94b2796752a89e786066c44301bb8cc5d909ad117d7ac764`
 - `host.json`: `46af81ff108e1b1f881daf65cb25110ab4e9a10af30a1764a23a7221a38d1560`
+
+## Mapper final offline review
+
+Final `profile-map.py` SHA256 `258d34b4c16b76153808b6ec3289e2f1ccc23b45472eab88d8a458b466a3576e`: PASS for bounded static mapping/probe/conservation review. A fixed initial findings before freeze: duplicate wanted labels now reject, instruction addresses must be aligned/contiguous, probe extent stays in actual text and starts at unique nm probe address without crossing another text symbol, CLI output opens exclusively. All observations (including unknown/import/alias cases and failed sufficient/scope controls) remain retained. No nearest-name probe proof.
+
+Pure Python synthetic Mach-O/nm/otool/PC controls (no binary execution), 18 PASS: actual nm beats dladdr, aliases retained, stub unknown, outside unknown retained, unaligned unknown, external separated, good strict25 probe control, bad checksum FAIL, outside probe FAIL, short24 FAIL retains24, capped reject, non1000 interval reject, PC-count mismatch reject, duplicate probe label reject, assembly gap reject, nm anchor mismatch reject, interior symbol reject, probe beyond text reject. Temporary synthetic files removed. An initial control harness expected map_profile to raise on bad checksum; revised mapper instead intentionally returns FAIL with all observations. That offline review assertion failed, was retained in chat, and the control expectation was corrected to accept only FAIL/rejection, not PASS; no experimental data was rerun.
+
+Reproducibility control setup failure preserved: first saved-control invocation (script SHA `625755c4508080be9b9ff8617f8418e397b2c94c22563c5d6b901cff15a17b26`) stopped with FileNotFoundError creating `scratch/exp009-C-map-*` because this new worktree had no scratch directory. Added only an explicit mkdir for synthetic control scratch; no native command was attempted.
+
+## Final driver and seal verdict — PASS
+
+Final reviewed driver SHA256 `2b2ae7c1c7647ba7dff21279383e8284f0fe55c94e47fdcdd2d5cafd006598b5`; mapper `258d34b4c16b76153808b6ec3289e2f1ccc23b45472eab88d8a458b466a3576e`; seal `3beae8c9f52b11c996b2f363c747f39dd5fe072be718fbf0bcd0784112b0ab79`. All source-copy/profile-calibration details are now explicit in README/PLAN/driver. Root owns execution/ACKs and B is correctly labelled driver author.
+
+The driver scopes native C11/O3/debug/strict warnings/frame-pointer/noLTO consistently; sanitizer changes only O1/ASan+UBSan/no-recover. The physical oracle omits the separate tree translation unit. Original43 parser was checked offline against retained023 native stdout including ANSI sequences: all indices1..43 and the success summary match. Native/sanitizer semantic matrix remains36 hit/miss/mixed length cases plus8 expected-bad-CLI contracts and two original43/two physical oracles. These are planned commands, not newly executed evidence.
+
+Calibration uses exactly three equal200K samples per size, seed1, fastest positive elapsed and integer ceiling to600ms with100M cap, without remeasurement. AA reconstructs the exact48-entry six-block ABBA schedule, seeds1/2/3 twice and alternating size order; it precomputes independent query models and parses the strict22-field CSV. Fingerprints include operations/checksum/owned bytes and all fixture parameters. Gates use integer elapsed sums and10ms minimum windows; display floats are not decisions. It completes all48 on control noise, preserving every failed block, while execution/semantic/timeout/identity failure stops intact. No candidate phase exists in this driver.
+
+Fixed minimal environment and explicit PROFILE_USEC1000 prevent inherited sampling configuration. Strict initial controls require the exact affine checksum plus every retained PC inside the actual contiguous nm/otool-anchored probe extent, minimum25 uncapped. Lookup capture mapping checks mapped PASS, sample conservation and raw/binary/nm identities. Import stubs and unmapped own PCs stay explicit unknowns. Private absolute-PC originals remain in scratch; only relative mapping summaries publish. Timing fields from instrumented runs cannot support a speed or cost claim.
+
+Each phase refuses existing output/raw directories and raw streams use exclusive creation. Input/derived/binary identities are checked before and after phases. A root-authorized phase/hash/plan ACK requires root and C PASS plus idle/exclusive declarations and clips the absolute stop. Parent phase watchdogs cover build600s/calibration180s/profile180s/AA600s and reserve10s; child timeout is clipped to remaining budget, cleanup uses owned session/group TERM1s/KILL/wait4s/empty-observation3s and journals stdout/stderr/hash/result even on interruption. Managed signals are blocked across Popen handle assignment and child restores the prior mask before exec; this preexec operation relies on the explicit single-thread launcher. Signals remain blocked through cleanup/journal persistence. Post-row, derivation/finalization and post-serialization checks prevent an over-budget success. This was static lifecycle inspection, not a newly executed process-kill test.
+
+Review found and authors fixed before freeze: exact header enforcement; parent spawn-assignment interruption gap and inherited blocked-child-mask consequence; mapped result identity/conservation checks; complete raw/build evidence hashing; and final phase-status prerequisite gates. COMPLETE counts/build-manifest alone are insufficient if finalization later fails: final code checks actual COMPLETE/release-safe build status before calibration/profile and rechecks its hash afterward; seal and AA pin/check actual final build/calibration/profile statuses. Seal writes manifests exclusively and retains the full build table plus calibration/profile artifacts and raw identities. The separate publication helper statically preserves nonprofile streams byte-for-byte after phase completion and rejects obvious private paths/PC lines; root remains responsible for publication review.
+
+Persisted reproducibility files `review/C-offline-controls.py` and `.json` report **41 passing pure-Python controls** against these exact final driver/mapper/seal hashes:18 mapper controls plus direct checksum/model/CSV malformed-input checks and actual-AA-function in-memory schedules at exact±1% boundaries, one-nanosecond-outside cases and short windows. Every simulated noise schedule executes all48 stubbed rows. No main/Owner/subprocess/native command is invoked by these controls. The two reviewer-only setup/expectation failures above remain documented; they were not experimental reruns. The saved controls now create their temporary scratch directory explicitly and remove synthetic fixture files.
+
+No remaining blocker found for these frozen **baseline prerequisites**. Future source selection still requires actual successful profiles and all twelve qualified fresh controls, then independent proposal/chair/isolated implementations with the retained full guards, exact-bit/fault checks, held-out confirmation and adversarial review. This verdict approves no candidate or uninspected later script revision. All review activity is now stopped.
+
+Final artifact hashes:
+- `README.md`: `382337a161fdb5ee236cb1090639ef0711656972c8e0ab493673f875444faa37`
+- `PLAN.json`: `8002a1513ced827ac4c68794035af1287ce365b10a8f32e4dc6ff583c840d0ed`
+- `driver.py`: `2b2ae7c1c7647ba7dff21279383e8284f0fe55c94e47fdcdd2d5cafd006598b5`
+- `profile-map.py`: `258d34b4c16b76153808b6ec3289e2f1ccc23b45472eab88d8a458b466a3576e`
+- `seal.py`: `3beae8c9f52b11c996b2f363c747f39dd5fe072be718fbf0bcd0784112b0ab79`
+- `publish-raw.py`: `f1bb850a5440f29ea8659d4dcf0bef7e1ffea2ad56f65f3f7a4355c04eee0c73`
+- `review/C-offline-controls.py`: `295731b9d165c6910a3d2159c1d71555af04c5ab8afdc0731db7f8e6494f0e00`
+- `review/C-offline-controls.json`: `e5d97e7de37983ed3095bae4d7380b7fd92d41cd32289faa4f3c888c5e806069`
