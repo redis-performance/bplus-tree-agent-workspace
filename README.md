@@ -11,9 +11,9 @@ has been merged into `src/`; candidate patches and measured decisions live in `e
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
 tracks separate M1 and M6 host branches: rank, update paths, single-query lookup,
 and decoder experiments. Both hosts have completed the **100 / 1K / 10K / 100K / 1M**
-baseline. M6 continues publishing; M1's newly observed round-three checkpoint is
-dated 01:46 UTC and records its first-pass queue as closed. Its M6 publication
-checks still report DNS failure, so consumption of later M6 evidence is unverified.
+baseline. M1 now explicitly confirms reading M6's published decision at
+06:50 UTC and records no further source experiment queued under the M6-priority
+rule. Earlier DNS and write failures are historical; both hosts retain source NONE.
 See the latest results and live status links below.
 
 <!-- AWS-NIGHT-START -->
@@ -297,7 +297,7 @@ change. The original three patches and authors remain unchanged.
 
 ![M6 fresh scan controls: all twelve blocks, two failed controls and no candidate comparison](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-neon-aa.png)
 
-The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/508bfe179a9159c22c1ec5094c8e2df9a949ff84/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
+The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a902bddefae8e3c6a6a165712d7e0037368b2c0e/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
 links the decisions, raw audits and limits. Final reporting continues to 09:00 Lisbon.
 
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
@@ -311,6 +311,8 @@ verified from its archived outputs. All 70 A/A cells miss the 10 ms gate;
 private leads and guard losses remain exploratory. M1 records **PARK / source
 NONE** and nine total populations with mixed inherited provenance. Its ledger
 is kept separate from M6; these totals are not summed.
+The [post-round gate check](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a902bddefae8e3c6a6a165712d7e0037368b2c0e/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/026-m1-gate-confirmation/README.md)
+confirms M1 consumed the M6 decision and queued no further source trial.
 
 The decoder results below were measured on **Apple M1**, using Apple Clang 17,
 `-O3`, and one unpinned thread. They isolate packed-score decoding; their gains
