@@ -2,7 +2,7 @@
 
 Frozen source8fab511e, unchanged source SHA256d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2. Referee is the independently shuffled lookup harness qualified in eae5f6ec. Linux aarch64 / Neoverse V2, CPU2, Clang18 C11 -O3 -g -Wall -Wextra -fno-omit-frame-pointer -fno-lto, native allocator, same assertions/hash for all binaries.
 
-Baseline profile precedes proposals. Two20M-query whole-process captures at100K/1M include construction/warmup/destruction. In100K zbtreeScoreRaw has36.00% samples and leaf member lookup21.52%; inline attribution is not isolated helper time. The index tag-load dependent EOR accounts38.5% of local zbtreeScoreRaw cycles samples and byte verification CMP19.49%; sampling skid and load latency prevent interpreting those as arithmetic cost.
+Baseline profile precedes proposals. Two20M-query whole-process captures at100K/1M include construction/warmup/destruction. In100K zbtreeScoreRaw has36.00% samples and leaf member lookup21.52%; inline attribution is not isolated helper time. The index tag-load dependent EOR accounts38.5% of local zbtreeScoreRaw cycles samples and leaf-ID assertion CMP19.49% (initial tag-verification attribution corrected before timing); sampling skid and load latency prevent interpreting those as arithmetic cost.
 
 The12-cell baseline calibration uses three observations each, then freezes query counts targeting50ms using fastest observed ns/query (cap100M). Six same-binary ABBA blocks per cell, seeds1/2/3, qualify only if every block within±1% and everywindow>=10ms. One fixed exploratory screen is permitted after failure; no retesting to qualify noise.
 

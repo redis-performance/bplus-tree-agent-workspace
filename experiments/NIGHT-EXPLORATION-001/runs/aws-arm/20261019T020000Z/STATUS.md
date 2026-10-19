@@ -7,3 +7,5 @@ Independent-query lookup referee passes 80 validation cells. Fresh perf counters
 Three explicitly sequential proposal passes and chair select exact index tag masks for one bounded three-variant screen. A uses carry-free addition, B folds bits, C uses compiler vector equality with scalar fallback. Builds and correctness are in progress; no candidate timed or selected. No source adoption.
 
 Stop new experiments at 07:15 UTC; final deadline 08:00 UTC / 09:00 Lisbon. Current evidence: `002-lookup/selection.md`, A/A raw rows and three retained patches.
+
+Correction: exact-mask choice is superseded to NONE; no candidate was timed. The prominent comparison validates leaf ID, not the tag byte. Three patches are unmeasured, and validation was not pursued after correcting the premise. See 002-lookup/PROFILE-ERRATUM.md.

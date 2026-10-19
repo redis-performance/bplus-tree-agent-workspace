@@ -1,0 +1,11 @@
+# ARM index search exploration
+
+Frozen source8fab511e, unchanged source SHA256d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2. Referee is the independently shuffled lookup harness qualified in eae5f6ec. Linux aarch64 / Neoverse V2, CPU2, Clang18 C11 -O3 -g -Wall -Wextra -fno-omit-frame-pointer -fno-lto, native allocator, same assertions/hash for all binaries.
+
+Baseline profile precedes proposals. Two20M-query whole-process captures at100K/1M include construction/warmup/destruction. In100K zbtreeScoreRaw has36.00% samples and leaf member lookup21.52%; inline attribution is not isolated helper time. The index tag-load dependent EOR accounts38.5% of local zbtreeScoreRaw cycles samples and byte verification CMP19.49%; sampling skid and load latency prevent interpreting those as arithmetic cost.
+
+The12-cell baseline calibration uses three observations each, then freezes query counts targeting50ms using fastest observed ns/query (cap100M). Six same-binary ABBA blocks per cell, seeds1/2/3, qualify only if every block within±1% and everywindow>=10ms. One fixed exploratory screen is permitted after failure; no retesting to qualify noise.
+
+If evidence supports a hypothesis, three explicitly sequential proposal passes/chair and three isolated source/build variants follow. Baseline does not change. Candidate screen:100K/1M hits (co-primary) and100K/1M misses (guards),16-byte keys, sixABBA blocks with deterministic variant/cell rotation. Screen is rejection/exploration only; all-size and key-length controls remain required, plus batch1/16, mutation, ownership/scan, memory, fresh confirmation and independent review before any acceptance recommendation. At least2% gain in bothprimaries and no>1%guard orowned-memoryloss are required. Screening excludes no observed rows. Small effects withinA/Avariation receive no ranking.
+
+Counted comparison phases limited300seconds, eachchild120seconds. All operations use bounded lease helper. Fresh confirmation, if warranted, uses101/102/103seeds and sixABBAblocks. Exact model variant/token cost unavailable; one native Codex worker, proposal and implementation passes sequential, not independent. Root provides independent adversarial review; no baseline source adoption overnight.
