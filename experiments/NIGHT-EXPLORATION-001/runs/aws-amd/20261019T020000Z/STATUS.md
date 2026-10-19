@@ -59,3 +59,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T09:08:40.663311+00:00: ARM029 acbd0cbe9 static matched-profile review passes20 inputs/104 commands, unchanged scope imports and own-actual mapping design. Manual loss/instruction-direction/mapping gates explicitly required; integrity status is not mechanism validation. No launch or workload; source NONE.
 
 - 2026-10-19T09:10:19.041415+00:00: Profile validity delta0a1040780 independently passes23 frozen inputs;104 commands unchanged. Explicit finalizer now PARKs failures in loss/control/direction/ownactual mapping gates; supporting evidence only. No launch, workload or source adoption.
+
+- 2026-10-19T09:34:05.236956+00:00: Adversarial current-claim review supports PARK/NONE;1,920 original guard rows reconstructed,17 qualified passes+1mixed SCAN+11required noisy. Authorization ambiguity corrected by root146f816ff. No median rescue, confirmation ineligible, profile unexecuted; lease ACTIVE pending actual proof.
