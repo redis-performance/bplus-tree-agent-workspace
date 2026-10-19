@@ -134,3 +134,5 @@
 2026-10-19T09:09:21.207772+00:00 Preparedindependent guardrawauditor029 forARM original120/120 anditerator1968/1968 phases, exact380ef3109. Localvalidation reconstructs96existingprimary AA/comparison processes24blocks, zero newmeasurement/producerimports. Awaitimmutablefirstguardresult; allrequired/diagnostic cells andfailedgateswillremain. NoSSH/build/runnerwork.
 
 2026-10-19T09:16:21.142595+00:00 Independentoriginal-AA1329e440a auditPASS integrity:120processes/960rows/240blocks,278inputs/248seals, exactidentities/fixtures/serialCPU2.18/29requiredqualified,11precisionfail with0shortrequired;11diagnosticsallshort(8also noisy). OverallPARK/noheldoutconfirmation; allcellsretained, no producerimports/runnerwork.
+
+2026-10-19T09:27:24.469674+00:00 Independentoriginalcomparison4c7668661 auditintegrityPASS:120processes/960rows/240blocks plusfullAA1329reconstruction,527inputs.17qualifiedguardsPASS;100SCANmixedPARK(one+1.477795%,fiveimprove), noqualifiedall6regression.11requirednoisy+11shortdiagnostics remainunqualified; overallPARK/heldoutconfirmationblocked. ExactAAoutput/memory/identity/serialCPU2/capspass; no runnerwork.
