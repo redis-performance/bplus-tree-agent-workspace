@@ -47,3 +47,5 @@
 - 2026-10-19T03:48:40.516973+00:00: Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover.
 
 - 2026-10-19T03:56:35.069171+00:00: Independent Intel B discovery and focused referee review complete: no semantic blocker; adoption remains PARK with missing guards, confirmation and matched profile. Read-only audit verified 368 focused validation commands, 108 cells and eight fault exits. AMD host idle; no Intel access. Next: independent proposal from immutable ARM scan baseline packet, without peer proposal reads.
+
+- 2026-10-19T03:58:08.138990+00:00: Independent ARM proposal 675346e5e sealed without peer reads: bounded native 16-byte exact matching, pending root chair and ARM controls. Intel B/referee review published 9b6e529b5; adoption remains PARK. AMD host idle; no Intel runner access or held-out seed use.
