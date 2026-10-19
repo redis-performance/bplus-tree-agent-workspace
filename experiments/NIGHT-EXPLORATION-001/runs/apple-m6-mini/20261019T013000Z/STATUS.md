@@ -60,3 +60,8 @@ DECODE-001: [plan](005-decode/PLAN.md), [diagnosis](005-decode/PROFILE.md).
 Native/sanitizer existing oracle and2080-cell extended control checks pass. Primary
 profile has28 PCs; three guard captures insufficient and preserved. Both population
 steps pending; no candidate timed. All176 materialized-output cells are frozen.
+
+DECODE referee/profile published80177d1e. Sequential proposal/chair chooses
+M6-DECODE-COUNT1-001; all three proposal passes preserved. Implementation population
+next: natural scalar branch / outlined bulk bridge / forced-inline early-bulk policy.
+No candidate built or timed yet; no independent agents/review.

@@ -15,3 +15,8 @@ only a matching direction selection, no M6 candidate replication. No fresh DNS r
 Use coordinator publish barrier. No Git writes, worktree retry, sysctl retry,
 permission changes or baseline edits. Resume unfinished steps, never completed targets.
 Final reporting still reserved07:15–08:00UTC.
+
+DECODE referee/profile published80177d1e. Sequential proposal/chair chooses
+M6-DECODE-COUNT1-001; all three proposal passes preserved. Implementation population
+next: natural scalar branch / outlined bulk bridge / forced-inline early-bulk policy.
+No candidate built or timed yet; no independent agents/review.
