@@ -7,6 +7,19 @@ limits; explicitly record unavailable tools rather than inventing consultation.
 Keep retrieval/indexing off the measurement runner and preserve frozen protocols.
 <!-- PERFORMANCE-MCP-RULE-END -->
 
+<!-- M1-LOOKUP-AA-CURRENT -->
+## Apple M1 lookup precision preflight — PARK
+
+[Result and chart](../experiments/EXP-009-M1-AA-001/RESULTS.md): corrected-adapter
+same-binary public lookup-hit A/A qualifies only 1/6 blocks at100K and2/6
+at1M. All48windows exceed564ms; independent raw audit passes. No source
+candidate, timing or population. The separate M6 EXP-009 is also PARK before
+candidate work. Do not repeat this failed M1 schedule unchanged. The
+cpu-perf MCP was consulted and logged; it did not identify a macOS noise
+cause. Branch `exploration/apple-m1-lookup-aa-20261019T1120Z` holds the
+M1 evidence; source remains NONE.
+<!-- M1-LOOKUP-AA-CURRENT-END -->
+
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
 ## ARM frontend diagnostic — native results audited, profiles granted
 

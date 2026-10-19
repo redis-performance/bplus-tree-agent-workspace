@@ -8,6 +8,14 @@ All Codex and Claude investigation sessions must use the
 [performance MCP workflow](docs/PERFORMANCE-MCP.md); consultation and limitations
 are recorded with the experiment evidence.
 
+**Apple M1 lookup check:** the fresh corrected-adapter, same-binary A/A
+preflight is [PARK](experiments/EXP-009-M1-AA-001/RESULTS.md): only 1/6
+100K and 2/6 1M blocks meet the fixed ±1% gate. All 48 windows exceed
+564 ms; no candidate was timed or source changed.
+[Control chart](experiments/EXP-009-M1-AA-001/aa-controls.svg) ·
+[raw audit](experiments/EXP-009-M1-AA-001/results/AUDIT.json).
+M6's matching follow-up also stopped before candidate work; host rows stay separate.
+
 **Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
 has acquired a fresh ARM-only lease through11:45UTC to investigate opposite timing
 directions in the original benchmark and iterator guards. Fresh native controls

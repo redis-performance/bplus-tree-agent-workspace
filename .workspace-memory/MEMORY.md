@@ -7,6 +7,14 @@ limits; explicitly record unavailable tools rather than inventing consultation.
 Keep retrieval/indexing off the measurement runner and preserve frozen protocols.
 <!-- PERFORMANCE-MCP-RULE-END -->
 
+Latest Apple M1 lookup preflight: [EXP-009-M1-AA-001](../experiments/EXP-009-M1-AA-001/RESULTS.md)
+used the corrected adapter and exact M6 lookup harness identity, with fresh
+M1 counts, 48 same-binary A/A processes and a passing raw audit. Only 1/6
+100K and 2/6 1M blocks qualify at ±1%; every window exceeds 564 ms.
+PARK before proposals/source/candidate timing. M6 EXP-009 is also PARK on
+its separate host; no timings pooled. No new optimization population or
+accepted source change. See the plan for the actual cpu-perf MCP calls.
+
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
 ## ARM frontend diagnostic — native results audited, profiles granted
 

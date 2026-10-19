@@ -1,5 +1,15 @@
 # Experiment summary
 
+## Latest: corrected-adapter M1 lookup precision preflight, 19 October
+
+[M1 A/A result and chart](EXP-009-M1-AA-001/RESULTS.md): a preregistered
+48-process same-binary public lookup-hit schedule passes only 1/6 blocks
+at 100K and 2/6 at 1M against the ±1% gate. All windows exceed 564 ms;
+the independent raw audit passes. PARK before candidate work, source NONE.
+The [separate M6 EXP-009](EXP-009/RESULTS.md) also PARKed before candidate
+work, at 6/6 and 3/6. No host measurements were pooled and no optimization
+population count changes.
+
 EXP-009 guarded M6 lookup follow-up: PARK before proposal/implementation/candidate timing. Fresh native/sanitizer/oracle validation and profiles pass;48A/A runs qualify100K6/6 but1M3/6, with−1.414%,+1.036%,+2.567% failed controls despite586–630ms windows. Source NONE; local M6 native ownership released, no workloads queued. All new evidence publishes on main; read experiments/EXP-009/RESULTS.md and STATUS.md. Historical overnight counts unchanged; remote ARM follow-up remains separate.
 
 ## Latest: EXP-008 short-range crossover, 19 October (Apple M1)

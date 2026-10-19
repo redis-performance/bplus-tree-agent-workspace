@@ -1,5 +1,14 @@
 # Experiment log
 
+## 2026-10-19 — Apple M1 EXP-009 lookup A/A preflight
+
+The [plan, raw data, audit, chart and decision](EXP-009-M1-AA-001/RESULTS.md)
+record one corrected-adapter baseline qualification on Apple M1: 48 fresh
+processes, 12 same-binary ABBA blocks, 100K 1/6 and 1M 2/6 qualify.
+All windows exceed 564 ms. Decision PARK before proposals, source edits or
+candidate timing. The matching M6 EXP-009 is separately PARK; no cross-host
+pooling, retry or new optimization population. Source selection remains NONE.
+
 EXP-009 guarded M6 lookup follow-up: PARK before proposal/implementation/candidate timing. Fresh native/sanitizer/oracle validation and profiles pass;48A/A runs qualify100K6/6 but1M3/6, with−1.414%,+1.036%,+2.567% failed controls despite586–630ms windows. Source NONE; local M6 native ownership released, no workloads queued. All new evidence publishes on main; read experiments/EXP-009/RESULTS.md and STATUS.md. Historical overnight counts unchanged; remote ARM follow-up remains separate.
 
 ## 19 October: focused decoder diagnostic

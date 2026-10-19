@@ -7,6 +7,17 @@ limits; explicitly record unavailable tools rather than inventing consultation.
 Keep retrieval/indexing off the measurement runner and preserve frozen protocols.
 <!-- PERFORMANCE-MCP-RULE-END -->
 
+## Apple M1 lookup preflight handoff
+
+[EXP-009-M1-AA-001](../experiments/EXP-009-M1-AA-001/RESULTS.md) is complete
+and PARK at the same-binary precision gate: 100K 1/6, 1M 2/6 qualified
+blocks, 48 long windows, raw audit PASS. No candidate/source optimization
+was tested. Do not rerun the frozen schedule unchanged. The M6 EXP-009
+result is separately PARK before candidate work. M1 evidence is on
+`exploration/apple-m1-lookup-aa-20261019T1120Z`; main merge is a separate
+repository action. The cpu-perf MCP consultation and limitations are logged
+in the plan and result.
+
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
 ## ARM frontend diagnostic — native results audited, profiles granted
 
