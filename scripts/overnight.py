@@ -194,6 +194,10 @@ def main():
                     remember_children(worker.pid, known)
                     state["heartbeat_utc"] = utc()
                     atomic_json(run_dir / "status.json", state)
+                    # Process discovery can outlast a short worker. Preserve its
+                    # completed result before interpreting a newly written STOP.
+                    if worker.poll() is not None:
+                        break
                     if stop_requested or (run_dir / "STOP").exists():
                         record["status"] = "stopped_by_request"
                         break

@@ -514,3 +514,12 @@ These are exploratory baseline costs; no candidate or source adoption. Original
 four-size data preserved. README now shows the five-size chart. Shared overnight
 plan and [C benchmark review](NIGHT-EXPLORATION-001/BENCHMARK-REVIEW.md) are published;
 night campaigns remain unstarted. M6 rerun instructions preserve per-host results.
+
+
+## 19 October 2026 — AWS overnight launch
+
+Three user-authorized hosts (Intel Sapphire Rapids, AMD Zen 5, ARM Neoverse V2)
+passed SSH preflight; OSS coordinators stopped, five-size baselines running from
+8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
+09:00Lisbon. [Live status](NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
+completed evidence. No new optimization decision; population counts unchanged.

@@ -9,6 +9,7 @@ import argparse
 from datetime import datetime, timezone
 import fcntl
 import json
+import re
 from pathlib import Path
 import subprocess
 import time
@@ -32,23 +33,29 @@ def publish(config, round_number):
     evidence = worktree / config['campaign_dir']
     relative = config['campaign_dir']
     shared_logs = ['experiments/EXPERIMENTS.md', 'experiments/SUMMARY.md',
-                   'experiments/NEXT-STEPS.md', 'README.md']
+                   'experiments/NEXT-STEPS.md', 'README.md', '.workspace-memory']
     if not evidence.exists():
         return 'No evidence directory yet'
     # All content is public; refuse obvious credential/private-path mistakes.
-    needles = (b'/Users/', b'gho_', b'github_pat_', b'Authorization: Bearer')
-    for file in evidence.rglob('*'):
+    needles = (b'/Users/', b'/home/ubuntu/', b'/home/fco/', b'.pem',
+               b'gho_', b'github_pat_', b'Authorization: Bearer')
+    review_files = list(evidence.rglob('*'))
+    for name in shared_logs:
+        path = worktree / name
+        review_files.extend(path.rglob('*') if path.is_dir() else [path])
+    for file in review_files:
         if file.is_file() and file.suffix not in ('.svg', '.png'):
             payload = file.read_bytes()
             if any(needle in payload for needle in needles):
-                raise RuntimeError(f'Public-evidence review required: {file.relative_to(evidence)}')
+                raise RuntimeError(f'Public-evidence review required: {file.relative_to(worktree)}')
     branch = run(['git', 'branch', '--show-current'], worktree)
     if branch != config['branch']:
         raise RuntimeError('Host branch changed unexpectedly')
     run(['git', 'add', '-A', '--', relative, *shared_logs], worktree)
     has_staged = subprocess.run(['git', 'diff', '--cached', '--quiet', '--', relative, *shared_logs], cwd=worktree).returncode == 1
     if has_staged:
-        run(['git', 'commit', '-m', f'Publish Apple M1 campaign through round {round_number}'], worktree)
+        label = config.get('host_label', 'Apple M1')
+        run(['git', 'commit', '-m', f'Publish {label} campaign through round {round_number}'], worktree)
     # Publish previous worker commits too; never rewrite the remote branch.
     run(['git', '-c', 'credential.helper=', '-c', 'credential.helper=!gh auth git-credential',
          'push', 'origin', branch], worktree)
@@ -69,7 +76,7 @@ def main():
     worktree = (ROOT / config['worktree']).resolve()
     if not worktree.is_relative_to(ROOT / 'worktrees') or not worktree.exists():
         parser.error('worktree must exist beneath worktrees/')
-    if not config['campaign_dir'].startswith('experiments/NIGHT-EXPLORATION-001/runs/apple-m1/'):
+    if not re.fullmatch(r'experiments/NIGHT-EXPLORATION-001/runs/(apple-m1|aws-(arm|intel|amd))/[A-Za-z0-9-]+', config['campaign_dir']):
         parser.error('unexpected campaign path')
     runtime = worktree / config['runtime_dir'] / 'status.json'
     out = config_path.with_name(config_path.stem + '-sync-status.json')
@@ -86,6 +93,14 @@ def main():
             latest = max(finished, default=0)
             final = status['status'] not in ('running', 'starting')
             if latest > completed or final:
+                evidence = worktree / config['campaign_dir']
+                evidence.mkdir(parents=True, exist_ok=True)
+                public_runtime = {key: status.get(key) for key in
+                                  ('started_utc', 'deadline_utc', 'status', 'round_limit_seconds',
+                                   'sandbox', 'host_label', 'rounds')}
+                public_runtime['configured_backend'] = config.get('configured_backend', 'unknown')
+                public_runtime['cost_usd'] = None
+                (evidence / 'RUNTIME-SUMMARY.json').write_text(json.dumps(public_runtime, indent=2)+'\n')
                 result = {'checked_utc': now(), 'supervisor_status': status['status'],
                           'through_round': latest, 'branch': config['branch']}
                 try:

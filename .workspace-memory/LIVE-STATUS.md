@@ -84,3 +84,12 @@ See experiments/NIGHT-EXPLORATION-001 for the shared M1/M6 eight-hour plan, laun
 commands, population/measurement rules, and pinned Lemire template/blog/cbitset review.
 All documents/results are prepared for publishing; no overnight run started. User
 wants M6 follow-up using the same five-size definitions and separate host evidence.
+
+
+## 19 October 2026 — AWS overnight launch
+
+Three user-authorized hosts (Intel Sapphire Rapids, AMD Zen 5, ARM Neoverse V2)
+passed SSH preflight; OSS coordinators stopped, five-size baselines running from
+8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
+09:00Lisbon. [Live status](../experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
+completed evidence. No new optimization decision; population counts unchanged.
