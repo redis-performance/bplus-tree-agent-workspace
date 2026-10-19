@@ -41,7 +41,7 @@ Fresh06:26:07 allhosts zeroownedunits/PIDs,OSSstopped,timers08UTC intact.
 ARM024 nativecorrected score-only iterator profile4e43c9f59 complete51commands/970samples.
 Root136file andindependentAMDd42ca4ef2 profileaudits pass. Fixed48rowAA73c9e313f
 qualifiesbothsizes; root235file/AMD41e1ce8cc rawaudits pass. HistoricalEXP005A026
-6bcd8e575 PARK:570correctnesscommands/93.39s, independentlyreviewed4to3maskcodegen,
+6bcd8e575 PARK:570validationcommands/93.39s, independentlyreviewed4to3maskcodegen,
 48primaryrows/all12passmedians−7.766545%/−7.101923%. Root105seal/Intel16f074fbe
 rawaudits pass; missingguards/freshconfirmation/profile. Separateoldreplication, not
 newpopulation; twoARMreplicationsnowPARK. Allbenchmarkphasesclosed; no more launches.

@@ -41,7 +41,7 @@ profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM
 proposal review selected NONE despite qualified controls; all three proposals and
 the conditional implementation dissent are retained. A separate corrected ARM score-only
 iterator baseline qualified both sizes. Exact historical EXP-005 A then passed all
-12 primary blocks (median elapsed−7.77% at100K,−7.10% at1M), after570 correctness
+12 primary blocks (median elapsed−7.77% at100K,−7.10% at1M), after 570 validation
 commands and independently reviewed codegen. This separate replication remains PARK:
 qualified performance guards, fresh confirmation and matched profile are missing.
 The two NONE proposal recommendations are retained; source adoption remains NONE.

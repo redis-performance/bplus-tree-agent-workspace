@@ -604,8 +604,9 @@ fresh confirmation and matched candidate profile prevent acceptance. Static mask
 construction4→3 instructions does not causally explain the7–8% elapsed reduction;
 compiler layout and caller effects remain unresolved. No further phases or retries.
 
-Correctness passed570 commands (four original43 runs,512mode cells,12 full oracles,
-eight expected faults) in93.390s. Root independently reconstructs actual/control
+Validation passed 570 commands in 93.390s: 536 correctness/fault executions
+(four original 43-test runs, 512 mode cells, 12 full oracles and eight expected faults),
+plus 34 preparation, build and inspection commands. Root independently reconstructs actual/control
 66880-byte.text equality from public encoded words; candidate.text66808 bytes. Root
 and AMD40187b32b reviewed codegen before the bound347ec1b7a gate and separate grant.
 Root raw audit checks105 screen seals/20 frozen inputs/all48 rows; independent Intel
