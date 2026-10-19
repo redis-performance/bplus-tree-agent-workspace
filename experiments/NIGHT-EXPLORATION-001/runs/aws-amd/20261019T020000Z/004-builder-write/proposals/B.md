@@ -1,0 +1,5 @@
+# Use fixed metadata when writing a new leaf
+
+Three sequential native Codex analysis passes, not independent agents. Exact inherited model/backend and measured token/USD usage are unavailable. Same frozen source, profiles, assembly, census and fresh A/A evidence.
+
+Hypothesis: exploit the known forward orientation and fixed score base, width and shift while constructing a fresh leaf, eliminating generic per-item metadata loads/branches despite interleaved member writes. Fresh scoped score-write samples are 10.16% at 100K and 3.31% at 1M during one million updates. Builder assembly explicitly reloads width, orientation, base and shift per item. Target only zbtScoreLeafBuild and a private helper if needed. Expected strongest benefit in cache-resident mutation; 1M headroom is limited. Falsify if either declared primary fails 2%, any correctness check fails, or guards/memory regress above 1%. Preserve zero-width, signed-zero bits, little-endian stream, cross-byte writes and member ownership.

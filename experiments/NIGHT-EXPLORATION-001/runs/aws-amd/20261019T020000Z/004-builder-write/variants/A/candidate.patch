@@ -1,0 +1,37 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -963,6 +963,24 @@
+  * creating another one. The function publishes the new address in the ID
+  * table but does not link the leaf into the tree or leaf list.
+  */
++/* Write a score using a new forward leaf's fixed encoding metadata. */
++static inline void zbtScoreWriteForward(unsigned char *data, unsigned int pos,
++                                       unsigned int bits, unsigned int score_shift,
++                                       uint64_t score_base, double score)
++{
++    if (bits == 0) return;
++    uint64_t delta = (zbtScoreToOrdered(score) - score_base) >> score_shift;
++    size_t bitpos = (size_t)pos * bits;
++    size_t byte = bitpos / 8;
++    unsigned int shift = bitpos & 7;
++    uint64_t word;
++    memcpy(&word, data + byte, sizeof(word));
++    word = intrev64ifbe(intrev64ifbe(word) | (delta << shift));
++    memcpy(data + byte, &word, sizeof(word));
++    if (shift && bits > 64 - shift)
++        data[byte + 8] |= delta >> (64 - shift);
++}
++
+ static zbtScoreLeaf *zbtScoreLeafBuild(zbtreeSet *zs, unsigned int count,
+                                        double *scores, zbtBuildElement *eles,
+                                        uint8_t *tags, uint32_t id,
+@@ -1008,7 +1026,8 @@
+     for (unsigned int i = 0; i < count; i++) {
+         size_t item_bytes = zbtElementStorageBytes(&eles[i]);
+ 
+-        zbtScoreLeafWriteScore(leaf, i, scores[i]);
++        zbtScoreWriteForward(leaf->data, i, score_bits, score_shift,
++                             score_base, scores[i]);
+         debugServerAssert(zbtScoreLeafScore(leaf, i) == scores[i]);
+         records -= item_bytes;
+         serverAssert((char *)records - (char *)leaf <=
