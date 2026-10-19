@@ -1,14 +1,8 @@
-# M6 launch handoff
+# Round 1 working handoff
 
-The user authorized overnight execution and Git publication until 09:00 Lisbon,
-19 October 2026. Read WORKER-M6.md and the shared queue/measurement protocol.
-The actual CPU is Apple M6. First run the five-size baseline once, publish its
-status, then profile public rank and qualify a frozen targeted harness.
-
-Use the injected evidence/runtime directories. The external coordinator owns
-commits/pushes; request publication at each milestone and wait for acknowledgement
-without overlapping timings. Source baseline remains unchanged. Start no experiment
-after 07:15 UTC. Final report and handoff are due by 08:00 UTC.
-
-No benchmark results exist for this campaign yet. Infrastructure preflight is in
-progress; initial publication and runner startup will be verified by the launcher.
+Baseline selected by LAUNCH-STATUS.json is baseline-attempt002 and is complete;
+never rerun it. Native/sanitizer checks passed before launcher timing. See its
+SUMMARY.md. Initial baseline/ remains preserved. Next: public rank profiling and
+release assembly at 10K/100K/1M, pre-resolved accumulation diagnostic/census, then one
+frozen calibrated rank harness and A/A. Round ends 02:06:34 UTC; handoff due 02:05:04.
+Baseline src remains unchanged. Coordinator is sole Git writer.
