@@ -16,7 +16,14 @@ experiment folders here, not under another host or the old campaign. Record sour
 and referee hashes. Resume unfinished work from your previous handoff, not from scratch.
 
 Follow the queue and its ceilings. Start with the five-size matrix and targeted rank
-profile/qualification. Only profile-supported hypotheses enter both population steps.
+profile/qualification. Before each implementation population or expensive timing phase,
+check the remote for `exploration/apple-m6-mini-*` branches and main updates. Read the
+latest published M6 STATUS/decision for the same hypothesis and patch; record branch,
+commit, check time and outcome in the M1 STATUS.md. If M6 explicitly discards that
+hypothesis or exact candidate, skip the M1 candidate trial and move to a different
+profile-supported target. An absent branch or missing M6 result is UNKNOWN, not a pass.
+If a matching M6 decision appears during a phase, finish the current bounded child,
+then stop that trial. Do not pool hosts or adopt M6 binary/performance numbers as M1 data. Only profile-supported hypotheses enter both population steps.
 Use independent agents only when session rules allow; otherwise label sequential
 passes. Freeze harness changes in separate commits before comparisons where allowed.
 Keep candidates in isolated worktrees/builds. Never edit the baseline src/ in place.
@@ -37,8 +44,10 @@ upstream PRs/issues, or change the user's environment to defeat a restriction.
 If git writes are denied, record the denial once, save exact patches and hashes, and
 leave commit-based provenance pending. Do not repeatedly retry denied operations.
 
-Workers save evidence and, when possible, commits on the host branch; no automatic
-push or merge. The coordinator publishes reviewed host branches. Raw transcripts and
+Workers save evidence and, when possible, commits on the host branch after each
+validated decision and at every round handoff. Push that host branch when the
+existing credential permits; never push main or merge into it. A failed push is
+recorded once and work continues locally. The coordinator verifies publication. Raw transcripts and
 private paths stay in scratch; public results use generic host descriptions.
 
 Update the host scoreboard after each actual decision. Append compact final entries

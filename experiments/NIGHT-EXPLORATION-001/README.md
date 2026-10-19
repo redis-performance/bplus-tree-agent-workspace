@@ -64,7 +64,10 @@ No worker changes the supervisor, deadline, STOP file or permission settings.
 Each host writes `STATUS.md`, `HANDOFF.md`, and numbered experiment folders under
 its campaign directory. Runtime transcripts stay in ignored `scratch/`. The last
 45 minutes produce `MORNING-REPORT.md`, curated evidence, and a commit on that host's
-branch. Supervisor workers do not push automatically; publish the reviewed branch:
+branch. Commit and push each validated host decision so the other host can read it. The
+M1 worker checks the latest published M6 branch before each candidate trial and
+skips hypotheses explicitly discarded there. An unpushed M6 decision cannot be
+observed remotely; keep the state UNKNOWN until it appears. Publish the host branch:
 
 ```sh
 git push -u origin HEAD

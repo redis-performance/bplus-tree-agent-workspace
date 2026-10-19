@@ -91,6 +91,12 @@ pool samples, copy binaries, or compare M1 baseline directly to M6 candidate as 
 Shared contender identity requires the same patch and harness hashes. If hosts choose
 different candidates, replicate both exact candidates later rather than blending them.
 
+Before starting each M1 candidate timing phase, inspect published M6 host-branch
+status and record the exact revision/time. If M6 has discarded that exact hypothesis
+or candidate, do not spend M1 timing on it. Continue a different profiled experiment.
+An unpublished or incomplete M6 decision is UNKNOWN; never infer agreement. If the
+host commits differ, compare exact patch/harness hashes before calling them matching.
+
 A candidate can be M1-only, M6-only, conflicting, or reproduced on both. Mark NOT RUN
 when the other host has not tested it. Publication records both passing and failing
 workloads and any toolchain differences. Use CPU Performance Engineering MCP for
