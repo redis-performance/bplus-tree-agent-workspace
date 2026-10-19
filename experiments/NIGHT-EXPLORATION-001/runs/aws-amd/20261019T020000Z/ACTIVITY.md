@@ -63,3 +63,5 @@
 - 2026-10-19T04:33:53.429338+00:00: Corrected-adapter AMD baseline exact13e459ff8 passed all7native/sanitizer validation stages and entered fixed120-process timing matrix. Independent audit/chart scripts prepared for distinct baseline identity; no old/new speed claim or retry. Intel original-guard review72553e841 complete; sourceNONE.
 
 - 2026-10-19T04:39:02.477458+00:00: Corrected-adapter AMD baseline complete:7validationstagesPASS,120processes/960rows/240effects;11of40qualified,11short+18othernoisy retained without retries. Separate13e459ff8 chart/manifest published; originalHEAD/source unchanged. Intel matched-profile independent review5bffe4d28 complete with coarse100K/stronger1M directional attribution. AMD host idle; sourceNONE.
+
+- 2026-10-19T04:45:00.190930+00:00: Corrected-adapter baseline-only scan profile1b7d261b0 running under600sCPU2 lease; exactvalidatedFIFO scope/disabledcontrols and fixed6sample+6counter captures. Fresh401–403 AA separately preregistered48rows/300s follows successful profile controls. No candidate authorized or timed; old8fabfailedAA/profilediscrepancy remain unchanged.
