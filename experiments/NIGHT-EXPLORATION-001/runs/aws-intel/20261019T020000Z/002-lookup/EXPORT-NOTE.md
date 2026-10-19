@@ -1,0 +1,1 @@
+Public logs replace the remote operational root with <workspace>; original logs stay on the runner. An initial export caught build-log directory prefixes after the source/validation commit; corrected immediately in the next commit. No address, identity key, credential or hostname was present.
