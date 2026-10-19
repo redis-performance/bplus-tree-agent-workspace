@@ -52,3 +52,5 @@
 2026-10-19T04:31:43.197428+00:00 Matched profilev2 running serially after22 post-B hashes pass. Prepared separate corrected-adapter baseline13e459ff8,actual detached worktree scratch/intel-corrected-adapter and new build/corrected-adapter-intel;1M ops,1200s timing/1800s helper, queued after focused guards. Original8fab binaries/source untouched.
 
 2026-10-19T04:34:28.930026+00:00 Matched SCAN profilev2 completes120 captures in160.31s; sampler67/67 known-work,disabled0,all8 matched-mode semantic controls pass. Helper samples337→316 at100K and419→316 at1M; directional diagnosis only, captured-text denominator limits retained.24 diagnostic+22 original post-phase hashes unchanged. PARK/source NONE persists with24 unresolved original guards; focused validation next.
+
+2026-10-19T04:38:00.615849+00:00 Focused validation339 commands complete,baseline half passed; candidate builds underway. Prepared separate root-approved supplemental refereeec21ce601 with original8fab+B,600s prep+180/480/480s calibration/AA/B caps; full30-cell B follows completed AA regardless qualified count. No supplemental execution; current011 immutable.
