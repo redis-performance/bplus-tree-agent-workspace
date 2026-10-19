@@ -1,0 +1,13 @@
+{
+  "status": "test-harness use-after-free detected by unchanged baseline ASan",
+  "reason": "Initial baseline-only oracle traversed a leaf pointer across public UpdateScore fallback, which may invalidate it. Candidate helper checks never used that branch.",
+  "correction": "Baseline private oracle now calls the existing in-place helper, updates expected value only on success, and retains all helper metadata/headroom/ownership checks. Public fallback correctness remains covered by unchanged pattern and upstream tests.",
+  "raw_evidence": "ignored scratch/m6-update/oracle-attempt001",
+  "sha256": {
+    "repack-oracle.c": "f4beef9297fb1fa63cc2eba2f321d015a49ddd3b906c40c2dbe9b6a0c87fd0b1",
+    "compare.py": "12897e1187b47f0d42ee2dba5e21389eb5fb1c1210847bb7f895bf4e393203d9",
+    "0-repack-san.stderr": "898bd0a6de79b7234f7a7da92470a6decab5b8f7828c5dc052e412ab4718532f",
+    "0-repack-san.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "rerun": "Only corrected private oracle/builds; successful baseline validation reused from recorded commands. Candidates not yet tested."
+}

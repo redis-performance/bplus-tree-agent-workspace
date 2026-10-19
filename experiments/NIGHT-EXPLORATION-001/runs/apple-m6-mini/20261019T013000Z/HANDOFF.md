@@ -67,3 +67,5 @@ No permission or credential changes. PUBLICATION-RECOVERY.json retains the incid
 User also requested continuing intermediate data updates in the chat.
 
 UPDATE baseline calibration75rows and primary A/A48processes COMPLETE. Controls fail narrowly:100K max1.1722%,1M1.5527%, shortest47.336/47.182ms. Three sequential proposal passes/chair choose M6-UPDATE-REPACK-001 for one exploratory primary-only screen; adoption gates remain blocked. Exact candidate/patch identities pending implementation. No independent agents/review.
+
+UPDATE three sequential isolated implementations/native/sanitizer validation COMPLETE. All43 upstream tests per source/build and100 pattern/size/length checks + finite semantic/private repack oracles per source pass. Each candidate private oracle has74 repacks incl6 reversed; no record/ID/ownership/memory changes, headroom rejection leaves bytes intact. Two deliberate faults detected. Corrected baseline control instruction text exactly matches calibrated control. Preserve oracle failure and classifier errata. Chair acknowledgedf8d2badf; candidate freeze publication pending before primary-only exploratory screen.

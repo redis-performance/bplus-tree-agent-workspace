@@ -1,0 +1,53 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3544,6 +3544,37 @@
+  * In that common case only one packed field and possibly maximums above it
+  * change. Return zero when the caller must remove and reinsert the element.
+  */
++/* Re-encode scores without moving member records or changing a leaf ID.
++ * Return zero before writing when the changed arrays do not fit. */
++static int zbtScoreUpdateReencode(zbtScoreLeaf *leaf, unsigned int pos,
++                                  double score)
++{
++    unsigned int count = leaf->n.count;
++    double scores[ZBT_SCORE_LEAF_MAX];
++    for (unsigned int i = 0; i < count; i++)
++        scores[i] = i == pos ? score : zbtScoreLeafScore(leaf, i);
++    uint64_t base;
++    uint8_t width, shift;
++    zbtScoreEncoding(count, scores, leaf->reversed, &base, &width, &shift);
++    size_t score_bytes = zbtScoreLeafScoreBytes(count, width);
++    size_t index_end = offsetof(zbtScoreLeaf, data) + score_bytes +
++                       count * (sizeof(uint16_t) + sizeof(uint8_t));
++    if (index_end > leaf->record_start) return 0;
++    size_t old_score_bytes = zbtScoreLeafScoreBytes(count, leaf->score_bits);
++    memmove(leaf->data + score_bytes, leaf->data + old_score_bytes,
++            count * (sizeof(uint16_t) + sizeof(uint8_t)));
++    leaf->score_base = base;
++    leaf->score_bits = width;
++    leaf->n.score_shift = shift;
++    memset(leaf->data, 0, score_bytes);
++
++    for (unsigned int i = 0; i < count; i++) {
++        zbtScoreLeafWriteScore(leaf, i, scores[i]);
++        debugServerAssert(zbtScoreLeafScore(leaf, i) == scores[i]);
++    }
++    return 1;
++}
++
+ static int zbtScoreUpdateInPlace(zbtScoreLeaf *leaf, unsigned int pos,
+                                  double score, const unsigned char *ele,
+                                  size_t elelen)
+@@ -3576,7 +3607,11 @@
+     }
+ 
+     uint64_t delta;
+-    if (!zbtScoreLeafPackScore(leaf, score, &delta)) return 0;
++    if (!zbtScoreLeafPackScore(leaf, score, &delta)) {
++        if (!zbtScoreUpdateReencode(leaf, pos, score)) return 0;
++        if (pos + 1 == leaf->n.count) zbtScoreUpdatePath(&leaf->n, 0);
++        return 1;
++    }
+ 
+     if (leaf->score_bits) {
+         unsigned int physical = zbtScoreLeafPhysicalPos(leaf, pos);
