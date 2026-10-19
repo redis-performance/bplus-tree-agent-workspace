@@ -15,14 +15,17 @@ Source selection **NONE**. Baseline tree/referee hashes match launch-manifest.js
 Lookup referee/profile identity in004-lookup/freeze.json. Both sampler controls pass;
 4/6 profiles meet minimum25 samples;10K/100K misses insufficient and not repeated.
 40 semantic size cells,24 length cells,4 invalid cases and2 deliberate faults pass.
-Profiles identify existing memchr region, no novel supported single-query fix yet.
-Next once-only baseline calibration/A/A then three sequential proposals/chair.
+Profiles identify existing memchr region, assembly supports direct physical-slot score decoding.
+Calibration30 rows and A/A48 rows complete.100K qualifies;1M fails4.184% maximum.
+Three sequential proposals/chair choose M6-LOOKUP-PHYSICAL-001: avoid redundant
+physical/logical mapping on score output, retaining memchr. [Chair](004-lookup/selection.md).
+Next three isolated implementations then fixed exploratory dual-primary screen.
 No agents spawned or independence claimed. Visible backend Codex/GPT-6 family;
 exact serving variant/cost unknown. Supervisor usage is separate from cost.
 
 Publication: update final decision25a44adc acknowledged; round3 partial snapshot
-f07e217e is current HEAD but ack file remains previous matching request. This milestone
-requests profile/referee freeze before timing; coordinator alone writes Git.
+f07e217e is current HEAD but ack file remains previous matching request. Profile/referee freeze acknowledged e18d69d0 before timing; this milestone
+requests chair publication before implementations; coordinator alone writes Git.
 Cached M1 branch4c48fa7e inspected for context; its lookup chairNONE, separate host
 numbers. Prior remote DNS failure retained, no credential or permission changes.
 Git worktree denied once previously; isolated copied builds remain the fallback.

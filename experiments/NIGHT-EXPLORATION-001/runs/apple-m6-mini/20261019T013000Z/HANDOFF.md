@@ -18,3 +18,10 @@ Coordinator alone commits/pushes. Only atomic publish-request.json writes then5s
 poll<=120s; no builds/tests/profiles/timings in barrier. Git worktree denied previously,
 never retry or bypass. No supervisor/STOP/deadline/permission/upstream changes.
 Final handoff at least90s before02:55:27. Campaign cutoff07:15,deadline08:00 UTC.
+
+Round4 progress: profile/referee ack e18d69d0. Calibration30rows/A/A48rows done;
+100K qualifies,1M fails4.184%. Three sequential proposal passes/chair now select
+M6-LOOKUP-PHYSICAL-001 in004-lookup/selection.md, a distinct score decode mechanism
+retaining memchr. Next acknowledge chair then three copied source/build variants,
+original/targeted native+sanitizer tests, publish candidate freeze, fixed screen.
+Never rerun calibration/A/A. All source/referee hashes unchanged.
