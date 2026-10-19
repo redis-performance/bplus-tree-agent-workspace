@@ -1398,3 +1398,12 @@ All 11 predeclared diagnostic cells are short. Independent Intel review agrees.
 Held-out confirmation is ineligible; fixed diagnostic comparisons retain all cases
 without retries or retuning. Primary −7.78% / −7.21% remains scoped evidence, not adoption.
 Source NONE; historical population counts unchanged.
+
+### ARM follow-up: original comparison PARK, 09:32 UTC
+
+[Result and immutable reviews](ARM-MASK-FOLLOWUP-001/RESULTS.md): 120 processes /
+960 rows, 17 qualified guard passes and one mixed 100-member SCAN (+1.478% in one
+block, five improvements). Eleven noisy required controls and 11 short diagnostics
+remain unqualified. Root/Intel audits agree. Fixed 82-cell iterator controls granted;
+no automatic comparison or profile. PARK/NONE, held-out confirmation blocked;
+no new population and historical counts unchanged. Lease ends 10:15 UTC.

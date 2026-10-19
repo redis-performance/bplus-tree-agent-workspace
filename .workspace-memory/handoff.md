@@ -1,20 +1,20 @@
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
-## Active ARM follow-up — 19 October 09:18 UTC
+## Active ARM follow-up — 19 October 09:32 UTC
 
-Fresh primary controls53e193c5b and exactcandidate451456c2f pass all12blocks; medians
-−7.780706% at100K / −7.212021% at1M, outputs/memory unchanged. Root/AMDaf0bb499a verify.
-Original-AA1329e440a completes120processes/960rows:18/29 required qualify,11 precision
-failures (none short); all11diagnostics short. Root/Intel0981f4afa agree. OverallPARK,
-acceptance blocked and heldoutconfirmation ineligible; qualifiedguardloss can REJECT.
-Main78071092f grants only600s original-comparison,120process/960rows fixeddiagnostic,
-no retries/retuning/auto progression. All40cases retained; onlyqualified18 comparisons
-calibrated. Remaining82iteratorguards/profile only iffullcapsfit beforehard10:15UTC.
-Profile0a1040780 reviewedroot/AMDa793d9fde (23inputs/104commands/600s), no workloadgrant.
-Correctnesscomposite preserves originalFAILED8cdebdcba+six-only19fd53594;2048modes,
-4original43/12oracles/14faults, exactsources/referees/binaries. No newpopulation/source.
-New ARM-only lease ACTIVE; independentrestore timer/localauditor armed. Rootmusthandback
-andverifyliveproof earlywhenfinished orby10:15UTC/11:15Lisbon. Intel/AMDhostsreleased.
-Historical8AWS populations0accepted/5rejected/3parked unchanged. No upstream actions.
+Fresh primary controls53e193c5b and candidate451456c2f pass all12blocks; medians
+−7.780706% at100K / −7.212021% at1M, identical outputs/memory. Root/AMD verify.
+Original controls1329e440a qualify18/29 required;11 noisy required +11 short diagnostic
+cells remain unresolved. Comparison4c7668661:17 qualified passes,100-member SCAN mixed
+(one +1.477795% block,five small improvements). Root/Intel73f66fe89 raw audits agree.
+PARK/source NONE; acceptance/heldout confirmation blocked. Qualified losses can REJECT.
+Root e522a7bf8 grants only fixed iterator-AA:1968 baseline processes/82 cells,1500s,
+60s children, CPU2, freeze380ef3109. No retries/retuning/automatic next phase. Full cap
+plus20s must fit10:15UTC. Matched profile0a1040780 reviewed but not yet granted.
+Correctness composite preserves originalFAILED8cdebdcba + six-only19fd53594;2048 modes,
+4original43/12oracles/14faults. No new population/source. Historical AWS8:0accepted,
+5rejected,3parked unchanged. ARM-only lease ACTIVE; independent restore timer and
+local auditor armed. Root must verify live handback early when finished or10:15UTC /
+11:15Lisbon. Intel/AMD remain released. No upstream actions.
 [Results](../experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md) · [Live status](../experiments/ARM-MASK-FOLLOWUP-001/STATUS.md).
 <!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
 
