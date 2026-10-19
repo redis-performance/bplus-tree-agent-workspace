@@ -47,3 +47,5 @@ This is operational preparation, not an optimization decision. Counts unchanged.
   unmeasured exact-mask proposal withdrawn. Intel screen continues.
 
 - 2026-10-19T02:15:14.416994+00:00: aws-intel running at `46a052e8`: SSE2 lookup population build; A/A partial qualification; aws-amd running at `865beadd`: LOWERBOUND-001 REJECT/NONE; one scoped diagnostic pending; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
+
+- 2026-10-19T02:15:50.935137+00:00: aws-intel running at `b8945b4d`: lookup REJECT/NONE; preparing update-path profile; aws-amd running at `865beadd`: LOWERBOUND-001 REJECT/NONE; one scoped diagnostic pending; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
