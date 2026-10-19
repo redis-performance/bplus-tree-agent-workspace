@@ -50,3 +50,7 @@
 2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.
 
 2026-10-19T04:02:29.576462+00:00: Rootchaird57515154 selects nativeARM SCANNONE beforeimplementation; independent48row/12block/107fileaudit passes. Rewrote currentSTATUS/HANDOFF/README toremove supersedednextsteps; chronologicalACTIVITY/Git retained. ARMrunneridle byrootdirection; reviewavailability continues; fleetrelease08:00UTC notyetverified.
+
+## 2026-10-19T04:31:25.644129+00:00 — Supplemental SCAN referee
+
+011-scan-supplement frozen after378 baseline commands/90 models/180 census cells passed native and sanitizer. Natural active resize and small complete reversal at8/319/320/321/1024 boundaries;319 has no full16 chunk. No performance measurements, sourceNONE/counts unchanged. Pre-freeze failures retained. Exact selectedB native ARM correctness queued, then isolated corrected-adapter baseline requalification. Original007/8fab builds remain immutable.

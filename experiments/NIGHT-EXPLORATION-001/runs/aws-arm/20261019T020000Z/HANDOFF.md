@@ -48,3 +48,7 @@ independent review through reportingwindow. Independent confirmation, qualifiedg
 are mandatory before any adoption. Never pool architecturetimings or rankidenticalcode.
 Chronological actions and superseded interpretations remain inACTIVITY, immutable reports
 andGit. Exactservingmodel and token/monetarycost unknown; do not infer them.
+
+## 2026-10-19T04:31:25.644129+00:00 — Supplemental SCAN referee
+
+011-scan-supplement frozen after378 baseline commands/90 models/180 census cells passed native and sanitizer. Natural active resize and small complete reversal at8/319/320/321/1024 boundaries;319 has no full16 chunk. No performance measurements, sourceNONE/counts unchanged. Pre-freeze failures retained. Exact selectedB native ARM correctness queued, then isolated corrected-adapter baseline requalification. Original007/8fab builds remain immutable.

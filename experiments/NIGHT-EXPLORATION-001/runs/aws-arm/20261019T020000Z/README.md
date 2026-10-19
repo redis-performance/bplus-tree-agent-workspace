@@ -30,3 +30,7 @@ Focusedguards retain all36cells andseeds101–103; all descendingfixtures expose
 correctness, not active-resizeperformance. Allrawrows, failures, losingpatches and
 provenance remainpublished; large rawperfdata remainsrunner-local withSHA256. Historical
 externalCLI failures are preserved separately. Exactmodel/token/monetarycost unknown.
+
+## 2026-10-19T04:31:25.644129+00:00 — Supplemental SCAN referee
+
+011-scan-supplement frozen after378 baseline commands/90 models/180 census cells passed native and sanitizer. Natural active resize and small complete reversal at8/319/320/321/1024 boundaries;319 has no full16 chunk. No performance measurements, sourceNONE/counts unchanged. Pre-freeze failures retained. Exact selectedB native ARM correctness queued, then isolated corrected-adapter baseline requalification. Original007/8fab builds remain immutable.
