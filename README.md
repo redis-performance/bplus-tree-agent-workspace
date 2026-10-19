@@ -165,7 +165,8 @@ with qualified same-session A/A controls. B advances under the predeclared sourc
 preference: median elapsed changes−6.665% and−3.661%. This is **discovery only**;
 full guards, fresh confirmation and matched profiles remain. Source stays unchanged.
 [Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),
-[decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
+[decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
+[independent adversarial review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/9b6e529b5/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/010-intel-scan-review/ADVERSARIAL-REVIEW.md).
 
 ![Intel scan discovery: all six paired blocks, qualified controls and observed ranges; source unchanged](experiments/NIGHT-EXPLORATION-001/latest-charts/intel-scan-discovery.png)
 

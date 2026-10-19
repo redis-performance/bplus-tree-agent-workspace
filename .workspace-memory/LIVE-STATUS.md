@@ -1,3 +1,22 @@
+<!-- AWS-CURRENT-START -->
+## Current AWS overnight checkpoint — 19 October 04:03 UTC
+
+Campaign remains active until19October09:00Lisbon/08:00UTC; no new experiments after
+07:15UTC. Source remains original8fab511e. Completed measured populations:7,
+0 accepted/4 rejected/3 parked; separate ARM iterator replication PARK. AMD deletion
+and native ARM scan stopped at chairNONE after failed controls, before implementation.
+Intel exact scan B primary discovery qualifies; full original controls are finishing,
+then an explicit idle-runner handoff to AMD for independently authored confirmation
+using untouched201–203. Subsequent guards/profile remain prepared and must run serially.
+AMD/ARM own runners are idle and reserved, not released. Three OSS coordinators were
+stopped for this campaign;08:00UTC host timers and independent live auditor are armed,
+but successful restoration is NOT YET verified. Do not report completion before proof.
+
+Latest decisions/activity: [AWS ledger](../experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
+[live workers](../experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
+Native participant backend/model/token/USD costs are unknown. No upstream actions.
+<!-- AWS-CURRENT-END -->
+
 # Live status — round20 final handoff, 2026-10-18 UTC
 
 ## Latest completed task: EXP-007 bulk specialization

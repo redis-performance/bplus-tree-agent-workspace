@@ -117,3 +117,14 @@ All proposals/profile/controls remain. No candidate or new measured population.
 [raw audit](reviews/aws-arm-native-scan-aa-audit.json).
 Intel B remains in follow-up; independent untouched-seed confirmation will run only
 after its current baseline guard job explicitly hands over the idle runner.
+
+
+## 19 October 04:03 UTC — Independent review and confirmation handoff preparation
+
+AMD independently reviewed exact Intel B discovery and frozen focused referee, published
+9b6e529b5. No semantic or discovery-parity blocker found; incomplete/noisy guards and
+missing confirmation/profile still preclude adoption. One actual reviewer; no fabricated
+panel, serving model or cost. Confirmation protocol5c29cb07f reserves fresh201–203,
+48 baseline A/A processes then conditionally48 B processes,300s per phase. No Intel
+access or held-out execution before explicit idle handoff. ARM and AMD own runners
+are idle; they have not been released to OSS yet.
