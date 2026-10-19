@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-19T02:32:05.082316+00:00",
+  "reviewer": "Interactive root agent; separate from implementation worker; exact serving model and token cost unknown",
+  "scope": "Read-only review of three physical-slot decoder patches; no timing, independent test execution, full adversarial acceptance review or portability claim",
+  "patch_sha256": {
+    "A": "8494a0bed382ab1e4a3e5d70de3c2bbccf14423fd58a3839c8880389aa9744e7",
+    "B": "b1ca29ae4594f00e0e5d5761462e9c1058d5249fde5708ad761c7329a91ec513",
+    "C": "54da84d4a148719cd0cd914ba204227ca920b22ce8a0df23c1096c987f7e7060"
+  },
+  "findings": [
+    {
+      "severity": "review note",
+      "variant": "A",
+      "detail": "Shared logical decoder now maps logical to physical before entering the physical helper, while the old helper skipped mapping for zero-width scores. Semantics remain consistent for valid positions, but check generated callers and non-lookup/zero-width performance guards."
+    },
+    {
+      "severity": "validation requirement",
+      "variant": "B",
+      "detail": "Existing zbtReadBits must match the original specialized decoder at all supported finite-score widths and tails, including full 64-bit and reversed leaves."
+    },
+    {
+      "severity": "maintenance note",
+      "variant": "C",
+      "detail": "Local physical decoder duplicates the original bit-loading logic; future changes would need consistency across both copies."
+    }
+  ],
+  "semantic_observation": "The physical index passed to score decoding is the same slot used for tag and member matching. Position output still maps physical to logical on request. No record, index, hashing or allocator mutation is added by these patches.",
+  "blocking_semantic_issue_found_in_patch_read": false,
+  "acceptance": "Still requires complete correctness evidence, full guards, qualified controls, fresh confirmation, mechanism profiling and full adversarial review."
+}

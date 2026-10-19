@@ -1,0 +1,81 @@
+{
+  "identity": "M6-COUNTER-CAPABILITY-001",
+  "declared_utc": "2026-10-19T04:34:30.092746+00:00",
+  "classification": "Capability and self-only counter qualification preparation; no tree optimization or benchmark precision claim",
+  "status": "NO RECORDING OR PROBE EXECUTION AUTHORIZED",
+  "allowed_now": [
+    "read-only tool help/version/standard-template recording-options schema",
+    "compile frozen known-work probe after013finished; do not run it"
+  ],
+  "root013_finished_utc": "2026-10-19T04:29:29.623856+00:00",
+  "templates": {
+    "CPU Counters": "advertised; EL0 guided CPU Bottlenecks; actual hardware event data/permission/scope unknown",
+    "CPU Profiler": "advertised; cycle-weighted profiler documented by Apple; local support/permission unknown",
+    "Processor Trace": "advertised; specialized support/settings required; excluded from initial driver"
+  },
+  "powermetrics": "HELP ONLY. No process-selection filter shown; default/tasks would include unrelated processes. Excluded from driver.",
+  "bootstrap": {
+    "template": "CPU Counters",
+    "launch_target": "only own frozen standalone counter-probe",
+    "case": "alu",
+    "items": 268435456,
+    "seed": 1,
+    "expected_checksum": 9087321014236724183,
+    "checksum_provenance": "root GF(2) 64-column transition-matrix exponentiation, independent of the C loop; no probe execution",
+    "startup_sleep_ms": 250,
+    "time_limit_seconds": 4,
+    "process_wall_limit_seconds": 60,
+    "collection_wait_limit_seconds": 51,
+    "output_drain_limit_seconds": 8,
+    "recorder_reap_limit_seconds": 1,
+    "own_probe_alarm_seconds": 6,
+    "own_target_exit_observation_seconds": 8,
+    "target_cleanup": "Record/reap only own recorder group; broker-launched probe writes private start/completed PID markers and starts self-alarm before work. Observe only exact marker PID disappearance, never general process sweeps/kills. Missing marker/exit means exclusive runner release is not safe.",
+    "private_trace_watchdog_bytes": 268435456,
+    "trace_size_limit_note": "Polling soft stop, not a filesystem quota; post-stop size retained, no hard byte guarantee",
+    "no_prompt": true,
+    "no_elevation_or_settings_changes": true,
+    "no_attach_or_all_processes": true,
+    "stop_after": "record return + private TOC export; public schema names only; root scope/unit review before counter-row exports"
+  },
+  "future_qualification": {
+    "status": "PLAN ONLY; not automated/authorized by bootstrap",
+    "fixed_cases": [
+      {
+        "case": "idle",
+        "items": 0,
+        "scope_sleep_ms": 1000,
+        "expected_checksum": 1,
+        "repetitions": 2
+      },
+      {
+        "case": "alu",
+        "items": 268435456,
+        "seed": 1,
+        "expected_checksum": 9087321014236724183,
+        "repetitions": 2
+      },
+      {
+        "case": "alu",
+        "items": 536870912,
+        "seed": 1,
+        "expected_checksum": 16730757284781413201,
+        "repetitions": 2
+      }
+    ],
+    "bootstrap_counts_as": "first small-ALU capture, never discarded or replaced",
+    "gates": [
+      "counter permission/configuration succeeds without prompts/escalation",
+      "export schema has declared units and own PID/thread scope",
+      "scope interval visible and setup excluded",
+      "exact fixed checksum agrees with root GF(2) matrix-exponentiation expectation independent of C loop",
+      "nonzero finite native counter values for ALU; idle low activity or report insufficient",
+      "if retired instructions available, N:2N counts within1.8..2.2 after exact scoped aggregation; percentages alone cannot satisfy this",
+      "repeat checksum/counter direction consistent; no power/frequency/cycle claims from PC positions"
+    ],
+    "no_retry": "Any denied/unavailable/timeout bootstrap preserved; no permission workaround or repeat without a separately reviewed new hypothesis"
+  },
+  "authorization": "Root and independent review + published exact freeze + exclusive runner + explicit own-target/template/byte-limit acceptance ACK required before bootstrap",
+  "participant": "/root/followup_proposal_b",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/cost unknown"
+}

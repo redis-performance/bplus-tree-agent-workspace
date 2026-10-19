@@ -1,0 +1,164 @@
+{
+  "status": "PASS final static review and bounded offline controls",
+  "driver_sha256": "fe85c39cca228b89b34b9599d314c8a5a44c11866d64d76cea8dbb68eb0cc43a",
+  "controls": [
+    {
+      "control": "aa independently rebuilt exact schedule",
+      "status": "PASS",
+      "processes": 48
+    },
+    {
+      "control": "discovery independently rebuilt exact schedule",
+      "status": "PASS",
+      "processes": 144
+    },
+    {
+      "control": "valid scan CSV contract",
+      "status": "PASS"
+    },
+    {
+      "control": "wrong seed",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "wrong warmup",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "actual callback mismatch",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "checksum below exact minimum",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "owned bytes invalid",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "rounded-rate mismatch",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "nonfinite numeric field",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "private stderr failure",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "within-ABBA owned memory fingerprint mismatch",
+      "status": "REJECTED as required"
+    },
+    {
+      "control": "short window denies A/A",
+      "status": "PASS"
+    },
+    {
+      "control": "exact A/A boundary",
+      "exact_percent": "1",
+      "reported_percent": 1.0,
+      "expected_qualified": true,
+      "actual_qualified": true,
+      "status": "PASS"
+    },
+    {
+      "control": "exact A/A boundary",
+      "exact_percent": "-1",
+      "reported_percent": -1.0,
+      "expected_qualified": true,
+      "actual_qualified": true,
+      "status": "PASS"
+    }
+  ],
+  "native_executions": 0,
+  "driver_imported": false,
+  "method": "AST extracted only pure parse/derive and fingerprint constants; temporary synthetic CSVs removed; no subprocess/process/signal paths executed",
+  "participant": "/root/followup_proposal_c",
+  "backend": "Inherited Codex/GPT-6 family; exact model/token/currency cost unknown",
+  "timing_plan_sha256": "d4b84f5373ff4d92e69568fd317587d3aab6b5c33c689a3f4a984031b6863cf4",
+  "schedule_sha256": {
+    "aa": "4eb8fc2b276e2ad890673cbc7490a2e3df9ac724542ee015e30caa13b33aebb8",
+    "discovery": "0f359dddc06b3a861d47436bb35bfff563319afaca7dc42c243e27a2249880af"
+  },
+  "prior_defect": {
+    "driver_sha256": "4cac30ffafdcb8f9b5b243175def87e49b099dee074a2f1d077e8db8d3bbcb08",
+    "description": "Float ratios incorrectly reject exact\u00b11% A/A boundaries; author preserved original then changed predicates to exact integer elapsed sums, valid because all4 operations fingerprints agree",
+    "boundary_controls": [
+      {
+        "candidate_elapsed_ns": 101000000,
+        "expected_AA": true,
+        "old_AA": false,
+        "new_AA": true,
+        "old_percent": 1.0000000000000009,
+        "new_percent": 1.0
+      },
+      {
+        "candidate_elapsed_ns": 99000000,
+        "expected_AA": true,
+        "old_AA": false,
+        "new_AA": true,
+        "old_percent": -1.0000000000000009,
+        "new_percent": -1.0
+      },
+      {
+        "candidate_elapsed_ns": 101000001,
+        "expected_AA": false,
+        "old_AA": false,
+        "new_AA": false,
+        "old_percent": 1.000001000000017,
+        "new_percent": 1.000001
+      },
+      {
+        "candidate_elapsed_ns": 98999999,
+        "expected_AA": false,
+        "old_AA": false,
+        "new_AA": false,
+        "old_percent": -1.000001000000006,
+        "new_percent": -1.000001
+      }
+    ]
+  },
+  "primary_boundary_controls": [
+    {
+      "candidate_elapsed_ns": 98000000,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "candidate_elapsed_ns": 98000001,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "candidate_elapsed_ns": 97999999,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "reviewer_independence": "C prepared source snapshots; B authored timing driver. This independently reviews timing logic, not C source authorship.",
+  "static_checks": {
+    "all48AA_complete_despite_relative_noise": true,
+    "discovery_requires_complete48_and_all12AA_qualified": true,
+    "same_freeze_AA_and_discovery": true,
+    "exact_schedule_seed_rotation_ABBA": true,
+    "minimal_IDENTICAL_environment": true,
+    "within_quad_and_AA_fixture_callback_checksum_memory_parity": true,
+    "parent_alarm_covers_derive_serialize_identity_checks": true,
+    "owned_group_TERM_KILL_reap_empty_and_signal_deferred_journal": true,
+    "no_overwrite_retry_calibration_build_profile_path": true,
+    "unpinned_macOS_explicit": true,
+    "absolute0715UTC_and300s_phase_bound": true,
+    "every_block_primary_gate_and_BCA_maintenance_order_only": true,
+    "source_adoption_NONE": true
+  },
+  "limitations": [
+    "No native/executable/build/process/signal/benchmark path executed; only pure AST functions and temporary synthetic CSVs.",
+    "Actual build/native validation and final freeze assembly/publication remain root/A work before timing.",
+    "Scan row aggregates alone do not reconstruct duplicate member identities; frozen built-in byte/score/coverage oracle and native validation provide that semantic coverage.",
+    "No causal core/frequency claim from endpoints; no cross-host timing transfer."
+  ],
+  "initial_control_note": "Initial control result header still said NEEDS_REVISION, but all boundary checks had already read the author-fixedfe85 version and passed. Final comparison explicitly reconstructs preserved4cac old failures versus fixed predicates."
+}

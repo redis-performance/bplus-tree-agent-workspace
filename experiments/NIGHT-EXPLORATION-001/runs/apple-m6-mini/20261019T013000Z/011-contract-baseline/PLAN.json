@@ -1,0 +1,47 @@
+{
+  "declared_utc": "2026-10-19T03:58:55.947767+00:00",
+  "purpose": "Baseline requalification after truthful standalone panic contract correction; not a tree optimization",
+  "source_c_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "source_h_sha256": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+  "adapter": {
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3"
+  },
+  "sizes": [
+    100,
+    1000,
+    10000,
+    100000,
+    1000000
+  ],
+  "cases": [
+    "insert",
+    "lookup-hit",
+    "lookup-miss",
+    "rank",
+    "iterate",
+    "scan",
+    "update",
+    "delete"
+  ],
+  "member_bytes": 16,
+  "requested_ops": 1000000,
+  "schedule": "Six same-binary ABBA blocks; seeds1/2/3 twice; serial.120processes/960rows, exactly original baseline inventory.",
+  "compiler": "Apple Clang21, -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3; same hashing/libc allocator/assertion policy",
+  "validation": "Original43 native and sanitizer tests plus five-size sanitizer benchmark checks before timing",
+  "budgets": {
+    "wall_seconds": 600,
+    "child_seconds": 30,
+    "absolute_stop_utc": "2026-10-19T04:20:00Z"
+  },
+  "qualification": {
+    "max_abs_aa_pct": 1,
+    "min_window_ms": 10,
+    "all_six_blocks_required": true
+  },
+  "rules": "One attempt. Preserve all rows/failures. No old timing carried over, no retuning/reruns after effects. Unresolved noise means unqualified; adapter correctness and source-optimization acceptance are separate.",
+  "build_directory": "scratch/m6-contract-baseline/build",
+  "output": "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/matrix",
+  "prerequisite": "Separate reviewed adapter correction commit acknowledged before launch; all agents/builds/tests/profiles/publisher idle during comparative windows.",
+  "source_optimization": "NONE"
+}

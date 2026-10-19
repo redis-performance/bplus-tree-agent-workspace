@@ -1,0 +1,431 @@
+{
+  "reviewer": "/root/followup_proposal_c",
+  "authored_variant": "C",
+  "independent_review_scope": [
+    "A",
+    "B"
+  ],
+  "own_C_independence": false,
+  "backend": "GPT-6/Codex family",
+  "exact_model": null,
+  "token_usage": null,
+  "monetary_cost": null,
+  "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "variants": {
+    "A": {
+      "source_sha256": "b7bc3db493c4a303291296d005c00e9393b8fcd5499d89618b52cec0fe17b468",
+      "patch_sha256": "5c289277b972c056416fdab7a7322d5c089f1fed5e6c64b3d688c099b2c5770a",
+      "patch_reconstructs": true,
+      "decoder_identical": true,
+      "original_scanner_body_identical": true,
+      "referee_support_identical": {
+        "src/zset_btree.h": true,
+        "tests/upstream.c": true,
+        "compat/standalone.c": true,
+        "compat/server.h": true,
+        "vendor/redis/siphash.c": true,
+        "bench/microbench.c": true,
+        "Makefile": true
+      },
+      "validation_status": "PASS",
+      "recorded_commands": 53,
+      "all_returncodes_zero": true,
+      "oracle_does_not_link_second_tree": true,
+      "scoreRaw": {
+        "instructions": 601,
+        "first": "sub\tsp, sp, #0xf0",
+        "memchr_sites": 2,
+        "memcmp_sites": 2
+      },
+      "broader_codegen": {
+        "_zbtreeScoreRaw": {
+          "instructions": 601,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0xf0"
+          ]
+        },
+        "_zbtreeScores": {
+          "instructions": 770,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0x160"
+          ]
+        },
+        "_zbtreeFindForAdd": {
+          "instructions": 1007,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0x130"
+          ]
+        },
+        "_zbtreeInsert": {
+          "instructions": 0,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": []
+        },
+        "_zbtreeUpdateScore": {
+          "instructions": 438,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0x90"
+          ]
+        },
+        "_zbtreeRank": {
+          "instructions": 710,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0x100"
+          ]
+        },
+        "_zbtScoreLeafFindMember": {
+          "instructions": 0,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": []
+        }
+      },
+      "all_emitted_instructions": 18972,
+      "recorded_log_hashes_checked": 106,
+      "log_hash_mismatches": [],
+      "frozen_support_file_count": 54,
+      "frontends_hash_match": {
+        "referee/lookup-bench.c": true,
+        "referee/physical-oracle.c": true
+      },
+      "binary_hash_mismatches": [],
+      "current_root_support_differences": [
+        "bench/night-rank.c",
+        "tests/test_night_publication.py"
+      ],
+      "pinned_source_support_mismatches": []
+    },
+    "B": {
+      "source_sha256": "0375470bbbcbf5e88bc1c307b3270dd35f3ea94b38fd0d073543635b83c953a8",
+      "patch_sha256": "b8751d676876bd7d28ff618cf8c1668517a17fee004d33ab7ae6b36eb3966a2b",
+      "patch_reconstructs": true,
+      "decoder_identical": true,
+      "original_scanner_body_identical": true,
+      "referee_support_identical": {
+        "src/zset_btree.h": true,
+        "tests/upstream.c": true,
+        "compat/standalone.c": true,
+        "compat/server.h": true,
+        "vendor/redis/siphash.c": true,
+        "bench/microbench.c": true,
+        "Makefile": true
+      },
+      "validation_status": "PASS",
+      "recorded_commands": 51,
+      "all_returncodes_zero": true,
+      "oracle_does_not_link_second_tree": true,
+      "scoreRaw": {
+        "instructions": 601,
+        "first": "sub\tsp, sp, #0xf0",
+        "memchr_sites": 2,
+        "memcmp_sites": 2
+      },
+      "broader_codegen": {
+        "_zbtreeScoreRaw": {
+          "instructions": 601,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0xf0"
+          ]
+        },
+        "_zbtreeScores": {
+          "instructions": 770,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0x160"
+          ]
+        },
+        "_zbtreeFindForAdd": {
+          "instructions": 704,
+          "generic_leaf_calls": 2,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0xe0"
+          ]
+        },
+        "_zbtreeInsert": {
+          "instructions": 0,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": []
+        },
+        "_zbtreeUpdateScore": {
+          "instructions": 438,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0x90"
+          ]
+        },
+        "_zbtreeRank": {
+          "instructions": 443,
+          "generic_leaf_calls": 2,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0xc0"
+          ]
+        },
+        "_zbtScoreLeafFindMember": {
+          "instructions": 159,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 1,
+          "frame": [
+            "sub\tsp, sp, #0x90"
+          ]
+        }
+      },
+      "all_emitted_instructions": 18365,
+      "recorded_log_hashes_checked": 102,
+      "log_hash_mismatches": [],
+      "frozen_support_file_count": 54,
+      "frontends_hash_match": {
+        "referee/lookup-bench.c": true,
+        "referee/physical-oracle.c": true
+      },
+      "binary_hash_mismatches": [],
+      "current_root_support_differences": [
+        "bench/night-rank.c",
+        "tests/test_night_publication.py"
+      ],
+      "pinned_source_support_mismatches": []
+    },
+    "C": {
+      "source_sha256": "53b5891f65ecf589cdf3fd74043d4ce965ba9088dc0550d2aa11dbdf6e8ae7b0",
+      "patch_sha256": "8d179f9342ec0dfbfa1af9435bed612f1bb9cfad5f2c9ab047a16b2fbdb97383",
+      "patch_reconstructs": true,
+      "decoder_identical": true,
+      "original_scanner_body_identical": true,
+      "referee_support_identical": {
+        "src/zset_btree.h": true,
+        "tests/upstream.c": true,
+        "compat/standalone.c": true,
+        "compat/server.h": true,
+        "vendor/redis/siphash.c": true,
+        "bench/microbench.c": true,
+        "Makefile": true
+      },
+      "validation_status": "PASS",
+      "recorded_commands": 55,
+      "all_returncodes_zero": true,
+      "oracle_does_not_link_second_tree": true,
+      "scoreRaw": {
+        "instructions": 601,
+        "first": "sub\tsp, sp, #0xf0",
+        "memchr_sites": 2,
+        "memcmp_sites": 2
+      },
+      "broader_codegen": {
+        "_zbtreeScoreRaw": {
+          "instructions": 601,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0xf0"
+          ]
+        },
+        "_zbtreeScores": {
+          "instructions": 770,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 2,
+          "frame": [
+            "sub\tsp, sp, #0x160"
+          ]
+        },
+        "_zbtreeFindForAdd": {
+          "instructions": 704,
+          "generic_leaf_calls": 2,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0xe0"
+          ]
+        },
+        "_zbtreeInsert": {
+          "instructions": 0,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": []
+        },
+        "_zbtreeUpdateScore": {
+          "instructions": 438,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0x90"
+          ]
+        },
+        "_zbtreeRank": {
+          "instructions": 443,
+          "generic_leaf_calls": 2,
+          "memchr_calls": 0,
+          "frame": [
+            "sub\tsp, sp, #0xc0"
+          ]
+        },
+        "_zbtScoreLeafFindMember": {
+          "instructions": 159,
+          "generic_leaf_calls": 0,
+          "memchr_calls": 1,
+          "frame": [
+            "sub\tsp, sp, #0x90"
+          ]
+        }
+      },
+      "all_emitted_instructions": 18365,
+      "recorded_log_hashes_checked": 110,
+      "log_hash_mismatches": [],
+      "frozen_support_file_count": 54,
+      "frontends_hash_match": {
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/lookup-bench.c": true,
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/physical-oracle.c": true
+      },
+      "binary_hash_mismatches": [],
+      "current_root_support_differences": [
+        "bench/night-rank.c",
+        "tests/test_night_publication.py"
+      ],
+      "pinned_source_support_mismatches": []
+    }
+  },
+  "static_comparisons": {
+    "AB": {
+      "function": "zbtreeScoreRaw",
+      "same_after_relocation_normalization": false,
+      "same_after_relocation_and_panic_source_line_normalization": true,
+      "remaining_diff": [],
+      "whole_program_common_functions": 94,
+      "whole_program_normalized_differing_functions": [
+        "_main",
+        "_siphash_nocase",
+        "_zbtIndexTableInsertRaw",
+        "_zbtreeDelete",
+        "_zbtreeFindForAdd",
+        "_zbtreeRank"
+      ],
+      "symbols_only_left": [],
+      "symbols_only_right": [
+        "_zbtScoreLeafFindMember"
+      ]
+    },
+    "BC": {
+      "function": "zbtreeScoreRaw",
+      "same_after_relocation_normalization": false,
+      "same_after_relocation_and_panic_source_line_normalization": true,
+      "remaining_diff": [],
+      "whole_program_common_functions": 95,
+      "whole_program_normalized_differing_functions": [
+        "_main",
+        "_scan_verify",
+        "_zbtIndexTableInsertRaw"
+      ],
+      "symbols_only_left": [],
+      "symbols_only_right": []
+    },
+    "AC": {
+      "function": "zbtreeScoreRaw",
+      "same_after_relocation_normalization": false,
+      "same_after_relocation_and_panic_source_line_normalization": true,
+      "remaining_diff": []
+    }
+  },
+  "plan": {
+    "sha256": "bc97ba17ce7565504bf46db901e498b8432795cfc80515c8219cb62882881eb2",
+    "cells": 101,
+    "unique_ids": 101,
+    "by_referee": {
+      "standard": 40,
+      "lookup": 30,
+      "batch": 6,
+      "update": 25
+    },
+    "primaries_present": true,
+    "six_block_processes_full_matrix": 2424,
+    "nominal_full_matrix_seconds": 242.4,
+    "nominal_three_candidate_primary_screen_seconds": 14.4,
+    "nominal_discovery_seconds": 256.8
+  },
+  "status": "A/B STATIC CROSS-AUTHOR REVIEW PASS; D1-D5 CORRECTED BEFORE FREEZE; DISCOVERY WALL-ACCOUNTING NOTE; OWN C REVIEW NOT INDEPENDENT; NO ADOPTION",
+  "static_method": "Read-only otool -tvV inspection of existing validation binaries; no build, execution, benchmark or profile. Instruction normalization preserves operations and local branch targets, normalizes absolute relocation/page/literal addresses, and normalizes source-line immediates passed to standalone_panic. Function-level equivalence is static evidence only, not whole-binary identity.",
+  "measurement_conditions": [
+    "Common relative frontend build path required; C validation used long campaign path while A/B used referee/lookup-bench.c, affecting __FILE__ literals and placement. Root must rebuild common timing binaries.",
+    "No A/A, comparison, fresh confirmation, full guard qualification or candidate profile supplied by this review.",
+    "Original frozen physical oracle targets generic helper. C additionally validates readonly helper in a separate superset oracle; C independence must come from root.",
+    "Nominal timing estimates are not guarantees. Actual timing/wall budgets bound execution; partial or noisy guards force PARK."
+  ],
+  "current_root_support_difference_explanation": "Two current-root files are absent from all isolated trees and absent from the pinned e52c26c4 tree: bench/night-rank.c and tests/test_night_publication.py. These are later root additions, not candidate edits. An initial git-show attempt correctly failed because the first path does not exist at the pin; git-ls-tree established absence without experimental reruns.",
+  "driver_initial_review": {
+    "driver_sha256": "ecebdaf4a29dc8c6b17a299a5260ce9582fc86840e80847cf98ace18dc146163",
+    "status": "PRE-FREEZE ISSUES SENT TO ROOT; awaiting revision",
+    "findings": [
+      {
+        "id": "D1",
+        "severity": "required before measurement",
+        "finding": "phase timed/wall/deadline checks only before child; last child can cross bound and still mark complete; timeout not clipped to deadline"
+      },
+      {
+        "id": "D2",
+        "severity": "evidence preservation",
+        "finding": "TimeoutExpired writes partial stdout/TIMEOUT stderr but no driver-commands record; preserve timeout status and partial stderr"
+      },
+      {
+        "id": "D3",
+        "severity": "measurement validation",
+        "finding": "measure only checks positive counts, size and case; assert requested ops semantics, seed, member length, batch size, and requested replicas where relevant"
+      },
+      {
+        "id": "D4",
+        "severity": "schedule conformance",
+        "finding": "phase screen per variant runs all six blocks before another variant; explicit per-block variant rotation absent from this function, contrary to PLAN schedule"
+      },
+      {
+        "id": "D5",
+        "severity": "budget accounting",
+        "finding": "Screen phases each allow300 timed seconds, while only guards cumulatively include all screens; enforce cumulative discovery budget through screens too"
+      }
+    ],
+    "positive_checks": [
+      "six-block ABBA mean-B/mean-A formula correct",
+      "per-block checksum and operations equality enforced",
+      "strict AA every-block abs(effect)<=1 and shortest>=10ms",
+      "guard every-block <=+1 and memory<=+1; primary every-block<=-2",
+      "baseline-only fastest-of-three fixed counts; selected once",
+      "101 cells remain inventoried; no noise-based dropping",
+      "common frontend source paths/flags and prefix maps repair validation-binary path differences"
+    ],
+    "limitation": "Read-only source review, not executed driver tests. Root owns revisions and independent checks."
+  },
+  "driver_followup_review": {
+    "driver_sha256": "bd7cd797af4a6c58d3b294d3e81d34908c129df95c1b04f2010935ee1c28e38f",
+    "status": "D1-D5 resolved by static inspection; cumulative discovery wall-budget interpretation remains noted",
+    "resolved_ids": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5"
+    ],
+    "checks": [
+      "command timeout clipped to experiment deadline and supplied phase wall allowance",
+      "timeout partial stdout/stderr and command record preserved",
+      "per-ref expected counts and seed/member/batch/replica fields checked",
+      "post-row timed/wall/global deadline checks prevent over-bound phase from completing",
+      "screens rotates ABC/BCA/CAB by block in one serial cumulative budget",
+      "old single-variant screen entry rejected"
+    ],
+    "remaining_note": "guards adds all earlier primary-screen timed seconds but resets900s wall allowance; if900s is whole discovery, deduct one common screens phase_wall_seconds from the guard allowance. All three screen JSONs contain the same phase wall, so do not sum3.",
+    "execution_scope": "Static read-only inspection; root reports common32 builds and semantic validation PASS, not rerun by this reviewer."
+  },
+  "finished_utc": "2026-10-19T03:20:36.019754+00:00"
+}

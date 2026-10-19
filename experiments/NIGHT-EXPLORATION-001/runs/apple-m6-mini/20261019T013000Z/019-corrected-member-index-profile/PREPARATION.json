@@ -1,0 +1,179 @@
+{
+  "status": "READY FOR ROOT/INDEPENDENT STATIC REVIEW; NO CAPTURES AUTHORIZED",
+  "participant": "/root/followup_proposal_c",
+  "backend": "Inherited Codex/GPT-6 family; exact model/token/currency cost unknown",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "flags": {
+    "native": [
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3"
+    ],
+    "sanitize": [
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all"
+    ]
+  },
+  "binaries": {
+    "original": {
+      "path": "scratch/m6-corrected-member-index-profile/native/original",
+      "sha256": "4653b9a2b32d10d5209bcd50ee729fcec377e7b8aa1967c0c059672859e16651"
+    },
+    "disabled": {
+      "path": "scratch/m6-corrected-member-index-profile/native/disabled",
+      "sha256": "3633e49038ba0e332bb0297db83a03c0af3167813c82f953c6c1c65a967c3ed7"
+    },
+    "enabled": {
+      "path": "scratch/m6-corrected-member-index-profile/native/enabled",
+      "sha256": "7c088393dcd381154869327e626d06e4bd73c42a93ed888663e796b1e8cfefb8"
+    },
+    "sanitize-disabled": {
+      "path": "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "sha256": "aac6a4f3225b5db6b5ff9332bb051286fd295a065340d4d5cfeea1f653c84af1"
+    }
+  },
+  "inputs_sha256": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6"
+  },
+  "all_build_objects_sha256": {
+    "scratch/m6-corrected-member-index-profile/native/disabled.o": "a370bca860b04a6536ecb0bc500691929cdaa773c15aee857d031931836be631",
+    "scratch/m6-corrected-member-index-profile/native/siphash.o": "4b9eb15cee3a79666e81c6eb84c2a3b6f4f658d51d76761011de014577d7b00f",
+    "scratch/m6-corrected-member-index-profile/native/original.o": "53d278dee066af3360c7fb23d47b809668423811b55648027e625a5731053e5b",
+    "scratch/m6-corrected-member-index-profile/native/tree.o": "1456c6d4e0c784bb15b329171813dd1bead2c93eac03e0de5d76957b7885e570",
+    "scratch/m6-corrected-member-index-profile/native/enabled.o": "b2816f136a64c290fe9bb1ba6c7457d96dbe1a0e7f7fa3f5efc92b73910892af",
+    "scratch/m6-corrected-member-index-profile/native/standalone.o": "607ebf3c18a5e7dbb0ace1f311aca4dc544b760b91863d09f9999a313c2e2d3f",
+    "scratch/m6-corrected-member-index-profile/sanitize/siphash.o": "4d98478fc8ba8fc2fa6d731a91c8223cba77446b09a9062f3406d479077b02eb",
+    "scratch/m6-corrected-member-index-profile/sanitize/tree.o": "6f9bfb8389db40979029ddf4743a89399c10dbaf1504ba6baf74f52ae4d1f760",
+    "scratch/m6-corrected-member-index-profile/sanitize/standalone.o": "f7668ca21a42f50127ec45d19daedb8079986dba2110d8a04f04c8b2572be726",
+    "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled.o": "fb7269c95e8572e65530cade3eb60f23f1454cca369c79ed98c77597928bb466"
+  },
+  "reused_original_tests_per_build": 43,
+  "correctness_invocations": 24,
+  "enabled_executed": false,
+  "wall_seconds": 2.89087174999986,
+  "source_only_conditional_hooks": true,
+  "failures": [
+    "Initial attempt to read nonexistent011 top-level validation.json stopped with FileNotFoundError; reused013 pinned43-test mapping instead. No evidence changed."
+  ],
+  "static_commands": 53,
+  "native_tree_shared_object": true,
+  "frontend_codegen": [
+    {
+      "name": "_OUTLINED_FUNCTION_0",
+      "original_instructions": 8,
+      "disabled_instructions": 8,
+      "enabled_instructions": 8,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_OUTLINED_FUNCTION_1",
+      "original_instructions": 2,
+      "disabled_instructions": 2,
+      "enabled_instructions": 2,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_main",
+      "original_instructions": 1278,
+      "disabled_instructions": 1278,
+      "enabled_instructions": 1543,
+      "original_disabled_exact_instruction_text_equal": false
+    },
+    {
+      "name": "_main.cold.1",
+      "original_instructions": 5,
+      "disabled_instructions": 5,
+      "enabled_instructions": 5,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_main.cold.2",
+      "original_instructions": 5,
+      "disabled_instructions": 5,
+      "enabled_instructions": 5,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_main.cold.3",
+      "original_instructions": 5,
+      "disabled_instructions": 5,
+      "enabled_instructions": 5,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_main.cold.4",
+      "original_instructions": 5,
+      "disabled_instructions": 5,
+      "enabled_instructions": 5,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_main.cold.5",
+      "original_instructions": 5,
+      "disabled_instructions": 5,
+      "enabled_instructions": 5,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_scan_count",
+      "original_instructions": 8,
+      "disabled_instructions": 8,
+      "enabled_instructions": 8,
+      "original_disabled_exact_instruction_text_equal": true
+    },
+    {
+      "name": "_scan_verify",
+      "original_instructions": 75,
+      "disabled_instructions": 75,
+      "enabled_instructions": 75,
+      "original_disabled_exact_instruction_text_equal": false
+    }
+  ],
+  "profile_binary_not_executed": true,
+  "driver_syntax_AST_only": "PASS",
+  "source_equivalence": "Exact byte restoration by removing only three conditional hook blocks; disabled frontend still has different assertion source filename/line constants",
+  "correctness": "24 bounded processes across original/disabled/sanitizer-disabled; enabled binary never executed",
+  "tool_binaries_sha256": {
+    "/usr/bin/cc": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+    "/usr/bin/nm": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+    "/usr/bin/otool": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "status": "PENDING root freeze/review/publication ACK and exclusive runner; do not execute preparation",
+  "cwd": "worktrees/m6-replica-exp004",
+  "matrix_command": [
+    "python3",
+    "scripts/run-decoder.py",
+    "--out",
+    "build/m6-replications/EXP004/discovery",
+    "--budget-seconds",
+    "300"
+  ],
+  "analysis_command": [
+    "python3",
+    "scripts/analyse-decoder.py",
+    "build/m6-replications/EXP004/discovery"
+  ],
+  "matrix_processes": 960,
+  "phases": [
+    "aa",
+    "compare"
+  ],
+  "blocks": 6,
+  "seeds": [
+    81031,
+    81041
+  ],
+  "samples_per_process": 129,
+  "rounds": 64,
+  "warmup_batches": 16,
+  "scores_per_leaf": 96,
+  "leaves": 8,
+  "score_shift": 0,
+  "widths": [
+    0,
+    8,
+    31,
+    57,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "physical_directions": [
+    0,
+    1
+  ],
+  "decodes_per_batch": 49152,
+  "measured_batches": 123840,
+  "nominal_budget_seconds": 300,
+  "child_seconds": 30,
+  "profile_commands": [],
+  "profile_note": "Canonical EXP-004 focused decoder runbook requires retained-load/loop assembly inspection, not a new software profile command; this remains a private decoder diagnostic, not source acceptance.",
+  "runtime_limits": "Canonical budget checked before each child, not a hard total deadline. One child may overrun remaining budget by up to its30s timeout plus output/cleanup. Root must provide external serial owned-process-group wall/global cutoff; no runner edit or count retuning.",
+  "failure_limits": "Canonical subprocess timeout occurs before a completed child record/raw write; TimeoutExpired partial current-child pipe output may not be preserved by the original runner. Preserve completed raw rows and outer runner stdout/stderr; any incomplete status remains incomplete, no retry.",
+  "selection": "No automated acceptance or fresh-confirmation eligibility in this focused960-process diagnostic; compare observed same-cell A/A ranges against candidate effects, no iterator guard cleared or source adopted."
+}

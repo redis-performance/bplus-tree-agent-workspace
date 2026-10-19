@@ -1,0 +1,126 @@
+{
+  "identity": "M6-ITERATOR-PANIC-CONTRACT-DIAGNOSTIC-001",
+  "declared_utc": "2026-10-19T04:07:15.294529+00:00",
+  "classification": "HARNESS-ONLY matched adapter diagnostic, not a tree optimization/candidate/population",
+  "question": "Matched-session effect of truthful existing panic non-returning compiler contract on frozen public iterator contracts",
+  "source_c_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "source_h_sha256": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+  "adapters": {
+    "old": "worktrees/m6-caller-control/compat",
+    "new": "compat"
+  },
+  "referee_origin": "../009-iterator-profile/iterator.c + microbench.c, byte-identical copies",
+  "cells": [
+    {
+      "id": "100000-integer-full-forward",
+      "size": 100000,
+      "contract": "integer-full-forward",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "forward"
+    },
+    {
+      "id": "100000-integer-full-reverse",
+      "size": 100000,
+      "contract": "integer-full-reverse",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "reverse"
+    },
+    {
+      "id": "100000-integer-score-forward",
+      "size": 100000,
+      "contract": "integer-score-forward",
+      "encoding": "integer",
+      "mask": 4,
+      "direction": "forward"
+    },
+    {
+      "id": "100000-fraction-full-forward",
+      "size": 100000,
+      "contract": "fraction-full-forward",
+      "encoding": "fraction",
+      "mask": 7,
+      "direction": "forward"
+    },
+    {
+      "id": "1000000-integer-full-forward",
+      "size": 1000000,
+      "contract": "integer-full-forward",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "forward"
+    },
+    {
+      "id": "1000000-integer-full-reverse",
+      "size": 1000000,
+      "contract": "integer-full-reverse",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "reverse"
+    },
+    {
+      "id": "1000000-integer-score-forward",
+      "size": 1000000,
+      "contract": "integer-score-forward",
+      "encoding": "integer",
+      "mask": 4,
+      "direction": "forward"
+    },
+    {
+      "id": "1000000-fraction-full-forward",
+      "size": 1000000,
+      "contract": "fraction-full-forward",
+      "encoding": "fraction",
+      "mask": 7,
+      "direction": "forward"
+    }
+  ],
+  "ops": 100000000,
+  "member_bytes": 16,
+  "warmup_passes": 3,
+  "seeds": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+  ],
+  "schedule": {
+    "aa": "both adapters x8cells x6ABBAblocks=384 processes; rotate adapter and cell order by block",
+    "compare": "old(A),new(B) x8cells x6ABBAblocks=192 processes; deterministic cell rotation by block"
+  },
+  "flags": [
+    "-std=c11",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fno-omit-frame-pointer",
+    "-O3",
+    "-ffile-prefix-map=worktrees/m6-caller-control/compat=compat",
+    "-fdebug-prefix-map=worktrees/m6-caller-control/compat=compat",
+    "-fdebug-compilation-dir=."
+  ],
+  "assertion_policy": "identical serverAssert evaluation; REDIS_DEBUG absent in iterator timing binaries; no LTO; same SipHash/libc allocator",
+  "validation": "both adapters native+ASan/UBSan,4contracts,size1000/requested2003/seed1,warmup1:16runs. Reuse exact-identity43test evidence from frozen original baseline,010and011.",
+  "budgets": {
+    "timed_seconds_per_phase": 300,
+    "wall_seconds_per_phase": 900,
+    "child_seconds": 120,
+    "absolute_stop_utc": "2026-10-19T04:45:00+00:00",
+    "child_timeout_clip": "minimum(child120,remaining phase wall,remaining global wall,remaining timed work conservatively as wall bound)"
+  },
+  "qualification": {
+    "aa_max_abs_pct": 1,
+    "all_windows_min_ms": 10,
+    "each_adapter_separate": true
+  },
+  "interpretation": "Comparison runs once even if controls noisy. Effects conditional unless BOTH same-cell adapter controls qualify. No source optimization acceptance or historical timing subtraction; no old/new adapter pooling.",
+  "authorization": "Root and independent driver PASS reviews plus exact frozen-hash Git publication ACK required before either measured phase; exclusive idle runner acknowledged.",
+  "participant": "/root/followup_proposal_b",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/cost unknown",
+  "validation_metadata": "Only011 omitted upstream.c test identity is supplied by010; every compiled input still must match011/original frozen identities.",
+  "comparison_invariants": "EveryABBA: exact operations/checksum/construction_fingerprint/tree_bytes equality; min10ms comparison windows or effects conditional"
+}

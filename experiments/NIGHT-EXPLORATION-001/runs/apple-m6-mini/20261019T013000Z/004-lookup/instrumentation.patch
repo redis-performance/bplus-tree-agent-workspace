@@ -1,0 +1,47 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1272,11 +1272,15 @@
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
++unsigned long long zbt_lookup_scan_calls, zbt_lookup_scan_bytes, zbt_lookup_scan_distance, zbt_lookup_leaf_size[97];
++unsigned long long zbt_lookup_leaf_calls, zbt_lookup_tag_candidates, zbt_lookup_full_comparisons, zbt_lookup_index_candidates;
+ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+                                   const unsigned char *ele, size_t elelen,
+                                   double *score,
+                                   unsigned int *position)
+ {
++    zbt_lookup_leaf_calls++;
++    zbt_lookup_leaf_size[leaf->n.count]++;
+     uint8_t tag = hash >> 24;
+     uint16_t *offsets = zbtScoreLeafOffsets(leaf);
+     uint8_t *tags = zbtScoreLeafHashTags(leaf);
+@@ -1284,8 +1288,12 @@
+     uint8_t *end = tags + leaf->n.count;
+ 
+     while (next < end) {
++        zbt_lookup_scan_calls++;
++        zbt_lookup_scan_bytes += end-next;
+         uint8_t *found = memchr(next, tag, end - next);
++        zbt_lookup_scan_distance += found ? (unsigned long long)(found-next+1) : (unsigned long long)(end-next);
+         if (found == NULL) break;
++        zbt_lookup_tag_candidates++;
+         unsigned int physical = found - tags;
+         uint16_t offset = offsets[physical];
+         unsigned char *record = (unsigned char *)leaf + offset;
+@@ -1299,6 +1307,7 @@
+ 
+         size_t len;
+         const unsigned char *stored = zbtPackedData(record, &len);
++        if (len == elelen) zbt_lookup_full_comparisons++;
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+             unsigned int logical =
+@@ -1943,6 +1952,7 @@
+                 matches &= matches - 1;
+                 continue;
+             }
++            zbt_lookup_index_candidates++;
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {

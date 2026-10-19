@@ -1,0 +1,142 @@
+{
+  "status": "BOOTSTRAP SUCCESS; HARDWARE COUNTER QUALIFICATION NOT ESTABLISHED",
+  "method": "Read-only existing private TOC, trace configuration/type registry, run-issue metadata, installed Apple schema/help and official documentation; no new recording or table-row export",
+  "evidence_sha256": {
+    "freeze.json": "54d6d6e688ec82ec6300047d69e8543fcdaff074871a2ce6fb8fa6c10e516ac9",
+    "availability.json": "915f76bc89809292a64955da52d6f9d6d1c3bf2c2c8f26398efa2a79a1d6314b",
+    "private TOC": "7af444fc4195a59f72d12fe4482a0b0b30556a75ba3aee30fd215b63f8080b45",
+    "private form.template": "c56ade3620a3bcfc29e856a5d2ff4f97e40cad538be0d8771b3130892fbad5c1",
+    "private open.creq": "a4454564171f878aafe3a539af55202858d42d98729cfd8aafbc838c7aa1f31c",
+    "private RunIssues.storedata": "7ba6d8c7fcd83ac1ebee9e1bd04416e21d0329e0a952bfc06efe42440ee22408",
+    "installed CPU Counters schemas.xml": "6273516aa838e36d7b4021de4a3b588c58385a2de7b97c5bc7f098783977029e",
+    "installed CPU Profiler schemas.xml": "8a7a94794f9ffd1d6f440ac2e9acb21bc77ddaf42a275f845e1557a9bb3c5c72",
+    "recording-options.json": "cf383cf8017fb9850a53922cd26d37b3c33eccf1e7d0a09231e7d449cd439ef1",
+    "private record stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "public_schema_names": [
+    "OSSignpostIntervals",
+    "PointsOfInterestEvents",
+    "StateReportingIntervals",
+    "ThreadActivity",
+    "ThreadPriority",
+    "ThreadQoSTable",
+    "ThreadTermination",
+    "context-switch",
+    "context-switch-sample",
+    "cpu-narrative",
+    "cpu-state",
+    "dyld-library-load",
+    "kdebug",
+    "kdebug-strings",
+    "life-cycle-period",
+    "os-log",
+    "os-signpost",
+    "os-signpost-arg",
+    "process-info",
+    "stackshot-info",
+    "syscall",
+    "syscall-name-map",
+    "thread-info",
+    "thread-snapshot",
+    "thread-state",
+    "tick",
+    "time-profile",
+    "time-sample",
+    "virtual-memory"
+  ],
+  "table_instances": 49,
+  "installed_counter_export_schemas": [
+    "counters-profile",
+    "cpu-pmc-value"
+  ],
+  "counter_export_schemas_present": [],
+  "archived_counter_configuration": {
+    "pmiEventAliasOrMnemonic": "",
+    "selectedCountingMode": {
+      "countingMode": "bottlenecks",
+      "analysisMode": "bottleneck"
+    },
+    "configurationType": {
+      "guided": {}
+    },
+    "pmiThreshold": 1000000,
+    "processBucketSize": 10,
+    "allEventsAndFormulas": [],
+    "selectedCountingModeDisplayName": "CPU Bottlenecks",
+    "sampleByTime": true,
+    "countingLevel": "EL0",
+    "useHighFrequencyForManualMode": false,
+    "useDebuggingInformation": false,
+    "useHighFrequencyForGuidedMode": false
+  },
+  "registered_counter_or_cycleweight_type_keys": [],
+  "run_issue_metadata": [
+    {
+      "type": 2,
+      "subtype": 0,
+      "count": 1,
+      "generic_message": "Data stream: Time Mapping"
+    }
+  ],
+  "all_target_structural_scope": {
+    "instances": 1,
+    "schema": "os-signpost",
+    "target-pid": "ALL",
+    "subsystems": [
+      "com.apple.StateReporting.Heartbeat",
+      "com.apple.StateReporting.Transition",
+      "com.apple.StateReporting.Volatile"
+    ],
+    "interpretation": "OS state-reporting metadata scope exists; actual rows not exported; whole trace must remain private, own measured counter-row scope unqualified"
+  },
+  "inferences": [
+    "Neither installed explicit counter-export schema was materialized in the advertised TOC. No usable native counter values, units or target scope have been established.",
+    "This is stronger evidence than a name-only guess, but not proof that no PMU bytes were acquired: export inventory and raw acquisition are different layers.",
+    "An empty allEventsAndFormulas list is also the advertised guided default. The selected CPU Bottlenecks mode remains present; do not diagnose empty manual event selection from that field alone.",
+    "NSNull legacy PMC setup fields in the archive are inconclusive because the newer guided configuration is serialized separately.",
+    "No explicit counter denial or unsupported diagnostic appears in stderr or the inspected run-issue store; silent fallback, unresolved guided setup, hardware support and export limitations remain unresolved."
+  ],
+  "next_read_only_step": "If a private Instruments UI inspection is available, open this exact trace without recording and inspect CPU Counters Summary: Metrics and track diagnostics. Metrics present would support an exporter visibility limitation; an empty track would support missing/unresolved acquisition. Neither alone qualifies public row scope.",
+  "next_distinct_qualification_proposal": {
+    "status": "PROPOSAL ONLY; requires new reviewed plan/freeze/exclusive ACK, not implemented or executed",
+    "hypothesis": "The CPU Profiler template materializes target-scoped cpu-profile records with cycle-weight units even though this guided CPU Counters bootstrap did not expose PMC export schemas.",
+    "change": "CPU Profiler template instead of CPU Counters; no change to standalone probe/source/work count",
+    "fixed_probe": {
+      "case": "alu",
+      "items": 268435456,
+      "seed": 1,
+      "expected_checksum": 9087321014236724183,
+      "same_binary_sha256": "803d951e4f281d66385572424d0bc3aef0963e02fc5152f3a67a62358ae2b251"
+    },
+    "bounds": "One self-launch, 4second trace limit, same60second recorder/256MiB soft cap/alarm(6)/bounded own exit gates, no prompts/escalation/attach; stop after private TOC and bounded schema identifiers",
+    "preexisting_installed_schema": {
+      "name": "cpu-profile",
+      "weight_engineering_type": "cycle-weight",
+      "scope_attribute": "target-pid=ALL|SINGLE",
+      "columns": [
+        "time",
+        "thread",
+        "process",
+        "core",
+        "thread-state",
+        "weight",
+        "stack"
+      ]
+    },
+    "first_gate": "cpu-profile table exists with target-pid=SINGLE. If absent or insufficient, preserve and stop without unchanged retry.",
+    "later_gate": "After distinct scope/unit review, only owned PID/thread/signpost interval rows may be exported to qualify cycle-weight period/count/loss behavior; availability alone does not qualify cycle estimates.",
+    "does_not_establish": "Retired instruction totals, IPC, stalls, frequency, cache misses, or correctness of generic hardware counter collection"
+  },
+  "frozen_files_unchanged": true,
+  "new_records": 0,
+  "new_counter_row_exports": 0,
+  "new_probe_executions": 0,
+  "public_hygiene": "Only generic schema/configuration/issue identifiers and hashes; raw archive process/device/platform metadata omitted",
+  "participant": "/root/followup_proposal_b; inherited Codex/GPT-6 family; exact model/token/cost unknown",
+  "official_sources": [
+    "https://developer.apple.com/documentation/xcode/addressing-cpu-bottlenecks",
+    "https://developer.apple.com/videos/play/wwdc2025/308/"
+  ],
+  "record_stderr_bytes": 0,
+  "own_report_hygiene_scan": "PASS; generic metadata/identifiers only, no user paths or credential patterns"
+}

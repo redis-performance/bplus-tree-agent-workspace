@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "participant": "/root/followup_proposal_a",
+  "backend": "Inherited GPT-6/Codex family; exact serving model/token/currency cost unknown",
+  "native_decoder_suites": 2,
+  "sanitizer_decoder_suites": 2,
+  "test_methods_per_suite": 4,
+  "self_test_fixtures_per_binary": 1820,
+  "canonical_decoder_child_invocations_per_binary": 42,
+  "canonical_decoder_child_invocations_total": 168,
+  "self_test_fixture_total_across4binaries": 7280,
+  "upstream_native_tests": 43,
+  "upstream_sanitizer_tests": 43,
+  "all4_top_level_commands_reaped": true,
+  "all4_top_level_commands_returncode": 0,
+  "new_matrix_processes": 0,
+  "new_profile_captures": 0,
+  "counter_test_scope": "Canonical optional-counter test returns ENOTSUP on Apple; its perf_event_open implementation is Linux-only. No KPC/permission/setting change.",
+  "builds": {
+    "native": {
+      "original_manifest": "worktrees/m6-replica-exp004/build/decoder/build.json",
+      "original_manifest_sha256": "33c2f0fa2216643975315f94e8676e74e8f2c41f098a9ef4029676b1c531c5be",
+      "public_manifest": "build-native.json",
+      "public_manifest_sha256": "5c74d4bf8c12b732b20558860f459459bfe0103f656b66a579e9870d7a7fc11d",
+      "flags": [
+        "-std=c11",
+        "-O3",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-fno-lto",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-Ibench",
+        "-ffile-prefix-map=<workspace>=."
+      ],
+      "commands": 9,
+      "source_hashes": {
+        "base": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+        "A": "9c3d478451d03f753019259dd5a4a126cb55ae186569dddab991568c74b239c0"
+      },
+      "binary_hashes": {
+        "base": "eb0504003d8d15158b1ad83a9766870b2e4bbd94b08ba2bf0067ed20486df8e7",
+        "A": "c155f34d639b41402c0ec1d0271cdef3a232518584c6fcbab29392a211383951"
+      }
+    },
+    "sanitizer": {
+      "original_manifest": "worktrees/m6-replica-exp004/build/decoder-sanitize/build.json",
+      "original_manifest_sha256": "035664b2ad73dd8fe06e939d328d329f4cb8ba7ef562e753fc76b87ff8fe403c",
+      "public_manifest": "build-sanitizer.json",
+      "public_manifest_sha256": "2da04abf733c1616c52ffa7234be7f69cbca5c7b8147c3004c066d90366f5f29",
+      "flags": [
+        "-std=c11",
+        "-O1",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer",
+        "-fno-lto",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-Ibench",
+        "-ffile-prefix-map=<workspace>=.",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all"
+      ],
+      "commands": 7,
+      "source_hashes": {
+        "base": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+        "A": "9c3d478451d03f753019259dd5a4a126cb55ae186569dddab991568c74b239c0"
+      },
+      "binary_hashes": {
+        "base": "827695d08eb1fe11073a914a165b709b6b10b920a9da8e5df6ba6e4a9b26a39d",
+        "A": "7654312a796c9eec2167322f1de147b7541255f3dbc19354d744e1fdd38ddf48"
+      }
+    }
+  },
+  "assembly": {
+    "base": {
+      "original_kernel_s_sha256": "3a00c1ec290ad734fecd088018206316a30438fc9702b0a54c6c4ef4f82d1a7b",
+      "public_excerpt_sha256": "30ebbc3620221b03c1555f3e1a902b768c7317a262a662c511ed50e646e0bf3c",
+      "static_instruction_lines": 250,
+      "retained_load_instructions": 31,
+      "retained_conditional_branch_instructions": 29,
+      "round_memory_barrier_present": true,
+      "interpretation": "Static code inventory only; no cycles or speed claim."
+    },
+    "A": {
+      "original_kernel_s_sha256": "6ebb4ba0222ab26d516e93c824ef02405af12ca53f80924af5d6e29b73066c26",
+      "public_excerpt_sha256": "e54faafee2b5ce18f3c47497e63f139b61ac59f9664936eaa501958ed9b03310",
+      "static_instruction_lines": 244,
+      "retained_load_instructions": 30,
+      "retained_conditional_branch_instructions": 24,
+      "round_memory_barrier_present": true,
+      "interpretation": "Static code inventory only; no cycles or speed claim."
+    }
+  },
+  "commands_and_raw_logs": "commands.json",
+  "setup_read_failures": "PREPARATION-FAILURES.json"
+}

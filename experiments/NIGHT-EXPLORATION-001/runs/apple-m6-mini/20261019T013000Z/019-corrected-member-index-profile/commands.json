@@ -1,0 +1,1788 @@
+[
+  {
+    "name": "compiler",
+    "command": [
+      "cc",
+      "--version"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:16.386028+00:00",
+    "finished_utc": "2026-10-19T05:29:16.498693+00:00",
+    "wall_seconds": 0.11267975000009756,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/compiler.stdout",
+        "sha256": "4e8a77bcb032deb6591b0db384ff9808d01d9030f00e2d877394df88a12a2536"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/compiler.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "native-tree",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-c",
+      "src/zset_btree.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/tree.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:16.499089+00:00",
+    "finished_utc": "2026-10-19T05:29:17.079205+00:00",
+    "wall_seconds": 0.5801274999994348,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-tree.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-tree.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "native-standalone",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-c",
+      "compat/standalone.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/standalone.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.079574+00:00",
+    "finished_utc": "2026-10-19T05:29:17.117217+00:00",
+    "wall_seconds": 0.03765837500031921,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-standalone.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-standalone.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "native-siphash",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-c",
+      "vendor/redis/siphash.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/siphash.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.117676+00:00",
+    "finished_utc": "2026-10-19T05:29:17.145217+00:00",
+    "wall_seconds": 0.02755566700034251,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-siphash.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-siphash.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-tree",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-c",
+      "src/zset_btree.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/tree.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.145604+00:00",
+    "finished_utc": "2026-10-19T05:29:17.714187+00:00",
+    "wall_seconds": 0.5685959169986745,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-tree.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-tree.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-standalone",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-c",
+      "compat/standalone.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/standalone.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.714578+00:00",
+    "finished_utc": "2026-10-19T05:29:17.745783+00:00",
+    "wall_seconds": 0.031231208000463084,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-standalone.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-standalone.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-siphash",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-c",
+      "vendor/redis/siphash.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/siphash.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.746221+00:00",
+    "finished_utc": "2026-10-19T05:29:17.877333+00:00",
+    "wall_seconds": 0.13115229200047906,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-siphash.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-siphash.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "original-object",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-c",
+      "bench/microbench.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/original.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:17.878901+00:00",
+    "finished_utc": "2026-10-19T05:29:18.023340+00:00",
+    "wall_seconds": 0.1444811249984923,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-object.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-object.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "original-link",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/original.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/tree.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/standalone.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/siphash.o",
+      "-lm",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/original"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.024171+00:00",
+    "finished_utc": "2026-10-19T05:29:18.146487+00:00",
+    "wall_seconds": 0.12234008300038113,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-link.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-link.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "disabled-object",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-c",
+      "<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile/microbench-profile.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/disabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.146917+00:00",
+    "finished_utc": "2026-10-19T05:29:18.206379+00:00",
+    "wall_seconds": 0.05948708299911232,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-object.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-object.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "disabled-link",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/disabled.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/tree.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/standalone.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/siphash.o",
+      "-lm",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.206801+00:00",
+    "finished_utc": "2026-10-19T05:29:18.229403+00:00",
+    "wall_seconds": 0.02262387500013574,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-link.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-link.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "enabled-object",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "-DPROFILE_SAMPLE",
+      "-c",
+      "<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile/microbench-profile.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/enabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.229770+00:00",
+    "finished_utc": "2026-10-19T05:29:18.298931+00:00",
+    "wall_seconds": 0.06918570900052146,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-object.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-object.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "enabled-link",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O3",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/enabled.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/tree.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/standalone.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/siphash.o",
+      "-lm",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/enabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.299372+00:00",
+    "finished_utc": "2026-10-19T05:29:18.320841+00:00",
+    "wall_seconds": 0.02149404199917626,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-link.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-link.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-disabled-object",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-c",
+      "<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile/microbench-profile.c",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.321271+00:00",
+    "finished_utc": "2026-10-19T05:29:18.395480+00:00",
+    "wall_seconds": 0.0742383750002773,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-object.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-object.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-disabled-link",
+    "command": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-fno-lto",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-Ibench",
+      "-I<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/019-corrected-member-index-profile",
+      "-ffile-prefix-map=<workspace>=<source>",
+      "-fdebug-prefix-map=<workspace>=<source>",
+      "-fdebug-compilation-dir=.",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/tree.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/standalone.o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/siphash.o",
+      "-lm",
+      "-o",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.395950+00:00",
+    "finished_utc": "2026-10-19T05:29:18.418004+00:00",
+    "wall_seconds": 0.02208004200110736,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-link.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-link.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-lookup-hit-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.418430+00:00",
+    "finished_utc": "2026-10-19T05:29:18.604493+00:00",
+    "wall_seconds": 0.18612179099909554,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-hit-1.stdout",
+        "sha256": "351453c076ae8251ba51417c592f7ff7d8954210e043198f3e1df630e442bf2a"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-hit-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-lookup-hit-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.605706+00:00",
+    "finished_utc": "2026-10-19T05:29:18.610434+00:00",
+    "wall_seconds": 0.004748790999656194,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-hit-2.stdout",
+        "sha256": "5bf0fb0509a935fc04a574e583676decaa4c42594bc11fb15997a03082d8786c"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-hit-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-lookup-miss-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.611131+00:00",
+    "finished_utc": "2026-10-19T05:29:18.615189+00:00",
+    "wall_seconds": 0.00407416599955468,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-miss-1.stdout",
+        "sha256": "cd45fb034637369ae6d81c9c741345b56c5c425367969bd9ffd72772716c2464"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-miss-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-lookup-miss-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.615827+00:00",
+    "finished_utc": "2026-10-19T05:29:18.619422+00:00",
+    "wall_seconds": 0.0036128330011706566,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-miss-2.stdout",
+        "sha256": "3122ddfe2ed0d5817e36b1b1f11010e9fb24e88cf64bef9e53897dd8a9f9a8f8"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-lookup-miss-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-rank-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.620112+00:00",
+    "finished_utc": "2026-10-19T05:29:18.623892+00:00",
+    "wall_seconds": 0.003794374999415595,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-rank-1.stdout",
+        "sha256": "27b92ed961eda607be2f7b1e3e3bd498fe74e1820de9fa6141e964674137fc52"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-rank-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-rank-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.624519+00:00",
+    "finished_utc": "2026-10-19T05:29:18.627822+00:00",
+    "wall_seconds": 0.003315874999316293,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-rank-2.stdout",
+        "sha256": "eaabf4b0e5360fb738c2ee44927d7fd546f64c01b879921d0589215d2a77b8ad"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-rank-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-scan-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.628341+00:00",
+    "finished_utc": "2026-10-19T05:29:18.631484+00:00",
+    "wall_seconds": 0.003153334000671748,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-scan-1.stdout",
+        "sha256": "11134693a1468a34fe9480c8e81c198c7ee112f9a8806a08fec7bc9e0053f68c"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-scan-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-original-scan-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/original",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.631956+00:00",
+    "finished_utc": "2026-10-19T05:29:18.634437+00:00",
+    "wall_seconds": 0.0024911250002332963,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-scan-2.stdout",
+        "sha256": "d95d86872a6ff79b440d37c94d4b6732a6b173769d2f5d8d3e551697dd3ca8e5"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-original-scan-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-lookup-hit-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.634874+00:00",
+    "finished_utc": "2026-10-19T05:29:18.782647+00:00",
+    "wall_seconds": 0.1478257090002444,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-hit-1.stdout",
+        "sha256": "37fdc801b06ac8d4ff4e20d22670259aba9ca69c5458bbbf05752604839a0f02"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-hit-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-lookup-hit-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.784363+00:00",
+    "finished_utc": "2026-10-19T05:29:18.790599+00:00",
+    "wall_seconds": 0.0062656660011271015,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-hit-2.stdout",
+        "sha256": "905722db0017a3421e42f504734a2cb0f1c3f7e2233394f19c9bc1d65d3b07dc"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-hit-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-lookup-miss-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.791682+00:00",
+    "finished_utc": "2026-10-19T05:29:18.796490+00:00",
+    "wall_seconds": 0.004828500001167413,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-miss-1.stdout",
+        "sha256": "a2b9d7ea9d1e6202e8aee17dd231164b09d51f98df49e8524ac13033148b2ec6"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-miss-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-lookup-miss-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.797376+00:00",
+    "finished_utc": "2026-10-19T05:29:18.801713+00:00",
+    "wall_seconds": 0.0043516250007087365,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-miss-2.stdout",
+        "sha256": "e667399bb3900ced4c46ebf8f4962d930fcabd66a69aa5c7b1ef5f160c8773fe"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-lookup-miss-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-rank-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.802413+00:00",
+    "finished_utc": "2026-10-19T05:29:18.806442+00:00",
+    "wall_seconds": 0.004046083000503131,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-rank-1.stdout",
+        "sha256": "82f81fcbee9c171efad9fc76323b519be08d6e1510e448839627c079c551a618"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-rank-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-rank-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.807224+00:00",
+    "finished_utc": "2026-10-19T05:29:18.810907+00:00",
+    "wall_seconds": 0.0036996250000811415,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-rank-2.stdout",
+        "sha256": "f8dff47b9bb4721703155236e7f20a3e0d2ad426e775a68f2283f8573f01484b"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-rank-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-scan-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.811669+00:00",
+    "finished_utc": "2026-10-19T05:29:18.815879+00:00",
+    "wall_seconds": 0.004241541999363108,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-scan-1.stdout",
+        "sha256": "1dfe89d3a4801ce857640cd361ed1f2c25ad13e229bf4c07a5b779efbdbbfd2c"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-scan-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-disabled-scan-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/native/disabled",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.816732+00:00",
+    "finished_utc": "2026-10-19T05:29:18.820546+00:00",
+    "wall_seconds": 0.003824291999990237,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-scan-2.stdout",
+        "sha256": "e701ebf8a88bd84b37ece555f5ca87a25e0206be2f0c550eb8f2d616def460e8"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-disabled-scan-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-lookup-hit-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:18.821042+00:00",
+    "finished_utc": "2026-10-19T05:29:19.003022+00:00",
+    "wall_seconds": 0.1819962919998943,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-hit-1.stdout",
+        "sha256": "3d09dadc9c579b99c8a3d6d7e3dea189cfe26be27283af508f2991cc149ccc94"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-hit-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-lookup-hit-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.003626+00:00",
+    "finished_utc": "2026-10-19T05:29:19.015087+00:00",
+    "wall_seconds": 0.011472832999061211,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-hit-2.stdout",
+        "sha256": "c6c7853056761a8ab853852d0d2225e82f9d054639b8bed63bddd965944cffdf"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-hit-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-lookup-miss-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.015579+00:00",
+    "finished_utc": "2026-10-19T05:29:19.025906+00:00",
+    "wall_seconds": 0.01033866699981445,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-miss-1.stdout",
+        "sha256": "04e0fd94b9c8d3b1611bd22bcfa1e6684e403dc265918127a589bbfad6db890c"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-miss-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-lookup-miss-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.026515+00:00",
+    "finished_utc": "2026-10-19T05:29:19.036072+00:00",
+    "wall_seconds": 0.009570041000188212,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-miss-2.stdout",
+        "sha256": "04a56c80297f847f33711f37c0a270278d6244d472c304907a4ac970b8345a05"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-lookup-miss-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-rank-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.036570+00:00",
+    "finished_utc": "2026-10-19T05:29:19.045710+00:00",
+    "wall_seconds": 0.009149666999292094,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-rank-1.stdout",
+        "sha256": "b7fcecdb520067cce454d01620391779fb6935ee219e2b8a28026facdc4d3911"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-rank-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-rank-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "rank",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.046076+00:00",
+    "finished_utc": "2026-10-19T05:29:19.055047+00:00",
+    "wall_seconds": 0.008981250000942964,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-rank-2.stdout",
+        "sha256": "b38ffaad098769270f51963a3686ad87d378ea548d908f0a2cb1e0964c6e4fed"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-rank-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-scan-1",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.055452+00:00",
+    "finished_utc": "2026-10-19T05:29:19.064604+00:00",
+    "wall_seconds": 0.009161459000097238,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-scan-1.stdout",
+        "sha256": "d5a2fc47f0e9fb1ec534e645bdc88ec6243d7e6bbbf3cfac65a48310434afc40"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-scan-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "check-sanitize-disabled-scan-2",
+    "command": [
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled",
+      "--case",
+      "scan",
+      "--size",
+      "1000",
+      "--ops",
+      "2003",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2",
+      "--warmup-passes",
+      "3"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.064989+00:00",
+    "finished_utc": "2026-10-19T05:29:19.073847+00:00",
+    "wall_seconds": 0.008868666000125813,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-scan-2.stdout",
+        "sha256": "ca6170a8b0f5486c42faca5adcdc30befe3ac405d23987d2094a44a422ad8218"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/check-sanitize-disabled-scan-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "original-nm",
+    "command": [
+      "/usr/bin/nm",
+      "-n",
+      "scratch/m6-corrected-member-index-profile/native/original"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.078671+00:00",
+    "finished_utc": "2026-10-19T05:29:19.100948+00:00",
+    "wall_seconds": 0.022288750000370783,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-nm.stdout",
+        "sha256": "1ac3938bc3b424c8cd6e4f58b36ba05ea87f29d9a8a755af4bae4f6ef5d094d6"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-nm.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "original-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "scratch/m6-corrected-member-index-profile/native/original"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.101385+00:00",
+    "finished_utc": "2026-10-19T05:29:19.131530+00:00",
+    "wall_seconds": 0.030166082999130595,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-otool.stdout",
+        "sha256": "4a2aaf4506b34966dbbea5d1e45f0c58771bf3fbea2f1d943b9694093b006d88"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "original-frontend-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/original.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.132335+00:00",
+    "finished_utc": "2026-10-19T05:29:19.141413+00:00",
+    "wall_seconds": 0.009096499999941443,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-frontend-otool.stdout",
+        "sha256": "62a33705bf322f9b44e22345a24b55965ce922ade6ed8299365e7b2ec0c4b44a"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/original-frontend-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "disabled-nm",
+    "command": [
+      "/usr/bin/nm",
+      "-n",
+      "scratch/m6-corrected-member-index-profile/native/disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.141953+00:00",
+    "finished_utc": "2026-10-19T05:29:19.147196+00:00",
+    "wall_seconds": 0.005259333000140032,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-nm.stdout",
+        "sha256": "1ac3938bc3b424c8cd6e4f58b36ba05ea87f29d9a8a755af4bae4f6ef5d094d6"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-nm.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "disabled-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "scratch/m6-corrected-member-index-profile/native/disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.147594+00:00",
+    "finished_utc": "2026-10-19T05:29:19.162314+00:00",
+    "wall_seconds": 0.014737583000169252,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-otool.stdout",
+        "sha256": "6631120617a7ad340e0fd2d3056b9c57f7502b2ca9805877a6b74c4f67ca68ab"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "disabled-frontend-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/disabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.163098+00:00",
+    "finished_utc": "2026-10-19T05:29:19.171617+00:00",
+    "wall_seconds": 0.008537499999874854,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-frontend-otool.stdout",
+        "sha256": "19985eb7f2c071a8c81c3a0b9769e77ec64cbec6340cc7b362583244f349da1d"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/disabled-frontend-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "enabled-nm",
+    "command": [
+      "/usr/bin/nm",
+      "-n",
+      "scratch/m6-corrected-member-index-profile/native/enabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.172080+00:00",
+    "finished_utc": "2026-10-19T05:29:19.176449+00:00",
+    "wall_seconds": 0.004382999999506865,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-nm.stdout",
+        "sha256": "478f6d0de0201a9970f416f2b5919c1b04b6f88f4fa316f22f3732a9785fba3d"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-nm.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "enabled-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "scratch/m6-corrected-member-index-profile/native/enabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.176819+00:00",
+    "finished_utc": "2026-10-19T05:29:19.191497+00:00",
+    "wall_seconds": 0.014693582999825594,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-otool.stdout",
+        "sha256": "facbe38fd606264ba063b97dc91207667101fdd4670e2cf37281d0b88cb58a72"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "enabled-frontend-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/enabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.192237+00:00",
+    "finished_utc": "2026-10-19T05:29:19.200491+00:00",
+    "wall_seconds": 0.008273583000118379,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-frontend-otool.stdout",
+        "sha256": "22e49486fcdf227c55544f5343fd3b9ece1538b6797ae93200e56b6842280326"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/enabled-frontend-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-disabled-nm",
+    "command": [
+      "/usr/bin/nm",
+      "-n",
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.200934+00:00",
+    "finished_utc": "2026-10-19T05:29:19.206022+00:00",
+    "wall_seconds": 0.0051049169996986166,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-nm.stdout",
+        "sha256": "ed09125e0d35faae42454ee1816b0db28a02eb2af789d15369a32dc21e2036c9"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-nm.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-disabled-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.206394+00:00",
+    "finished_utc": "2026-10-19T05:29:19.228124+00:00",
+    "wall_seconds": 0.0217495830002008,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-otool.stdout",
+        "sha256": "f53ac3e1a6833d8acfa9ad93fd739f11073016ab848e7f022027a115e329ee35"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-disabled-frontend-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/sanitize-disabled.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.229210+00:00",
+    "finished_utc": "2026-10-19T05:29:19.238380+00:00",
+    "wall_seconds": 0.00919212500048161,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-frontend-otool.stdout",
+        "sha256": "7b99fe95e7905f9b6a15bfee90f1d55b3ee04abfe115958345fd18bb7aae36b5"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-disabled-frontend-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "native-tree-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/native/tree.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.238908+00:00",
+    "finished_utc": "2026-10-19T05:29:19.253108+00:00",
+    "wall_seconds": 0.014217083999028546,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-tree-otool.stdout",
+        "sha256": "bcd4be8378155c690d8d2902ef02594a8bd37b58fc1434bdcb1a07981d6cc612"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/native-tree-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  {
+    "name": "sanitize-tree-otool",
+    "command": [
+      "/usr/bin/otool",
+      "-tvV",
+      "<workspace>/scratch/m6-corrected-member-index-profile/sanitize/tree.o"
+    ],
+    "bound_seconds": 180,
+    "started_utc": "2026-10-19T05:29:19.253797+00:00",
+    "finished_utc": "2026-10-19T05:29:19.273677+00:00",
+    "wall_seconds": 0.019897125001079985,
+    "returncode": 0,
+    "timed_out": false,
+    "raw": {
+      "stdout": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-tree-otool.stdout",
+        "sha256": "79afc0075fc6a84b28f12be7825ce2f6cd4ebeef37fbe836fe248da3793aa612"
+      },
+      "stderr": {
+        "path": "scratch/m6-corrected-member-index-profile/logs/sanitize-tree-otool.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  }
+]

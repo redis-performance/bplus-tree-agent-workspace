@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4149,8 +4149,7 @@
+         for (; first_word + 2 <= words; first_word += 2) {
+             uint8x16_t bytes = vld1q_u8(tags + first_word * 8);
+             uint8x16_t equal = vceqq_u8(bytes, query);
+-            if (tag == 1)
+-                equal = vorrq_u8(equal, vceqq_u8(bytes, vdupq_n_u8(0)));
++            /* Deliberate fault: omit folded-zero equality. */
+             /* On little-endian ARM each pair narrows to two exact nibbles.
+              * Keep one bit per nibble: bit 4*i represents physical lane i. */
+             uint8x8_t nibbles = vshrn_n_u16(vreinterpretq_u16_u8(equal), 4);

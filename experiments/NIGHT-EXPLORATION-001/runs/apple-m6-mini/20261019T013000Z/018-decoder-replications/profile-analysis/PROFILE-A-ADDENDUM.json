@@ -1,0 +1,97 @@
+{
+  "status": "SELECTED A CAPTURE AUDIT PASS; DESCRIPTIVE SOFTWARE LOCATIONS ONLY",
+  "captures": [
+    {
+      "experiment": "EXP-007",
+      "variant": "A",
+      "sampler_returncode": 0,
+      "child_returncode": 0,
+      "binary_sha256": "95cb988bffbfbd4312d71be221d16261175e3dae5edcc72532026dceccb0e95a",
+      "binary_matches_sampling_and_build_manifest": true,
+      "canonical_source_referee_freeze_verified": true,
+      "raw_files_sha256": {
+        "A-sampling.json": "aa154c8df21c4e57a3e6349fa90a91759b832b0aebb3a9852d18becd3cea4145",
+        "A-sample.txt": "e0feab459f0b976daf4821b87d753f62a27abd3ee90246d4485972800bca5392",
+        "A-profile.csv": "746b915d98d885ef3c94fb02d15a8624c39467fc08abd15aa338292b26d406f2",
+        "A-profile.stderr": "6cb69c822ec307b84c47ed789d8b32ce92a6c1e1cd299b0ea5204dfaeafea9a6"
+      },
+      "build_manifest_sha256": "bb5fe6ee0dbea7722ecded4d25bb555a3bee5364f7a04f5b596dbdf52b2b9c65",
+      "source_referee_freeze_evidence_sha256": "e66828021c5e1dc06a472b90e28136276296bf9a8fc087a9e0a9f1d615a9e111",
+      "source_referee_freeze_evidence": "canonical EXP-007/freeze.json",
+      "profile_driver_sha256": "58599110d4727256860ffa2afb0f16041902e8d76f2c254127403936ca5679a0",
+      "canonical_profile_invocation": [
+        "python3",
+        "experiments/EXP-007/profile.py",
+        "A",
+        "--out-dir",
+        "build/m6-replications/EXP007/profiles"
+      ],
+      "target_command": [
+        "build/exp007/A/decoder-bench",
+        "--width",
+        "60",
+        "--count",
+        "96",
+        "--leaves",
+        "8",
+        "--rounds",
+        "65536",
+        "--samples",
+        "64",
+        "--warmup",
+        "16",
+        "--seed",
+        "81031"
+      ],
+      "generic_sampler_command": [
+        "/usr/bin/sample",
+        "<owned-pid>",
+        "1",
+        "1",
+        "-file",
+        "<private-profile>/A-sample.txt"
+      ],
+      "sample_scope": "Whole process, including construction/setup, warmup, measured work and output; not time-scoped to the decoder",
+      "retained_csv_rows": 64,
+      "csv_fixture_metadata": {
+        "width": "60",
+        "score_shift": "0",
+        "reversed": "0",
+        "count": "96",
+        "leaves": "8",
+        "rounds": "65536",
+        "seed": "81031",
+        "operations": "50331648",
+        "leaf_bytes": "6272",
+        "offset_mask": "17",
+        "crossings_per_round": "0",
+        "fixture_hash": "2718616082163229984",
+        "checksum": "3049778286552088576"
+      },
+      "csv_timing_rows_excluded_from_comparisons": true,
+      "stack_root_observations": 776,
+      "exclusive_leaf_observations": {
+        "decoder_batch": 776
+      },
+      "target_leaf_observations": 776,
+      "exclusive_collapsed_leaf_records": 15,
+      "sufficiency": "Sufficient descriptive support that this fixed capture reached the decoder region; not a precision/cycle/instruction-cost qualification",
+      "method": "Leaf counts reconstruct call-graph prefix depth; inclusive parents are never added. A collapsed record can combine several PC offsets; these are not counts of distinct instructions.",
+      "source_regions": [
+        "EXP-007/variants/A/decoder.inc zbtScoreLeafDecodeRange: inlined specialized decode/output stores",
+        "EXP-007/referee/kernel.c decoder_batch: caller/round/leaf/checksum work"
+      ],
+      "exact_source_line_attribution": "Unavailable from collapsed symbol+offset sample report; no invented per-line instruction/cycle cost",
+      "counters_requested": false
+    }
+  ],
+  "capture_count": 1,
+  "owner_metadata_sha256": "7ff1744135d9936b3ce2455aaebe45e0426b751d1a78e6a4ca05d347a59d5c23",
+  "original_three_capture_report_sha256": "015fe71e89c97791f5c6ccfa0134dc147f9efc0a091b499f1dd3091489c2f7d5",
+  "audit_script_sha256": "0415b6099689c0c93e40ee2c62e646b618bbc64d3115b6b60b92131b34acf509",
+  "no_rerun_build_test_profile_or_timing": true,
+  "raw_path_bearing_files_remain_private": true,
+  "analysis_preparation_note": "Separate selected-A addendum; existing three-capture report and script preserved unchanged.",
+  "interpretation": "No pooling of experiments/hosts or inference of relative speed, cycles, CPI/IPC, stalls, latency, setup cost or source-optimization acceptance. Counts describe captured locations; timer-based sample can alias.",
+  "participant": "/root/followup_proposal_b; inherited Codex/GPT-6 family; exact serving model/token/cost unknown"
+}

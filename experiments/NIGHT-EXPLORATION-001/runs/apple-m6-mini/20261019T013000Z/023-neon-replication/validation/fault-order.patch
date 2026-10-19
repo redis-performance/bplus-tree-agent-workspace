@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4157,7 +4157,7 @@
+             uint64_t mask = vget_lane_u64(vreinterpret_u64_u8(nibbles), 0) &
+                             UINT64_C(0x1111111111111111);
+             while (mask) {
+-                unsigned int pos = first_word * 8 + (__builtin_ctzll(mask) >> 2);
++                unsigned int pos = first_word * 8 + 15U - (__builtin_ctzll(mask) >> 2);
+                 positions[found++] = reversed ? last - pos : pos;
+                 mask &= mask - 1;
+             }

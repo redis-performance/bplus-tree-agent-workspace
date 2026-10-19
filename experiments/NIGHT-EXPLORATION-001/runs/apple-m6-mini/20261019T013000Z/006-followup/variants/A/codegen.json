@@ -1,0 +1,61 @@
+{
+  "scope": "static release code only; instruction counts and frame sizes are not elapsed costs",
+  "generic_leaf_symbol_present": false,
+  "functions": {
+    "zbtreeScoreRaw": {
+      "baseline": {
+        "instruction_count": 345,
+        "frame_setup": "0000000100002dc8\tsub\tsp, sp, #0xb0",
+        "generic_leaf_calls": 2,
+        "memchr_static_calls": 0,
+        "memcmp_static_calls": 0,
+        "stack_load_store_instructions": 37
+      },
+      "candidate": {
+        "instruction_count": 601,
+        "frame_setup": "0000000100002dc8\tsub\tsp, sp, #0xf0",
+        "generic_leaf_calls": 0,
+        "memchr_static_calls": 2,
+        "memcmp_static_calls": 2,
+        "stack_load_store_instructions": 89
+      }
+    },
+    "zbtreeScore": {
+      "baseline": {
+        "instruction_count": 25,
+        "frame_setup": "000000010000332c\tmov\tx3, x2",
+        "generic_leaf_calls": 0,
+        "memchr_static_calls": 0,
+        "memcmp_static_calls": 0,
+        "stack_load_store_instructions": 0
+      },
+      "candidate": {
+        "instruction_count": 25,
+        "frame_setup": "000000010000372c\tmov\tx3, x2",
+        "generic_leaf_calls": 0,
+        "memchr_static_calls": 0,
+        "memcmp_static_calls": 0,
+        "stack_load_store_instructions": 0
+      }
+    },
+    "zbtScoreLeafFindMember": {
+      "baseline": {
+        "instruction_count": 161,
+        "frame_setup": "000000010000a94c\tsub\tsp, sp, #0x90",
+        "generic_leaf_calls": 0,
+        "memchr_static_calls": 1,
+        "memcmp_static_calls": 1,
+        "stack_load_store_instructions": 26
+      },
+      "candidate": {
+        "instruction_count": 0,
+        "frame_setup": null,
+        "generic_leaf_calls": 0,
+        "memchr_static_calls": 0,
+        "memcmp_static_calls": 0,
+        "stack_load_store_instructions": 0
+      }
+    }
+  },
+  "candidate_binary_sha256": "e2ae8b55ba5dc86069d6ac748296229ac8e8f4582b7ec2082db5e0a17abf7110"
+}

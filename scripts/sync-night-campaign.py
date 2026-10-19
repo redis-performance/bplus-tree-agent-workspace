@@ -9,8 +9,8 @@ import argparse
 from datetime import datetime, timezone
 import fcntl
 import json
-import re
 from pathlib import Path
+import re
 import subprocess
 import time
 
@@ -28,34 +28,81 @@ def run(args, worktree):
     return result.stdout.strip()
 
 
-def publish(config, round_number):
+def validate_config(config):
+    worktree = (ROOT / config['worktree']).resolve()
+    if not (worktree == ROOT or worktree.is_relative_to(ROOT / 'worktrees')) or not worktree.is_dir():
+        raise ValueError('worktree must be this checkout or beneath worktrees/')
+    host = config.get('host_label', 'apple-m1')
+    if host not in ('apple-m1', 'apple-m6-mini', 'aws-arm', 'aws-intel', 'aws-amd'):
+        raise ValueError('unexpected host label')
+    expected = f'experiments/NIGHT-EXPLORATION-001/runs/{host}/'
+    evidence = (worktree / config['campaign_dir']).resolve()
+    if (not re.fullmatch(re.escape(expected) + r'[A-Za-z0-9-]+', config['campaign_dir'])
+            or not evidence.is_relative_to(worktree / expected)):
+        raise ValueError('unexpected campaign path')
+    if not re.fullmatch(r'exploration/' + re.escape(host) + r'-[A-Za-z0-9-]+', config['branch']):
+        raise ValueError('unexpected host branch')
+    runtime = (worktree / config['runtime_dir']).resolve()
+    if not runtime.is_relative_to(worktree / 'scratch'):
+        raise ValueError('runtime must be beneath scratch/')
+    return worktree
+
+
+def publication_paths(config, requested):
+    worktree = validate_config(config)
+    paths = [config['campaign_dir'], 'experiments/EXPERIMENTS.md',
+             'experiments/SUMMARY.md', 'experiments/NEXT-STEPS.md', 'README.md',
+             '.workspace-memory/MEMORY.md', '.workspace-memory/LIVE-STATUS.md',
+             '.workspace-memory/handoff.md']
+    for value in requested:
+        path = Path(value)
+        if path.is_absolute() or '..' in path.parts or not path.parts:
+            raise ValueError('invalid requested publication path')
+        if path.parts[0] not in ('bench', 'scripts', 'tests', 'docs', 'experiments', 'compat') and value != 'Makefile':
+            raise ValueError('requested path outside harness/documentation scope')
+        if path.parts[0] == 'compat' and value not in ('compat/server.h', 'compat/standalone.c'):
+            raise ValueError('only the two standalone adapter files may be published')
+        if (value == 'tests/upstream.c' or (worktree / path).is_dir()
+                or not (worktree / path).resolve().is_relative_to(worktree)):
+            raise ValueError('referee entry point or external path cannot be published')
+        if path.parts[0] == 'experiments' and not (worktree / path).resolve().is_relative_to(worktree / config['campaign_dir']):
+            raise ValueError('cannot publish another campaign through a request')
+        paths.append(value)
+    return list(dict.fromkeys(paths))
+
+
+def publish(config, round_number, requested=()):
+    validate_config(config)
     worktree = (ROOT / config['worktree']).resolve()
     evidence = worktree / config['campaign_dir']
-    relative = config['campaign_dir']
-    shared_logs = ['experiments/EXPERIMENTS.md', 'experiments/SUMMARY.md',
-                   'experiments/NEXT-STEPS.md', 'README.md', '.workspace-memory']
+    paths = publication_paths(config, requested)
     if not evidence.exists():
         return 'No evidence directory yet'
     # All content is public; refuse obvious credential/private-path mistakes.
-    needles = (b'/Users/', b'/home/ubuntu/', b'/home/fco/', b'.pem',
-               b'gho_', b'github_pat_', b'Authorization: Bearer')
-    review_files = list(evidence.rglob('*'))
-    for name in shared_logs:
-        path = worktree / name
-        review_files.extend(path.rglob('*') if path.is_dir() else [path])
-    for file in review_files:
+    # Split source literals so publishing this scanner does not match its own rules.
+    # Runtime patterns remain exact, including the synthetic privacy test fixture.
+    needles = (b'/' + b'Users/', b'/home/' + b'ubuntu/', b'/home/' + b'fco/',
+               b'.' + b'pem', b'gh' + b'o_', b'github' + b'_pat_',
+               b'Authorization' + b': Bearer')
+    for file in evidence.rglob('*'):
         if file.is_file() and file.suffix not in ('.svg', '.png'):
             payload = file.read_bytes()
             if any(needle in payload for needle in needles):
-                raise RuntimeError(f'Public-evidence review required: {file.relative_to(worktree)}')
+                raise RuntimeError(f'Public-evidence review required: {file.relative_to(evidence)}')
+    for value in paths[1:]:
+        file = worktree / value
+        if file.is_file() and any(needle in file.read_bytes() for needle in needles):
+            raise RuntimeError(f'Public-evidence review required: {value}')
     branch = run(['git', 'branch', '--show-current'], worktree)
     if branch != config['branch']:
         raise RuntimeError('Host branch changed unexpectedly')
-    run(['git', 'add', '-A', '--', relative, *shared_logs], worktree)
-    has_staged = subprocess.run(['git', 'diff', '--cached', '--quiet', '--', relative, *shared_logs], cwd=worktree).returncode == 1
+    if subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=worktree).returncode != 0:
+        raise RuntimeError('Unexpected pre-staged changes; coordinator requires an exclusive Git writer')
+    run(['git', 'add', '-A', '--', *paths], worktree)
+    has_staged = subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=worktree).returncode == 1
     if has_staged:
-        label = config.get('host_label', 'Apple M1')
-        run(['git', 'commit', '-m', f'Publish {label} campaign through round {round_number}'], worktree)
+        host = config.get('host_label', 'apple-m1')
+        run(['git', 'commit', '-m', f'Publish {host} campaign through round {round_number}'], worktree)
     # Publish previous worker commits too; never rewrite the remote branch.
     run(['git', '-c', 'credential.helper=', '-c', 'credential.helper=!gh auth git-credential',
          'push', 'origin', branch], worktree)
@@ -73,17 +120,19 @@ def main():
     if not config_path.is_relative_to(ROOT / 'scratch'):
         parser.error('config must be beneath scratch/')
     config = json.loads(config_path.read_text())
-    worktree = (ROOT / config['worktree']).resolve()
-    if not worktree.is_relative_to(ROOT / 'worktrees') or not worktree.exists():
-        parser.error('worktree must exist beneath worktrees/')
-    if not re.fullmatch(r'experiments/NIGHT-EXPLORATION-001/runs/(apple-m1|aws-(arm|intel|amd))/[A-Za-z0-9-]+', config['campaign_dir']):
-        parser.error('unexpected campaign path')
+    try:
+        worktree = validate_config(config)
+    except ValueError as exc:
+        parser.error(str(exc))
     runtime = worktree / config['runtime_dir'] / 'status.json'
+    request_path = runtime.with_name('publish-request.json')
+    ack_path = runtime.with_name('publish-ack.json')
     out = config_path.with_name(config_path.stem + '-sync-status.json')
     lock_path = config_path.with_name(config_path.stem + '-sync.lock')
     with lock_path.open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         completed = 0
+        acknowledged = None
         while True:
             if not runtime.exists():
                 time.sleep(args.interval_seconds)
@@ -92,7 +141,9 @@ def main():
             finished = [r['round'] for r in status['rounds'] if r['status'] != 'running']
             latest = max(finished, default=0)
             final = status['status'] not in ('running', 'starting')
-            if latest > completed or final:
+            request = json.loads(request_path.read_text()) if request_path.exists() else {}
+            pending = bool(request.get('id')) and request['id'] != acknowledged
+            if latest > completed or final or pending:
                 evidence = worktree / config['campaign_dir']
                 evidence.mkdir(parents=True, exist_ok=True)
                 public_runtime = {key: status.get(key) for key in
@@ -102,17 +153,26 @@ def main():
                 public_runtime['cost_usd'] = None
                 (evidence / 'RUNTIME-SUMMARY.json').write_text(json.dumps(public_runtime, indent=2)+'\n')
                 result = {'checked_utc': now(), 'supervisor_status': status['status'],
-                          'through_round': latest, 'branch': config['branch']}
+                          'through_round': latest, 'branch': config['branch'],
+                          'request_id': request.get('id') if pending else None}
                 try:
-                    result['publication'] = publish(config, latest)
+                    result['publication'] = publish(config, latest, request.get('paths', []) if pending else [])
                     result['status'] = 'ok'
                     completed = latest
+                    if pending:
+                        acknowledged = request['id']
                 except Exception as exc:
                     result['status'] = 'failed'
                     result['error'] = str(exc)
                     out.write_text(json.dumps(result, indent=2)+'\n')
+                    if pending:
+                        ack_path.write_text(json.dumps(result, indent=2)+'\n')
                     raise
                 out.write_text(json.dumps(result, indent=2)+'\n')
+                if pending:
+                    tmp = ack_path.with_suffix('.tmp')
+                    tmp.write_text(json.dumps(result, indent=2)+'\n')
+                    tmp.replace(ack_path)
                 print(f"{result['checked_utc']} {result['publication']}", flush=True)
             if final:
                 break

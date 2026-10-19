@@ -1,0 +1,20 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -6043,8 +6043,12 @@
+     }
+ }
+ 
+-/* Control policy always delegates to frozen EXP-007 bulk decoder. */
+-static void zbtScoreLeafDecodePolicy(zbtScoreLeaf *leaf, unsigned start,
+-                                   unsigned count, double *out) {
+-    zbtScoreLeafDecodeRange(leaf, start, count, out);
+-}
++/* Force the policy into the caller; return early through unchanged bulk. */
++__attribute__((always_inline)) static inline void zbtScoreLeafDecodePolicy(
++        zbtScoreLeaf *leaf, unsigned start, unsigned count, double *out) {
++    if (count != 1) {
++        zbtScoreLeafDecodeRange(leaf, start, count, out);
++        return;
++    }
++    out[0] = zbtScoreLeafScore(leaf, start);
++}

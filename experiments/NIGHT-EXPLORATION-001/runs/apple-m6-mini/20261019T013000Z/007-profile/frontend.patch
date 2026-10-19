@@ -1,0 +1,27 @@
+--- a/006-followup/referees/lookup.c
++++ b/007-profile/lookup-geometry.c
+@@ -21,6 +21,8 @@
+ extern unsigned long long zbt_lookup_leaf_calls, zbt_lookup_tag_candidates, zbt_lookup_full_comparisons, zbt_lookup_index_candidates;
+ extern unsigned long long zbt_lookup_scan_calls, zbt_lookup_scan_bytes, zbt_lookup_scan_distance, zbt_lookup_leaf_size[97];
+ #endif
++void zbt_geometry_begin(zbtreeSet *zs);
++void zbt_geometry_end(void);
+ static volatile uint64_t sink;
+ static uint64_t random64(uint64_t *state) {
+     uint64_t z = (*state += UINT64_C(0x9e3779b97f4a7c15));
+@@ -196,6 +198,7 @@
+ #ifdef LOOKUP_PROFILE
+         sample_start();
+ #endif
++        zbt_geometry_begin(tree);
+         uint64_t start = now_ns();
+         if (c == 0) {
+             for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+@@ -240,6 +243,7 @@
+             for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[order[i]]);
+         }
+         uint64_t elapsed = now_ns() - start;
++        zbt_geometry_end();
+ #ifdef LOOKUP_PROFILE
+         sample_stop(cases[c]);
+ #endif

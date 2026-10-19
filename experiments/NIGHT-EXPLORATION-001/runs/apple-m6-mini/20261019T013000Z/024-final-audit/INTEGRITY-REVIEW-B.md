@@ -1,0 +1,11 @@
+# Final source and evidence integrity review — PASS
+
+Root target C/H and corrected compatibility files retain their exact expected identities. Another 51 root Makefile, benchmark, test and vendor files match the corrected baseline snapshot (55 root files total). The supplemental V2 oracle is intentionally absent from root; all four isolated worktree copies retain its exact frozen hash.
+
+The requested seal tables contain 207, 53, 86, 39, 322, 588 entries respectively (018 ROOT,019,020,022,023 validation,023 timing). Every entry matches, before and after this audit. These are 1295 overlapping pins across 879 distinct relative paths, not 1295 unique files. All 15 distinct pinned patch files remain byte-identical. An additional 15 earlier losing patch paths match their 002–006 implementation manifests/freezes; these are separate from the six requested seal counts. Full source identities, table identities and patch hashes are in INTEGRITY-REVIEW-B.json.
+
+Examined 213 journal entries: 8 outer 018 owned phases, 3 original 019 captures, 13 continuation 020 captures, 141 validation commands and 48 final 023 A/A children. Every record reports reaped owned child/driver, empty group, safe release and no timeout. All examined intervals are serial and 426 associated raw log streams retain expected hashes and byte counts. Negative validation SIGABRT statuses are expected fault detections. Outer-driver phase records are not an additional count of every canonical process.
+
+No 023 discovery output directory, private discovery raw directory or authorized discovery ACK exists in the inspected owned locations. Its prepared schedule remains, without a launch. The final A/A status is complete but unqualified; root source remains baseline and no adoption is inferred. Historical 019 INCOMPLETE remains intact beside separate 020 continuation evidence.
+
+This is a local read-only byte/metadata audit, not candidate acceptance or a fresh correctness/performance run. It imports no experimental driver and spawns no child. Historical process cleanup cannot be independently replayed from retained logs, and hashes do not prove all historical filesystem operations. Reproduce with `python3 <024>/integrity-review-b.py` from root. Participant /root/followup_proposal_b; exact serving model/token/currency costs unknown.

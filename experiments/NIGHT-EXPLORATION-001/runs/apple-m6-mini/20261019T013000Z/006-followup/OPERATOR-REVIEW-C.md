@@ -1,0 +1,7 @@
+# Operator cross-author semantic review of C
+
+Reviewer: interactive root, Codex/GPT-6 family; exact backend/model and token costs unknown. C was authored by followup_proposal_c; root did not author its source. Review is static plus inspection of sealed checks, not independent performance confirmation.
+
+The new read-only loop preserves tag derivation, memchr boundaries, external full-hash rejection, binary member lengths/memcmp, physical-to-logical mapping, and original score decoder. Its score pointer remains optional. The table dispatch selects it only for NULL logical-position output, and the existing score-leaf/bucket outputs and table probe semantics remain unchanged. No source/header/allocator/hash layout change appears outside this hypothesis. The generic helper remains intact. Existing exact-bit oracle plus the supplemental helper oracle exercise both original and added paths, including signed zero and colliding tags. No blocking semantic finding.
+
+Duplicated loop maintenance, expanded read-only caller frame and code size remain risks. Independent review found the same normalized read-only caller instructions in all three implementations. Primary timings must not be represented as three distinct assembly mechanisms. Broader A inlining affects rank/mutation code and requires guards. Common comparative binaries will use uniform frontend paths and source-file prefix mapping; validation-binary timings are not comparison evidence. Any adoption still requires qualified controls, full guards, fresh independent confirmation and profile validation.

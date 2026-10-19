@@ -1,0 +1,61 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1312,6 +1312,47 @@
+     return 0;
+ }
+ 
++/* Expose the leaf search body to callers that need no logical-position output.
++ * Keep the scanner and logical score decoding identical to the generic path. */
++static inline __attribute__((always_inline))
++int zbtScoreLeafFindMemberReadOnly(zbtScoreLeaf *leaf, uint32_t hash,
++                                  const unsigned char *ele, size_t elelen,
++                                  double *score)
++{
++    uint8_t tag = hash >> 24;
++    uint16_t *offsets = zbtScoreLeafOffsets(leaf);
++    uint8_t *tags = zbtScoreLeafHashTags(leaf);
++    uint8_t *next = tags;
++    uint8_t *end = tags + leaf->n.count;
++
++    while (next < end) {
++        uint8_t *found = memchr(next, tag, end - next);
++        if (found == NULL) break;
++        unsigned int physical = found - tags;
++        uint16_t offset = offsets[physical];
++        unsigned char *record = (unsigned char *)leaf + offset;
++
++        if (record[0] == ZBT_PACKED_EXTERNAL &&
++            zbtExternalHash(record) != hash)
++        {
++            next = found + 1;
++            continue;
++        }
++
++        size_t len;
++        const unsigned char *stored = zbtPackedData(record, &len);
++        if (len == elelen && memcmp(stored, ele, len) == 0)
++        {
++            unsigned int logical =
++                zbtScoreLeafPhysicalPos(leaf, physical);
++            if (score) *score = zbtScoreLeafScore(leaf, logical);
++            return 1;
++        }
++        next = found + 1;
++    }
++    return 0;
++}
++
+ /* Choose a score-leaf split that balances bytes, not just element count.
+  * Both sides must fit in the 4 KB leaf limit. */
+ static unsigned int zbtScoreChooseSplit(unsigned int count, double *scores,
+@@ -1964,7 +2005,9 @@
+                         continue;
+                     }
+                 }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
++                if (score_pos == NULL ?
++                    zbtScoreLeafFindMemberReadOnly(leaf, hash, ele, elelen, score) :
++                    zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+                                            score_pos))
+                 {
+                     if (score_leaf) *score_leaf = leaf;

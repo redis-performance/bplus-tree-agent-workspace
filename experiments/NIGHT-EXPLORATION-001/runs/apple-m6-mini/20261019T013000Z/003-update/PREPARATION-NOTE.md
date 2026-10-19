@@ -1,0 +1,1 @@
+All 102 semantic validation commands and all builds passed. The first metadata finalizer then failed because the compiler produced a dSYM directory and the file-hash loop included directories. Filtered to regular files and reran only metadata finalization; no semantic checks or builds repeated. No timing had started.

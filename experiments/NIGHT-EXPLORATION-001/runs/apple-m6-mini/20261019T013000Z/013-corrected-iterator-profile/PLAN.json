@@ -1,0 +1,182 @@
+{
+  "identity": "M6-CORRECTED-ITERATOR-PROFILE-001",
+  "status": "baseline-only preparation; captures require root exclusive-runner ACK",
+  "created_utc": "2026-10-19T04:24:01.798332+00:00",
+  "contracts": [
+    {
+      "id": "integer-full-forward",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "forward"
+    },
+    {
+      "id": "integer-full-reverse",
+      "encoding": "integer",
+      "mask": 7,
+      "direction": "reverse"
+    },
+    {
+      "id": "integer-score-forward",
+      "encoding": "integer",
+      "mask": 4,
+      "direction": "forward"
+    },
+    {
+      "id": "fraction-full-forward",
+      "encoding": "fraction",
+      "mask": 7,
+      "direction": "forward"
+    }
+  ],
+  "captures": [
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 1,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 100000,
+      "seed": 2,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-full-reverse",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "integer-score-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 1,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    },
+    {
+      "size": 1000000,
+      "seed": 2,
+      "contract": "fraction-full-forward",
+      "requested_items": 100000000,
+      "warmup_passes": 3
+    }
+  ],
+  "validation": "native+ASan/UBSan: four contracts,size1000,requested_ops2003,seed1,warmup1;8runs total",
+  "minimum_pcs": 25,
+  "requested_sample_interval_us": 1000,
+  "no_retry": true,
+  "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "header_sha256": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+  "adapter_hashes": {
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3"
+  },
+  "flags": [
+    "-std=c11",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-fno-omit-frame-pointer",
+    "-O3"
+  ],
+  "sanitizer_flags": [
+    "-O1",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all"
+  ],
+  "profile_extra_flags": [
+    "-DPROFILE_SAMPLE"
+  ],
+  "sampler": "unchanged ../002-rank/night-rank-sampler.h; no external attachment",
+  "sampling_scope": "Existing sampler hooks include QoS/CPU/thread-clock observations around traversal; fixture setup,warmup and semantic verification excluded. Sampled PC counts are not unbiased time shares or hardware costs.",
+  "budgets": {
+    "child_seconds": 120,
+    "capture_phase_wall_seconds": 900,
+    "absolute_capture_stop_utc": "2026-10-19T07:15:00+00:00"
+  },
+  "capture_authorization": "root ACK exact freeze/plan/driver hashes; exclusive_runner and other_work_idle true after B plot/C raw audit finish",
+  "interpretation": "Sampled PC counts only; no cycles,cache,cost shares or elapsed-speed effects. Emitted frontend times unused. Original009 profiles stay separate.",
+  "participant": "/root/followup_proposal_a",
+  "backend": "Inherited GPT-6/Codex family; exact serving identifier/token/currency cost unknown"
+}

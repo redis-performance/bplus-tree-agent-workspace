@@ -1,0 +1,13 @@
+# Independent actual-result audit — PASS
+
+The one CPU Profiler attempt correctly stops as unavailable/incomplete after recorder return code 2. The retained stderr explicitly reports `configureHardwareCounters: Failed set kpc configuration: Operation not permitted.` Both raw stream hashes match the single command journal entry. Its command exactly matches the preregistered own-launch command; no retry, fallback, elevation, TOC export or table-row export is recorded.
+
+All 11 frozen input hashes, the reused exact probe binary and the xctrace launcher still match. The ACK matches freeze `19a49f9a9df3b2ae5dd7d11f86a88ba8cdd296a26adaf8d3828aefcb87cdc7e0`. Direct read-only verification of local content-addressed commit `dffbd8666101ce6b81976a673fec0eefc218099c` finds exact contents for those 11 inputs, the freeze and both final reviews. The commit timestamp precedes authorization and launch. This verifies local commit/ACK provenance; no remote publication receipt was queried.
+
+The recorder runs from 04:57:54.293957 to 04:57:56.729267 UTC, with 2.435328084 seconds recorded wall time, below its 51-second wait allowance and ACK stop at 05:00:54.273867 UTC. There is no timeout, cap trigger or drain failure; the recorder is reaped. The private owned probe has exactly one start and one matching completion, ALU case, 268435456 items, seed 1, checksum 9087321014236724183 and enabled signposts. Its output hash matches the result.
+
+The failed private trace totals 979546 bytes, below the soft 256 MiB watchdog, and no TOC file exists. The frozen driver records observed disappearance of the exact owned target and safe runner release. This historical observation is retained evidence, not a new process query or a claim that the driver reaped the broker-owned target. Recorder failure branches to the saved stop result before export.
+
+The permission denial applies to this CPU Profiler/KPC configuration under existing permissions. No hardware events, cycle weights, scope or units qualify; the separate 014 route remains UNKNOWN. There is no tree optimization or performance claim.
+
+Participant: `/root/followup_proposal_c`, inherited GPT-6/Codex family; exact serving model, usage and monetary cost unknown. I authored the preceding independent static review and independently audited root's execution. No build, test, measurement, recording, export, process probe or Git command ran. A bundled read initially requested a nonexistent private journal and raised FileNotFoundError; the actual public journal was subsequently read, without changing evidence. Exact hashes and limitations are in AVAILABILITY-AUDIT.json.

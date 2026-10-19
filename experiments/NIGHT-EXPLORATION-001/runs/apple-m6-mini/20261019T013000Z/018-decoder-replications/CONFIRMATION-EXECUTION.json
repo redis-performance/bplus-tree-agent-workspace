@@ -1,0 +1,81 @@
+{
+  "status": "FRESH_DIAGNOSTIC_COMPLETE_PENDING_AUDIT",
+  "phases": [
+    {
+      "phase": "007-confirmation-A",
+      "command": [
+        "python3",
+        "experiments/EXP-007/run.py",
+        "--out",
+        "build/m6-replications/EXP007/confirmation",
+        "--confirmation",
+        "A",
+        "--budget-seconds",
+        "180"
+      ],
+      "cwd": "worktrees/m6-replica-exp007",
+      "bound_seconds": 240,
+      "absolute_cutoff_utc": "2026-10-19T07:15:00+00:00",
+      "started_utc": "2026-10-19T05:26:54.189402+00:00",
+      "owned_process_group": 68666,
+      "driver_reaped": true,
+      "owned_group_empty": true,
+      "returncode": 0,
+      "ended_utc": "2026-10-19T05:27:05.796215+00:00",
+      "wall_seconds": 11.60658154200064,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-decoder-replication-phases/007-confirmation-A.stdout",
+          "sha256": "393fac656e2c4f7864144492d74c02111dc55a0036bc1021998c93810e2cd112",
+          "bytes": 733
+        },
+        "stderr": {
+          "path": "scratch/m6-decoder-replication-phases/007-confirmation-A.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      },
+      "exclusive_release_safe": true
+    },
+    {
+      "phase": "007-profile-A",
+      "command": [
+        "python3",
+        "experiments/EXP-007/profile.py",
+        "A",
+        "--out-dir",
+        "build/m6-replications/EXP007/profiles"
+      ],
+      "cwd": "worktrees/m6-replica-exp007",
+      "bound_seconds": 40,
+      "absolute_cutoff_utc": "2026-10-19T07:15:00+00:00",
+      "started_utc": "2026-10-19T05:27:09.163111+00:00",
+      "owned_process_group": 70129,
+      "driver_reaped": true,
+      "owned_group_empty": true,
+      "returncode": 0,
+      "ended_utc": "2026-10-19T05:27:11.219734+00:00",
+      "wall_seconds": 2.056370041000264,
+      "logs": {
+        "stdout": {
+          "path": "scratch/m6-decoder-replication-phases/007-profile-A.stdout",
+          "sha256": "fc8a445a62e0beb7c337406f94f8b79eb1aa4c096108c72ed1f3d35f8bc1569a",
+          "bytes": 20
+        },
+        "stderr": {
+          "path": "scratch/m6-decoder-replication-phases/007-profile-A.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      },
+      "exclusive_release_safe": true
+    }
+  ],
+  "frozen_identities_still_match": 207,
+  "confirmation_processes": 1440,
+  "confirmation_batches": 185760,
+  "all_replication_processes": 20640,
+  "all_replication_batches": 2662560,
+  "source_selection": "NONE",
+  "reason": "Short timing windows and guard/control limitations remain; fresh sessions do not repair original window lengths."
+}

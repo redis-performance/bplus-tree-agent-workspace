@@ -1,0 +1,45 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1272,7 +1272,8 @@
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+-static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++static inline __attribute__((always_inline))
++int zbtScoreLeafFindMemberBody(zbtScoreLeaf *leaf, uint32_t hash,
+                                   const unsigned char *ele, size_t elelen,
+                                   double *score,
+                                   unsigned int *position)
+@@ -1310,6 +1311,17 @@
+         next = found + 1;
+     }
+     return 0;
++}
++
++/* Generic callers retain an out-of-line entry; read-only callers can expose
++ * the same body with a constant NULL logical-position output. */
++static __attribute__((noinline))
++int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++                           const unsigned char *ele, size_t elelen,
++                           double *score, unsigned int *position)
++{
++    return zbtScoreLeafFindMemberBody(leaf, hash, ele, elelen, score,
++                                      position);
+ }
+ 
+ /* Choose a score-leaf split that balances bytes, not just element count.
+@@ -1964,8 +1976,12 @@
+                         continue;
+                     }
+                 }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+-                                           score_pos))
++                int found = score_pos ?
++                    zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
++                                           score_pos) :
++                    zbtScoreLeafFindMemberBody(leaf, hash, ele, elelen, score,
++                                               NULL);
++                if (found)
+                 {
+                     if (score_leaf) *score_leaf = leaf;
+                     if (found_bucket) *found_bucket = bucket;

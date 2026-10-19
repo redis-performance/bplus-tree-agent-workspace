@@ -1,0 +1,177 @@
+{
+  "status": "STATIC OUTPUT MATERIALIZATION/DECODE CONTROL FLOW RETAINED; NO EXECUTION",
+  "variants": {
+    "base": {
+      "assembly": "build/exp007/base/kernel.s",
+      "sha256": "d85a77e2707cac0c0c33778a75ad52206b1a8db5bfefd7b5d41ed2bd5f009c48",
+      "functions": {
+        "decoder_batch": {
+          "start_line": 46723,
+          "end_line": 48859,
+          "nonstack_store_count": 3,
+          "first_nonstack_stores": [
+            {
+              "line": 47097,
+              "instruction": "str\tx21, [x9, x20, lsl #3]"
+            },
+            {
+              "line": 47423,
+              "instruction": "str\tx23, [x22, #8]"
+            },
+            {
+              "line": 48285,
+              "instruction": "str\tx23, [x22]"
+            }
+          ],
+          "branch_instructions": 59
+        }
+      }
+    },
+    "A": {
+      "assembly": "build/exp007/A/kernel.s",
+      "sha256": "92de4d79f95089222808bd8d7e275cc0f8848ab3c5b75a146fb55836f1d59029",
+      "functions": {
+        "decoder_batch": {
+          "start_line": 48447,
+          "end_line": 53028,
+          "nonstack_store_count": 16,
+          "first_nonstack_stores": [
+            {
+              "line": 48840,
+              "instruction": "str\tx21, [x10, x20, lsl #3]"
+            },
+            {
+              "line": 49145,
+              "instruction": "str\tx23, [x22, #8]"
+            },
+            {
+              "line": 50007,
+              "instruction": "str\tx23, [x22]"
+            },
+            {
+              "line": 50420,
+              "instruction": "str\tx6, [x10, x24, lsl #3]"
+            },
+            {
+              "line": 50520,
+              "instruction": "stp\tq0, q0, [x19, #-32]"
+            },
+            {
+              "line": 50521,
+              "instruction": "stp\tq0, q0, [x19], #64"
+            },
+            {
+              "line": 50578,
+              "instruction": "str\tx5, [x7], #8"
+            },
+            {
+              "line": 51037,
+              "instruction": "str\tx6, [x10, x24, lsl #3]"
+            }
+          ],
+          "branch_instructions": 115
+        }
+      }
+    },
+    "B": {
+      "assembly": "build/exp007/B/kernel.s",
+      "sha256": "217cf264705e99ef838bd16284886d327e62ffb183aab255d6f1ba906c0f64f5",
+      "functions": {
+        "decoder_batch": {
+          "start_line": 47225,
+          "end_line": 47846,
+          "nonstack_store_count": 0,
+          "first_nonstack_stores": [],
+          "branch_instructions": 23
+        },
+        "zbtScoreLeafDecodeRange": {
+          "start_line": 46610,
+          "end_line": 47221,
+          "nonstack_store_count": 8,
+          "first_nonstack_stores": [
+            {
+              "line": 46746,
+              "instruction": "str\tx17, [x3], #8"
+            },
+            {
+              "line": 46946,
+              "instruction": "str\tx15, [x3], #8"
+            },
+            {
+              "line": 46992,
+              "instruction": "str\tx14, [x3], #8"
+            },
+            {
+              "line": 47080,
+              "instruction": "str\tx15, [x3], #8"
+            },
+            {
+              "line": 47133,
+              "instruction": "str\tx14, [x3], #8"
+            },
+            {
+              "line": 47172,
+              "instruction": "stp\tq0, q0, [x11, #-32]"
+            },
+            {
+              "line": 47173,
+              "instruction": "stp\tq0, q0, [x11], #64"
+            },
+            {
+              "line": 47207,
+              "instruction": "str\tx8, [x11], #8"
+            }
+          ],
+          "branch_instructions": 25
+        }
+      }
+    },
+    "C": {
+      "assembly": "build/exp007/C/kernel.s",
+      "sha256": "16d3575477c9d86bf1494a5a6e83801b653b67d73db6816cb531056174a54716",
+      "functions": {
+        "decoder_batch": {
+          "start_line": 46386,
+          "end_line": 49911,
+          "nonstack_store_count": 11,
+          "first_nonstack_stores": [
+            {
+              "line": 46759,
+              "instruction": "str\tx24, [x10, x23, lsl #3]"
+            },
+            {
+              "line": 46947,
+              "instruction": "str\tx21, [x10, x20, lsl #3]"
+            },
+            {
+              "line": 47252,
+              "instruction": "str\tx23, [x22, #8]"
+            },
+            {
+              "line": 48114,
+              "instruction": "str\tx23, [x22]"
+            },
+            {
+              "line": 48486,
+              "instruction": "str\tx26, [x25, #24]"
+            },
+            {
+              "line": 49096,
+              "instruction": "str\tx26, [x25]"
+            },
+            {
+              "line": 49218,
+              "instruction": "str\tx26, [x25, #8]"
+            },
+            {
+              "line": 49340,
+              "instruction": "str\tx26, [x25, #16]"
+            }
+          ],
+          "branch_instructions": 90
+        }
+      }
+    }
+  },
+  "scope": "Original tree is compiled into each kernel; findings concern decoder_batch and B called bulk helper, not tree throughput or cycles"
+}

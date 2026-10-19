@@ -1,0 +1,957 @@
+{
+  "status": "PASS descriptive baseline inventory",
+  "participant": "/root/followup_proposal_a",
+  "backend": "Inherited GPT-6/Codex family; exact serving identifier/token/currency cost unknown",
+  "frozen_source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "freeze_sha256": "f5981f8a001f33ebc1ce06a3394d797afe21bfcabb98fec48ad28ea4c0cf3313",
+  "capture_summary_sha256": "6aa9ae4b7e1d7610ebcf44f6d586d525d4229ddfa7e2cc387f0ff6f6703dc150",
+  "capture_count": 16,
+  "minimum_required_pcs": 25,
+  "observed_pcs_min": 35,
+  "observed_pcs_max": 75,
+  "sample_scope": "Existing sampler hooks include QoS/CPU/thread-clock observations around traversal; fixture setup,warmup and semantic verification excluded. Sampled PC counts are not unbiased time shares or hardware costs.",
+  "counts_not_costs": true,
+  "no_old_adapter_count_pooling": true,
+  "aggregate_note": "Totals below are bookkeeping across this fixed matrix of different contracts; they are not workload shares or cross-adapter effects.",
+  "manual_regions": [
+    {
+      "id": "entry_current_and_output_selection",
+      "ranges": [
+        {
+          "first_offset_bytes": 0,
+          "last_offset_bytes": 16
+        }
+      ],
+      "source_reference_line": 4024,
+      "broad_region": "entry",
+      "instruction_count": 5
+    },
+    {
+      "id": "member_offset_table_base",
+      "ranges": [
+        {
+          "first_offset_bytes": 20,
+          "last_offset_bytes": 48
+        }
+      ],
+      "source_reference_line": 344,
+      "broad_region": "member",
+      "instruction_count": 8
+    },
+    {
+      "id": "member_physical_position_and_record_address",
+      "ranges": [
+        {
+          "first_offset_bytes": 52,
+          "last_offset_bytes": 88
+        }
+      ],
+      "source_reference_line": 369,
+      "broad_region": "member",
+      "instruction_count": 10
+    },
+    {
+      "id": "member_inline_prefix_and_length_decode",
+      "ranges": [
+        {
+          "first_offset_bytes": 92,
+          "last_offset_bytes": 112
+        },
+        {
+          "first_offset_bytes": 124,
+          "last_offset_bytes": 140
+        }
+      ],
+      "source_reference_line": 589,
+      "broad_region": "member",
+      "instruction_count": 11
+    },
+    {
+      "id": "empty_end_return",
+      "ranges": [
+        {
+          "first_offset_bytes": 116,
+          "last_offset_bytes": 120
+        }
+      ],
+      "source_reference_line": 4025,
+      "broad_region": "end",
+      "instruction_count": 2
+    },
+    {
+      "id": "member_and_length_output",
+      "ranges": [
+        {
+          "first_offset_bytes": 144,
+          "last_offset_bytes": 152
+        }
+      ],
+      "source_reference_line": 4033,
+      "broad_region": "output",
+      "instruction_count": 3
+    },
+    {
+      "id": "score_selection_width_and_orientation",
+      "ranges": [
+        {
+          "first_offset_bytes": 156,
+          "last_offset_bytes": 188
+        }
+      ],
+      "source_reference_line": 4036,
+      "broad_region": "score",
+      "instruction_count": 9
+    },
+    {
+      "id": "score_bit_position_word_load_and_extraction",
+      "ranges": [
+        {
+          "first_offset_bytes": 192,
+          "last_offset_bytes": 252
+        }
+      ],
+      "source_reference_line": 501,
+      "broad_region": "score",
+      "instruction_count": 16
+    },
+    {
+      "id": "score_mask_and_shift",
+      "ranges": [
+        {
+          "first_offset_bytes": 256,
+          "last_offset_bytes": 288
+        }
+      ],
+      "source_reference_line": 509,
+      "broad_region": "score",
+      "instruction_count": 9
+    },
+    {
+      "id": "score_base_and_ordered_to_double",
+      "ranges": [
+        {
+          "first_offset_bytes": 292,
+          "last_offset_bytes": 316
+        }
+      ],
+      "source_reference_line": 513,
+      "broad_region": "score",
+      "instruction_count": 7
+    },
+    {
+      "id": "score_output",
+      "ranges": [
+        {
+          "first_offset_bytes": 320,
+          "last_offset_bytes": 320
+        }
+      ],
+      "source_reference_line": 4036,
+      "broad_region": "output",
+      "instruction_count": 1
+    },
+    {
+      "id": "iterator_direction_position_and_leaf_advance",
+      "ranges": [
+        {
+          "first_offset_bytes": 324,
+          "last_offset_bytes": 392
+        }
+      ],
+      "source_reference_line": 4038,
+      "broad_region": "advance",
+      "instruction_count": 18
+    },
+    {
+      "id": "successful_return",
+      "ranges": [
+        {
+          "first_offset_bytes": 396,
+          "last_offset_bytes": 400
+        }
+      ],
+      "source_reference_line": 4059,
+      "broad_region": "return",
+      "instruction_count": 2
+    },
+    {
+      "id": "external_member_pointer_and_length",
+      "ranges": [
+        {
+          "first_offset_bytes": 404,
+          "last_offset_bytes": 420
+        }
+      ],
+      "source_reference_line": 573,
+      "broad_region": "member",
+      "instruction_count": 5
+    },
+    {
+      "id": "cold_null_external_pointer_panic_frame_and_call",
+      "ranges": [
+        {
+          "first_offset_bytes": 424,
+          "last_offset_bytes": 452
+        }
+      ],
+      "source_reference_line": 599,
+      "broad_region": "cold_panic",
+      "instruction_count": 8
+    }
+  ],
+  "captures": [
+    {
+      "size": 100000,
+      "contract": "integer-full-forward",
+      "seed": 1,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 55,
+      "tree_bytes": 2984688,
+      "construction_fingerprint": "9586067618676553569",
+      "iterator_samples": 46,
+      "other_symbols": {
+        "traverse": 9
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 4,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 5,
+        "member_inline_prefix_and_length_decode": 4,
+        "empty_end_return": 0,
+        "member_and_length_output": 2,
+        "score_selection_width_and_orientation": 1,
+        "score_bit_position_word_load_and_extraction": 3,
+        "score_mask_and_shift": 12,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 6,
+        "iterator_direction_position_and_leaf_advance": 6,
+        "successful_return": 2,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 4,
+        "member": 10,
+        "score": 16,
+        "output": 8,
+        "advance": 6,
+        "return": 2,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 9
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "integer-full-forward",
+      "seed": 2,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 56,
+      "tree_bytes": 2979568,
+      "construction_fingerprint": "17106448670853148105",
+      "iterator_samples": 43,
+      "other_symbols": {
+        "traverse": 13
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 5,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 3,
+        "member_inline_prefix_and_length_decode": 5,
+        "empty_end_return": 0,
+        "member_and_length_output": 5,
+        "score_selection_width_and_orientation": 2,
+        "score_bit_position_word_load_and_extraction": 2,
+        "score_mask_and_shift": 9,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 3,
+        "iterator_direction_position_and_leaf_advance": 6,
+        "successful_return": 2,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 5,
+        "member": 9,
+        "score": 13,
+        "output": 8,
+        "advance": 6,
+        "return": 2,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 13
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "integer-full-reverse",
+      "seed": 1,
+      "mask": 7,
+      "direction": "reverse",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 61,
+      "tree_bytes": 2984688,
+      "construction_fingerprint": "9586067618676553569",
+      "iterator_samples": 51,
+      "other_symbols": {
+        "traverse": 9,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 2,
+        "member_offset_table_base": 2,
+        "member_physical_position_and_record_address": 3,
+        "member_inline_prefix_and_length_decode": 4,
+        "empty_end_return": 0,
+        "member_and_length_output": 4,
+        "score_selection_width_and_orientation": 5,
+        "score_bit_position_word_load_and_extraction": 4,
+        "score_mask_and_shift": 15,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 6,
+        "iterator_direction_position_and_leaf_advance": 5,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 2,
+        "member": 9,
+        "score": 25,
+        "output": 10,
+        "advance": 5,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 10
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "integer-full-reverse",
+      "seed": 2,
+      "mask": 7,
+      "direction": "reverse",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 75,
+      "tree_bytes": 2979568,
+      "construction_fingerprint": "17106448670853148105",
+      "iterator_samples": 52,
+      "other_symbols": {
+        "traverse": 22,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 4,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 5,
+        "member_inline_prefix_and_length_decode": 7,
+        "empty_end_return": 0,
+        "member_and_length_output": 5,
+        "score_selection_width_and_orientation": 0,
+        "score_bit_position_word_load_and_extraction": 3,
+        "score_mask_and_shift": 14,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 7,
+        "iterator_direction_position_and_leaf_advance": 6,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 4,
+        "member": 13,
+        "score": 17,
+        "output": 12,
+        "advance": 6,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 23
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "integer-score-forward",
+      "seed": 1,
+      "mask": 4,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 48,
+      "tree_bytes": 2984688,
+      "construction_fingerprint": "9586067618676553569",
+      "iterator_samples": 39,
+      "other_symbols": {
+        "traverse": 9
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 9,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 0,
+        "member_inline_prefix_and_length_decode": 0,
+        "empty_end_return": 0,
+        "member_and_length_output": 0,
+        "score_selection_width_and_orientation": 5,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 3,
+        "score_base_and_ordered_to_double": 2,
+        "score_output": 9,
+        "iterator_direction_position_and_leaf_advance": 2,
+        "successful_return": 3,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 9,
+        "member": 0,
+        "score": 16,
+        "output": 9,
+        "advance": 2,
+        "return": 3,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 9
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "integer-score-forward",
+      "seed": 2,
+      "mask": 4,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 42,
+      "tree_bytes": 2979568,
+      "construction_fingerprint": "17106448670853148105",
+      "iterator_samples": 36,
+      "other_symbols": {
+        "traverse": 5,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 4,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 0,
+        "member_inline_prefix_and_length_decode": 0,
+        "empty_end_return": 0,
+        "member_and_length_output": 0,
+        "score_selection_width_and_orientation": 2,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 8,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 13,
+        "iterator_direction_position_and_leaf_advance": 1,
+        "successful_return": 2,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 4,
+        "member": 0,
+        "score": 16,
+        "output": 13,
+        "advance": 1,
+        "return": 2,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 6
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "fraction-full-forward",
+      "seed": 1,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "fraction",
+      "operations": 100000000,
+      "samples": 51,
+      "tree_bytes": 2985200,
+      "construction_fingerprint": "9586067618676553569",
+      "iterator_samples": 44,
+      "other_symbols": {
+        "traverse": 6,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 6,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 3,
+        "member_inline_prefix_and_length_decode": 3,
+        "empty_end_return": 0,
+        "member_and_length_output": 3,
+        "score_selection_width_and_orientation": 1,
+        "score_bit_position_word_load_and_extraction": 2,
+        "score_mask_and_shift": 8,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 7,
+        "iterator_direction_position_and_leaf_advance": 11,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 6,
+        "member": 6,
+        "score": 11,
+        "output": 10,
+        "advance": 11,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 7
+      }
+    },
+    {
+      "size": 100000,
+      "contract": "fraction-full-forward",
+      "seed": 2,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "fraction",
+      "operations": 100000000,
+      "samples": 67,
+      "tree_bytes": 2980080,
+      "construction_fingerprint": "17106448670853148105",
+      "iterator_samples": 51,
+      "other_symbols": {
+        "traverse": 15,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 3,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 2,
+        "member_inline_prefix_and_length_decode": 5,
+        "empty_end_return": 0,
+        "member_and_length_output": 4,
+        "score_selection_width_and_orientation": 5,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 12,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 7,
+        "iterator_direction_position_and_leaf_advance": 5,
+        "successful_return": 1,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 3,
+        "member": 7,
+        "score": 24,
+        "output": 11,
+        "advance": 5,
+        "return": 1,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 16
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-full-forward",
+      "seed": 1,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 63,
+      "tree_bytes": 32936304,
+      "construction_fingerprint": "17237978808764024041",
+      "iterator_samples": 49,
+      "other_symbols": {
+        "traverse": 13,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 6,
+        "member_offset_table_base": 2,
+        "member_physical_position_and_record_address": 5,
+        "member_inline_prefix_and_length_decode": 3,
+        "empty_end_return": 0,
+        "member_and_length_output": 3,
+        "score_selection_width_and_orientation": 1,
+        "score_bit_position_word_load_and_extraction": 5,
+        "score_mask_and_shift": 9,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 6,
+        "iterator_direction_position_and_leaf_advance": 5,
+        "successful_return": 3,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 6,
+        "member": 10,
+        "score": 16,
+        "output": 9,
+        "advance": 5,
+        "return": 3,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 14
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-full-forward",
+      "seed": 2,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 73,
+      "tree_bytes": 32916336,
+      "construction_fingerprint": "7181617122643110053",
+      "iterator_samples": 59,
+      "other_symbols": {
+        "traverse": 13,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 6,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 3,
+        "member_inline_prefix_and_length_decode": 7,
+        "empty_end_return": 0,
+        "member_and_length_output": 4,
+        "score_selection_width_and_orientation": 3,
+        "score_bit_position_word_load_and_extraction": 2,
+        "score_mask_and_shift": 13,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 10,
+        "iterator_direction_position_and_leaf_advance": 7,
+        "successful_return": 3,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 6,
+        "member": 10,
+        "score": 19,
+        "output": 14,
+        "advance": 7,
+        "return": 3,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 14
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-full-reverse",
+      "seed": 1,
+      "mask": 7,
+      "direction": "reverse",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 68,
+      "tree_bytes": 32936304,
+      "construction_fingerprint": "17237978808764024041",
+      "iterator_samples": 54,
+      "other_symbols": {
+        "traverse": 13,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 3,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 6,
+        "member_inline_prefix_and_length_decode": 7,
+        "empty_end_return": 0,
+        "member_and_length_output": 0,
+        "score_selection_width_and_orientation": 3,
+        "score_bit_position_word_load_and_extraction": 7,
+        "score_mask_and_shift": 17,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 6,
+        "iterator_direction_position_and_leaf_advance": 4,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 3,
+        "member": 14,
+        "score": 27,
+        "output": 6,
+        "advance": 4,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 14
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-full-reverse",
+      "seed": 2,
+      "mask": 7,
+      "direction": "reverse",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 69,
+      "tree_bytes": 32916336,
+      "construction_fingerprint": "7181617122643110053",
+      "iterator_samples": 54,
+      "other_symbols": {
+        "traverse": 14,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 6,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 3,
+        "member_inline_prefix_and_length_decode": 5,
+        "empty_end_return": 0,
+        "member_and_length_output": 2,
+        "score_selection_width_and_orientation": 5,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 14,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 5,
+        "iterator_direction_position_and_leaf_advance": 8,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 6,
+        "member": 8,
+        "score": 25,
+        "output": 7,
+        "advance": 8,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 15
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-score-forward",
+      "seed": 1,
+      "mask": 4,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 35,
+      "tree_bytes": 32936304,
+      "construction_fingerprint": "17237978808764024041",
+      "iterator_samples": 25,
+      "other_symbols": {
+        "traverse": 9,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 3,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 0,
+        "member_inline_prefix_and_length_decode": 0,
+        "empty_end_return": 0,
+        "member_and_length_output": 0,
+        "score_selection_width_and_orientation": 2,
+        "score_bit_position_word_load_and_extraction": 4,
+        "score_mask_and_shift": 4,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 8,
+        "iterator_direction_position_and_leaf_advance": 3,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 3,
+        "member": 0,
+        "score": 11,
+        "output": 8,
+        "advance": 3,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 10
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "integer-score-forward",
+      "seed": 2,
+      "mask": 4,
+      "direction": "forward",
+      "encoding": "integer",
+      "operations": 100000000,
+      "samples": 48,
+      "tree_bytes": 32916336,
+      "construction_fingerprint": "7181617122643110053",
+      "iterator_samples": 33,
+      "other_symbols": {
+        "traverse": 14,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 9,
+        "member_offset_table_base": 0,
+        "member_physical_position_and_record_address": 0,
+        "member_inline_prefix_and_length_decode": 0,
+        "empty_end_return": 0,
+        "member_and_length_output": 0,
+        "score_selection_width_and_orientation": 1,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 4,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 8,
+        "iterator_direction_position_and_leaf_advance": 4,
+        "successful_return": 0,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 9,
+        "member": 0,
+        "score": 12,
+        "output": 8,
+        "advance": 4,
+        "return": 0,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 15
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "fraction-full-forward",
+      "seed": 1,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "fraction",
+      "operations": 100000000,
+      "samples": 63,
+      "tree_bytes": 32936560,
+      "construction_fingerprint": "17237978808764024041",
+      "iterator_samples": 52,
+      "other_symbols": {
+        "traverse": 10,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 4,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 11,
+        "member_inline_prefix_and_length_decode": 8,
+        "empty_end_return": 0,
+        "member_and_length_output": 3,
+        "score_selection_width_and_orientation": 2,
+        "score_bit_position_word_load_and_extraction": 6,
+        "score_mask_and_shift": 9,
+        "score_base_and_ordered_to_double": 1,
+        "score_output": 2,
+        "iterator_direction_position_and_leaf_advance": 3,
+        "successful_return": 2,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 4,
+        "member": 20,
+        "score": 18,
+        "output": 5,
+        "advance": 3,
+        "return": 2,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 11
+      }
+    },
+    {
+      "size": 1000000,
+      "contract": "fraction-full-forward",
+      "seed": 2,
+      "mask": 7,
+      "direction": "forward",
+      "encoding": "fraction",
+      "operations": 100000000,
+      "samples": 63,
+      "tree_bytes": 32916592,
+      "construction_fingerprint": "7181617122643110053",
+      "iterator_samples": 46,
+      "other_symbols": {
+        "traverse": 16,
+        "__thread_selfusage": 1
+      },
+      "fine_regions": {
+        "entry_current_and_output_selection": 5,
+        "member_offset_table_base": 1,
+        "member_physical_position_and_record_address": 5,
+        "member_inline_prefix_and_length_decode": 5,
+        "empty_end_return": 0,
+        "member_and_length_output": 7,
+        "score_selection_width_and_orientation": 2,
+        "score_bit_position_word_load_and_extraction": 3,
+        "score_mask_and_shift": 8,
+        "score_base_and_ordered_to_double": 0,
+        "score_output": 4,
+        "iterator_direction_position_and_leaf_advance": 4,
+        "successful_return": 2,
+        "external_member_pointer_and_length": 0,
+        "cold_null_external_pointer_panic_frame_and_call": 0
+      },
+      "broad_regions": {
+        "entry": 5,
+        "member": 11,
+        "score": 13,
+        "output": 11,
+        "advance": 4,
+        "return": 2,
+        "end": 0,
+        "cold_panic": 0,
+        "other_symbol": 17
+      }
+    }
+  ],
+  "bookkeeping_totals": {
+    "samples": 937,
+    "symbols": {
+      "traverse": 190,
+      "zbtreeIteratorNext": 734,
+      "__thread_selfusage": 13
+    },
+    "fine_regions": {
+      "entry_current_and_output_selection": 79,
+      "member_offset_table_base": 10,
+      "member_physical_position_and_record_address": 54,
+      "member_inline_prefix_and_length_decode": 63,
+      "empty_end_return": 0,
+      "member_and_length_output": 42,
+      "score_selection_width_and_orientation": 40,
+      "score_bit_position_word_load_and_extraction": 71,
+      "score_mask_and_shift": 159,
+      "score_base_and_ordered_to_double": 9,
+      "score_output": 107,
+      "iterator_direction_position_and_leaf_advance": 80,
+      "successful_return": 20,
+      "external_member_pointer_and_length": 0,
+      "cold_null_external_pointer_panic_frame_and_call": 0
+    },
+    "broad_regions": {
+      "entry": 79,
+      "member": 127,
+      "score": 279,
+      "output": 149,
+      "advance": 80,
+      "return": 20,
+      "end": 0,
+      "cold_panic": 0,
+      "other_symbol": 203
+    }
+  }
+}

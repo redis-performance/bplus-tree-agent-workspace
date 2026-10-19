@@ -1,0 +1,80 @@
+{
+  "frozen_utc": "2026-10-19T02:32:18.947100+00:00",
+  "hypothesis": "M6-LOOKUP-PHYSICAL-001",
+  "source_commit": "e18d69d0",
+  "chair_commit": "e1f3b73c",
+  "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "referee_sha256": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307",
+  "variants": {
+    "0": {
+      "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+      "snapshot": "scratch/m6-lookup/variants/0",
+      "referee_sha256": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307"
+    },
+    "A": {
+      "source_sha256": "565373cf0f30e4af46e7614498b201f3b634ff49475a821b5b02de0e6170f0b2",
+      "snapshot": "scratch/m6-lookup/variants/A",
+      "referee_sha256": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307",
+      "patch_sha256": "8494a0bed382ab1e4a3e5d70de3c2bbccf14423fd58a3839c8880389aa9744e7"
+    },
+    "B": {
+      "source_sha256": "0119b041313c8010c3b95f013d411eccefe224c237857193ab2957fd2cf2bd49",
+      "snapshot": "scratch/m6-lookup/variants/B",
+      "referee_sha256": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307",
+      "patch_sha256": "b1ca29ae4594f00e0e5d5761462e9c1058d5249fde5708ad761c7329a91ec513"
+    },
+    "C": {
+      "source_sha256": "16579dd0ef0536fb8427aadf67e8185f08fd8ac2b00bbcfc666553dec11405fc",
+      "snapshot": "scratch/m6-lookup/variants/C",
+      "referee_sha256": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307",
+      "patch_sha256": "54da84d4a148719cd0cd914ba204227ca920b22ce8a0df23c1096c987f7e7060"
+    }
+  },
+  "validation": {
+    "status": "complete",
+    "finished_utc": "2026-10-19T02:31:27.227565+00:00",
+    "original_control_text_equals_isolated": true,
+    "variants": {
+      "0": {
+        "source": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+        "binary": "9036c6e4f52408d8b4670d3506c231dbe944fcd8005bc0d7c3c62f5338e6c966"
+      },
+      "A": {
+        "source": "565373cf0f30e4af46e7614498b201f3b634ff49475a821b5b02de0e6170f0b2",
+        "binary": "44355dfae8e73e085f5dd00673067e93ac823ca4ac2977e8da61db6b0b63c1b0"
+      },
+      "B": {
+        "source": "0119b041313c8010c3b95f013d411eccefe224c237857193ab2957fd2cf2bd49",
+        "binary": "71dd81c41dad98f04a203cf0680b78f5b3e2e31818622380e35298401bbcd0d5"
+      },
+      "C": {
+        "source": "16579dd0ef0536fb8427aadf67e8185f08fd8ac2b00bbcfc666553dec11405fc",
+        "binary": "1d01f83926ff76dabf4613f01b4132ac9f4e856c1fc236e31462694f7fd9fbf8"
+      }
+    },
+    "tests": "43 upstream tests/build;20 public size/length cells/build;physical exact-bit/position/collision oracle;native+ASan/UBSan",
+    "control_text_sha256": "0fcff7170499292f87e32d611a229484baa5eea123f9d92273de71adb2bf57f1"
+  },
+  "fixed_ops": {
+    "100-lookup-hit": 2664536,
+    "100-lookup-miss": 7936508,
+    "1000-lookup-hit": 2995806,
+    "1000-lookup-miss": 7733953,
+    "10000-lookup-hit": 1809955,
+    "10000-lookup-miss": 6127451,
+    "100000-lookup-hit": 1133017,
+    "100000-lookup-miss": 4387890,
+    "1000000-lookup-hit": 409116,
+    "1000000-lookup-miss": 1294834
+  },
+  "script_hashes": {
+    "implement.py": "10108b2fdfcfb864cb2a1ca7c001792998e1347d1cdef75ca89494cbe3aa34d3",
+    "compare.py": "c11ff4c36951a2eea8c06cff553547b2374853a06279bb63a71bc3d5bda65c84",
+    "physical-oracle.c": "ac37c96fd1b583a6c74f8be083e3f68bff9a74989929cdc4fddcce8d8177f59a",
+    "faults-codegen.py": "6011fcdd01d3e2caff466df4f9bc553990ff1599751aa871f1d5fc8af87d5a34"
+  },
+  "schedule": "six blocks seeds1/2/3 repeated,rotated variant and size order,ABBA,serial,no other experimental children,300s timed budget",
+  "primary_cells": "100K/1M lookup-hit16",
+  "gate": ">=2% both primaries in every block;unqualified1M prevents adoption;primary-only may reject,never accept",
+  "memory": "no >1% owned increase; no declared tradeoff"
+}

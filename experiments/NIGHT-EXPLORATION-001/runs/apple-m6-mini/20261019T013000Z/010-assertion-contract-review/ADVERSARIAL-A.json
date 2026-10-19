@@ -1,0 +1,62 @@
+{
+  "status": "APPROVE truthful C11 declaration as separate harness correction; no source optimization or speed claim",
+  "reviewer": "/root/followup_proposal_a",
+  "backend": "Inherited GPT-6/Codex family",
+  "exact_model": null,
+  "token_usage": null,
+  "monetary_cost": null,
+  "reviewed_utc": "2026-10-19T03:56:14.221933+00:00",
+  "independence": "Read-only adversarial review of C implementation/results; did not author or execute C correction/test driver.",
+  "inspected_inputs_sha256": {
+    "adapter.patch": "d5d951c9677eda78fb21774af4313083d8043cc38ef9bf1faa14c2b203c2aa8f",
+    "review.json": "7b8797d7c22fc97ce180388ab68972961e67b5440f69a6262760f7a9a734100c",
+    "review.py": "98ea28a9658ed35086c4322b46166bb1128ac972f57cabbd72d6d0c3d2339aee",
+    "abort-probe.c": "451cc3a760d83cd54be24d5de48f43c74fd2f56a0483907c28fb20037a7c9283",
+    "base-zbtreeIteratorNext.asm": "f49bc9d54fbe82c591f16a51ac4f0a955975435314c2a5d8041cd943910f67bb",
+    "noreturn-zbtreeIteratorNext.asm": "aada4d0c1e6caa65ab69e0be600cbf5ac26317b61f944d10d6a9335bfceb0027",
+    "upstream.stdout": "e96d03e92d8c5b1881d32bb33879ecd7373302a762de55b195deda64657dccca",
+    "upstream-san.stdout": "f54c0948474f071dfe989e7d5106e30ea758a885a803e83a1c8f1ac7779f578d",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "Makefile": "1a17cbc867957aaa4a01bffa5721de7ae5f74d184b27c2affd1acb8461bc5f79",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83"
+  },
+  "findings": {
+    "truthful_never_returns": "The complete current body writes its diagnostic then unconditionally calls abort. No normal return path exists.",
+    "assertion_evaluation": "Both macros and build options are unchanged; serverAssert expression is evaluated once and failure still calls the diagnostic/abort function.",
+    "debug_policy": "serverAssert remains active regardless of NDEBUG. debugServerAssert still follows REDIS_DEBUG exactly.",
+    "abi": "C linkage, void result and three argument types unchanged; no calling-convention/layout change. Generated caller control flow intentionally differs.",
+    "old_comparisons": "Remain internally valid for exact frozen adapter/binaries; prior decisions unchanged.",
+    "new_baseline": "Separate committed adapter/referee correction, full rebuild and new baseline qualification/profile required before comparison. Both sides use identical corrected adapter and flags.",
+    "portability": "Current C11 Clang configuration supports keyword. GNU compiler runtime not independently tested; local gcc is Apple Clang. Pre-C11/C++/C23 modes not tested.",
+    "interposition": "Any future panic replacement must not return normally. Logging-and-return/recoverable replacement would violate the new truthful contract."
+  },
+  "independent_evidence_checks": {
+    "c_driver_commands_verified": 23,
+    "c_log_hashes_verified": 46,
+    "c_expected_abort_cases": 8,
+    "abort_expected_signal": 6,
+    "no_after_panic_marker": true,
+    "corrected_original_tests_native": 43,
+    "corrected_original_tests_sanitizer": 43,
+    "c_patch_exact_two_function_specifier_insertions": true,
+    "c_source_header_allocator_hashes_unchanged": true,
+    "baseline_instructions_independently_counted": 155,
+    "corrected_instructions_independently_counted": 114,
+    "baseline_normal_frame_bytes": 96,
+    "corrected_normal_frame_bytes": 0,
+    "corrected_cold_panic_frame_bytes": 16,
+    "assembly_hashes_match_c_records": true,
+    "review_script_hash_matches_record": true,
+    "root_files_unchanged": true
+  },
+  "limitations": [
+    "Static code-generation evidence is not timing/cycle evidence.",
+    "No new tests/builds/profiles were run by this reviewer.",
+    "C tests establish current adapter behavior, not an override that returns.",
+    "New corrected benchmark suite is not yet requalified; no candidate comparison may reuse old controls."
+  ],
+  "no_contact_to_other_agents": true,
+  "no_build_test_timing_source_or_git_write": true
+}

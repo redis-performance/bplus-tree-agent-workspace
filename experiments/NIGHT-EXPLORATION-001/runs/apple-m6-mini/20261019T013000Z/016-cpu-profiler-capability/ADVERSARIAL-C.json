@@ -1,0 +1,184 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/followup_proposal_c",
+  "author": "/root/followup_proposal_a",
+  "independent_reviewer": true,
+  "backend": "GPT-6/Codex family",
+  "exact_model": null,
+  "token_usage": null,
+  "monetary_cost": null,
+  "reviewed_utc": "2026-10-19T04:56:00.166339+00:00",
+  "scope": "Read-only static source/AST/dependency review only. No import, test, CLI metadata, record, export, probe execution, build or profile.",
+  "final_hashes": {
+    "driver.py": "a64e8d1eb77e4ee95b973eac934a71406d2620068a6056e7ee36f1ca22245f27",
+    "freeze.json": "19a49f9a9df3b2ae5dd7d11f86a88ba8cdd296a26adaf8d3828aefcb87cdc7e0",
+    "PLAN.json": "e3058734e82547cb47604518a39ffbeada17c1399e3f77e2818292b39075a132",
+    "README.md": "4ea831d0a8221199e643b09706ee823ee6a058a20cb67ca3e07f91a2628009dc",
+    "dependencies.json": "559082da17903870707c356e137d4a0eb8f6758e20a952bf13039a785a0da030",
+    "planned-command.json": "f47ff53dbd658edc2dae3e9f4ad3365fb17b49638de95a83f4b17b86d46cf7d0",
+    "recording-options.json": "aea3abb3d93117bade1124555f881c76050d659b0f918009bceca9bae8bcc3e1",
+    "PREPARATION-AUDIT.json": "ae4d159b9bbec2bea4c7c7d0b5b891b9aa08bde102664fab5badb422f25c73bb"
+  },
+  "frozen_file_checks": {
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/PLAN.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/README.md": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/driver.py": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/recording-options.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/dependencies.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/planned-command.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/driver.py": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/metadata/cpu-profiler-options.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/counter-probe.c": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/freeze.json": true,
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/AVAILABILITY-AUDIT.json": true
+  },
+  "frozen_file_count": 11,
+  "probe_binary_sha256": "803d951e4f281d66385572424d0bc3aef0963e02fc5152f3a67a62358ae2b251",
+  "xctrace_launcher_sha256": "7d9561a7f8e3c5d70a571422a4522de986c003879dab3bf7562963b6cdc3e658",
+  "exact_helper_copies": {
+    "utc": {
+      "source_equal": true,
+      "sha256": "eaf581fceee82ef95cedac7d0369ead3de59532e834ccec7e141b018164760c0",
+      "matches_recorded": true
+    },
+    "sha": {
+      "source_equal": true,
+      "sha256": "c989b6adfc22cd15923df959361c4c4b20c84b0bc1c88b39f0779db41d92460c",
+      "matches_recorded": true
+    },
+    "save": {
+      "source_equal": true,
+      "sha256": "25eaa1e03e0bffba3b974adfb7486fd98356b80879d42c48c1b5f547555473be",
+      "matches_recorded": true
+    },
+    "generic": {
+      "source_equal": true,
+      "sha256": "911e14686fd09ab1192ba0bf83e7a11f073649545e2b321870efbb81f4ab2cb4",
+      "matches_recorded": true
+    },
+    "trace_size": {
+      "source_equal": true,
+      "sha256": "8d8bdd0daa86467029deae2557134658cdd7a8a77f211d221ee2997b7dc678ed",
+      "matches_recorded": true
+    },
+    "command": {
+      "source_equal": true,
+      "sha256": "afbe06708dcd3486446cc048fc3626508b5a4689d575bf27ddf501cacf42f16d",
+      "matches_recorded": true
+    },
+    "observe_own_target": {
+      "source_equal": true,
+      "sha256": "5c016f75a63792e0f396e82bdc7be4f517ab217459a51132fb2d11ac568b1eeb",
+      "matches_recorded": true
+    }
+  },
+  "global_bindings": {
+    "ROOT": "Path.cwd()",
+    "OUT": "Path(__file__).resolve().parent",
+    "REL": "OUT.relative_to(ROOT)",
+    "SCR": "Path('scratch/m6-cpu-profiler-capability')",
+    "PLAN": "json.loads((OUT / 'PLAN.json').read_text())",
+    "PROBE": "Path('scratch/m6-counter-capability/counter-probe')",
+    "TOOLS": "{'xctrace': '/usr/bin/xctrace'}"
+  },
+  "isolation": "Helpers are copied into016module; OUT is016 __file__ parent and SCR is scratch/m6-cpu-profiler-capability. command journal/state/trace/target/TOC stay016. Only014probe/dependencies read; no imported014module globals or journal writes.",
+  "options_verified": {
+    "CPU Profiler": {
+      "highFrequency": false,
+      "recordKernelCallstacks": false
+    },
+    "Hangs": {
+      "detectPriorityInversions": false,
+      "hangsThreshold": 250
+    },
+    "Points of Interest": {
+      "excludeOSLogs": true
+    }
+  },
+  "launch_command_verified": {
+    "status": "PLANNED ONLY; NO EXECUTION AUTHORIZED",
+    "count": 1,
+    "command": [
+      "/usr/bin/xctrace",
+      "record",
+      "--template",
+      "CPU Profiler",
+      "--recording-options",
+      "<workspace>/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/016-cpu-profiler-capability/recording-options.json",
+      "--no-prompt",
+      "--time-limit",
+      "4s",
+      "--output",
+      "<workspace>/scratch/m6-cpu-profiler-capability/availability.trace",
+      "--target-stdout",
+      "<workspace>/scratch/m6-cpu-profiler-capability/own-probe.jsonl",
+      "--launch",
+      "--",
+      "<workspace>/scratch/m6-counter-capability/counter-probe",
+      "--case",
+      "alu",
+      "--items",
+      "268435456"
+    ],
+    "collection_wait_limit_seconds": 51,
+    "scope": "Declared selected own launch; actual metric scope unqualified",
+    "second_action": "Private TOC export only, at most21s wait plus bounded9s cleanup; no rows"
+  },
+  "known_work": {
+    "case": "alu",
+    "items": 268435456,
+    "seed": 1,
+    "expected_checksum": 9087321014236724183,
+    "probe_alarm_seconds": 6,
+    "source_and_binary_reused": true
+  },
+  "gates_verified": [
+    "Root plus reviewer distinct from root/author PASS and exact published freeze/driver/plan ACK",
+    "Fresh exclusive runner and declared selected-own-launch/soft-cap/TOC-only/unresolved-prior-capability attestation",
+    "Exact marker PID/case/items/seed/checksum and signposts_enabled required before TOC",
+    "Recorder reaping does not imply broker target exit; exact marker PID existence observation only, no process sweep or target kill",
+    "One record followed only by private TOC; no row export/fallback/retry/elevation/settings/signing path",
+    "No schema name alone qualifies native weights, units, PID/thread/interval scope or counters"
+  ],
+  "budgets": {
+    "recording_time_limit_seconds": 4,
+    "recorder_wait_seconds": 51,
+    "recorder_drain_seconds": 8,
+    "recorder_reap_seconds": 1,
+    "recorder_action_bound_seconds": 60,
+    "owned_target_observation_seconds": 8,
+    "toc_wait_seconds": 21,
+    "toc_cleanup_reserve_seconds": 9,
+    "ack_seconds_ahead_min_exclusive": 20,
+    "ack_seconds_ahead_max": 600,
+    "campaign_stop_utc": "2026-10-19T07:15:00+00:00",
+    "soft_trace_watchdog_bytes": 268435456,
+    "soft_watchdog_is_not_quota": true
+  },
+  "initial_findings": [
+    {
+      "issue": "Probe/checksum/signpost success was recorded without mandatory pre-TOC gate",
+      "resolution": "Root/A added INCOMPLETE+return guard before export, resealed driver/freeze; preserved before-probe-gate driver/freeze/preparation; no execution or binary/helper change."
+    },
+    {
+      "issue": "Draft60second budget interpreted as whole bootstrap",
+      "resolution": "Root clarified60 is recorder51+8+1 action; owned-target observation and TOC are separate bounded actions under20..600second ACK. This matches final PLAN/README; not a defect."
+    }
+  ],
+  "preparation_not_executed": {
+    "scratch016_absent": true,
+    "availability_state_absent": true,
+    "journal_absent": true,
+    "prior_freeze_and_driver_preserved": true
+  },
+  "runtime_evidence_limits": [
+    "Prior014 helper evidence does not prove CPU Profiler capability, units, recording scope or successful future execution.",
+    "--launch declares an explicit owned target; platform/Hangs/signpost tables may have broader metadata scope until private TOC review.",
+    "The256MiB watchdog is a polling soft stop with possible overshoot, not a filesystem quota.",
+    "Owned target is observed exited but is not claimed reaped by this driver.",
+    "New wrapper guard is statically reviewed; no new runtime test is claimed.",
+    "Capability/scope/cycle/sample weights remain unqualified, no performance/tree/candidate/population claim."
+  ],
+  "next_step": "Root alone may publish the exact final freeze, supply matching ACK and launch one bounded attempt after all agents stop. Stop after private TOC for root review.",
+  "verdict_scope": "Final frozen static preparation only; root publication and exclusive-runner ACK remain prerequisites for one execution."
+}

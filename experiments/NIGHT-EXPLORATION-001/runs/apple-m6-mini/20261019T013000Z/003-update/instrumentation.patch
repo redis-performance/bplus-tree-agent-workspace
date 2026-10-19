@@ -1,0 +1,54 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3544,6 +3544,7 @@
+  * In that common case only one packed field and possibly maximums above it
+  * change. Return zero when the caller must remove and reinsert the element.
+  */
++unsigned long long zbt_reason_preceding, zbt_reason_following, zbt_reason_pack, zbt_reason_success;
+ static int zbtScoreUpdateInPlace(zbtScoreLeaf *leaf, unsigned int pos,
+                                  double score, const unsigned char *ele,
+                                  size_t elelen)
+@@ -3553,12 +3554,12 @@
+         (neighbor ? (unsigned int)neighbor->n.count - 1 : 0);
+     if (neighbor) {
+         double other_score = zbtScoreLeafScore(neighbor, neighbor_pos);
+-        if (score < other_score) return 0;
++        if (score < other_score) { zbt_reason_preceding++; return 0; }
+         if (score == other_score) {
+             size_t len;
+             const unsigned char *other =
+                 zbtScoreLeafElement(neighbor, neighbor_pos, &len);
+-            if (zbtCompareElements(ele, elelen, other, len) <= 0) return 0;
++            if (zbtCompareElements(ele, elelen, other, len) <= 0) { zbt_reason_preceding++; return 0; }
+         }
+     }
+ 
+@@ -3566,17 +3567,17 @@
+     neighbor_pos = pos + 1 < leaf->n.count ? pos + 1 : 0;
+     if (neighbor) {
+         double other_score = zbtScoreLeafScore(neighbor, neighbor_pos);
+-        if (score > other_score) return 0;
++        if (score > other_score) { zbt_reason_following++; return 0; }
+         if (score == other_score) {
+             size_t len;
+             const unsigned char *other =
+                 zbtScoreLeafElement(neighbor, neighbor_pos, &len);
+-            if (zbtCompareElements(ele, elelen, other, len) >= 0) return 0;
++            if (zbtCompareElements(ele, elelen, other, len) >= 0) { zbt_reason_following++; return 0; }
+         }
+     }
+ 
+     uint64_t delta;
+-    if (!zbtScoreLeafPackScore(leaf, score, &delta)) return 0;
++    if (!zbtScoreLeafPackScore(leaf, score, &delta)) { zbt_reason_pack++; return 0; }
+ 
+     if (leaf->score_bits) {
+         unsigned int physical = zbtScoreLeafPhysicalPos(leaf, pos);
+@@ -3585,6 +3586,7 @@
+     }
+     if (pos + 1 == leaf->n.count) zbtScoreUpdatePath(&leaf->n, 0);
+     debugServerAssert(zbtScoreLeafScore(leaf, pos) == score);
++    zbt_reason_success++;
+     return 1;
+ }
+ 

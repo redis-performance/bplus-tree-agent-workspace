@@ -1,0 +1,136 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1269,6 +1269,78 @@
+     return lo;
+ }
+ 
++#include <inttypes.h>
++/* Diagnostic only: counters describe logical paths and virtual 64-byte blocks.
++ * No address is emitted and no cache line or timing attribution is inferred. */
++typedef struct {
++    uint64_t queries, leaf_calls, unique_leaves, index_candidates;
++    uint64_t tag_candidates, full_compares, matches, external_candidates, external_matches;
++    uint64_t scan_calls, scan_bytes, scan_distance;
++    uint64_t width[3][65], reversed[3], score_samples[2], score_cross_block[2];
++    uint64_t distances[2][6][65], payload_distances[65];
++    uint64_t snapshot_leaves, snapshot_reversed, snapshot_width[65];
++} geometry_counts;
++static geometry_counts geo;
++static int geo_active;
++static unsigned char *geo_seen;
++static size_t geo_seen_count;
++static void geo_hist(FILE *out, const uint64_t *values, unsigned count) {
++    fputc('[',out);
++    for(unsigned i=0;i<count;i++) fprintf(out,"%s%" PRIu64,i?",":"",values[i]);
++    fputc(']',out);
++}
++static unsigned geo_distance(const void *a, const void *b) {
++    uintptr_t x=(uintptr_t)a/64, y=(uintptr_t)b/64;
++    uintptr_t d=x>y?x-y:y-x;
++    return d>=64?64:(unsigned)d;
++}
++static void geo_capture(zbtScoreLeaf *leaf, unsigned physical,
++                        const void *tag, const void *offset, const void *record,
++                        const void *stored, unsigned stage) {
++    unsigned bits=leaf->score_bits;
++    geo.width[stage+1][bits]++;
++    geo.reversed[stage+1]+=!!leaf->reversed;
++    /* Candidate/header geometry is valid at width0; no score word is read. */
++    geo.distances[stage][0][geo_distance(tag,offset)]++;
++    geo.distances[stage][1][geo_distance(tag,record)]++;
++    geo.distances[stage][2][geo_distance(offset,record)]++;
++    if (bits) {
++        const void *word=leaf->data+(size_t)physical*bits/8;
++        geo.score_samples[stage]++;
++        geo.score_cross_block[stage]+=((uintptr_t)word%64)>56;
++        geo.distances[stage][3][geo_distance(tag,word)]++;
++        geo.distances[stage][4][geo_distance(offset,word)]++;
++        geo.distances[stage][5][geo_distance(word,record)]++;
++        if(stored)geo.payload_distances[geo_distance(word,stored)]++;
++    }
++}
++void zbt_geometry_begin(zbtreeSet *zs) {
++    serverAssert(!geo_active);
++    memset(&geo,0,sizeof(geo));
++    zfree(geo_seen);geo_seen_count=zs->next_score_leaf_id;
++    geo_seen=zcalloc(geo_seen_count?geo_seen_count:1);
++    for(zbtScoreLeaf *leaf=zs->score_first;leaf;leaf=leaf->next) {
++        geo.snapshot_leaves++;
++        geo.snapshot_reversed+=!!leaf->reversed;
++        geo.snapshot_width[leaf->score_bits]++;
++    }
++    geo_active=1;
++}
++void zbt_geometry_end(void) {
++    serverAssert(geo_active);geo_active=0;
++    fprintf(stderr,"GEOMETRY {\"queries\":%"PRIu64",\"leaf_calls\":%"PRIu64",\"unique_leaves\":%"PRIu64",\"index_candidates\":%"PRIu64",\"tag_candidates\":%"PRIu64",\"full_compares\":%"PRIu64",\"matches\":%"PRIu64",\"external_candidates\":%"PRIu64",\"external_matches\":%"PRIu64",\"scan_calls\":%"PRIu64",\"scan_bytes\":%"PRIu64",\"scan_distance\":%"PRIu64,geo.queries,geo.leaf_calls,geo.unique_leaves,geo.index_candidates,geo.tag_candidates,geo.full_compares,geo.matches,geo.external_candidates,geo.external_matches,geo.scan_calls,geo.scan_bytes,geo.scan_distance);
++    fprintf(stderr,",\"snapshot_leaves\":%"PRIu64",\"snapshot_reversed\":%"PRIu64",\"snapshot_width\":",geo.snapshot_leaves,geo.snapshot_reversed);geo_hist(stderr,geo.snapshot_width,65);
++    fprintf(stderr,",\"width_by_visit_candidate_match\":[");
++    for(unsigned s=0;s<3;s++){if(s)fputc(',',stderr);geo_hist(stderr,geo.width[s],65);}fputc(']',stderr);
++    fprintf(stderr,",\"reversed_by_visit_candidate_match\":");geo_hist(stderr,geo.reversed,3);
++    fprintf(stderr,",\"score_samples_candidate_match\":");geo_hist(stderr,geo.score_samples,2);
++    fprintf(stderr,",\"score_word_crosses_64byte_block_candidate_match\":");geo_hist(stderr,geo.score_cross_block,2);
++    fprintf(stderr,",\"pair_distance_histograms_candidate_match\":[");
++    for(unsigned s=0;s<2;s++){if(s)fputc(',',stderr);fputc('[',stderr);for(unsigned p=0;p<6;p++){if(p)fputc(',',stderr);geo_hist(stderr,geo.distances[s][p],65);}fputc(']',stderr);}fputc(']',stderr);
++    fprintf(stderr,",\"score_word_to_matched_payload_distance_histogram\":");geo_hist(stderr,geo.payload_distances,65);fprintf(stderr,"}\n");
++    zfree(geo_seen);geo_seen=NULL;geo_seen_count=0;
++}
++
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+@@ -1277,6 +1349,12 @@
+                                   double *score,
+                                   unsigned int *position)
+ {
++    if(geo_active){
++        geo.leaf_calls++;geo.width[0][leaf->score_bits]++;
++        geo.reversed[0]+=!!leaf->reversed;
++        serverAssert(leaf->id<geo_seen_count);
++        if(!geo_seen[leaf->id]){geo_seen[leaf->id]=1;geo.unique_leaves++;}
++    }
+     uint8_t tag = hash >> 24;
+     uint16_t *offsets = zbtScoreLeafOffsets(leaf);
+     uint8_t *tags = zbtScoreLeafHashTags(leaf);
+@@ -1284,11 +1362,14 @@
+     uint8_t *end = tags + leaf->n.count;
+ 
+     while (next < end) {
++        if(geo_active){geo.scan_calls++;geo.scan_bytes+=end-next;}
+         uint8_t *found = memchr(next, tag, end - next);
++        if(geo_active)geo.scan_distance+=found?(size_t)(found-next+1):(size_t)(end-next);
+         if (found == NULL) break;
+         unsigned int physical = found - tags;
+         uint16_t offset = offsets[physical];
+         unsigned char *record = (unsigned char *)leaf + offset;
++        if(geo_active){geo.tag_candidates++;geo.external_candidates+=record[0]==ZBT_PACKED_EXTERNAL;geo_capture(leaf,physical,found,&offsets[physical],record,NULL,0);}
+ 
+         if (record[0] == ZBT_PACKED_EXTERNAL &&
+             zbtExternalHash(record) != hash)
+@@ -1299,8 +1380,10 @@
+ 
+         size_t len;
+         const unsigned char *stored = zbtPackedData(record, &len);
++        if(geo_active && len==elelen)geo.full_compares++;
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
++            if(geo_active){geo.matches++;geo.external_matches+=record[0]==ZBT_PACKED_EXTERNAL;geo_capture(leaf,physical,found,&offsets[physical],record,stored,1);}
+             unsigned int logical =
+                 zbtScoreLeafPhysicalPos(leaf, physical);
+             if (score) *score = zbtScoreLeafScore(leaf, logical);
+@@ -1964,6 +2047,7 @@
+                         continue;
+                     }
+                 }
++                if(geo_active)geo.index_candidates++;
+                 if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+                                            score_pos))
+                 {
+@@ -3183,6 +3267,7 @@
+ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
++    if(geo_active)geo.queries++;
+     uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
+     return zbtIndexFind(zs, hash, ele, elelen, score,
+                         NULL, NULL, NULL, NULL);

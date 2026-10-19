@@ -1,0 +1,124 @@
+scratch/m6-contract-diagnostic/old/iterator:
+Contents of (__TEXT,__cstring) section
+0000000100013860  all
+0000000100013864  insert
+000000010001386b  lookup-hit
+0000000100013876  lookup-miss
+0000000100013882  rank
+0000000100013887  iterate
+000000010001388f  scan
+0000000100013894  update
+000000010001389b  delete
+00000001000138a2  --help
+00000001000138a9  btree-bench [--size N] [--ops N] [--member-bytes N>=8] [--seed N] [--warmup-passes N>=1] [--case all|insert|lookup-hit|lookup-miss|rank|iterate|scan|update|delete]
+000000010001394d  Missing value: %s\n
+0000000100013960  --size
+0000000100013967  --ops
+000000010001396d  --member-bytes
+000000010001397c  --seed
+0000000100013983  --warmup-passes
+0000000100013993  --case
+000000010001399a  Unknown option: %s\n
+00000001000139ae  Invalid case or member size (8..65536)\n
+00000001000139d6  case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns
+0000000100013ae1  experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/microbench.c
+0000000100013b4c  zbtreeScore(tree, keys[order[i]], &score) && score == (double)order[i]
+0000000100013b93  visited == n
+0000000100013ba0  found
+0000000100013ba6  scanned.count >= count && scanned.count <= SIZE_MAX
+0000000100013bda  check.seen[i]
+0000000100013be8  scanned.count == check.result.count * traversals
+0000000100013c19  checksum == expected
+0000000100013c2e  zbtreeLength(tree) == (c == 7 ? 0 : n)
+0000000100013c55  zbtreeScore(tree, keys[order[i]], &score)
+0000000100013c7f  score == (double)order[i] + (double)(repeats * n)
+0000000100013cb1  %s,%zu,%zu,%zu,%llu,%zu,%llu,%.3f,%.3f,%zu,%llu,%lld,%d,%d,%s,%s,%d,%d,unknown,%zu,%zu,%llu\n
+0000000100013d0e  integer
+0000000100013d16  --direction
+0000000100013d22  forward
+0000000100013d2a  reverse
+0000000100013d32  --mask
+0000000100013d39  --encoding
+0000000100013d44  fraction
+0000000100013d4d  wide
+0000000100013d52  zero
+0000000100013d57  experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/iterator.c
+0000000100013dc0  traverse(tree,n,passes,reverse,mask)==expected*passes
+0000000100013df6  checksum==expected*traversals && zbtreeLength(tree)==n && zbtreeAllocSize(tree)==owned
+0000000100013e4d  case,size,requested_ops,operations,member_bytes,seed,direction,mask,encoding,traversals,checksum,expected_checksum,tree_bytes,elapsed_ns,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,warmup_passes,warmup_elapsed_ns,construction_fingerprint
+0000000100013f85  iterator-modes,%zu,%zu,%zu,%zu,%llu,%s,%u,%s,%zu,%llu,%llu,%zu,%llu,%lld,%d,%d,%s,%s,%d,%d,unknown,%zu,%llu,%llu\n
+0000000100013ff7  Expected integer in [1, 100000000]: %s\n
+000000010001401f  !zbtreeFindForAdd(tree, key, &old, &pos)
+0000000100014048  clock_gettime(CLOCK_MONOTONIC, &ts) == 0
+0000000100014071  unknown
+0000000100014079  user-interactive
+000000010001408a  user-initiated
+0000000100014099  default
+00000001000140a1  utility
+00000001000140a9  background
+00000001000140b4  unspecified
+00000001000140c0  len >= 8
+00000001000140c9  id < check->n && score == (double)id
+00000001000140ee  len == sdslen(check->keys[id]) && !memcmp(key, check->keys[id], len)
+0000000100014133  zbtreeIteratorStart(tree, reverse, &it)
+000000010001415b  zbtreeIteratorNext(&it, reverse, mask&1 ? &ele : NULL, mask&2 ? &len : NULL, mask&4 ? &score : NULL)
+00000001000141c0  !memcmp(ele, keys[i], sdslen(keys[i]))
+00000001000141e7  ele == &sentinel
+00000001000141f8  len == sdslen(keys[i])
+000000010001420f  len == SIZE_MAX
+000000010001421f  score_bits(score) == score_bits(model_score(i,n,encoding))
+000000010001425a  score == -12345.5
+000000010001426c  zbtreeIteratorNext(&copy, reverse, &next, &nextlen, &nextscore)
+00000001000142ac  nextlen==sdslen(keys[nexti]) && !memcmp(next,keys[nexti],nextlen)
+00000001000142ee  score_bits(nextscore)==score_bits(model_score(nexti,n,encoding))
+000000010001432f  !zbtreeIteratorNext(&it,reverse,&ele,&len,&score)
+0000000100014361  ele==&sentinel && len==SIZE_MAX && score==-12345.5
+0000000100014394  src/zset_btree.c
+00000001000143a5  count <= ZBT_SCORE_BATCH_SIZE
+00000001000143c3  leaf != NULL
+00000001000143d0  position->revision == zs->member_revision
+00000001000143fa  oldleaf != NULL && oldpos < oldleaf->n.count
+0000000100014427  moved.hash == hash
+000000010001443a  zbtIndexMove(zs, hash, oldid, newleaf->id, 0, &target_was_copied)
+000000010001447c  zbtreeIteratorSeekRank(zs, start, &iter)
+00000001000144a5  zs->score_first != NULL
+00000001000144bd  oldptr != NULL
+00000001000144cc  record[0] == ZBT_PACKED_EXTERNAL
+00000001000144ed  leaf->id == id
+00000001000144fc  newnode != node
+000000010001450c  zs->member_rehash && table == &zs->member_index
+000000010001453c  ptr != NULL
+0000000100014548  count > 0 && count <= ZBT_SCORE_LEAF_MAX
+0000000100014571  request <= ZBT_SCORE_LEAF_BYTES
+0000000100014591  (char *)records - (char *)leaf <= ZBT_SCORE_LEAF_BYTES
+00000001000145c8  ZBT_IS_FREE_LEAF_ID(zs->score_leaf_by_id[id])
+00000001000145f6  zbtIndexMove(zs, moved_hash, oldleaf->id, right->id, pos >= left_count, &right_was_copied)
+0000000100014651  best != 0
+000000010001465b  leaf_id < zs->next_score_leaf_id
+000000010001467c  leaf && !ZBT_IS_FREE_LEAF_ID(leaf)
+000000010001469f  rehash != NULL
+00000001000146ae  id == ZBT_INDEX_DELETED_ID || id < UINT16_MAX
+00000001000146dc  B+ tree member index has no free slot
+0000000100014702  zs->member_rehash && zbtIndexOwnsBucket(&zs->member_rehash->table, bucket)
+000000010001474d  zbtIndexGetId(table, bucket, pos) != ZBT_INDEX_DELETED_ID
+0000000100014787  zs->score_root == node
+000000010001479e  id < zs->next_score_leaf_id
+00000001000147ba  count != 0 && pos < oldcount
+00000001000147d7  external != NULL
+00000001000147e8  zbtIndexMove(zs, hash, gone_id, kept_id, 0, &merged_was_copied)
+0000000100014828  rehash->table.used == zs->length
+0000000100014849  n >= 1 && score_pos + n <= count
+000000010001486a  zbtIndexFindReference(zs, hash, score_leaf->id, &bucket, &bucket_pos)
+00000001000148b0  kept == count - n
+00000001000148c2  new_leaf_id < zs->next_score_leaf_id
+00000001000148e7  newleaf && !ZBT_IS_FREE_LEAF_ID(newleaf)
+0000000100014910  zbtIndexOwnsBucket(&zs->member_index, bucket)
+000000010001493e  zbtIndexOwnsBucket(&zs->member_rehash->table, bucket)
+0000000100014974  rebuilt == zs->length
+000000010001498a  count != 0
+0000000100014995  home_end || emitted != 0
+00000001000149ae  %s:%d: %s\n
+00000001000149b9  compat/standalone.c
+00000001000149cd  p != NULL
+00000001000149d7  len <= SIZE_MAX - sizeof(struct sdshdr64) - 1
+0000000100014a05  (s[-1] & SDS_TYPE_MASK) == SDS_TYPE_64
