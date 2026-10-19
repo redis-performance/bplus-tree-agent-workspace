@@ -26,3 +26,7 @@ unchanged Python oracle and2080 extended geometries per native/sanitizer build.
 Two deliberate policy faults detected. Actual release codegen preserved.
 Candidate/referee/source/binary identities in005-decode/comparison-freeze.json.
 Next calibration then fixed A/A and three176-cell serial comparisons, no overlap.
+
+Candidate freeze published6e9e4ec8. Baseline calibration complete:528 observations
+for176 cells; fixed round counts in005-decode/calibration.json apply to all variants.
+No per-candidate adaptive counts. Next six-block all-cell baseline A/A.
