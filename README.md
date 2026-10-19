@@ -211,9 +211,16 @@ These outcome columns are disjoint. Qualification requires all six A/A blocks wi
 ±1% and windows of at least 10 ms. Machine/compiler/OS/affinity differences are not
 candidate gains. [Exact data, 100K/1M tables, source parity and reproduction](experiments/NIGHT-EXPLORATION-001/corrected-adapter-charts/README.md).
 
-### Intel scan replication: primary gates pass, broader qualification incomplete
+### Intel scan replication: rejected after a qualified guard regression
 
-Independent confirmation on Intel measured **6.78% lower scan elapsed time at 100K
+**Current original-adapter decision: REJECT/NONE.** The supplemental trim guard
+with319-byte members and alternating signed-zero scores regressed in all six qualified
+blocks (+4.93% median). That failure is decisive despite earlier primary gains.
+[Supplemental raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-supplemental-independent-audit.json).
+The separate corrected-adapter replay is PARK before candidate timing because its
+known-guard controls failed; it does not reverse this original-adapter rejection.
+
+Earlier independent confirmation on Intel measured **6.78% lower scan elapsed time at 100K
 members and 3.66% at 1M**. All 12 confirmation blocks passed the 2% gate with qualified
 controls and unchanged results and memory. [Confirmation audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-confirmation-raw-audit.json).
 
@@ -221,7 +228,8 @@ Both A and B passed the earlier discovery screen. B advanced under the predeclar
 source-maintenance preference; no A-versus-B speed superiority is claimed. The chart
 below preserves that discovery checkpoint.
 
-**Overall decision remains PARK.** Of 57 cases with qualified controls, 56 pass every
+At the earlier discovery/guard checkpoint, the decision was PARK. Of57 cases with
+qualified controls,56 passed every
 original guard block. One small iteration case has mixed effects, including +1.33%.
 Another 23 cases have short or noisy controls, leaving **24 of 80 cases unresolved**.
 [Independent guard audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-original-guards-independent-summary.json).
