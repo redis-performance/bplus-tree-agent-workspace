@@ -67,3 +67,5 @@
 - 2026-10-19T04:45:00.190930+00:00: Corrected-adapter baseline-only scan profile1b7d261b0 running under600sCPU2 lease; exactvalidatedFIFO scope/disabledcontrols and fixed6sample+6counter captures. Fresh401–403 AA separately preregistered48rows/300s follows successful profile controls. No candidate authorized or timed; old8fabfailedAA/profilediscrepancy remain unchanged.
 
 - 2026-10-19T04:48:13.743873+00:00: Corrected13e459ff8 scan baseline profile/control phase complete44commands; helper period31.277%100K/29.900%1M. FreshAA48process/12blocks both qualify,maxabs0.504%/0.890%,min338/434ms. No candidate measured or authorized; sourceNONE pending root replication decision. AMD idle; original8fabPARK/discrepancy unchanged.
+
+- 2026-10-19T04:52:00.555797+00:00: Independent corrected ARM proposal submitted from common9cd8689db: bounded16-byte NEON exact all-match with original residual/fallback; no peer reads or implementation. Corrected AMD017 controls/profile published a7881e410; read-only actual timing-binary mapping in progress, no candidate authorized.
