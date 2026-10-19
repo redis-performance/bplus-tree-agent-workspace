@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-19T06:53:20.927112+00:00",
+  "kind": "read-only pre-deadline action and unit inspection, not release proof",
+  "hosts": {
+    "intel": {
+      "release_script_sha256": "e04b80980faae760efb8fc69cd05672965c828f879aae81831a2345a800d1f3d",
+      "release_script": "#!/bin/bash\nset -eu\ndate -u +%FT%TZ > /home/ubuntu/bplus-night-20261019/LEASE-RELEASED\nsystemctl stop bplus-night-20261019.slice || true\nsupervisorctl start redis-benchmarks-spec-sc-coordinator\nsupervisorctl status redis-benchmarks-spec-sc-coordinator > /home/ubuntu/bplus-night-20261019/released-status.txt\n",
+      "service": "# /run/systemd/transient/bplus-release-20261019.service\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Service]\nExecStart=\nExecStart=\"/usr/local/sbin/bplus-release-20261019\"\n",
+      "timer": "# /run/systemd/transient/bplus-release-20261019.timer\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Timer]\nOnCalendar=2026-10-19 08:00:00 UTC\nRemainAfterElapse=no\n",
+      "properties": "NextElapseUSecRealtime=Mon 2026-10-19 08:00:00 UTC\nAccuracyUSec=1min\nRandomizedDelayUSec=0\nActiveState=active\n",
+      "actual_release_verified": false
+    },
+    "amd": {
+      "release_script_sha256": "e04b80980faae760efb8fc69cd05672965c828f879aae81831a2345a800d1f3d",
+      "release_script": "#!/bin/bash\nset -eu\ndate -u +%FT%TZ > /home/ubuntu/bplus-night-20261019/LEASE-RELEASED\nsystemctl stop bplus-night-20261019.slice || true\nsupervisorctl start redis-benchmarks-spec-sc-coordinator\nsupervisorctl status redis-benchmarks-spec-sc-coordinator > /home/ubuntu/bplus-night-20261019/released-status.txt\n",
+      "service": "# /run/systemd/transient/bplus-release-20261019.service\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Service]\nExecStart=\nExecStart=\"/usr/local/sbin/bplus-release-20261019\"\n",
+      "timer": "# /run/systemd/transient/bplus-release-20261019.timer\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Timer]\nOnCalendar=2026-10-19 08:00:00 UTC\nRemainAfterElapse=no\n",
+      "properties": "NextElapseUSecRealtime=Mon 2026-10-19 08:00:00 UTC\nAccuracyUSec=1min\nRandomizedDelayUSec=0\nActiveState=active\n",
+      "actual_release_verified": false
+    },
+    "arm": {
+      "release_script_sha256": "e04b80980faae760efb8fc69cd05672965c828f879aae81831a2345a800d1f3d",
+      "release_script": "#!/bin/bash\nset -eu\ndate -u +%FT%TZ > /home/ubuntu/bplus-night-20261019/LEASE-RELEASED\nsystemctl stop bplus-night-20261019.slice || true\nsupervisorctl start redis-benchmarks-spec-sc-coordinator\nsupervisorctl status redis-benchmarks-spec-sc-coordinator > /home/ubuntu/bplus-night-20261019/released-status.txt\n",
+      "service": "# /run/systemd/transient/bplus-release-20261019.service\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Service]\nExecStart=\nExecStart=\"/usr/local/sbin/bplus-release-20261019\"\n",
+      "timer": "# /run/systemd/transient/bplus-release-20261019.timer\n# This is a transient unit file, created programmatically via the systemd API. Do not edit.\n[Unit]\nDescription=/usr/local/sbin/bplus-release-20261019\n\n[Timer]\nOnCalendar=2026-10-19 08:00:00 UTC\nRemainAfterElapse=no\n",
+      "properties": "NextElapseUSecRealtime=Mon 2026-10-19 08:00:00 UTC\nAccuracyUSec=1min\nRandomizedDelayUSec=0\nActiveState=active\n",
+      "actual_release_verified": false
+    }
+  },
+  "initial_inspection_error": "Two attempts assumed /etc/systemd/system unit files; units are transient. Corrected systemctl cat reads pass. Original failed reads retained locally; no service state changed.",
+  "limits": [
+    "Default one-minute timer accuracy can delay firing after08:00UTC; the08:00:20 auditor may run before restoration.",
+    "Actual coordinator PID, released marker/status and zero remaining owned jobs are still required after firing.",
+    "The job helper separately bounds jobs to the lease deadline minus10seconds."
+  ]
+}
