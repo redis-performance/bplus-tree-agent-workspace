@@ -475,3 +475,21 @@ read-only attribution of existing baseline samples. AMD prepares a distinct corr
 iterator baseline profile/control plan; Intel prepares corrected exactB replication
 with the known guard first. Neither new execution plan is granted yet. Deadline and
 actual OSS release verification remain08:00UTC /09:00Lisbon.
+
+
+## 19 October 06:02 UTC — bounded guard and baseline diagnosis
+
+Root reviewed the final Intel017 execution freeze: exact corrected-source B must
+pass correctness, calibration and six qualified blocks of the previously failing
+319-byte/signed-zero guard before any primary comparison can be considered. The
+600/60/120/120-second phases have fail-closed gates and no retries. Primary timing
+is not authorized by this grant. AMD029 baseline-only score iterator profiles and
+fresh controls have a separate600/300-second grant conditional on independent
+ARM execution review. Counts remain8 populations:0 accepted/5 rejected/3 parked.
+[Execution review](reviews/aws-0602-execution-review.json).
+
+Root also reconstructs ARM022 exclusive attribution from existing samples:209
+instructions,2,869 timed events. Word-mask regions account for10.79%/13.68% at
+100K/1M, but the nested forward folded subset is3.01%/1.99%; neither is a causal
+savings estimate. The prior three-proposal chair NONE remains final.
+[Independent attribution audit](reviews/aws-arm-baseline-partition-independent-audit.json).
