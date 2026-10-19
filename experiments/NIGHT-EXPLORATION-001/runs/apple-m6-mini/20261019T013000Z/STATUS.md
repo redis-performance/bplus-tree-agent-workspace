@@ -1,5 +1,13 @@
 # M6 live scoreboard
 
+Operator014bootstrap recordSUCCESS/metricsUNQUALIFIED:CLI0,exactknownworkchecksum,
+signpostenabled,8564574bytetrace,noprompt/authoritychange;recorderreaped/ownedtargetexit
+observed/exclusivereleasesafe. PrivateTOCexports;noobvioushardwarecountertable.
+Successfulrecordisnotcounterqualification;actualunits/datascopeunknown,no rowexports.
+Rootstopsforindependentaudit/readonlymetadatareview;no repeatedcaptureauthorized.
+SourceNONE/countsunchanged. Freeze8efe8804cpublicbeforelaunch.
+
+
 Operator014countercapability preparationPASS/root+independentAreviewPASS.
 Finalfreeze54d6d6e688ec82ec6300047d69e8543fcdaff074871a2ce6fb8fa6c10e516ac9,
 49inputs/knownworkbinary803d951e4f28…;no probeexecution/recordingyet.
@@ -90,7 +98,7 @@ Previous scoreboard updated 2026-10-19T03:36:36.711231+00:00. Active driver: int
 | [Corrected baseline](011-contract-baseline/RESULTS.md) | COMPLETE | 960 rows; 5/40 qualify; 14 short|
 | [Matched adapter diagnostic](012-contract-diagnostic/RESULTS.md) | COMPLETE/CONDITIONAL | 576rows;0/8jointcontrols;memory0 |
 | [Corrected iterator profile](013-corrected-iterator-profile/RESULTS.md) | COMPLETE/AUDIT PASS | 16sufficientcaptures/937PCs;countsnotcosts |
-| [Counter capability](014-counter-capability/) | PREPARING | Metadata-only;no recording yet |
+| [Counter capability](014-counter-capability/RESULTS.md) | RECORD SUCCEEDS/METRICS UNQUALIFIED | Exact probe;no counter rows exported |
 | [Static codegen inventory](015-adapter-codegen/README.md) | COMPLETE/AUDIT PASS | Old/new012binaries;no timingclaim |
 
 Caller follow-up: three actual independent proposals plus three isolated implementations.
