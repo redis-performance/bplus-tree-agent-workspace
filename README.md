@@ -25,13 +25,15 @@ Source adoption remains NONE.
 
 AWS completed measured populations: **8 — 0 accepted / 5 rejected / 3 parked**.
 One additional ARM architecture replication is parked. Intel scan replication passed
-both primary gates and fresh independent confirmation; variant B continues guard validation after matched-profile review, with no adoption.
+both primary gates and fresh independent confirmation, but a qualified supplemental
+guard regressed in all six blocks (+4.93% median); B is rejected, with no adoption.
 AMD deletion and native ARM scan planning stopped before implementation because
 precision controls failed; their independent proposals are retained. A separate
 corrected-adapter ARM round completed qualified controls, three independent proposals
 and three isolated NEON implementations. All three passed correctness but slowed
 every primary block; the 144-run comparison is independently audited REJECT/NONE. Intel’s focused guards pass all 22 qualified cases; 14 noisy
-controls and the original guard gaps remain unresolved.
+controls and the original guard gaps remain unresolved. The supplemental failure
+is decisive despite those earlier scoped gains.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).

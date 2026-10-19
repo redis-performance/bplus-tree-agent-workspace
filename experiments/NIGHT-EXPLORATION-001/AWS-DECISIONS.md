@@ -18,10 +18,11 @@ These counts exclude unmeasured diagnoses and do not combine Apple results.
 The exact iterator A/B patches also completed a separate ARM replication: PARK
 because both primary controls failed; no qualified architecture confirmation.
 
-Active work: Intel completed qualified exact scan A/B primary replication; B advances
-to guards under the predeclared source preference. Focused scan guards are frozen
-and independently reviewed. AMD deletion and native ARM scan planning stopped at
-NONE after failed1M controls. Neither replication is an accepted optimization.
+Intel exact scan B replication is now REJECT after a qualified supplemental guard
+regression, despite passing primary confirmation and 22 focused qualified guards.
+Corrected ARM NEON is also REJECT. Separate corrected Intel baseline profiling and
+ARM rejected-code diagnosis continue. Earlier AMD deletion and native ARM planning
+stopped before implementation after failed controls. No source adoption.
 The [scan chair decision](reviews/aws-amd-scan-population/selection.md) preserves the
 three separately authored proposals and implementation assignments.
 Failed controls cannot be overridden by favorable candidate timings. See the
@@ -459,3 +460,31 @@ assembly diagnosis identifies unexpected per-chunk predicate reconstruction; a n
 bounded matched profile may test attribution, without revising this rejection.
 Intel supplemental guard comparison continues. Its separately frozen corrected-source
 baseline profile/control protocol6ed4d361e is reviewed and approved after that job ends.
+
+
+## 19 October 05:35 UTC — Intel scan B rejected on a qualified supplemental guard
+
+Root independently reconstructs all 1,440 A/A and B raw processes, 360 paired
+blocks and the frozen 30-cell schedules from immutablefcb17380a. Ten controls
+qualify; eight corresponding B guards pass. The fully reversed small-leaf,
+319-byte, alternating signed-zero cell qualifies all six controls but regresses
+in all six B blocks: +1.566% to +6.877%, median +4.931%, minimum window199.87ms.
+The preregistered all-block regression rule therefore selects **REJECT this Intel
+replication / NONE**, superseding its provisional PARK. No fallback to A or retry.
+
+Twenty noisy controls and one mixed qualified guard remain unresolved; earlier
+primary gains and independent confirmation do not override this demonstrated loss.
+Exact callbacks/checksums/owned bytes, serial CPU2 and published38 supplemental plus
+22 original post-phase identities pass. Separate full AMD review is pending.
+[Root raw audit](reviews/aws-intel-supplemental-independent-audit.json),
+[worker evidence](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/fcb17380a/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).
+This is a replication decision; AWS population counts remain8 (0 accepted /5 rejected
+/3 parked). Main tree source remains unchanged.
+
+The separately approved corrected-source Intel baseline-only profile/control job016
+now runs. ARM's rejected NEON codegen diagnosis3e085fdcf is independently verified
+by AMD51dad06f8: 35 repeated predicate reconstruction instructions per complete
+chunk. Root reviews and grants frozen diagnosticd8b21e3c6: exact existing baseline/B
+binaries, 12 full-process captures,16 semantic/disabled controls,600-second cap.
+Analysis filters the verified timed main call site and retains all other/incomplete
+stacks; it is not physically scoped PMU capture. No new candidate is authorized.

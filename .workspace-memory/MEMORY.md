@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:30 UTC
+## Current AWS overnight checkpoint — 19 October 05:35 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -7,11 +7,12 @@ ARM NEON completes 144 discovery rows, every block slower: REJECT/NONE. Root and
 independent AMD raw audits pass; held-out confirmation is ineligible/unexecuted.
 All three implementations passed 145 native validation commands before discovery.
 
-Original-adapter Intel scan B passes discovery and independent primary confirmation;
-full original guards retain 24/80 unresolved cases. All 22 qualified focused guards
-pass, 14 noisy focused cases remain unresolved. Independent focused audit complete.
-Supplemental reverse/resize/length-boundary guards are running; corrected Intel
-baseline profile/control survey is frozen and queued afterward.
+Original-adapter Intel scan B is REJECT: qualified trim/319-byte/signed-zero guard
+regresses all six blocks (+4.931% median). Root independently audits all1,440 rows;
+separate full AMD review pending. Earlier primary/focused gains do not override loss.
+No A fallback or retry. Corrected Intel baseline-only profile/control job now runs.
+ARM static diagnosis independently verified; frozen12-capture existing-binary profile
+approved, full-process PMU with explicit timed-call-site analysis filter. No candidate.
 Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
 AMD rank/update profile and index-reference diagnosis select no new hypothesis.
 
