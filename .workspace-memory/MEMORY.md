@@ -1,17 +1,16 @@
 # Shared memory
 
-M6 round8 reporting checkpoint: core queue complete / source NONE, counts unchanged.
-Round8 checkpoint acknowledged `c0fb84636` (ok03:13:50UTC); final handoff publication follows.
-Prior round7 final handoff `fa62b37cd`.
+M6 round 9 reporting handoff: core queue complete / source NONE, counts unchanged.
+Round 8 final handoff acknowledged `19d1a8f87` (ok 03:14:14 UTC); round 9 publication follows.
 Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, three independent proposals
 complete/B selected; latest explicit implementation status PREPARING three isolated
-implementations, deadline04:40:20.349829UTC. No candidate performance/eligibility claim.
-Worker stays reporting-only and must not duplicate or take over that trial. Resume
-host HANDOFF and matching coordinator ack; finish early when no new worker task.
+implementations, deadline 04:40:20.349829 UTC. No candidate performance/eligibility claim.
+Worker stays reporting-only; do not duplicate or take over the trial. Resume host
+HANDOFF and matching ack; finish early when no new worker task exists.
 No agents/builds/tests/profiles/timings or repeated inventory this round. Launcher
-baseline reused:960rows,4/40qualified,14short cells; failed attempt preserved.
-Usage through completed round7 recorded; exact backend/currency cost unknown.
-Campaign08:00UTC, no experiments after07:15UTC; round8 cutoff03:40:59.322879UTC.
+baseline reused: 960 rows, 4/40 qualified, 14 short cells; failed attempt preserved.
+Usage through completed round 8 recorded; exact backend/currency cost unknown.
+Campaign 08:00 UTC, no experiments after 07:15 UTC; round 9 cutoff 03:42:57.298341 UTC.
 
 M6 round5 decision/audit/report publishedc2b5d7105; seal34988 files verifies,9 launch hashes unchanged. Final handoff publication follows.
 
