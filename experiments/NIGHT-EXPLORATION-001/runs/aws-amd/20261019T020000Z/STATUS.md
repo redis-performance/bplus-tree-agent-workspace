@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent Intel supplemental audit026 reconstructs2124 processes/360 ABBA effects and360 census rows. Ten qualified cells:8PASS,1REJECT(trim319 exact signedzero,all6>1%,median+4.930768%),1mixedPARK;20 noisy retained.38 supplemental+22 original posthashes verified. REJECT exactold-adapterB/sourceNONE; AMD idle, no runner measurements.
+Independent ARM019 profile audit reconstructsall17482samples,52commands/28semanticrows/124hashes. Exact70addressBpredicate17.669828%/16.866355% timed-period,400/421events; allpreregisteredmaterialitygatespass. FullprocessPMU/post-filter andcausallimits retained; REJECT/NONEunchanged,noimplementationproposal. AMDidle/nohostaccess.
 
-Own AMD counts unchanged4populations:0accepted/3rejected/1parked. ARM rejected discovery and held-out confirmation ineligible/unexecuted. Deadline08:00UTC.
+OwnAMD4populations0accepted/3rejected/1parked. InteloldBqualifiedguardREJECT independentlyaudited1217ba80a; correctedAMD Breject andARMdiscoveryREJECT remain. Deadline08:00UTC.
