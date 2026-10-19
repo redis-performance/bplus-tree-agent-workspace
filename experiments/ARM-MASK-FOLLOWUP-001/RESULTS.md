@@ -86,3 +86,9 @@ unqualified. Overall PARK, source NONE; independent held-out confirmation blocke
 [independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/73f66fe89/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-comparison-4c7668661/REVIEW.md)
 verify immutable rows, controls, source/binary identities, memory and post-idle proof.
 The separately granted fixed iterator A/A is diagnostic follow-up, not acceptance.
+
+![All six blocks of each qualified original guard](charts/original-qualified-guards.png)
+
+[SVG](charts/original-qualified-guards.svg) · [Reproducible renderer](render-original-guards.py).
+The 22 unqualified cells remain in the complete raw audit; this chart shows only
+comparisons with qualified controls.

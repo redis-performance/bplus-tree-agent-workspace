@@ -31,3 +31,7 @@
 ### 2026-10-19T09:30:54.048582+00:00 — Original comparison audited; iterator controls granted
 
 Root and independent Intel73f66fe89 verify result4c7668661: 17 qualified passes, one mixed SCAN, 22 unqualified cells. PARK/NONE. Only iterator-AA granted: 1968 baseline processes, 82 cells, 1500s, frozen380ef3109. No retries/automatic progression; full cap plus20s must fit10:15UTC.
+
+### 09:34 UTC — Guard chart and current-phase status
+
+Published all six blocks of each qualified original guard, including the mixed SCAN outlier. Unqualified cells remain in raw evidence and are explicitly outside the calibrated chart. Visual layout checked. Independent review caught a stale historical candidate-authorization flag;146f816ff separates historical permission from current baseline-only phase.
