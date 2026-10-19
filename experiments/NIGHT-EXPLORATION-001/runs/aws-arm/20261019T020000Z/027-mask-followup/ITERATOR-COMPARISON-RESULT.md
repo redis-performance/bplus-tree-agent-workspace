@@ -1,0 +1,12 @@
+# Fixed iterator-comparison: retained complete evidence
+
+Recorded status: complete. Processes recorded: 1968; checked: 1968. No retries, seed/count changes or discarded rows.
+
+Independent producer-side audit: 1968 processes, 1968 rows, 82 cells; decision REJECT (never source acceptance).
+
+Required cells: 82; decisions {'PARK': 43, 'REJECT': 9, 'GUARD_PASS': 30}.
+Unresolved/adverse: g000/iterator-modes:PARK, g001/iterator-modes:PARK, g002/iterator-modes:PARK, g003/iterator-modes:PARK, g004/iterator-modes:REJECT, g009/iterator-modes:PARK, g010/iterator-modes:PARK, g012/iterator-modes:REJECT, g014/iterator-modes:PARK, g016/iterator-modes:PARK, g017/iterator-modes:PARK, g018/iterator-modes:PARK, g020/iterator-modes:REJECT, g022/iterator-modes:PARK, g025/iterator-modes:PARK, g026/iterator-modes:PARK, g027/iterator-modes:PARK, g028/iterator-modes:REJECT, g032/iterator-modes:PARK, g033/iterator-modes:REJECT, g034/iterator-modes:PARK, g036/iterator-modes:PARK, g037/iterator-modes:REJECT, g038/iterator-modes:PARK, g040/iterator-modes:PARK, g041/iterator-modes:REJECT, g044/iterator-modes:PARK, g045/iterator-modes:PARK, g048/iterator-modes:PARK, g049/iterator-modes:REJECT, g050/iterator-modes:PARK, g052/iterator-modes:PARK, g053/iterator-modes:REJECT, g056/iterator-modes:PARK, g057/iterator-modes:PARK, g058/iterator-modes:PARK, g059/iterator-modes:PARK, g062/iterator-modes:PARK, g063/iterator-modes:PARK, g064/iterator-modes:PARK, g065/iterator-modes:PARK, g066/iterator-modes:PARK, g067/iterator-modes:PARK, g068/iterator-modes:PARK, g069/iterator-modes:PARK, g070/iterator-modes:PARK, g071/iterator-modes:PARK, g072/iterator-modes:PARK, g073/iterator-modes:PARK, g074/iterator-modes:PARK, g075/iterator-modes:PARK, g080/iterator-modes:PARK.
+
+Every block and raw row is retained. Unqualified comparisons cannot establish calibrated speed/regression; qualified all-six>1% loss rejects, mixed exceedance parks, including qualified diagnostics. No average rescues a failed block.
+
+Separate postcheck verifies immutable original/suffix receipts, snapshots, source/referee, protected and guard identities and owned-runner idle state. Original027 preparation remains FAILED and separate028 composite correctness stays explicit. Fresh primary improvement is provisional. Required guard qualification, independent held-out confirmation, validated matched profile and adversarial review remain gates. Source selectionNONE; old026 PARK unchanged.
