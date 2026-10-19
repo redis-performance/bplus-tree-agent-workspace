@@ -15,6 +15,7 @@ def text_section(path):
   name=names[x[0]:].split(b'\0',1)[0]
   if name==b'.text':return b[x[4]:x[4]+x[5]]
  raise AssertionError('missing ELF text')
+compiler=run(['clang','--version'],'compiler-version').strip();assert compiler==source['compiler']
 for v in ['base','B']:
  d=SOURCES/v;d.mkdir();archive=subprocess.check_output(['git','archive',source['commit'],'src','compat','vendor/redis','bench','tests','Makefile']);tarfile.open(fileobj=io.BytesIO(archive)).extractall(d)
  if v=='B':run(['patch','-p1','-i',str(P/'candidate.patch')],v+'-patch',d)
@@ -38,4 +39,4 @@ for v in ['base','B']:
  names=list(source[v])+['source-identity.json','tests/all_match_guard_oracle_v2.c','build/corrected-adapter-intel/btree-bench']
  for mode in ['supplement','supplement-san']:names += ['build/'+mode+'/'+name for name in ['scan-supplement','scan-census','upstream-test','inputs/scan-supplement.c','inputs/tree-census.c','inputs/census.h']]
  names += [str(f.relative_to(d)) for f in (d/'build').glob('*-oracle-v2')]+[str(f.relative_to(d)) for f in (d/'build').glob('*-original-tests')];freezes[v]={f:sha(d/f) for f in names}
-assert fresh['base']==fresh['B'];assert json.loads((P/'validation-base/cells.json').read_text())==json.loads((P/'validation-B/cells.json').read_text());assert (P/'validation-base/fixture-model-manifest.json').read_bytes()==(P/'validation-B/fixture-model-manifest.json').read_bytes();(P/'build-freeze.json').write_text(json.dumps(freezes,indent=2)+'\n');build_identity('build-after-preparation');actual_identity('actual-after-preparation');compiler=run(['clang','--version'],'compiler-version').strip();(P/'preparation-summary.json').write_text(json.dumps(dict(status='pass',elapsed_seconds=time.monotonic()-start,validation=validation,fresh_guard_cells_per_source=len(fresh['base']),v2=v2,baseline_text_parity=True,compiler=compiler),indent=2)+'\n');print('PASS corrected exact B correctness and fresh known-guard validation')
+assert fresh['base']==fresh['B'];assert json.loads((P/'validation-base/cells.json').read_text())==json.loads((P/'validation-B/cells.json').read_text());assert (P/'validation-base/fixture-model-manifest.json').read_bytes()==(P/'validation-B/fixture-model-manifest.json').read_bytes();(P/'build-freeze.json').write_text(json.dumps(freezes,indent=2)+'\n');build_identity('build-after-preparation');actual_identity('actual-after-preparation');(P/'preparation-summary.json').write_text(json.dumps(dict(status='pass',elapsed_seconds=time.monotonic()-start,validation=validation,fresh_guard_cells_per_source=len(fresh['base']),v2=v2,baseline_text_parity=True,compiler=compiler),indent=2)+'\n');print('PASS corrected exact B correctness and fresh known-guard validation')
