@@ -13,6 +13,8 @@ Finish reporting through 09:00 Lisbon; no native workload is queued. The host `M
 
 A future campaign must start from a separately frozen plan and qualified controls for its exact source, adapter, compiler, fixtures and machine. Do not retry completed failed schedules unchanged or adopt a private-kernel lead. No selected source implementation is awaiting integration. Any later lead still needs every applicable guard and memory check, held-out confirmation, matched profile and independent/adversarial review. The original supervisor and permission settings remain unchanged.
 
+A late other-host lead is retained in host `027-late-arm-mask-lead/`: historical EXP-005 A reports qualified ARM primary gains but remains PARK. It is unselected for M6, whose cutoff has passed. Any later review must establish the local mechanism and fresh controls first; no ARM timing or qualification transfers.
+
 ## Archived checkpoint history
 
 The entries below preserve earlier states. Pending actions in them are historical; the current cutoff and handoff above govern this campaign.

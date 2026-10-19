@@ -36,3 +36,5 @@ The [final report review](024-final-audit/REPORT-REVIEW-A.md), [integrity audit]
 Main README editorial corrections are published at `d7cf967a8`; chart bytes are unchanged. All planned native work is complete or parked. Shared status monitoring continues to the agreed 09:00 Lisbon handoff.
 
 The [experimental cutoff receipt](EXPERIMENTAL-CUTOFF.json) records closure at 07:15 UTC. The last timing phase ended at 06:36:04 UTC; no new native workload ran to fill the remaining experimental window. Root source/referee hashes still match, and the original supervisor stop settings are unchanged.
+
+A [late ARM historical mask lead](027-late-arm-mask-lead/README.md) is pinned for future review: the other host reports −7.77%/−7.10% primary medians, but remains PARK with guards, fresh confirmation and profile missing. It arrived after M6's cutoff; no M6 selection or measurement follows from it.
