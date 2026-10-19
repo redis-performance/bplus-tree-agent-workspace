@@ -128,3 +128,18 @@ panel, serving model or cost. Confirmation protocol5c29cb07f reserves fresh201â€
 48 baseline A/A processes then conditionally48 B processes,300s per phase. No Intel
 access or held-out execution before explicit idle handoff. ARM and AMD own runners
 are idle; they have not been released to OSS yet.
+
+
+## 19 October 04:07 UTC â€” Intel full original control audit
+
+Root independently reconstructed120 serial processes/960 rows/240 paired blocks across
+all eight operations,five sizes and16/128-byte members. Frozen hashes, exact schedule,
+CPU2, callbacks/checksums and owned memory pass.57/80 cells qualify;12 insert/delete
+cells are shorter than10ms and11 other cells fail precision. Complete original guard
+qualification is unavailable; no primary result can override these gaps. All cells
+remain in the separately frozen diagnostic B comparison.
+[Root audit](reviews/aws-intel-original-guards-aa-audit.json), worker d9713d463.
+
+Root independently verified the Intel runner idle at04:05:08UTC and granted AMD
+the frozen independent confirmation protocol5c29cb07f. Intel waits until explicit
+return. Source NONE; measured population counts unchanged.

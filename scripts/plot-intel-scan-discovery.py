@@ -15,7 +15,7 @@ audit = json.loads((NIGHT / "reviews/aws-intel-scan-raw-audit.json").read_text()
 chart = {
     "source_audit": "../reviews/aws-intel-scan-raw-audit.json",
     "worker_revision": audit["worker_revision"],
-    "status": "Discovery only; guards, fresh confirmation and profile validation pending; source NONE",
+    "status": "Discovery checkpoint only; follow-up evidence is in the decision ledger; source NONE",
     "metric": "paired elapsed_ns / actual callback count change, percent; negative is faster",
     "ranges": "observed six-block minimum and maximum, not confidence intervals",
     "selection": "B by preregistered source-maintenance preference, not A/B speed superiority",
@@ -54,10 +54,10 @@ for ax, size in zip(axes, [100000, 1000000]):
     ax.grid(axis="x", alpha=0.17)
     for spine in ["top", "right", "left"]:
         ax.spines[spine].set_visible(False)
-fig.suptitle("Intel SCAN discovery — primary gates pass; adoption pending", fontsize=16, y=0.98)
+fig.suptitle("Intel SCAN discovery — primary gates pass; source unchanged", fontsize=16, y=0.98)
 fig.text(0.5, 0.887, "Six ABBA blocks per group · both A/A controls qualify · green dashed line: −2% primary gate",
          ha="center", fontsize=10, color="#334155")
-fig.text(0.5, 0.075, "B advances by predeclared source preference. Guards, fresh confirmation and matched profiles remain.",
+fig.text(0.5, 0.075, "B advances by predeclared source preference. Follow-up evidence and limitations are reported separately.",
          ha="center", fontsize=10, color="#334155")
 fig.text(0.5, 0.025, "Dots: individual blocks · diamonds: medians · lines: observed ranges, not confidence intervals · source unchanged",
          ha="center", fontsize=9, color="#475569")

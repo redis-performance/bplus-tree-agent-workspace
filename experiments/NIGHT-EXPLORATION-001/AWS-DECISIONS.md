@@ -249,3 +249,18 @@ All proposals/profile/controls remain. No candidate or new measured population.
 [raw audit](reviews/aws-arm-native-scan-aa-audit.json).
 Intel B remains in follow-up; independent untouched-seed confirmation will run only
 after its current baseline guard job explicitly hands over the idle runner.
+
+
+## 19 October 04:07 UTC — Intel full original control audit
+
+Root independently reconstructed120 serial processes/960 rows/240 paired blocks across
+all eight operations,five sizes and16/128-byte members. Frozen hashes, exact schedule,
+CPU2, callbacks/checksums and owned memory pass.57/80 cells qualify;12 insert/delete
+cells are shorter than10ms and11 other cells fail precision. Complete original guard
+qualification is unavailable; no primary result can override these gaps. All cells
+remain in the separately frozen diagnostic B comparison.
+[Root audit](reviews/aws-intel-original-guards-aa-audit.json), worker d9713d463.
+
+Root independently verified the Intel runner idle at04:05:08UTC and granted AMD
+the frozen independent confirmation protocol5c29cb07f. Intel waits until explicit
+return. Source NONE; measured population counts unchanged.
