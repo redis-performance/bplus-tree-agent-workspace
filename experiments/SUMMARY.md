@@ -1053,3 +1053,14 @@ ARM-MASK-FOLLOWUP-001: user-authorized fresh-session validation of exact histori
 EXP-005 A after verified overnight handback. Dedicated ARM-only lease through10:15UTC;
 preparation/root+independent reviews published. No new candidate population or timing
 result yet; prior PARK/sourceNONE unchanged. [Plan and status](ARM-MASK-FOLLOWUP-001/README.md).
+
+## 19 October 09:10 UTC: fresh ARM primary replication passes; guards active
+
+[ARM-MASK-FOLLOWUP-001](ARM-MASK-FOLLOWUP-001/RESULTS.md) completes fresh controls and
+exact historical candidate primary comparison: 48 processes per phase, all 12 control
+blocks qualify and all 12 candidate blocks improve at least 2%. Median elapsed changes
+are −7.780706% / −7.212021% at 100K / 1M, with identical outputs and tree-owned bytes.
+Root and independent AMD raw audits pass; full rows and charts are committed. Original
+operation controls are running under a separate 600s grant. No guard, confirmation or
+profile result is implied; source NONE and historical PARK remain. Eight historical AWS
+populations stay 0 accepted / 5 rejected / 3 parked; this continuation adds no population.

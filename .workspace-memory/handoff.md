@@ -1,18 +1,21 @@
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
-## Active: authorized ARM mask validation follow-up — 19 October 08:50 UTC
+## Active ARM follow-up — 19 October 09:10 UTC
 
-Fresh ARM-only lease remains ACTIVE through10:15UTC/11:15Lisbon with independent
-restoration timer; Intel/AMD remain released. Original correctness attempt8cdebdcba
-remains FAILED on a diagnostic registration mismatch: injected fabs fault caught
-at the earlier copied-next exact-bit assertion. No source/referee error observed.
-Separate granted39d84533f suffix19fd53594 completes only six never-started commands;
-no reruns. Rootc95d07f81 audits all original published files/raw+513snapshot/6protected/
-4guard identities unchanged. Combined planned coverage includes2048 iterator modes,
-4original43 suites,12oracles,14detected faults. Composite closure and fresh timing
-review pending; no new timing yet. Same exact EXP005A/13e sources and binaries.
-Prior ARM lead remains PARK/sourceNONE; no new population. Root owns phase grants
-and must release/audit the new lease early on completion or at the fixed deadline.
-[Plan and live status](../experiments/ARM-MASK-FOLLOWUP-001/STATUS.md).
+Fresh ARM primary controls53e193c5b qualify all12 blocks. Exact historical EXP005A
+comparison451456c2f passes all12≥2% gates: medians −7.780706% at100K / −7.212021% at1M,
+with identical outputs and tree-owned memory. Root and AMDaf0bb499a independently
+verify raw rows, identities and fresh control joins. Source NONE; old PARK retained.
+Mainc4d5bf731 publishes results/charts and one600s original-AA grant; ARM is running
+120 baseline-only processes/960 rows. No automaticcomparison or retry. Intelb67dc2d89
+has an independent guard raw auditor; profile correction0a1040780 under AMD review,
+no profile run. Held-out confirmation remains conditional on all required guard gates.
+Correctness composite preserves originalFAILED8cdebdcba and six-only suffix19fd53594;
+2048normalmodes/4original43/12oracles/14detected faults, exactsources/referees/binaries.
+New ARM-only lease ACTIVE, hard stop10:15UTC/11:15Lisbon; independent restore timer and
+read-only auditor armed. Root must handback early when finished and verify live proof.
+Intel/AMD hosts remain released. Historical8AWS populations0accepted/5rejected/3parked;
+this exactcandidate continuation adds no population. No upstream actions or newsource.
+[Results](../experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md) · [Live status](../experiments/ARM-MASK-FOLLOWUP-001/STATUS.md).
 <!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
 
 <!-- AWS-CURRENT-START -->
