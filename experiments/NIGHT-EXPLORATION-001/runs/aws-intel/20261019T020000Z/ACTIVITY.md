@@ -54,3 +54,5 @@
 2026-10-19T04:34:28.930026+00:00 Matched SCAN profilev2 completes120 captures in160.31s; sampler67/67 known-work,disabled0,all8 matched-mode semantic controls pass. Helper samples337→316 at100K and419→316 at1M; directional diagnosis only, captured-text denominator limits retained.24 diagnostic+22 original post-phase hashes unchanged. PARK/source NONE persists with24 unresolved original guards; focused validation next.
 
 2026-10-19T04:38:00.615849+00:00 Focused validation339 commands complete,baseline half passed; candidate builds underway. Prepared separate root-approved supplemental refereeec21ce601 with original8fab+B,600s prep+180/480/480s calibration/AA/B caps; full30-cell B follows completed AA regardless qualified count. No supplemental execution; current011 immutable.
+
+2026-10-19T04:41:06.131457+00:00 Focused baseline/B validationPASS673 serial commands in312.77s:432 native/sanitizer models,216 census cells,43 originaltests per4builds,16 repeatedfault detections;36 fixturehashes and24 post-validation artifacthashes pass. No focused timing yet; frozen baseline calibration324 one-traversal windows/300s next. Source NONE/PARK unchanged.
