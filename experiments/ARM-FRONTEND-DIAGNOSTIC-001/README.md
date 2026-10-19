@@ -5,13 +5,12 @@ rejection. This diagnostic investigates the opposite timing directions in the
 original benchmark and HARNESS-004. The rejected candidate remains rejected; no
 new implementation or source adoption is authorized by a favorable diagnostic.
 
-Status: **Native controls/comparison complete; matched profiles granted.**
-Independent restoration timer11:45UTC and read-only audit11:45:10UTC are armed.
-All six native cells qualify; the comparison reproduces primary gains and guard
-losses. The corrected matched-profile phase has a separate1,200-second grant. Attempt1 failed before
-measurement and automatically restored OSS; its verified handback is retained.
-[Results and chart](RESULTS.md), [live status](STATUS.md) and
-[profile grant](PROFILE-GRANT.json) track execution.
+Status: **CLOSED — native explanation INCONCLUSIVE; prior candidate REJECT/NONE.**
+Native controls/comparison and all642 profile commands completed. Instrumented
+instruction reductions do not transfer through the failed mapping/perturbation gates.
+ARM OSS restoration was independently verified11:24:35–37UTC; no queued work or lease.
+[Final results and reviews](RESULTS.md), [status](STATUS.md) and
+[live release proof](RELEASE-FINAL.json) are current. The protocol below is historical.
 
 ## Question and falsifiable hypothesis
 

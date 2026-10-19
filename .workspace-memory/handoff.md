@@ -13,23 +13,25 @@ M6 controller CPU-perf consultation is now operational through local stdio (serv
 
 
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
-## ARM frontend diagnostic — native results audited, profiles granted
+## ARM frontend diagnostic closed — 19 October11:24UTC release
 
-Fresh native AA70103fb6a and comparison121e9643a complete288 rows/72blocks. All six
-cells qualify. Primary medians−7.775%/−7.194%; H4forward+2.903%/+2.953%, reverse
-+8.431%/+3.141%; every guard block regresses. Root and independent Intelcb6bb2a43 /
-06a776000 raw audits pass, source/binaries unchanged, post-run idle verified.
-Prior maskREJECT/sourceNONE unchanged; no new population or causal explanation.
-Corrected profile2d4e93924 has36 frozeninputs/642commands,42unscaled stats, distinct
-native/ASan memory joins. AMDd495b61fb/Intel4daa1473f/root review clears it; root
-3e04f174b grants one1200s wholephase,36captures+36stats, no retries/extensions.
-Independent OSS restoration11:45UTC; read-only live audit11:45:10UTC. Attempt1
-acquisition failure and fresh verified restoration retained; attempt2 owns lease.
-User MCP rule dfff5540f applies to everyCodex/Claude session. Root actual stdio MCP
-consultation logged;0/287sources indexed/Armmanual fetch empty, no causal support.
-Worker direct tools unavailable, shared consultation identified honestly.
-[Status](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md) ·
-[Results](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md).
+Final native explanationINCONCLUSIVE; exact candidateREJECT/sourceNONE unchanged.
+Native288rows/72blocks qualify all6cells: primary−7.775%/−7.194%; H4forward+2.903%/
++2.953%, reverse+8.431%/+3.141%, everyguardblockregresses. Fixed profile266360cfb
+completes642commands/415.038s: all18instrumented instruction pairs decrease1.744–1.777%,
+but only2/12source-cell transfercontrols qualify (zero complete control/A pairs),
+and strict mapping credits1685/1837treeevents with152entrysamples uncredited.
+No post-result mapping exception, retry, source adoption or causal claim. Root132cf5be7,
+Intel16118f441 and AMDf1ffd7e17 independently audit raw evidence/limits.
+Early release11:24:28UTC; fresh live11:24:35–37 proof confirms OSSRUNNING withmatching
+saved/livePID, freshmarker, inactiveslice, zeroownedunits/PIDs/noerrors. Timer stopped
+only aftersuccess; pendingauditor cancelled afterproof; privatefleetRELEASED.
+Intel/AMD stayedreleased. No queuedwork/currentlease. HistoricalAWS8populations
+remain0accepted/5rejected/3parked; thisdiagnosticaddsnone.
+MandatoryMCP rule dfff5540f applies to everyCodex/Claude session. Actualrootconsultation
+and resultreconsultation logged;0/287sourcesindexed/no supportingpassages, nomechanism.
+[Final report](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md) ·
+[Live proof](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/RELEASE-FINAL.json).
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT-END -->
 
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->

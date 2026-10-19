@@ -1,14 +1,16 @@
 # ARM frontend diagnostic status
 
-Native A/A and comparison are complete: 288 rows, 72 ABBA blocks; all six cells qualify.
-Independent root and Intel audits reproduce primary gains and four selected guard
-regressions in every block. Prior mask decision remains REJECT; source selection NONE.
+**CLOSED — native explanation INCONCLUSIVE; candidate REJECT, source NONE.**
 
-The corrected matched-profile protocol is now granted: 642 commands, including
-36 cycle captures and 36 counter runs, under one fixed 1,200-second cap. Native and
-sanitizer memory checks stay separate; counters are unscaled, with perf-reported
-100.00% runtime required. Results are pending. Independent restoration is armed for
-11:45 UTC, with a read-only live audit at11:45:10 UTC.
+Native288rows/72ABBAblocks qualify all six cells and reproduce primary gains with
+four guard regressions. The fixed642-command profile completes in415.038seconds.
+Root/Intel/AMD audits reproduce all18 instrumented instruction reductions, but
+strict tree-code mapping fails and only2/12 source-cell instrumentation controls
+qualify (zero complete control/A pairs). No native causal transfer or source adoption.
 
-The mandatory performance MCP rule is committed for Codex and Claude. Root's actual
-consultation is logged; no source passages or causal explanation were obtained.
+[Final results and reviews](RESULTS.md) · [Live handback proof](RELEASE-FINAL.json).
+ARM OSS restoration independently verified11:24:35–37UTC; private fleet RELEASED.
+Intel/AMD remained released. No runner lease, queued workload, retry or extension.
+Historical AWS8populations remain0accepted/5rejected/3parked; no new population.
+Mandatory performance MCP rule is committed for bothCodex/Claude and was actually
+used/reconsulted. Its source coverage limit is recorded; no source-backed mechanism.

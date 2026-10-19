@@ -1104,3 +1104,16 @@ No new population: eight historical AWS populations stay 0 accepted / 5 rejected
 3 parked. [Fresh live handback](ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) verifies OSS
 restored at 10:03:25–27 UTC with inactive owned slice and zero owned processes.
 Private fleet reservation released; Intel and AMD remained released.
+
+## 19 October — ARM frontend diagnostic closed
+
+[Final evidence](ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md):288native rows reproduce
+qualified primary gains and four guard losses;642profile commands complete. All18
+instrumented instruction pairs decrease, but only2/12 instrumentation transfers
+qualify (zero full control/A pairs) and strict tree mapping fails152/1837samples.
+Native causal explanationINCONCLUSIVE; prior exact candidateREJECT/sourceNONE.
+Independent root/Intel/AMD reviews agree. No new optimization population: historical
+AWS8populations remain0accepted/5rejected/3parked,24variants retained. ARM OSS live
+release verified11:24:35–37UTC; private fleet RELEASED, no queued runner work.
+EveryCodex/Claude session now requires the performance MCP; actual consultations and
+unavailable source passages are logged. No source-backed mechanism or upstream action.

@@ -8,12 +8,12 @@ All Codex and Claude investigation sessions must use the
 [performance MCP workflow](docs/PERFORMANCE-MCP.md); consultation and limitations
 are recorded with the experiment evidence.
 
-**Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
-has acquired a fresh ARM-only lease through11:45UTC to investigate opposite timing
-directions in the original benchmark and iterator guards. Fresh native controls
-qualify all six cells; comparisons reproduce primary gains and four guard losses.
-[New results/chart](experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md). Matched profiles
-now have a separate reviewed grant. The prior mask rejection remains final.
+**ARM diagnostic complete:** [Fresh results and chart](experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md)
+reproduce primary gains and guard losses. All18 instrumented pairs retire fewer
+instructions, but failed instrumentation/mapping controls leave the native cause
+unresolved. CandidateREJECT/sourceNONE; historical AWS counts remain8populations,
+0accepted/5rejected/3parked. [OSS handback](experiments/ARM-FRONTEND-DIAGNOSTIC-001/RELEASE-FINAL.json)
+verified11:24:35–37UTC; no runner work is queued.
 
 **ARM follow-up complete — REJECT, source NONE.** The primary benchmark reproduced
 −7.78% / −7.21% elapsed-time changes, but nine qualified score-only iterator guard
