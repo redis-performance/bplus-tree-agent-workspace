@@ -1,0 +1,16 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -6043,8 +6043,11 @@
+     }
+ }
+ 
+-/* Control policy always delegates to frozen EXP-007 bulk decoder. */
+ static void zbtScoreLeafDecodePolicy(zbtScoreLeaf *leaf, unsigned start,
+-                                   unsigned count, double *out) {
++                                     unsigned count, double *out) {
++    if (count == 1 && leaf->score_bits == 60) {
++        out[0] = zbtScoreLeafScore(leaf, start);
++        return;
++    }
+     zbtScoreLeafDecodeRange(leaf, start, count, out);
+ }

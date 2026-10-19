@@ -1,0 +1,99 @@
+{
+  "compiler": "Apple clang version 17.0.0 (clang-1700.6.3.2)",
+  "release_flags": [
+    "-std=c11",
+    "-O3",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fno-omit-frame-pointer",
+    "-fno-lto",
+    "-Isrc",
+    "-Icompat",
+    "-Ivendor/redis",
+    "-Ibench",
+    "-ffile-prefix-map=<workspace>=."
+  ],
+  "sanitizer_flags": [
+    "-std=c11",
+    "-O1",
+    "-g",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fno-omit-frame-pointer",
+    "-fno-lto",
+    "-Isrc",
+    "-Icompat",
+    "-Ivendor/redis",
+    "-Ibench",
+    "-ffile-prefix-map=<workspace>=.",
+    "-fsanitize=address,undefined",
+    "-fno-sanitize-recover=all"
+  ],
+  "input_sha256": {
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "experiments/EXP-008/referee/bulk.inc": "6da7d81bfd0dfa9828922cd17508403b7ea9a86ea3ac64159dedacf6a02ab4ad",
+    "experiments/EXP-008/referee/policy-control.inc": "cfa13882afddd1e6800a8355ffb2035ea402740a19531fd07381ab65eb76367b",
+    "experiments/EXP-008/referee/kernel.c": "e8c43850860c7018a82f99d94f872ce049ff8835c7dae69cd30458560e5046c8",
+    "bench/decoder_bench.c": "f5e61ec7ed88b01a11d928285f891c8b88ae5efd90b76081976341d4953d4aa5",
+    "bench/decoder_kernel.h": "056cb1f1ef944a577ff869378f214df338507f3328b03e96de73578b069a32c2",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/policy-A.inc": "935a18147edb46d235e4fc2375a3ebd68a92cb578a13a3344d7fac9e5ae8d3f7",
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/policy-B.inc": "e2169119764a7ff33c72d82dca86e120267ddd8b044a023dafe2c3ee7b2d4164",
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/policy-C.inc": "1bad74db36fe7d2a5de492dccfc9205f6a930cf0cb80083e4f1d1e33df8bc41a"
+  },
+  "release_variants": {
+    "base": {
+      "source_sha256": "8693aabcc7a3e665155982b8e61e19b68301397a3590def3a515b3db3e37af3d",
+      "binary_sha256": "e2e8468e0f1249853e7e379edf0dac2671cab350dadbe82e9e04cadfdef43c64",
+      "kernel_object_sha256": "e59484f3a2340090ecff028300b7d690aaaed44fbb21b819d03b51c5db259a6c"
+    },
+    "A": {
+      "source_sha256": "40c2cac9ed14928b1977c81839e9dd38f84b98b0490c6acd5b7b65c4e40f9b45",
+      "binary_sha256": "9cded395103445404f16373f7e8fd979f0e8d3fc490c197f4c513cb5cbc59bf7",
+      "kernel_object_sha256": "d897e7222367cb3af4262d869c2290f8cc85b6a546cb4a508a51500fa8fa8e02"
+    },
+    "B": {
+      "source_sha256": "f8a78ca75094c30e8188b0559b8ad27d49ee4744d58fcea5418c035f0a2431d7",
+      "binary_sha256": "7cc21114984d0dcb74167e5bbe0da4e0991662aaad441a3bb85060d763771b4a",
+      "kernel_object_sha256": "fe705c29465951c118bf58b92aa5ea4b0a997e4c2ece0f4c0af167f4b692de3e"
+    },
+    "C": {
+      "source_sha256": "f466aedf3633804c86b57706ab53e8ae8a5c8729f022aae33e535db0f5ce18fb",
+      "binary_sha256": "9989173ab67c936e6254b33f78709cbeef59141cc487a16e9258914ad405c54f",
+      "kernel_object_sha256": "3f9e77dedfd532918d3366c6f5fcbf353719f48db12daa96a5cc24631b84d13e"
+    }
+  },
+  "sanitizer_variants": {
+    "base": {
+      "source_sha256": "8693aabcc7a3e665155982b8e61e19b68301397a3590def3a515b3db3e37af3d",
+      "binary_sha256": "1a8c36042db6a1fad44807e91e43e794cb2e4d120d40330baaa2e9b5dd142ad1",
+      "kernel_object_sha256": "266914a460a07d4c22847c72f12cbd5c7695c43584f73c696f527a1a257fd106"
+    },
+    "A": {
+      "source_sha256": "40c2cac9ed14928b1977c81839e9dd38f84b98b0490c6acd5b7b65c4e40f9b45",
+      "binary_sha256": "14475fcb7f2fcf1cd44fbb2f951c074a1dd6d48bc69e9739fe7e36234608ce30",
+      "kernel_object_sha256": "79cc336a446458b6a38fb3817c7766e10dc092cf68209de9d9f6a458cf5bb23c"
+    },
+    "B": {
+      "source_sha256": "f8a78ca75094c30e8188b0559b8ad27d49ee4744d58fcea5418c035f0a2431d7",
+      "binary_sha256": "056a97a1f90af01ee275b264ae0c7d8014cf102dad97e4ec3dbc878125b28ace",
+      "kernel_object_sha256": "f1dfe807e7391c47bbb2a186f0e437e29fd5bce8d769bb3db48da802f116fdaa"
+    },
+    "C": {
+      "source_sha256": "f466aedf3633804c86b57706ab53e8ae8a5c8729f022aae33e535db0f5ce18fb",
+      "binary_sha256": "2411e3b0dd103e396686f7fa64837e7fe34d3ca56598efebe98827aaaa33416c",
+      "kernel_object_sha256": "c9a7a3d68a66126f942ae35a4e84a11180fb72c4a71d0051d99a2f5c600c4974"
+    }
+  },
+  "release_assembly_sha256": {
+    "base": "3e921bf9f8fb2c945e7c36c90693785126149e63e0e2b67f6972cd1a568db170",
+    "A": "e594405a927133633ef3715acfd088e0bf4e7f7bfe9bfdd6baa18cdf2b251855",
+    "B": "81cfd22aa4459a35396bac735968c0312f65ea40f1eb9eb2b1438edf5e76bad4",
+    "C": "cd457920f50b2583930a0a2ec7ae9eff5872adeb97ca73cdc94dfd8827109275"
+  }
+}

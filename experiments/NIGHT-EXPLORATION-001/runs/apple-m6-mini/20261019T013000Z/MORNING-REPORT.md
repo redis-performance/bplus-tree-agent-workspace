@@ -1,6 +1,6 @@
 # M6 overnight evidence — 19 October 2026
 
-Checkpoint at 06:48 UTC / 07:48 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
+Checkpoint at 07:00 UTC / 08:00 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
 
 The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
 
@@ -25,7 +25,7 @@ The [combined decoder chart](018-decoder-replications/decoder-replications.png) 
 
 Completed campaign counts remain 12 candidate populations (nine sequential and three actual multi-agent), 0 accepted / 7 rejected / 5 parked, 36 retained patches and 15 validated harnesses. Exact-family host replications, proposal-only NONE reviews, profiles and the adapter revision are recorded separately. No losing variant or failed capture is discarded. Exact backend model, token and currency costs remain unknown where unavailable.
 
-M1's latest observed remote checkpoint remains 01:33 UTC at `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9`, reporting unresolved DNS. M6 milestones are public in Git; consumption by M1 is unverified. The main README overlays measured M1/M6/Intel/AMD/Graviton baselines and keeps the corrected-adapter series separate. No host's timings qualify another host.
+M1's newly observed remote checkpoint is round three at `9ce51754a9eebb0e53c65afe650c54a146515808`, dated 01:46 UTC. Its first-pass queue is recorded as closed, with 6,720 decoder processes / 866,880 rows and zero of 70 qualified A/A cells. See the [receipt and handoff](025-m1-receipt/README.md). M6 milestones are public in Git; consumption by M1 remains unverified because the M1 log still records DNS failures. The main README overlays measured M1/M6/Intel/AMD/Graviton baselines and keeps the corrected-adapter series separate. No host's timings qualify another host.
 
 Resume from [STATUS](STATUS.md), exact frozen source identities and recorded decisions. Do not retry completed failed schedules, adopt a private-kernel lead, carry old-adapter controls forward or treat source NONE as a missing publication. Any future source acceptance still requires qualified controls, all applicable guards and memory checks, held-out confirmation, matched profile and independent adversarial review.
 
