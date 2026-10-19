@@ -1,0 +1,7 @@
+# Intel optional iterator diagnosis
+
+Reuse frozen HARNESS-004 iterator_modes.c semantics and current root timing primitives, stored separately. Only optional sampler calls bracket the timed traversal; target8fab511e unchanged. Native/sanitizer checks precede profiles. Full-outputmask7 materializes memberpointer/length/score and consumes the same fields in all runs; masks0/4 and direction/encoding guards remain separate contracts.
+
+No candidate selected. Profile baseline100K/1M fulloutput forward/reverse and score-onlyforward integer layout, plus fulloutput fraction guard. Linux profil self-process timer needs no PMU permissions and no-pg function instrumentation. Exact text range/scale/bin map and raw histograms retained. Disabled and known-work controls required.16bit overflow checked against interval and observed CPU duration plus bin saturation; children120smaximum. Shares only among captured in-range samples; libc/out-of-range/lost events excluded. PC buckets approximate instruction/source boundaries. Exact compile flags/hashes/nm/assembly retained. Stop atNONE if no novel mechanism, no repeat of earlier failed predicate/scanner directions. No public API change.
+
+Fixed profile matrix:3captures per each100K/1M×{integerfullforward,integerfullreverse,integerscoreonlyforward,fractionfullforward};100millionitems per child,seeds1/2/3. No comparativetiming. Fulloutputmeans memberpointer/length/score returncontract; timedconsumer reads firstmemberbyte, fullbytes verified outside.24captures total.
