@@ -59,3 +59,7 @@ Round2 resumed 2026-10-19T02:04:22.845384+00:00: launcher baseline-attempt002 an
 UPDATE referee publication timed out after120s without matching acknowledgement. Last successful published decision remains23df69a3. Exact local hashes retained; acknowledged harness provenance unresolved. Continue bounded local census/profile; no Git retries or settings changes.
 
 2026-10-19T02:08:04.899118+00:00: UPDATE baseline path census/profile COMPLETE. preserve packing failures1517/20000 at100K and11058/20000 at1M; no order failures. Longer captures show lookup dominates after amortization. See003-update/PROFILE.md; no hypothesis selected. Baseline calibration/A/A next. SourceNONE, prior rankREJECT unchanged. Publication requested for diagnosis.
+
+Coordinator acknowledged update diagnosis/referee at33bf7899 (request r2-update-profile-20261019T020804Z). This supersedes pending round1/referee publication; exact frozen source/referee hashes remain required. Beginning baseline-only serial calibration then fixed primary A/A; no concurrent work.
+
+UPDATE baseline calibration75rows and primary A/A48processes COMPLETE. Controls fail narrowly:100K max1.1722%,1M1.5527%, shortest47.336/47.182ms. Three sequential proposal passes/chair choose M6-UPDATE-REPACK-001 for one exploratory primary-only screen; adoption gates remain blocked. Exact candidate/patch identities pending implementation. No independent agents/review.
