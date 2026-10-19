@@ -1,0 +1,11 @@
+--- a/batch.c
++++ b/batch.c
+@@ -95,7 +95,7 @@
+   }
+   unsigned found=zbtreeScores(tree,members,count,out+2);serverAssert(found==expected);
+   for(unsigned j=0;j<count;j++)if(found&(1U<<j)){
+-   if(verify)serverAssert(out[j+2]==(double)query[(offset+j)%n]);
++   if(verify && mode==2)out[j+2]+=1; if(verify)serverAssert(out[j+2]==(double)query[(offset+j)%n]);
+    r.checksum+=(uint64_t)out[j+2]+1;r.hits++;
+   }
+   if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);

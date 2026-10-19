@@ -1,0 +1,1 @@
+Initial independent-checksum audit reconstructed all rows successfully, then its public-path scanner falsely matched the literal search marker inside its own source. The scanner marker was split into two strings; no experimental check or row was changed or rerun. Final audit supersedes this reporting failure.

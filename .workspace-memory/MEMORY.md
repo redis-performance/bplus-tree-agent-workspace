@@ -1,17 +1,20 @@
 # Shared memory
 
-M6 round 9 reporting handoff: core queue complete / source NONE, counts unchanged.
-Round 9 reporting checkpoint acknowledged `a4df5a725` (ok 03:15:50 UTC); final handoff publication follows.
-Round 8 final handoff acknowledged `19d1a8f87`.
-Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, three independent proposals
-complete/B selected; latest explicit implementation status PREPARING three isolated
-implementations, deadline 04:40:20.349829 UTC. No candidate performance/eligibility claim.
-Worker stays reporting-only; do not duplicate or take over the trial. Resume host
-HANDOFF and matching ack; finish early when no new worker task exists.
-No agents/builds/tests/profiles/timings or repeated inventory this round. Launcher
-baseline reused: 960 rows, 4/40 qualified, 14 short cells; failed attempt preserved.
-Usage through completed round 8 recorded; exact backend/currency cost unknown.
-Campaign 08:00 UTC, no experiments after 07:15 UTC; round 9 cutoff 03:42:57.298341 UTC.
+M6 round 10 reporting handoff: core queue complete / source NONE, counts unchanged.
+Prior round 9 final handoff acknowledged `acfba0f86` (ok 03:16:18 UTC).
+Round10 publication failed03:18:50UTC: public-evidence review required for operator
+`006-followup/build.json`. Local evidence saved; operator/coordinator must resolve
+metadata hygiene. No same-blocker retry or worker edit to operator artifacts.
+Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, deadline 04:40:20.349829 UTC.
+Explicit implementation status remains PREPARING; new static review reports A/B/C
+validation PASS and normalized scoreRaw equivalence, with C independent for A/B only.
+Common-relative-path timing builds required before measurement; operator owns gate.
+No timing freeze, performance decision or replication eligibility observed.
+Worker remains reporting-only; do not duplicate or take over. Resume host HANDOFF
+and matching ack, finish early when no worker task exists. No worker agents/builds/
+tests/profiles/timings or repeated raw inventory this round. Baseline reused.
+Usage through completed round 9 recorded; exact backend/currency cost unknown.
+Round 10 cutoff03:45:10.435158UTC; campaign08:00UTC, no experiments after07:15UTC.
 
 M6 round5 decision/audit/report publishedc2b5d7105; seal34988 files verifies,9 launch hashes unchanged. Final handoff publication follows.
 

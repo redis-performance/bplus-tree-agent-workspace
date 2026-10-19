@@ -1,0 +1,11 @@
+--- a/lookup.c
++++ b/lookup.c
+@@ -171,7 +171,7 @@
+             double score = 0;
+             int found = zbtreeScore(tree, keys[query_order[i] + ((c == 2 || (c == 8 && i % 2)) ? n : 0)], &score);
+             serverAssert(found == ((c == 2 || (c == 8 && i % 2)) ? 0 : 1));
+-            if (found) serverAssert(score == (double)query_order[i]);
++            if (found && c == 8) score += 1; if (found) serverAssert(score == (double)query_order[i]);
+         }
+         uint64_t warmup_elapsed = now_ns() - warmup_start;
+         size_t count = (c == 0 || c == 7) ? n : ops;

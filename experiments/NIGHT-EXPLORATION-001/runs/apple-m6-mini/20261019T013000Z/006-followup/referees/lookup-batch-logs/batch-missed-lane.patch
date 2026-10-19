@@ -1,0 +1,11 @@
+--- a/batch.c
++++ b/batch.c
+@@ -93,7 +93,7 @@
+    int hit=mode==0 || (mode==2 && (offset+j)%2==0);
+    members[j]=keys[query[(offset+j)%n]+(hit?0:n)];if(hit)expected|=1U<<j;
+   }
+-  unsigned found=zbtreeScores(tree,members,count,out+2);serverAssert(found==expected);
++  unsigned found=zbtreeScores(tree,members,count,out+2);found &= ~1U;serverAssert(found==expected);
+   for(unsigned j=0;j<count;j++)if(found&(1U<<j)){
+    if(verify)serverAssert(out[j+2]==(double)query[(offset+j)%n]);
+    r.checksum+=(uint64_t)out[j+2]+1;r.hits++;

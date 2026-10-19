@@ -1,6 +1,6 @@
 # M6 morning report — interim, core queue complete
 
-Updated 19 October 2026, round 9. Campaign authorization ends 08:00 UTC / 09:00
+Updated 19 October 2026, round 10. Campaign authorization ends 08:00 UTC / 09:00
 Lisbon; no experiments after 07:15 UTC. Source selection **NONE**. The core queue
 has no contender eligible for confirmation. A separate operator-owned trial
 is preregistered in [006-followup](006-followup/PLAN.json). Its chair selected
@@ -89,31 +89,36 @@ hashes and all 12 retained campaign patch hashes, and reads the previous raw aud
 without repeating experiments or whole-evidence inventories. It corrects stale
 README next-target wording. This is sequential reporting review, not independent
 validation. [USAGE.json](USAGE.json) records supervisor-reported tokens through
-completed round 8; current-round usage, exact serving model and currency cost remain
+completed round 9; current-round usage, exact serving model and currency cost remain
 unknown. Token fields retain their original meanings and are not double-counted.
 
 Core queue's last experimental child ended 03:00:37.811992 UTC. Reporting rounds
-6–9 launched no worker build, test, profile or timing child. Latest completed round 8
-handoff has a matching ok coordinator acknowledgement **19d1a8f87**, request
-`r8-final-handoff-20261019T031409730977Z`, checked 03:14:14 UTC, on
-`exploration/apple-m6-mini-20261019T013000Z`. Historical per-round publication records
-remain in their checkpoint files. Round 9 publication follows; the coordinator alone
-commits/pushes. Baseline src remains unchanged.
+6–10 launched no worker build, test, profile or timing child. Latest round 9 final
+handoff matching ok acknowledgement: **acfba0f86**, request
+`r9-final-handoff-20261019T031614204088Z`, checked **03:16:18.805693 UTC** on
+`exploration/apple-m6-mini-20261019T013000Z`. Round 10 publication failed; see blocker below;
+coordinator alone commits/pushes. Baseline src remains unchanged.
 
-Recorded branch totals remain 11 completed populations (9 sequential + 2 historical
-multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches and 14 harnesses. The
-operator trial and concurrent M1 night remain excluded from these completed counts.
+Counts remain 11 completed populations (9 sequential + 2 historical multi-agent),
+0 accepted / 6 rejected / 5 parked, 33 patches / 14 harnesses. Operator trial and
+concurrent M1 night excluded from completed counts.
 
-The operator owns the preregistered 101-cell **M6-LOOKUP-CALLER-001** trial, deadline
-04:40:20.349829 UTC. Three actual independent proposals are complete, B selected;
-latest explicit implementation status is PREPARING three isolated implementations.
-[Round 9 observation](ROUND-009-HANDOFF.json) pins documents as observed, not as timing
-freezes or completed validations. M1 should await published exact patches, frozen
-referee and completed outcome. No speed or eligibility claim exists. Worker resumes
-the host HANDOFF and operator status without duplicating or taking over the trial;
-reporting finishes early when no worker task exists.
+Operator owns the preregistered 101-cell **M6-LOOKUP-CALLER-001** trial, deadline
+04:40:20.349829 UTC. Three actual independent proposals complete/B selected;
+explicit implementation status remains PREPARING. New
+[static review](006-followup/review-caller.json) reports A/B/C recorded validation PASS
+and equivalent scoreRaw instructions after relocation/assertion-line normalization.
+Author C independently reviews A/B, not own C. This establishes no measured effect,
+timing freeze, candidate ranking or adoption. The review requires common-relative-path
+timing builds to remove validation-path differences in `__FILE__` and placement;
+that gate remains operator-owned. [Round 10 checkpoint](ROUND-010-HANDOFF.json)
+pins these documents as observed. M1 should await exact published identities and
+completed outcome. Worker remains reporting-only without taking over this trial.
 
-Round 9 reporting checkpoint acknowledged **a4df5a725**, request
-`r9-reporting-handoff-20261019T031546233097Z`, ok 03:15:50 UTC. See
-[acknowledgement](ROUND-009-PUBLICATION.json). Final handoff publication follows;
-read matching acknowledgement on resume. No worker experimental children.
+Round 10 publication **FAILED**, request `r10-final-handoff-20261019T031850087694Z`,
+checked **03:18:50.408944 UTC**. Coordinator error:
+`Public-evidence review required: 006-followup/build.json`.
+See [failure record](ROUND-010-PUBLICATION.json). Local evidence is preserved;
+no worker Git action or same-blocker retry. Operator/coordinator must resolve that
+operator-owned metadata before requesting publication again. No performance decision
+changes. Latest successful final handoff remains **acfba0f86**.
