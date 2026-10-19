@@ -10,9 +10,10 @@ are recorded with the experiment evidence.
 
 **Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
 has acquired a fresh ARM-only lease through11:45UTC to investigate opposite timing
-directions in the original benchmark and iterator guards. Baseline controls are
-granted; comparisons and matched profiles require separate reviewed grants. The
-prior mask rejection remains final; its historical handback is recorded below.
+directions in the original benchmark and iterator guards. Fresh native controls
+qualify all six cells; comparisons reproduce primary gains and four guard losses.
+[New results/chart](experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md). Matched profiles
+now have a separate reviewed grant. The prior mask rejection remains final.
 
 **ARM follow-up complete — REJECT, source NONE.** The primary benchmark reproduced
 −7.78% / −7.21% elapsed-time changes, but nine qualified score-only iterator guard

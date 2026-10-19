@@ -22,7 +22,7 @@ for ax,phase,title in zip(axes,['NATIVE-AA','NATIVE-COMPARISON'],['Fresh baselin
   if not qualified:ax.annotate('unqualified',(max(effects),row),xytext=(6,0),textcoords='offset points',fontsize=8,va='center',color='#666')
  ax.set_title(title,fontsize=12,pad=13);ax.set_xlabel('Elapsed-time change (%)\nnegative = faster');ax.grid(axis='x',alpha=.18);ax.spines[['top','right']].set_visible(False)
 axes[0].set_yticks(range(6),labels);axes[0].invert_yaxis()
-fig.suptitle('ARM frontend diagnostic · fresh seeds1601–1603 · six ABBA blocks per case',fontsize=13,y=.98)
+fig.suptitle('ARM frontend diagnostic · fresh seeds 1601–1603 · six ABBA blocks per case',fontsize=13,y=.98)
 fig.text(.02,.02,'Prior candidate remains REJECT; source NONE. Frontends use different fixtures and consumers.\nDots retain every block; bars mark medians. Gray cells fail fresh A/A or minimum-window qualification.',fontsize=9,color='#444')
 fig.tight_layout(rect=(0,.09,1,.93));out=HERE/'charts';out.mkdir(exist_ok=True)
 for ext in ['png','svg']:fig.savefig(out/('native-frontend-comparison.'+ext),dpi=180,bbox_inches='tight')

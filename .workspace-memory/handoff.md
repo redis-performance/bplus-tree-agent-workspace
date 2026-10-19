@@ -8,18 +8,23 @@ Keep retrieval/indexing off the measurement runner and preserve frozen protocols
 <!-- PERFORMANCE-MCP-RULE-END -->
 
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
-## Authorized continuation — ARM frontend diagnostic lease active
+## ARM frontend diagnostic — native results audited, profiles granted
 
-Fresh ARM-only lease acquired after reviewed attempt2; independent OSS restoration
-11:45UTC, read-only live audit11:45:10UTC. Attempt1 failed on expected stopped PID
-exit7, automatically restored OSS, live proof10:52:01–02UTC passed; failure retained.
-Root ef9ecb4ca grants native-AA144/600s only using frozenfa190bd9b and independent
-Intel5fa4ec90c/AMD130d5c904 review. Comparison and1200s matched profiles ungranted.
-Actual four ELF maps: IteratorNext114control/113A, H4mask4 already unswitched.
-Distinct score/consumer/warmup/allocations forbid causal pooling. Prior maskREJECT
-and sourceNONE unchanged; no new population. Raw evidence/audits and profile
-preparation continue. Unknown serving-model/token/cost values remain unknown.
-[Status](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md).
+Fresh native AA70103fb6a and comparison121e9643a complete288 rows/72blocks. All six
+cells qualify. Primary medians−7.775%/−7.194%; H4forward+2.903%/+2.953%, reverse
++8.431%/+3.141%; every guard block regresses. Root and independent Intelcb6bb2a43 /
+06a776000 raw audits pass, source/binaries unchanged, post-run idle verified.
+Prior maskREJECT/sourceNONE unchanged; no new population or causal explanation.
+Corrected profile2d4e93924 has36 frozeninputs/642commands,42unscaled stats, distinct
+native/ASan memory joins. AMDd495b61fb/Intel4daa1473f/root review clears it; root
+3e04f174b grants one1200s wholephase,36captures+36stats, no retries/extensions.
+Independent OSS restoration11:45UTC; read-only live audit11:45:10UTC. Attempt1
+acquisition failure and fresh verified restoration retained; attempt2 owns lease.
+User MCP rule dfff5540f applies to everyCodex/Claude session. Root actual stdio MCP
+consultation logged;0/287sources indexed/Armmanual fetch empty, no causal support.
+Worker direct tools unavailable, shared consultation identified honestly.
+[Status](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md) ·
+[Results](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/RESULTS.md).
 <!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT-END -->
 
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->

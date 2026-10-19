@@ -5,11 +5,13 @@ rejection. This diagnostic investigates the opposite timing directions in the
 original benchmark and HARNESS-004. The rejected candidate remains rejected; no
 new implementation or source adoption is authorized by a favorable diagnostic.
 
-Status: **Fresh ARM lease ACQUIRED; native baseline controls granted.**
+Status: **Native controls/comparison complete; matched profiles granted.**
 Independent restoration timer11:45UTC and read-only audit11:45:10UTC are armed.
-Comparison and matched profile phases remain ungranted. Attempt1 failed before
+All six native cells qualify; the comparison reproduces primary gains and guard
+losses. The corrected matched-profile phase has a separate1,200-second grant. Attempt1 failed before
 measurement and automatically restored OSS; its verified handback is retained.
-[Live status](STATUS.md) and [lease/grant](NATIVE-AA-GRANT.json) track execution.
+[Results and chart](RESULTS.md), [live status](STATUS.md) and
+[profile grant](PROFILE-GRANT.json) track execution.
 
 ## Question and falsifiable hypothesis
 
@@ -58,8 +60,8 @@ The original referee, target source and historical artifacts remain unchanged.
   warnings, changed callers and raw per-run data are retained.
 
 Native execution freeze fa190bd9b passed independent Intel5fa4ec90c and AMD130d5c904
-review before its baseline-only grant. The profile executable is still in preparation
-and requires separate review and grant. Each phase requires
+review before its baseline-only grant. The corrected profile freeze2d4e93924 has separate root/Intel/AMD review and
+grant3e04f174b, with allocator modes separated and unscaled stat counters. Each phase requires
 fresh exclusivity/identity checks and its entire cap plus margin before the lease
 ends. No automatic retry, row removal, threshold change, alternate candidate or
 extension based on results. A completed diagnostic can end with NONE for a new
