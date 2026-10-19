@@ -34,8 +34,10 @@ feedback loops: implement, verify, measure, decide. Stop repeating a failed sche
 Do not fill idle time with unrelated boundary suites or repeated evidence inventories.
 
 At least 90 seconds before each round deadline, save evidence and the next concrete
-action. At campaign elapsed 7h15, stop starting experiments and produce the morning
-report. If the supervisor marks final_round earlier, finish the report immediately.
+action. At campaign elapsed 7h15, produce an interim eight-hour report. If the injected
+campaign deadline is later, follow the bounded extension in PLAN.md. Stop starting
+experiments 45 minutes before that actual deadline and write the final report. If
+the supervisor marks final_round earlier, finish the report immediately.
 Record incomplete/failed work honestly. At the deadline stop; no detached children.
 
 Do not alter the supervisor/prompt/deadline/STOP files or permission settings. Do not

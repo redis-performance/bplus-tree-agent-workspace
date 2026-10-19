@@ -26,6 +26,29 @@ revision and one distinct noise diagnostic per target; after that record the blo
 Stop early when no useful bounded work remains. Do not fill the night with unrelated
 correctness matrices, repeated failed schedules, or bookkeeping.
 
+## If the user sets a later deadline
+
+The table above is the first eight-hour pass. When the explicit deadline is later,
+write an interim report at elapsed 7h15 and continue only bounded, evidence-led work:
+
+- Hours 8–12: check published M6 decisions, reproduce any promising M6 candidate
+  against the local frozen baseline, and resolve one specific missing guard per
+  contender. Stop immediately if M6 has discarded the exact idea.
+- Hours 12–16: if no contender needs replication, use one new profiled hypothesis
+  from rank/lookup/update or the chosen iterator/decoder direction. Freeze its
+  plan, use both population steps, and give it at most 90 minutes. Spend remaining
+  time on independent confirmation and cross-host comparison; do not repeat a
+  failed A/A schedule.
+- From hour 16 until 45 minutes before the deadline: curate valid evidence,
+  repeat only predeclared held-out guards for surviving candidates, compare M1/M6
+  host reports, and resolve documentation/reproducibility gaps. Start no trial
+  that cannot finish before the reporting window.
+- Final 45 minutes: audit, push the host branch, and write a final report.
+
+This extension is conditional on the user's explicit deadline. A lack of useful
+profile-supported work is reason to finish early; do not consume the full window
+with recycled diagnostics or unsupported optimization claims.
+
 ## Baseline: five sizes, all eight operations
 
 Run once per host/session using a new output directory:

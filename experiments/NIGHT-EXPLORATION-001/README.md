@@ -1,6 +1,7 @@
 # Overnight exploration — shared M1 / M6 plan
 
-**Status: prepared, not started.** Up to eight hours per host, measured from launch.
+**Status: prepared for launch.** The first eight hours follow the core queue; an
+explicit later user deadline activates the bounded extension in PLAN.md.
 Target: the standalone B+ tree and member index. No Redis server. Both hosts follow
 this queue and measurement protocol; their evidence and decisions stay separate.
 
@@ -62,8 +63,8 @@ No worker changes the supervisor, deadline, STOP file or permission settings.
 ## Follow progress and publish
 
 Each host writes `STATUS.md`, `HANDOFF.md`, and numbered experiment folders under
-its campaign directory. Runtime transcripts stay in ignored `scratch/`. The last
-45 minutes produce `MORNING-REPORT.md`, curated evidence, and a commit on that host's
+its campaign directory. Runtime transcripts stay in ignored `scratch/`. The final
+45 minutes before the supplied deadline produce `MORNING-REPORT.md`, curated evidence, and a commit on that host's
 branch. Commit and push each validated host decision so the other host can read it. The
 M1 worker checks the latest published M6 branch before each candidate trial and
 skips hypotheses explicitly discarded there. An unpushed M6 decision cannot be
