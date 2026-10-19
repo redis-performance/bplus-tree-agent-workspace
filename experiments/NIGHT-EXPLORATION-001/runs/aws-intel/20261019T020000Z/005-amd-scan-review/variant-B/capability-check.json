@@ -1,0 +1,31 @@
+[
+  {
+    "mode": "native",
+    "sse2_helper_present": true,
+    "preprocessed_helper_sha256": "8a7ad305b8c5d24c4bb4f517f1dff369b9b913eebe1450d68d3a76075533fe08",
+    "command": [
+      "clang",
+      "-E",
+      "-P",
+      "-Iscratch/amd-scan-B/src",
+      "-Iscratch/amd-scan-B/compat",
+      "-Iscratch/amd-scan-B/vendor/redis",
+      "scratch/amd-scan-B/src/zset_btree.c"
+    ]
+  },
+  {
+    "mode": "portable",
+    "sse2_helper_present": false,
+    "preprocessed_helper_sha256": "760bcaf76b8abb5cc4dfecaee6b4d02fabb49cfd1abbab35e2ed54897e2a275e",
+    "command": [
+      "clang",
+      "-E",
+      "-P",
+      "-Iscratch/amd-scan-B/src",
+      "-Iscratch/amd-scan-B/compat",
+      "-Iscratch/amd-scan-B/vendor/redis",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "scratch/amd-scan-B/src/zset_btree.c"
+    ]
+  }
+]

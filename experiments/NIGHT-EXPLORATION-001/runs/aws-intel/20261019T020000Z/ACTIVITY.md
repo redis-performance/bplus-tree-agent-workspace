@@ -16,3 +16,5 @@
 2026-10-19T03:03:49.809033+00:00 Matched iterator diagnosis complete:36 enabled captures/four disabled controls,55.61s including builds; all audit checks pass. Cache arithmetic bypass confirmed statically, C regression cause unresolved. PARK/NONE unchanged. Root independent raw audit847ed4096. Intel runner idle; separate AMD scan proposal review next, no new timing authorized by a hypothesis yet.
 
 2026-10-19T03:08:01.438420+00:00 Submitted independent AMD scan proposal from common packet b1b670c0a: exact16-byte all-match masks, portable fallback and strict bounds/order/folded-tag guards. No peer proposals read, no candidate code or new Intel timing. This is a proposal in the AMD population, not another measured Intel population.
+
+2026-10-19T03:15:09.390917+00:00 Independent AMD implementation B completed from8fab511e: exact16-byte all-match masks with original bounded SWAR/scalar residual and portable fallback. Eight local correctness executables pass (43tests +297,984 oraclechecks each mode). No peer patches read and no performance measurement. Immutable patch submitted for root review and AMD serial validation.
