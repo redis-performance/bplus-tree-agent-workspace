@@ -1018,3 +1018,10 @@ read-only attribution of existing baseline samples. AMD prepares a distinct corr
 iterator baseline profile/control plan; Intel prepares corrected exactB replication
 with the known guard first. Neither new execution plan is granted yet. Deadline and
 actual OSS release verification remain08:00UTC /09:00Lisbon.
+
+
+19 October06:11UTC: corrected Intel017 guard-first replication PARK before candidate
+timing (two of six precision blocks fail); AMD029 score-only iterator control
+selectsNONE (100K precision fails,1M passes). Root raw audits and independent ARM
+AMD review58fec78b7 retained. No retries/source changes/new population. AWS counts
+8=0accepted/5rejected/3parked; see NIGHT-EXPLORATION-001/AWS-DECISIONS.md.

@@ -541,3 +541,33 @@ read-only attribution of existing baseline samples. AMD prepares a distinct corr
 iterator baseline profile/control plan; Intel prepares corrected exactB replication
 with the known guard first. Neither new execution plan is granted yet. Deadline and
 actual OSS release verification remain08:00UTC /09:00Lisbon.
+
+
+## 19 October 06:11 UTC — corrected controls stop advancement
+
+Corrected Intel017 exact-B replication is **PARK before candidate timing**. All
+50 preparation commands plus756 validator rows pass, including native/sanitizer
+original tests, portable-path checks and32 negative controls. Reproduced baseline
+text matches the actual013 timing executable. The fixed calibration produces
+1,316,073 traversals;24 fresh A/A rows have minimum199.345ms windows, but two of
+six blocks fail precision (−1.417% and−1.047%). No B guard, primary comparison or
+retry ran. Root independently verifies1,744 immutable files. Original-adapter B
+REJECT remains final and separate.
+[Root audit](reviews/aws-intel-corrected-known-guard-independent-audit.json).
+
+AMD029 baseline score-only iterator completes51 profile commands and48 A/A rows.
+Known-work/disabled scope controls pass;1,218 scientific samples retain caller
+mapping gaps. The100K first block fails precision at+2.430913%;1M qualifies all
+six blocks. **NONE; no candidate or retry.** Root independently reconstructs232
+public files and all rows; independent ARM58fec78b7 additionally audits scope and
+actual instruction mapping. Sampled score-decode shares25.819%/29.350% are not
+removable-cycle estimates. Existing full-member iterator cache work is a different
+output contract.
+[Root audit](reviews/aws-amd-iterator-independent-audit.json).
+
+Counts remain8 measured populations:0 accepted/5 rejected/3 parked. These separate
+replication/control outcomes add no population. All runner jobs have ended at this
+checkpoint; evidence review continues. No source adoption. The06:02 live fleet
+check confirms three stopped OSS coordinators and08:00UTC release timers; actual
+restoration remains pending.
+[Pre-deadline check](reviews/aws-release-preflight-0602.json).

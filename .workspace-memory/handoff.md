@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 06:02 UTC
+## Current AWS overnight checkpoint — 19 October 06:11 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -11,14 +11,14 @@ Original-adapter Intel scan B is REJECT: qualified trim/319-byte/signed-zero gua
 regresses all six blocks (+4.931% median). Root independently audits all1,440 rows;
 independent AMD full2,124-process review1217ba80a complete. Earlier primary/focused gains do not override loss.
 No A fallback or retry. Corrected Intel60 profiles/48 AA rows root-audited; both primary
-controls qualify. Corrected exactB frozen execution reviewed/granted with known failing guard first;
-no primary launch authorized. Metadata failure preserved, read-only completion only, no reruns.
+controls qualify. Corrected exactB guard-first replication PARK: two of six fresh guard AA blocks
+fail precision. Root audits1,744 immutable files; no candidate timing or retry. Metadata failure preserved, read-only completion only, no reruns.
 ARM existing-binary12-capture profile independently audited: exact predicate17.67%/
 16.87% of timed sampled period, not causal or recoverable cost. Fresh02048 AA rows
 qualify both sizes. Three actual proposals reviewed: ARM conditional dispatch, Intel/AMD
 NONE. Root chair selects NONE; no implementation. Previous017 rejection remains final.
-AMD baseline-only iterator profile/AA execution reviewed; grant conditional on
-independent ARM execution review with no unresolved blocker.
+AMD baseline-only iterator51 profile commands/48 AA complete. Root and independent
+ARM58fec78b7 raw audits pass;100K precision fails,1M qualifies. NONE/no candidate.
 Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
 AMD rank/update profile and index-reference diagnosis select no new hypothesis.
 

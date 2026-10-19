@@ -34,9 +34,9 @@ and three isolated NEON implementations. All three passed correctness but slowed
 every primary block; the 144-run comparison is independently audited REJECT/NONE. Intel’s focused guards pass all 22 qualified cases; 14 noisy
 controls and the original guard gaps remain unresolved. The supplemental failure
 is decisive despite those earlier scoped gains. Corrected-source Intel controls now
-qualify; a separate bounded replication now requalifies that failing guard before
-any primary comparison. AMD is preparing baseline-only score iterator profiles
-and fresh precision controls. ARM follow-up
+qualify, but the separate known-guard A/A fails two of six blocks, so the corrected
+replication is parked before candidate timing. AMD’s baseline score-only iterator
+profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM follow-up
 proposal review selected NONE despite qualified controls; all three proposals and
 the conditional implementation dissent are retained. No new candidate.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
