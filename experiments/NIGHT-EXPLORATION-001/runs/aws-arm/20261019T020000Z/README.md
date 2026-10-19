@@ -32,3 +32,9 @@ Profile-only024 completed: [immutable result](024-corrected-iterator/PROFILE-RES
 024 baseline now complete: [result](024-corrected-iterator/RESULT.md),48 A/A rows/12 blocks; bothsizes qualify. SourceNONE/counts unchanged, no candidate/proposal authorized. Runner idle awaiting independent raw review/root decision.
 
 2026-10-19 07:17 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
+
+## Fresh authorized follow-up — 2026-10-19 08:27 UTC
+
+The overnight lease/release proof above remains final. A separate user-authorized ARM-only lease now runs until10:15UTC. Exact historical EXP-005 A follow-up027 preparation is running after rootf90655754 and AMDd17da59d9 reviews; no timing has begun. SourceNONE, all old decisions and evidence unchanged. [Frozen plan](027-mask-followup/PLAN.md), [preparation](027-mask-followup/PREPARATION.md). Fresh lease is ACTIVE; its later restoration has not yet occurred.
+
+2026-10-19 08:34 UTC: fresh027 preparation FAILED2118/2124 at retainedzero-sign fault diagnostic mismatch; normal4original43/2048mode/12oracle checks passed, but fullnegative-control gate incomplete. No timing/retry. Independent postidentity/frozen/idle proof passes; freshleaseACTIVE, oldreleasehistoryunchanged. [Immutable failure](027-mask-followup/PREPARATION-RESULT.md).
