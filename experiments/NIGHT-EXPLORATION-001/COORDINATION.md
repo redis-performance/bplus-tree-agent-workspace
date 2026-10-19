@@ -1,5 +1,32 @@
 # M1 publication and M6 decision checks
 
+## M6 driver, 19 October
+
+The user authorized M6 execution and ongoing publication through 09:00 Lisbon.
+Branch: `exploration/apple-m6-mini-20261019T013000Z`. Follow its
+[STATUS.md](runs/apple-m6-mini/20261019T013000Z/STATUS.md) and exact candidate/harness
+hashes before spending M1 time on the same hypothesis. No M6 decision means UNKNOWN.
+
+The generalized coordinator supports the M6 checkout and M1 worktrees. The M6 worker
+requests publication at every status/decision milestone through an atomic runtime
+`publish-request.json` containing a unique `id` and exact additional harness `paths`.
+The worker pauses experiments and Git writes until a matching successful
+`publish-ack.json` records the pushed revision. This makes publication a boundary
+between measurements. The coordinator also publishes each completed round. It
+includes the host evidence, experiment ledgers, README and shared memory; requested
+paths cannot stage source, the original test entry point or another host campaign.
+Only the coordinator writes commits/pushes on this host. No main pushes or merges.
+
+Local runtime checks:
+
+```sh
+cat scratch/m6-night-launch-sync-status.json
+cat scratch/night-apple-m6-mini-20261019T013000Z/status.json
+git ls-remote --heads origin 'refs/heads/exploration/apple-m6-mini-*'
+```
+
+## Existing M1 coordinator
+
 M1 runs in a clean Git worktree on its own branch. Its workspace-write worker
 cannot create the worktree's Git index lock; it saves exact evidence and patches
 under the host campaign directory and records the denial once. The host coordinator

@@ -1102,3 +1102,16 @@ See experiments/NIGHT-EXPLORATION-001 for the shared M1/M6 eight-hour plan, laun
 commands, population/measurement rules, and pinned Lemire template/blog/cbitset review.
 All documents/results are prepared for publishing; no overnight run started. User
 wants M6 follow-up using the same five-size definitions and separate host evidence.
+
+
+## Latest: M6 driver launch authorized, 19 October
+
+The user authorized M6 overnight execution and continuous Git publication until
+09:00 Europe/Lisbon today (08:00 UTC). Verified actual CPU Apple M6; baseline tree
+unchanged. Follow experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md
+on branch exploration/apple-m6-mini-20261019T013000Z. M6 leads cross-host decisions;
+M1 must read published exact hypothesis/patch/harness identity and retain separate
+host comparisons. Coordinator publishes each status milestone and completed round.
+Last 45 minutes reserved for report/audit. Worker sysctl denied by its existing
+sandbox; use launcher-captured host metadata, with no permission changes. Launch
+validation: 4 publication tests and 6 supervisor tests pass. No M6 result yet.

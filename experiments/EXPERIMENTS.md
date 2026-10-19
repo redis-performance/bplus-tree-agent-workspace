@@ -839,3 +839,13 @@ These are exploratory baseline costs; no candidate or source adoption. Original
 four-size data preserved. README now shows the five-size chart. Shared overnight
 plan and [C benchmark review](NIGHT-EXPLORATION-001/BENCHMARK-REVIEW.md) are published;
 night campaigns remain unstarted. M6 rerun instructions preserve per-host results.
+
+
+## 2026-10-19 — M6 driver campaign authorized
+
+The user authorized autonomous M6 exploration and continuous host-branch publication
+through 09:00 Lisbon (08:00 UTC). [Live M6 status](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md).
+Actual CPU Apple M6 verified by launcher. Baseline source remains unchanged; the
+shared queue runs with a shorter host-specific budget and a 45-minute final report
+window. Publication/supervisor tests pass. This launch is orchestration, not a new
+optimization decision or population; existing counts unchanged.

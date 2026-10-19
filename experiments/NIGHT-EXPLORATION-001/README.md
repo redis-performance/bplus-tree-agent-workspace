@@ -1,6 +1,9 @@
 # Overnight exploration — shared M1 / M6 plan
 
-**Status: prepared for launch.** The first eight hours follow the core queue; an
+**Status: M6 launch authorized through 19 October, 09:00 Lisbon.** Follow the
+[M6 driver status](runs/apple-m6-mini/20261019T013000Z/STATUS.md) on its host branch.
+Its shorter pass uses [WORKER-M6.md](WORKER-M6.md); the final 45 minutes are reserved
+for reporting. The first eight hours of a full launch follow the core queue; an
 explicit later user deadline activates the bounded extension in PLAN.md.
 Target: the standalone B+ tree and member index. No Redis server. Both hosts follow
 this queue and measurement protocol; their evidence and decisions stay separate.
@@ -8,7 +11,8 @@ this queue and measurement protocol; their evidence and decisions stay separate.
 The baseline matrix is **100 / 1K / 10K / 100K / 1M members × eight operations**:
 insert, hit lookup, miss lookup, rank, forward iteration, scan, score update, delete.
 The [five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) is complete
-and separate from the preserved four-size data. The overnight campaign is still unstarted.
+and separate from the preserved four-size data. Each host records its actual launch
+and measurements independently.
 
 ## Read first
 

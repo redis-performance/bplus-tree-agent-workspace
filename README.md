@@ -13,6 +13,10 @@ is prepared for M1 and M6: rank, update paths, single-query lookup, and a decode
 fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
 The latest M1 results below include all five sizes; the original four-size data is preserved.
 
+The [M6 driver campaign](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md)
+is launching through **19 October, 09:00 Lisbon**. Its host branch publishes each
+status/decision milestone so the M1 session can follow the M6 evidence separately.
+
 ## Build and test
 
 Requires a C11 compiler (Clang or GCC), Make, and Python 3. Supports macOS and Linux.
