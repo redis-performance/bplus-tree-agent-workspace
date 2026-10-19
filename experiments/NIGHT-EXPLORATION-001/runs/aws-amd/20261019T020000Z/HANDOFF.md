@@ -60,3 +60,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T08:23:44.807180+00:00: ARM027 ca16799da preparation review passes28inputs/2124commands and Cartesian/native/san/source protections, conditional root600s newlease grant. No timing grant. Prior diagnostic-loss ambiguity resolved; uniform-width0/broaderarchitecture gaps explicit. Intel confirmation receipt repairs pending.
 
 - 2026-10-19T08:26:07.197154+00:00: Intel67365d7b7 confirmation execution review sealed:14+5inputs/10sources/exact48AA+48confirmation schedules. Qualified diagnostic-loss receipt gate correction pending, plus rawAAseal/audit join and30s independent child check. No launch/runner access; sourceNONE.
+
+- 2026-10-19T08:37:29.951227+00:00: IndependentARM027 failure8cdebdcba verified:2118attempted/2117registeredpass,2048normalmodes,−6 expected signfault caught by earliercopied-next assertion; originalregistrationFAILED. Only6never-started commands may be considered under separate narrowfreeze/rootgrant with allsnapshotprepostchecks. No timing/rerun/sourcechanges.
