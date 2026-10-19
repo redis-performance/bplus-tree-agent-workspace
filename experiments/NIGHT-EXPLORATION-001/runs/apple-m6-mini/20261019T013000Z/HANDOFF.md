@@ -1,46 +1,59 @@
-# Round5 live handoff — DECODE-001 preparation
+# Round5 live handoff — DECODE comparison B complete
 
-Saved 2026-10-19T02:41:29.094528+00:00; round ends03:08:25UTC, cleanup cutoff03:06:30UTC.
-Previous final handoff acknowledged Published a8633cde. No active child.
-Launcher baseline reused; rank/update/lookup closed REJECT/NONE. Source unchanged.
+Saved 2026-10-19T02:56:48.564397+00:00. Round ends03:08:25UTC; clean up by03:06:30UTC.
+Source NONE. Baseline/rank/update/lookup completed and closed. Never rerun.
 
-Optional DECODE-001 chosen; ITERATE-001 skipped. See005-decode/PLAN.md and PROFILE.md.
-Control native/sanitizer existing and2080-cell extended checks pass. Primary
-profile28 PCs sufficient; reverse/count1 and count96 captures insufficient, retained
-without rerun. Referee/plan publication is next, then three sequential proposals/chair,
-three isolated implementations and validation; freeze/publish before serial timings.
-No delegation used; exact backend/cost unknown. Cached published M1 4c48fa7e has
-only a matching direction selection, no M6 candidate replication. No fresh DNS retry.
+# M6 scoreboard — DECODE-001 fixed comparison
 
-Use coordinator publish barrier. No Git writes, worktree retry, sysctl retry,
-permission changes or baseline edits. Resume unfinished steps, never completed targets.
-Final reporting still reserved07:15–08:00UTC.
+Updated 2026-10-19T02:56:48.564397+00:00. Round5 ends03:08:25UTC; handoff by03:06:55UTC.
+Campaign ends08:00UTC/09:00Lisbon; no new experiments after07:15UTC.
+Source selection **NONE**. Baseline src/referee hashes unchanged.
 
-DECODE referee/profile published80177d1e. Sequential proposal/chair chooses
-M6-DECODE-COUNT1-001; all three proposal passes preserved. Implementation population
-next: natural scalar branch / outlined bulk bridge / forced-inline early-bulk policy.
-No candidate built or timed yet; no independent agents/review.
+| Target | State | M1 action |
+|---|---|---|
+| Baseline | COMPLETE, reused | baseline-attempt002;120 processes/960 rows |
+| RANK-001 | REJECT/NONE | Skip exact candidates;002-rank/RESULTS.md |
+| UPDATE-001 | REJECT/NONE | Skip exact candidates;003-update/RESULTS.md |
+| LOOKUP-001 | REJECT/NONE | No dual-primary winner;100K B exploratory only |
+| DECODE-001 | Comparison B complete | All176 cells; no qualified adoption |
+| ITERATE-001 | SKIPPED | Same optional slot, no second target |
+| Fresh confirmation | NOT ELIGIBLE | Failed primary controls; no shortlist |
 
-DECODE chair published e62f839d. All three isolated implementations now pass
-unchanged Python oracle and2080 extended geometries per native/sanitizer build.
-Two deliberate policy faults detected. Actual release codegen preserved.
-Candidate/referee/source/binary identities in005-decode/comparison-freeze.json.
-Next calibration then fixed A/A and three176-cell serial comparisons, no overlap.
+Hypothesis **M6-DECODE-COUNT1-001**: original scalar at exactly count1,
+frozen EXP-007 B otherwise. Private materialized score helper; no public iterator
+or tree claim. [Plan](005-decode/PLAN.md), [identity](005-decode/comparison-freeze.json).
+Both population steps used three sequential passes by one worker, not independent
+agents. All three patches retained; no exact backend/model/cost available beyond
+visible Codex/GPT-6 family. No fresh confirmation or independent review performed.
 
-Candidate freeze published6e9e4ec8. Baseline calibration complete:528 observations
-for176 cells; fixed round counts in005-decode/calibration.json apply to all variants.
-No per-candidate adaptive counts. Next six-block all-cell baseline A/A.
+A/A:53/176 numerical qualifiers, primary fails (−6.331..+1.195%), all windows>=10ms.
+41 cap-limited cells cannot reach50ms; keep limits even if numerical controls pass.
 
-DECODE A/A complete:4224 serial processes,176 cells,6 ABBA blocks;
-53/176 numerically qualify; minimum window11.162ms. Primary effects
-[-3.447324281174524, -2.618455838663347, -6.331260495140977, -5.231520182782601, -2.6268800807368042, 1.1952139812649198]; primary qualified=False.
-41 cap-limited cells cannot reach50ms target; CAP-LIMIT.md records them.
-No adoption qualification from noisy/cap-limited guards. Proceed only with the
-predeclared fixed exploratory A/B/C comparisons; no noise retries or sample removal.
+| Variant | Primary median | Six-block range | Uncapped qualified guard cells with >1% block |
+|---|---:|---:|---:|
+| A | -16.914% | -20.263..-0.192% | 21 |
+| B | -29.952% | -34.328..-27.469% | 24 |
+| C | pending | pending | pending |
 
-DECODE A comparison complete:4224 rows,6 blocks×176 cells in220.80s.
-Primary median-16.914%, range-20.263..-0.192%;
-all-block2% gate=False. Guard cells with any >1% block under
-numerically qualified controls:28;21 are uncapped. Primary
-control failed; no adoption. Exact data:005-decode/comparison-A.json and phase-A-summary.json.
-Cached M1 4c48fa7e checked again; no fresh network fetch or cross-host pooling.
+All native/sanitizer existing decoder oracles and2080 extended geometries/build pass.
+Two policy faults detected. Original tree baseline validation reused from launcher.
+Primary baseline profile28 PCs sufficient; three guard captures insufficient and
+preserved. Candidate profile validation pending. Frozen bulk bytes unchanged.
+No all-candidate ranking from noise or successive phase order.
+
+Published pins: prior handoff a8633cde; referee/profile80177d1e; chair e62f839d;
+candidate freeze6e9e4ec8; calibration7c671a8b; A/A b0aee748; A comparison87c3305f8.
+This completed comparison publication follows; record its ack on resume.
+Coordinator alone writes Git. No denied-operation retries or permission changes.
+Cached M1 4c48fa7e checked; no fresh fetch after earlier DNS failure.
+
+Launcher verified Apple M6. Direct sysctl unavailable, not retried. Frequency,
+DVFS, core residency, migration and PMU counters unknown. Branch completed counts
+remain10 populations/0 accepted/5 rejected/5 parked/30 patches/13 harnesses pending
+the current DECODE decision. M1 night counts remain separate. Next in HANDOFF.md.
+
+Next: finish only unrun C comparison if pending, then raw/patch/source audit,
+sequential adversarial review, decision, MORNING-REPORT draft and final publication.
+No eligible fresh confirmation or second optional target. No builds/tests/profiles
+during serial timing; no activity during publish barrier. Use exact published
+source/referee hashes and saved counts. Final handoff at least90s before end.
