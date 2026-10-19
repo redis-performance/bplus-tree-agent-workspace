@@ -1,0 +1,197 @@
+ Percent |	Source code & Disassembly of decoder-native for armv8_pmuv3_0/cycles/P (788 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         : 0    0xb8f0 <decoder_batch>:
+    0.00 :   b8f0:        cbz     w1, 0xbbf0 <decoder_batch+0x300>
+    0.00 :   b8f4:        str     x29, [sp, #-0x40]!
+    0.00 :   b8f8:        stp     x24, x23, [sp, #0x10]
+    0.00 :   b8fc:        stp     x22, x21, [sp, #0x20]
+    0.00 :   b900:        stp     x20, x19, [sp, #0x30]
+    0.00 :   b904:        sub     sp, sp, #0x300
+    0.00 :   b908:        mov     x9, sp
+    0.00 :   b90c:        mov     x2, xzr
+    0.00 :   b910:        mov     w8, wzr
+    0.00 :   b914:        mov     x16, xzr
+    0.00 :   b918:        mov     x17, xzr
+    0.00 :   b91c:        mov     x18, xzr
+    0.00 :   b920:        add     x10, x9, #0x40
+    0.00 :   b924:        add     x11, x9, #0x10
+    0.00 :   b928:        mov     x12, #-0x1
+    0.00 :   b92c:        mov     w13, #0x40
+    0.00 :   b930:        b       0xb940 <decoder_batch+0x50>
+    0.12 :   b934:        add     w8, w8, #0x1
+    0.25 :   b938:        cmp     w8, w1
+    0.00 :   b93c:        b.eq    0xbbcc <decoder_batch+0x2dc>
+    0.00 :   b940:        ldr     w14, [x0, #0x4]
+    0.00 :   b944:        cbz     w14, 0xb934 <decoder_batch+0x44>
+    0.00 :   b948:        ldr     w14, [x0]
+    0.00 :   b94c:        mov     x15, xzr
+    0.00 :   b950:        b       0xb964 <decoder_batch+0x74>
+    1.28 :   b954:        ldr     w3, [x0, #0x4]
+    0.00 :   b958:        add     x15, x15, #0x1
+    0.74 :   b95c:        cmp     x15, x3
+    0.00 :   b960:        b.hs    0xb934 <decoder_batch+0x44>
+    2.23 :   b964:        cbz     x14, 0xba28 <decoder_batch+0x138>
+    1.11 :   b968:        ldr     x4, [x0, #0x8]
+    0.00 :   b96c:        mov     x3, xzr
+    1.61 :   b970:        ldr     x4, [x4, x15, lsl #3]
+    1.86 :   b974:        ldr     x5, [x4, #0x28]
+    0.00 :   b978:        add     x6, x4, #0x38
+    1.61 :   b97c:        b       0xb9c0 <decoder_batch+0xd0>
+    1.36 :   b980:        lsl     x21, x12, x19
+    0.00 :   b984:        cmp     w19, #0x40
+    1.49 :   b988:        csinv   x19, x12, x21, hs
+    1.59 :   b98c:        ldrb    w21, [x4, #0x13]
+    0.00 :   b990:        and     x19, x20, x19
+    1.00 :   b994:        lsl     x19, x19, x21
+    0.00 :   b998:        cmp     w7, #0x0
+    1.36 :   b99c:        cneg    x7, x19, ne
+    1.86 :   b9a0:        add     x7, x7, x5
+    0.00 :   b9a4:        and     x19, x7, #0x7fffffffffffffff
+    3.88 :   b9a8:        cmp     x7, #0x0
+    0.12 :   b9ac:        csinv   x7, x19, x7, lt
+    1.24 :   b9b0:        str     x7, [x9, x3, lsl #3]
+    1.86 :   b9b4:        add     x3, x3, #0x1
+    1.49 :   b9b8:        cmp     x14, x3
+    0.00 :   b9bc:        b.eq    0xba28 <decoder_batch+0x138>
+    1.25 :   b9c0:        ldrb    w19, [x4, #0x34]
+    1.98 :   b9c4:        ldrb    w7, [x4, #0x35]
+    1.61 :   b9c8:        cbz     w19, 0xba20 <decoder_batch+0x130>
+    1.61 :   b9cc:        mov     x20, x3
+    0.00 :   b9d0:        cbz     w7, 0xb9e0 <decoder_batch+0xf0>
+    0.00 :   b9d4:        ldrb    w20, [x4, #0x11]
+    0.00 :   b9d8:        eor     x21, x3, #0xffffffff
+    0.00 :   b9dc:        add     x20, x21, x20
+    1.98 :   b9e0:        and     x20, x20, #0xffffffff
+    0.12 :   b9e4:        umull   x20, w20, w19
+    1.36 :   b9e8:        lsr     x21, x20, #3
+    0.00 :   b9ec:        and     x24, x20, #0x7
+    1.73 :   b9f0:        ands    w22, w20, #0x7
+    0.87 :   b9f4:        ldr     x23, [x6, x21]
+    0.00 :   b9f8:        lsr     x20, x23, x24
+    2.60 :   b9fc:        b.eq    0xb980 <decoder_batch+0x90>
+    0.00 :   ba00:        sub     w22, w13, w22
+    0.00 :   ba04:        cmp     w22, w19
+    0.00 :   ba08:        b.hs    0xb980 <decoder_batch+0x90>
+    0.00 :   ba0c:        add     x21, x21, x4
+    0.00 :   ba10:        ldrb    w21, [x21, #0x40]
+    0.00 :   ba14:        lsl     x21, x21, x22
+    0.00 :   ba18:        orr     x20, x21, x20
+    0.00 :   ba1c:        b       0xb980 <decoder_batch+0x90>
+    0.00 :   ba20:        mov     x19, xzr
+    0.00 :   ba24:        b       0xb998 <decoder_batch+0xa8>
+    1.91 :   ba28:        ldr     w14, [x0]
+    1.24 :   ba2c:        cmp     w14, #0x4
+    0.00 :   ba30:        b.lo    0xba50 <decoder_batch+0x160>
+    0.00 :   ba34:        sub     x4, x14, #0x4
+    0.00 :   ba38:        and     x3, x14, #0xfffffffc
+    0.00 :   ba3c:        cmp     x4, #0xc
+    0.00 :   ba40:        b.hs    0xba58 <decoder_batch+0x168>
+    0.00 :   ba44:        mov     x4, xzr
+    0.00 :   ba48:        mov     w5, #0x3
+    0.00 :   ba4c:        b       0xbb1c <decoder_batch+0x22c>
+    1.44 :   ba50:        mov     x3, xzr
+    0.00 :   ba54:        b       0xbb50 <decoder_batch+0x260>
+    0.00 :   ba58:        lsr     x4, x4, #2
+    0.00 :   ba5c:        movi    v3.2d, #0000000000000000
+    0.00 :   ba60:        movi    v2.2d, #0000000000000000
+    0.00 :   ba64:        movi    v1.2d, #0000000000000000
+    0.00 :   ba68:        movi    v0.2d, #0000000000000000
+    0.00 :   ba6c:        mov     w5, #0x3
+    0.00 :   ba70:        add     x6, x4, #0x1
+    0.00 :   ba74:        movi    v4.2d, #0000000000000000
+    0.00 :   ba78:        movi    v7.2d, #0000000000000000
+    0.00 :   ba7c:        and     x7, x6, #0x7ffffffffffffffc
+    0.00 :   ba80:        movi    v6.2d, #0000000000000000
+    0.00 :   ba84:        movi    v5.2d, #0000000000000000
+    0.00 :   ba88:        lsr     x19, x7, #2
+    0.00 :   ba8c:        mov     v3.d[0], x2
+    0.00 :   ba90:        mov     v2.d[0], x16
+    0.00 :   ba94:        mov     v1.d[0], x17
+    0.00 :   ba98:        mov     v0.d[0], x18
+    0.00 :   ba9c:        lsl     x4, x7, #2
+    0.00 :   baa0:        bfi     x5, x19, #4, #60
+    0.00 :   baa4:        mov     x16, x7
+    0.00 :   baa8:        mov     x17, x10
+    0.00 :   baac:        sub     x18, x17, #0x40
+    0.00 :   bab0:        ld4     { v16.2d, v17.2d, v18.2d, v19.2d }, [x17]
+    0.00 :   bab4:        subs    x16, x16, #0x4
+    0.00 :   bab8:        add     x17, x17, #0x80
+    0.00 :   babc:        ld4     { v20.2d, v21.2d, v22.2d, v23.2d }, [x18]
+    0.00 :   bac0:        add     v4.2d, v16.2d, v4.2d
+    0.00 :   bac4:        add     v5.2d, v17.2d, v5.2d
+    0.00 :   bac8:        add     v6.2d, v18.2d, v6.2d
+    0.00 :   bacc:        add     v3.2d, v20.2d, v3.2d
+    0.00 :   bad0:        add     v0.2d, v21.2d, v0.2d
+    0.00 :   bad4:        add     v1.2d, v22.2d, v1.2d
+    0.00 :   bad8:        add     v2.2d, v23.2d, v2.2d
+    0.00 :   badc:        add     v7.2d, v19.2d, v7.2d
+    0.00 :   bae0:        b.ne    0xbaac <decoder_batch+0x1bc>
+    0.00 :   bae4:        add     v3.2d, v4.2d, v3.2d
+    0.00 :   bae8:        add     v2.2d, v7.2d, v2.2d
+    0.00 :   baec:        cmp     x6, x7
+    0.00 :   baf0:        add     v1.2d, v6.2d, v1.2d
+    0.00 :   baf4:        add     v0.2d, v5.2d, v0.2d
+    0.00 :   baf8:        addp    d3, v3.2d
+    0.00 :   bafc:        addp    d2, v2.2d
+    0.00 :   bb00:        addp    d1, v1.2d
+    0.00 :   bb04:        addp    d0, v0.2d
+    0.00 :   bb08:        fmov    x2, d3
+    0.00 :   bb0c:        fmov    x16, d2
+    0.00 :   bb10:        fmov    x17, d1
+    0.00 :   bb14:        fmov    x18, d0
+    0.00 :   bb18:        b.eq    0xbb50 <decoder_batch+0x260>
+    0.00 :   bb1c:        add     x5, x9, x5, lsl #3
+    0.00 :   bb20:        add     x6, x11, x4, lsl #3
+    0.00 :   bb24:        add     x4, x4, #0x3
+    0.00 :   bb28:        ldp     x7, x19, [x6, #-0x10]
+    0.00 :   bb2c:        add     x4, x4, #0x4
+    0.00 :   bb30:        ldr     x20, [x6], #0x20
+    0.00 :   bb34:        cmp     x4, x14
+    0.00 :   bb38:        ldr     x21, [x5], #0x20
+    0.00 :   bb3c:        add     x2, x7, x2
+    0.00 :   bb40:        add     x18, x19, x18
+    0.00 :   bb44:        add     x17, x20, x17
+    0.00 :   bb48:        add     x16, x21, x16
+    0.00 :   bb4c:        b.lo    0xbb28 <decoder_batch+0x238>
+    1.24 :   bb50:        cmp     x3, x14
+    0.00 :   bb54:        b.hs    0xb954 <decoder_batch+0x64>
+    1.73 :   bb58:        sub     x5, x14, x3
+    1.49 :   bb5c:        cmp     x5, #0x4
+    0.00 :   bb60:        b.lo    0xbbb0 <decoder_batch+0x2c0>
+    0.00 :   bb64:        movi    v0.2d, #0000000000000000
+    0.00 :   bb68:        movi    v1.2d, #0000000000000000
+    0.00 :   bb6c:        and     x4, x14, #0x3
+    0.00 :   bb70:        sub     x5, x5, x4
+    0.00 :   bb74:        add     x6, x3, x4
+    0.00 :   bb78:        mov     v0.d[0], x2
+    0.00 :   bb7c:        add     x2, x11, x3, lsl #3
+    0.00 :   bb80:        add     x3, x5, x3
+    0.00 :   bb84:        sub     x5, x6, x14
+    0.00 :   bb88:        ldp     q2, q3, [x2, #-0x10]
+    0.00 :   bb8c:        adds    x5, x5, #0x4
+    0.00 :   bb90:        add     x2, x2, #0x20
+    0.00 :   bb94:        add     v0.2d, v2.2d, v0.2d
+    0.00 :   bb98:        add     v1.2d, v3.2d, v1.2d
+    0.00 :   bb9c:        b.ne    0xbb88 <decoder_batch+0x298>
+    0.00 :   bba0:        add     v0.2d, v1.2d, v0.2d
+    0.00 :   bba4:        addp    d0, v0.2d
+    0.00 :   bba8:        fmov    x2, d0
+    0.00 :   bbac:        cbz     x4, 0xb954 <decoder_batch+0x64>
+    3.39 :   bbb0:        add     x4, x9, x3, lsl #3
+    0.00 :   bbb4:        sub     x3, x14, x3
+    1.86 :   bbb8:        ldr     x5, [x4], #0x8
+   39.56 :   bbbc:        subs    x3, x3, #0x1
+    1.49 :   bbc0:        add     x2, x5, x2
+    0.00 :   bbc4:        b.ne    0xbbb8 <decoder_batch+0x2c8>
+    1.49 :   bbc8:        b       0xb954 <decoder_batch+0x64>
+    0.00 :   bbcc:        add     x8, x17, x18
+    0.00 :   bbd0:        add     x9, x16, x2
+    0.00 :   bbd4:        add     x0, x8, x9
+    0.00 :   bbd8:        add     sp, sp, #0x300
+    0.00 :   bbdc:        ldp     x20, x19, [sp, #0x30]
+    0.00 :   bbe0:        ldp     x22, x21, [sp, #0x20]
+    0.00 :   bbe4:        ldp     x24, x23, [sp, #0x10]
+    0.00 :   bbe8:        ldr     x29, [sp], #0x40
+    0.00 :   bbec:        ret
+    0.00 :   bbf0:        mov     x0, xzr
+    0.00 :   bbf4:        ret

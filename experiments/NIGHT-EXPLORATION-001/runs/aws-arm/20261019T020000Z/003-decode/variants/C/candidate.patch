@@ -1,0 +1,13 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -5976,6 +5976,10 @@
+ static void zbtScoreLeafDecodeRange(zbtScoreLeaf *leaf, unsigned start,
+                                    unsigned count, double *out) {
+     if (count == 0) return;
++    if (count == 1) {
++        out[0] = zbtScoreLeafScore(leaf, start);
++        return;
++    }
+ 
+     const unsigned bits = leaf->score_bits;
+     const unsigned score_shift = leaf->n.score_shift;

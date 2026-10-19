@@ -1,0 +1,50 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 962  of event 'armv8_pmuv3_0/cycles/P'
+# Event count (approx.): 2737968435
+#
+# Overhead  Command         Shared Object     Symbol                      
+# ........  ..............  ................  ............................
+#
+    59.96%  decoder-native  decoder-native    [.] decoder_batch
+            |
+            ---decoder_batch
+               main
+               0xf885309084c4
+               __libc_start_main
+               _start
+
+    40.03%  decoder-native  decoder-native    [.] zbtScoreLeafDecodePolicy
+            |          
+            |--35.72%--zbtScoreLeafDecodeRange (inlined)
+            |          zbtScoreLeafDecodePolicy
+            |          decoder_batch
+            |          main
+            |          0xf885309084c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--2.56%--zbtOrderedToScore (inlined)
+            |          zbtScoreLeafDecodeRange (inlined)
+            |          zbtScoreLeafDecodePolicy
+            |          decoder_batch
+            |          main
+            |          0xf885309084c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --1.75%--zbtScoreLeafDecodePolicy
+                       decoder_batch
+                       main
+                       0xf885309084c4
+                       __libc_start_main
+                       _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

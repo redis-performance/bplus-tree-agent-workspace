@@ -1,0 +1,149 @@
+ Percent |	Source code & Disassembly of decoder-native for armv8_pmuv3_0/cycles/P (372 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         : 0    0xb924 <zbtScoreLeafDecodePolicy>:
+    7.22 :   b924:        cbz     w2, 0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    4.15 :   b928:        ldrb    w11, [x0, #0x34]
+    5.62 :   b92c:        ldr     x8, [x0, #0x28]
+    2.81 :   b930:        cbz     w11, 0xb9f8 <zbtScoreLeafDecodePolicy+0xd4>
+    2.81 :   b934:        mov     x10, #-0x1
+    2.30 :   b938:        ldrb    w9, [x0, #0x13]
+    3.83 :   b93c:        ldrb    w14, [x0, #0x35]
+    3.32 :   b940:        lsl     x12, x10, x11
+    1.28 :   b944:        cmp     w11, #0x40
+    2.81 :   b948:        ldrb    w15, [x0, #0x11]
+    0.00 :   b94c:        csinv   x10, x10, x12, eq
+    3.58 :   b950:        tst     w11, #0x7
+    0.00 :   b954:        b.eq    0xba18 <zbtScoreLeafDecodePolicy+0xf4>
+    2.30 :   b958:        cmp     w11, #0x3b
+    0.00 :   b95c:        add     x12, x0, #0x38
+    2.82 :   b960:        mov     w13, w2
+    0.00 :   b964:        b.lo    0xba9c <zbtScoreLeafDecodePolicy+0x178>
+    4.25 :   b968:        cmp     w11, #0x3c
+    0.00 :   b96c:        b.eq    0xba9c <zbtScoreLeafDecodePolicy+0x178>
+    0.00 :   b970:        mvn     w16, w1
+    0.00 :   b974:        add     w15, w16, w15
+    0.00 :   b978:        mov     w16, #0x40
+    0.00 :   b97c:        b       0xb9b4 <zbtScoreLeafDecodePolicy+0x90>
+    0.00 :   b980:        and     x17, x17, x10
+    0.00 :   b984:        tst     w14, #0xff
+    0.00 :   b988:        sub     x13, x13, #0x1
+    0.00 :   b98c:        lsl     x17, x17, x9
+    0.00 :   b990:        add     w1, w1, #0x1
+    0.00 :   b994:        sub     w15, w15, #0x1
+    0.00 :   b998:        cneg    x17, x17, ne
+    0.00 :   b99c:        add     x17, x17, x8
+    0.00 :   b9a0:        and     x18, x17, #0x7fffffffffffffff
+    0.00 :   b9a4:        cmp     x17, #0x0
+    0.00 :   b9a8:        csinv   x17, x18, x17, lt
+    0.00 :   b9ac:        str     x17, [x3], #0x8
+    0.00 :   b9b0:        cbz     x13, 0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    0.00 :   b9b4:        tst     w14, #0xff
+    0.00 :   b9b8:        csel    w17, w1, w15, eq
+    0.00 :   b9bc:        umull   x17, w11, w17
+    0.00 :   b9c0:        lsr     x18, x17, #3
+    0.00 :   b9c4:        and     x5, x17, #0x7
+    0.00 :   b9c8:        ands    w2, w17, #0x7
+    0.00 :   b9cc:        ldr     x4, [x12, x18]
+    0.00 :   b9d0:        lsr     x17, x4, x5
+    0.00 :   b9d4:        b.eq    0xb980 <zbtScoreLeafDecodePolicy+0x5c>
+    0.00 :   b9d8:        sub     w2, w16, w2
+    0.00 :   b9dc:        cmp     w2, w11
+    0.00 :   b9e0:        b.hs    0xb980 <zbtScoreLeafDecodePolicy+0x5c>
+    0.00 :   b9e4:        add     x18, x18, x0
+    0.00 :   b9e8:        ldrb    w18, [x18, #0x40]
+    0.00 :   b9ec:        lsl     x18, x18, x2
+    0.00 :   b9f0:        orr     x17, x18, x17
+    0.00 :   b9f4:        b       0xb980 <zbtScoreLeafDecodePolicy+0x5c>
+    0.00 :   b9f8:        and     x9, x8, #0x7fffffffffffffff
+    0.00 :   b9fc:        cmp     x8, #0x0
+    0.00 :   ba00:        csinv   x8, x9, x8, lt
+    0.00 :   ba04:        cmp     w2, #0x4
+    0.00 :   ba08:        mov     w9, w2
+    0.00 :   ba0c:        b.hs    0xbb2c <zbtScoreLeafDecodePolicy+0x208>
+    0.00 :   ba10:        mov     x10, xzr
+    0.00 :   ba14:        b       0xbb54 <zbtScoreLeafDecodePolicy+0x230>
+    0.00 :   ba18:        lsr     x11, x11, #3
+    0.00 :   ba1c:        tst     w14, #0xff
+    0.00 :   ba20:        add     x12, x0, #0x38
+    0.00 :   ba24:        mov     w13, w2
+    0.00 :   ba28:        b.eq    0xba68 <zbtScoreLeafDecodePolicy+0x144>
+    0.00 :   ba2c:        mvn     w14, w1
+    0.00 :   ba30:        add     w14, w14, w15
+    0.00 :   ba34:        umull   x15, w11, w14
+    0.00 :   ba38:        sub     x13, x13, #0x1
+    0.00 :   ba3c:        sub     w14, w14, #0x1
+    0.00 :   ba40:        ldr     x15, [x12, x15]
+    0.00 :   ba44:        and     x15, x15, x10
+    0.00 :   ba48:        lsl     x15, x15, x9
+    0.00 :   ba4c:        sub     x15, x8, x15
+    0.00 :   ba50:        and     x16, x15, #0x7fffffffffffffff
+    0.00 :   ba54:        cmp     x15, #0x0
+    0.00 :   ba58:        csinv   x15, x16, x15, lt
+    0.00 :   ba5c:        str     x15, [x3], #0x8
+    0.00 :   ba60:        cbnz    x13, 0xba34 <zbtScoreLeafDecodePolicy+0x110>
+    0.00 :   ba64:        b       0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    0.00 :   ba68:        umull   x14, w11, w1
+    0.00 :   ba6c:        add     w1, w1, #0x1
+    0.00 :   ba70:        ldr     x14, [x12, x14]
+    0.00 :   ba74:        and     x14, x14, x10
+    0.00 :   ba78:        lsl     x14, x14, x9
+    0.00 :   ba7c:        add     x14, x14, x8
+    0.00 :   ba80:        and     x15, x14, #0x7fffffffffffffff
+    0.00 :   ba84:        cmp     x14, #0x0
+    0.00 :   ba88:        csinv   x14, x15, x14, lt
+    0.00 :   ba8c:        subs    x13, x13, #0x1
+    0.00 :   ba90:        str     x14, [x3], #0x8
+    0.00 :   ba94:        b.ne    0xba68 <zbtScoreLeafDecodePolicy+0x144>
+    0.00 :   ba98:        b       0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    2.30 :   ba9c:        tst     w14, #0xff
+    0.00 :   baa0:        b.eq    0xbaec <zbtScoreLeafDecodePolicy+0x1c8>
+    0.00 :   baa4:        mvn     w14, w1
+    0.00 :   baa8:        add     w14, w14, w15
+    0.00 :   baac:        umull   x15, w11, w14
+    0.00 :   bab0:        sub     x13, x13, #0x1
+    0.00 :   bab4:        sub     w14, w14, #0x1
+    0.00 :   bab8:        lsr     x16, x15, #3
+    0.00 :   babc:        and     x15, x15, #0x7
+    0.00 :   bac0:        ldr     x16, [x12, x16]
+    0.00 :   bac4:        lsr     x15, x16, x15
+    0.00 :   bac8:        and     x15, x15, x10
+    0.00 :   bacc:        lsl     x15, x15, x9
+    0.00 :   bad0:        sub     x15, x8, x15
+    0.00 :   bad4:        and     x16, x15, #0x7fffffffffffffff
+    0.00 :   bad8:        cmp     x15, #0x0
+    0.00 :   badc:        csinv   x15, x16, x15, lt
+    0.00 :   bae0:        str     x15, [x3], #0x8
+    0.00 :   bae4:        cbnz    x13, 0xbaac <zbtScoreLeafDecodePolicy+0x188>
+    0.00 :   bae8:        b       0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    6.90 :   baec:        umull   x14, w11, w1
+    0.00 :   baf0:        add     w1, w1, #0x1
+    2.56 :   baf4:        lsr     x15, x14, #3
+    0.00 :   baf8:        and     x14, x14, #0x7
+    2.81 :   bafc:        ldr     x15, [x12, x15]
+    6.77 :   bb00:        lsr     x14, x15, x14
+    1.02 :   bb04:        and     x14, x14, x10
+    2.81 :   bb08:        lsl     x14, x14, x9
+    0.26 :   bb0c:        add     x14, x14, x8
+    2.81 :   bb10:        and     x15, x14, #0x7fffffffffffffff
+    1.79 :   bb14:        cmp     x14, #0x0
+    1.79 :   bb18:        csinv   x14, x15, x14, lt
+    2.04 :   bb1c:        subs    x13, x13, #0x1
+    5.02 :   bb20:        str     x14, [x3], #0x8
+    1.28 :   bb24:        b.ne    0xbaec <zbtScoreLeafDecodePolicy+0x1c8>
+    6.34 :   bb28:        b       0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    0.00 :   bb2c:        dup     v0.2d, x8
+    0.00 :   bb30:        and     x10, x9, #0xfffffffc
+    0.00 :   bb34:        add     x11, x3, #0x10
+    0.00 :   bb38:        mov     x12, x10
+    0.00 :   bb3c:        stp     q0, q0, [x11, #-0x10]
+    0.00 :   bb40:        subs    x12, x12, #0x4
+    0.00 :   bb44:        add     x11, x11, #0x20
+    0.00 :   bb48:        b.ne    0xbb3c <zbtScoreLeafDecodePolicy+0x218>
+    0.00 :   bb4c:        cmp     x10, x9
+    0.00 :   bb50:        b.eq    0xbb68 <zbtScoreLeafDecodePolicy+0x244>
+    0.00 :   bb54:        add     x11, x3, x10, lsl #3
+    0.00 :   bb58:        sub     x9, x9, x10
+    0.00 :   bb5c:        subs    x9, x9, #0x1
+    0.00 :   bb60:        str     x8, [x11], #0x8
+    0.00 :   bb64:        b.ne    0xbb5c <zbtScoreLeafDecodePolicy+0x238>
+    4.38 :   bb68:        ret

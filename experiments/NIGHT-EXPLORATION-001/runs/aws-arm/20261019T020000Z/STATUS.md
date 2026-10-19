@@ -1,11 +1,9 @@
 # AWS ARM overnight status
 
-Native worker active; previous external CLI failure is historical and preserved separately. Five-size baseline is complete: 120 processes, 960 rows, 40 cells; original and sanitizer checks pass.
+Native worker active. Five-size baseline complete:120 processes/960 rows/40 cells; correctness and sanitizer checks pass.
 
-Independent-query lookup referee passes 80 validation cells. Fresh perf counters and samples are available. A/A qualifies 10 of 12 cells, including 100K/1M hit primaries and both miss guards; 100/1K hit controls remain unqualified.
+Lookup diagnosis is NONE. Independent-query validation passes80 cells and10/12 A/A cells qualify. The initial exact-mask profile interpretation was corrected before any candidate timing; three unmeasured patches remain. Dedicated miss profiles do not establish a separate empty-slot optimization.
 
-Three explicitly sequential proposal passes and chair select exact index tag masks for one bounded three-variant screen. A uses carry-free addition, B folds bits, C uses compiler vector equality with scalar fallback. Builds and correctness are in progress; no candidate timed or selected. No source adoption.
+Count-one decoder exploration is in candidate validation. Both unadopted EXP-007 B and unchanged-root scalar controls pass native/sanitizer referee suites. Fresh profiles support testing count-one fallback. A/A completed1,392 processes;32/58 control/cell combinations qualify, but the primary fails (B -4.74%..+5.85%, root -0.35%..+1.32%). The planned three-variant screen is exploratory only. Relative-B gains cannot establish root or public-tree improvement. No source adoption.
 
-Stop new experiments at 07:15 UTC; final deadline 08:00 UTC / 09:00 Lisbon. Current evidence: `002-lookup/selection.md`, A/A raw rows and three retained patches.
-
-Correction: exact-mask choice is superseded to NONE; no candidate was timed. The prominent comparison validates leaf ID, not the tag byte. Three patches are unmeasured, and validation was not pursued after correcting the premise. See 002-lookup/PROFILE-ERRATUM.md.
+Deadline08:00 UTC /09:00 Lisbon; stop new experiments07:15 UTC. See003-decode/selection.md and002-lookup/PROFILE-ERRATUM.md.
