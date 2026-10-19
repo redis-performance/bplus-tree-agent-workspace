@@ -72,3 +72,5 @@ Additional local review: [ARM024 iterator adaptation](030-arm-iterator-review/RE
 [Independent ARM024 A/A review](030-arm-iterator-review/RAW-AA-REVIEW.md): all48 rows/12blocks reconstruct; bothsizes qualify on unchanged actual013. This is baseline precision, not candidate benefit; no new AMD workload or adopted source.
 
 [Independent ARM score-only iterator proposal](031-arm-iterator-proposal/proposal-amd.md): NONE; exact EXP005A is historical replication, current mask attribution is sparse and broader native guards remain absent. No implementation or runner work.
+
+[Exact historical ARM EXP005A replication preparation review](032-arm-exp005A-review/REVIEW.md): no static execution blocker; independent NONE dissent preserved. Validation and codegen gate remain prerequisites to any screen; no adopted source.
