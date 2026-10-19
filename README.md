@@ -140,7 +140,8 @@ measured; AWS observations are pinned to CPU2, while the Apple runs were unpinne
 
 [Chart data, pinned source revisions and reproduction](experiments/NIGHT-EXPLORATION-001/baseline-charts/README.md).
 
-Status snapshot: **19 October 2026, 02:03 UTC**. The host links show ongoing updates.
+Baseline values retain the pinned source revisions linked above. Optimization
+status labels and the linked host logs are updated separately.
 
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
@@ -268,8 +269,8 @@ EXP-008 correctness matrix also passes16,512 native/sanitizer cells.
 
 The [corrected-adapter member-index profile](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/366431702/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/020-member-index-profile-continuation/RESULTS.md)
 now accounts for **16 captures and 2,469 observations**, with independent raw audit:
-1,422 in program text, 1,037 in external libraries and 10 import-stub targets kept
-unknown. Scan's inlined tag-matching ranges contain 184 observations; rank already
+1,422 in program text, 1,037 in external libraries and 10 import-stub observations
+with targets kept unknown. Scan's inlined tag-matching ranges contain 184 observations; rank already
 vectorizes its child-count reduction. These are sampled locations, not cycle costs.
 The initial metadata failure and separate repair are preserved; no capture was
 repeated. The resulting three-proposal review is complete; source remains NONE.
@@ -285,7 +286,7 @@ change. The original three patches and authors remain unchanged.
 
 ![M6 fresh scan controls: all twelve blocks, two failed controls and no candidate comparison](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-neon-aa.png)
 
-The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/8bcd75d704eae2b4f45131531a3d8177cb852c09/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
+The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/508bfe179a9159c22c1ec5094c8e2df9a949ff84/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
 links the decisions, raw audits and limits. Final reporting continues to 09:00 Lisbon.
 
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;

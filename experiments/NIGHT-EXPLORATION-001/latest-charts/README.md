@@ -1,4 +1,6 @@
-# Latest M6 candidate screen
+# Campaign chart index
+
+## M6 caller specialization (006)
 
 PNG/SVG and exact chart JSON copied from M6 revision `913d22e924d84599c8b4b14eee802c12b9b28fa9`.
 All implementations fail the declared dual-primary gate; source unchanged.
@@ -10,15 +12,16 @@ min–max, not confidence intervals.100Kcontrols qualify;1Mcontrols fail.
 all frozen reproduction inputs; this folder contains presentation copies.
 
 
-# Intel scan discovery
+## Intel scan discovery
 
 `intel-scan-discovery.png/svg/json` are generated directly from the independently
 reconstructed [raw audit](../reviews/aws-intel-scan-raw-audit.json), worker discovery
 revision5534ca6e7. Reproduce with `python3 scripts/plot-intel-scan-discovery.py` from
 the repository root. Every dot is a paired ABBA effect; lines are observed ranges,
 not confidence intervals. The shaded band is±1%; both baseline A/A controls qualify.
-B advances by preregistered source preference, not a claim of superiority over A.
-Guards, fresh confirmation and profile validation remain; source NONE. This chart
+At this discovery checkpoint, B advanced by preregistered source preference.
+The [current decisions](../AWS-DECISIONS.md) record the later guard outcomes;
+source remains NONE. This chart
 is a discovery checkpoint, not a portable or whole-operation-suite performance claim.
 
 ## M6 adapter/compiler-contract diagnostic
