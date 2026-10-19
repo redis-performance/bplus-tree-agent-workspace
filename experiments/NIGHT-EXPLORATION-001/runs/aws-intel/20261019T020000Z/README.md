@@ -1,9 +1,26 @@
 # Intel overnight experiment ledger
 
-Local measured populations: **2**, with **0 accepted, 1 rejected, 1 parked**; six isolated implementation patches retained. The separately counted AMD-to-Intel SSE2 SCAN architecture replication is **REJECTED**, with source adoption **NONE**. Root owns campaign-wide counts across machines.
+No candidate has been adopted. The Intel runner is idle while the coordinator reviews the corrected-source profile and controls.
 
-The SCAN candidate passed primary discovery and independent confirmation, but supplemental guards found a qualified all-six-block regression: 319-byte reversed leaves with alternating signed-zero scores, median +4.931% latency. See `014-scan-supplement/DECISION.json` and raw rows. No alternate-source retry is permitted.
+The two local measured populations produced **0 acceptances, 1 rejection and 1 parked result**; all six implementation patches remain available. The separately counted AMD-to-Intel SCAN architecture replication is **rejected**. The coordinator maintains the campaign-wide counts across machines.
 
-Corrected-adapter baseline `013` is complete (10/40 cells qualify). Baseline-only corrected SCAN profile/A/A `016` is complete:60 captures map helper work to the actual binary, and both sizes qualify under48 fresh A/A rows. The runner is idle for root review; no corrected candidate timing. It does not transfer old-source candidate conclusions to the corrected adapter.
+| Work | Result | Evidence |
+|---|---|---|
+| SSE2 first-match lookup population | REJECT / NONE | All primary blocks were slower; 432 process rows retained. |
+| Iterator cache population | PARK / NONE | The fixed screen ended at its cap and controls remained unresolved. |
+| Original-source SSE2 SCAN replication | REJECT / NONE | Primary discovery and independent confirmation passed, but a qualified supplemental guard regressed in every block. |
+| Corrected-adapter baseline | No candidate | All 960 rows retained; 10 of 40 cells qualify. |
+| Corrected-source SCAN profile and controls | Baseline qualified; coordinator review pending | All 60 captures and 48 fresh A/A rows retained. No candidate was timed. |
 
-See `EXPERIMENTS.md`, `SUMMARY.md`, `ACTIVITY.md`, and `NATIVE-STATUS.json`.
+The decisive SCAN guard uses seven fully reversed members, each 319 bytes, with alternating signed-zero scores. All six blocks are slower by more than 1%, with a median of **+4.931%**. This fixture has no full 16-byte or 8-byte tag chunk, so it demonstrates an overhead/tail guard regression without identifying its CPU-level cause. See [the decision](014-scan-supplement/DECISION.json). Independent audit `1217ba80a` reconstructs the same result. No alternate-source retry is permitted.
+
+The corrected adapter is a separate frozen source, `13e459ff8`. Its baseline-only SCAN diagnosis is:
+
+| Size | Captured helper samples / text samples | Largest absolute A/A effect | Minimum A/A window |
+|---:|---:|---:|---:|
+| 100,000 | 368 / 1,315 (27.985%) | 0.288% | 436.623 ms |
+| 1,000,000 | 478 / 1,740 (27.471%) | 0.196% | 582.990 ms |
+
+Helper sample attribution matches the actual timing binary's instructions and source locations. These are captured executable-text samples, not whole CPU time or cycles. The initial metadata failure and its read-only correction are preserved; no measurement was repeated. The old-source rejection remains final. Any later corrected-source candidate plan must separately qualify and include the known 319-byte signed-zero guard.
+
+See [EXPERIMENTS.md](EXPERIMENTS.md), [SUMMARY.md](SUMMARY.md), [ACTIVITY.md](ACTIVITY.md), and [NATIVE-STATUS.json](NATIVE-STATUS.json). Exact backend/model and measured token/USD costs are unknown.
