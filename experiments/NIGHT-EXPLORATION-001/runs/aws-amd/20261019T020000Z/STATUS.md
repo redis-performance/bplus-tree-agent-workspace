@@ -25,3 +25,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T07:01:17.626270+00:00: ARM026 exact historicalEXP005A preparation review passesa9b09cadc:20inputs/10sourcehashes,exactca145→aa834,570commands/512modecells/8faults and48conditionalrows. No static blocker; separate correctness/codegen/root grants required. PriorNONE dissent unchanged; no runner access,sourceNONE,leaseACTIVE.
 
 - 2026-10-19T07:12:58.406392+00:00: Independent ARM026 validation/codegen review PASS: 570 commands/1141 artifact hashes; exact mask4→3 and ordinary paths−1, no added branch/read; shared callers reviewed. Static gate only, root timing grant required; prior NONE dissent retained. No runner access; lease ACTIVE/restoration pending.
+
+- 2026-10-19T07:31:16.037334+00:00: Final morning draft/release evidence review sealed: counts/outcomes agree; clarify570 validation=536 correctness/fault+34 preparation and Intel onefixture/twofailedAAblocks. Marker records release-attempt start; root to verify fresh savedRUNNING/livePIDs after08UTC. No workloads/runner access; leaseACTIVE/restorationpending.
