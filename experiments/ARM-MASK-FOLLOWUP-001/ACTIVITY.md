@@ -27,3 +27,7 @@
 - 2026-10-19T09:14:15.379677+00:00: Matched-profile preparation0a1040780 passes root static audit and AMDa793d9fde review:23 frozeninputs,104 unchanged commands, paired builds and10 sourcehashes verified. Explicit validity gate separates integrity from mechanism support and rejects loss/control/mapping/instruction-direction failures. No profile workload granted or run; original-operation AA phase remains active.
 
 - 2026-10-19T09:17:37.345799+00:00: Original-AA1329e440a completes120processes/960rows in377.718290s. Root andIntel0981f4afa independently reconstruct all240blocks:18/29required qualify,11 fail±1%precision (nonebelow10ms); all11diagnostics short,8also noisy. OverallPARK/sourceNONE, heldoutconfirmation ineligible. All248sealed artifacts/identities/postidle pass. Root grants fixed600s original-comparison asdiagnostic, retainingall40cases; onlyqualified18 can supportcalibratedcomparisons. No retries/retuning/deadlineextension; laterphases requirefullcapfit.
+
+### 2026-10-19T09:30:54.048582+00:00 — Original comparison audited; iterator controls granted
+
+Root and independent Intel73f66fe89 verify result4c7668661: 17 qualified passes, one mixed SCAN, 22 unqualified cells. PARK/NONE. Only iterator-AA granted: 1968 baseline processes, 82 cells, 1500s, frozen380ef3109. No retries/automatic progression; full cap plus20s must fit10:15UTC.

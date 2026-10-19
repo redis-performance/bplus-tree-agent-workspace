@@ -72,3 +72,17 @@ guard loss can still make the final decision REJECT.
 The fixed comparison retains all 40 cases; only qualified controls support calibrated
 comparisons. No retry, count adjustment or post-result waiver is allowed. Remaining
 diagnostic phases run only if their full fixed cap fits before 10:15 UTC.
+
+## Original-operation comparison
+
+Result `4c7668661` completes 120 processes / 960 rows / 240 ABBA blocks in
+377.539413 seconds. Of the 18 qualified cases, 17 pass; 100-member SCAN is mixed:
+block 3 / seed 1301 is +1.477795%, with five improvements from −0.275% to −0.471%.
+Its −0.382% median cannot erase the failing block. No qualified all-six-block loss
+is demonstrated. Eleven required noisy cells and 11 short diagnostics remain
+unqualified. Overall PARK, source NONE; independent held-out confirmation blocked.
+
+[Root audit](ORIGINAL-COMPARISON-ROOT-AUDIT.json) and
+[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/73f66fe89/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/original-comparison-4c7668661/REVIEW.md)
+verify immutable rows, controls, source/binary identities, memory and post-idle proof.
+The separately granted fixed iterator A/A is diagnostic follow-up, not acceptance.
