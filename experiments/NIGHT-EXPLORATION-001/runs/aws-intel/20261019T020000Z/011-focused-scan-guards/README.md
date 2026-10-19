@@ -60,3 +60,54 @@ Each cell requires all6 block effects within±1% and every window>=100ms. Maximu
 | 100000 | 321 | equal-score | folded01 | yes | -0.073..+0.226% |
 
 [All raw AA rows](aa.json), [per-cell audit](aa-audit.json), [post-AA hashes](post-aa-hashes.json). B timing has not yet started at this publication.
+
+## Full focused B comparison:22 qualified guard passes,14 unresolved
+
+Focused B COMPLETE864 rows/216 blocks in588.46s/900s. All22 baseline-qualified cells pass everyguard block;14 unqualifiedcells remain unresolved. No shortwindows or qualified regression; exactcallbacks/checksum/ownedbytes/CPU2/serial auditPASS.24 focused+22 original post-phase hashes unchanged. Overall PARK/source NONE retains24 original unresolvedcells. Corrected-adapter baseline013 next; supplemental014 after.
+
+All36 cells have negative median elapsed changes in this diagnostic, and every observed B block stays below+1%; the14 failed A/A cells remain descriptive only. Qualified median changes range−20.864% to−0.306%, and the largest qualified block effect is−0.248%. These are this referee’s ID/length/score-consuming callback results, not pooled original count-only SCAN speedups. Some dense workloads include extensive legal duplicate emissions/collision disambiguation; raw normalization uses actual callbacks. No duration change, seed selection, dropped cell, alternate implementation or retry.
+
+| Members | Bytes | Order | Tag distribution | Baseline qualified | Median elapsed change | Min..max block effect |
+|---:|---:|---|---|---|---:|---:|
+| 4096 | 16 | shuffled | ordinary | no | -1.044% | -2.413..+0.260% |
+| 4096 | 16 | shuffled | dense17 | yes | -2.518% | -3.621..-1.857% |
+| 4096 | 16 | shuffled | folded01 | yes | -3.494% | -3.780..-2.382% |
+| 4096 | 16 | descending | ordinary | no | -8.149% | -8.757..-5.938% |
+| 4096 | 16 | descending | dense17 | yes | -2.331% | -3.089..-1.848% |
+| 4096 | 16 | descending | folded01 | no | -3.283% | -3.795..-2.597% |
+| 4096 | 16 | equal-score | ordinary | no | -1.274% | -2.493..+0.005% |
+| 4096 | 16 | equal-score | dense17 | yes | -3.385% | -3.547..-2.004% |
+| 4096 | 16 | equal-score | folded01 | yes | -3.845% | -4.781..-3.397% |
+| 4096 | 321 | shuffled | ordinary | no | -2.691% | -3.252..-1.494% |
+| 4096 | 321 | shuffled | dense17 | yes | -5.211% | -5.794..-4.676% |
+| 4096 | 321 | shuffled | folded01 | no | -9.096% | -9.479..-8.243% |
+| 4096 | 321 | descending | ordinary | no | -9.796% | -11.515..-8.911% |
+| 4096 | 321 | descending | dense17 | no | -5.736% | -6.570..-4.593% |
+| 4096 | 321 | descending | folded01 | yes | -9.796% | -10.261..-8.515% |
+| 4096 | 321 | equal-score | ordinary | no | -1.081% | -2.372..-0.576% |
+| 4096 | 321 | equal-score | dense17 | yes | -4.392% | -6.263..-3.030% |
+| 4096 | 321 | equal-score | folded01 | yes | -7.933% | -8.745..-7.768% |
+| 100000 | 16 | shuffled | ordinary | no | -3.197% | -3.995..-1.893% |
+| 100000 | 16 | shuffled | dense17 | no | -2.164% | -2.413..-2.037% |
+| 100000 | 16 | shuffled | folded01 | yes | -15.160% | -15.267..-14.956% |
+| 100000 | 16 | descending | ordinary | yes | -9.651% | -10.793..-8.758% |
+| 100000 | 16 | descending | dense17 | yes | -2.561% | -2.736..-2.462% |
+| 100000 | 16 | descending | folded01 | yes | -16.651% | -16.767..-16.526% |
+| 100000 | 16 | equal-score | ordinary | no | -2.792% | -3.590..-1.860% |
+| 100000 | 16 | equal-score | dense17 | yes | -0.820% | -1.106..-0.743% |
+| 100000 | 16 | equal-score | folded01 | no | -14.756% | -15.065..-14.469% |
+| 100000 | 321 | shuffled | ordinary | yes | -8.603% | -8.866..-8.324% |
+| 100000 | 321 | shuffled | dense17 | yes | -3.653% | -3.739..-3.371% |
+| 100000 | 321 | shuffled | folded01 | yes | -20.864% | -21.045..-20.681% |
+| 100000 | 321 | descending | ordinary | yes | -17.449% | -17.674..-16.823% |
+| 100000 | 321 | descending | dense17 | yes | -3.799% | -4.759..-3.460% |
+| 100000 | 321 | descending | folded01 | no | -24.078% | -24.951..-22.893% |
+| 100000 | 321 | equal-score | ordinary | yes | -10.746% | -10.918..-10.076% |
+| 100000 | 321 | equal-score | dense17 | yes | -0.306% | -0.443..-0.248% |
+| 100000 | 321 | equal-score | folded01 | yes | -19.936% | -20.067..-19.827% |
+
+All673 validation commands,324 calibration rows,864 AA rows and864 B rows are retained separately. Root independently audited AA at a1210ec35; full B is submitted for separate AMD review. The864-row schedules and36 passcounts remain exactly42f77d525.
+
+Coverage limits remain: descending fixtures contain only64 reversed members, no active resize or wideIDs, lengths16/321 and nonnegative scores. Supplemental referee014 is separate and cannot repair original or focused control failures. Corrected adapter013 also remains a separate source baseline; every comparison here uses original8fab511e and exactSSE2B204edc2c. This B differs from separately authored ARM NEON implementationB1788f2b5.
+
+[Raw B rows](b.json), [all effects](b-audit.json), [focused post-hashes](post-b-hashes.json), [original post-hashes](original-post-b-hashes.json). No source adoption or new optimization population.

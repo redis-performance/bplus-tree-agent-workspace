@@ -1132,3 +1132,6 @@ Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-
 
 2026-10-19T04:29:52.551472+00:00 Full original B guards COMPLETE120processes/960rows/240blocks in1111.54s:56/57 qualified guards pass,23 baseline-control gaps plus one mixed100/16 iteration block(+1.329%) keep24/80 unresolved. No demonstrated all-block regression; PARK/source NONE. Raw auditPASS and22 post-phase source/referee/binary hashes unchanged. Matched profilev2 next; no concurrent job.
 Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md
+
+2026-10-19T05:09:03.666047+00:00 Focused B COMPLETE864 rows/216 blocks in588.46s/900s. All22 baseline-qualified cells pass everyguard block;14 unqualifiedcells remain unresolved. No shortwindows or qualified regression; exactcallbacks/checksum/ownedbytes/CPU2/serial auditPASS.24 focused+22 original post-phase hashes unchanged. Overall PARK/source NONE retains24 original unresolvedcells. Corrected-adapter baseline013 next; supplemental014 after.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/011-focused-scan-guards/README.md
