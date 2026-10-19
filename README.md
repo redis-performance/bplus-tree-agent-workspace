@@ -9,9 +9,9 @@ speedup, but short-range regressions still prevent adoption. No optimization has
 been merged into `src/`; experimental implementations and results live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
-is prepared for M1 and M6: rank, update paths, single-query lookup, and a decoder
-fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
-The latest M1 results below include all five sizes; the original four-size data is preserved.
+is running on separate M1 and M6 host branches: rank, update paths, single-query
+lookup, and an optional decoder experiment. Both hosts have completed the
+**100 / 1K / 10K / 100K / 1M** baseline. See the latest results and live status links below.
 
 ## Build and test
 
@@ -78,26 +78,53 @@ noise, then against the candidate. For bulk decoding and scalar/bulk cutoffs, us
 See the [decoder guide](docs/DECODER-MICROBENCHMARK.md) and
 [tree benchmark guide](docs/MICROBENCHMARKS.md) for measurement details.
 
-## Latest results — Apple M1
-
-All results below were measured on **Apple M1**, using Apple Clang 17, `-O3`, and
-one unpinned thread.
+## Latest results — Apple M1 and M6
 
 ### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members
 
-All eight operations have now been measured at all five sizes with 16-byte members.
-The chart shows median batch-average ns/op and the full observed min–max range;
-each panel has its own y-axis. These are baseline costs, not optimization speedups.
-Identical-binary controls show variation above 1%, and small insert/delete windows
-are short. See the [results and timing details](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md).
+Both overnight campaigns have completed all eight operations at all five sizes:
+16-byte members, three seeds, six same-binary ABBA blocks, 120 serial processes
+and 960 rows per host. Native and ASan/UBSan validations pass on both hosts.
 
-![Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg)
+Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing updates.
 
-[Plan, raw data and M6 rerun commands](experiments/SIZE-MATRIX-001/README.md).
+| Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
+|---|---|---|---|---|
+| Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank diagnosis running; driver campaign through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+
+Median batch-average **ns/op** from these overnight baselines; lower is less time.
+Full five-size tables, observed ranges, raw rows and precision checks are linked above.
+
+| Operation | M1 · 100K | M6 · 100K | M1 · 1M | M6 · 1M |
+|---|---:|---:|---:|---:|
+| Insert | 489.02 | 239.51 | 814.90 | 335.40 |
+| Hit lookup | 121.26 | 44.66 | 293.74 | 121.45 |
+| Miss lookup | 36.60 | 12.14 | 128.65 | 45.60 |
+| Rank | 178.24 | 64.92 | 480.32 | 208.22 |
+| Forward iteration | 4.58 | 2.39 | 4.86 | 2.47 |
+| Scan | 75.24 | 46.06 | 153.10 | 52.09 |
+| Score update | 733.07 | 332.67 | 1277.59 | 577.93 |
+| Delete | 383.79 | 170.91 | 763.82 | 334.02 |
+
+These are separate host baselines with different compilers and machine conditions.
+Their differences are not candidate optimization gains. A/A variation and short
+windows require targeted qualification before small performance claims; no tree
+optimization has been adopted. Each candidate must beat its own host's baseline.
+
+The earlier M1 preparation run is preserved separately. Its chart shows all five
+sizes, with median batch-average ns/op and observed min–max ranges:
+
+![Earlier Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg)
+
+[Earlier M1 results](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) ·
+[Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
 
 ### Decoder experiments
 
-These isolate packed-score decoding; their gains are not whole-tree speedups.
+The decoder results below were measured on **Apple M1**, using Apple Clang 17,
+`-O3`, and one unpinned thread. They isolate packed-score decoding; their gains
+are not whole-tree speedups. M6 decoder replication is pending.
 
 | Experiment | What we learned | Outcome |
 |---|---|---|
@@ -115,9 +142,9 @@ The next hypothesis is a scalar fallback **only for a single score**. That polic
 has not been tested yet. The complete [experiment log](experiments/EXPERIMENTS.md)
 retains earlier attempts and their evidence.
 
-For the planned **Apple M6 mini** rerun, follow the
-[replication instructions](experiments/REPLICATE-LATEST.md). Save its results separately
-and compare them with M1; no M6 results have been collected here.
+For **Apple M6 decoder** reruns, follow the
+[replication instructions](experiments/REPLICATE-LATEST.md). Save those results
+separately from M1; the completed M6 whole-tree baseline is linked above.
 
 ## How optimization decisions work
 
