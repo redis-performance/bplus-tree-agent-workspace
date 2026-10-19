@@ -1,6 +1,6 @@
 # Intel scan replication — B advances to guards, source NONE
 
-Exact AMD A/B architecture replication completed all96 processes /24 ABBA blocks in133.45s under the fixed300-second cap. Both pass the preregistered2% improvement gate in every block at both sizes. B advances under the frozen maintenance-based preference; no A-vs-B speed superiority is claimed. **PARK pending guards, fresh confirmation, matched profiles and independent review; no source adoption.**
+Exact AMD A/B architecture replication completed all96 processes /24 ABBA blocks in113.34s of driver execution (133.45s bounded-helper lifetime including cleanup) under the fixed300-second cap. Both pass the preregistered2% improvement gate in every block at both sizes. B advances under the frozen maintenance-based preference; no A-vs-B speed superiority is claimed. **PARK pending guards, fresh confirmation, matched profiles and independent review; no source adoption.**
 
 | Variant | Size | Median elapsed change | Block range | Primary gate |
 |---|---:|---:|---:|---|

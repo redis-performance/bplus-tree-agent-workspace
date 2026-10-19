@@ -28,3 +28,5 @@
 03:36UTC: Imported exact AMD A/B and V2 oracle from5594fea17; fixed96-process/300s Intel discovery schedule, B preference if both qualify, separate full guards/profile/fresh201–203 confirmation preregistered. Candidate validation running; no screen rows yet.
 
 2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+
+03:43UTC: Discovery timing clarification:113.337s driver execution;133.451s bounded-helper lifetime includes cleanup. Full original5size×2keylength×8operation guard calibration preregistered,10 baseline processes only, before budget freeze and A/A.
