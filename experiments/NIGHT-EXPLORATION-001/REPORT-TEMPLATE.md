@@ -15,7 +15,7 @@ mechanism hypotheses, rejected ideas and unresolved measurements.
 | Rank | NOT RUN | none | NOT RUN | NOT RUN | NOT RUN | |
 | Update paths | NOT RUN | none | NOT RUN | NOT RUN | NOT RUN | |
 | Single lookup | NOT RUN | none | NOT RUN | NOT RUN | NOT RUN | |
-| Single-score decoder | NOT RUN | none | NOT RUN | NOT RUN | NOT RUN | |
+| Single-score decoder / bulk iterator (choose one) | NOT RUN | none | NOT RUN | NOT RUN | NOT RUN | |
 
 ## Reproduce
 

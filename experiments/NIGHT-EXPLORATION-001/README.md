@@ -15,6 +15,7 @@ A new five-size M1 run is separate from the preserved four-size baseline.
 - [Worker instructions](WORKER.md)
 - [Morning report template](REPORT-TEMPLATE.md)
 - [Lessons from Lemire's benchmark template](LEMIRE-NOTES.md)
+- [C blog benchmarks and cbitset: changes worth making](BENCHMARK-REVIEW.md)
 
 ## Start on each host
 

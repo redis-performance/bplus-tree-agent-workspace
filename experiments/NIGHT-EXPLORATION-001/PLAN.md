@@ -14,7 +14,7 @@ record the exact launch HEAD and all source/referee hashes on each host.
 | 1:00–2:30 | RANK-001: rank accumulation | Population records, variants, result |
 | 2:30–4:00 | UPDATE-001: distinguish update paths | Workload breakdown; conditional candidate |
 | 4:00–5:30 | LOOKUP-001: single-query member search | Population records, variants, result |
-| 5:30–6:30 | DECODE-001 only if earlier work is concluded | Single-score policy result or explicit skip |
+| 5:30–6:30 | DECODE-001 or ITERATE-001 if earlier work is concluded | Single-score policy result or explicit skip |
 | 6:30–7:15 | Fresh confirmation/review of the best eligible candidate | Confirmation and review |
 | 7:15–8:00 | Audit, charts, report, commits and handoff | Readable morning report |
 
@@ -124,6 +124,18 @@ Use identical output-array materialization and checksums. Count1 inputs can be
 seed-invariant; fresh measurements must not be described as new input diversity.
 Correctness and code-size/call-overhead evidence are required. A bulk-helper win
 needs a separate public integration experiment before any whole-tree claim.
+
+## ITERATE-001 — alternative use of the optional one-hour slot
+
+Use the [C benchmark review](BENCHMARK-REVIEW.md): compare identical score/full-output
+contracts delivered by scalar calls or private batches 1/8/32/96. Reuse existing
+iterator semantic oracles. Choose this OR DECODE-001 from profiles before candidates;
+never add another hour. Primary: full-output forward traversal at 100K/16-byte
+members with batch32; second primary 1M. Guards: scalar/batch1, score-only and full
+outputs, both directions, sizes100/1K/10K, batches8/96, long members, ties, signed zero,
+iterator invalidation and memory. Both sides must consume the same output bytes.
+No comparison between count-only and materialized-output costs as an optimization.
+No public API integration without a separate design and matching validation.
 
 ## Progress rule
 

@@ -6,9 +6,10 @@ bounded useful work using the supplied runtime deadline and host evidence direct
 Do not restart or follow the expired October 17 campaign.
 
 Read AGENTS.md and the latest entries in shared memory, then this campaign's README,
-PLAN, MEASUREMENT, LEMIRE-NOTES and REPORT-TEMPLATE. Use elapsed time from the runtime
+PLAN, MEASUREMENT, LEMIRE-NOTES, BENCHMARK-REVIEW and REPORT-TEMPLATE. Use elapsed time from the runtime
 status started_utc; use the injected deadline, not a calendar date in archived files.
 
+Set CAMPAIGN_DIR to the injected evidence path before using runbook commands.
 Create the injected evidence directory if new. Capture actual host/toolchain and
 launch HEAD; verify intended host label. Save STATUS.md, HANDOFF.md and numbered
 experiment folders here, not under another host or the old campaign. Record source

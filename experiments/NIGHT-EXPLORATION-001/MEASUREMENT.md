@@ -39,6 +39,14 @@ A cell is qualified for the strict adoption gate only if every A/A block lies wi
 it prevents fine-grained acceptance. Permit one separately frozen causal diagnostic,
 then PARK unresolved comparisons rather than rerunning until they pass.
 
+Exploration must not stall on that strict gate. With a validated harness and a
+profile-supported hypothesis, one fixed exploratory candidate comparison is allowed
+even when fine precision fails. Preserve effects beside same-cell A/A variation;
+label apparent gains exploratory and do not select the best noisy sample. Large,
+consistent effects can justify a separately planned fresh confirmation, but cannot
+waive guards or qualify adoption. Small effects buried in noise receive no ranking.
+Keep a promising patch with a precise revisit condition and move to the next target.
+
 Candidate effect uses the same formula; negative means less time. For adoption require
 both declared primary cells to improve by at least 2% in every fresh confirmation
 block, no guard block above +1%, qualified same-session controls, and no >1% owned-memory
@@ -58,7 +66,8 @@ silently shrinking required guards. No outlier removal or optional stopping for 
    chooses one falsifiable hypothesis or NONE and records reasons for all three.
 2. Three isolated implementations start from the same source/harness. Native tests,
    ASan/UBSan and targeted semantic checks precede serial comparison. Retain every
-   patch and loss. Shortlist only a candidate that passes the discovery gates.
+   patch and loss. Only a candidate passing discovery gates enters the adoption shortlist; exploratory
+leads remain explicitly provisional.
 
 Use actual independent agents when permitted and available. Otherwise label three
 sequential passes explicitly; do not claim independence. Record actual identities,
