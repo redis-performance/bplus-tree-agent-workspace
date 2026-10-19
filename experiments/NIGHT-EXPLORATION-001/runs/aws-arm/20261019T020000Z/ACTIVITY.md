@@ -143,3 +143,5 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19 09:04UTC: fresh027 primary replication48/48 passes all12blocks (100K−7.92..−7.53%,1M−7.70..−6.59%). All identities/ownedmemory unchanged, runneridle. Noacceptance: guards/confirmation/profile/adversarial review outstanding. See027-mask-followup/PRIMARY-REPLICATION-RESULT.md.
 
 2026-10-19 09:10UTC: granted original-AA120process/960row fixedphase active under600s cap. Read-only checkpoint53checked/54recorded,135.65s elapsed; no partialqualification decision. Profilefreeze0a1040780 remains preparationonly under independent review.
+
+2026-10-19T09:13:57.030804+00:00: fixed027 original-AA complete; 120processes/960rows, PARK, requiredqualified=False. SourceNONE; no automatic next phase. See027-mask-followup/ORIGINAL-AA-RESULT.md.
