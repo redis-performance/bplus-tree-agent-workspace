@@ -29,6 +29,14 @@ AMD deletion and native ARM scan planning stopped before implementation because
 precision controls failed; their independent proposals are retained.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
+**Standalone adapter correction:** the panic declaration now conveys its existing
+non-returning behavior. The reviewed C11 `_Noreturn` change preserves every assertion
+and abort check; tree source and benchmark loops are unchanged.
+[Independent reviews](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/010-assertion-contract-review/README.md) and the
+[fresh M6 baseline](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) pass correctness/raw audits.
+Only **5/40 cells qualify**, and **14 have short windows**. The five-host chart below
+retains the original adapter on every host; corrected-adapter rows have their own identity.
+
 ## Build and test
 
 Requires a C11 compiler (Clang or GCC), Make, and Python 3. Supports macOS and Linux.
@@ -117,6 +125,7 @@ Status snapshot: **19 October 2026, 02:03 UTC**. The host links show ongoing upd
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
 | Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five trials rejected; source NONE; geometry diagnosis active](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 · corrected adapter | Apple Clang 21, `-O3` | [Complete; 160.05s measurement-phase wall](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/matrix/SUMMARY.md) | 35/40 | [Audited new adapter baseline; precision limited](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) |
 | Intel Sapphire Rapids (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 338.54s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/001-baseline/SUMMARY.md) | 27/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-intel-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/STATUS.md) |
 | AMD Zen 5 (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 325.44s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/001-baseline/SUMMARY.md) | 30/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-amd-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/STATUS.md) |
 | AWS Graviton / Neoverse V2 (arm64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 377.83s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/001-baseline/SUMMARY.md) | 19/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-arm-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/STATUS.md) |
