@@ -100,3 +100,5 @@ source adoption. Host workers continue distinct profile-led directions until the
 - 2026-10-19T02:58:44.104816+00:00: aws-intel running at `58ee8315`: iterator cache all validation gates pass; fixed exploratory screen frozen; aws-amd running at `65e7acf9`: query length diagnostic unsupported; inner-child fanout census next; aws-arm running at `61ef608f`: update-diagnostic-NONE; monitoring-for-supported-cross-host-contender.
 
 - 2026-10-19T03:00:24.028255+00:00: aws-intel running at `f320d3f6`: iterator PARK/NONE partial566rows; additive checks pass; matched profile diagnosis next; aws-amd running at `65e7acf9`: query length diagnostic unsupported; inner-child fanout census next; aws-arm running at `61ef608f`: update-diagnostic-NONE; monitoring-for-supported-cross-host-contender.
+
+- 2026-10-19T03:01:01.156165+00:00: aws-intel running at `f320d3f6`: iterator PARK/NONE partial566rows; additive checks pass; matched profile diagnosis next; aws-amd running at `ca89ec60`: inner-child diagnostic chair NONE; distinct index-scan baseline profiling next; aws-arm running at `61ef608f`: update-diagnostic-NONE; monitoring-for-supported-cross-host-contender.
