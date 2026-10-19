@@ -1,3 +1,19 @@
+# Current M6 driver action — 19 October
+
+The truthful standalone panic `_Noreturn` correction is on main13e459ff8.
+M1/AWS sessions must preserve their historical adapter identity and qualify fresh
+baselines before comparing tree candidates under the corrected adapter. Never
+subtract timings from different sessions/adapters to claim a gain.
+
+M6's matched old/new adapter diagnostic012 completed576processes but no workload
+has both controls qualified; all effects remainconditional. No tree candidate or
+cache replication is selected. Prepare a freshcorrected-adapter iterator profile,
+then use the required independent proposals/chair before implementation. Keep the
+same completed12candidatepopulations and0accepted/7rejected/5parked counts.
+
+Earlier next-step entries below are historical; completed M6 schedules are not
+requests to rerun them. Current host STATUS.md and source/harness identities govern.
+
 # Next steps after EXP-008 (Apple M1)
 
 The broad scalar/bulk crossover failed its preregistered gates. The only new lead is

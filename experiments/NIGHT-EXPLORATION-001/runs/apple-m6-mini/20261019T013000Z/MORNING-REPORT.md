@@ -39,10 +39,13 @@ qualify, 35 are noisy, and 14 include short windows. Operation timers sum to
 old-adapter rows remain separate and cannot be subtracted to infer improvement.
 The five-host README chart retains its original-adapter identity.
 
-A [matched adapter diagnostic](012-contract-diagnostic/README.md) is preparing
-long fixed iterator windows, both-adapter A/A and old/new ABBA. It is harness-only,
-not a tree candidate/population. No measured phase starts until final driver
-reviews, source/binary freeze publication and exclusive-runner authorization.
+The [matched adapter diagnostic](012-contract-diagnostic/RESULTS.md) completes
+384A/A and192old/newABBA processes. All checks pass, all windows exceed10ms, and
+owned memory is identical. Only3/16adapter/workload controls qualify; zero ofeight
+workloads qualify onbothadapters. Thus all effects remainconditional. Fullinteger
+forward/reverse medians are−6.081%/−8.122% at100K and−4.674%/−7.058% at1M,
+all observed blocks negative. Failed controls prevent a qualified speed claim.
+This is harness-only; no candidate population/adoption. Independent audit PASS576rows/144exact effects; chart complete. Corrected-adapter baseline-only profile013 is preparing; no capture yet.
 No cache replication or new source optimization is selected.
 
 Totals12completedpopulations(9sequential+3multi-agent),0accepted/7rejected/5parked,

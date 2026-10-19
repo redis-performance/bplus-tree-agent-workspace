@@ -1,5 +1,13 @@
 # Shared memory
 
+Operator012diagnostic COMPLETE/audit PASS:576rows/144exacteffects,604commands,
+1208public/private logpairs,22frozenidentities, all576measuredintervalsserial/reaped.
+Chart complete/rootvisuallyinspected. old3/8,new0/8AAqualify;0joint,all8conditional.
+Fullintegerforward/reverse medians100K−6.081/−8.122%,1M−4.674/−7.058%;ownedmemory0.
+Harness-only,no treeoptimizationacceptance/countchange.013freshcorrectedprofile
+preparationpasses8semanticchecks;capture waits final rootreview/publishedfreeze/idle.
+
+
 Operator matched-adapter diagnostic checkpoint:012 final driver root and independent
 reviews PASS;18inputs/fourbinaries frozen,16semantic and sixsynthetic controls pass.
 No measured phase yet. Publish exact freeze before exclusive-runner authorization.

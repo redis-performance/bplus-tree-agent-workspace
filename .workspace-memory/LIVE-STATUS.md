@@ -1,5 +1,13 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Operator012diagnostic COMPLETE/audit PASS:576rows/144exacteffects,604commands,
+1208public/private logpairs,22frozenidentities, all576measuredintervalsserial/reaped.
+Chart complete/rootvisuallyinspected. old3/8,new0/8AAqualify;0joint,all8conditional.
+Fullintegerforward/reverse medians100K−6.081/−8.122%,1M−4.674/−7.058%;ownedmemory0.
+Harness-only,no treeoptimizationacceptance/countchange.013freshcorrectedprofile
+preparationpasses8semanticchecks;capture waits final rootreview/publishedfreeze/idle.
+
+
 Operator012A/A complete:384processes,117.249697soperationtimers,199.857468sphasewall.
 3/16adaptercellsqualify;zeroofeightworkloadshavebothcontrolsqualified;none short.
 Allchecks pass/allchildrenreaped. Preregistered192old/newcomparison proceeds once,

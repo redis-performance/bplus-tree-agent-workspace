@@ -1,5 +1,19 @@
 # Experiment summary
 
+## 2026-10-19 — Matched adapter iterator diagnostic (conditional)
+
+[012 results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/RESULTS.md):384 separate-adapter A/A
+and192 old/new ABBA processes complete, no short windows, all checks pass and
+owned-memory effects exactly0%. Three of16 A/A cells qualify; zero ofeight
+workloads qualify onbothadapters. All comparison effects remainconditional.
+Integer full-output forward/reverse medians at100K are−6.081%/−8.122%; at1M,
+−4.674%/−7.058%, each with negative effects in allsixblocks. These are matched
+adapter/compiler-contract observations, not qualified tree speedups or source
+optimization acceptance. Separateadapterfixalreadyreviewed/applied; historical
+rows staywitholdidentity. Counts12populations,0/7/5,36patches/15harnesses unchanged.
+Independent rawaudit PASS576rows/144effects and chart complete; corrected-adapterprofile preparationnext.
+
+
 ## 2026-10-19 — Corrected-adapter M6 baseline audited
 
 [011 results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md):
