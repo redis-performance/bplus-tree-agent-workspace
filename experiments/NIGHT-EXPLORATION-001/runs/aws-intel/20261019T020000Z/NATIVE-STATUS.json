@@ -1,14 +1,12 @@
 {
   "status": "running",
-  "updated_utc": "2026-10-19T05:38:10.657457+00:00",
+  "updated_utc": "2026-10-19T05:40:34.612697+00:00",
   "deadline": "2026-10-19T08:00:00Z",
-  "phase": "Corrected baseline profile completes all 60 frozen captures and seven matched controls. Known-work control66/66, disabled0; overflow/serial/CPU2/raw checks pass. Helper368/1315 captured samples at100K (27.985%) and478/1740 at1M (27.471%); exact opcode/source map covers542/552 ScanSlot instructions and every sampled helper bucket. Actual/diagnostic identities and22 original post-phase hashes remain unchanged. Metadata-only correction preserved the initial failed driver and completed within original600-second deadline (268.15s total wall time), with no measurement reruns. Fresh48-row A/A is next; no candidate timing or source adoption.",
+  "phase": "Corrected-source A/A completes48 processes/12 blocks in56.650 seconds under300 seconds. Both primary sizes qualify:100K effects[-0.121,+0.288]%,minimum436.623ms;1M[-0.040,+0.196]%,minimum582.990ms. Exact source/binary identities, CPU2/serial schedule, callbacks/checksums/owned bytes pass;22 original post-AA hashes unchanged. Runner verified idle with no active owned unit or btree-bench. HOLD for root review; no corrected candidate timing. Any later plan must separately qualify the known trim319/signed-zero guard; no assumption that the adapter correction removes its old-source regression.",
   "model": "GPT-6 family; exact backend unknown",
   "token_cost": "unknown",
-  "runner_workload": "idle before fixed corrected A/A",
-  "prepared_phases": [
-    "016 corrected-source baseline-only A/A:48 rows/300seconds; profile audited, no candidate timing"
-  ],
+  "runner_workload": "idle; root review hold",
+  "prepared_phases": [],
   "owned_jobs_active": false,
   "full_original_guard_qualified_cells": 57,
   "full_original_guard_total_cells": 80,
@@ -24,12 +22,14 @@
     "010 matched profilev2:120captures,control/raw/posthash auditPASS",
     "011 focused:673validationcommands,324calibrationrows,864AA+864B;22 qualifiedguardpasses,14 noisycontrols;PARK",
     "013 corrected baseline: 120 processes/960 rows; 10/40 cells qualify, 11 short; source NONE",
-    "014 supplemental: 756 validation commands, 684 calibration rows, 720 AA+720 B; 10 qualified controls, 8 guards pass, one demonstrated regression; REJECT/NONE"
+    "014 supplemental: 756 validation commands, 684 calibration rows, 720 AA+720 B; 10 qualified controls, 8 guards pass, one demonstrated regression; REJECT/NONE",
+    "016 corrected baseline-only:60 captures, seven matched controls, exact actual timing map;48 A/A rows, both sizes qualify; no candidate timing"
   ],
-  "active_phase": "016 corrected A/A queued",
+  "active_phase": "await root review of016",
   "supplemental_qualified_cells": 10,
   "supplemental_total_cells": 30,
   "supplemental_guard_pass_cells": 8,
   "supplemental_demonstrated_regressions": 1,
-  "old_source_scan_decision": "REJECT"
+  "old_source_scan_decision": "REJECT",
+  "corrected_scan_qualified_sizes": 2
 }

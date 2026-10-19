@@ -7,6 +7,6 @@
 | 004 iterator offset cache | Three-implementation local population | PARK/NONE | Fixed cap incomplete and unresolved controls |
 | 007–014 exact SSE2 SCAN | Architecture replication of existing population | REJECT/NONE | Primary confirmation passed; qualified supplemental guard regressed in all six blocks |
 | 013 corrected adapter | Baseline requalification | 10/40 qualified, no candidate | 120 processes/960 rows |
-| 016 corrected SCAN | Baseline-only profile and fresh A/A | Frozen, not executed | 60 captures/600s then 48 A/A rows/300s |
+| 016 corrected SCAN | Baseline-only profile and fresh A/A | Complete, both A/A sizes qualify; root review pending | 60 captures, exact timing-binary mapping, 48 A/A rows |
 
 Independent proposal/implementation contributions to AMD and ARM populations are retained in 005/009/012/015 and counted by the owning campaign, not as additional Intel populations.
