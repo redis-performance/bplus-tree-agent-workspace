@@ -1,0 +1,45 @@
+=================================================================
+==2594182==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x51b00000d024 at pc 0x59431dbef9b4 bp 0x7ffee188cf40 sp 0x7ffee188cf38
+READ of size 1 at 0x51b00000d024 thread T0
+    #0 0x59431dbef9b3 in zbtPackedData <workspace>/repo/scratch/intel-iterator-variants/fault-transition.c:589:9
+    #1 0x59431dbef282 in zbtreeIteratorNext <workspace>/repo/scratch/intel-iterator-variants/fault-transition.c:4044:40
+    #2 0x59431dbda917 in step <workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/cache-oracle.c:11:9
+    #3 0x59431dbd9ae3 in main <workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/cache-oracle.c:31:103
+    #4 0x7d38d922a1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #5 0x7d38d922a28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #6 0x59431dafd374 in _start (<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/build/fault-transition+0x38374) (BuildId: 849f47ced2039770ae02b3cec6c9718173f8aa17)
+
+Address 0x51b00000d024 is a wild pointer inside of access range of size 0x000000000001.
+SUMMARY: AddressSanitizer: heap-buffer-overflow <workspace>/repo/scratch/intel-iterator-variants/fault-transition.c:589:9 in zbtPackedData
+Shadow bytes around the buggy address:
+  0x51b00000cd80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000ce00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000ce80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000cf00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000cf80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x51b00000d000: fa fa fa fa[fa]fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000d080: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000d100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000d180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000d200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x51b00000d280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==2594182==ABORTING

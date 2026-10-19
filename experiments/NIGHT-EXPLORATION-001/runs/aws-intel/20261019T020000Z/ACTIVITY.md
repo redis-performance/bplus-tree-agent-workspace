@@ -6,3 +6,7 @@
 - 2026-10-19T02:20:11.164499+00:00 — Separate update referee passes360native/sanitizer cells; five named patterns and exact final model checks. Scoped gprof with disabled-region control now running; source baseline unchanged, no update hypothesis selected.
 - 2026-10-19T02:28:37.633984+00:00 — Update diagnosis complete NONE:360fixturecells,15scopedprofiles+disabledcontrol,25pathcensuscells,75calibration+600AArows.2/25cellsqualify; no recordedsteal/siblingbusy. Three sequentialproposalpasses/chair selectNONE; no implementationpopulation or sourcepatch.
 - 2026-10-19T02:33:58.281063+00:00 — Optionaliterator diagnosis: retainedHARNESS-004 semantics pass1920native/sanitizercells. Uninstrumented profil enabledknown-work66/66samples, disabledknown-work/iteratorempty;10msinterval/2bytebins, overflowguard.24fixedloop-scopedcapturesrunning; no candidate/API/sourcechange.
+
+02:48UTC Iterator cache variants build successfully; first new oracle failed baseline because unequal-score SeekLex was incorrectly assumed. Attempt001 retained; corrected common-score contract and added sentinel checks. No candidate timing yet. Root static review434e39ef5 cleared semantic review.
+
+2026-10-19T02:51:55.045776+00:00 Iterator cache validation passed:4sources×2builds×43originaltests and28,192statechecks,1,920fixturecells/source; two ASan reset-fault detections. Root review434e39ef5. Exact comparison frozen; exploratory576rows/300s next.

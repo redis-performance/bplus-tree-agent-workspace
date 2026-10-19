@@ -1,0 +1,1 @@
+The first extra oracle incorrectly expected lexicographic seeks to work for unequal-score trees. Baseline failed its rank assertion before any candidate validation or timing. SeekLex explicitly uses a common score. Revised oracle restricts ordinary lexical bounds to common-score fixtures and adds sentinel paths on every fixture. Original tests and timing referee unchanged.
