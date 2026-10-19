@@ -4,7 +4,7 @@ M6 operator checkpoint, 19 October: LOOKUP-CALLER-001 REJECT/NONE.
 Three actual independent proposal agents and three isolated implementations complete.
 A100K−2.712%everyblockpasses; no variant clears1M gate. BaselineAA39/101qualified,
 100K qualifies/1M fails, no short cells;144screens complete. Correctness passes;
-independent raw audit PASS/chart pending. Baseline unchanged; fullcandidateguards/fresh/
+independent raw audit and chart complete. Baseline unchanged; fullcandidateguards/fresh/
 candidateprofile not eligible. Totals12populations(9sequential+3multi-agent),
 0accepted/7rejected/5parked,36patches/15harnesses; M1 night separate.
 Root owns new baseline-only007-profile geometry diagnosis; no new optimization

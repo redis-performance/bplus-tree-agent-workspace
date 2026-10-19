@@ -16,6 +16,10 @@ observed block extrema, not confidence intervals. A clears every100K block by2%;
 its1M blocks do not. B and C also fail the two-primary every-block gate. A's100K
 result is a scoped exploratory lead only. No post-hoc primary or guard removal.
 
+![Candidate block effects and control qualification](candidate-screens.png)
+
+[Exact plotted data and reproduction](CHART.md).
+
 ## Qualification and schedule
 
 The common new referee suite contains101 unique cases:40 standard operations,

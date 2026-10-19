@@ -82,46 +82,61 @@ noise, then against the candidate. For bulk decoding and scalar/bulk cutoffs, us
 See the [decoder guide](docs/DECODER-MICROBENCHMARK.md) and
 [tree benchmark guide](docs/MICROBENCHMARKS.md) for measurement details.
 
-## Latest results — Apple M1 and M6
+## Latest results — Apple M1, M6 and three AWS architectures
 
 ### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members
 
-Both overnight campaigns have completed all eight operations at all five sizes:
+All five hosts have completed all eight operations at all five sizes:
 16-byte members, three seeds, six same-binary ABBA blocks, 120 serial processes
-and 960 rows per host. Native and ASan/UBSan validations pass on both hosts.
+and 960 rows per host. Native and ASan/UBSan validations pass on all five hosts.
 
-The chart overlays **M1 (blue circles)** and **M6 (orange squares)** in each
-operation panel, with median batch-average **ns/op** and observed min–max ranges.
-Each panel has its own y-axis. Lower is less time. Intel, AMD and AWS Graviton
-are reserved in the legend as **NOT RUN**; they have no plotted measurements.
+The chart overlays **Apple M1, Apple M6, AWS Intel, AWS AMD and AWS Graviton**
+in each operation panel, with median batch-average **ns/op** and observed min–max
+ranges. Each panel has its own y-axis. Lower is less time. All five series are
+measured; AWS observations are pinned to CPU2, while the Apple runs were unpinned.
 
-![Apple M1 and M6 latest baselines overlaid across all eight operations and five tree sizes](https://raw.githubusercontent.com/redis-performance/bplus-tree-agent-workspace/main/experiments/NIGHT-EXPLORATION-001/baseline-charts/m1-m6-baseline.png)
+![Measured M1 M6 Intel AMD and Graviton baselines across eight operations and five sizes](https://raw.githubusercontent.com/redis-performance/bplus-tree-agent-workspace/main/experiments/NIGHT-EXPLORATION-001/baseline-charts/m1-m6-baseline.png)
 
 [Chart data, pinned source revisions and reproduction](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/main/experiments/NIGHT-EXPLORATION-001/baseline-charts/README.md).
 
-Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing updates.
+Status snapshot: **19 October 2026, 02:03 UTC**. The host links show ongoing updates.
 
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
 | Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five M6 trials rejected; source NONE; geometry diagnosis active](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
-| Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
-| AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
-| AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
+| Intel Sapphire Rapids (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 338.54s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/main/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/001-baseline/SUMMARY.md) | 27/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-intel-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/STATUS.md) |
+| AMD Zen 5 (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 325.44s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/main/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/001-baseline/SUMMARY.md) | 30/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-amd-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/STATUS.md) |
+| AWS Graviton / Neoverse V2 (arm64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 377.83s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/main/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/001-baseline/SUMMARY.md) | 19/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-arm-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/STATUS.md) |
 
 Median batch-average **ns/op** from these overnight baselines; lower is less time.
 Full five-size tables, observed ranges, raw rows and precision checks are linked above.
 
-| Operation | M1 · 100K | M6 · 100K | M1 · 1M | M6 · 1M |
-|---|---:|---:|---:|---:|
-| Insert | 489.02 | 239.51 | 814.90 | 335.40 |
-| Hit lookup | 121.26 | 44.66 | 293.74 | 121.45 |
-| Miss lookup | 36.60 | 12.14 | 128.65 | 45.60 |
-| Rank | 178.24 | 64.92 | 480.32 | 208.22 |
-| Forward iteration | 4.58 | 2.39 | 4.86 | 2.47 |
-| Scan | 75.24 | 46.06 | 153.10 | 52.09 |
-| Score update | 733.07 | 332.67 | 1277.59 | 577.93 |
-| Delete | 383.79 | 170.91 | 763.82 | 334.02 |
+**100,000 members — ns/op**
+
+| Operation | Apple M1 | Apple M6 | AWS Intel | AWS AMD | AWS Graviton |
+|---|---:|---:|---:|---:|---:|
+| Insert | 489.02 | 239.51 | 557.98 | 385.01 | 512.41 |
+| Hit lookup | 121.26 | 44.66 | 132.10 | 71.40 | 139.87 |
+| Miss lookup | 36.60 | 12.14 | 71.19 | 35.72 | 59.57 |
+| Rank | 178.24 | 64.92 | 173.68 | 103.67 | 175.64 |
+| Forward iteration | 4.58 | 2.39 | 4.51 | 4.51 | 4.81 |
+| Scan | 75.24 | 46.06 | 87.61 | 68.40 | 84.27 |
+| Score update | 733.07 | 332.67 | 734.98 | 492.17 | 665.28 |
+| Delete | 383.79 | 170.91 | 354.05 | 220.36 | 328.82 |
+
+**1,000,000 members — ns/op**
+
+| Operation | Apple M1 | Apple M6 | AWS Intel | AWS AMD | AWS Graviton |
+|---|---:|---:|---:|---:|---:|
+| Insert | 814.90 | 335.40 | 779.74 | 700.16 | 787.01 |
+| Hit lookup | 293.74 | 121.45 | 213.14 | 296.79 | 336.90 |
+| Miss lookup | 128.65 | 45.60 | 149.40 | 179.61 | 191.78 |
+| Rank | 480.32 | 208.22 | 297.65 | 355.49 | 412.77 |
+| Forward iteration | 4.86 | 2.47 | 5.01 | 4.59 | 5.14 |
+| Scan | 153.10 | 52.09 | 118.96 | 95.60 | 112.40 |
+| Score update | 1277.59 | 577.93 | 1039.10 | 1099.21 | 1104.32 |
+| Delete | 763.82 | 334.02 | 571.45 | 611.89 | 601.81 |
 
 These are separate host baselines with different compilers and machine conditions.
 Their differences are not candidate optimization gains. A/A variation and short
@@ -143,6 +158,8 @@ sequential passes, with all patches preserved.
 [M6 count-one decoder policies](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md) retain a roughly30% private count-one lead, but repeated qualified guard losses reject all three universal policies. Baseline source stays unchanged.
 
 [Call-boundary lookup follow-up](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/006-followup/RESULTS.md) also rejects all three implementations: A's qualified100K lead is−2.71%, while no variant clears both100K/1M gates. Three actual independent agents completed both population stages. Baseline source stays unchanged.
+
+![M6 caller specialization: all six blocks, observed ranges and control qualification](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/006-followup/candidate-screens.png)
 
 Recorded on this branch: **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. Concurrent M1 night populations

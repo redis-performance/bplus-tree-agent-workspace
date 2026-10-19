@@ -16,7 +16,7 @@ Caller follow-up: three actual independent proposals plus three isolated impleme
 Full baseline101-cellAA complete2424rows;39qualify,62noisy,0short.100Kprimary qualifies,
 1M fails(max1.252%).144candidate-screen rows; all patches retained. No eligible
 fullcandidateguards/fresh/profile/adoption. Original tests/sanitizers/exact-bit oracles
-and312commonfrontend checks pass; independentrawauditPASS/chart pending.
+and312commonfrontend checks pass; independentrawaudit and chart complete.
 
 Totals12populations(9sequential+3multi-agent),0accepted/7rejected/5parked,
 36patches/15harnesses. Baseline source unchanged; M1 night counts separate.
