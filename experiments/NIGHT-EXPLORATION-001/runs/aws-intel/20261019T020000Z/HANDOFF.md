@@ -9,3 +9,5 @@ Matched profile diagnosis now complete; see004-iterator/MATCHED-PROFILE.md. Inde
 2026-10-19T03:31:58.298738+00:00 Intel original-scan A/A:48 rows/12 blocks complete, both controls qualify (100K−0.850..+0.195%,1M−0.246..+0.137%; minimum445/595ms). Source and compiler frontend identity frozen in007-scan-replication. No candidate timing; await AMD comparison.
 
 2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+
+2026-10-19T03:54:38.779449+00:00 Original A/A progress47/120 processes,376/960 rows. B complete matrix preregistered e06e7d271,1440s cap and explicit failed-control labels; no silent exclusion. Matched profiles a129375cb and focused referee2ab283daa/root239ac9730 validation prepared locally, no concurrent runner work.36 reviewed noncefiles copied and hash-verified; fixture binaries ignored, deterministic generator/manifests retained.

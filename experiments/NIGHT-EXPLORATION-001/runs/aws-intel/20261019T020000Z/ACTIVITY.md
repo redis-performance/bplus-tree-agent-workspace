@@ -34,3 +34,5 @@
 2026-10-19T03:44:31.800666+00:00 Full original guard calibration complete10 processes80rows; 12 short windows. Fixed A/A120processes/960rows budget1440s preregistered before launch, baseline only.
 
 2026-10-19T03:49:22.841950+00:00 Independent AMD deletion proposal555da4539 recommended NONE; root chair101895e82 agrees after failed1M control. Prepared separate matched scan baseline/B profile using301–303; no remote execution while full original A/A active. Fresh201–203 reserved for root-coordinated independent confirmation.
+
+2026-10-19T03:54:38.779449+00:00 Original A/A progress47/120 processes,376/960 rows. B complete matrix preregistered e06e7d271,1440s cap and explicit failed-control labels; no silent exclusion. Matched profiles a129375cb and focused referee2ab283daa/root239ac9730 validation prepared locally, no concurrent runner work.36 reviewed noncefiles copied and hash-verified; fixture binaries ignored, deterministic generator/manifests retained.
