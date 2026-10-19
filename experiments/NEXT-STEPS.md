@@ -1,4 +1,4 @@
-# Current M6 driver action — 19 October, 05:28 UTC
+# Next steps after M6 experiments — 19 October 2026
 
 Experimental cutoff reached — 07:15 UTC / 08:15 Lisbon. M6 is reporting only until 09:00 Lisbon. The last timing phase finished at 06:36:04 UTC with every owned child reaped and no further native workload queued. Source selection remains NONE; 023 is PARK before candidate timing. No source/referee change or failed-schedule retry followed. M1 explicitly confirms consuming the published M6 decision. See EXPERIMENTAL-CUTOFF.json and MORNING-REPORT.md in the host run.
 
@@ -6,6 +6,16 @@ Experimental cutoff reached — 07:15 UTC / 08:15 Lisbon. M6 is reporting only u
 Shared checkpoint — 07:03 UTC. M1 now explicitly confirms consuming M6 commit e74bdb3a4 at 06:50 UTC. Post-round M1 commit d41738b05 records no further source experiment queued under the M6-priority rule. Its earlier DNS/write failures are historical. Head 2baeafcef separately changes a metadata fallback; no such change is applied to frozen M6 inputs. Gate confirmation: 026-m1-gate-confirmation/.
 
 The earlier M1 round-three receipt is independently verified from four archives: 6,720 outputs / 866,880 sample rows, all below 10 ms and zero of 70 qualified A/A cells. M1 has nine total populations with mixed inherited provenance; local rank/decoder passes were sequential. Host ledgers are not summed. M6 remains source NONE, with 023 PARK before candidate timing. Native validation, raw audits and reporting checks pass. Tree C/H and frozen referees are unchanged; M6 counts remain 12 populations, 0 accepted / 7 rejected / 5 parked, 36 patches and 15 harnesses. No native workload is queued. Root monitors shared status through 08:00 UTC / 09:00 Lisbon; experimental cutoff 07:15 UTC remains intact.
+
+## Current next action
+
+Finish reporting through 09:00 Lisbon; no native workload is queued. The host `MORNING-REPORT.md` and `EXPERIMENTAL-CUTOFF.json` are the current evidence and closure records. M1 has explicitly consumed the M6 source-NONE decision.
+
+A future campaign must start from a separately frozen plan and qualified controls for its exact source, adapter, compiler, fixtures and machine. Do not retry completed failed schedules unchanged or adopt a private-kernel lead. No selected source implementation is awaiting integration. Any later lead still needs every applicable guard and memory check, held-out confirmation, matched profile and independent/adversarial review. The original supervisor and permission settings remain unchanged.
+
+## Archived checkpoint history
+
+The entries below preserve earlier states. Pending actions in them are historical; the current cutoff and handoff above govern this campaign.
 
 M6 checkpoint — 05:55 UTC. The decoder replications are complete and audited; the combined chart is on main at a9dedf618. Source selection remains NONE and the 12-population counts are unchanged.
 

@@ -7,6 +7,10 @@ Shared checkpoint — 07:03 UTC. M1 now explicitly confirms consuming M6 commit 
 
 The earlier M1 round-three receipt is independently verified from four archives: 6,720 outputs / 866,880 sample rows, all below 10 ms and zero of 70 qualified A/A cells. M1 has nine total populations with mixed inherited provenance; local rank/decoder passes were sequential. Host ledgers are not summed. M6 remains source NONE, with 023 PARK before candidate timing. Native validation, raw audits and reporting checks pass. Tree C/H and frozen referees are unchanged; M6 counts remain 12 populations, 0 accepted / 7 rejected / 5 parked, 36 patches and 15 harnesses. No native workload is queued. Root monitors shared status through 08:00 UTC / 09:00 Lisbon; experimental cutoff 07:15 UTC remains intact.
 
+## Archived checkpoint history
+
+The entries below preserve earlier states. Pending actions in them are historical; the current cutoff and handoff above govern this campaign.
+
 M6 checkpoint — 05:55 UTC. The decoder replications are complete and audited; the combined chart is on main at a9dedf618. Source selection remains NONE and the 12-population counts are unchanged.
 
 Profile attempt 019 stopped after three successful, reaped processes because its address map omitted import stubs. All 455 observations and the original incomplete record are preserved. Separate continuation 020 reconstructs those three captures offline and plans only the 13 unstarted cases. All 64 independent boundary/fault controls pass; 86 inputs are frozen. Publication and final independent review precede exclusive capture release. No capture has been repeated, and source/binaries are unchanged. Root continues through 08:00 UTC; experiments stop at 07:15 UTC.
