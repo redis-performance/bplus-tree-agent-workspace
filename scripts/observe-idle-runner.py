@@ -54,6 +54,7 @@ def main():
     start = time.monotonic()
     previous = None
     deltas = []
+    expected_labels = {'cpu'} | {'cpu' + str(cpu) for cpu in siblings | {observer}}
     with (args.output / 'samples.jsonl').open('x') as stream:
         for index in range(61):
             delay = start + index * 10 - time.monotonic()
@@ -63,7 +64,7 @@ def main():
             counters = {}
             for line in Path('/proc/stat').read_text().splitlines():
                 fields = line.split()
-                if fields[0] == 'cpu' or fields[0] in {'cpu' + str(cpu) for cpu in siblings | {observer}}:
+                if fields[0] in expected_labels:
                     counters[fields[0]] = [int(x) for x in fields[1:]]
             sample = dict(index=index, utc=now(), monotonic_seconds=read_start,
                           scheduled_offset_seconds=index * 10,
@@ -77,13 +78,22 @@ def main():
             stream.write(json.dumps(sample) + '\n')
             stream.flush()
             if previous is not None:
-                interval = dict(index=index - 1, duration_seconds=read_start - previous['monotonic_seconds'], valid=True, cpu={})
+                interval = dict(index=index - 1, duration_seconds=read_start - previous['monotonic_seconds'], valid=True, errors=[], cpu={})
+                def invalid(reason):
+                    interval['valid'] = False
+                    interval['errors'].append(reason)
+                if interval['duration_seconds'] <= 0:
+                    invalid('nonpositive monotonic duration')
+                if set(counters) != expected_labels or set(previous['counters']) != expected_labels:
+                    invalid('expected CPU counter labels missing or changed')
+                if sample['observer_affinity'] != [observer] or previous['observer_affinity'] != [observer]:
+                    invalid('observer affinity changed')
                 if sample['online_cpus'] != metadata['online_cpus'] or previous['online_cpus'] != metadata['online_cpus']:
-                    interval.update(valid=False, error='online CPU set changed')
+                    invalid('online CPU set changed')
                 for label, values in counters.items():
                     before = previous['counters'].get(label)
                     if before is None or len(values) != len(before) or len(values) < 8 or any(b < a for a, b in zip(before, values)):
-                        interval.update(valid=False, error='missing/reset/changed CPU counters')
+                        invalid('missing/reset/changed CPU counters')
                         continue
                     diff = [b - a for a, b in zip(before, values)]
                     # Linux user/nice already include guest/guest_nice: use only
@@ -93,7 +103,7 @@ def main():
                         idle_ticks=diff[3], iowait_ticks=diff[4], steal_ticks=diff[7],
                         nonidle_excluding_iowait_steal_ticks=sum(diff[i] for i in [0, 1, 2, 5, 6]))
                     if total <= 0:
-                        interval.update(valid=False, error='nonpositive CPU tick interval')
+                        invalid('nonpositive CPU tick interval')
                 deltas.append(interval)
             previous = sample
     metadata.update(status='complete', finished_utc=now(), elapsed_seconds=time.monotonic() - start)
