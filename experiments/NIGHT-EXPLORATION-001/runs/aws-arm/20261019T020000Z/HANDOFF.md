@@ -1,21 +1,50 @@
-# AWS ARM handoff
+# AWS ARM current handoff
 
-Lookup diagnosis is complete with source NONE. Its exact-mask premise was corrected before timing; three unmeasured patches are retained. Qualified controls and raw profiles remain useful. Do not repeat exact masks without new supporting evidence. No candidate screen or confirmation ran.
+Source adoption NONE. No ARM job is active. Stop new experiments07:15UTC; reporting
+deadline08:00UTC/09:00Lisbon on19October2026. Use only the assigned private lease and
+scripts/remote-bounded-job.py for every runner workload, serialCPU2. Never restart the
+failed external CLI supervisors or change permissions. Root supervises the overnight
+campaign and main publishing. Branch exploration/aws-arm-20261019T020000Z only.
 
-Next: count-one decoder from frozen EXP-007 B, using the existing EXP-008 referee and fresh ARM controls. Published Apple decisions were refreshed; no count-one rejection is published yet. All remote work must remain serial under the bounded lease helper on CPU2. Stop new experiments at 07:15 UTC; final deadline 08:00 UTC. Root maintains main charts and reviews candidates independently.
+Latest:010 native ARM all-match SCAN investigation has fresh exact48-row controls
+atf22b8f82e.100K qualifies allsixblocks;1M firstblock+1.88927% fails despite542msminimum.
+No retries, operation-count changes, discardedfirstblock or implementation. Actual
+threeproposals were submitted independently; ARMproposal77697b920 selects exactbounded
+16byte native comparison conditionally, withNONE when requiredcontrols fail. Root chair d57515154 selected NONE before implementation. Keep everyrawrow and the frozen5M-op plan.
+009c9664ab44 is the preceding6-capture exactoriginalcode profile, not a speed result.
+Its202all-match instructionencodings match original/diagnostic; approximateperiodshare
+34.459%/26.769% at100K/1M. Do not conflate this with withdrawn002lookup attribution.
 
-Native continuation: A/root screens complete and audited; B running, C next. Both control primary qualifications fail, so screens remain exploratory. No full guard/confirmation authorized by a lucky primary alone. Complete frozen population, audit codegen and obtain root review before decision.
+Current totals:1 new measured ARM population, decoderPARK (0accepted/0rejected/1parked),
+plus1 separate parked Inteliterator architecture replication. Baselines, diagnoses,
+proposal-onlyNONE rounds, shared referees and AMD implementation contributions do not
+increment that population count. No accepted code or qualified whole-tree performancegain.
 
-Decoder final: PARK/NONE,1 new measured population0/0/1. All four screens complete; A/B/C executable text identical, so no ranking. Required precision unresolved; no full guards/fresh confirmation/candidate profile. Root review requested. Continue004-update unchanged baseline validation/profile, then evidence-led distinct hypothesis orNONE.
+Completed evidence:
+-001 five-size baseline:120processes/960rows/40cells, rootpublished five-hostchart.
+-002 lookup: exact-mask premise withdrawn before timing duewronginstructionattribution;
+three unmeasured patches preserved. No population.
+-003 decoder: root/Bdependency explicit,2784screenrows; primarycontrols fail and A/B/C
+executabletext identical. PARK/NONE, no ranking. Root rawaudit46c0ce2c2; resultsealevidence.
+-004 update:40checks/eightprofiles/three sequentialproposals, NONE; no candidate.
+-005 iterator: exactIntelA/B replicated,576rows/144blocks, bothprimarycontrols fail.
+PARK; no qualifiedranking/acceptance. Root b0c5a43e2 verifies1164sealedfiles/livebinaries.
+Keep originalRESULT/result-seal immutable; additiveINDEPENDENT-REVIEW resolvesstatus.
+-006 actual independent AMDscanproposal and implementationC atd1921d793; AMDowns that
+population/timing. Patch/sourceprovenance immutable. Localx86 andactualARMfallback native/
+sanitizer297984oraclechecks andoriginal43tests/build pass; noARMcandidate timing.
+-007 additive focused SCANreferee2ab283daa:108baselinefixturecells/368commands/eightreal
+wrong-outputfaults and43originaltests/build pass. Root review239ac9730 approvedimmutable
+freeze. Intelownsexecution of300s calibration+900sAA+900sBphase; noIntelrunneractionshere.
+Exactnoncefiles remain in ignoredscratch/scan-guards-reviewed-v1/validation-all-seeds/fixtures.
+All36descendingcells haveonly64reversedmembers; noactive-rehash/wideIDs. Do not claim
+these cover broadreversal, denseactive-resizeperformance, tiedconstruction/iteration or
+alloriginallengthboundaries. Keep frozenfilesunchanged; additive reviewnotes are allowed.
+-008 actualAMDdelete proposal93af7c3ab recommendsNONE afterfailed1Mcontrols; rootchair
+101895e82 selectedNONE beforeimplementation. No population.
 
-004-update diagnosis completes eight baseline profiles and40 validation cells. Three sequential proposals/chairNONE, no candidate. Remain available for evidence-led cross-host replication before07:15UTC; no remote workload active. Do not repeat unsupported families merely to occupy runner.
-
-Iterator replication complete and PARK; all576 processes/144blocks retained, primary A/A failed. Request root audit against immutable RESULT commit. No broader guards/freshconfirmation/candidate profiles; no winner or adoption. Independent AMD C immutable patch d1921d793 belongs to AMD population, not new ARM population. No active ARM remote job.
-
-Final iterator root audit b0c5a43e2 complete; sealed original result unchanged, additive INDEPENDENT-REVIEW.md resolves pending status. Native ARM C fallback checks pass bothmodes and originaltests. No active remote work; available for supported follow-up.
-
-2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.
-
-2026-10-19T03:55:12.399065+00:00:009 originalARM SCAN6scopedprofiles complete. Exact all-match ranges34.459%/26.769%period at100K/1M,84/85events;202opcodes match originaldiagnostic,noSIMD. Zero-disabled and18outputparity checks pass. Supported investigation, no candidate/AA/population. Root review pending.
-
-2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.
+No unsupported campaign should be launched merely to occupy the host. Keep the ARM runner idle as root directed afterchairNONE; remain available for
+independent review through reportingwindow. Independent confirmation, qualifiedguards and review
+are mandatory before any adoption. Never pool architecturetimings or rankidenticalcode.
+Chronological actions and superseded interpretations remain inACTIVITY, immutable reports
+andGit. Exactservingmodel and token/monetarycost unknown; do not infer them.

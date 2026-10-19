@@ -1,20 +1,32 @@
 # AWS ARM overnight exploration
 
-Campaign deadline:19 October2026,08:00 UTC /09:00 Lisbon. New experiments stop07:15 UTC. Historical external CLI failures remain preserved separately.
+Campaign deadline:19October2026,08:00UTC/09:00Lisbon. New experiments stop07:15UTC.
+Source adoption **NONE**. No remote job is currently active.
 
 | Work | Outcome |
 |---|---|
-| Five-size baseline | Complete:120 processes /960 rows /40 cells |
-| Independent-query lookup | Diagnostic NONE; corrected instruction attribution;3 unmeasured patches |
-| Count-one decoder | PARK;2784 screen processes; independent root audit complete |
-| Public-update diagnosis | NONE;40 validation cells,8 profiles,3 sequential proposals |
-| Intel iterator A/B architecture replication | PARK;576 comparison processes /144 blocks, no qualified winner |
-| Independent AMD scan contribution | Proposal and implementationC published; AMD owns its population timing |
+| Five-size baseline |120processes/960rows/40cells; five-hostchart published byroot|
+| Independent-query lookup |NONE; correctedinstructionattribution;3unmeasuredpatches|
+| Count-one decoder |PARK;2784screenrows; independentrootaudit complete|
+| Public-update diagnosis |NONE;40checks/eightprofiles/three sequentialproposals|
+| Inteliterator A/B ARMreplication |PARK;576rows/144blocks; noqualifiedwinner|
+| IndependentAMDscan contribution |Actualproposal andimplementationC; AMDownstiming|
+| FocusedSCANreferee |108baselinecells; rootapprovedimmutable2ab283daa; Intelownstiming|
+| IndependentAMDdelete proposal |NONE; rootchair101895e82; noimplementation|
+| NativeARMall-match SCAN |Supportedoriginalprofile; fresh48-rowAA fails1M; chairNONEd57515154|
 
-**ARM new measured populations:1;0 accepted /0 rejected /1 parked.** Separately, **1 parked architecture replication**. Source adoption NONE. Iterator B preserves16-byte state; A uses24 bytes. Observed gains remain exploratory because required A/A controls failed. [Iterator result](005-iterator/RESULT.md), [independent audit](005-iterator/INDEPENDENT-REVIEW.md), [decoder decision](003-decode/RESULT.md), [activity](ACTIVITY.md).
+**New measured ARM populations:1;0accepted/0rejected/1parked. Separately:1parked
+architecture replication.** No qualifiedwhole-treegain or candidateadoption. IteratorA
+adds8bytes ofstate, Bpreserves16; observedgains remainexploratory underfailedcontrols.
+The nativeSCAN profile supports futureinvestigation but doesnotoverridefailedprecision.
 
-2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.
+[Current handoff](HANDOFF.md), [activity](ACTIVITY.md), [decoderdecision](003-decode/RESULT.md),
+[iteratorresult](005-iterator/RESULT.md), [iteratoraudit](005-iterator/INDEPENDENT-REVIEW.md),
+[focusedreferee](007-scan-guards/README.md), [focusedrootreview](007-scan-guards/INDEPENDENT-REVIEW.md),
+[nativeSCANpacket](009-scan-profile/COMMON-PACKET.md), [freshcontrols](010-scan-native/AA-RESULT.md).
 
-2026-10-19T03:55:12.399065+00:00:009 originalARM SCAN6scopedprofiles complete. Exact all-match ranges34.459%/26.769%period at100K/1M,84/85events;202opcodes match originaldiagnostic,noSIMD. Zero-disabled and18outputparity checks pass. Supported investigation, no candidate/AA/population. Root review pending.
-
-2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.
+Focusedguards retain all36cells andseeds101–103; all descendingfixtures exposeonlyone
+64-member reversedleaf, withnoactive-rehash/wideIDs. Existingoriginalresize tests support
+correctness, not active-resizeperformance. Allrawrows, failures, losingpatches and
+provenance remainpublished; large rawperfdata remainsrunner-local withSHA256. Historical
+externalCLI failures are preserved separately. Exactmodel/token/monetarycost unknown.

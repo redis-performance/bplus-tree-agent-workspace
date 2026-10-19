@@ -48,3 +48,5 @@
 2026-10-19T03:57:10.995164+00:00:010 fresh nativeARM SCAN control freeze ready:48serialprocesses,5Mrequestedops,100K/1M,heldout101–103twice,300scap. Count choice beforeAA forlongerwindows/Intelprotocolconsistency; no candidate. Actualthreeproposals assigned, pending.
 
 2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.
+
+2026-10-19T04:02:29.576462+00:00: Rootchaird57515154 selects nativeARM SCANNONE beforeimplementation; independent48row/12block/107fileaudit passes. Rewrote currentSTATUS/HANDOFF/README toremove supersedednextsteps; chronologicalACTIVITY/Git retained. ARMrunneridle byrootdirection; reviewavailability continues; fleetrelease08:00UTC notyetverified.
