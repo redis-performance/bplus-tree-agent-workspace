@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-10-19T04:37:48.024455+00:00",
+  "script_sha256": "61e5a05f5c306f4cba66b913eb658f955f996f46ab0c15a1d0b2d836ae64c029",
+  "independent_static_reviewer": "aws_arm native agent; exact model/cost unknown",
+  "positive_control": "Immutable M6 ce4a5e47c:120processes960rows40cells,5qualified14short35precisionfailures",
+  "negative_controls": [
+    {
+      "fault": "duplicate-summary",
+      "rejected": true,
+      "exit_code": 1,
+      "assertion": "assert len(summary_rows) == len(summaries) == 40"
+    },
+    {
+      "fault": "altered-validation-command",
+      "rejected": true,
+      "exit_code": 1,
+      "assertion": "assert entry['returncode'] == 0 and entry['name'] == name and entry['command'] == command"
+    },
+    {
+      "fault": "missing-runner-hash",
+      "rejected": true,
+      "exit_code": 1,
+      "assertion": "assert set(manifest['source_hashes']) == set(CORE + ['scripts/run-size-matrix.py', 'scripts/analyse-size-matrix.py'])"
+    }
+  ],
+  "measurement_runs": 0,
+  "scope": "Verifier-only mutation checks; immutable benchmark evidence unchanged."
+}
