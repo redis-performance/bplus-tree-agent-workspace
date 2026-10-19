@@ -90,7 +90,7 @@ Earlier baselines and experiment decisions retain their original adapter identit
 
 ## M6 lookup follow-up — parked at baseline controls
 
-[Clock-bracket harness revision](experiments/M6-CLOCK-BRACKET-001/STATUS.md) is now authorized and independently reviewed; build/correctness validation precedes a separate fixed control and fresh A/A schedule. Earlier results below remain unchanged.
+[Clock-bracket harness revision](experiments/M6-CLOCK-BRACKET-001/STATUS.md) passes native/sanitizer correctness and exact frontend checks; compiled-code review precedes the separate fixed controls and fresh A/A schedule. Earlier results below remain unchanged.
 
 [Shared session index](experiments/ACTIVE-SESSIONS.md) · [EXP-009 result and ownership](experiments/EXP-009/STATUS.md). Fresh corrected-baseline validation and profiles pass, but the48-run control check qualifies **100K6/6 and1M3/6 blocks**. Failed1Mblocks are−1.414%,+1.036% and+2.567% despite586–630ms windows. **PARK before candidate code or timing; source NONE.** The guarded lookup idea remains unresolved, and local M6 native ownership is released. [Complete results, raw rows and reviews](experiments/EXP-009/RESULTS.md).
 

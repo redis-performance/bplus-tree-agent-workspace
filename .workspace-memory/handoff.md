@@ -1,5 +1,5 @@
 <!-- M6-BRACKET-CURRENT -->
-M6-CLOCK-BRACKET-001 BUILD_READY: independent C/B reviews PASS after documented pre-native protocol/driver fixes;11 analyzer and4 driver faultcontrols PASS. Separate harness/inputseal publishes before build, fresh controls/A/A remain unexecuted. No timing lease yet; source NONE and all old decisions frozen. See experiments/M6-CLOCK-BRACKET-001/STATUS.md.
+M6-CLOCK-BRACKET-001 BUILD_COMPLETE:85serialcommands/11.7586s, original43tests native+san and36paired new/old lookupsmokes PASS exactoutputs/ownedmemory.80inputpins intact. Actual clock/control assembly checked byroot; independent compiled-tree review pending. Controls/A/A unexecuted, no timing lease. Source NONE; earlierdecisions frozen.
 <!-- M6-BRACKET-CURRENT-END -->
 
 <!-- M6-METROLOGY-CURRENT -->
