@@ -191,3 +191,6 @@ Full procedure: [population protocol](docs/POPULATION.md).
 
 
 19 October2026 AWS Intel iterator cache: **PARK / NONE**, fixed screen566/576 rows (141 complete blocks plus two trailing rows), budget stopped without extension. A/B conditional leads; C rejected. Intel totals: **2 measured sequential populations,0 accepted /1 rejected /1 parked;6 retained patches**. Iterator population comparison is partial. Update diagnosis NONE adds no implementation population. Source unchanged. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/README.md).
+
+
+Intel baseline scan diagnosis:6 scoped captures show TagMatches27.48%/24.14% of captured executable-range samples at100K/1M. This is a coarse hotspot observation, not a speed claim. Source remains NONE; no new population. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/README.md).

@@ -20,3 +20,5 @@
 2026-10-19T03:15:09.390917+00:00 Independent AMD implementation B completed from8fab511e: exact16-byte all-match masks with original bounded SWAR/scalar residual and portable fallback. Eight local correctness executables pass (43tests +297,984 oraclechecks each mode). No peer patches read and no performance measurement. Immutable patch submitted for root review and AMD serial validation.
 
 2026-10-19T03:20:49.864024+00:00 Baseline-only Intel scan diagnostic started under300s helper, preregistration deeba799b. Six fixed5M-op captures after sampler/semantic controls; no candidate timing.
+
+2026-10-19T03:27:08.601402+00:00 Baseline scan diagnosis complete, total helper17.571s under300s.6 captures, repeat controls pass; source-line/LLVM inline attribution confirms helper present. GNU mapping limitation retained. No candidate timing or new Intel population.

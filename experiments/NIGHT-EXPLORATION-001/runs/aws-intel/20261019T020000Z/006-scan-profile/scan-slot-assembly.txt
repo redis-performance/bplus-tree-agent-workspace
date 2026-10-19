@@ -1,0 +1,638 @@
+
+experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/build/profile:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000010e30 <zbtIndexScanSlot>:
+   10e30:	55                   	push   %rbp
+   10e31:	48 89 e5             	mov    %rsp,%rbp
+   10e34:	41 57                	push   %r15
+   10e36:	41 56                	push   %r14
+   10e38:	41 55                	push   %r13
+   10e3a:	41 54                	push   %r12
+   10e3c:	53                   	push   %rbx
+   10e3d:	48 81 ec d8 01 00 00 	sub    $0x1d8,%rsp
+   10e44:	4c 89 45 98          	mov    %r8,-0x68(%rbp)
+   10e48:	89 c8                	mov    %ecx,%eax
+   10e4a:	4c 8b 22             	mov    (%rdx),%r12
+   10e4d:	8d 0c c5 00 00 00 00 	lea    0x0(,%rax,8),%ecx
+   10e54:	49 d3 ec             	shr    %cl,%r12
+   10e57:	49 89 ff             	mov    %rdi,%r15
+   10e5a:	44 8b 5e 20          	mov    0x20(%rsi),%r11d
+   10e5e:	89 c0                	mov    %eax,%eax
+   10e60:	45 85 db             	test   %r11d,%r11d
+   10e63:	74 18                	je     10e7d <zbtIndexScanSlot+0x4d>
+   10e65:	44 8b 74 82 10       	mov    0x10(%rdx,%rax,4),%r14d
+   10e6a:	31 c0                	xor    %eax,%eax
+   10e6c:	4c 89 e3             	mov    %r12,%rbx
+   10e6f:	48 81 e3 ff 00 00 00 	and    $0xff,%rbx
+   10e76:	75 2c                	jne    10ea4 <zbtIndexScanSlot+0x74>
+   10e78:	e9 8a 01 00 00       	jmp    11007 <zbtIndexScanSlot+0x1d7>
+   10e7d:	0f b7 4c 42 10       	movzwl 0x10(%rdx,%rax,2),%ecx
+   10e82:	81 f9 ff ff 00 00    	cmp    $0xffff,%ecx
+   10e88:	41 be ff ff ff ff    	mov    $0xffffffff,%r14d
+   10e8e:	44 0f 45 f1          	cmovne %ecx,%r14d
+   10e92:	31 c0                	xor    %eax,%eax
+   10e94:	4c 89 e3             	mov    %r12,%rbx
+   10e97:	48 81 e3 ff 00 00 00 	and    $0xff,%rbx
+   10e9e:	0f 84 63 01 00 00    	je     11007 <zbtIndexScanSlot+0x1d7>
+   10ea4:	41 83 fe ff          	cmp    $0xffffffff,%r14d
+   10ea8:	0f 84 59 01 00 00    	je     11007 <zbtIndexScanSlot+0x1d7>
+   10eae:	4d 85 c9             	test   %r9,%r9
+   10eb1:	0f 84 8d 00 00 00    	je     10f44 <zbtIndexScanSlot+0x114>
+   10eb7:	49 b8 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%r8
+   10ebe:	79 37 9e
+   10ec1:	4c 0f af c3          	imul   %rbx,%r8
+   10ec5:	4c 89 c1             	mov    %r8,%rcx
+   10ec8:	48 c1 e9 3a          	shr    $0x3a,%rcx
+   10ecc:	41 ba 01 00 00 00    	mov    $0x1,%r10d
+   10ed2:	49 d3 e2             	shl    %cl,%r10
+   10ed5:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+   10ed9:	48 89 cf             	mov    %rcx,%rdi
+   10edc:	4c 39 c9             	cmp    %r9,%rcx
+   10edf:	73 5a                	jae    10f3b <zbtIndexScanSlot+0x10b>
+   10ee1:	4d 0f ab e2          	bts    %r12,%r10
+   10ee5:	49 c1 e8 24          	shr    $0x24,%r8
+   10ee9:	4d 0f ab c2          	bts    %r8,%r10
+   10eed:	31 c9                	xor    %ecx,%ecx
+   10eef:	45 85 db             	test   %r11d,%r11d
+   10ef2:	0f 95 c1             	setne  %cl
+   10ef5:	4c 8b 1e             	mov    (%rsi),%r11
+   10ef8:	c1 e1 04             	shl    $0x4,%ecx
+   10efb:	48 83 c9 20          	or     $0x20,%rcx
+   10eff:	48 89 cf             	mov    %rcx,%rdi
+   10f02:	4c 8b 45 98          	mov    -0x68(%rbp),%r8
+   10f06:	49 0f af f8          	imul   %r8,%rdi
+   10f0a:	49 01 fb             	add    %rdi,%r11
+   10f0d:	49 83 c3 08          	add    $0x8,%r11
+   10f11:	4c 89 c7             	mov    %r8,%rdi
+   10f14:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+   10f1b:	00 00 00 00 00
+   10f20:	4d 8b 03             	mov    (%r11),%r8
+   10f23:	49 f7 d0             	not    %r8
+   10f26:	4d 85 c2             	test   %r8,%r10
+   10f29:	74 10                	je     10f3b <zbtIndexScanSlot+0x10b>
+   10f2b:	48 ff c7             	inc    %rdi
+   10f2e:	49 01 cb             	add    %rcx,%r11
+   10f31:	49 39 f9             	cmp    %rdi,%r9
+   10f34:	75 ea                	jne    10f20 <zbtIndexScanSlot+0xf0>
+   10f36:	e9 ca 00 00 00       	jmp    11005 <zbtIndexScanSlot+0x1d5>
+   10f3b:	4c 39 cf             	cmp    %r9,%rdi
+   10f3e:	0f 84 c1 00 00 00    	je     11005 <zbtIndexScanSlot+0x1d5>
+   10f44:	45 3b 77 54          	cmp    0x54(%r15),%r14d
+   10f48:	0f 83 8f 00 00 00    	jae    10fdd <zbtIndexScanSlot+0x1ad>
+   10f4e:	49 8b 4f 48          	mov    0x48(%r15),%rcx
+   10f52:	44 89 f7             	mov    %r14d,%edi
+   10f55:	48 8b 3c f9          	mov    (%rcx,%rdi,8),%rdi
+   10f59:	48 85 ff             	test   %rdi,%rdi
+   10f5c:	74 7f                	je     10fdd <zbtIndexScanSlot+0x1ad>
+   10f5e:	89 f9                	mov    %edi,%ecx
+   10f60:	83 e1 01             	and    $0x1,%ecx
+   10f63:	75 78                	jne    10fdd <zbtIndexScanSlot+0x1ad>
+   10f65:	48 89 f9             	mov    %rdi,%rcx
+   10f68:	48 89 7d c8          	mov    %rdi,-0x38(%rbp)
+   10f6c:	44 39 77 30          	cmp    %r14d,0x30(%rdi)
+   10f70:	4c 89 4d c0          	mov    %r9,-0x40(%rbp)
+   10f74:	48 89 75 a8          	mov    %rsi,-0x58(%rbp)
+   10f78:	48 89 55 b0          	mov    %rdx,-0x50(%rbp)
+   10f7c:	74 1c                	je     10f9a <zbtIndexScanSlot+0x16a>
+   10f7e:	48 8d 3d e8 26 00 00 	lea    0x26e8(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   10f85:	48 8d 15 3a 28 00 00 	lea    0x283a(%rip),%rdx        # 137c6 <_IO_stdin_used+0x7c6>
+   10f8c:	be 58 10 00 00       	mov    $0x1058,%esi
+   10f91:	e8 9a 07 00 00       	call   11730 <standalone_panic>
+   10f96:	48 8b 75 a8          	mov    -0x58(%rbp),%rsi
+   10f9a:	49 8b 47 40          	mov    0x40(%r15),%rax
+   10f9e:	48 85 c0             	test   %rax,%rax
+   10fa1:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+   10fa5:	74 15                	je     10fbc <zbtIndexScanSlot+0x18c>
+   10fa7:	0f b7 4a 16          	movzwl 0x16(%rdx),%ecx
+   10fab:	66 3b 48 2c          	cmp    0x2c(%rax),%cx
+   10faf:	0f 94 c1             	sete   %cl
+   10fb2:	48 39 f0             	cmp    %rsi,%rax
+   10fb5:	0f 95 c0             	setne  %al
+   10fb8:	38 c8                	cmp    %cl,%al
+   10fba:	74 49                	je     11005 <zbtIndexScanSlot+0x1d5>
+   10fbc:	0f b6 4a 34          	movzbl 0x34(%rdx),%ecx
+   10fc0:	45 31 ff             	xor    %r15d,%r15d
+   10fc3:	0f b6 42 11          	movzbl 0x11(%rdx),%eax
+   10fc7:	48 85 c9             	test   %rcx,%rcx
+   10fca:	74 4d                	je     11019 <zbtIndexScanSlot+0x1e9>
+   10fcc:	0f af c8             	imul   %eax,%ecx
+   10fcf:	83 c1 07             	add    $0x7,%ecx
+   10fd2:	c1 e9 03             	shr    $0x3,%ecx
+   10fd5:	83 c1 09             	add    $0x9,%ecx
+   10fd8:	83 e1 fe             	and    $0xfffffffe,%ecx
+   10fdb:	eb 3e                	jmp    1101b <zbtIndexScanSlot+0x1eb>
+   10fdd:	49 83 7f 40 00       	cmpq   $0x0,0x40(%r15)
+   10fe2:	74 09                	je     10fed <zbtIndexScanSlot+0x1bd>
+   10fe4:	49 83 c7 18          	add    $0x18,%r15
+   10fe8:	49 39 f7             	cmp    %rsi,%r15
+   10feb:	74 18                	je     11005 <zbtIndexScanSlot+0x1d5>
+   10fed:	48 8d 3d 79 26 00 00 	lea    0x2679(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   10ff4:	48 8d 15 ea 27 00 00 	lea    0x27ea(%rip),%rdx        # 137e5 <_IO_stdin_used+0x7e5>
+   10ffb:	be 55 10 00 00       	mov    $0x1055,%esi
+   11000:	e8 2b 07 00 00       	call   11730 <standalone_panic>
+   11005:	31 c0                	xor    %eax,%eax
+   11007:	48 81 c4 d8 01 00 00 	add    $0x1d8,%rsp
+   1100e:	5b                   	pop    %rbx
+   1100f:	41 5c                	pop    %r12
+   11011:	41 5d                	pop    %r13
+   11013:	41 5e                	pop    %r14
+   11015:	41 5f                	pop    %r15
+   11017:	5d                   	pop    %rbp
+   11018:	c3                   	ret
+   11019:	31 c9                	xor    %ecx,%ecx
+   1101b:	49 bd ff fe fe fe fe 	movabs $0xfefefefefefefeff,%r13
+   11022:	fe fe fe
+   11025:	48 01 d1             	add    %rdx,%rcx
+   11028:	48 83 c1 38          	add    $0x38,%rcx
+   1102c:	48 8d 0c 41          	lea    (%rcx,%rax,2),%rcx
+   11030:	0f b6 52 35          	movzbl 0x35(%rdx),%edx
+   11034:	3c 08                	cmp    $0x8,%al
+   11036:	73 6b                	jae    110a3 <zbtIndexScanSlot+0x273>
+   11038:	a8 07                	test   $0x7,%al
+   1103a:	0f 84 20 01 00 00    	je     11160 <zbtIndexScanSlot+0x330>
+   11040:	89 c6                	mov    %eax,%esi
+   11042:	83 e6 f8             	and    $0xfffffff8,%esi
+   11045:	41 80 fc 01          	cmp    $0x1,%r12b
+   11049:	4c 8b 55 c0          	mov    -0x40(%rbp),%r10
+   1104d:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+   11051:	0f 85 04 05 00 00    	jne    1155b <zbtIndexScanSlot+0x72b>
+   11057:	84 d2                	test   %dl,%dl
+   11059:	0f 84 82 06 00 00    	je     116e1 <zbtIndexScanSlot+0x8b1>
+   1105f:	89 c2                	mov    %eax,%edx
+   11061:	f7 d2                	not    %edx
+   11063:	81 ca 07 ff ff ff    	or     $0xffffff07,%edx
+   11069:	01 c2                	add    %eax,%edx
+   1106b:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   1106f:	eb 1d                	jmp    1108e <zbtIndexScanSlot+0x25e>
+   11071:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   11078:	0f 1f 84 00 00 00 00
+   1107f:	00
+   11080:	48 ff c6             	inc    %rsi
+   11083:	ff ca                	dec    %edx
+   11085:	48 39 c6             	cmp    %rax,%rsi
+   11088:	0f 83 de 00 00 00    	jae    1116c <zbtIndexScanSlot+0x33c>
+   1108e:	80 3c 31 01          	cmpb   $0x1,(%rcx,%rsi,1)
+   11092:	77 ec                	ja     11080 <zbtIndexScanSlot+0x250>
+   11094:	44 89 ff             	mov    %r15d,%edi
+   11097:	41 ff c7             	inc    %r15d
+   1109a:	89 94 bd 00 fe ff ff 	mov    %edx,-0x200(%rbp,%rdi,4)
+   110a1:	eb dd                	jmp    11080 <zbtIndexScanSlot+0x250>
+   110a3:	89 c6                	mov    %eax,%esi
+   110a5:	c1 ee 03             	shr    $0x3,%esi
+   110a8:	49 b8 01 01 01 01 01 	movabs $0x101010101010101,%r8
+   110af:	01 01 01
+   110b2:	49 0f af d8          	imul   %r8,%rbx
+   110b6:	84 d2                	test   %dl,%dl
+   110b8:	0f 84 e5 04 00 00    	je     115a3 <zbtIndexScanSlot+0x773>
+   110be:	8d 78 ff             	lea    -0x1(%rax),%edi
+   110c1:	41 80 fc 01          	cmp    $0x1,%r12b
+   110c5:	0f 85 93 05 00 00    	jne    1165e <zbtIndexScanSlot+0x82e>
+   110cb:	45 31 c9             	xor    %r9d,%r9d
+   110ce:	45 31 ff             	xor    %r15d,%r15d
+   110d1:	eb 19                	jmp    110ec <zbtIndexScanSlot+0x2bc>
+   110d3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   110da:	84 00 00 00 00 00
+   110e0:	49 ff c1             	inc    %r9
+   110e3:	49 39 f1             	cmp    %rsi,%r9
+   110e6:	0f 84 4c ff ff ff    	je     11038 <zbtIndexScanSlot+0x208>
+   110ec:	4e 8b 14 c9          	mov    (%rcx,%r9,8),%r10
+   110f0:	4d 89 d3             	mov    %r10,%r11
+   110f3:	49 f7 d3             	not    %r11
+   110f6:	4c 89 d3             	mov    %r10,%rbx
+   110f9:	4c 31 c3             	xor    %r8,%rbx
+   110fc:	4c 01 eb             	add    %r13,%rbx
+   110ff:	49 be 80 80 80 80 80 	movabs $0x8080808080808080,%r14
+   11106:	80 80 80
+   11109:	4d 21 f3             	and    %r14,%r11
+   1110c:	4d 01 ea             	add    %r13,%r10
+   1110f:	49 09 da             	or     %rbx,%r10
+   11112:	4d 21 da             	and    %r11,%r10
+   11115:	74 c9                	je     110e0 <zbtIndexScanSlot+0x2b0>
+   11117:	4e 8d 1c cd 00 00 00 	lea    0x0(,%r9,8),%r11
+   1111e:	00
+   1111f:	eb 18                	jmp    11139 <zbtIndexScanSlot+0x309>
+   11121:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   11128:	0f 1f 84 00 00 00 00
+   1112f:	00
+   11130:	49 8d 5a ff          	lea    -0x1(%r10),%rbx
+   11134:	49 21 da             	and    %rbx,%r10
+   11137:	74 a7                	je     110e0 <zbtIndexScanSlot+0x2b0>
+   11139:	f3 49 0f bc da       	tzcnt  %r10,%rbx
+   1113e:	c1 eb 03             	shr    $0x3,%ebx
+   11141:	44 09 db             	or     %r11d,%ebx
+   11144:	80 3c 19 01          	cmpb   $0x1,(%rcx,%rbx,1)
+   11148:	77 e6                	ja     11130 <zbtIndexScanSlot+0x300>
+   1114a:	41 89 fe             	mov    %edi,%r14d
+   1114d:	41 29 de             	sub    %ebx,%r14d
+   11150:	44 89 fb             	mov    %r15d,%ebx
+   11153:	41 ff c7             	inc    %r15d
+   11156:	44 89 b4 9d 00 fe ff 	mov    %r14d,-0x200(%rbp,%rbx,4)
+   1115d:	ff
+   1115e:	eb d0                	jmp    11130 <zbtIndexScanSlot+0x300>
+   11160:	4c 8b 55 c0          	mov    -0x40(%rbp),%r10
+   11164:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+   11168:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   1116c:	45 85 ff             	test   %r15d,%r15d
+   1116f:	0f 84 9d 03 00 00    	je     11512 <zbtIndexScanSlot+0x6e2>
+   11175:	49 8d 41 38          	lea    0x38(%r9),%rax
+   11179:	48 89 45 a0          	mov    %rax,-0x60(%rbp)
+   1117d:	4d 85 d2             	test   %r10,%r10
+   11180:	0f 95 c0             	setne  %al
+   11183:	41 83 ff 01          	cmp    $0x1,%r15d
+   11187:	0f 95 c1             	setne  %cl
+   1118a:	08 c1                	or     %al,%cl
+   1118c:	88 4d d7             	mov    %cl,-0x29(%rbp)
+   1118f:	44 89 f8             	mov    %r15d,%eax
+   11192:	48 89 45 88          	mov    %rax,-0x78(%rbp)
+   11196:	45 31 e4             	xor    %r12d,%r12d
+   11199:	31 c0                	xor    %eax,%eax
+   1119b:	48 89 45 b8          	mov    %rax,-0x48(%rbp)
+   1119f:	e9 8d 00 00 00       	jmp    11231 <zbtIndexScanSlot+0x401>
+   111a4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+   111ab:	00 00 00 00 00
+   111b0:	49 c7 c2 ff ff ff ff 	mov    $0xffffffffffffffff,%r10
+   111b7:	89 c1                	mov    %eax,%ecx
+   111b9:	49 d3 e2             	shl    %cl,%r10
+   111bc:	40 80 ff 40          	cmp    $0x40,%dil
+   111c0:	49 f7 d2             	not    %r10
+   111c3:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+   111ca:	4c 0f 43 d0          	cmovae %rax,%r10
+   111ce:	4d 21 ca             	and    %r9,%r10
+   111d1:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   111d5:	41 0f b6 49 13       	movzbl 0x13(%r9),%ecx
+   111da:	49 d3 e2             	shl    %cl,%r10
+   111dd:	4c 89 d0             	mov    %r10,%rax
+   111e0:	48 f7 d8             	neg    %rax
+   111e3:	45 84 c0             	test   %r8b,%r8b
+   111e6:	49 0f 44 c2          	cmove  %r10,%rax
+   111ea:	49 03 41 28          	add    0x28(%r9),%rax
+   111ee:	48 89 c1             	mov    %rax,%rcx
+   111f1:	48 bf ff ff ff ff ff 	movabs $0x7fffffffffffffff,%rdi
+   111f8:	ff ff 7f
+   111fb:	48 21 f9             	and    %rdi,%rcx
+   111fe:	48 85 c0             	test   %rax,%rax
+   11201:	48 f7 d0             	not    %rax
+   11204:	48 0f 48 c1          	cmovs  %rcx,%rax
+   11208:	66 48 0f 6e c0       	movq   %rax,%xmm0
+   1120d:	48 8b 7d 18          	mov    0x18(%rbp),%rdi
+   11211:	ff 55 10             	call   *0x10(%rbp)
+   11214:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   11218:	48 ff 45 b8          	incq   -0x48(%rbp)
+   1121c:	4c 8b 55 c0          	mov    -0x40(%rbp),%r10
+   11220:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+   11224:	49 ff c4             	inc    %r12
+   11227:	4c 3b 65 88          	cmp    -0x78(%rbp),%r12
+   1122b:	0f 84 03 03 00 00    	je     11534 <zbtIndexScanSlot+0x704>
+   11231:	42 8b 9c a5 00 fe ff 	mov    -0x200(%rbp,%r12,4),%ebx
+   11238:	ff
+   11239:	41 89 dd             	mov    %ebx,%r13d
+   1123c:	41 f7 d5             	not    %r13d
+   1123f:	80 7d d7 00          	cmpb   $0x0,-0x29(%rbp)
+   11243:	0f 84 37 01 00 00    	je     11380 <zbtIndexScanSlot+0x550>
+   11249:	41 0f b6 41 34       	movzbl 0x34(%r9),%eax
+   1124e:	48 85 c0             	test   %rax,%rax
+   11251:	74 4d                	je     112a0 <zbtIndexScanSlot+0x470>
+   11253:	41 0f b6 49 11       	movzbl 0x11(%r9),%ecx
+   11258:	0f af c1             	imul   %ecx,%eax
+   1125b:	83 c0 07             	add    $0x7,%eax
+   1125e:	c1 e8 03             	shr    $0x3,%eax
+   11261:	83 c0 09             	add    $0x9,%eax
+   11264:	83 e0 fe             	and    $0xfffffffe,%eax
+   11267:	41 80 79 35 00       	cmpb   $0x0,0x35(%r9)
+   1126c:	89 d9                	mov    %ebx,%ecx
+   1126e:	74 08                	je     11278 <zbtIndexScanSlot+0x448>
+   11270:	41 0f b6 49 11       	movzbl 0x11(%r9),%ecx
+   11275:	44 01 e9             	add    %r13d,%ecx
+   11278:	48 03 45 a0          	add    -0x60(%rbp),%rax
+   1127c:	89 c9                	mov    %ecx,%ecx
+   1127e:	0f b7 04 48          	movzwl (%rax,%rcx,2),%eax
+   11282:	49 8d 3c 01          	lea    (%r9,%rax,1),%rdi
+   11286:	41 0f b6 34 01       	movzbl (%r9,%rax,1),%esi
+   1128b:	81 fe fe 00 00 00    	cmp    $0xfe,%esi
+   11291:	74 1a                	je     112ad <zbtIndexScanSlot+0x47d>
+   11293:	81 fe ff 00 00 00    	cmp    $0xff,%esi
+   11299:	75 1d                	jne    112b8 <zbtIndexScanSlot+0x488>
+   1129b:	8b 47 01             	mov    0x1(%rdi),%eax
+   1129e:	eb 31                	jmp    112d1 <zbtIndexScanSlot+0x4a1>
+   112a0:	31 c0                	xor    %eax,%eax
+   112a2:	41 80 79 35 00       	cmpb   $0x0,0x35(%r9)
+   112a7:	89 d9                	mov    %ebx,%ecx
+   112a9:	75 c5                	jne    11270 <zbtIndexScanSlot+0x440>
+   112ab:	eb cb                	jmp    11278 <zbtIndexScanSlot+0x448>
+   112ad:	0f b7 77 01          	movzwl 0x1(%rdi),%esi
+   112b1:	b8 03 00 00 00       	mov    $0x3,%eax
+   112b6:	eb 05                	jmp    112bd <zbtIndexScanSlot+0x48d>
+   112b8:	b8 01 00 00 00       	mov    $0x1,%eax
+   112bd:	48 01 c7             	add    %rax,%rdi
+   112c0:	e8 ab 06 00 00       	call   11970 <dictGenHashFunction>
+   112c5:	4c 8b 55 c0          	mov    -0x40(%rbp),%r10
+   112c9:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+   112cd:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   112d1:	89 c0                	mov    %eax,%eax
+   112d3:	48 8b 4d a8          	mov    -0x58(%rbp),%rcx
+   112d7:	48 8b 49 08          	mov    0x8(%rcx),%rcx
+   112db:	4d 85 d2             	test   %r10,%r10
+   112de:	74 1a                	je     112fa <zbtIndexScanSlot+0x4ca>
+   112e0:	8d 71 ff             	lea    -0x1(%rcx),%esi
+   112e3:	89 c2                	mov    %eax,%edx
+   112e5:	21 f2                	and    %esi,%edx
+   112e7:	48 3b 55 98          	cmp    -0x68(%rbp),%rdx
+   112eb:	0f 82 33 ff ff ff    	jb     11224 <zbtIndexScanSlot+0x3f4>
+   112f1:	4c 39 d2             	cmp    %r10,%rdx
+   112f4:	0f 83 2a ff ff ff    	jae    11224 <zbtIndexScanSlot+0x3f4>
+   112fa:	41 83 ff 01          	cmp    $0x1,%r15d
+   112fe:	0f 84 7c 00 00 00    	je     11380 <zbtIndexScanSlot+0x550>
+   11304:	48 89 ca             	mov    %rcx,%rdx
+   11307:	48 83 ea 01          	sub    $0x1,%rdx
+   1130b:	0f 82 13 ff ff ff    	jb     11224 <zbtIndexScanSlot+0x3f4>
+   11311:	21 d0                	and    %edx,%eax
+   11313:	31 f6                	xor    %esi,%esi
+   11315:	48 8b 7d a8          	mov    -0x58(%rbp),%rdi
+   11319:	83 7f 20 00          	cmpl   $0x0,0x20(%rdi)
+   1131d:	48 8b 3f             	mov    (%rdi),%rdi
+   11320:	40 0f 95 c6          	setne  %sil
+   11324:	c1 e6 04             	shl    $0x4,%esi
+   11327:	48 83 ce 20          	or     $0x20,%rsi
+   1132b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   11330:	49 89 c0             	mov    %rax,%r8
+   11333:	4c 0f af c6          	imul   %rsi,%r8
+   11337:	49 01 f8             	add    %rdi,%r8
+   1133a:	4d 39 d8             	cmp    %r11,%r8
+   1133d:	74 41                	je     11380 <zbtIndexScanSlot+0x550>
+   1133f:	4d 8b 00             	mov    (%r8),%r8
+   11342:	4d 89 c1             	mov    %r8,%r9
+   11345:	49 f7 d1             	not    %r9
+   11348:	49 be ff fe fe fe fe 	movabs $0xfefefefefefefeff,%r14
+   1134f:	fe fe fe
+   11352:	4d 01 f0             	add    %r14,%r8
+   11355:	49 be 80 80 80 80 80 	movabs $0x8080808080808080,%r14
+   1135c:	80 80 80
+   1135f:	4d 21 f1             	and    %r14,%r9
+   11362:	4d 85 c1             	test   %r8,%r9
+   11365:	0f 85 9e 01 00 00    	jne    11509 <zbtIndexScanSlot+0x6d9>
+   1136b:	48 ff c0             	inc    %rax
+   1136e:	48 21 d0             	and    %rdx,%rax
+   11371:	48 ff c9             	dec    %rcx
+   11374:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   11378:	75 b6                	jne    11330 <zbtIndexScanSlot+0x500>
+   1137a:	e9 a5 fe ff ff       	jmp    11224 <zbtIndexScanSlot+0x3f4>
+   1137f:	90                   	nop
+   11380:	41 0f b6 79 34       	movzbl 0x34(%r9),%edi
+   11385:	48 85 ff             	test   %rdi,%rdi
+   11388:	0f 84 f2 00 00 00    	je     11480 <zbtIndexScanSlot+0x650>
+   1138e:	41 0f b6 49 11       	movzbl 0x11(%r9),%ecx
+   11393:	89 f8                	mov    %edi,%eax
+   11395:	0f af c1             	imul   %ecx,%eax
+   11398:	83 c0 07             	add    $0x7,%eax
+   1139b:	c1 e8 03             	shr    $0x3,%eax
+   1139e:	83 c0 09             	add    $0x9,%eax
+   113a1:	83 e0 fe             	and    $0xfffffffe,%eax
+   113a4:	45 0f b6 41 35       	movzbl 0x35(%r9),%r8d
+   113a9:	89 d9                	mov    %ebx,%ecx
+   113ab:	45 84 c0             	test   %r8b,%r8b
+   113ae:	74 08                	je     113b8 <zbtIndexScanSlot+0x588>
+   113b0:	41 0f b6 49 11       	movzbl 0x11(%r9),%ecx
+   113b5:	44 01 e9             	add    %r13d,%ecx
+   113b8:	48 03 45 a0          	add    -0x60(%rbp),%rax
+   113bc:	89 c9                	mov    %ecx,%ecx
+   113be:	0f b7 04 48          	movzwl (%rax,%rcx,2),%eax
+   113c2:	4d 8d 34 01          	lea    (%r9,%rax,1),%r14
+   113c6:	41 0f b6 14 01       	movzbl (%r9,%rax,1),%edx
+   113cb:	48 81 fa fd 00 00 00 	cmp    $0xfd,%rdx
+   113d2:	77 1c                	ja     113f0 <zbtIndexScanSlot+0x5c0>
+   113d4:	49 ff c6             	inc    %r14
+   113d7:	4c 89 f6             	mov    %r14,%rsi
+   113da:	40 84 ff             	test   %dil,%dil
+   113dd:	75 32                	jne    11411 <zbtIndexScanSlot+0x5e1>
+   113df:	e9 1d 01 00 00       	jmp    11501 <zbtIndexScanSlot+0x6d1>
+   113e4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+   113eb:	00 00 00 00 00
+   113f0:	81 fa fe 00 00 00    	cmp    $0xfe,%edx
+   113f6:	0f 85 9b 00 00 00    	jne    11497 <zbtIndexScanSlot+0x667>
+   113fc:	41 0f b7 56 01       	movzwl 0x1(%r14),%edx
+   11401:	49 83 c6 03          	add    $0x3,%r14
+   11405:	4c 89 f6             	mov    %r14,%rsi
+   11408:	40 84 ff             	test   %dil,%dil
+   1140b:	0f 84 f0 00 00 00    	je     11501 <zbtIndexScanSlot+0x6d1>
+   11411:	45 84 c0             	test   %r8b,%r8b
+   11414:	74 08                	je     1141e <zbtIndexScanSlot+0x5ee>
+   11416:	41 0f b6 59 11       	movzbl 0x11(%r9),%ebx
+   1141b:	44 01 eb             	add    %r13d,%ebx
+   1141e:	44 0f b6 d7          	movzbl %dil,%r10d
+   11422:	41 89 db             	mov    %ebx,%r11d
+   11425:	44 89 d0             	mov    %r10d,%eax
+   11428:	4c 0f af d8          	imul   %rax,%r11
+   1142c:	4c 89 db             	mov    %r11,%rbx
+   1142f:	48 c1 eb 03          	shr    $0x3,%rbx
+   11433:	48 8b 4d a0          	mov    -0x60(%rbp),%rcx
+   11437:	4c 8b 0c 19          	mov    (%rcx,%rbx,1),%r9
+   1143b:	44 89 d9             	mov    %r11d,%ecx
+   1143e:	80 e1 07             	and    $0x7,%cl
+   11441:	49 d3 e9             	shr    %cl,%r9
+   11444:	41 83 e3 07          	and    $0x7,%r11d
+   11448:	0f 84 62 fd ff ff    	je     111b0 <zbtIndexScanSlot+0x380>
+   1144e:	b9 40 00 00 00       	mov    $0x40,%ecx
+   11453:	44 29 d9             	sub    %r11d,%ecx
+   11456:	44 39 d1             	cmp    %r10d,%ecx
+   11459:	0f 83 51 fd ff ff    	jae    111b0 <zbtIndexScanSlot+0x380>
+   1145f:	4c 8b 55 c8          	mov    -0x38(%rbp),%r10
+   11463:	46 0f b6 54 13 40    	movzbl 0x40(%rbx,%r10,1),%r10d
+   11469:	49 d3 e2             	shl    %cl,%r10
+   1146c:	4d 09 d1             	or     %r10,%r9
+   1146f:	e9 3c fd ff ff       	jmp    111b0 <zbtIndexScanSlot+0x380>
+   11474:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+   1147b:	00 00 00 00 00
+   11480:	31 c0                	xor    %eax,%eax
+   11482:	45 0f b6 41 35       	movzbl 0x35(%r9),%r8d
+   11487:	89 d9                	mov    %ebx,%ecx
+   11489:	45 84 c0             	test   %r8b,%r8b
+   1148c:	0f 85 1e ff ff ff    	jne    113b0 <zbtIndexScanSlot+0x580>
+   11492:	e9 21 ff ff ff       	jmp    113b8 <zbtIndexScanSlot+0x588>
+   11497:	49 8b 76 0d          	mov    0xd(%r14),%rsi
+   1149b:	48 85 f6             	test   %rsi,%rsi
+   1149e:	75 4a                	jne    114ea <zbtIndexScanSlot+0x6ba>
+   114a0:	48 8d 3d c6 21 00 00 	lea    0x21c6(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   114a7:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+   114ab:	be 57 02 00 00       	mov    $0x257,%esi
+   114b0:	48 8d 15 e2 22 00 00 	lea    0x22e2(%rip),%rdx        # 13799 <_IO_stdin_used+0x799>
+   114b7:	e8 74 02 00 00       	call   11730 <standalone_panic>
+   114bc:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   114c0:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+   114c4:	41 80 3e ff          	cmpb   $0xff,(%r14)
+   114c8:	74 20                	je     114ea <zbtIndexScanSlot+0x6ba>
+   114ca:	48 8d 3d 9c 21 00 00 	lea    0x219c(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   114d1:	be 37 02 00 00       	mov    $0x237,%esi
+   114d6:	48 8d 15 c8 22 00 00 	lea    0x22c8(%rip),%rdx        # 137a5 <_IO_stdin_used+0x7a5>
+   114dd:	e8 4e 02 00 00       	call   11730 <standalone_panic>
+   114e2:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   114e6:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+   114ea:	49 8b 56 05          	mov    0x5(%r14),%rdx
+   114ee:	41 0f b6 79 34       	movzbl 0x34(%r9),%edi
+   114f3:	45 0f b6 41 35       	movzbl 0x35(%r9),%r8d
+   114f8:	40 84 ff             	test   %dil,%dil
+   114fb:	0f 85 10 ff ff ff    	jne    11411 <zbtIndexScanSlot+0x5e1>
+   11501:	45 31 d2             	xor    %r10d,%r10d
+   11504:	e9 d4 fc ff ff       	jmp    111dd <zbtIndexScanSlot+0x3ad>
+   11509:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   1150d:	e9 12 fd ff ff       	jmp    11224 <zbtIndexScanSlot+0x3f4>
+   11512:	48 8d 3d 54 21 00 00 	lea    0x2154(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   11519:	48 8d 15 c4 26 00 00 	lea    0x26c4(%rip),%rdx        # 13be4 <_IO_stdin_used+0xbe4>
+   11520:	be 66 10 00 00       	mov    $0x1066,%esi
+   11525:	e8 06 02 00 00       	call   11730 <standalone_panic>
+   1152a:	4c 8b 55 c0          	mov    -0x40(%rbp),%r10
+   1152e:	31 c0                	xor    %eax,%eax
+   11530:	48 89 45 b8          	mov    %rax,-0x48(%rbp)
+   11534:	4c 0b 55 b8          	or     -0x48(%rbp),%r10
+   11538:	75 18                	jne    11552 <zbtIndexScanSlot+0x722>
+   1153a:	48 8d 3d 2c 21 00 00 	lea    0x212c(%rip),%rdi        # 1366d <_IO_stdin_used+0x66d>
+   11541:	48 8d 15 a7 26 00 00 	lea    0x26a7(%rip),%rdx        # 13bef <_IO_stdin_used+0xbef>
+   11548:	be 7d 10 00 00       	mov    $0x107d,%esi
+   1154d:	e8 de 01 00 00       	call   11730 <standalone_panic>
+   11552:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+   11556:	e9 ac fa ff ff       	jmp    11007 <zbtIndexScanSlot+0x1d7>
+   1155b:	84 d2                	test   %dl,%dl
+   1155d:	0f 84 a5 01 00 00    	je     11708 <zbtIndexScanSlot+0x8d8>
+   11563:	89 c2                	mov    %eax,%edx
+   11565:	f7 d2                	not    %edx
+   11567:	81 ca 07 ff ff ff    	or     $0xffffff07,%edx
+   1156d:	01 c2                	add    %eax,%edx
+   1156f:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   11573:	eb 19                	jmp    1158e <zbtIndexScanSlot+0x75e>
+   11575:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   1157c:	00 00 00 00
+   11580:	48 ff c6             	inc    %rsi
+   11583:	ff ca                	dec    %edx
+   11585:	48 39 c6             	cmp    %rax,%rsi
+   11588:	0f 83 de fb ff ff    	jae    1116c <zbtIndexScanSlot+0x33c>
+   1158e:	44 38 24 31          	cmp    %r12b,(%rcx,%rsi,1)
+   11592:	75 ec                	jne    11580 <zbtIndexScanSlot+0x750>
+   11594:	44 89 ff             	mov    %r15d,%edi
+   11597:	41 ff c7             	inc    %r15d
+   1159a:	89 94 bd 00 fe ff ff 	mov    %edx,-0x200(%rbp,%rdi,4)
+   115a1:	eb dd                	jmp    11580 <zbtIndexScanSlot+0x750>
+   115a3:	31 ff                	xor    %edi,%edi
+   115a5:	45 89 e0             	mov    %r12d,%r8d
+   115a8:	41 80 f0 01          	xor    $0x1,%r8b
+   115ac:	45 31 ff             	xor    %r15d,%r15d
+   115af:	eb 25                	jmp    115d6 <zbtIndexScanSlot+0x7a6>
+   115b1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   115b8:	0f 1f 84 00 00 00 00
+   115bf:	00
+   115c0:	48 ff c7             	inc    %rdi
+   115c3:	48 39 f7             	cmp    %rsi,%rdi
+   115c6:	49 bd ff fe fe fe fe 	movabs $0xfefefefefefefeff,%r13
+   115cd:	fe fe fe
+   115d0:	0f 84 62 fa ff ff    	je     11038 <zbtIndexScanSlot+0x208>
+   115d6:	4c 8b 14 f9          	mov    (%rcx,%rdi,8),%r10
+   115da:	4d 89 d3             	mov    %r10,%r11
+   115dd:	49 31 db             	xor    %rbx,%r11
+   115e0:	4d 89 d9             	mov    %r11,%r9
+   115e3:	49 f7 d1             	not    %r9
+   115e6:	4d 01 eb             	add    %r13,%r11
+   115e9:	49 be 80 80 80 80 80 	movabs $0x8080808080808080,%r14
+   115f0:	80 80 80
+   115f3:	4d 21 f1             	and    %r14,%r9
+   115f6:	4d 21 d9             	and    %r11,%r9
+   115f9:	41 80 fc 01          	cmp    $0x1,%r12b
+   115fd:	75 10                	jne    1160f <zbtIndexScanSlot+0x7df>
+   115ff:	4f 8d 1c 2a          	lea    (%r10,%r13,1),%r11
+   11603:	49 f7 d2             	not    %r10
+   11606:	4d 21 f2             	and    %r14,%r10
+   11609:	4d 21 da             	and    %r11,%r10
+   1160c:	4d 09 d1             	or     %r10,%r9
+   1160f:	4d 85 c9             	test   %r9,%r9
+   11612:	74 ac                	je     115c0 <zbtIndexScanSlot+0x790>
+   11614:	4c 8d 14 fd 00 00 00 	lea    0x0(,%rdi,8),%r10
+   1161b:	00
+   1161c:	eb 19                	jmp    11637 <zbtIndexScanSlot+0x807>
+   1161e:	66 90                	xchg   %ax,%ax
+   11620:	45 89 fe             	mov    %r15d,%r14d
+   11623:	41 ff c7             	inc    %r15d
+   11626:	46 89 9c b5 00 fe ff 	mov    %r11d,-0x200(%rbp,%r14,4)
+   1162d:	ff
+   1162e:	4d 8d 59 ff          	lea    -0x1(%r9),%r11
+   11632:	4d 21 d9             	and    %r11,%r9
+   11635:	74 89                	je     115c0 <zbtIndexScanSlot+0x790>
+   11637:	f3 4d 0f bc d9       	tzcnt  %r9,%r11
+   1163c:	41 c1 eb 03          	shr    $0x3,%r11d
+   11640:	45 09 d3             	or     %r10d,%r11d
+   11643:	46 0f b6 2c 19       	movzbl (%rcx,%r11,1),%r13d
+   11648:	45 89 c6             	mov    %r8d,%r14d
+   1164b:	45 08 ee             	or     %r13b,%r14b
+   1164e:	41 0f 94 c6          	sete   %r14b
+   11652:	45 38 e5             	cmp    %r12b,%r13b
+   11655:	74 c9                	je     11620 <zbtIndexScanSlot+0x7f0>
+   11657:	45 84 f6             	test   %r14b,%r14b
+   1165a:	74 d2                	je     1162e <zbtIndexScanSlot+0x7fe>
+   1165c:	eb c2                	jmp    11620 <zbtIndexScanSlot+0x7f0>
+   1165e:	45 31 c0             	xor    %r8d,%r8d
+   11661:	45 31 ff             	xor    %r15d,%r15d
+   11664:	eb 16                	jmp    1167c <zbtIndexScanSlot+0x84c>
+   11666:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   1166d:	00 00 00
+   11670:	49 ff c0             	inc    %r8
+   11673:	49 39 f0             	cmp    %rsi,%r8
+   11676:	0f 84 bc f9 ff ff    	je     11038 <zbtIndexScanSlot+0x208>
+   1167c:	4e 8b 14 c1          	mov    (%rcx,%r8,8),%r10
+   11680:	49 31 da             	xor    %rbx,%r10
+   11683:	4d 89 d1             	mov    %r10,%r9
+   11686:	49 f7 d1             	not    %r9
+   11689:	4d 01 ea             	add    %r13,%r10
+   1168c:	49 bb 80 80 80 80 80 	movabs $0x8080808080808080,%r11
+   11693:	80 80 80
+   11696:	4d 21 d9             	and    %r11,%r9
+   11699:	4d 21 d1             	and    %r10,%r9
+   1169c:	74 d2                	je     11670 <zbtIndexScanSlot+0x840>
+   1169e:	4e 8d 14 c5 00 00 00 	lea    0x0(,%r8,8),%r10
+   116a5:	00
+   116a6:	eb 11                	jmp    116b9 <zbtIndexScanSlot+0x889>
+   116a8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   116af:	00
+   116b0:	4d 8d 59 ff          	lea    -0x1(%r9),%r11
+   116b4:	4d 21 d9             	and    %r11,%r9
+   116b7:	74 b7                	je     11670 <zbtIndexScanSlot+0x840>
+   116b9:	f3 4d 0f bc d9       	tzcnt  %r9,%r11
+   116be:	41 c1 eb 03          	shr    $0x3,%r11d
+   116c2:	45 09 d3             	or     %r10d,%r11d
+   116c5:	46 38 24 19          	cmp    %r12b,(%rcx,%r11,1)
+   116c9:	75 e5                	jne    116b0 <zbtIndexScanSlot+0x880>
+   116cb:	41 89 fe             	mov    %edi,%r14d
+   116ce:	45 29 de             	sub    %r11d,%r14d
+   116d1:	45 89 fb             	mov    %r15d,%r11d
+   116d4:	41 ff c7             	inc    %r15d
+   116d7:	46 89 b4 9d 00 fe ff 	mov    %r14d,-0x200(%rbp,%r11,4)
+   116de:	ff
+   116df:	eb cf                	jmp    116b0 <zbtIndexScanSlot+0x880>
+   116e1:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   116e5:	eb 0c                	jmp    116f3 <zbtIndexScanSlot+0x8c3>
+   116e7:	48 ff c6             	inc    %rsi
+   116ea:	48 39 c6             	cmp    %rax,%rsi
+   116ed:	0f 83 79 fa ff ff    	jae    1116c <zbtIndexScanSlot+0x33c>
+   116f3:	80 3c 31 01          	cmpb   $0x1,(%rcx,%rsi,1)
+   116f7:	77 ee                	ja     116e7 <zbtIndexScanSlot+0x8b7>
+   116f9:	44 89 fa             	mov    %r15d,%edx
+   116fc:	41 ff c7             	inc    %r15d
+   116ff:	89 b4 95 00 fe ff ff 	mov    %esi,-0x200(%rbp,%rdx,4)
+   11706:	eb df                	jmp    116e7 <zbtIndexScanSlot+0x8b7>
+   11708:	4c 8b 4d c8          	mov    -0x38(%rbp),%r9
+   1170c:	eb 0c                	jmp    1171a <zbtIndexScanSlot+0x8ea>
+   1170e:	48 ff c6             	inc    %rsi
+   11711:	48 39 c6             	cmp    %rax,%rsi
+   11714:	0f 83 52 fa ff ff    	jae    1116c <zbtIndexScanSlot+0x33c>
+   1171a:	44 38 24 31          	cmp    %r12b,(%rcx,%rsi,1)
+   1171e:	75 ee                	jne    1170e <zbtIndexScanSlot+0x8de>
+   11720:	44 89 fa             	mov    %r15d,%edx
+   11723:	41 ff c7             	inc    %r15d
+   11726:	89 b4 95 00 fe ff ff 	mov    %esi,-0x200(%rbp,%rdx,4)
+   1172d:	eb df                	jmp    1170e <zbtIndexScanSlot+0x8de>
+
+Disassembly of section .fini:
