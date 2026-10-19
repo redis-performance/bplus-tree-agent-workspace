@@ -103,3 +103,17 @@ No timing or source acceptance follows from this referee validation.
 A targeted publication check scanned25,819 text files across main and three worker
 worktrees for the known private endpoints/key path; no matches. This is a targeted
 check, not a comprehensive secret audit.
+
+
+## 19 October 04:01 UTC — Native ARM scan chair selects NONE
+
+All three actual independent proposals identify bounded native-vector all-match
+comparison as plausible, conditional on qualification. Fresh5M-op controls fail
+first1M block at+1.889270895%;100K qualifies. Root independently verified48 raw rows,
+12 blocks and107 sealed files, exactsource/referee/driver hashes, serialCPU2, callbacks,
+checksums and owned memory. NONE before implementation: no retry or failed-row removal.
+All proposals/profile/controls remain. No candidate or new measured population.
+[Chair](reviews/aws-arm-native-scan-population/selection.md),
+[raw audit](reviews/aws-arm-native-scan-aa-audit.json).
+Intel B remains in follow-up; independent untouched-seed confirmation will run only
+after its current baseline guard job explicitly hands over the idle runner.

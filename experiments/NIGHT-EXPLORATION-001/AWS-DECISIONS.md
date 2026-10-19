@@ -18,9 +18,9 @@ The exact iterator A/B patches also completed a separate ARM replication: PARK
 because both primary controls failed; no qualified architecture confirmation.
 
 Active work: Intel completed qualified exact scan A/B primary replication; B advances
-to guards under the predeclared source preference. ARM is preparing focused scan
-guards. AMD deletion planning stopped at NONE after failed1M controls. Neither
-replication is an accepted optimization.
+to guards under the predeclared source preference. Focused scan guards are frozen
+and independently reviewed. AMD deletion and native ARM scan planning stopped at
+NONE after failed1M controls. Neither replication is an accepted optimization.
 The [scan chair decision](reviews/aws-amd-scan-population/selection.md) preserves the
 three separately authored proposals and implementation assignments.
 Failed controls cannot be overridden by favorable candidate timings. See the
@@ -235,3 +235,17 @@ population. All proposals and baseline profile/census/control evidence are retai
 AWS counts remain7 populations (0 accepted/4 rejected/3 parked), plus a parked ARM
 replication and Intel scan B follow-up. Source NONE.
 [Chair and participant evidence](reviews/aws-amd-delete-population/selection.md).
+
+
+## 19 October 04:01 UTC — Native ARM scan chair selects NONE
+
+All three actual independent proposals identify bounded native-vector all-match
+comparison as plausible, conditional on qualification. Fresh5M-op controls fail
+first1M block at+1.889270895%;100K qualifies. Root independently verified48 raw rows,
+12 blocks and107 sealed files, exactsource/referee/driver hashes, serialCPU2, callbacks,
+checksums and owned memory. NONE before implementation: no retry or failed-row removal.
+All proposals/profile/controls remain. No candidate or new measured population.
+[Chair](reviews/aws-arm-native-scan-population/selection.md),
+[raw audit](reviews/aws-arm-native-scan-aa-audit.json).
+Intel B remains in follow-up; independent untouched-seed confirmation will run only
+after its current baseline guard job explicitly hands over the idle runner.
