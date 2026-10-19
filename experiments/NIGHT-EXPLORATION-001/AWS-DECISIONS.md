@@ -302,3 +302,36 @@ narrow scope. Matched profiles and focused/supplemental guards continue serially
 Root verified the independent reports against their immutable publication.
 [Audit summary](reviews/aws-intel-original-guards-independent-summary.json).
 Measured AWS populations remain7:0 accepted/4 rejected/3 parked; no new population.
+
+
+## 19 October 04:42 UTC — Profile, portability and corrected-baseline checkpoints
+
+Independent review5bffe4d28 reconstructs all120 matched Intel captures. Helper
+samples base→B are337→316 at100K and419→316 at1M, with matched callback denominators.
+The21-sample100K gap is coarse;1M is directionally stronger. SSE2 codegen is present,
+but these are captured-text samples from diagnostic layouts, not exact cycles or
+a quantitative explanation of elapsed gains. All24 diagnostic and22 original
+post-phase hashes match. The24 unresolved original guards still prevent adoption.
+[Independent profile summary](reviews/aws-intel-matched-profile-independent-summary.json).
+
+Exact B also passes native ARM original43 tests and V2 oracle299664 checks in both
+release and ASan/UBSan through the natural portable fallback. Root verified the
+24-file seal, exact source identity and14.2-second bounded CPU2 job. This is
+correctness only, not performance qualification or big-endian coverage.
+[Portability review](reviews/aws-selected-b-native-arm-review.json).
+
+Separate corrected-adapter baselines on13e459ff8 now complete on AMD and ARM. Root
+independently reconstructs120 processes/960 rows/240 blocks per host, exact schedules,
+raw hashes, source/runner identities, validation commands, paired memory and summaries.
+AMD qualifies11/40:11short plus18other noisy cells. ARM qualifies21/40:11short plus
+8other noisy cells. All seven native/sanitizer stages pass on each host. M6's separate
+corrected baseline also audits successfully with5/40 qualified; Intel remains queued.
+[AMD raw audit](reviews/corrected-aws-amd-baseline-audit.json),
+[ARM raw audit](reviews/corrected-aws-arm-baseline-audit.json).
+
+AMD and ARM will reassess scan only under the corrected identity, starting with
+separately frozen baseline profiles and48-row A/A controls at5M requested operations,
+100K/1M members and seeds401–403 twice. No candidate timing is yet authorized.
+Failed controls stop that new comparison without retry. These new harness results
+do not repair or replace any original8fab511e decision. Source NONE; measured
+AWS population counts remain7:0 accepted/4 rejected/3 parked.

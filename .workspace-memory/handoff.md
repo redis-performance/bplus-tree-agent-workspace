@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 04:33 UTC
+## Current AWS overnight checkpoint — 19 October 04:42 UTC
 
 Campaign remains active until 19 October, 09:00 Lisbon / 08:00 UTC. No new experiments
 start after 07:15 UTC. Source remains original 8fab511e. Completed measured populations:
@@ -17,11 +17,14 @@ referee ec21ce601 for fully reversed leaves, active resize and member boundaries
 Root audited 2,447 sealed files, 378 commands, 90 fixture hashes and 16 negative
 controls; its fixed 180/480/480-second performance phases are queued on Intel
 after the existing queue, with separate 600-second preparation. No timing yet.
-Intel matched-profile v2 is frozen before execution at 120 captures / 600 seconds.
+Intel matched-profile v2 completed 120 captures and independent review; direction
+supports the mechanism most clearly at 1M, without a precise elapsed/cycle claim.
 All AWS builds retain the original adapter; the separately reviewed main/M6
 `_Noreturn` correction does not change their frozen referee. Separate corrected-adapter
-baseline matrices from 13e459ff8 are queued on all three AWS hosts after their
-current jobs, with new detached checkouts and no reinterpretation of old controls.
+baseline matrices from 13e459ff8 now qualify 11/40 AMD and 21/40 ARM cases;
+Intel remains queued. AMD/ARM prepare separately frozen scan baseline profiles and
+fresh A/A under this distinct adapter. No candidate timing is authorized there yet,
+and old controls/decisions cannot be reinterpreted.
 
 AMD and ARM hosts remain reserved, not released. Three OSS coordinators were
 stopped for this campaign. The 08:00 UTC host timers and independent live auditor are

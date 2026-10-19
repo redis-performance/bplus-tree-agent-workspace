@@ -36,8 +36,9 @@ and abort check; tree source and benchmark loops are unchanged.
 [fresh M6 baseline](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) pass correctness/raw audits.
 Only **5/40 cells qualify**, and **14 have short windows**. The five-host chart below
 retains the original adapter on every host; corrected-adapter rows have their own identity.
-Separate corrected-adapter baseline matrices are queued on the three AWS hosts;
-they will preserve the earlier baselines and all existing experiment decisions.
+Separate corrected-adapter baselines now qualify **11/40 AMD** and **21/40 ARM**
+cases; Intel remains queued. All seven validation stages pass on both hosts.
+Earlier baselines and experiment decisions retain their original adapter identity.
 
 ## Build and test
 
@@ -184,7 +185,10 @@ below preserves that discovery checkpoint.
 original guard block. One small iteration case has mixed effects, including +1.33%.
 Another 23 cases have short or noisy controls, leaving **24 of 80 cases unresolved**.
 [Independent guard audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-original-guards-independent-summary.json).
-Matched profiles and separate focused guards continue. The tree source stays unchanged.
+Matched profiles provide directional support, strongest at 1M; the 100K sample gap
+is too coarse for a precise explanation. Separate focused guards continue.
+[Profile review](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-matched-profile-independent-summary.json).
+The tree source stays unchanged.
 [Independent raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-intel-scan-raw-audit.json),
 [decision and limitations](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md),
 [independent adversarial review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/27fed33a7/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/010-intel-scan-review/ADVERSARIAL-REVIEW.md).
