@@ -1,0 +1,3 @@
+# Read-only auditor correction
+
+Attempt001 stopped before reading scientific CSVs at its assembly hash join: it compared the codegen gate's raw assembly hash directly with the published, path-redacted/whitespace-normalized text. Gate hashes match validation/PUBLICATION.json raw_sha256; published files match public_sha256. Corrected auditor preserves both identities and explicitly relies on the retained mapping for unavailable raw bytes. No benchmark, producer data or source changed; this is a local read-only audit correction. The failed script is retained as audit-attempt001.py.txt. Original assertion: `sha(P+"validation/"+v+"-asm.stdout")==h` failed for actual assembly.
