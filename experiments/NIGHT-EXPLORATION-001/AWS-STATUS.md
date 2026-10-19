@@ -539,3 +539,20 @@ frequency metadata; the observer runs outside CPU2's sibling set. It is not an A
 retry or a causal explanation for earlier noise. [Frozen plan](ambient-observation/PLAN.md).
 ARM separately prepares a corrected-source score-only iterator baseline diagnosis;
 no launch before review and observation completion.
+
+
+## 19 October 06:26 UTC — observations complete; ARM baseline profile granted
+
+All three bounded idle observations complete with183 retained snapshots and180
+valid intervals. CPU2 non-idle activity is0% Intel,0.0700% AMD and0% ARM, with no
+observed steal; these are current idle windows, not explanations for historical
+benchmark noise. [Raw observations and limitations](ambient-observation/README.md).
+A fresh live inspection verifies no owned units or cgroup processes on all hosts;
+OSS coordinators remain stopped and release timers still target08:00UTC.
+[Idle handoff](reviews/aws-post-observer-idle-handoff.json).
+
+ARM024 now has a profile-only600s grant after root and independent AMD adaptation
+review. It uses exact corrected source, actual013 baseline, native scoped controls
+and fixed50M score-only iterator visits. A/A still requires separate raw review and
+grant; no candidate work is authorized.
+[Execution review](reviews/aws-arm-iterator-execution-review.json).
