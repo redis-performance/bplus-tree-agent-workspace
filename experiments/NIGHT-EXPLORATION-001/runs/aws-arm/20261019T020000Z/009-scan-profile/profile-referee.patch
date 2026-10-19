@@ -1,0 +1,42 @@
+--- original/bench/microbench.c
++++ diagnostic/profile-scoped-fifo2.c
+@@ -7,6 +7,22 @@
+ #include <string.h>
+ #include <time.h>
+ #include <errno.h>
++#include <unistd.h>
++#include <fcntl.h>
++static void profile_control(const char *cmd) {
++    int ctl=open(getenv("BPLUS_PERF_CTL"),O_WRONLY);
++    int ack=open(getenv("BPLUS_PERF_ACK"),O_RDONLY);
++    serverAssert(ctl>=0 && ack>=0);
++    serverAssert(write(ctl,cmd,strlen(cmd))==(ssize_t)strlen(cmd));
++    char reply[4]; size_t used=0;
++    while(used<4) {
++        char byte; ssize_t n=read(ack,&byte,1); serverAssert(n==1);
++        if (byte == '\0' && used == 0) continue;
++        reply[used++]=byte;
++    }
++    serverAssert(!memcmp(reply,"ack\n",4));
++    close(ctl);close(ack);
++}
+ #if defined(__APPLE__)
+ #include <pthread.h>
+ #include <pthread/qos.h>
+@@ -167,6 +183,8 @@
+         const char *qos_start = qos_reported(&relpri_start);
+         int cpu_start = cpu_id();
+         int64_t thread_start = thread_ns();
++        int enable_profile = getenv("PROFILE_DISABLE") == NULL;
++        if (enable_profile) profile_control("enable\n");
+         uint64_t start = now_ns();
+         if (c == 0) {
+             for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+@@ -207,6 +225,7 @@
+             for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[order[i]]);
+         }
+         uint64_t elapsed = now_ns() - start;
++        if (enable_profile) profile_control("disable\n");
+         int64_t thread_end = thread_ns();
+         int cpu_end = cpu_id();
+         const char *qos_end = qos_reported(&relpri_end);
