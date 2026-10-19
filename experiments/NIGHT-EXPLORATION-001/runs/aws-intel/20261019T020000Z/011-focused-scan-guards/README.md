@@ -113,3 +113,5 @@ Coverage limits remain: descending fixtures contain only64 reversed members, no 
 [Raw B rows](b.json), [all effects](b-audit.json), [focused post-hashes](post-b-hashes.json), [original post-hashes](original-post-b-hashes.json). No source adoption or new optimization population.
 
 Independent AMD review223d6d7de reconstructed all2,052 calibration/AA/B processes and432 ABBA effects without using this worker’s audit code. It verified the22 qualified passes,14 retained noisy controls,36 actual fixture files and24 focused+22 original post-phase hashes. See AMD022 in the same campaign. PARK/source NONE remains unchanged.
+
+Final follow-up: `../014-scan-supplement/DECISION.json` rejects the selected old-source Intel SSE2 B replication on a qualified 319-byte signed-zero reversed-leaf guard. Earlier measurements and qualification labels remain unchanged; no A fallback or source adoption.

@@ -1,14 +1,13 @@
 {
   "status": "running",
-  "updated_utc": "2026-10-19T05:27:48.219557+00:00",
+  "updated_utc": "2026-10-19T05:32:10.024207+00:00",
   "deadline": "2026-10-19T08:00:00Z",
-  "phase": "Supplemental A/A completes 720 raw processes and 180 blocks in 157.126 seconds under 480 seconds. Ten of 30 cells qualify; 0 short cells. Exact frozen schedule, serial CPU2, model/checksum/owned bytes and 38 post-phase hashes pass. All 30 cells remain in the frozen full B diagnostic, including 20 unresolved controls. Overall source NONE/PARK remains.",
+  "phase": "Supplemental B completes 720 processes/180 blocks in 154.887 seconds under 480 seconds. Eight of ten qualified guard cells pass; trim/319-byte/signed-zero regresses in all six blocks (+1.566% to +6.877%, median +4.931%), so the old-source Intel SSE2 B replication is REJECTED. Qualified resize/319-byte/signed-zero is mixed; twenty noisy controls remain. Exact CPU2/serial schedule, checksums/owned bytes and 38 supplemental plus 22 original post-phase hashes pass. Source adoption NONE, no alternate A retry. Corrected-source baseline-only 016 remains a separate approved diagnostic.",
   "model": "GPT-6 family; exact backend unknown",
   "token_cost": "unknown",
-  "runner_workload": "014 full supplemental B queued",
+  "runner_workload": "idle after supplemental B; corrected profile queued",
   "prepared_phases": [
-    "014 full supplemental B guard diagnostic: 720 processes/480 seconds after completed A/A, retaining all qualification labels",
-    "016 corrected source baseline-only profile: 60 captures/600 seconds then 48-row A/A/300 seconds; frozen 6ed4d361e, after 014"
+    "016 corrected-source baseline-only profile: 60 captures/600 seconds, then 48-row A/A/300 seconds; root reviewed 6ed4d361e"
   ],
   "owned_jobs_active": false,
   "full_original_guard_qualified_cells": 57,
@@ -24,9 +23,13 @@
     "008 full original AA/B:both120processes/960rows;PARK24/80 unresolved",
     "010 matched profilev2:120captures,control/raw/posthash auditPASS",
     "011 focused:673validationcommands,324calibrationrows,864AA+864B;22 qualifiedguardpasses,14 noisycontrols;PARK",
-    "013 corrected baseline: 120 processes/960 rows; 10/40 cells qualify, 11 short; source NONE"
+    "013 corrected baseline: 120 processes/960 rows; 10/40 cells qualify, 11 short; source NONE",
+    "014 supplemental: 756 validation commands, 684 calibration rows, 720 AA+720 B; 10 qualified controls, 8 guards pass, one demonstrated regression; REJECT/NONE"
   ],
-  "active_phase": "014 supplemental B",
+  "active_phase": "016 corrected baseline-only profile queued",
   "supplemental_qualified_cells": 10,
-  "supplemental_total_cells": 30
+  "supplemental_total_cells": 30,
+  "supplemental_guard_pass_cells": 8,
+  "supplemental_demonstrated_regressions": 1,
+  "old_source_scan_decision": "REJECT"
 }

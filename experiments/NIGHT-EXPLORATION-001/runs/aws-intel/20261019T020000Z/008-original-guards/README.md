@@ -24,3 +24,5 @@ After the helper ended04:28:45UTC, a read-only check verified22 frozen baseline/
 Next: reviewed matched-profilev2 (120 captures/600s, seeds301–303), then independently reviewed focused validation/guards serially. Missing active-resize performance, broad reversal, wide IDs and key boundaries remain explicit. This architecture replication adds no optimization population. Intel local counts remain2 measured sequential populations,0 accepted/1 rejected/1 parked,6 retained patches; scan source adoption NONE.
 
 Evidence: [original A/A result](AA-RESULT.md), [B plan](B-PLAN.md), [freeze](b-freeze.json), [raw processes](b-comparison.json), [all80 cells and240 effects](b-audit.json), [post-phase hashes](post-b-hashes.json). Exact backend/model and token costs unknown; this worker authored the comparison, root/AMD audit separately.
+
+Final follow-up: `../014-scan-supplement/DECISION.json` rejects the selected old-source Intel SSE2 B replication on a qualified 319-byte signed-zero reversed-leaf guard. Earlier measurements and qualification labels remain unchanged; no A fallback or source adoption.

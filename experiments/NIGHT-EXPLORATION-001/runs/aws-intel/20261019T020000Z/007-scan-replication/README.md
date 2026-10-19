@@ -22,3 +22,5 @@ Evidence: [plan](SCREEN-PLAN.md), [controls](AA-REPORT.md), [validation](VALIDAT
 ## Independent primary confirmation
 
 AMD agent independently authored and executed held-out201–203 controls and B confirmation after explicit idle handoff. All12 A/A blocks qualify and all12 B blocks pass; B medians−6.783%100K/−3.656%1M, minimum block gain3.580%. This closes narrow independent primary confirmation only. Full original A/A qualifies57/80 cells; guards/profile/length/resize/reversal gaps retain **PARK/source NONE**. [Immutable independent report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/27fed33a7/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/012-intel-confirmation/RESULT.md).
+
+Final follow-up: `../014-scan-supplement/DECISION.json` rejects the selected old-source Intel SSE2 B replication on a qualified 319-byte signed-zero reversed-leaf guard. Earlier measurements and qualification labels remain unchanged; no A fallback or source adoption.
