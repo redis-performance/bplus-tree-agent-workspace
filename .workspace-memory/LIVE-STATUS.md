@@ -135,3 +135,16 @@ AMD full-chunk candidates all miss2% in every primary block. SourceNONE. AWS tot
 5completed measured populations:0accepted/4rejected/1parked. Intel iterator screen
 continues; ARM public-update profiling and AMD SDS-length assembly inspection are
 new diagnostics, not selected winners. See central AWS-DECISIONS.md for exact links.
+
+
+## 19 October03:03 UTC — Intel iterator parked; ARM replication underway
+
+Intel ITERATOR-CACHE-001 fixed300s screen stops566/576 processes,141 complete blocks
++2 trailing rows. A/B conditional primary leads, C slower;100K A/A fails and full
+guards/confirmation remain pending. Root independent raw audit verifies192 A/A and
+566 comparison rows, exact schedule prefix, hashes, serial CPU2 windows and fixture/
+owned-byte parity. Source NONE. AWS totals6 measured populations:0accepted/4rejected/
+2parked. ARM separately profiles exact A/B for possible native replication; AMD
+investigates index scan after inner-child chairNONE. Live workers/decisions are in
+experiments/NIGHT-EXPLORATION-001. Release timers remain08:00UTC; read-only auditor
+scheduled08:00:20UTC, actual restoration still unverified before deadline.

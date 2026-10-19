@@ -21,7 +21,7 @@ Each host publishes its completed decisions and evidence on a separate branch.
 Source adoption remains NONE.
 <!-- AWS-NIGHT-END -->
 
-AWS completed measured populations: **5 — 0 accepted / 4 rejected / 1 parked**.
+AWS completed measured populations: **6 — 0 accepted / 4 rejected / 2 parked**.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
 ## Build and test

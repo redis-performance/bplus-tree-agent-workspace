@@ -625,3 +625,28 @@ or fresh confirmation were warranted. All patches remain available; source **NON
 
 AWS completed measured populations: **5 — 0 accepted / 4 rejected / 1 parked**.
 Intel's iterator population is ongoing. Unmeasured chair-NONE diagnostics are excluded.
+
+
+## 19 October — AWS Intel ITERATOR-CACHE-001: PARK / NONE
+
+The fixed exploratory screen completed566/576 processes,141 complete ABBA blocks
+and two trailing rows before its300-second ceiling. No extension or repaired timing
+schedule followed. Pointer-cache A and32-bit-offset B show conditional primary leads:
+100K medians−7.574/−6.023%,1M−6.559/−4.643%. The100K primary A/A fails; fractional
+guards have noisy slowdowns, and the last1M block is incomplete for all variants.
+16-bit-offset C is observed slower in forward/full and score-only cases. No winner.
+A increases64-bit iterator state16→24 bytes; B/C remain16. Tree-owned bytes match.
+
+All original43 tests pass per source/native-sanitizer build, plus1,920 iterator
+fixtures/source and28,192 pre-screen state checks/build. A separate additive oracle
+passes89,428 total checks/build, including direction toggles and mutation followed
+by explicit reinitialization. Two missing-reset fault controls are detected. Root
+independently reconstructs192 A/A and566 comparison rows, verifies the exact frozen
+schedule prefix, hashes, serial windows, CPU2, fixture/checksum and owned-byte parity.
+Full performance guards, fresh independent confirmation and acceptance review remain
+pending. ARM is separately profiling exact retained A/B patches for possible native
+replication; its measurements cannot repair this Intel schedule. Source remains NONE.
+
+AWS completed measured populations: **6 — 0 accepted / 4 rejected / 2 parked**.
+Unmeasured diagnostics and architecture replications are not new implementation
+populations. Decision: Intel branch `f320d3f67`.
