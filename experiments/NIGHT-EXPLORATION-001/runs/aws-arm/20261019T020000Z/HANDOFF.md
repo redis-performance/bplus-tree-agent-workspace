@@ -1,3 +1,11 @@
+# Latest decision and diagnosis — 2026-10-19T05:51:35.827373+00:00
+
+2026-10-19T05:51:35.827373+00:00: Root021 chair NONE after three actual independent proposals (ARM conditional dispatch; AMD/Intel NONE), no implementation.022 read-only baseline attribution partitions209 exact instructions exclusively: word-mask construction10.79/13.68%, byte recheck5.47/3.17%, position output2.06/1.18%; optional forward-fold subset only3.014/1.989% and nested, not additive. No new workload/source hypothesis, counts unchanged, runner idle.
+
+[Exclusive baseline attribution](022-baseline-mask-attribution/README.md). Previous entries below are chronological history.
+
+---
+
 # Latest controls update — 2026-10-19T05:42:51.378775+00:00
 
 2026-10-19T05:42:51.378775+00:00: Fresh020 controls completed48 rows/12 blocks in61.6s;100K and1M allsix±1% gates pass, min417.860/531.751ms. Exact8694 unchanged, no retry.021 common packet includes severe017 regressions,18static/19sampled evidence, independent AMD profile review45ecc704e, and explicit caution that~17% predicate share does not establish enough recoverable work to beat baseline. No proposal/candidate work yet; runner idle awaiting root.
