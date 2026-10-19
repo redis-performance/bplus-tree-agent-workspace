@@ -1389,3 +1389,12 @@ Root and independent AMD raw audits pass; full rows and charts are committed. Or
 operation controls are running under a separate 600s grant. No guard, confirmation or
 profile result is implied; source NONE and historical PARK remain. Eight historical AWS
 populations stay 0 accepted / 5 rejected / 3 parked; this continuation adds no population.
+
+### ARM follow-up: original control gate PARK, 09:17 UTC
+
+[Complete raw audit](ARM-MASK-FOLLOWUP-001/ORIGINAL-AA-ROOT-AUDIT.json): 120 processes,
+960 rows, 18/29 required cells qualify; 11 fail precision, with no short required window.
+All 11 predeclared diagnostic cells are short. Independent Intel review agrees.
+Held-out confirmation is ineligible; fixed diagnostic comparisons retain all cases
+without retries or retuning. Primary −7.78% / −7.21% remains scoped evidence, not adoption.
+Source NONE; historical population counts unchanged.

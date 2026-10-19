@@ -1,11 +1,12 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; fresh primary gain reproduced, original-operation controls granted.**
-All 12 primary blocks pass: median elapsed changes −7.78% at 100K and −7.21% at 1M,
-with identical tree-owned bytes. Root and AMD raw audits agree. One 600s job may run
-120 baseline-only processes / 960 rows across the original 40-case matrix. Regression
-guards, confirmation and profile remain pending; source NONE. Restoration is armed
-for 10:15 UTC / 11:15 Lisbon. [Current results](RESULTS.md).
+**PARK; fixed original-operation diagnostic comparison granted.** Fresh primary gain
+remains −7.78% / −7.21% elapsed, but only 18 of 29 required original controls qualify.
+Eleven fail the ±1% precision gate; none of those is below 10ms. All 11 prospectively
+declared diagnostics have short windows. Root and Intel audits agree. Held-out
+confirmation is ineligible. The fixed 120-process comparison may run once under 600s;
+unqualified cases cannot establish a calibrated gain or regression. Source NONE.
+ARM lease remains active; hard handback at 10:15 UTC / 11:15 Lisbon. [Results](RESULTS.md).
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 
