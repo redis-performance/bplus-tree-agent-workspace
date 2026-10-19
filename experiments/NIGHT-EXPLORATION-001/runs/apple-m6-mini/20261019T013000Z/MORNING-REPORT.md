@@ -1,6 +1,6 @@
 # M6 overnight evidence — 19 October 2026
 
-Checkpoint at 06:41 UTC / 07:41 Lisbon; final audit and reporting continue to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
+Checkpoint at 06:49 UTC / 07:49 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
 
 The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
 
@@ -12,7 +12,7 @@ The tree source remains unchanged. There is no accepted tree optimization. The s
 | [Corrected iterator profile](013-corrected-iterator-profile/RESULTS.md) | 16 sufficient captures / 937 observations; no normal iterator frame | Sample locations are not cycles or speed savings |
 | [Counter capability](016-cpu-profiler-capability/RESULTS.md) | OS denied KPC configuration | Hardware cycle weights remain unqualified; no permission change or retry |
 | [Exact decoder replications](018-decoder-replications/RESULTS.md) | 20,640 serial processes / 2,662,560 batches; independent audits pass | Every window below 10 ms; private fresh bulk lead stays PARK with failed controls and guard losses |
-| [Corrected member-index profile](020-member-index-profile-continuation/RESULTS.md) | 16 unique captures / 2,469 observations; every observation conserved | 10 import targets remain unknown; original metadata failure and separate repair preserved |
+| [Corrected member-index profile](020-member-index-profile-continuation/RESULTS.md) | 16 unique captures / 2,469 observations; every observation conserved | 10 import-stub observations retain unknown targets; original metadata failure and separate repair preserved |
 | [Exact NEON replication](023-neon-replication/RESULTS.md) | Validation and independent audits pass; all 48 fresh controls retained | 1M fails two controls; PARK before candidate timing, no retry |
 
 ![Latest fresh M6 scan controls](023-neon-replication/aa-controls.png)
@@ -28,3 +28,7 @@ Completed campaign counts remain 12 candidate populations (nine sequential and t
 M1's latest observed remote checkpoint remains 01:33 UTC at `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9`, reporting unresolved DNS. M6 milestones are public in Git; consumption by M1 is unverified. The main README overlays measured M1/M6/Intel/AMD/Graviton baselines and keeps the corrected-adapter series separate. No host's timings qualify another host.
 
 Resume from [STATUS](STATUS.md), exact frozen source identities and recorded decisions. Do not retry completed failed schedules, adopt a private-kernel lead, carry old-adapter controls forward or treat source NONE as a missing publication. Any future source acceptance still requires qualified controls, all applicable guards and memory checks, held-out confirmation, matched profile and independent adversarial review.
+
+The [final report review](024-final-audit/REPORT-REVIEW-A.md), [integrity audit](024-final-audit/INTEGRITY-REVIEW-B.md) and [publication audit](024-final-audit/PUBLICATION-REVIEW-C.md) pass, with the recorded editorial corrections resolved. All six source/input seals match: 1,295 overlapping pins across 879 path keys. This is not a distinct-file count or a source-acceptance review. The publication audit verifies all 15 M6 presentation assets and 105 local/Git links.
+
+[Existing clock metadata](023-neon-replication/AA-METADATA-DIAGNOSIS.md) has a [separate independent review](024-final-audit/METADATA-REVIEW-A.md). The two failed 1M blocks have thread-clock differences of −1.440359% and +1.587803%. Twenty of 48 runs have different CPU endpoints; endpoints do not establish full residency or a migration count. The original wall-clock gate and PARK decision remain unchanged. No cause or alternative qualification metric is inferred.
