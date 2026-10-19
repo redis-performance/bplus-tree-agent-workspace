@@ -1123,3 +1123,6 @@ completed evidence. No new optimization decision; population counts unchanged.
 
 
 Intel scan baseline qualification:48 held-out-seed A/A rows complete, both100K/1M controls qualify within±1% with windows>=444ms. No candidate timing or population increment. [Evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
+
+2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md

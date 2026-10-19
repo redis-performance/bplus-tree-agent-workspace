@@ -26,3 +26,5 @@
 2026-10-19T03:31:58.298738+00:00 Intel scan first A/A completed57.31s,48 rows/12 blocks, both controls qualify. Raw schedule/checksum/memory/CPU2/serial auditPASS. No retry or candidate timing; no new population.
 
 03:36UTC: Imported exact AMD A/B and V2 oracle from5594fea17; fixed96-process/300s Intel discovery schedule, B preference if both qualify, separate full guards/profile/fresh201–203 confirmation preregistered. Candidate validation running; no screen rows yet.
+
+2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.

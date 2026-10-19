@@ -802,3 +802,6 @@ completed evidence. No new optimization decision; population counts unchanged.
 
 
 19 October2026 AWS Intel iterator cache: **PARK / NONE**, fixed screen566/576 rows (141 complete blocks plus two trailing rows), budget stopped without extension. A/B conditional leads; C rejected. Intel totals: **2 measured sequential populations,0 accepted /1 rejected /1 parked;6 retained patches**. Iterator population comparison is partial. Update diagnosis NONE adds no implementation population. Source unchanged. [Evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/README.md).
+
+2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md

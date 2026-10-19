@@ -1,14 +1,20 @@
-# Intel original scan A/A — both primary controls qualify
+# Intel scan replication — B advances to guards, source NONE
 
-First Intel qualification of this target completed48 same-binary processes and12 ABBA blocks in57.31s, within the fixed300-second cap. Original uninstrumented scan,100K/1M members,16-byte members,5M requested operations,seeds101/102/103 twice. No candidate has been timed and no new implementation population is counted.
+Exact AMD A/B architecture replication completed all96 processes /24 ABBA blocks in133.45s under the fixed300-second cap. Both pass the preregistered2% improvement gate in every block at both sizes. B advances under the frozen maintenance-based preference; no A-vs-B speed superiority is claimed. **PARK pending guards, fresh confirmation, matched profiles and independent review; no source adoption.**
 
-| Size | Paired effect range | Minimum window | Qualification |
-|---|---:|---:|---|
-| 100000 | -0.850..+0.195% | 444.744ms | PASS |
-| 1000000 | -0.246..+0.137% | 595.019ms | PASS |
+| Variant | Size | Median elapsed change | Block range | Primary gate |
+|---|---:|---:|---:|---|
+| A | 100000 | -6.666% | -7.437..-5.316% | PASS6/6 |
+| A | 1000000 | -3.847% | -3.916..-3.654% | PASS6/6 |
+| B | 100000 | -6.665% | -7.817..-6.227% | PASS6/6 |
+| B | 1000000 | -3.661% | -3.832..-3.584% | PASS6/6 |
 
-Every block stays within the frozen±1% band and every window exceeds10ms. Audit reconstructs the exact48-row schedule, all12 paired effects, raw CSV identity, serial command boundaries, CPU2 start/end observations, unchanged checksum/actual operation count and exact tree-owned bytes within each block. Original duplicate-emitting scan semantics are preserved; effects use unrounded elapsed_ns/actual emitted operations. No row exclusion, retry, adaptive counts or alternate metric was used.
+Original uninstrumented scan,16-byte members,5M requested operations,held-out discovery seeds101/102/103 twice; serial CPU2. Both preceding A/A controls qualified:100K−0.850..+0.195%,1M−0.246..+0.137%,minimum windows445/595ms. Candidate screen windows>=415ms. Original duplicate-emitting SCAN semantics retained; unrounded elapsed_ns/actualoperations used for paired effects.
 
-The timing baseline was freshly built in an isolated8fab511e snapshot using its unchanged Makefile and Clang18.1.3. comparison-freeze.json records exact source/referee/driver/binary hashes and the actual command. Every future variant must compile the same relative source paths and output path under its own isolated snapshot with identical flags/allocator. No sampler is linked into timing. The profile006 executable is separate.
+Raw reconstruction verifies exact96-row schedule,24 effects, per-row CSV identity, serial boundaries, observed CPU2, equal checksums/actual operations and exact tree-owned memory within every block. No exclusions, retries, extensions, new source variants or adaptive operations. Baseline binary unchanged from qualification. Native/sanitizer original43 tests and V2 oracle pass for all sources; A/B portable branches pass both modes (299,664 checks /79,864 positions /3,072 zero spans, identical digest).
 
-Qualification applies only to these declared scan cases on this Intel host in this session. It does not qualify small/reversed/folded-tag/dense-collision/resize/long-member workloads or other operations, and it does not establish a candidate speedup. Await AMD’s frozen comparison and root decision before any Intel candidate timing. No candidate selection, source adoption or new population follows from controls alone. Raw rows are aa.json and raw/; audit-aa.py produces aa-audit.json.
+This is architecture replication of the existing independent AMD/Intel/ARM population, not a new population. Intel-local earlier counts remain2 measured sequential populations,0accepted/1rejected/1parked,6 retained prior patches. The two exact imported scan patches are provenance copies, not new implementations.
+
+Next: only B may enter full original-operation/long-key guards, focused dense/folded/reversed/resize guards, fresh primary confirmation seeds201–203 and separate matched profiles. No fallback to A after a guard rejection. Root independently audits and reviews. This discovery does not qualify those guards or establish portable performance. Main/root tree source stays frozen.
+
+Evidence: [plan](SCREEN-PLAN.md), [controls](AA-REPORT.md), [validation](VALIDATION.md), [imports](import-manifest.json), [binary freeze](candidate-freeze.json), [schedule/driver freeze](screen-freeze.json), [raw rows](screen.json), [audit](screen-audit.json). Actual backend/model identity and token cost unknown; participant /root/aws_intel. Root chair's predeclared B source preference is recorded before timing.
