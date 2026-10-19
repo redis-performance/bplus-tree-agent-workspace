@@ -46,6 +46,7 @@ def main():
         build_status_path = E/'bench-results/build/status.json'
         calibration_status_path = E/'bench-results/calibrate/status.json'
         build, counts, profile = map(read, [build_path, counts_path, profile_path])
+        assert digest(R/build['input_manifest_path']) == build['input_manifest_sha256']
         assert build['status'] == counts['status'] == profile['status'] == 'COMPLETE'
         assert profile['release_safe'] and profile['all_sufficient']
         for path in [build_status_path, calibration_status_path]:

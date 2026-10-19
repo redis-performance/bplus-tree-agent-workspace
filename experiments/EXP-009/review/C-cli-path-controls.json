@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "Real main/Owner/build with mocked hashes/manifest inputs/compile/run/signals; no external child or native command",
+  "driver_sha256": "d16bae85350441c51d25bbe87e6ec04ca49630af544d2cabf05c958d86c4248a",
+  "control_sha256": "50b43e0c36eac3c86c09c93ae59f8dfccb2abe95ddbd772d2c5c37ae76a5cc26",
+  "checks": [
+    {
+      "phase": "build",
+      "manifest": "experiments/EXP-009/input-manifest.json",
+      "real_build_function": true,
+      "all_manifest_keys_relative": true,
+      "entries": 158,
+      "input_manifest_propagated": true
+    },
+    {
+      "phase": "build",
+      "manifest": "experiments/EXP-009/input-manifest-v2.json",
+      "real_build_function": true,
+      "all_manifest_keys_relative": true,
+      "entries": 158,
+      "input_manifest_propagated": true
+    },
+    {
+      "phase": "calibrate",
+      "manifest": "experiments/EXP-009/bench-results/build/build-manifest.json",
+      "real_main_and_owner": true,
+      "native_phase_stubbed": true,
+      "relative_outputs": true
+    },
+    {
+      "phase": "profile",
+      "manifest": "experiments/EXP-009/bench-results/build/build-manifest.json",
+      "real_main_and_owner": true,
+      "native_phase_stubbed": true,
+      "relative_outputs": true
+    },
+    {
+      "phase": "aa",
+      "manifest": "experiments/EXP-009/timing-manifest.json",
+      "real_main_and_owner": true,
+      "native_phase_stubbed": true,
+      "relative_outputs": true
+    }
+  ],
+  "prior_gap": "Initial41 pure controls did not invoke main/default paths or real build manifest construction, so did not expose absolute-E defect. First real invocation failed before Owner/output/child; old controls remain valid only for their stated scope."
+}

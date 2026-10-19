@@ -1,0 +1,24 @@
+{
+  "reviewer": "/root",
+  "status": "PASS",
+  "reviewed_utc": "2026-10-19T08:26:21.277134+00:00",
+  "revision": 2,
+  "scope": "Separate harness path/provenance correction before first native launch; all measurement/scientific rules unchanged",
+  "files_sha256": {
+    "experiments/EXP-009/driver.py": "d16bae85350441c51d25bbe87e6ec04ca49630af544d2cabf05c958d86c4248a",
+    "experiments/EXP-009/seal.py": "93c06e0239080bc9f27a97ada9477a22402b2eda3286f5927f00715828b4141f",
+    "experiments/EXP-009/profile-map.py": "258d34b4c16b76153808b6ec3289e2f1ccc23b45472eab88d8a458b466a3576e",
+    "experiments/EXP-009/publish-raw.py": "f1bb850a5440f29ea8659d4dcf0bef7e1ffea2ad56f65f3f7a4355c04eee0c73",
+    "experiments/EXP-009/PLAN.json": "8002a1513ced827ac4c68794035af1287ce365b10a8f32e4dc6ff583c840d0ed"
+  },
+  "prior_review_gap": "Initial review did not test real main default absolute path or output manifest path propagation; pre-owner failure preserved",
+  "correction": [
+    "Experiment paths now relative to workspace for default manifest and every output identity",
+    "New input-manifest-v2.json explicitly passed; original input-manifest.json and ACK immutable",
+    "Sealer accepts experiment-contained exclusive output path and pins actual build input manifest hash",
+    "All source/referee/flags/calibration/count limits/seeds/gates unchanged"
+  ],
+  "first_attempt_native_children": 0,
+  "baseline_qualification": "Still NOT RUN; no failed native schedule repeated",
+  "next": "Independent C revision review, new immutable seal/ACK publication, first native validation"
+}

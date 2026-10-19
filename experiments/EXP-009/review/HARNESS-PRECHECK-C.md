@@ -77,3 +77,17 @@ Final artifact hashes:
 - `publish-raw.py`: `f1bb850a5440f29ea8659d4dcf0bef7e1ffea2ad56f65f3f7a4355c04eee0c73`
 - `review/C-offline-controls.py`: `295731b9d165c6910a3d2159c1d71555af04c5ab8afdc0731db7f8e6494f0e00`
 - `review/C-offline-controls.json`: `e5d97e7de37983ed3095bae4d7380b7fd92d41cd32289faa4f3c888c5e806069`
+
+## Launch001 path failure and revised CLI review — PASS
+
+The first actual CLI attempt rejected an absolute default manifest before Owner construction; no output directory or native child was created. Root preserved v1 driver/seal, original input manifest/ACK and structured `harness-history/launch-001-failure.json`. I missed this path defect: prior41 offline controls never called real main or constructed the real build manifest. Their results remain limited to that scope; they were not a successful CLI launch test. This review gap is explicit, not a native schedule retry or hidden experimental failure.
+
+Diff from preserved v1 shows exactly one driver initialization-line change: E is now relative to the current workspace root, and REL equals E. This corrects all dependent default/output/manifest paths together. Root's sealer revision adds an exclusive experiment-only --output destination (v2 input manifest), follows the actual build-recorded input_manifest_path when sealing timing, and requires that manifest digest to equal build's recorded input_manifest_sha256. Original manifests/ACKs remain intact. CLI final use is explicit --manifest experiments/EXP-009/input-manifest-v2.json for the first native build; later calibration/profile use the exact build manifest.
+
+`C-cli-path-controls.py/json` reproducibly call actual main and Owner for all four phase defaults plus explicitv2 build. Actual build() also executes with compile/run/identity IO and signals explicitly mocked; it creates only nonexecutable synthetic files. Both build forms produce158 relative manifest keys and relative binary/metadata paths, propagating the selected input_manifest_path exactly. Other phases' native functions are stubbed after real CLI/prerequisite/Owner initialization. All five controls PASS. No external command, subprocess, native workload, test binary or real build ran; temporary synthetic directories are removed. This checks path propagation, not process cleanup execution or real compiler correctness.
+
+Final revised driver SHA256 `d16bae85350441c51d25bbe87e6ec04ca49630af544d2cabf05c958d86c4248a`; sealer `93c06e0239080bc9f27a97ada9477a22402b2eda3286f5927f00715828b4141f`. Mapper remains258d34b4c16b76153808b6ec3289e2f1ccc23b45472eab88d8a458b466a3576e. No production/referee/measurement-definition change. Final verdict PASS for these exact baseline-preparation revisions, contingent on root's new published v2 manifest/ACK and idle exclusive runner. All activity stopped.
+
+- `review/C-cli-path-controls.py`: `50b43e0c36eac3c86c09c93ae59f8dfccb2abe95ddbd772d2c5c37ae76a5cc26`
+- `review/C-cli-path-controls.json`: `4ff2d14586592afba3d5aeb5eb06767cac63f8ae7201cc8d08eb56cf48021578`
+- `harness-history/launch-001-failure.json`: `8ebbe7c351ebacf06e34e8e764d8f06e65e8e31c6ba55731c0edfcb59a94c714`
