@@ -65,3 +65,9 @@ DECODE referee/profile published80177d1e. Sequential proposal/chair chooses
 M6-DECODE-COUNT1-001; all three proposal passes preserved. Implementation population
 next: natural scalar branch / outlined bulk bridge / forced-inline early-bulk policy.
 No candidate built or timed yet; no independent agents/review.
+
+DECODE chair published e62f839d. All three isolated implementations now pass
+unchanged Python oracle and2080 extended geometries per native/sanitizer build.
+Two deliberate policy faults detected. Actual release codegen preserved.
+Candidate/referee/source/binary identities in005-decode/comparison-freeze.json.
+Next calibration then fixed A/A and three176-cell serial comparisons, no overlap.
