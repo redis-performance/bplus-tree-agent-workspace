@@ -1,6 +1,6 @@
-# Reproduce the latest decoder results on a second Apple host
+# Reproduce the latest benchmarks on a second Apple host
 
-This runbook covers the three current standalone decoder campaigns: EXP-004's packed
+This runbook covers the four-size whole-tree baseline and three standalone decoder campaigns: EXP-004's packed
 score decoder microbenchmark, EXP-007's private bulk specialization, and EXP-008's
 scalar/bulk cutoff matrix. The checked-in observations are from an **Apple M1**. Run a
 second machine such as the user's Apple M6 mini into a separate output tree; do not pool
@@ -24,6 +24,26 @@ Frequency, DVFS/turbo behavior, effective QoS, affinity and within-window migrat
 remain unknown. Record them as unknown; do not infer frequency from elapsed time.
 Run the matrix campaigns serially on an idle machine, with no other benchmark, build,
 sanitizer or profiler active during a timing window.
+
+## Whole-tree size matrix: 100 / 1K / 10K / 100K
+
+This runs all eight standard operations with 16-byte members, three seeds and
+six same-binary ABBA blocks. It builds and validates native/sanitizer binaries
+before timing. Run from the repository root; the output directory must be new.
+
+```sh
+python3 scripts/run-size-matrix.py --out "$REPLICA_ROOT/size-matrix"
+python3 scripts/analyse-size-matrix.py "$REPLICA_ROOT/size-matrix"
+```
+
+Compare its `SUMMARY.md` with
+[the Apple M1 baseline](SIZE-MATRIX-001/apple-m1/SUMMARY.md), operation by operation
+at the same size. Check variation and short timing windows before interpreting
+small differences. Do not combine samples across hosts. The runner captures the
+actual CPU, compiler, source and binary hashes; record compiler differences when
+comparing machines. Run one campaign at a time.
+
+[Plan, workload definitions and optional chart command](SIZE-MATRIX-001/README.md).
 
 ## EXP-004 focused decoder baseline
 

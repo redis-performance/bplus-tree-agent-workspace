@@ -760,3 +760,16 @@ Do not pool M1 and M6 rows. EXP-008 completed 15360 serial processes / 1981440 b
 265.83s; all release/sanitizer tests and raw audit pass. Frequency, DVFS, actual core use
 and within-window migration remain unknown. Source/hash baseline is EXP-008 commit plus
 M1 host metadata in its run manifest.
+
+
+## Latest: four-size baseline ready for M6 replication
+
+Completed SIZE-MATRIX-001 on Apple M1: 100/1K/10K/100K members × all eight standard
+operations, 16-byte members, three seeds, six same-binary ABBA blocks. All 32 cells,
+96 processes and 768 rows are retained; timing took 79.03 seconds. Native/sanitizer
+tests and raw-data reconstruction passed. All cells show >1% variation in at least
+one A/A block; 10 have <10 ms windows. No optimization acceptance or source change.
+See [report](../experiments/SIZE-MATRIX-001/README.md), README chart, and
+[M6 runbook](../experiments/REPLICATE-LATEST.md). The user requested publishing the
+plan/documentation so they can follow up on M6. Run the same matrix into a new
+host-specific directory and compare separately; do not overwrite M1 evidence.

@@ -41,6 +41,17 @@ Available cases: `insert`, `lookup-hit`, `lookup-miss`, `rank`, `iterate`, `scan
 memory, and a result checksum. Iteration and scan report time per visited member.
 Use `make smoke` for a quick small-fixture check.
 
+To run **all eight operations at 100, 1K, 10K and 100K members**, including build,
+correctness checks, and repeated measurements:
+
+```sh
+python3 scripts/run-size-matrix.py --out scratch/size-matrix
+python3 scripts/analyse-size-matrix.py scratch/size-matrix
+```
+
+Use a new output directory each time. The [size-matrix guide](experiments/SIZE-MATRIX-001/README.md)
+explains the workload and how to rerun it on another machine.
+
 ### Packed-score decoder
 
 This smaller benchmark isolates score decoding for fast iterations: warmed fixtures,
@@ -65,7 +76,23 @@ See the [decoder guide](docs/DECODER-MICROBENCHMARK.md) and
 ## Latest results — Apple M1
 
 All results below were measured on **Apple M1**, using Apple Clang 17, `-O3`, and
-one unpinned thread. These are local decoder measurements, not whole-tree speedups.
+one unpinned thread.
+
+### Whole-tree baseline: 100 / 1K / 10K / 100K members
+
+All eight operations have now been measured at all four sizes with 16-byte members.
+The chart shows median batch-average ns/op and the full observed min–max range;
+each panel has its own y-axis. These are baseline costs, not optimization speedups.
+Identical-binary controls show variation above 1%, and small insert/delete windows
+are short. See the [results and timing details](experiments/SIZE-MATRIX-001/apple-m1/SUMMARY.md).
+
+![Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1/size-matrix.svg)
+
+[Plan, raw data and M6 rerun commands](experiments/SIZE-MATRIX-001/README.md).
+
+### Decoder experiments
+
+These isolate packed-score decoding; their gains are not whole-tree speedups.
 
 | Experiment | What we learned | Outcome |
 |---|---|---|

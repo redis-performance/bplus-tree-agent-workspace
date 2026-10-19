@@ -487,3 +487,17 @@ two fresh fixed seeds; all original counts/checks retained. Final audit3960 hash
 220 serial experimental windows,23 patch reconstructions; old469-file checkpoint
 preserved. Counts unchanged7/13/34/26,5 populations,0 accepted/2 rejected/3 parked.
 No timings or source adoption; final child ended06:25:59UTC. See canonical round20.
+
+
+## 2026-10-19 — four-size sorted-set baseline (Apple M1)
+
+[SIZE-MATRIX-001](SIZE-MATRIX-001/README.md) completes all eight standard operations
+at 100/1K/10K/100K members with 16-byte keys: 96 serial processes, 768 rows and
+24 observations per cell in 79.03 seconds of timing. Native and sanitizer upstream
+tests (43 each), plus sanitizer benchmark coverage at all four sizes, passed.
+Raw hashes and all 32 cells were reconstructed by the analysis script. Same-binary
+variation exceeds 1% in at least one block in every cell; 10 cells have windows
+below 10 ms. Baseline coverage is complete; no optimization or precision claim.
+Plan, scripts, raw data, summaries and chart are retained. M6 rerun commands are in
+[REPLICATE-LATEST.md](REPLICATE-LATEST.md); keep new host results separate.
+Source and optimization/population counts are unchanged.

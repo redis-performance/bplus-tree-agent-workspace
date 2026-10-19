@@ -79,3 +79,12 @@ not established. SourceNONE; no unchanged failed timing retries or guard substit
 ## After round 18
 
 EXP-006 C/PARK adds a possible inline-tag-search improvement, with unresolved long-key guard uncertainty and concerning single-lane regression. Follow [the next-fixture note](OVERNIGHT-2026-10-17/ROUND-018-NEXT-FIXTURE.md); preserve all raw blocks and main baseline. Original guard qualification, independent review and committed provenance are still required.
+
+
+## Latest follow-up: repeat the four-size matrix on M6
+
+The requested 100/1K/10K/100K × eight-operation baseline is complete on Apple M1.
+Use [SIZE-MATRIX-001](SIZE-MATRIX-001/README.md) and [the rerun guide](REPLICATE-LATEST.md)
+to collect M6 results separately. Compare matched sizes/operations and retain compiler
+and host differences. Small insert/delete windows and iteration duration need better
+batching before fine-grained optimization claims. No unchanged rerun is needed on M1.

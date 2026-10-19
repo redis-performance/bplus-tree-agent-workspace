@@ -799,3 +799,17 @@ a falsifiable lead for a separate experiment, not an accepted optimization. Thes
 observations are Apple M1 only; the seven-field evidence screen says missing frequency,
 turbo/SMT and actual core use prevent portable quantitative claims. [M6 replication
 runbook](REPLICATE-LATEST.md) keeps host data separate. Production source is unchanged.
+
+
+## 2026-10-19 — four-size sorted-set baseline (Apple M1)
+
+[SIZE-MATRIX-001](SIZE-MATRIX-001/README.md) completes all eight standard operations
+at 100/1K/10K/100K members with 16-byte keys: 96 serial processes, 768 rows and
+24 observations per cell in 79.03 seconds of timing. Native and sanitizer upstream
+tests (43 each), plus sanitizer benchmark coverage at all four sizes, passed.
+Raw hashes and all 32 cells were reconstructed by the analysis script. Same-binary
+variation exceeds 1% in at least one block in every cell; 10 cells have windows
+below 10 ms. Baseline coverage is complete; no optimization or precision claim.
+Plan, scripts, raw data, summaries and chart are retained. M6 rerun commands are in
+[REPLICATE-LATEST.md](REPLICATE-LATEST.md); keep new host results separate.
+Source and optimization/population counts are unchanged.
