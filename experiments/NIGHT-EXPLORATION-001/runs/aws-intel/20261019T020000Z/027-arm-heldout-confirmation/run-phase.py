@@ -76,6 +76,24 @@ def snapshot(roots, identities):
         result[label] = dict(sources=sources, binary_sha256=binary)
     return result
 
+def diagnostic_classification(cell):
+    require(cell['complete'] is True and isinstance(cell['qualified'], bool), 'incomplete diagnostic result')
+    require(cell['memory_pass'] is True, 'diagnostic memory failed')
+    effects = [Decimal(str(value)) for value in cell['block_effect_pct']]
+    require(len(effects) == 6 and all(value.is_finite() for value in effects), 'diagnostic blocks missing/nonfinite')
+    if not cell['qualified']:
+        return 'UNQUALIFIED_DIAGNOSTIC'
+    if all(value > 1 for value in effects):
+        return 'REJECT'
+    if any(value > 1 for value in effects):
+        return 'PARK'
+    return 'PASS'
+
+def verify_raw_audit_join(artifacts, audit, expected_names):
+    hashes = {Path(item['path']).name:item['sha256'] for item in artifacts}
+    require(len(artifacts) == 96 and len(hashes) == 96 and set(hashes) == expected_names, 'AA raw file receipt incomplete')
+    require(hashes == audit['raw_file_sha256'], 'AA raw file receipt differs from independent audit hashes')
+
 def verify_receipt(receipt, args, freeze_sha, lease_sha, identities):
     require(receipt['kind'] == 'ROOT_REVIEWED_PHASE_GRANT' and receipt['author'] == '/root', 'wrong receipt type/author')
     require(receipt['decision'] == 'ALLOW_CONFIRMATION_PHASE_ONLY', 'receipt is not a phase-only grant')
@@ -100,11 +118,22 @@ def verify_receipt(receipt, args, freeze_sha, lease_sha, identities):
     require(set(cells) == set(ids), 'required guard cells missing or altered')
     for cell in cells.values():
         require(cell == {'qualified':True,'guard_pass':True,'memory_pass':True}, 'required guard did not pass')
+    diagnostics = inventory['coverage_only_diagnostics']
+    require(len(diagnostics) == len(set(diagnostics)) and not set(diagnostics) & set(ids), 'diagnostic inventory duplicated or overlaps required cells')
+    diagnostic_results = receipt['diagnostic_results']
+    require(set(diagnostic_results) == set(diagnostics), 'diagnostic outcome inventory incomplete')
+    for cell in diagnostic_results.values():
+        classification = diagnostic_classification(cell)
+        require(cell['classification'] == classification, 'diagnostic classification mismatch')
+        require(classification in ('PASS','UNQUALIFIED_DIAGNOSTIC'), 'qualified adverse/mixed diagnostic blocks progression')
+        require(cell['evidence'], 'diagnostic result missing bound evidence')
+        for artifact in cell['evidence']:
+            bound_file(args.evidence_root,artifact)
     keys = ('correctness','guard_aa','guard_comparison','primary_aa','discovery','coverage_review','root_driver_review','amd_driver_review')
     require(set(receipt['prerequisites']) == set(keys), 'prerequisite set differs')
     for key in keys:
         item = receipt['prerequisites'][key]
-        require(item['status'] == 'PASS' and item['evidence'], 'unmet prerequisite '+key)
+        require(item['audit_status'] == 'PASS' and item['gate_pass'] is True and item['evidence'], 'unmet prerequisite '+key)
         for artifact in item['evidence']:
             bound_file(args.evidence_root, artifact)
     if args.phase == 'confirmation':
@@ -120,8 +149,7 @@ def verify_receipt(receipt, args, freeze_sha, lease_sha, identities):
         for artifact in aa['raw_files']:
             bound_file(args.evidence_root, artifact)
         expected = {run['name']+'.'+suffix for run in result['runs'] for suffix in ('csv','stderr')}
-        actual = {Path(x['path']).name for x in aa['raw_files']}
-        require(len(aa['raw_files']) == 96 and actual == expected, 'AA raw file receipt incomplete')
+        verify_raw_audit_join(aa['raw_files'],audit,expected)
         return {(run['size'],run['seed']):run['row']['tree_bytes'] for run in result['runs']}
     require('heldout_aa' not in receipt, 'unexpected earlier held-out AA reuse')
     return {}

@@ -16,6 +16,9 @@ def check(value,description):
     if not value: raise ValueError(description)
 def timestamp(value): return datetime.datetime.fromisoformat(value)
 
+def check_child_interval(begin,finish):
+    check(0 <= (finish-begin).total_seconds() <= 30,'child exceeded 30-second cap')
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--directory',required=True,type=Path)
@@ -40,7 +43,12 @@ def main():
         aa=json.loads((a.aa_directory/'result.json').read_text());aa_audit=json.loads((a.aa_directory/'independent-audit.json').read_text())
         check(aa_audit['status']=='PASS' and aa_audit['gate_pass'] and aa_audit['result_sha256']==digest(a.aa_directory/'result.json'),'AA not qualified by bound independent audit')
         check(timestamp(aa['finished_utc']) < start,'AA not earlier than confirmation')
+        expected_aa_names={old['name']+'.'+suffix for old in aa['runs'] for suffix in ('csv','stderr')}
+        check(len(expected_aa_names)==96 and set(aa_audit['raw_file_sha256'])==expected_aa_names,'AA raw audit inventory incomplete')
         for old in aa['runs']:
+            for suffix in ('csv','stderr'):
+                file=a.aa_directory/(old['name']+'.'+suffix)
+                check(digest(file)==aa_audit['raw_file_sha256'][file.name],'AA raw hash differs from independent audit')
             record,=csv.DictReader(io.StringIO((a.aa_directory/(old['name']+'.csv')).read_text()))
             check(record==old['row'],'AA CSV altered')
             memory[(old['size'],old['seed'])]=record['tree_bytes']
@@ -56,6 +64,7 @@ def main():
                 check(item['command']==['<'+binary+'>/build/adapter-requalification/btree-bench',*expected['argv']],'command mismatch')
                 begin,finish=timestamp(item['started_utc']),timestamp(item['finished_utc'])
                 check(previous <= begin <= finish <= end,'nonserial timestamps');previous=finish
+                check_child_interval(begin,finish)
                 check(item['returncode']==0,'child nonzero')
                 for suffix in ('csv','stderr'):
                     file=a.directory/(item['name']+'.'+suffix);raw[file.name]=digest(file)
