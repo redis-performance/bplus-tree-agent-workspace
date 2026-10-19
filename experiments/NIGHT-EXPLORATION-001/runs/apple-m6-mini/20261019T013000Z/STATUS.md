@@ -27,3 +27,5 @@ Exact backend model and measured token costs unknown; no agents used.
 Latest acknowledgement210c06a2. 2026-10-19T01:44:38.181856+00:00 — rank AA maximum effects10K8.840%,100K1.886%,1M7.406%; no adoption-qualified cell. No candidate yet.
 
 2026-10-19T01:45:55.394138+00:00 — three sequential proposal passes/chair choose shorter-side accumulation for ONE exploratory three-variant screen. No candidate built. Full guards, qualified controls and independent review remain missing; source NONE. Discovery plan in002-rank/DISCOVERY-PLAN.md. Latest published acknowledgementb5ebd930.
+
+2026-10-19T01:48:31.090343+00:00 — A/B/C isolated implementations validated:each43upstream tests/native+sanitizer,38targetedchecks; allreferees identical. Patches/source/binary/driver hashes in002-rank/comparison-freeze.json and implementation-manifest.json. Await publication then ONE exploratory screen, no concurrent work. Latest acknowledged chairfedb7d41.

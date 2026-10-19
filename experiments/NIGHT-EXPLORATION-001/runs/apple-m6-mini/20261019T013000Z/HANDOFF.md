@@ -11,3 +11,10 @@ review missing. No candidate yet. No active children. Do not recalibrate/redo A/
 Roundend02:06:34UTC; final handoff due02:05:04. Campaigndeadline08:00UTC.
 
 Chair has now chosen shorter-side hypothesis via three explicitly sequential proposal passes; see selection.md and DISCOVERY-PLAN.md. Await publication then construct three isolated implementations. No candidate built yet.
+
+Operator chart update: main commit 70b18194 embeds both latest baseline PNGs.
+The host README now links the main-hosted images to keep them visible here too.
+Preserve those embeds. Pinned summary provenance and plotting script are on main;
+OPERATOR-CHART-UPDATE.json records plotting activity for timing provenance.
+
+Implementation population now built and validated. comparison-freeze.json captures exact identities. After currentack run compare.py discover ONCE, serially with no other localwork. No variant is adoptioneligible because A/A fails and fullguards/independentreview remain missing.

@@ -1,0 +1,19 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3250,8 +3250,14 @@
+     zbtScoreNode *node = &leaf->n;
+     while (node->parent) {
+         zbtScoreInner *parent = node->parent;
+-        for (unsigned int i = 0; i < node->parent_index; i++)
+-            rank += parent->child_count[i];
++        unsigned int index = node->parent_index;
++        int from_right = index > parent->n.count - index - 1U;
++        unsigned int first = from_right ? index + 1U : 0U;
++        unsigned int end = from_right ? parent->n.count : index;
++        unsigned long sum = 0;
++        for (unsigned int i = first; i < end; i++)
++            sum += parent->child_count[i];
++        rank += from_right ? parent->n.subtree - node->subtree - sum : sum;
+         node = &parent->n;
+     }
+     return rank;
