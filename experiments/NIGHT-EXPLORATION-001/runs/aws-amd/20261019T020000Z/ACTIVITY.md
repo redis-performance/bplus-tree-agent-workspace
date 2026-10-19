@@ -139,3 +139,5 @@
 - 2026-10-19T08:49:47.157967+00:00: Independent19fd53594 suffix rawaudit PASS:6never-started commands6.416s,29seal/13newartifacts,all4241priorraw/513snapshots/protected/guard identities unchanged. Original027wholeGit tree unchanged despite disclosedlocalcollector restoration. Correctnesscomposite eligible forreview; originalFAILED/no timinggrant/sourceNONE.
 
 - 2026-10-19T08:55:25.611266+00:00: Independent composite380ef3109 review passes: exact failed prefix plus six-command suffix, all28 frozen inputs and4272 unchanged schedules. Original FAILED preserved; correctness closure only, no timing grant or source adoption. Separate root grants and failure postidentity proofs remain required.
+
+- 2026-10-19T09:00:34.827176+00:00: Fresh ARM primary AA53e193c5b independently qualifies both sizes:48 raw rows/12 blocks, max absolute0.490027%/0.281102%, protected baseline and composite identities unchanged. Precision only; no candidate result, execution grant or source adoption.
