@@ -1,0 +1,469 @@
+{
+  "status": "READY: preparation/correctness only; no matrix or profile authorized",
+  "participant": "/root/followup_proposal_c",
+  "backend": "Inherited Codex/GPT-6 family; exact serving model/token/currency cost unknown",
+  "classification": "Exact frozen EXP-008 new-host replication preparation, not independent new implementations/population",
+  "worktree": "worktrees/m6-replica-exp008",
+  "harness_commit": "e52c26c4b52c167b5ed3948eb9440f3fc2ffabaf",
+  "source_baseline_commit": "4fd3a3fdbce5acca18ee292642a3d80a79f50362",
+  "source_sha256": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+  "header_sha256": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+  "legacy_adapter": {
+    "server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "reason": "Intentionally original M1 adapter identity, separate from corrected baseline and 005"
+  },
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "experiments/EXP-008/build.py"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:10:57.846576+00:00",
+      "ended_utc": "2026-10-19T05:11:02.276538+00:00",
+      "wall_seconds": 4.429734625000492,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/00.stdout",
+          "sha256": "e6e2c573810070edd41911b3ad630363481320fb13ba4e9b1abc1f30e926907d"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/00.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "experiments/EXP-008/build.py",
+        "--sanitize"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 240,
+      "started_utc": "2026-10-19T05:11:02.276649+00:00",
+      "ended_utc": "2026-10-19T05:11:05.013133+00:00",
+      "wall_seconds": 2.736481707999701,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/01.stdout",
+          "sha256": "d0eb613d63bc3aa731fc9c80ebd81486507122d7ee17734629c5cb61e35d2785"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/01.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008/base/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:05.013242+00:00",
+      "ended_utc": "2026-10-19T05:11:05.290845+00:00",
+      "wall_seconds": 0.2776131249993341,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/02.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/02.stderr",
+          "sha256": "21fd91bbd2898ad8f8b6a84768d0e9ce78774f5168c202f88999d02b428d069a"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008/A/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:05.290970+00:00",
+      "ended_utc": "2026-10-19T05:11:05.534032+00:00",
+      "wall_seconds": 0.24307154199959768,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/03.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/03.stderr",
+          "sha256": "7ea8432a75507dbc1049c1ef04407e18db263c8c75e5e8386c4ca41e27893000"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008/B/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:05.534163+00:00",
+      "ended_utc": "2026-10-19T05:11:05.778499+00:00",
+      "wall_seconds": 0.2443475000000035,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/04.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/04.stderr",
+          "sha256": "8446de9e69a8e2e2a9f5bf70c127c4f325e091ab1d98b3489fdd8b8d2d912b19"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008/C/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:05.778666+00:00",
+      "ended_utc": "2026-10-19T05:11:06.025300+00:00",
+      "wall_seconds": 0.24664616600057343,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/05.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/05.stderr",
+          "sha256": "c172dd44cff618d7459b2fe45379500004a41e48b31e36b2b27b3c020b0dcc94"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008-sanitize/base/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:06.025598+00:00",
+      "ended_utc": "2026-10-19T05:11:06.529331+00:00",
+      "wall_seconds": 0.5037396659990918,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/06.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/06.stderr",
+          "sha256": "414def94a926998a55b0ca9a2dc2c2e1e0875e1152a1c42f6d58e2db628ad461"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008-sanitize/A/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:06.529469+00:00",
+      "ended_utc": "2026-10-19T05:11:07.093668+00:00",
+      "wall_seconds": 0.5642070000012609,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/07.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/07.stderr",
+          "sha256": "6c358ead1a152587a91de3e3cc1b887d6b66a62177382922897ec052f4004186"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008-sanitize/B/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:07.093809+00:00",
+      "ended_utc": "2026-10-19T05:11:07.603216+00:00",
+      "wall_seconds": 0.5094155419992603,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/08.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/08.stderr",
+          "sha256": "95372458801a0f43248c5b5709fa8122ceeb897df5f32a6b3d9fee6500bdcf47"
+        }
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp008-sanitize/C/decoder-bench"
+      ],
+      "cwd": "worktrees/m6-replica-exp008",
+      "bound_seconds": 180,
+      "started_utc": "2026-10-19T05:11:07.603380+00:00",
+      "ended_utc": "2026-10-19T05:11:08.103069+00:00",
+      "wall_seconds": 0.49969749999945634,
+      "timed_out": false,
+      "returncode": 0,
+      "raw_logs": {
+        "stdout": {
+          "path": "scratch/m6-replica-exp008-preparation/09.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/m6-replica-exp008-preparation/09.stderr",
+          "sha256": "da9719724e71a545432c970aa794d4a22b4199b138bfc73de1e493f636931821"
+        }
+      }
+    }
+  ],
+  "native_and_sanitizer_builds_pass": true,
+  "test_decoder_invocations": 8,
+  "tests_per_binary": 4,
+  "self_test_fixtures_per_binary": 1820,
+  "correctness_elapsed_fields_unused": true,
+  "canonical_boundary_matrix_not_executed": true,
+  "patches_before_after_identical": {
+    "experiments/EXP-008/variants/A/candidate.patch": "39fe3e5d6f3dd29068ceade755f8ad5059accb38858a2ad00f11d8d1fe13314c",
+    "experiments/EXP-008/variants/B/candidate.patch": "67aca0aa7f7ee52b3d73bb004b4cc955df6941797f0cea8565a5e5bcf673d586",
+    "experiments/EXP-008/variants/C/candidate.patch": "35008696a28a6954935d37509239ae86f5b459282e8602ada22f9ad8727d2521"
+  },
+  "frozen_files_sha256": {
+    "bench/decoder_bench.c": "f5e61ec7ed88b01a11d928285f891c8b88ae5efd90b76081976341d4953d4aa5",
+    "bench/decoder_kernel.h": "056cb1f1ef944a577ff869378f214df338507f3328b03e96de73578b069a32c2",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "experiments/EXP-008/PLAN.md": "c423204f4d3bd6f591fcddbc08fb2cd35a057178ce023bde68ebc7e3f13fb4fe",
+    "experiments/EXP-008/analyse.py": "81e749d25a3ac7bdd265cbeea99f6a219978afbde150b80dbf81a70851892ce8",
+    "experiments/EXP-008/audit.py": "30339f13423f6d9c51867e1822c35483612ce1e5696e17a4ae421307cef9ce02",
+    "experiments/EXP-008/build.py": "3d3edf29254bfb72047b36a20ca31d18c84bfaa0bdd49f22d2e57e14b2b11e29",
+    "experiments/EXP-008/profile.py": "0a3589b7b025c8ed522587ea41989fd908af2c7ab532a8b5257dc65466a03ee1",
+    "experiments/EXP-008/referee/bulk.inc": "6da7d81bfd0dfa9828922cd17508403b7ea9a86ea3ac64159dedacf6a02ab4ad",
+    "experiments/EXP-008/referee/kernel.c": "e8c43850860c7018a82f99d94f872ce049ff8835c7dae69cd30458560e5046c8",
+    "experiments/EXP-008/referee/policy-control.inc": "cfa13882afddd1e6800a8355ffb2035ea402740a19531fd07381ab65eb76367b",
+    "experiments/EXP-008/run.py": "d9dd3ec9ae0657e16f0e1b7a6195173722e07ce3f23657ed618126667a12f221",
+    "experiments/EXP-008/validate.py": "8f52fd571b426f264aa8256136ee39e86cfd8f5111bd7ec42d857e960893a231",
+    "experiments/EXP-008/variants/A/candidate.patch": "39fe3e5d6f3dd29068ceade755f8ad5059accb38858a2ad00f11d8d1fe13314c",
+    "experiments/EXP-008/variants/A/policy.inc": "ca9339a0d9d69a7abf8539ee3adce01f5228d07472f1bb7b469da7dc7abfbb1a",
+    "experiments/EXP-008/variants/B/candidate.patch": "67aca0aa7f7ee52b3d73bb004b4cc955df6941797f0cea8565a5e5bcf673d586",
+    "experiments/EXP-008/variants/B/policy.inc": "2fb1b6f4ce12d49d4e2cc14736f7ad7ec73d42162e7aa4096b0179b84c32147a",
+    "experiments/EXP-008/variants/C/candidate.patch": "35008696a28a6954935d37509239ae86f5b459282e8602ada22f9ad8727d2521",
+    "experiments/EXP-008/variants/C/policy.inc": "1f84fdea4a7d3177e2900552a36c603aa33110c39d4b7c871dadcb3d8aa7a1c2",
+    "experiments/REPLICATE-LATEST.md": "6f924c762338d17537fcb9f7d52c2e80f39dcd036129cb3e4d9bcfc162c508cb",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "tests/test_decoder.py": "c4a450230ce2eda97a6e9d20573fc822c8d61dad94daeeea302d60b0b069c906",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "worktrees/exp008-base/src/zset_btree.c": "8693aabcc7a3e665155982b8e61e19b68301397a3590def3a515b3db3e37af3d",
+    "worktrees/exp008-base/src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "build/exp008/base/kernel.o": "c3a320b3fdc85ff12bc14c3d5cf84c7e9df65977bf78b4092ccaa37162f46348",
+    "build/exp008/base/decoder-bench": "e8426fd9f250b1189b870b229c88e6d05dda25b28c8a77d2bda4e69d37cf1cd5",
+    "build/exp008-sanitize/base/kernel.o": "1f2bd618a359a8b4026339404c194dec3b6b9a27cb287623eb7e38dc9b74055f",
+    "build/exp008-sanitize/base/decoder-bench": "0c2f9e61c3e7a43be916128d45b81e54430590d7a205173102ca7f247c5fdab0",
+    "worktrees/exp008-A/src/zset_btree.c": "dab7de5c20be94264be4076d6088033f6cb2bd8ca594a8c5760d13e2dcf0aca1",
+    "worktrees/exp008-A/src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "build/exp008/A/kernel.o": "58832272a1f5b492c31bec44b09854b154dc2f687f948d8efa57994b0c6f36f5",
+    "build/exp008/A/decoder-bench": "e67f1b2b8b72a970f5bd8d2b23288ac0b2f30a797f7646b2cee268055c5376e2",
+    "build/exp008-sanitize/A/kernel.o": "2dd26bf9610efb056bdd3e9ddccaecb9fe26d8e6ff63bdd53bc83adc2ecd6606",
+    "build/exp008-sanitize/A/decoder-bench": "5fc881e5f52ea7a9f6a5ebd728c9273b15f46df0286b75b366dadcc92d8dda64",
+    "worktrees/exp008-B/src/zset_btree.c": "03427dbc56bd83bc2fc1e8060b68778928ae16471e9fbd984ed8c7995ed12b57",
+    "worktrees/exp008-B/src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "build/exp008/B/kernel.o": "74be6fba682313a27bcd46dc87a1ca78529c2edc91609d84b5100b7a20123206",
+    "build/exp008/B/decoder-bench": "09b6ee4dfc53e1bb650fde24caa233c37ed0aed5dbbf0232a314a2c998ee7b7e",
+    "build/exp008-sanitize/B/kernel.o": "ec7d81165d25477f4955f5a68142e9ce10d0eb30d99c1efc00f98418cc7fb4df",
+    "build/exp008-sanitize/B/decoder-bench": "b64a809bd66bb5962a3235e500ac402ee9cf77264df821a7fac9c479b3f76e21",
+    "worktrees/exp008-C/src/zset_btree.c": "809966dfdced9ec081a0d1806d05201286e6875e39d95ad9cb3eb1962f775e1b",
+    "worktrees/exp008-C/src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "build/exp008/C/kernel.o": "9c06deeb34f0291be05cce4d149b1931f428e74e7acfd8d23016d86dc3144e4a",
+    "build/exp008/C/decoder-bench": "0c7bf2145517190b351311270c9fb3c72d1864ab1dbbab0bc96fbd33b28f5b96",
+    "build/exp008-sanitize/C/kernel.o": "7e35ba63e785705c30d5b6a628d098e37dbde1395649beadcc4ef9a2dd58ccf7",
+    "build/exp008-sanitize/C/decoder-bench": "a7e68e55c5445f38e2fcaba2dbbba3478f010d31b6090513cae8f4acb21141e0",
+    "build/exp008/build.json": "afab9b3c9b7fb8a1cc80b0b4a602b53aa1a19dfdc9b9c9ea8253944cb0fe23ef",
+    "build/exp008-sanitize/build.json": "2dfd0d3324ab9b8cd9fe8aad923ff7f39464e78f887b494697698cd74c59fcc6"
+  },
+  "compiler_frontend_launcher_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+  "compiler_binary_sha256": "1590ac950a3d627817d09ade5cb60b2115f17a72182a3141e010b4bcc482a0c9",
+  "codegen": {
+    "base": {
+      "kernel_assembly_sha256": "58d214e67ddde785bac29a8f4a64a9491f68672915541d46423dec66ec0b94d9",
+      "decoder_batch_instruction_lines": 214,
+      "decoder_batch_instructions_sha256": "e3fd2f241dbe201a84517619af9f5c74dc0a8bd3d822153968f87535c085de38",
+      "policy_instruction_lines": 146,
+      "policy_instructions_sha256": "d54f95fbb4aacf2a19671576b31587d7d9de41f083cf53f11982941614687938",
+      "batch_calls": [
+        "bl\t_zbtScoreLeafDecodePolicy",
+        "bl\t___stack_chk_fail"
+      ],
+      "policy_calls": [],
+      "entry_policy_instructions": [
+        "cbz\tw2, LBB56_25",
+        "ldrb\tw10, [x0, #52]",
+        "ldr\tx8, [x0, #40]",
+        "cbz\tw10, LBB56_10",
+        "ldrb\tw9, [x0, #19]",
+        "ldrb\tw14, [x0, #53]",
+        "ldrb\tw15, [x0, #17]",
+        "mov\tx11, #-1"
+      ]
+    },
+    "A": {
+      "kernel_assembly_sha256": "f7eaed6eeda2e5ede1452c0b149c476b16be61b575c510c62d68307bd53e6293",
+      "decoder_batch_instruction_lines": 214,
+      "decoder_batch_instructions_sha256": "e3fd2f241dbe201a84517619af9f5c74dc0a8bd3d822153968f87535c085de38",
+      "policy_instruction_lines": 315,
+      "policy_instructions_sha256": "0d231c45cac5ed870966e3a87367f8ce004d0b004234b26d719681e6516688aa",
+      "batch_calls": [
+        "bl\t_zbtScoreLeafDecodePolicy",
+        "bl\t___stack_chk_fail"
+      ],
+      "policy_calls": [],
+      "entry_policy_instructions": [
+        "cbz\tw2, LBB56_28",
+        "cmp\tw2, #4",
+        "b.hi\tLBB56_9",
+        "ldr\tx8, [x0, #40]",
+        "add\tx9, x0, #56",
+        "ldrb\tw11, [x0, #52]",
+        "ldrb\tw10, [x0, #53]",
+        "cbz\tw11, LBB56_18"
+      ]
+    },
+    "B": {
+      "kernel_assembly_sha256": "3ad6298fc4f2fc57099dbfb953fc62cde54c795e04e95d31ade0d26d7182e273",
+      "decoder_batch_instruction_lines": 214,
+      "decoder_batch_instructions_sha256": "e3fd2f241dbe201a84517619af9f5c74dc0a8bd3d822153968f87535c085de38",
+      "policy_instruction_lines": 480,
+      "policy_instructions_sha256": "8a6cff3b8e70d96e40842a88cf4e0bdb67e7f2552d9f49bd215e1ce05f6a1e25",
+      "batch_calls": [
+        "bl\t_zbtScoreLeafDecodePolicy",
+        "bl\t___stack_chk_fail"
+      ],
+      "policy_calls": [],
+      "entry_policy_instructions": [
+        "cmp\tw2, #8",
+        "b.hi\tLBB56_9",
+        "cbz\tw2, LBB56_23",
+        "add\tx9, x0, #56",
+        "ldr\tx8, [x0, #40]",
+        "ldrb\tw11, [x0, #52]",
+        "ldrb\tw10, [x0, #53]",
+        "cbz\tw11, LBB56_24"
+      ]
+    },
+    "C": {
+      "kernel_assembly_sha256": "a55dfa0dd938b29412650dd3bfa75a4383b0deb133ff4a3a4b8b313bd33fcdc8",
+      "decoder_batch_instruction_lines": 214,
+      "decoder_batch_instructions_sha256": "e3fd2f241dbe201a84517619af9f5c74dc0a8bd3d822153968f87535c085de38",
+      "policy_instruction_lines": 196,
+      "policy_instructions_sha256": "56c9935a29eb44137aaad20428ca9f3406242072e9ead8d76ba15af5364bd3ed",
+      "batch_calls": [
+        "bl\t_zbtScoreLeafDecodePolicy",
+        "bl\t___stack_chk_fail"
+      ],
+      "policy_calls": [],
+      "entry_policy_instructions": [
+        "cbz\tw2, LBB56_34",
+        "cmp\tw2, #16",
+        "b.hi\tLBB56_12",
+        "mov\tx8, #0",
+        "ldr\tx9, [x0, #40]",
+        "add\tx10, x0, #56",
+        "mov\tx11, #-1",
+        "mov\tw12, #64"
+      ]
+    }
+  },
+  "decoder_batch_instruction_bodies_identical_all_variants": true,
+  "future_output_relative": "build/m6-replications/EXP008/discovery",
+  "future_canonical_command": [
+    "python3",
+    "experiments/EXP-008/run.py",
+    "--out",
+    "build/m6-replications/EXP008/discovery",
+    "--budget-seconds",
+    "300"
+  ],
+  "future_command_cwd": "worktrees/m6-replica-exp008",
+  "matrix_not_run": true,
+  "profiles_not_run": true,
+  "rules_preserved": {
+    "cells": 160,
+    "blocks": 6,
+    "samples_per_process": 129,
+    "warmups": 16,
+    "discovery_seeds": [
+      81031,
+      81041
+    ],
+    "discovery_processes": 15360,
+    "confirmation_seeds": [
+      82037,
+      82051
+    ],
+    "confirmation_processes": 7680,
+    "primary": "width60 forward count16 >=2% gain",
+    "secondary": "width60 forward count96 >=2% gain",
+    "AA": "all six block median effects within \u00b11% per cell",
+    "guards": "median >1% regression eliminates; unresolved A/A cells PARK",
+    "cutoffs": {
+      "base": 0,
+      "A": 4,
+      "B": 8,
+      "C": 16
+    }
+  },
+  "issues": {
+    "profile_cleanup": "Canonical profile.py lacks finally cleanup if sample subprocess fails/times out or target wait times out. Root must separately own bounded target/sampler cleanup before launch; no script edits here.",
+    "build_capture_coupling": "Canonical run.py does not build; copies/validates prepared native build.json and four binary hashes. Canonical profile.py does not build or freeze-check; actual binary hash/command logged only after success.",
+    "analysis_selection": "analyse.py emits cell effects/selection-input, not final eligibility/winner. Root must enforce both gains and full guard qualification. No minimum-window qualification is enforced by canonical analyse/audit; short windows remain visible and cannot be treated as precise.",
+    "audit_scope": "audit.py checks raw hashes/counts/ABBA/serial UTC/metadata and reconstruction but trusts manifest schedule for seed/rotation declaration; a separate independent audit must reconstruct canonical planned schedule.",
+    "timeout_evidence": "run.py preserves partial timeout stdout/stderr and failed manifest; timed-out attempt has no completed runs entry. Budget counts whole run-loop wall, child min(30,remaining); no absolute UTC stop inside canonical runner. Root owns absolute 07:15 cutoff.",
+    "historical_output": "Canonical source checkout contains historical M1 evidence. New outputs must use exact fresh build/m6-replications/EXP008/discovery; no overwrite/pooling."
+  },
+  "preparation_failures_preserved": [
+    "Initial rg listing accidentally traversed historical raw evidence and produced truncated output; no data changed.",
+    "Initial read requested nonexistent experiments/EXP-008/tests/test_decoder.py; corrected to tests/test_decoder.py.",
+    "git worktree add returned128 because root-created isolated worktree already existed; verified e52 identity and reused it."
+  ],
+  "no_root_source_or_referee_edits": true,
+  "all_preparation_children_completed": true
+}

@@ -1,0 +1,108 @@
+{
+  "harness_commit": "e52c26c4b52c167b5ed3948eb9440f3fc2ffabaf",
+  "nested_source_commit": "4fd3a3fdbce5acca18ee292642a3d80a79f50362",
+  "files_sha256": {
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "experiments/EXP-007/PLAN.md": "f79668ce3dcde2f79bb64c7b850f96884c4daabe433a0ec914adc3920b6c94e8",
+    "experiments/EXP-007/analyse.py": "e8ec91c53f28f05018c394c722ed21e1cb1c9757d466996d6501d8d576dde31f",
+    "experiments/EXP-007/audit.py": "862d6fa72cc19d3db964a57664453b4a574f273c80e3a0beb106014d658150fc",
+    "experiments/EXP-007/build.py": "8076ece7f97fc9420a41148cabaa1f6342f8c09bfe5a9cc5d961593872a6f9f0",
+    "experiments/EXP-007/freeze.json": "e66828021c5e1dc06a472b90e28136276296bf9a8fc087a9e0a9f1d615a9e111",
+    "experiments/EXP-007/profile.py": "58599110d4727256860ffa2afb0f16041902e8d76f2c254127403936ca5679a0",
+    "experiments/EXP-007/referee/control.inc": "5c39ab90b9e87238ffd9b424c7e7371aaf897a93526d3af3e3166b49deb82543",
+    "experiments/EXP-007/referee/kernel.c": "7538a6995b204bdd5220bc0873c5b7eca01d3b68fba21946ebe37b20ae450f7f",
+    "experiments/EXP-007/run.py": "9dd16c244f665d795cc72379ba9bdfdb69c927bf9fa64bf67afdaf6eaee68262",
+    "experiments/EXP-007/variants/A/candidate.patch": "d996247ac9822640a078590e06d7b238a50aa64416a71600fb34c5e3869ef5fc",
+    "experiments/EXP-007/variants/A/decoder.inc": "a06d6f3ad26e65750d91f2de0f2c65558ce4129beef184bb5dac045179f8f9c1",
+    "experiments/EXP-007/variants/B/candidate.patch": "c87e4515f02dac74e060f1fb122396072c7eb86758c2e98f49cff376131af5f3",
+    "experiments/EXP-007/variants/B/decoder.inc": "6da7d81bfd0dfa9828922cd17508403b7ea9a86ea3ac64159dedacf6a02ab4ad",
+    "experiments/EXP-007/variants/C/candidate.patch": "42d0dc365ed535fc8c75077c0eb68490a5846a74538c08057b5763a64126f06b",
+    "experiments/EXP-007/variants/C/decoder.inc": "fc542ed01e638a3c871624e7cf257dcce5fe9ebe27e297b159533312b2a8e345",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "tests/test_decoder.py": "c4a450230ce2eda97a6e9d20573fc822c8d61dad94daeeea302d60b0b069c906",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e"
+  },
+  "build_manifests_sha256": {
+    "exp007": "bb5fe6ee0dbea7722ecded4d25bb555a3bee5364f7a04f5b596dbdf52b2b9c65",
+    "exp007-sanitize": "92ed5737bc9dcf5342d13f3ce0c414e642292da3134dc6f1660736ac98c7fb58"
+  },
+  "binary_sha256": {
+    "exp007": {
+      "base": "7894823c670c69e83e01033e6e7638bac9e39cdb02d1da1b31ed1f99319e7413",
+      "A": "95cb988bffbfbd4312d71be221d16261175e3dae5edcc72532026dceccb0e95a",
+      "B": "9ec011e84a8e8fa5d33eb36daab9f6673f9d29803cb9a8251b7d16cd2acdb6fb",
+      "C": "c822e2b2e685097fc54bca93483ade385d69bb09518bcaaa99bd9afda812577c"
+    },
+    "exp007-sanitize": {
+      "base": "dd24e1465fbb993d5afd8f67d972422485615c953f77373f19f7a298fc026d1d",
+      "A": "b6237e8a58860d5b111fd7a933cc27a29835d318939aa44b508392f06e72ba30",
+      "B": "9399841cbdd538ad98d5214e5a23ffa80a40ba3c3f6188630faffa0b317a5e8e",
+      "C": "b29988f780a8e4eb2d37eca56ea178bfc13e95237fecbb123d3d8dc61e84b11e"
+    }
+  },
+  "helper_and_variant_identities": {
+    "exp007": {
+      "base": {
+        "source_sha256": "c07699c55224ddef1fbdfdc588e90f3ba4df9df35ad89e4ec59803c6204a1da7",
+        "helper_sha256": "5c39ab90b9e87238ffd9b424c7e7371aaf897a93526d3af3e3166b49deb82543",
+        "binary": "build/exp007/base/decoder-bench",
+        "binary_sha256": "7894823c670c69e83e01033e6e7638bac9e39cdb02d1da1b31ed1f99319e7413",
+        "kernel_object_sha256": "b5521260c5e3518d9e8b0025ede399d0215733484314286973a3ee57aad87bd1"
+      },
+      "A": {
+        "source_sha256": "d8eca4dd82b8de963dae3e6bffa6f3fdfbe3ebdad365c332f25918753abe2af8",
+        "helper_sha256": "a06d6f3ad26e65750d91f2de0f2c65558ce4129beef184bb5dac045179f8f9c1",
+        "binary": "build/exp007/A/decoder-bench",
+        "binary_sha256": "95cb988bffbfbd4312d71be221d16261175e3dae5edcc72532026dceccb0e95a",
+        "kernel_object_sha256": "0be47dee9fd8a5ab48f7bde3f883d55080796726ac87bb8f3fad4d2887e5851a"
+      },
+      "B": {
+        "source_sha256": "3649f87e87c4ba54fd35d9255ea14423c3730528dad0886b14b594392bf5a865",
+        "helper_sha256": "6da7d81bfd0dfa9828922cd17508403b7ea9a86ea3ac64159dedacf6a02ab4ad",
+        "binary": "build/exp007/B/decoder-bench",
+        "binary_sha256": "9ec011e84a8e8fa5d33eb36daab9f6673f9d29803cb9a8251b7d16cd2acdb6fb",
+        "kernel_object_sha256": "fc8eeb7b71eea332fd2c5cd0e39478bec4a126ffe097b8542e8b832d9d3f1c08"
+      },
+      "C": {
+        "source_sha256": "7095ef308321723be80d0909174da93b00f055b3a1614f96e7ba7f6266aae020",
+        "helper_sha256": "fc542ed01e638a3c871624e7cf257dcce5fe9ebe27e297b159533312b2a8e345",
+        "binary": "build/exp007/C/decoder-bench",
+        "binary_sha256": "c822e2b2e685097fc54bca93483ade385d69bb09518bcaaa99bd9afda812577c",
+        "kernel_object_sha256": "59333463a57284b7af52d5e06456472e5188486409adb9eeaf4ffd7bc6a6540e"
+      }
+    },
+    "exp007-sanitize": {
+      "base": {
+        "source_sha256": "c07699c55224ddef1fbdfdc588e90f3ba4df9df35ad89e4ec59803c6204a1da7",
+        "helper_sha256": "5c39ab90b9e87238ffd9b424c7e7371aaf897a93526d3af3e3166b49deb82543",
+        "binary": "build/exp007-sanitize/base/decoder-bench",
+        "binary_sha256": "dd24e1465fbb993d5afd8f67d972422485615c953f77373f19f7a298fc026d1d",
+        "kernel_object_sha256": "ea06560b134cae522a41720c9ce5b21345fa2537186078dabf5cd7db6bfa860f"
+      },
+      "A": {
+        "source_sha256": "d8eca4dd82b8de963dae3e6bffa6f3fdfbe3ebdad365c332f25918753abe2af8",
+        "helper_sha256": "a06d6f3ad26e65750d91f2de0f2c65558ce4129beef184bb5dac045179f8f9c1",
+        "binary": "build/exp007-sanitize/A/decoder-bench",
+        "binary_sha256": "b6237e8a58860d5b111fd7a933cc27a29835d318939aa44b508392f06e72ba30",
+        "kernel_object_sha256": "c22f247301911fc728482ac6afc5c27406fbdf4f640516b1529a95cc1ec56696"
+      },
+      "B": {
+        "source_sha256": "3649f87e87c4ba54fd35d9255ea14423c3730528dad0886b14b594392bf5a865",
+        "helper_sha256": "6da7d81bfd0dfa9828922cd17508403b7ea9a86ea3ac64159dedacf6a02ab4ad",
+        "binary": "build/exp007-sanitize/B/decoder-bench",
+        "binary_sha256": "9399841cbdd538ad98d5214e5a23ffa80a40ba3c3f6188630faffa0b317a5e8e",
+        "kernel_object_sha256": "04012bdbcc90ae0f9363f07108df108410baa87e9c0764c56bd4685ca9487099"
+      },
+      "C": {
+        "source_sha256": "7095ef308321723be80d0909174da93b00f055b3a1614f96e7ba7f6266aae020",
+        "helper_sha256": "fc542ed01e638a3c871624e7cf257dcce5fe9ebe27e297b159533312b2a8e345",
+        "binary": "build/exp007-sanitize/C/decoder-bench",
+        "binary_sha256": "b29988f780a8e4eb2d37eca56ea178bfc13e95237fecbb123d3d8dc61e84b11e",
+        "kernel_object_sha256": "b1249778007c90cbbb70b84c8cbf222a6732a3ffe2aee71da9549c8ac16912b1"
+      }
+    }
+  },
+  "status": "PREPARATION ONLY; runner/profile require root exclusive publication ACK"
+}

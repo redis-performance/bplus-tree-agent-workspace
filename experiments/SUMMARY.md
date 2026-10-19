@@ -1,5 +1,8 @@
 # Experiment summary
 
+M6 checkpoint: the [metrology review](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/017-metrology-review/selection.md) selected NONE after three independent proposals. No new timing protocol was implemented. [Exact decoder replications](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/PLAN.json) now have passing native/sanitizer preparations in isolated legacy-adapter checkouts. EXP-004 discovery has 960 processes, EXP-007 2,880, and EXP-008 15,360. Profiling and timing await published freeze and exclusive runner release. No tree source selection or optimization-count change.
+
+
 ## 2026-10-19 — CPU counter capability unresolved
 
 [014 capability](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/RESULTS.md)

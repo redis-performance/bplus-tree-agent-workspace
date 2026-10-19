@@ -1,0 +1,263 @@
+{
+  "status": "READY: NATIVE/SANITIZER CANONICAL CORRECTNESS PASS; NO MEASUREMENT",
+  "harness_commit": "e52c26c4b52c167b5ed3948eb9440f3fc2ffabaf",
+  "nested_source_commit": "4fd3a3fdbce5acca18ee292642a3d80a79f50362",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "experiments/EXP-007/build.py"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 180,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "native-build.stdout",
+        "public_sha256": "128a3b7617dd4dbaa04ae5a733e68b341ffbef8b9a34ba8135318691b0a5e032",
+        "raw": "ignored scratch/m6-exp007-replication-prep/native-build.stdout",
+        "raw_sha256": "128a3b7617dd4dbaa04ae5a733e68b341ffbef8b9a34ba8135318691b0a5e032"
+      },
+      "stderr": {
+        "public": "native-build.stderr",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/native-build.stderr",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "experiments/EXP-007/build.py",
+        "--sanitize"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 180,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "sanitizer-build.stdout",
+        "public_sha256": "0979dcc569fc7adda3189df621c490f053ae4f4ebd1f9c2f04d46269b64b0241",
+        "raw": "ignored scratch/m6-exp007-replication-prep/sanitizer-build.stdout",
+        "raw_sha256": "0979dcc569fc7adda3189df621c490f053ae4f4ebd1f9c2f04d46269b64b0241"
+      },
+      "stderr": {
+        "public": "sanitizer-build.stderr",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/sanitizer-build.stderr",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007/base/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-base-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-base-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-base-decoder-tests.stderr",
+        "public_sha256": "31a40e0aac5b8a465fc663aa61e0feacd953908c6242e4b677d970857b8ecda1",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-base-decoder-tests.stderr",
+        "raw_sha256": "31a40e0aac5b8a465fc663aa61e0feacd953908c6242e4b677d970857b8ecda1"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007/A/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-A-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-A-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-A-decoder-tests.stderr",
+        "public_sha256": "9605905bed40b25d2b1407f21be3394c6372dd8e877fd58bec8dfae842f51d68",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-A-decoder-tests.stderr",
+        "raw_sha256": "9605905bed40b25d2b1407f21be3394c6372dd8e877fd58bec8dfae842f51d68"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007/B/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-B-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-B-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-B-decoder-tests.stderr",
+        "public_sha256": "c84d32a07c529fc11b3fc71085a58efbe618ff08f1edd9f542147ea5ee44a2ed",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-B-decoder-tests.stderr",
+        "raw_sha256": "c84d32a07c529fc11b3fc71085a58efbe618ff08f1edd9f542147ea5ee44a2ed"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007/C/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-C-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-C-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-C-decoder-tests.stderr",
+        "public_sha256": "7b057eb92a50bb1f8d57fc3b9ddd0f11876e42732f607a548eb9dcecc13213a4",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-C-decoder-tests.stderr",
+        "raw_sha256": "7b057eb92a50bb1f8d57fc3b9ddd0f11876e42732f607a548eb9dcecc13213a4"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007-sanitize/base/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-sanitize-base-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-base-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-sanitize-base-decoder-tests.stderr",
+        "public_sha256": "9e07c6569f213ef8a7906ba0d3727e5a8c6d8231c50ef53523ec9d2c68b1ab86",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-base-decoder-tests.stderr",
+        "raw_sha256": "9e07c6569f213ef8a7906ba0d3727e5a8c6d8231c50ef53523ec9d2c68b1ab86"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007-sanitize/A/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-sanitize-A-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-A-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-sanitize-A-decoder-tests.stderr",
+        "public_sha256": "fc737caa5ace073c43b888b0ff24ca5bfc93087446f59e5a1b0a6bf2a73d7c73",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-A-decoder-tests.stderr",
+        "raw_sha256": "fc737caa5ace073c43b888b0ff24ca5bfc93087446f59e5a1b0a6bf2a73d7c73"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007-sanitize/B/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-sanitize-B-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-B-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-sanitize-B-decoder-tests.stderr",
+        "public_sha256": "7a89c7ac9714ca038d806fee46a622ef5987a6ce2c3295474f446c2522140d3d",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-B-decoder-tests.stderr",
+        "raw_sha256": "7a89c7ac9714ca038d806fee46a622ef5987a6ce2c3295474f446c2522140d3d"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tests/test_decoder.py",
+        "build/exp007-sanitize/C/decoder-bench"
+      ],
+      "cwd": "<EXP-007-worktree>",
+      "timeout_seconds": 90,
+      "returncode": 0,
+      "direct_child_reaped": true,
+      "stdout": {
+        "public": "exp007-sanitize-C-decoder-tests.stdout",
+        "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-C-decoder-tests.stdout",
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "public": "exp007-sanitize-C-decoder-tests.stderr",
+        "public_sha256": "2f3109eb217d6913aa7f4a3f9cc4c46acfa5b73fc6d5fe999da22857b0d6cce8",
+        "raw": "ignored scratch/m6-exp007-replication-prep/exp007-sanitize-C-decoder-tests.stderr",
+        "raw_sha256": "2f3109eb217d6913aa7f4a3f9cc4c46acfa5b73fc6d5fe999da22857b0d6cce8"
+      }
+    }
+  ],
+  "adapter": "Original legacy adapter; same campaign identity as M1, not corrected adapter",
+  "no_campaign_or_profile_started": true,
+  "participant": "/root/followup_proposal_b; inherited Codex/GPT-6 family; exact model/token/cost unknown",
+  "commands_passed": 10,
+  "tests": "4 unittest methods per binary,8 binaries; self-test1820 fixtures each",
+  "canonical_patch_regeneration": {
+    "A": {
+      "before_sha256": "d996247ac9822640a078590e06d7b238a50aa64416a71600fb34c5e3869ef5fc",
+      "after_sha256": "d996247ac9822640a078590e06d7b238a50aa64416a71600fb34c5e3869ef5fc",
+      "changed": false
+    },
+    "B": {
+      "before_sha256": "c87e4515f02dac74e060f1fb122396072c7eb86758c2e98f49cff376131af5f3",
+      "after_sha256": "c87e4515f02dac74e060f1fb122396072c7eb86758c2e98f49cff376131af5f3",
+      "changed": false
+    },
+    "C": {
+      "before_sha256": "42d0dc365ed535fc8c75077c0eb68490a5846a74538c08057b5763a64126f06b",
+      "after_sha256": "42d0dc365ed535fc8c75077c0eb68490a5846a74538c08057b5763a64126f06b",
+      "changed": false
+    }
+  },
+  "original_campaign_freeze_verified": true,
+  "all_preparation_children_reaped": true,
+  "preparation_wall_seconds": 9.989671875000568,
+  "production_source_or_canonical_referee_hand_edited": false,
+  "canonical_nested_sources_generated": true
+}

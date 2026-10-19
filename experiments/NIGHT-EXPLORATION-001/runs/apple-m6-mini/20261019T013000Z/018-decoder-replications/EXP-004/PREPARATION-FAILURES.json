@@ -1,0 +1,25 @@
+{
+  "failures": [
+    {
+      "action": "Create assigned evidence directory with exist_ok=False",
+      "result": "FileExistsError; root had already created the empty assigned directory",
+      "effect": "No source, build, test or experiment ran; existing directory preserved"
+    },
+    {
+      "action": "Invoke preparation wrapper after the preceding creation script failed",
+      "result": "Wrapper file absent; python exited2",
+      "effect": "No test, build or experiment ran; wrapper created separately afterward"
+    },
+    {
+      "action": "Read-only existence inspection of build/scratch directories",
+      "result": "ls exited1 because both fresh directories were absent",
+      "effect": "Confirmed no stale builds or raw logs; no mutation"
+    },
+    {
+      "action": "Final public-path hygiene assertion after successful builds/tests",
+      "result": "Ad hoc literal-pattern scan matched the normalization regex source text in prepare-checks.py, rather than an actual private path",
+      "effect": "No correctness/build/test/campaign failure; split the regex prefix literals without changing behavior. No build/check rerun. Prior freeze preserved."
+    }
+  ],
+  "correction": "Use the existing assigned empty evidence directory; create a bounded wrapper then start the first canonical build/check. These are setup/read failures, not repeated benchmark attempts."
+}

@@ -1,5 +1,8 @@
 # Live status — M6 driver campaign, 2026-10-19 UTC
 
+Operator 017 metrology review complete: three actual independent proposals; chair selects NONE. Resident-process proposal retained as conditional dissent; full guard transfer and remaining-budget feasibility unproven. No timing or implementation from this review. Operator 018 now prepares the three exact decoder replications in REPLICATE-LATEST.md using isolated legacy-adapter checkouts, preserving original M1 experiment definitions. EXP-007 discovery is 2880 processes; its historical 4320 total includes conditional 1440-process confirmation. Source NONE; optimization counts unchanged. Root continues through 08:00 UTC, experimental cutoff 07:15 UTC.
+
+
 Operator016CPUProfilerBLOCKEDbyOSKPCconfigurationdenial(Operationnotpermitted),
 recordrc2/probeexactchecksum+signpostpass/recorderreaped/targetexitobserved/release-safe,
 979546bytefailedtracepreserved.NoTOCexport/retry/permissionchanges.Hardwareweights

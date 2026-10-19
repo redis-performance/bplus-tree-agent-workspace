@@ -1,0 +1,24 @@
+# EXP-004 exact M6 decoder replication: preparation complete
+
+**READY for root review/publication; no matrix or profile executed.** Isolated checkout `worktrees/m6-replica-exp004` is exactly e52c26c4b52c167b5ed3948eb9440f3fc2ffabaf and remains clean. Its legacy adapter is intentionally frozen to the original M1 identity (server.h 79b3c9… / standalone.c adf0f87…); it is separate from the current corrected-adapter baseline. Target baseline d9123c/496e72 and canonical EXP-004 A source 9c3d47… match the original experiment freeze. No target/referee/runner edit or new variant was made.
+
+`make decoder-check` and `make decoder-sanitize` each pass both canonical base/A test suites: four methods per suite, including 1820-fixture independent bit-reference/batch checksum self-test, geometry/accounting, invalid arguments and optional-counter availability. Four binaries give 7280 self-test fixtures and 168 canonical child invocations. The native and sanitizer original upstream suites also each pass all 43 tests. All four top-level preparation children exited 0 and were reaped. Canonical bounded checks emit small timing fields as part of their accounting test; these are unused and are not a decoder timing campaign.
+
+Builds are isolated under this checkout's `build/decoder`, `build/decoder-sanitize`, `build/btree-test` and `build/sanitize/btree-test`; no old root/historical binary was reused. Canonical build-decoder.py shares exact driver/adapter/SipHash object bytes across both links. Native flags are C11/O3/g/Wall/Wextra/Werror/frame pointers/noLTO plus the canonical include/path mapping flags; sanitizer is O1/ASan/UBSan/no-recovery. Original 43-test binaries use the unchanged Makefile's REDIS_TEST/REDIS_DEBUG policies. Full flags/commands, source/referee/helper/object/binary hashes and sanitized manifests are retained in validation.json/build-native.json/build-sanitizer.json/freeze.json. Raw build manifests and full original command output remain ignored scratch/worktree build files with hashes.
+
+Generated decoder_batch assembly retains its loops, packed loads, four checksum chains and round memory barrier in both variants. Public instruction excerpts are in assembly/. Native static instruction counts and original kernel.s hashes are in validation.json. Static differences, including register allocation/frame size, are not cycles or a performance result. No software profile command is required by this canonical focused-decoder runbook; profile_commands is empty and public-tree acceptance remains ineligible.
+
+The frozen pending commands, from the isolated checkout, are:
+
+```sh
+python3 scripts/run-decoder.py --out build/m6-replications/EXP004/discovery --budget-seconds 300
+python3 scripts/analyse-decoder.py build/m6-replications/EXP004/discovery
+```
+
+Defaults remain unchanged: 960 serial processes, A/A then baseline/A, six ABBA blocks, alternating 81031/81041 seeds, ten widths/two physical directions, count 96/eight leaves/shift 0, 64 rounds / 49152 decodes per batch, 129 samples/process, 16 warmups and 123840 measured batches. Mach absolute ticks are converted with the platform timebase to elapsed nanoseconds; they are not CPU cycles. Inner samples are not independent process trials; preserve every sample/block and min/median/p90/max distributions and histograms. Canonical analysis reports paired block ranges and makes no acceptance decision. If candidate effects overlap same-cell A/A variation, report inconclusive; this diagnostic cannot clear the unresolved iterator guard or adopt A.
+
+The canonical runner checks 300s budget before each child, with a separate 30s child timeout; this is not a hard 300s wall/global bound. Root must enforce an external owned-process-group wall/cutoff guard before 07:15 UTC and preserve outer stdout/stderr. A timeout can occur before current-child pipe output is written; completed rows survive but current-child TimeoutExpired output preservation is limited by this unchanged canonical script. No fix, row drop, count change or retry is authorized here. The output path is new and relative; root must copy/normalize completed M6 evidence afterward without changing its original raw identities or pooling M1 rows.
+
+Two setup errors occurred before the first build: the assigned empty evidence directory already existed, and the not-yet-created wrapper invocation failed. They are retained in PREPARATION-FAILURES.json, with a read-only absent-build check. No experiment was repeated. All actual canonical build/test commands succeeded on their first invocation.
+
+Participant `/root/followup_proposal_a`, inherited GPT-6/Codex family; exact serving model/token/currency cost unknown. No profile, matrix, Git write, shared-memory edit, upstream action or source/harness change was performed. Root owns the next authorization; readiness is not permission to launch.
