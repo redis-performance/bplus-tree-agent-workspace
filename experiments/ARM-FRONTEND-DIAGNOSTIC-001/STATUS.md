@@ -1,3 +1,14 @@
 # ARM frontend diagnostic status
 
-Native controls complete:144 rows/36 blocks, all six cells qualify. Root and independent Intelcb6bb2a43 raw audits pass; unchanged source/binary identities and separate idle proof verified. Exact rejected-mask comparison144/600s is now granted; result pending. Matched profiles remain ungranted and under preparation. ARM lease/restoration11:45UTC; read-only audit11:45:10UTC. First acquisition failure/verified restoration retained. Prior mask REJECT/sourceNONE unchanged.
+Native A/A and comparison are complete: 288 rows, 72 ABBA blocks; all six cells qualify.
+Independent root and Intel audits reproduce primary gains and four selected guard
+regressions in every block. Prior mask decision remains REJECT; source selection NONE.
+
+The corrected matched-profile protocol is now granted: 642 commands, including
+36 cycle captures and 36 counter runs, under one fixed 1,200-second cap. Native and
+sanitizer memory checks stay separate; counters are unscaled, with perf-reported
+100.00% runtime required. Results are pending. Independent restoration is armed for
+11:45 UTC, with a read-only live audit at11:45:10 UTC.
+
+The mandatory performance MCP rule is committed for Codex and Claude. Root's actual
+consultation is logged; no source passages or causal explanation were obtained.
