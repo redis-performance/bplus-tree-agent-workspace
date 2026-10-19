@@ -24,3 +24,5 @@
 2026-10-19T03:27:08.601402+00:00 Baseline scan diagnosis complete, total helper17.571s under300s.6 captures, repeat controls pass; source-line/LLVM inline attribution confirms helper present. GNU mapping limitation retained. No candidate timing or new Intel population.
 
 2026-10-19T03:31:58.298738+00:00 Intel scan first A/A completed57.31s,48 rows/12 blocks, both controls qualify. Raw schedule/checksum/memory/CPU2/serial auditPASS. No retry or candidate timing; no new population.
+
+03:36UTC: Imported exact AMD A/B and V2 oracle from5594fea17; fixed96-process/300s Intel discovery schedule, B preference if both qualify, separate full guards/profile/fresh201–203 confirmation preregistered. Candidate validation running; no screen rows yet.
