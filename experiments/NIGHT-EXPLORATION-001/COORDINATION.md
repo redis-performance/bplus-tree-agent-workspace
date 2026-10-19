@@ -4,8 +4,8 @@ M1 runs in a clean Git worktree on its own branch. Its workspace-write worker
 cannot create the worktree's Git index lock; it saves exact evidence and patches
 under the host campaign directory and records the denial once. The host coordinator
 runs [sync-night-campaign.py](../../scripts/sync-night-campaign.py) outside that
-sandbox. After every completed supervisor round it stages only the host campaign
-evidence, commits, and pushes the M1 branch. It refuses obvious credential/private
+sandbox. After every completed supervisor round it stages the host campaign
+evidence and the shared README/experiment logs, commits, and pushes the M1 branch. It refuses obvious credential/private
 path strings and stops on a publication failure. No force push or main-branch merge.
 The coordinator's status file is in ignored `scratch/` alongside the launch config.
 

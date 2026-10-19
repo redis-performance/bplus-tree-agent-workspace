@@ -31,6 +31,8 @@ def publish(config, round_number):
     worktree = (ROOT / config['worktree']).resolve()
     evidence = worktree / config['campaign_dir']
     relative = config['campaign_dir']
+    shared_logs = ['experiments/EXPERIMENTS.md', 'experiments/SUMMARY.md',
+                   'experiments/NEXT-STEPS.md', 'README.md']
     if not evidence.exists():
         return 'No evidence directory yet'
     # All content is public; refuse obvious credential/private-path mistakes.
@@ -43,8 +45,8 @@ def publish(config, round_number):
     branch = run(['git', 'branch', '--show-current'], worktree)
     if branch != config['branch']:
         raise RuntimeError('Host branch changed unexpectedly')
-    run(['git', 'add', '-A', '--', relative], worktree)
-    has_staged = subprocess.run(['git', 'diff', '--cached', '--quiet', '--', relative], cwd=worktree).returncode == 1
+    run(['git', 'add', '-A', '--', relative, *shared_logs], worktree)
+    has_staged = subprocess.run(['git', 'diff', '--cached', '--quiet', '--', relative, *shared_logs], cwd=worktree).returncode == 1
     if has_staged:
         run(['git', 'commit', '-m', f'Publish Apple M1 campaign through round {round_number}'], worktree)
     # Publish previous worker commits too; never rewrite the remote branch.
