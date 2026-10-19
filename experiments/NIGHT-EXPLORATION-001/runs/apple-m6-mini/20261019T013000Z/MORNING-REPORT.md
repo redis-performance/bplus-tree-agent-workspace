@@ -1,6 +1,6 @@
 # M6 overnight evidence — 19 October 2026
 
-Checkpoint at 06:49 UTC / 07:49 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
+Checkpoint at 06:48 UTC / 07:48 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
 
 The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
 
