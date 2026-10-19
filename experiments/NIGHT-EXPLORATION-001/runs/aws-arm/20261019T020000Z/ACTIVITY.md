@@ -14,3 +14,7 @@
 - 2026-10-19T02:45:19Z: B screen completes696 processes. Primary -10.998..-7.768%, count8 +1.453..+3.111%. C starts after hash/Apple checks. Count8 bulk-control A/A itself fails (-1.082..+0.418%); observed candidate guard slowdowns are not strictly qualified regression proof. Overall PARK remains appropriate, no eligible winner.
 
 - 2026-10-19T02:51:03.361612+00:00: Decoder C completes696 processes; four-screen audit totals2784 processes/696 effects. A/B/C kernel and final executable text hashes identical. Decision PARK/NONE; no eligible implementation or adoption. Parent independent final audit requested. New unchanged-root public-update referee validation begins serially after codegen jobs.
+
+- 2026-10-19T02:52:17.520549+00:00: Parent independent raw audit46c0ce2c2 validates4175 CSV files and all696 screen blocks/ranges. PARK/NONE finalized. Unchanged update referee40 validation cells and six fresh whole-process profiles completed; interpreting attribution before proposals.
+
+- Publication whitespace check stopped on perf-generated trailing spaces and job stdout final blank lines. Tool output is preserved unchanged; authored source/docs whitespace check is separate. No experiment rerun or raw-row edit.

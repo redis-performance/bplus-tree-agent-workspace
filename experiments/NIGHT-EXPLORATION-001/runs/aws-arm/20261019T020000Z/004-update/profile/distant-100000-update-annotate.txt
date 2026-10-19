@@ -1,0 +1,452 @@
+ Percent |	Source code & Disassembly of update-native for armv8_pmuv3_0/cycles/P (20 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------------
+         : 0    0x71e0 <zbtreeUpdateScore>:
+    0.00 :   71e0:        sub     sp, sp, #0x90
+    0.00 :   71e4:        str     d8, [sp, #0x30]
+    0.00 :   71e8:        stp     x29, x30, [sp, #0x40]
+    0.00 :   71ec:        stp     x26, x25, [sp, #0x50]
+    0.00 :   71f0:        stp     x24, x23, [sp, #0x60]
+    0.00 :   71f4:        stp     x22, x21, [sp, #0x70]
+    0.00 :   71f8:        stp     x20, x19, [sp, #0x80]
+    0.00 :   71fc:        add     x29, sp, #0x40
+    0.00 :   7200:        fmov    d8, d0
+    0.00 :   7204:        ldr     w9, [x0, #0x5c]
+    0.00 :   7208:        ldr     x21, [x2, #0x10]
+    0.00 :   720c:        ldp     w20, w8, [x2, #0x1c]
+    5.00 :   7210:        ldr     w22, [x2, #0x18]
+    5.00 :   7214:        mov     x19, x0
+    0.00 :   7218:        mov     x23, x1
+    0.00 :   721c:        cmp     w8, w9
+    0.00 :   7220:        b.eq    0x723c <zbtreeUpdateScore+0x5c>
+    0.00 :   7224:        adrp    x0, 9 // 0x10000
+    0.00 :   7228:        add     x0, x0, #0xf9f
+    0.00 :   722c:        adrp    x2, 9 // 0x10000
+    0.00 :   7230:        add     x2, x2, #0xfdb
+    0.00 :   7234:        mov     w1, #0xe42
+    0.00 :   7238:        bl      0x1027c <standalone_panic>
+    0.00 :   723c:        cbz     x21, 0x7290 <zbtreeUpdateScore+0xb0>
+    0.00 :   7240:        ldrb    w8, [x21, #0x11]
+    0.00 :   7244:        cmp     w22, w8
+    0.00 :   7248:        b.hs    0x7290 <zbtreeUpdateScore+0xb0>
+    0.00 :   724c:        ldurb   w9, [x23, #-0x1]
+    0.00 :   7250:        mov     x3, xzr
+    0.00 :   7254:        and     w8, w9, #0x7
+    0.00 :   7258:        cmp     w8, #0x1
+    0.00 :   725c:        b.le    0x72f4 <zbtreeUpdateScore+0x114>
+    0.00 :   7260:        cmp     w8, #0x2
+    0.00 :   7264:        b.eq    0x7360 <zbtreeUpdateScore+0x180>
+    0.00 :   7268:        cmp     w8, #0x3
+    0.00 :   726c:        b.ne    0x72cc <zbtreeUpdateScore+0xec>
+    0.00 :   7270:        ldur    w3, [x23, #-0x9]
+    0.00 :   7274:        fmov    d0, d8
+    0.00 :   7278:        mov     x0, x21
+    0.00 :   727c:        mov     w1, w22
+    0.00 :   7280:        mov     x2, x23
+    0.00 :   7284:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   7288:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   728c:        b       0x737c <zbtreeUpdateScore+0x19c>
+    0.00 :   7290:        adrp    x0, 9 // 0x10000
+    0.00 :   7294:        add     x0, x0, #0xf9f
+    0.00 :   7298:        adrp    x2, 10 // 0x11000
+    0.00 :   729c:        add     x2, x2, #0x5
+    0.00 :   72a0:        mov     w1, #0xe43
+    0.00 :   72a4:        bl      0x1027c <standalone_panic>
+    0.00 :   72a8:        ldurb   w9, [x23, #-0x1]
+    0.00 :   72ac:        mov     x3, xzr
+    0.00 :   72b0:        and     w8, w9, #0x7
+    0.00 :   72b4:        cmp     w8, #0x1
+    0.00 :   72b8:        b.le    0x72f4 <zbtreeUpdateScore+0x114>
+    0.00 :   72bc:        cmp     w8, #0x2
+    0.00 :   72c0:        b.eq    0x7340 <zbtreeUpdateScore+0x160>
+    0.00 :   72c4:        cmp     w8, #0x3
+    0.00 :   72c8:        b.eq    0x7270 <zbtreeUpdateScore+0x90>
+    0.00 :   72cc:        cmp     w8, #0x4
+    0.00 :   72d0:        b.ne    0x7364 <zbtreeUpdateScore+0x184>
+    5.00 :   72d4:        ldur    x3, [x23, #-0x11]
+    0.00 :   72d8:        fmov    d0, d8
+    0.00 :   72dc:        mov     x0, x21
+    0.00 :   72e0:        mov     w1, w22
+    0.00 :   72e4:        mov     x2, x23
+    0.00 :   72e8:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   72ec:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   72f0:        b       0x737c <zbtreeUpdateScore+0x19c>
+    0.00 :   72f4:        cbz     w8, 0x7320 <zbtreeUpdateScore+0x140>
+    0.00 :   72f8:        cmp     w8, #0x1
+    0.00 :   72fc:        b.ne    0x7364 <zbtreeUpdateScore+0x184>
+    0.00 :   7300:        ldurb   w3, [x23, #-0x3]
+    0.00 :   7304:        fmov    d0, d8
+    0.00 :   7308:        mov     x0, x21
+    0.00 :   730c:        mov     w1, w22
+    0.00 :   7310:        mov     x2, x23
+    0.00 :   7314:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   7318:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   731c:        b       0x737c <zbtreeUpdateScore+0x19c>
+    0.00 :   7320:        lsr     x3, x9, #3
+    0.00 :   7324:        fmov    d0, d8
+    0.00 :   7328:        mov     x0, x21
+    0.00 :   732c:        mov     w1, w22
+    0.00 :   7330:        mov     x2, x23
+    0.00 :   7334:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   7338:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   733c:        b       0x737c <zbtreeUpdateScore+0x19c>
+    0.00 :   7340:        ldurh   w3, [x23, #-0x5]
+    0.00 :   7344:        fmov    d0, d8
+    0.00 :   7348:        mov     x0, x21
+    0.00 :   734c:        mov     w1, w22
+    0.00 :   7350:        mov     x2, x23
+    0.00 :   7354:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   7358:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   735c:        b       0x737c <zbtreeUpdateScore+0x19c>
+    0.00 :   7360:        ldurh   w3, [x23, #-0x5]
+    0.00 :   7364:        fmov    d0, d8
+    0.00 :   7368:        mov     x0, x21
+    0.00 :   736c:        mov     w1, w22
+    0.00 :   7370:        mov     x2, x23
+    0.00 :   7374:        bl      0x78e4 <zbtScoreUpdateInPlace>
+    0.00 :   7378:        cbnz    w0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   737c:        ldr     w8, [x19, #0x54]
+    0.00 :   7380:        mov     w9, #0x7fff
+    0.00 :   7384:        cmp     w8, w9
+    0.00 :   7388:        b.lo    0x73f4 <zbtreeUpdateScore+0x214>
+    0.00 :   738c:        ldr     x9, [x19, #0x40]
+    0.00 :   7390:        cbz     x9, 0x73d4 <zbtreeUpdateScore+0x1f4>
+    0.00 :   7394:        ldr     w9, [x9, #0x20]
+    0.00 :   7398:        cbnz    w9, 0x73f4 <zbtreeUpdateScore+0x214>
+    0.00 :   739c:        mov     w9, #0xffef
+    0.00 :   73a0:        cmp     w8, w9
+    0.00 :   73a4:        b.hs    0x73c0 <zbtreeUpdateScore+0x1e0>
+    0.00 :   73a8:        mov     x0, x19
+    0.00 :   73ac:        mov     w1, #0x4
+    0.00 :   73b0:        bl      0x6a04 <zbtIndexRehashStep>
+    0.00 :   73b4:        ldr     x8, [x19, #0x40]
+    0.00 :   73b8:        cbnz    x8, 0x73f4 <zbtreeUpdateScore+0x214>
+    0.00 :   73bc:        b       0x73d4 <zbtreeUpdateScore+0x1f4>
+    0.00 :   73c0:        mov     x0, x19
+    0.00 :   73c4:        mov     w1, #0x40
+    0.00 :   73c8:        bl      0x6a04 <zbtIndexRehashStep>
+    0.00 :   73cc:        ldr     x8, [x19, #0x40]
+    0.00 :   73d0:        cbnz    x8, 0x73c0 <zbtreeUpdateScore+0x1e0>
+    0.00 :   73d4:        ldr     x8, [x19, #0x20]
+    0.00 :   73d8:        cbz     x8, 0x73f4 <zbtreeUpdateScore+0x214>
+    0.00 :   73dc:        ldr     w8, [x19, #0x38]
+    0.00 :   73e0:        cbnz    w8, 0x73f4 <zbtreeUpdateScore+0x214>
+    0.00 :   73e4:        ldr     x1, [x19, #0x28]
+    0.00 :   73e8:        mov     x0, x19
+    0.00 :   73ec:        mov     w2, #0x1
+    0.00 :   73f0:        bl      0xa484 <zbtIndexStartResize>
+    0.00 :   73f4:        ldrb    w8, [x21, #0x34]
+    0.00 :   73f8:        cbz     x8, 0x7414 <zbtreeUpdateScore+0x234>
+    0.00 :   73fc:        ldrb    w9, [x21, #0x11]
+    0.00 :   7400:        mov     w10, #0x7
+    0.00 :   7404:        madd    w8, w9, w8, w10
+    0.00 :   7408:        lsr     w8, w8, #3
+    0.00 :   740c:        add     w8, w8, #0x9
+    0.00 :   7410:        and     x8, x8, #0x7ffe
+    0.00 :   7414:        ldrb    w10, [x21, #0x35]
+    0.00 :   7418:        mov     w9, w22
+    0.00 :   741c:        cbz     w10, 0x742c <zbtreeUpdateScore+0x24c>
+    0.00 :   7420:        ldrb    w9, [x21, #0x11]
+    0.00 :   7424:        mvn     w10, w22
+    0.00 :   7428:        add     w9, w9, w10
+    0.00 :   742c:        add     x24, x21, #0x38
+    0.00 :   7430:        add     x8, x24, x8
+    0.00 :   7434:        ldrh    w8, [x8, w9, uxtw #1]
+    5.00 :   7438:        add     x25, x21, x8
+    0.00 :   743c:        ldrb    w8, [x25]
+    0.00 :   7440:        cmp     w8, #0xfd
+    0.00 :   7444:        b.ls    0x7454 <zbtreeUpdateScore+0x274>
+    0.00 :   7448:        cmp     w8, #0xfe
+    0.00 :   744c:        b.ne    0x74a8 <zbtreeUpdateScore+0x2c8>
+    0.00 :   7450:        ldurh   w8, [x25, #0x1]
+    0.00 :   7454:        str     x8, [sp, #0x10]
+    0.00 :   7458:        ldurb   w11, [x23, #-0x1]
+    0.00 :   745c:        add     x8, sp, #0x8
+    0.00 :   7460:        mov     x9, xzr
+    0.00 :   7464:        add     x8, x8, #0x18
+    5.00 :   7468:        and     w10, w11, #0x7
+    5.00 :   746c:        cmp     w10, #0x1
+    0.00 :   7470:        b.le    0x7494 <zbtreeUpdateScore+0x2b4>
+    0.00 :   7474:        cmp     w10, #0x2
+    0.00 :   7478:        b.eq    0x753c <zbtreeUpdateScore+0x35c>
+    0.00 :   747c:        cmp     w10, #0x3
+    0.00 :   7480:        b.eq    0x7544 <zbtreeUpdateScore+0x364>
+    0.00 :   7484:        cmp     w10, #0x4
+    0.00 :   7488:        b.ne    0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   748c:        ldur    x9, [x23, #-0x11]
+    4.99 :   7490:        b       0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   7494:        cbz     w10, 0x754c <zbtreeUpdateScore+0x36c>
+    0.00 :   7498:        cmp     w10, #0x1
+    0.00 :   749c:        b.ne    0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   74a0:        ldurb   w9, [x23, #-0x3]
+    0.00 :   74a4:        b       0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   74a8:        ldur    x26, [x25, #0xd]
+    0.00 :   74ac:        cbz     x26, 0x76f0 <zbtreeUpdateScore+0x510>
+    0.00 :   74b0:        ldur    x9, [x25, #0x5]
+    0.00 :   74b4:        ldur    w8, [x25, #0x1]
+    0.00 :   74b8:        str     x26, [sp, #0x20]
+    0.00 :   74bc:        stp     x26, x9, [sp, #0x8]
+    0.00 :   74c0:        str     w8, [sp, #0x18]
+    0.00 :   74c4:        cbz     x26, 0x7458 <zbtreeUpdateScore+0x278>
+    0.00 :   74c8:        cmp     w8, w20
+    0.00 :   74cc:        b.eq    0x750c <zbtreeUpdateScore+0x32c>
+    0.00 :   74d0:        adrp    x0, 9 // 0x10000
+    0.00 :   74d4:        add     x0, x0, #0xf9f
+    0.00 :   74d8:        adrp    x2, 10 // 0x11000
+    0.00 :   74dc:        add     x2, x2, #0x32
+    0.00 :   74e0:        mov     w1, #0xe55
+    0.00 :   74e4:        bl      0x1027c <standalone_panic>
+    0.00 :   74e8:        ldrb    w8, [x25]
+    0.00 :   74ec:        cmp     w8, #0xff
+    0.00 :   74f0:        b.eq    0x750c <zbtreeUpdateScore+0x32c>
+    0.00 :   74f4:        adrp    x0, 9 // 0x10000
+    0.00 :   74f8:        add     x0, x0, #0xf9f
+    0.00 :   74fc:        adrp    x2, 10 // 0x11000
+    0.00 :   7500:        add     x2, x2, #0xd7
+    0.00 :   7504:        mov     w1, #0x245
+    0.00 :   7508:        bl      0x1027c <standalone_panic>
+    0.00 :   750c:        stur    xzr, [x25, #0xd]
+    0.00 :   7510:        str     xzr, [sp, #0x28]
+    0.00 :   7514:        ldrb    w8, [x21, #0x11]
+    0.00 :   7518:        ldr     w23, [x21, #0x30]
+    0.00 :   751c:        cmp     w8, #0x2
+    0.00 :   7520:        b.hs    0x756c <zbtreeUpdateScore+0x38c>
+    0.00 :   7524:        cmp     w8, #0x1
+    0.00 :   7528:        b.ne    0x7610 <zbtreeUpdateScore+0x430>
+    0.00 :   752c:        mov     x0, x19
+    0.00 :   7530:        mov     x1, x21
+    0.00 :   7534:        bl      0xe684 <zbtScoreRemoveLeaf>
+    0.00 :   7538:        b       0x7624 <zbtreeUpdateScore+0x444>
+    0.00 :   753c:        ldurh   w9, [x23, #-0x5]
+    0.00 :   7540:        b       0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   7544:        ldur    w9, [x23, #-0x9]
+    0.00 :   7548:        b       0x7550 <zbtreeUpdateScore+0x370>
+    0.00 :   754c:        lsr     x9, x11, #3
+    0.00 :   7550:        stp     x23, x9, [sp, #0x8]
+    0.00 :   7554:        str     w20, [sp, #0x18]
+    0.00 :   7558:        stp     xzr, xzr, [x8]
+    0.00 :   755c:        ldrb    w8, [x21, #0x11]
+    5.00 :   7560:        ldr     w23, [x21, #0x30]
+    0.00 :   7564:        cmp     w8, #0x2
+    0.00 :   7568:        b.lo    0x7524 <zbtreeUpdateScore+0x344>
+    0.00 :   756c:        ldrb    w9, [x21, #0x34]
+    0.00 :   7570:        cbz     x9, 0x7588 <zbtreeUpdateScore+0x3a8>
+    0.00 :   7574:        mov     w10, #0x7
+    0.00 :   7578:        madd    w9, w9, w8, w10
+    0.00 :   757c:        lsr     w9, w9, #3
+    0.00 :   7580:        add     w9, w9, #0x9
+    0.00 :   7584:        and     x9, x9, #0x7ffe
+    0.00 :   7588:        ldrb    w10, [x21, #0x35]
+    0.00 :   758c:        mvn     w11, w22
+    0.00 :   7590:        add     x9, x24, x9
+    0.00 :   7594:        add     w8, w8, w11
+    0.00 :   7598:        cmp     w10, #0x0
+    0.00 :   759c:        csel    w8, w22, w8, eq
+    0.00 :   75a0:        ldrh    w8, [x9, w8, uxtw #1]
+    0.00 :   75a4:        add     x9, x21, x8
+    0.00 :   75a8:        ldrb    w8, [x9]
+   10.00 :   75ac:        cmp     w8, #0xfe
+    0.00 :   75b0:        b.eq    0x75c4 <zbtreeUpdateScore+0x3e4>
+    0.00 :   75b4:        cmp     w8, #0xff
+    0.00 :   75b8:        b.ne    0x75c8 <zbtreeUpdateScore+0x3e8>
+    0.00 :   75bc:        mov     w8, wzr
+    0.00 :   75c0:        b       0x75f0 <zbtreeUpdateScore+0x410>
+    0.00 :   75c4:        ldurh   w8, [x9, #0x1]
+    0.00 :   75c8:        add     w9, w8, #0x3
+    0.00 :   75cc:        cmp     x8, #0xfe
+    0.00 :   75d0:        mov     w10, #0x120
+    0.00 :   75d4:        csinc   w8, w9, w8, hs
+    0.00 :   75d8:        mov     w9, #0x60
+    0.00 :   75dc:        madd    w8, w8, w9, w10
+    0.00 :   75e0:        mov     w9, #0x2003
+    0.00 :   75e4:        movk    w9, #0x200, lsl #16
+    0.00 :   75e8:        umull   x8, w8, w9
+    0.00 :   75ec:        lsr     x8, x8, #37
+    0.00 :   75f0:        cmp     w8, #0x1
+    0.00 :   75f4:        ldrb    w9, [x21, #0x15]
+    0.00 :   75f8:        csinc   w8, w8, wzr, hi
+    5.00 :   75fc:        add     w8, w8, w9
+    0.00 :   7600:        mov     w9, #0xff
+    0.00 :   7604:        cmp     w8, #0xff
+    0.00 :   7608:        csel    w8, w8, w9, lo
+    0.00 :   760c:        strb    w8, [x21, #0x15]
+    0.00 :   7610:        mov     x0, x19
+    0.00 :   7614:        mov     x1, x21
+    0.00 :   7618:        mov     w2, w22
+    0.00 :   761c:        mov     w3, wzr
+    0.00 :   7620:        bl      0xe824 <zbtScoreDeleteInPlace>
+    0.00 :   7624:        fmov    d0, d8
+    0.00 :   7628:        add     x1, sp, #0x8
+    0.00 :   762c:        mov     x0, x19
+    0.00 :   7630:        bl      0x4d00 <zbtScoreInsert>
+    0.00 :   7634:        ldr     w3, [x0, #0x30]
+    0.00 :   7638:        cmp     w23, w3
+    0.00 :   763c:        b.eq    0x7678 <zbtreeUpdateScore+0x498>
+    5.00 :   7640:        sub     x5, x29, #0x4
+    0.00 :   7644:        mov     x0, x19
+    0.00 :   7648:        mov     w1, w20
+    0.00 :   764c:        mov     w2, w23
+    0.00 :   7650:        mov     w4, wzr
+    0.00 :   7654:        stur    wzr, [x29, #-0x4]
+    0.00 :   7658:        bl      0x7e58 <zbtIndexMove>
+    0.00 :   765c:        cbnz    w0, 0x7678 <zbtreeUpdateScore+0x498>
+    0.00 :   7660:        adrp    x0, 9 // 0x10000
+    0.00 :   7664:        add     x0, x0, #0xf9f
+    0.00 :   7668:        adrp    x2, 10 // 0x11000
+    0.00 :   766c:        add     x2, x2, #0x45
+    0.00 :   7670:        mov     w1, #0xe64
+    0.00 :   7674:        bl      0x1027c <standalone_panic>
+    0.00 :   7678:        ldr     w8, [x19, #0x54]
+    0.00 :   767c:        cmp     w8, w23
+    0.00 :   7680:        b.ls    0x78c4 <zbtreeUpdateScore+0x6e4>
+    5.00 :   7684:        ldr     x8, [x19, #0x48]
+    0.00 :   7688:        ldr     x20, [x8, x23, lsl #3]
+    0.00 :   768c:        cbz     x20, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    5.00 :   7690:        tbnz    w20, #0x0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   7694:        ldr     w8, [x20, #0x30]
+    0.00 :   7698:        cmp     w8, w23
+    0.00 :   769c:        b.eq    0x76b8 <zbtreeUpdateScore+0x4d8>
+    0.00 :   76a0:        adrp    x0, 9 // 0x10000
+    0.00 :   76a4:        add     x0, x0, #0xf9f
+    0.00 :   76a8:        adrp    x2, 10 // 0x11000
+    0.00 :   76ac:        add     x2, x2, #0xf8
+    0.00 :   76b0:        mov     w1, #0xc2f
+    0.00 :   76b4:        bl      0x1027c <standalone_panic>
+    0.00 :   76b8:        ldrb    w8, [x20, #0x15]
+    0.00 :   76bc:        cmp     w8, #0x18
+    0.00 :   76c0:        b.lo    0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   76c4:        ldrb    w9, [x20, #0x34]
+    0.00 :   76c8:        ldrb    w8, [x20, #0x11]
+    0.00 :   76cc:        strb    wzr, [x20, #0x15]
+    0.00 :   76d0:        cbz     x9, 0x7738 <zbtreeUpdateScore+0x558>
+    0.00 :   76d4:        mov     w10, #0x7
+    0.00 :   76d8:        madd    w9, w9, w8, w10
+    0.00 :   76dc:        lsr     w9, w9, #3
+    0.00 :   76e0:        add     w9, w9, #0x9
+    0.00 :   76e4:        and     x11, x9, #0x7ffe
+    0.00 :   76e8:        add     x9, x11, #0x38
+    0.00 :   76ec:        b       0x7740 <zbtreeUpdateScore+0x560>
+    0.00 :   76f0:        adrp    x0, 9 // 0x10000
+    0.00 :   76f4:        add     x0, x0, #0xf9f
+    0.00 :   76f8:        adrp    x2, 10 // 0x11000
+    0.00 :   76fc:        add     x2, x2, #0xcb
+    0.00 :   7700:        mov     w1, #0x257
+    0.00 :   7704:        bl      0x1027c <standalone_panic>
+    0.00 :   7708:        ldrb    w8, [x25]
+    0.00 :   770c:        cmp     w8, #0xff
+    0.00 :   7710:        b.eq    0x74b0 <zbtreeUpdateScore+0x2d0>
+    0.00 :   7714:        adrp    x0, 9 // 0x10000
+    0.00 :   7718:        add     x0, x0, #0xf9f
+    0.00 :   771c:        adrp    x2, 10 // 0x11000
+    0.00 :   7720:        add     x2, x2, #0xd7
+    0.00 :   7724:        mov     w1, #0x237
+    0.00 :   7728:        bl      0x1027c <standalone_panic>
+    0.00 :   772c:        ldrb    w8, [x25]
+    0.00 :   7730:        cmp     w8, #0xff
+    0.00 :   7734:        b       0x7458 <zbtreeUpdateScore+0x278>
+    0.00 :   7738:        mov     x11, xzr
+    0.00 :   773c:        mov     w9, #0x38
+    0.00 :   7740:        mov     x10, xzr
+    0.00 :   7744:        cbz     w8, 0x77bc <zbtreeUpdateScore+0x5dc>
+    0.00 :   7748:        add     x11, x20, x11
+    0.00 :   774c:        mov     x12, x8
+    0.00 :   7750:        add     x11, x11, #0x38
+    0.00 :   7754:        b       0x7768 <zbtreeUpdateScore+0x588>
+    0.00 :   7758:        mov     w13, #0x15
+    0.00 :   775c:        subs    x12, x12, #0x1
+    0.00 :   7760:        add     x10, x13, x10
+    0.00 :   7764:        b.eq    0x77bc <zbtreeUpdateScore+0x5dc>
+    0.00 :   7768:        ldrh    w13, [x11], #0x2
+    0.00 :   776c:        add     x14, x20, x13
+    0.00 :   7770:        ldrb    w13, [x14]
+   10.00 :   7774:        cmp     w13, #0xfe
+    0.00 :   7778:        b.eq    0x77a0 <zbtreeUpdateScore+0x5c0>
+   10.00 :   777c:        cmp     w13, #0xff
+    0.00 :   7780:        b.eq    0x7758 <zbtreeUpdateScore+0x578>
+    0.00 :   7784:        cmp     x13, #0xfe
+    0.00 :   7788:        add     x14, x13, #0x3
+    0.00 :   778c:        csinc   x13, x14, x13, hs
+    0.00 :   7790:        subs    x12, x12, #0x1
+    0.00 :   7794:        add     x10, x13, x10
+    0.00 :   7798:        b.ne    0x7768 <zbtreeUpdateScore+0x588>
+    0.00 :   779c:        b       0x77bc <zbtreeUpdateScore+0x5dc>
+    0.00 :   77a0:        ldurh   w13, [x14, #0x1]
+    0.00 :   77a4:        cmp     x13, #0xfe
+    0.00 :   77a8:        add     x14, x13, #0x3
+    0.00 :   77ac:        csinc   x13, x14, x13, hs
+    0.00 :   77b0:        subs    x12, x12, #0x1
+    0.00 :   77b4:        add     x10, x13, x10
+    0.00 :   77b8:        b.ne    0x7768 <zbtreeUpdateScore+0x588>
+    5.00 :   77bc:        add     x11, x8, x8, lsl #1
+    0.00 :   77c0:        add     x9, x9, x10
+    0.00 :   77c4:        ldr     x1, [x20, #0x18]
+    0.00 :   77c8:        add     x21, x9, x11
+    0.00 :   77cc:        cmp     x21, #0x5ff
+    0.00 :   77d0:        b.ls    0x7840 <zbtreeUpdateScore+0x660>
+    0.00 :   77d4:        sub     x9, x21, #0x38
+    0.00 :   77d8:        udiv    x22, x9, x8
+    0.00 :   77dc:        cbz     x1, 0x7814 <zbtreeUpdateScore+0x634>
+    0.00 :   77e0:        ldrb    w9, [x1, #0x11]
+    0.00 :   77e4:        add     w8, w9, w8
+    0.00 :   77e8:        cmp     w8, #0x48
+    0.00 :   77ec:        b.hi    0x7814 <zbtreeUpdateScore+0x634>
+    0.00 :   77f0:        madd    x8, x22, x9, x21
+    0.00 :   77f4:        cmp     x8, #0xbff
+    0.00 :   77f8:        b.hi    0x7814 <zbtreeUpdateScore+0x634>
+    0.00 :   77fc:        mov     x0, x19
+    0.00 :   7800:        mov     x2, x20
+    0.00 :   7804:        mov     w3, #0x48
+    0.00 :   7808:        mov     w4, #0xbff
+    0.00 :   780c:        bl      0xee94 <zbtScoreMergePair>
+    0.00 :   7810:        cbnz    x0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   7814:        ldr     x2, [x20, #0x20]
+    0.00 :   7818:        cbz     x2, 0x78a0 <zbtreeUpdateScore+0x6c0>
+    0.00 :   781c:        ldrb    w9, [x20, #0x11]
+    0.00 :   7820:        ldrb    w8, [x2, #0x11]
+    0.00 :   7824:        add     w9, w8, w9
+    0.00 :   7828:        cmp     w9, #0x48
+    0.00 :   782c:        b.hi    0x78a0 <zbtreeUpdateScore+0x6c0>
+    0.00 :   7830:        madd    x8, x22, x8, x21
+    0.00 :   7834:        cmp     x8, #0xbff
+    0.00 :   7838:        b.ls    0x7888 <zbtreeUpdateScore+0x6a8>
+    0.00 :   783c:        b       0x78a0 <zbtreeUpdateScore+0x6c0>
+    0.00 :   7840:        cbz     x1, 0x786c <zbtreeUpdateScore+0x68c>
+    0.00 :   7844:        ldrb    w9, [x1, #0x11]
+    0.00 :   7848:        add     w8, w9, w8
+    0.00 :   784c:        cmp     w8, #0x48
+    0.00 :   7850:        b.hi    0x786c <zbtreeUpdateScore+0x68c>
+    0.00 :   7854:        mov     x0, x19
+    0.00 :   7858:        mov     x2, x20
+    0.00 :   785c:        mov     w3, #0x48
+    0.00 :   7860:        mov     w4, #0xbff
+    0.00 :   7864:        bl      0xee94 <zbtScoreMergePair>
+    0.00 :   7868:        cbnz    x0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   786c:        ldr     x2, [x20, #0x20]
+    0.00 :   7870:        cbz     x2, 0x78a0 <zbtreeUpdateScore+0x6c0>
+    0.00 :   7874:        ldrb    w8, [x20, #0x11]
+    0.00 :   7878:        ldrb    w9, [x2, #0x11]
+    0.00 :   787c:        add     w8, w9, w8
+    0.00 :   7880:        cmp     w8, #0x48
+    0.00 :   7884:        b.hi    0x78a0 <zbtreeUpdateScore+0x6c0>
+    0.00 :   7888:        mov     x0, x19
+    0.00 :   788c:        mov     x1, x20
+    0.00 :   7890:        mov     w3, #0x48
+    0.00 :   7894:        mov     w4, #0xbff
+    0.00 :   7898:        bl      0xee94 <zbtScoreMergePair>
+    0.00 :   789c:        cbnz    x0, 0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   78a0:        mov     x0, x20
+    0.00 :   78a4:        bl      0x102b0 <zmalloc_usable_size>
+    0.00 :   78a8:        lsl     x8, x21, #1
+    0.00 :   78ac:        add     x8, x8, #0x80
+    0.00 :   78b0:        cmp     x0, x8
+    0.00 :   78b4:        b.lo    0x78c4 <zbtreeUpdateScore+0x6e4>
+    0.00 :   78b8:        mov     x0, x19
+    0.00 :   78bc:        mov     x1, x20
+    0.00 :   78c0:        bl      0xd6e0 <zbtScoreCompactLeaf>
+    5.00 :   78c4:        ldp     x20, x19, [sp, #0x80]
+    0.00 :   78c8:        ldr     d8, [sp, #0x30]
+    0.00 :   78cc:        ldp     x22, x21, [sp, #0x70]
+    0.00 :   78d0:        ldp     x24, x23, [sp, #0x60]
+    0.00 :   78d4:        ldp     x26, x25, [sp, #0x50]
+    0.00 :   78d8:        ldp     x29, x30, [sp, #0x40]
+    0.00 :   78dc:        add     sp, sp, #0x90
+    0.00 :   78e0:        ret

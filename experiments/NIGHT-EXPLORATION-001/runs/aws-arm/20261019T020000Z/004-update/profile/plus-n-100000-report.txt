@@ -1,0 +1,485 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'armv8_pmuv3_0/cycles/P'
+# Event count (approx.): 3586873902
+#
+# Overhead  Command        Shared Object     Symbol                        
+# ........  .............  ................  ..............................
+#
+    17.03%  update-native  update-native     [.] zbtScoreInsertAt
+            |          
+            |--2.74%--zbtPackedData (inlined)
+            |          zbtBuildElementFromLeaf (inlined)
+            |          zbtScoreInsertAt
+            |          |          
+            |           --2.58%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--2.18%--zbtScoreLeafScore (inlined)
+            |          zbtScoreInsertAt
+            |          |          
+            |           --2.11%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--1.91%--zbtWriteBits (inlined)
+            |          zbtInsertScoreBits (inlined)
+            |          zbtScoreInsertFast (inlined)
+            |          zbtScoreInsertAt
+            |          |          
+            |           --1.64%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--1.88%--zbtScoreEncoding (inlined)
+            |          |          
+            |          |--0.94%--zbtScoreLeafRequestBytes (inlined)
+            |          |          |          
+            |          |           --0.86%--zbtScoreInsertAt
+            |          |                     |          
+            |          |                      --0.78%--zbtreeUpdateScore
+            |          |                                bits (inlined)
+            |          |                                main
+            |          |                                0xeb5f9ae684c4
+            |          |                                __libc_start_main
+            |          |                                _start
+            |          |          
+            |           --0.94%--zbtScoreInsertInPlace (inlined)
+            |                     zbtScoreInsertAt
+            |                     zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--1.79%--zbtScoreInsertAt
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--0.94%--zbtScoreLeafWriteScore (inlined)
+            |          zbtScoreInsertInPlace (inlined)
+            |          zbtScoreInsertAt
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--0.86%--zbtScoreLeafScoreBytes (inlined)
+            |          zbtScoreLeafOffsets (inlined)
+            |          |          
+            |           --0.55%--zbtScoreLeafOffset (inlined)
+            |          
+            |--0.80%--zbtReadBits (inlined)
+            |          zbtInsertScoreBits (inlined)
+            |          zbtScoreInsertFast (inlined)
+            |          zbtScoreInsertAt
+            |          |          
+            |           --0.70%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--0.62%--zbtScoreLeafPhysicalPos (inlined)
+            |          
+             --0.62%--zbtBuildElementIsExternal (inlined)
+                       zbtElementStorageBytes (inlined)
+                       |          
+                        --0.55%--zbtScoreLeafRequestBytes (inlined)
+                                  zbtScoreInsertAt
+                                  zbtreeUpdateScore
+                                  bits (inlined)
+                                  main
+                                  0xeb5f9ae684c4
+                                  __libc_start_main
+                                  _start
+
+    16.32%  update-native  update-native     [.] zbtreeFindForAdd
+            |          
+            |--5.54%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeFindForAdd
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--4.76%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeFindForAdd
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --4.46%--zbtreeFindForAdd
+                       main
+                       0xeb5f9ae684c4
+                       __libc_start_main
+                       _start
+
+    12.16%  update-native  update-native     [.] zbtScoreLeafLowerBound
+            |          
+            |--3.28%--zbtPackedData (inlined)
+            |          zbtScoreLeafElement (inlined)
+            |          zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--3.06%--zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          |          
+            |          |--2.11%--zbtreeUpdateScore
+            |          |          bits (inlined)
+            |          |          main
+            |          |          0xeb5f9ae684c4
+            |          |          __libc_start_main
+            |          |          _start
+            |          |          
+            |           --0.96%--zbtreeInsertNewRaw (inlined)
+            |                     zbtreeInsertNew
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--2.39%--zbtScoreLeafRecord (inlined)
+            |          zbtScoreLeafElement (inlined)
+            |          zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          |          
+            |           --2.26%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--1.09%--zbtScoreLeafScore (inlined)
+            |          zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--0.55%--zbtScoreCompare (inlined)
+            |          zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--0.55%--zbtScoreLeafScoreBytes (inlined)
+            |          zbtScoreLeafOffsets (inlined)
+            |          zbtScoreLeafOffset (inlined)
+            |          zbtScoreLeafRecord (inlined)
+            |          zbtScoreLeafElement (inlined)
+            |          zbtScoreLeafLowerBound
+            |          zbtScoreInsert
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.55%--zbtScoreLeafPhysicalPos (inlined)
+
+     8.90%  update-native  update-native     [.] zbtScoreLeafBuild
+            |          
+            |--3.20%--zbtScoreLeafWriteScore (inlined)
+            |          zbtScoreLeafBuild
+            |          |          
+            |           --3.12%--zbtScoreInsertAt
+            |                     |          
+            |                      --2.97%--zbtreeUpdateScore
+            |                                bits (inlined)
+            |                                main
+            |                                0xeb5f9ae684c4
+            |                                __libc_start_main
+            |                                _start
+            |          
+            |--1.56%--zbtBuildElementIsExternal (inlined)
+            |          |          
+            |           --1.33%--zbtElementStorageBytes (inlined)
+            |                     |          
+            |                      --1.01%--zbtScoreLeafRequestBytes (inlined)
+            |                                zbtScoreLeafBuild
+            |                                zbtScoreInsertAt
+            |                                zbtreeUpdateScore
+            |                                bits (inlined)
+            |                                main
+            |                                0xeb5f9ae684c4
+            |                                __libc_start_main
+            |                                _start
+            |          
+            |--1.25%--zbtScoreLeafBuild
+            |          zbtScoreInsertAt
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --1.18%--zbtScoreEncoding (inlined)
+                       |          
+                        --0.79%--zbtScoreLeafRequestBytes (inlined)
+                                  zbtScoreLeafBuild
+                                  zbtScoreInsertAt
+                                  |          
+                                   --0.55%--zbtreeUpdateScore
+                                             bits (inlined)
+                                             main
+                                             0xeb5f9ae684c4
+                                             __libc_start_main
+                                             _start
+
+     8.19%  update-native  update-native     [.] zbtScoreFindLeaf
+            |          
+            |--4.60%--zbtScoreFindLeaf
+            |          zbtScoreInsert
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --3.43%--zbtScoreChild (inlined)
+                       zbtScoreFindLeaf
+                       zbtScoreInsert
+                       zbtreeUpdateScore
+                       bits (inlined)
+                       main
+                       0xeb5f9ae684c4
+                       __libc_start_main
+                       _start
+
+     5.15%  update-native  update-native     [.] zbtScoreDeleteInPlace
+            |          
+            |--2.65%--zbtWriteBits (inlined)
+            |          zbtDeleteScoreBits (inlined)
+            |          zbtScoreDeleteInPlace
+            |          zbtreeUpdateScore
+            |          bits (inlined)
+            |          main
+            |          0xeb5f9ae684c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--1.09%--zbtScoreDeleteInPlace
+            |          |          
+            |           --1.01%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+             --0.78%--zbtReadBits (inlined)
+                       zbtDeleteScoreBits (inlined)
+                       zbtScoreDeleteInPlace
+                       zbtreeUpdateScore
+                       bits (inlined)
+                       main
+                       0xeb5f9ae684c4
+                       __libc_start_main
+                       _start
+
+     4.45%  update-native  update-native     [.] zbtScoreLeafFindMember
+            |          
+             --3.82%--zbtScoreLeafFindMember
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       |          
+                        --3.75%--zbtreeFindForAdd
+                                  main
+                                  0xeb5f9ae684c4
+                                  __libc_start_main
+                                  _start
+
+     3.91%  update-native  update-native     [.] main
+            |
+            ---main
+               0xeb5f9ae684c4
+               __libc_start_main
+               _start
+
+     3.12%  update-native  update-native     [.] zbtScoreUpdatePath
+            |          
+            |--1.87%--zbtScoreUpdatePath
+            |          |          
+            |          |--0.94%--zbtScoreDeleteInPlace
+            |          |          zbtreeUpdateScore
+            |          |          bits (inlined)
+            |          |          main
+            |          |          0xeb5f9ae684c4
+            |          |          __libc_start_main
+            |          |          _start
+            |          |          
+            |           --0.94%--zbtScoreInsertAt
+            |                     zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+             --0.86%--zbtScoreLeafScore (inlined)
+                       zbtScoreNodeMaxScore (inlined)
+                       zbtScoreUpdatePath
+                       |          
+                        --0.55%--zbtScoreInsertAt
+
+     2.65%  update-native  update-native     [.] zbtIndexTableFindReference
+            |          
+            |--1.09%--zbtIndexTableFindReference
+            |          zbtIndexMove
+            |          |          
+            |           --0.62%--zbtreeUpdateScore
+            |                     bits (inlined)
+            |                     main
+            |                     0xeb5f9ae684c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+             --0.70%--zbtIndexTagBits (inlined)
+                       zbtIndexHomeMayContain (inlined)
+                       zbtIndexTableFindReference
+                       zbtIndexMove
+                       |          
+                        --0.55%--zbtScoreInsertAt
+                                  zbtreeUpdateScore
+                                  bits (inlined)
+                                  main
+                                  0xeb5f9ae684c4
+                                  __libc_start_main
+                                  _start
+
+     1.64%  update-native  update-native     [.] zbtreeUpdateScore
+     1.40%  update-native  update-native     [.] zbtScoreUpdateInPlace
+            |          
+             --0.94%--zbtScoreUpdateInPlace
+                       zbtreeUpdateScore
+                       bits (inlined)
+                       main
+                       0xeb5f9ae684c4
+                       __libc_start_main
+                       _start
+
+     1.01%  update-native  libc.so.6         [.] 0x00000000000a13d0
+            |
+            ---0xeb5f9aee13d0
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeFindForAdd
+               main
+               0xeb5f9ae684c4
+               __libc_start_main
+               _start
+
+     0.86%  update-native  libc.so.6         [.] 0x00000000000a1bc0
+            |
+            ---0xeb5f9aee1bc0
+               |          
+                --0.62%--zbtScoreInsertFast (inlined)
+                          zbtScoreInsertAt
+                          zbtreeUpdateScore
+                          bits (inlined)
+                          main
+                          0xeb5f9ae684c4
+                          __libc_start_main
+                          _start
+
+     0.70%  update-native  libc.so.6         [.] 0x00000000000a1ba8
+            |
+            ---0xeb5f9aee1ba8
+
+     0.68%  update-native  libc.so.6         [.] 0x00000000000a1b98
+            |
+            ---0xeb5f9aee1b98
+               |          
+                --0.60%--zbtPackedWriteInline (inlined)
+                          zbtBuildElementWrite (inlined)
+                          |          
+                           --0.52%--zbtScoreInsertFast (inlined)
+                                     zbtScoreInsertAt
+
+     0.63%  update-native  update-native     [.] siphash
+            |
+            ---siphash
+
+     0.62%  update-native  update-native     [.] zbtScoreInsert
+            |
+            ---zbtScoreInsert
+               zbtreeUpdateScore
+               bits (inlined)
+               main
+               0xeb5f9ae684c4
+               __libc_start_main
+               _start
+
+     0.62%  update-native  update-native     [.] memcpy@plt
+            |
+            ---memcpy@plt
+
+     0.55%  update-native  libc.so.6         [.] 0x00000000000a1408
+            |
+            ---0xeb5f9aee1408
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeFindForAdd
+               main
+               0xeb5f9ae684c4
+               __libc_start_main
+               _start
+
+     0.55%  update-native  libc.so.6         [.] memcmp
+            |
+            ---memcmp
+
+     0.55%  update-native  libc.so.6         [.] 0x00000000000a1bc4
+            |
+            ---0xeb5f9aee1bc4
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
