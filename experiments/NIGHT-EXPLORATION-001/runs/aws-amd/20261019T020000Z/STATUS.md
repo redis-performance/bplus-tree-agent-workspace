@@ -1,7 +1,5 @@
-# AWS AMD native checkpoint
+# AMD checkpoint
 
-SCAN-TAGS-001 PARK/NONE:144processes/36effects. A−5.255%/−4.360% and B−4.279%/−4.297% median100K/1M elapsed changes meet every-block dual-primary gate; C−3.790%/−2.143% fails1M block gate. Failed1M A/A and missing guards prevent qualification. A receives one matched mechanism diagnostic by fixed alphabetical priority, not superiority. AMD totals4populations:0accepted,3rejected,1parked. Baseline source unchanged.
+Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover.
 
-Current evidence:008-scan-tags/implementation-selection.md. Root raw audit/profile pending. Deadline08:00UTC, no new experiments after07:15UTC. No source adoption overnight.
-
-Matched mechanism diagnostic completed: less instruction work, higher branch misses, under1% cycles change; does not validate exploratory elapsed magnitude. Raw report008-scan-tags/mechanism/RESULT.md. AMD host idle after03:31:59UTC pending next distinct baseline investigation; no scan retries.
+Evidence009-delete/DECISION.md and010-intel-scan-review/. SourceNONE. Deadline08:00UTC, no new experiments after07:15UTC.

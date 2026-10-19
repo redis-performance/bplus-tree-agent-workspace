@@ -43,3 +43,5 @@
 - 2026-10-19T03:42:56.863072+00:00: distinct original-delete scoped profile6captures plus offset census7runsPASS.1M final conditional offset-adjust loop5.496%/101events;100K17.116% but only7events. Census average67.6offsets,~49.5% adjusted,~98.6% mixed loops; scalar conditional-store codegen observed. Common packet published before proposals; fresh fixed A/A next. No candidate/population count increment.
 
 - 2026-10-19T03:45:34.509158+00:00: independent AMD proposalc4d69f7f7 submitted without peer reads. Fixed delete A/A48processes:100Kqualifies(maxabs0.742%),1Mfails(+4.682%,+3.035%,+1.087%blocks). No retries/ops changes. Noise approaches nominal5.496% loop share; root chair may chooseNONE. Every control row retained.
+
+- 2026-10-19T03:48:40.516973+00:00: Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover.

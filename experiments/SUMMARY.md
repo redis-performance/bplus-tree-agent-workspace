@@ -543,3 +543,8 @@ FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 
 ## AWS AMD SCAN-TAGS-001 — 19 October 2026
 
 SCAN-TAGS-001 PARK/NONE:144processes/36effects. A−5.255%/−4.360% and B−4.279%/−4.297% median100K/1M elapsed changes meet every-block dual-primary gate; C−3.790%/−2.143% fails1M block gate. Failed1M A/A and missing guards prevent qualification. A receives one matched mechanism diagnostic by fixed alphabetical priority, not superiority. AMD totals4populations:0accepted,3rejected,1parked. Baseline source unchanged. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/008-scan-tags/implementation-selection.md`.
+
+
+## AWS AMD delete diagnostic — 19 October 2026
+
+Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/009-delete/DECISION.md`.
