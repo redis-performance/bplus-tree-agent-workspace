@@ -33,7 +33,9 @@ corrected-adapter ARM round completed qualified controls, three independent prop
 and three isolated NEON implementations. All three passed correctness but slowed
 every primary block; the 144-run comparison is independently audited REJECT/NONE. Intel’s focused guards pass all 22 qualified cases; 14 noisy
 controls and the original guard gaps remain unresolved. The supplemental failure
-is decisive despite those earlier scoped gains.
+is decisive despite those earlier scoped gains. Corrected-source Intel controls now
+qualify; a separate replication plan must requalify that failing guard. ARM follow-up
+proposals are under review after matched profiling and fresh controls; no new candidate.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).

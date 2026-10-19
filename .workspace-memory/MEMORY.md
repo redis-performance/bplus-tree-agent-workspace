@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:35 UTC
+## Current AWS overnight checkpoint — 19 October 05:45 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -9,10 +9,14 @@ All three implementations passed 145 native validation commands before discovery
 
 Original-adapter Intel scan B is REJECT: qualified trim/319-byte/signed-zero guard
 regresses all six blocks (+4.931% median). Root independently audits all1,440 rows;
-separate full AMD review pending. Earlier primary/focused gains do not override loss.
-No A fallback or retry. Corrected Intel baseline-only profile/control job now runs.
-ARM static diagnosis independently verified; frozen12-capture existing-binary profile
-approved, full-process PMU with explicit timed-call-site analysis filter. No candidate.
+independent AMD full2,124-process review1217ba80a complete. Earlier primary/focused gains do not override loss.
+No A fallback or retry. Corrected Intel60 profiles/48 AA rows root-audited; both primary
+controls qualify. Corrected exactB plan preparing with known failing guard first;
+no execution grant. Metadata failure preserved, read-only completion only, no reruns.
+ARM existing-binary12-capture profile independently audited: exact predicate17.67%/
+16.87% of timed sampled period, not causal or recoverable cost. Fresh02048 AA rows
+qualify both sizes. Three independent proposal passes now running fromc3323969a;
+NONE permitted, no implementation yet. Previous017 rejection remains final.
 Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
 AMD rank/update profile and index-reference diagnosis select no new hypothesis.
 

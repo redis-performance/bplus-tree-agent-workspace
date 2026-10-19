@@ -422,3 +422,39 @@ chunk. Root reviews and grants frozen diagnosticd8b21e3c6: exact existing baseli
 binaries, 12 full-process captures,16 semantic/disabled controls,600-second cap.
 Analysis filters the verified timed main call site and retains all other/incomplete
 stacks; it is not physically scoped PMU capture. No new candidate is authorized.
+
+
+## 19 October 05:45 UTC — profile reviews and fresh controls complete
+
+Independent AMD supplemental audit1217ba80a reconstructs all2,124 processes,
+360 effects,30 calibrated counts,90 models and360 census records, confirming
+Intel old-source B REJECT. Its decisive seven-member319-byte fixture has zero
+full16-byte and full8-byte chunks; the regression cannot be attributed directly
+to execution of the vector comparison. Source adoption remains NONE.
+
+Root independently audits corrected Intel8d8687467:60 profile captures, seven
+semantic controls, known-work66/66 samples and disabled0,320 immutable inputs,
+and48 fresh A/A rows. Both primary sizes qualify all six controls. All sampled
+helper buckets map to actual timing-binary opcodes/source;542/552 ScanSlot
+instructions match, with ten mismatches retained. The original metadata failure
+is preserved; only read-only mapping continued, with unchanged raw samples and
+aggregate268.15s within600s. No measurement reruns or corrected candidate timings.
+[Root profile/control audit](reviews/aws-intel-corrected-profile-aa-independent-audit.json).
+Intel prepares a frozen corrected-source exactB plan that must separately qualify
+and pass the known small-leaf guard before advancing; no execution grant yet.
+
+Root and independent AMD45ecc704e reconstruct all17,482 ARM profile samples,
+52 commands,28 semantic executions and124 sealed files. B's exact predicate region
+has400/421 events and17.670%/16.866% of filtered timed sampled period at100K/1M.
+All frozen materiality gates pass. Full-process capture and timed-call-site filtering
+remain distinct;70 incomplete stacks and all other samples remain accounted for.
+Reported loss is zero. This is sampled materiality, not a recoverable-time estimate.
+[Root audit](reviews/aws-arm-neon-profile-independent-audit.json).
+
+Fresh ARM020 controls c3323969a qualify both sizes:48 rows/12 blocks/105 seals,
+seeds701–703 twice, no retries, unchanged8694 binary. Root raw audit passes.
+Three actual independent proposal passes now run from the same frozen packet;
+NONE is permitted. Proposals must address the severe prior55–79% B slowdown,
+not merely assume removal of a17% sampled region would beat the baseline.
+No new implementation, measured population or adoption yet. Counts remain8:
+0 accepted /5 rejected /3 parked. [Fresh controls](reviews/aws-arm-fold-predicate-aa-audit.json).
