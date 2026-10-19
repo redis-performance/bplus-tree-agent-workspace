@@ -100,3 +100,16 @@ reconstructs all 1,920 original-control/comparison rows and agrees with PARK/NON
 It confirms the primary claim is confined to forward score-only iteration on this
 ARM host. A historical authorization flag was clarified in146f816ff; evidence and
 gates did not change. Later favorable diagnostics cannot repair the failed controls.
+
+## Iterator controls
+
+Result `8ed45423c` completes all 1,968 baseline processes across 82 required iterator
+cases in 764.223122 seconds. **43 cases qualify; 39 fail precision.** No window is
+below 10 ms (minimum 44.796530 ms). These additional required failures keep PARK.
+[Root raw audit](ITERATOR-AA-ROOT-AUDIT.json) verifies every row, frozen schedule,
+identity, same-fixture memory and post-idle proof. A fixed subsequent comparison
+can be diagnostic only; it cannot qualify the 39 noisy controls or repair the
+original-operation blockers. All cells and failed blocks remain in the evidence.
+
+[Independent Intel iterator-control review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d68b27aa2/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/029-arm-guard-raw-review/iterator-AA-8ed45423c/REVIEW.md) agrees: integer21/32, encoding14/24, storage3/20, signed-zero ties5/6 qualify.
+The fixed comparison is separately granted under1500seconds; all82cases retained.

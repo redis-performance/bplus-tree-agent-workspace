@@ -1,13 +1,13 @@
 # ARM mask follow-up status
 
-**PARK; iterator baseline controls granted.** The original comparison completed
-120 processes / 960 rows / 240 blocks: 17 qualified cases pass; 100-member SCAN is
-mixed, with one +1.4778% block and five small improvements. No qualified all-six-block
-regression was demonstrated. Eleven required control precision failures remain.
-Root and independent Intel audits agree; held-out confirmation remains ineligible.
-The fixed 82-cell / 1,968-process iterator A/A may run once under 1,500 seconds.
-Source NONE. ARM lease remains active; hard handback at 10:15 UTC / 11:15 Lisbon.
-[Results](RESULTS.md). No automatic candidate comparison or profile grant.
+**PARK; fixed iterator diagnostic comparison granted.** Iterator controls complete
+all1,968 processes:43/82 required cells qualify,39 fail precision; no window is short.
+Root and independent Intel audits agree. The original matrix has17 qualified passes,
+one mixed100-member SCAN and11 noisy required controls. Held-out confirmation remains
+ineligible. The fixed82-cell /1,968-process candidate comparison may run once under
+1,500 seconds; only qualified controls support calibrated conclusions. Source NONE.
+ARM lease remains active; hard handback10:15 UTC /11:15 Lisbon. [Results](RESULTS.md).
+No retries, retuning or automatic profile grant.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 

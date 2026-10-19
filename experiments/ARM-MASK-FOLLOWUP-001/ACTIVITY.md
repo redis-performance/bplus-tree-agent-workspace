@@ -35,3 +35,7 @@ Root and independent Intel73f66fe89 verify result4c7668661: 17 qualified passes,
 ### 09:34 UTC — Guard chart and current-phase status
 
 Published all six blocks of each qualified original guard, including the mixed SCAN outlier. Unqualified cells remain in raw evidence and are explicitly outside the calibrated chart. Visual layout checked. Independent review caught a stale historical candidate-authorization flag;146f816ff separates historical permission from current baseline-only phase.
+
+### 2026-10-19T09:47:33.857402+00:00 — Iterator controls audited; fixed comparison granted
+
+Result8ed45423c,1968rows/492blocks,764.223122s:43/82qualify,39noisy,0short. Root audit+Intel d68b27aa2 agree on rawrows/semantics/identity/memory/idle. OverallPARK/NONE. One fixed1968-process iterator-comparison granted1500s/60schild; only iffullcap+20 fits10:15. No automatic profile/confirmation/retries.
