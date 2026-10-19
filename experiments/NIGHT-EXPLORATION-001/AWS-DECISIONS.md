@@ -354,3 +354,29 @@ AMD separately validates exact selected x86B under the corrected adapter before 
 fixed48-row comparison; no new x86 population or candidate switching. Intel continues
 its frozen old-adapter focused guards, then its corrected baseline and supplemental
 guards. All source adoption remains NONE; no claim of a completed optimization.
+
+
+## 19 October 05:06 UTC — corrected AMD replication rejected; ARM implementations sealed
+
+Root independently reconstructs corrected AMD exactB evidence db7fdb5b4:60 validation
+commands, four original43-test runs,30 oracle executions,48 serialCPU2 raw comparison
+rows,12 ABBA effects, original A/A fixture joins and exact source/memory/binary identities.
+Median elapsed changes are−1.848% at100K and−1.785% at1M; only2/6 blocks per size meet
+2%. **REJECT this replication / NONE**, no guards/profile/confirmation advancement or
+retry. This is not a new population, and original8fab scan PARK remains unchanged.
+[Independent audit](reviews/aws-amd-corrected-B-independent-audit.json).
+
+All three corrected ARM NEON implementations are sealed independently: A=a223b96b1,
+B=9b2456c01,C=3b137666b. Root static review finds no blocker and exhaustively verifies
+65,536 lane-match patterns for each of the two reduction methods. Native correctness,
+codegen and timing remain pending. Frozen maintenance scores A28/B26/C26 give B,C,A
+preference only among implementations passing every primary block, not a speed ranking.
+[Review and retained patches](reviews/aws-arm-corrected-scan-population/implementation-static-review.md).
+
+Intel focused A/A completes864 rows/216 blocks,22/36 qualified cells,14 precision
+failures and no short windows. Root independently checks immutable c5a734191 raw data,
+all36 retained fixture hashes, frozen schedules, serialCPU2, semantic/memory parity and
+24 post-phase source/referee/binary identities. Full fixed candidate comparison continues,
+retaining all failed-control cells. No new accepted source; completed AWS populations
+remain7 (0 accepted/4 rejected/3 parked), plus separate replications.
+[Focused control audit](reviews/aws-intel-focused-aa-independent-audit.json).

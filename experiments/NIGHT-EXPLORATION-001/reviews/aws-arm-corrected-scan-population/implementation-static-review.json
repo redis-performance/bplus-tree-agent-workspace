@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "variant": "A",
+      "revision": "a223b96b1",
+      "patch_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/017-corrected-neon/variants/A/candidate.patch",
+      "patch_sha256": "42fed5c2de1a863f0f1a415d2a348694bfb8f773ef2ffbff562c2472d2b76b53",
+      "source_sha256": "0f8568f36ea0ed3d48c13906302c2df6983d6271568b88e0b5c380f7ce2070eb",
+      "noncomment_added": 27,
+      "noncomment_deleted": 1,
+      "maintenance_score": 28
+    },
+    {
+      "variant": "B",
+      "revision": "9b2456c01",
+      "patch_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/015-arm-corrected-scan-review/implementation-B/candidate.patch",
+      "patch_sha256": "978134f54562ab6cff239bfbd15152cfc08e8defb19aa71c8cae122ceb870eac",
+      "source_sha256": "1788f2b5e48ef74440079a9a3da67a67a3b5b5bae1d18f617d42784b10ba8825",
+      "noncomment_added": 25,
+      "noncomment_deleted": 1,
+      "maintenance_score": 26
+    },
+    {
+      "variant": "C",
+      "revision": "3b137666b",
+      "patch_path": "experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/020-arm-corrected-implementation-C/candidate.patch",
+      "patch_sha256": "7335e122597ba6fa74cee42f13e5ee3ecbb52753efb7c56a8abdf7a4775f27e8",
+      "source_sha256": "1600c035103a0dd30b49a5a266da73707963039647443ffd3ee88cd5f6827fe2",
+      "noncomment_added": 25,
+      "noncomment_deleted": 1,
+      "maintenance_score": 26
+    }
+  ],
+  "mask_patterns_verified_per_reduction": 65536,
+  "reductions_verified": [
+    "A/C one bit per nibble",
+    "B clear full nibble"
+  ],
+  "maintenance_method": "C lexical comments removed preserving string/char literals; blank lines removed; remaining lines stripped at ends; added+deleted lines from SequenceMatcher with autojunk=False against exact baseline. Published before candidate timing.",
+  "static_findings": [],
+  "maintenance_preference": [
+    "B",
+    "C",
+    "A"
+  ],
+  "limitations": "Native codegen and original/oracle/sanitizer/runtime validation still pending; exhaustive arithmetic proof is not native execution.",
+  "reviewer": "root native agent; exact model/token/USD cost unknown",
+  "checked_utc": "2026-10-19T05:03:00+00:00"
+}

@@ -25,13 +25,13 @@ Source adoption remains NONE.
 
 AWS completed measured populations: **7 — 0 accepted / 4 rejected / 3 parked**.
 One additional ARM architecture replication is parked. Intel scan replication passed
-both primary gates and fresh independent confirmation; variant B is undergoing
-guards and profile validation, with no adoption.
+both primary gates and fresh independent confirmation; variant B continues guard validation after matched-profile review, with no adoption.
 AMD deletion and native ARM scan planning stopped before implementation because
 precision controls failed; their independent proposals are retained. A separate
 corrected-adapter ARM round now has qualified controls and three independent proposals;
-three isolated NEON implementations are being prepared. AMD separately validates the
-existing SSE2 candidate under the corrected adapter. Neither has candidate timings yet.
+three isolated NEON implementations are sealed and await native validation/timing.
+AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
+primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
 **Standalone adapter correction:** the panic declaration now conveys its existing
