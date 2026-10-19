@@ -1,6 +1,6 @@
 # M6 morning report — interim, core queue complete
 
-Updated 19 October 2026, round 7. Campaign authorization ends 08:00 UTC / 09:00
+Updated 19 October 2026, round 8. Campaign authorization ends 08:00 UTC / 09:00
 Lisbon; no experiments after 07:15 UTC. Source selection **NONE**. The core queue
 has no contender eligible for confirmation. A separate operator-owned trial
 is preregistered in [006-followup](006-followup/PLAN.json). Its chair selected
@@ -89,7 +89,7 @@ hashes and all 12 retained campaign patch hashes, and reads the previous raw aud
 without repeating experiments or whole-evidence inventories. It corrects stale
 README next-target wording. This is sequential reporting review, not independent
 validation. [USAGE.json](USAGE.json) records supervisor-reported tokens through
-completed round 6; current-round usage, exact serving model and currency cost remain
+completed round 7; current-round usage, exact serving model and currency cost remain
 unknown. Token fields retain their original meanings and are not double-counted.
 
 Core queue's last experimental child ended 03:00:37.811992 UTC. Round 6 launched no
@@ -118,3 +118,9 @@ Round 7 checkpoint publication acknowledged **f204e2fbf**, request
 `r7-operator-checkpoint-20261019T031149769253Z`, ok at03:11:54.700802UTC.
 See [acknowledgement](ROUND-007-PUBLICATION.json). Final handoff publication follows;
 read its matching acknowledgement on resume. No worker experimental children.
+
+Round8 checkpoint: prior round7 final handoff acknowledged **fa62b37cd**. The
+operator population still explicitly records implementation preparation; no worker
+experimental children or new decisions. [Round8 observation](ROUND-008-HANDOFF.json)
+records this status and unchanged baseline-summary qualification. Worker hands off
+early; operator trial remains active. Round8 publication follows.

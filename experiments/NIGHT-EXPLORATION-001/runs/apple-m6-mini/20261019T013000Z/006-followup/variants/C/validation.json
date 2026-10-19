@@ -1,0 +1,1721 @@
+{
+  "participant": "/root/followup_proposal_c",
+  "backend": "GPT-6/Codex family",
+  "exact_serving_variant": null,
+  "token_usage": null,
+  "monetary_cost": null,
+  "scope": "correctness and static codegen only; no performance results",
+  "source_commit": "e52c26c4b52c167b5ed3948eb9440f3fc2ffabaf",
+  "commands": [
+    {
+      "name": "build-upstream",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-DREDIS_TEST",
+        "-DREDIS_DEBUG",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "tests/upstream.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/upstream"
+      ],
+      "started_utc": "2026-10-19T03:12:58.507761+00:00",
+      "finished_utc": "2026-10-19T03:12:59.309103+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-upstream.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-upstream.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "upstream",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/upstream"
+      ],
+      "started_utc": "2026-10-19T03:12:59.309237+00:00",
+      "finished_utc": "2026-10-19T03:13:00.098065+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/upstream.stdout",
+          "sha256": "e96d03e92d8c5b1881d32bb33879ecd7373302a762de55b195deda64657dccca"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/upstream.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-lookup",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/lookup-bench.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/lookup"
+      ],
+      "started_utc": "2026-10-19T03:13:00.098208+00:00",
+      "finished_utc": "2026-10-19T03:13:00.659958+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-lookup.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-lookup.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-physical",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/physical-oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/physical"
+      ],
+      "started_utc": "2026-10-19T03:13:00.660460+00:00",
+      "finished_utc": "2026-10-19T03:13:01.175401+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-physical.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-physical.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "physical",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/physical"
+      ],
+      "started_utc": "2026-10-19T03:13:01.175571+00:00",
+      "finished_utc": "2026-10-19T03:13:01.401690+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/physical.stdout",
+          "sha256": "0201e0baf862d943781be076a932747111df3aa6f68915170f16d87ec9d554eb"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/physical.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-readonly",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O3",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "readonly-oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/readonly"
+      ],
+      "started_utc": "2026-10-19T03:13:01.401874+00:00",
+      "finished_utc": "2026-10-19T03:13:01.938231+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-readonly.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-readonly.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "readonly",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/readonly"
+      ],
+      "started_utc": "2026-10-19T03:13:01.938388+00:00",
+      "finished_utc": "2026-10-19T03:13:02.257042+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/readonly.stdout",
+          "sha256": "0201e0baf862d943781be076a932747111df3aa6f68915170f16d87ec9d554eb"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/readonly.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n100-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.257197+00:00",
+      "finished_utc": "2026-10-19T03:13:02.401502+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n100-lookup-hit.stdout",
+          "sha256": "08faeb1f35e4d249937f887f9df89cfd1424c2088393551577811120684d8bf5"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n100-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n100-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "100",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.401807+00:00",
+      "finished_utc": "2026-10-19T03:13:02.405745+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n100-lookup-miss.stdout",
+          "sha256": "ed5b131aacf65ab8461ed87b346eeca3e768dbd1d2cfe779775bdd12d05766b6"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n100-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n1000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.405980+00:00",
+      "finished_utc": "2026-10-19T03:13:02.409590+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n1000-lookup-hit.stdout",
+          "sha256": "07f2896e8f118758187c52c29fb1e3e46669c7509830c716faf942a597b6a3c5"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n1000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n1000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.409781+00:00",
+      "finished_utc": "2026-10-19T03:13:02.413381+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n1000-lookup-miss.stdout",
+          "sha256": "fc35df1a06a80778add0cbfb78de2dbf4dccc65b717ae9674b265c73d70feed2"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n1000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n10000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "10000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.413870+00:00",
+      "finished_utc": "2026-10-19T03:13:02.421097+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n10000-lookup-hit.stdout",
+          "sha256": "0edbc3d57d95fd0da11f7353426208d5fb4e86bc0fa4727338df679fb6bcea93"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n10000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n10000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "10000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.421272+00:00",
+      "finished_utc": "2026-10-19T03:13:02.427318+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n10000-lookup-miss.stdout",
+          "sha256": "169e4644bc37a33365a06af19987c55d270798d08323efada6b265af7f049571"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n10000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n100000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.427468+00:00",
+      "finished_utc": "2026-10-19T03:13:02.463705+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n100000-lookup-hit.stdout",
+          "sha256": "a84349122356f42461b448430cddf44841898188dee56f650929fcb6a22157f3"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n100000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n100000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "100000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.463857+00:00",
+      "finished_utc": "2026-10-19T03:13:02.493583+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n100000-lookup-miss.stdout",
+          "sha256": "0df87a9a721bcd11d5eb1131be89b40c73fa5a8708c240bcc52ec28dc00c4f53"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n100000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n1000000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.493740+00:00",
+      "finished_utc": "2026-10-19T03:13:02.991168+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n1000000-lookup-hit.stdout",
+          "sha256": "29495cdc03734d439052a45919fd740a2d704ee1b26db4ca07247c5ef419b22e"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n1000000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-n1000000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:02.991355+00:00",
+      "finished_utc": "2026-10-19T03:13:03.403107+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-n1000000-lookup-miss.stdout",
+          "sha256": "0e132e9bc88b00ad6fae73fab3e516067c90e478a8db6b0c31de6cb6ca016c28"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-n1000000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m8-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "8"
+      ],
+      "started_utc": "2026-10-19T03:13:03.403293+00:00",
+      "finished_utc": "2026-10-19T03:13:03.405734+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m8-lookup-hit.stdout",
+          "sha256": "d0156c1e9e1a075eaa269faceebb4f37d3fb64ec1aee2e2c58e4a242cc0f4a93"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m8-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m8-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "8"
+      ],
+      "started_utc": "2026-10-19T03:13:03.405866+00:00",
+      "finished_utc": "2026-10-19T03:13:03.407990+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m8-lookup-miss.stdout",
+          "sha256": "575e93b6839fdd67c195498e778fd289a31bd8dc8116e4dfe8dd105bff321a21"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m8-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m319-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "319"
+      ],
+      "started_utc": "2026-10-19T03:13:03.408122+00:00",
+      "finished_utc": "2026-10-19T03:13:03.410337+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m319-lookup-hit.stdout",
+          "sha256": "eb25ad208abdc588d0ae51dec255229337eb3edf11d266a5e9e82bd3d083e2d7"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m319-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m319-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "319"
+      ],
+      "started_utc": "2026-10-19T03:13:03.410467+00:00",
+      "finished_utc": "2026-10-19T03:13:03.412906+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m319-lookup-miss.stdout",
+          "sha256": "b72cba569b782ed73c94c014daa06e5cd28e9bf6bba14b20dda136bc4f09d489"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m319-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m320-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "320"
+      ],
+      "started_utc": "2026-10-19T03:13:03.413045+00:00",
+      "finished_utc": "2026-10-19T03:13:03.415299+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m320-lookup-hit.stdout",
+          "sha256": "6828b981666db92316dac883fff44ac2f940eb9573f6d73f87469645ca7227b7"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m320-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m320-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "320"
+      ],
+      "started_utc": "2026-10-19T03:13:03.415451+00:00",
+      "finished_utc": "2026-10-19T03:13:03.417679+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m320-lookup-miss.stdout",
+          "sha256": "05aab7265f726492175923a66f9e02987b1ade683196ac2d9c55606b2f33382f"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m320-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m321-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "321"
+      ],
+      "started_utc": "2026-10-19T03:13:03.417823+00:00",
+      "finished_utc": "2026-10-19T03:13:03.420135+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m321-lookup-hit.stdout",
+          "sha256": "1c03af603dbffa59d4c54dad3e949008e8c82a7fb8aaedddcbcb49dfb28e17bc"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m321-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m321-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "321"
+      ],
+      "started_utc": "2026-10-19T03:13:03.420276+00:00",
+      "finished_utc": "2026-10-19T03:13:03.422530+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m321-lookup-miss.stdout",
+          "sha256": "991aee408b96c5019340edcbb85ced2f452f6fdbdab5a5e09a7a869a91471736"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m321-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m1024-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "1024"
+      ],
+      "started_utc": "2026-10-19T03:13:03.422673+00:00",
+      "finished_utc": "2026-10-19T03:13:03.425706+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m1024-lookup-hit.stdout",
+          "sha256": "1095062262be58218c064df16d026c4eb1dea63579eb2287c6b62ebbce0979ff"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m1024-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-m1024-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "1024"
+      ],
+      "started_utc": "2026-10-19T03:13:03.425856+00:00",
+      "finished_utc": "2026-10-19T03:13:03.428737+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-m1024-lookup-miss.stdout",
+          "sha256": "efe990a56952489a25b237c2c27c74bcf4e15d54edf43282c96168ae4e7fb7a9"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-m1024-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-upstream-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-DREDIS_TEST",
+        "-DREDIS_DEBUG",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "tests/upstream.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/upstream-san"
+      ],
+      "started_utc": "2026-10-19T03:13:03.428899+00:00",
+      "finished_utc": "2026-10-19T03:13:04.474144+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-upstream-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-upstream-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "upstream-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/upstream-san"
+      ],
+      "started_utc": "2026-10-19T03:13:04.474349+00:00",
+      "finished_utc": "2026-10-19T03:13:06.397326+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/upstream-san.stdout",
+          "sha256": "f54c0948474f071dfe989e7d5106e30ea758a885a803e83a1c8f1ac7779f578d"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/upstream-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-lookup-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/lookup-bench.c",
+        "src/zset_btree.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/lookup-san"
+      ],
+      "started_utc": "2026-10-19T03:13:06.397548+00:00",
+      "finished_utc": "2026-10-19T03:13:07.159051+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-lookup-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-lookup-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-physical-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/physical-oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/physical-san"
+      ],
+      "started_utc": "2026-10-19T03:13:07.159267+00:00",
+      "finished_utc": "2026-10-19T03:13:07.855871+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-physical-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-physical-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "physical-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/physical-san"
+      ],
+      "started_utc": "2026-10-19T03:13:07.856096+00:00",
+      "finished_utc": "2026-10-19T03:13:08.185615+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/physical-san.stdout",
+          "sha256": "0201e0baf862d943781be076a932747111df3aa6f68915170f16d87ec9d554eb"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/physical-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "build-readonly-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "clang",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-fno-omit-frame-pointer",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-Isrc",
+        "-Icompat",
+        "-Ivendor/redis",
+        "-I.",
+        "readonly-oracle.c",
+        "compat/standalone.c",
+        "vendor/redis/siphash.c",
+        "-lm",
+        "-o",
+        "build/readonly-san"
+      ],
+      "started_utc": "2026-10-19T03:13:08.185844+00:00",
+      "finished_utc": "2026-10-19T03:13:08.894293+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/build-readonly-san.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/build-readonly-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "readonly-san",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/readonly-san"
+      ],
+      "started_utc": "2026-10-19T03:13:08.894519+00:00",
+      "finished_utc": "2026-10-19T03:13:09.392339+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/readonly-san.stdout",
+          "sha256": "0201e0baf862d943781be076a932747111df3aa6f68915170f16d87ec9d554eb"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/readonly-san.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n100-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.392581+00:00",
+      "finished_utc": "2026-10-19T03:13:09.549656+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n100-lookup-hit.stdout",
+          "sha256": "597300b021688cc8c4b92562da4cef6bb4d6ea66689ff614bbd083803b601481"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n100-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n100-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "100",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.550006+00:00",
+      "finished_utc": "2026-10-19T03:13:09.562247+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n100-lookup-miss.stdout",
+          "sha256": "ce487e5f88feb7e8038cb66db6883b7a8c7a8dc906ca73441f74bba4f20c5bd5"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n100-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n1000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.562516+00:00",
+      "finished_utc": "2026-10-19T03:13:09.573597+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000-lookup-hit.stdout",
+          "sha256": "9b72c983f6be32f84f0cba2db6d1bcf968ff0a1edfc6677b3178709c3b260530"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n1000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.573809+00:00",
+      "finished_utc": "2026-10-19T03:13:09.584516+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000-lookup-miss.stdout",
+          "sha256": "3934081cba84c15b8b4d256e141559fca7b7c56e2a4452f8b829ded0e3015930"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n10000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "10000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.584734+00:00",
+      "finished_utc": "2026-10-19T03:13:09.601732+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n10000-lookup-hit.stdout",
+          "sha256": "5677874f1bcb93d2e9851e6c88d92e19115987e9c8b29455c0fa4dae9ea6e0a4"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n10000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n10000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "10000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.601921+00:00",
+      "finished_utc": "2026-10-19T03:13:09.617651+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n10000-lookup-miss.stdout",
+          "sha256": "1b295230b6029b69b02df375eced4031ff9c2e7f9b72a43389dfe9e2b87339b5"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n10000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n100000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "100000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.617848+00:00",
+      "finished_utc": "2026-10-19T03:13:09.714047+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n100000-lookup-hit.stdout",
+          "sha256": "416407e28a58714f9a3f99adfad061c97506f90c0d7b0fa06ebf09b2c99d4610"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n100000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n100000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "100000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.714289+00:00",
+      "finished_utc": "2026-10-19T03:13:09.807004+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n100000-lookup-miss.stdout",
+          "sha256": "aa9ba68228fd6b21a6fe92205ce4367dd95e9f63acb3c93f8f1ba77add8ea380"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n100000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n1000000-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:09.807236+00:00",
+      "finished_utc": "2026-10-19T03:13:11.077002+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000000-lookup-hit.stdout",
+          "sha256": "a47f4b5f6627b84e128f911c05c995ce22da1d624129cb37d465158f3516c40f"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000000-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-n1000000-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "16"
+      ],
+      "started_utc": "2026-10-19T03:13:11.077240+00:00",
+      "finished_utc": "2026-10-19T03:13:12.153219+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000000-lookup-miss.stdout",
+          "sha256": "4874640701b9a47c4f9b7d401c85df9e6f2a407af84489e0b797211fd1cf0be3"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-n1000000-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m8-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "8"
+      ],
+      "started_utc": "2026-10-19T03:13:12.153456+00:00",
+      "finished_utc": "2026-10-19T03:13:12.162780+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m8-lookup-hit.stdout",
+          "sha256": "00e16df47cfbbe31c24971d93d074b24d579e0a6012b741e56ba106164e3c324"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m8-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m8-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "8"
+      ],
+      "started_utc": "2026-10-19T03:13:12.163187+00:00",
+      "finished_utc": "2026-10-19T03:13:12.172880+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m8-lookup-miss.stdout",
+          "sha256": "91aeb34c7f2edd6de170c6362529c55af772801d1067fd0e95cda1b962a7d5ae"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m8-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m319-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "319"
+      ],
+      "started_utc": "2026-10-19T03:13:12.173138+00:00",
+      "finished_utc": "2026-10-19T03:13:12.184297+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m319-lookup-hit.stdout",
+          "sha256": "a1140da17025ae861f21fc46b9fc490c709d6931846529a46d02030f53edc635"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m319-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m319-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "319"
+      ],
+      "started_utc": "2026-10-19T03:13:12.184749+00:00",
+      "finished_utc": "2026-10-19T03:13:12.194867+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m319-lookup-miss.stdout",
+          "sha256": "7b1b9067c362704582b548d8b7757aeae5d5fd3c9f43a39a00a4889638c1ff2f"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m319-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m320-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "320"
+      ],
+      "started_utc": "2026-10-19T03:13:12.195082+00:00",
+      "finished_utc": "2026-10-19T03:13:12.204625+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m320-lookup-hit.stdout",
+          "sha256": "325c286ab769db4864ca1257cf30b14a65c9decf7b2ca19edb3ccb657872db83"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m320-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m320-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "320"
+      ],
+      "started_utc": "2026-10-19T03:13:12.204834+00:00",
+      "finished_utc": "2026-10-19T03:13:12.214302+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m320-lookup-miss.stdout",
+          "sha256": "a9fbd1c899fe93cdd935a4ca741f043f77ac8509b647d67519c2006950820d80"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m320-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m321-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "321"
+      ],
+      "started_utc": "2026-10-19T03:13:12.214512+00:00",
+      "finished_utc": "2026-10-19T03:13:12.223960+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m321-lookup-hit.stdout",
+          "sha256": "02a282b64a08192e0947b74367861ff5cd66bcf8ac266a8fa9e9ec2a8d4fcab1"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m321-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m321-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "321"
+      ],
+      "started_utc": "2026-10-19T03:13:12.224158+00:00",
+      "finished_utc": "2026-10-19T03:13:12.233460+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m321-lookup-miss.stdout",
+          "sha256": "5c892b5c70fee64abbb3e6c897ef081f375133a4418f962fd237e6830626c498"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m321-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m1024-lookup-hit",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-hit",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "1024"
+      ],
+      "started_utc": "2026-10-19T03:13:12.233717+00:00",
+      "finished_utc": "2026-10-19T03:13:12.244420+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m1024-lookup-hit.stdout",
+          "sha256": "7fc12b8b2f7f7fcbeac7b807ea29ca3aae37526f41debe6046bba00924a20927"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m1024-lookup-hit.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "lookup-san-m1024-lookup-miss",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "build/lookup-san",
+        "--case",
+        "lookup-miss",
+        "--size",
+        "1000",
+        "--ops",
+        "2003",
+        "--seed",
+        "1",
+        "--member-bytes",
+        "1024"
+      ],
+      "started_utc": "2026-10-19T03:13:12.244639+00:00",
+      "finished_utc": "2026-10-19T03:13:12.255168+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/lookup-san-m1024-lookup-miss.stdout",
+          "sha256": "d92563b328a0756260033af2427906def9778b32322fa3a70a47c970bc5558ae"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/lookup-san-m1024-lookup-miss.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "name": "release-assembly",
+      "cwd": "worktrees/m6-caller-C",
+      "command": [
+        "otool",
+        "-tvV",
+        "build/lookup"
+      ],
+      "started_utc": "2026-10-19T03:13:12.255380+00:00",
+      "finished_utc": "2026-10-19T03:13:12.272933+00:00",
+      "returncode": 0,
+      "logs": {
+        "stdout": {
+          "path": "scratch/caller-C-validation/release-assembly.stdout",
+          "sha256": "342f5baf00e0cb24d4b535fa4b943a4c0a4fa9350f741202b439cc2f8c4c2a77"
+        },
+        "stderr": {
+          "path": "scratch/caller-C-validation/release-assembly.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  ],
+  "hashes": {
+    "src/zset_btree.c": "53b5891f65ecf589cdf3fd74043d4ce965ba9088dc0550d2aa11dbdf6e8ae7b0",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/lookup-bench.c": "4a96b69434b840b8d7c2b0f8423c33327d941f99e84529b871f7865e9b8cb307",
+    "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/physical-oracle.c": "ac37c96fd1b583a6c74f8be083e3f68bff9a74989929cdc4fddcce8d8177f59a",
+    "readonly-oracle.c": "fd059e476c362321d342858ba42072d7e9c8632e6b39d5c4041af3d8ff9d2db6",
+    "candidate.patch": "8d179f9342ec0dfbfa1af9435bed612f1bb9cfad5f2c9ab047a16b2fbdb97383",
+    "validation_driver": "1406e9f942b6922216b1b3647890e03f3f22b3978ca61a3755d3008e613e18ec"
+  },
+  "started_utc": "2026-10-19T03:12:58.502950+00:00",
+  "upstream_output": {
+    "release": "Testing B+ tree zbtreeReserve()\n1 - Batch append tolerates an underestimated reserve: \u001b[32mPASSED\u001b[0m\n2 - zbtreeReserve presizes an empty index: \u001b[32mPASSED\u001b[0m\n3 - Reserved set still holds every inserted member: \u001b[32mPASSED\u001b[0m\n4 - zbtreeReserve is a no-op once the set is non-empty: \u001b[32mPASSED\u001b[0m\nTesting B+ tree zbtIndexScanSlot() tag-only fast path\n5 - Cursor-driven scan visits every live member at least once: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN mid-incremental-rehash\n6 - member_rehash is still in progress after the scan: \u001b[32mPASSED\u001b[0m\n7 - Scan mid-incremental-rehash visits every live member: \u001b[32mPASSED\u001b[0m\nTesting B+ tree zbtreeInsertNewAppend() vs the general insert path\n8 - Append and general insert build sets of the same length: \u001b[32mPASSED\u001b[0m\n9 - Forward iteration is byte-identical between the two trees: \u001b[32mPASSED\u001b[0m\n10 - Reverse iteration is byte-identical between the two trees: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN across a same-tag slot exchange (M1)\n11 - M1: found X/Y with same tag and overlapping probe runs: \u001b[32mPASSED\u001b[0m\n    X=member:1100 Y=member:5302 tag=253 b1=706/3 b2=709/5 leafY=50\n12 - M1: cursor is between b1 and b2: \u001b[32mPASSED\u001b[0m\n13 - M1: X now lives in Y's leaf: \u001b[32mPASSED\u001b[0m\n14 - M1: both slots now name Y's leaf: \u001b[32mPASSED\u001b[0m\n15 - M1: X moved to another leaf: \u001b[32mPASSED\u001b[0m\n    after moves: slot b1 -> leaf 69, slot b2 -> leaf 50, X leaf 69\n    X seen 1 time(s); total members missed: 0\n16 - ZSCAN returns every member despite same-tag slot exchanges: \u001b[32mPASSED\u001b[0m\nTesting B+ tree memory after deleting most members\n17 - Survivors are intact after deleting 95% of the members: \u001b[32mPASSED\u001b[0m\n18 - Sparse leaves release memory after mass deletion: \u001b[32mPASSED\u001b[0m\nTesting B+ tree memory when end deletions stop at one member\n19 - Stopping end deletions at one member releases the leaf's unused space: \u001b[32mPASSED\u001b[0m\n20 - Stopping end deletions at one member releases the leaf's unused space: \u001b[32mPASSED\u001b[0m\nTesting B+ tree random deletes at both ends and in the middle\n21 - Random pops, deletes and updates match a reference: \u001b[32mPASSED\u001b[0m\nTesting B+ tree first-leaf pop with mixed signed zero scores\n    b found=1 score=0 signbit=0\n    c found=1 score=0 signbit=0\n    d found=1 score=-0 signbit=1\n22 - Popping the first member keeps signed zero scores exact: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf IDs and the narrow member index\n23 - Score changes start widening a narrow member index: \u001b[32mPASSED\u001b[0m\n24 - Score changes finish widening the member index: \u001b[32mPASSED\u001b[0m\n25 - Score changes at the narrow ID limit widen first: \u001b[32mPASSED\u001b[0m\n    narrow resize with 299 leaves, IDs from 40000: widening after 58 moves\n26 - A narrow resize past the widening point finishes early: \u001b[32mPASSED\u001b[0m\n    narrow resize with 299 leaves, IDs from 65531: widening after 1 moves\n27 - A narrow resize next to the ID limit finishes before a split: \u001b[32mPASSED\u001b[0m\n28 - A split during a late widening keeps old entries narrow: \u001b[32mPASSED\u001b[0m\n29 - An emptied set reuses a high leaf ID with a wide table: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf density under score changes\n    319 byte members: 834 leaves fresh, 1412 after moves, fewest possible 818 (1.73x), memory 1.36 of live\n30 - Score changes keep 319 byte leaves dense: \u001b[32mPASSED\u001b[0m\n    short members: 105 leaves fresh, 176 after moves, fewest possible 105 (1.68x), memory 1.94 of live\n31 - Score changes keep short leaves dense: \u001b[32mPASSED\u001b[0m\n    mixed 1-319 byte members: 424 leaves fresh, 742 after moves, fewest possible 418 (1.78x), memory 1.34 of live\n32 - Score changes keep mixed 1-319 byte leaves dense: \u001b[32mPASSED\u001b[0m\n    mixed 1-600 byte members: 252 leaves fresh, 445 after moves, fewest possible 249 (1.79x), memory 1.18 of live\n33 - Score changes keep mixed 1-600 byte leaves dense: \u001b[32mPASSED\u001b[0m\n34 - A sparse leaf joins a neighbor with much shorter members: \u001b[32mPASSED\u001b[0m\n    520 of 3000 moves during the resize, leaves 713 -> 1234\n35 - Score change maintenance during a resize keeps ownership: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf tag lanes\n36 - Leaf tag words put byte i in lane i: \u001b[32mPASSED\u001b[0m\n37 - Leaf tag matching agrees with a byte by byte search: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN while member tables keep changing\n    29 calls, 16 table replacements, up to 128 groups, 0 anchors missed\n38 - ZSCAN finishes while member tables keep being replaced: \u001b[32mPASSED\u001b[0m\n39 - ZSCAN returns every anchor across table replacements: \u001b[32mPASSED\u001b[0m\n40 - ZSCAN cursors stay below the group count: \u001b[32mPASSED\u001b[0m\n41 - ZSCAN cursor steps match reversed binary increments: \u001b[32mPASSED\u001b[0m\n42 - ZSCAN accepts any cursor and still finishes: \u001b[32mPASSED\u001b[0m\n43 - ZSCAN of a one-group table finishes in one call: \u001b[32mPASSED\u001b[0m\n  Tests:       \u001b[32m43 passed\u001b[0m, 0 failed, 43 total\n",
+    "-san": "Testing B+ tree zbtreeReserve()\n1 - Batch append tolerates an underestimated reserve: \u001b[32mPASSED\u001b[0m\n2 - zbtreeReserve presizes an empty index: \u001b[32mPASSED\u001b[0m\n3 - Reserved set still holds every inserted member: \u001b[32mPASSED\u001b[0m\n4 - zbtreeReserve is a no-op once the set is non-empty: \u001b[32mPASSED\u001b[0m\nTesting B+ tree zbtIndexScanSlot() tag-only fast path\n5 - Cursor-driven scan visits every live member at least once: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN mid-incremental-rehash\n6 - member_rehash is still in progress after the scan: \u001b[32mPASSED\u001b[0m\n7 - Scan mid-incremental-rehash visits every live member: \u001b[32mPASSED\u001b[0m\nTesting B+ tree zbtreeInsertNewAppend() vs the general insert path\n8 - Append and general insert build sets of the same length: \u001b[32mPASSED\u001b[0m\n9 - Forward iteration is byte-identical between the two trees: \u001b[32mPASSED\u001b[0m\n10 - Reverse iteration is byte-identical between the two trees: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN across a same-tag slot exchange (M1)\n11 - M1: found X/Y with same tag and overlapping probe runs: \u001b[32mPASSED\u001b[0m\n    X=member:1100 Y=member:5302 tag=253 b1=706/3 b2=709/5 leafY=50\n12 - M1: cursor is between b1 and b2: \u001b[32mPASSED\u001b[0m\n13 - M1: X now lives in Y's leaf: \u001b[32mPASSED\u001b[0m\n14 - M1: both slots now name Y's leaf: \u001b[32mPASSED\u001b[0m\n15 - M1: X moved to another leaf: \u001b[32mPASSED\u001b[0m\n    after moves: slot b1 -> leaf 69, slot b2 -> leaf 50, X leaf 69\n    X seen 1 time(s); total members missed: 0\n16 - ZSCAN returns every member despite same-tag slot exchanges: \u001b[32mPASSED\u001b[0m\nTesting B+ tree memory after deleting most members\n17 - Survivors are intact after deleting 95% of the members: \u001b[32mPASSED\u001b[0m\n18 - Sparse leaves release memory after mass deletion: \u001b[32mPASSED\u001b[0m\nTesting B+ tree memory when end deletions stop at one member\n19 - Stopping end deletions at one member releases the leaf's unused space: \u001b[32mPASSED\u001b[0m\n20 - Stopping end deletions at one member releases the leaf's unused space: \u001b[32mPASSED\u001b[0m\nTesting B+ tree random deletes at both ends and in the middle\n21 - Random pops, deletes and updates match a reference: \u001b[32mPASSED\u001b[0m\nTesting B+ tree first-leaf pop with mixed signed zero scores\n    b found=1 score=0 signbit=0\n    c found=1 score=0 signbit=0\n    d found=1 score=-0 signbit=1\n22 - Popping the first member keeps signed zero scores exact: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf IDs and the narrow member index\n23 - Score changes start widening a narrow member index: \u001b[32mPASSED\u001b[0m\n24 - Score changes finish widening the member index: \u001b[32mPASSED\u001b[0m\n25 - Score changes at the narrow ID limit widen first: \u001b[32mPASSED\u001b[0m\n    narrow resize with 299 leaves, IDs from 40000: widening after 58 moves\n26 - A narrow resize past the widening point finishes early: \u001b[32mPASSED\u001b[0m\n    narrow resize with 299 leaves, IDs from 65531: widening after 1 moves\n27 - A narrow resize next to the ID limit finishes before a split: \u001b[32mPASSED\u001b[0m\n28 - A split during a late widening keeps old entries narrow: \u001b[32mPASSED\u001b[0m\n29 - An emptied set reuses a high leaf ID with a wide table: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf density under score changes\n    319 byte members: 834 leaves fresh, 1453 after moves, fewest possible 819 (1.77x), memory 1.26 of live\n30 - Score changes keep 319 byte leaves dense: \u001b[32mPASSED\u001b[0m\n    short members: 105 leaves fresh, 178 after moves, fewest possible 105 (1.70x), memory 1.82 of live\n31 - Score changes keep short leaves dense: \u001b[32mPASSED\u001b[0m\n    mixed 1-319 byte members: 424 leaves fresh, 779 after moves, fewest possible 419 (1.86x), memory 1.23 of live\n32 - Score changes keep mixed 1-319 byte leaves dense: \u001b[32mPASSED\u001b[0m\n    mixed 1-600 byte members: 252 leaves fresh, 472 after moves, fewest possible 250 (1.89x), memory 1.08 of live\n33 - Score changes keep mixed 1-600 byte leaves dense: \u001b[32mPASSED\u001b[0m\n34 - A sparse leaf joins a neighbor with much shorter members: \u001b[32mPASSED\u001b[0m\n    520 of 3000 moves during the resize, leaves 713 -> 1234\n35 - Score change maintenance during a resize keeps ownership: \u001b[32mPASSED\u001b[0m\nTesting B+ tree leaf tag lanes\n36 - Leaf tag words put byte i in lane i: \u001b[32mPASSED\u001b[0m\n37 - Leaf tag matching agrees with a byte by byte search: \u001b[32mPASSED\u001b[0m\nTesting B+ tree ZSCAN while member tables keep changing\n    29 calls, 17 table replacements, up to 128 groups, 0 anchors missed\n38 - ZSCAN finishes while member tables keep being replaced: \u001b[32mPASSED\u001b[0m\n39 - ZSCAN returns every anchor across table replacements: \u001b[32mPASSED\u001b[0m\n40 - ZSCAN cursors stay below the group count: \u001b[32mPASSED\u001b[0m\n41 - ZSCAN cursor steps match reversed binary increments: \u001b[32mPASSED\u001b[0m\n42 - ZSCAN accepts any cursor and still finishes: \u001b[32mPASSED\u001b[0m\n43 - ZSCAN of a one-group table finishes in one call: \u001b[32mPASSED\u001b[0m\n  Tests:       \u001b[32m43 passed\u001b[0m, 0 failed, 43 total\n"
+  },
+  "physical_output": {
+    "release": "PASS cells=4160 exact-score/position/output checks=515840; widths0..64 shifts0/3 reversed both signed-zero ties colliding-tags first-match misses",
+    "-san": "PASS cells=4160 exact-score/position/output checks=515840; widths0..64 shifts0/3 reversed both signed-zero ties colliding-tags first-match misses"
+  },
+  "readonly_output": {
+    "release": "PASS cells=4160 exact-score/position/output checks=515840; widths0..64 shifts0/3 reversed both signed-zero ties colliding-tags first-match misses",
+    "-san": "PASS cells=4160 exact-score/position/output checks=515840; widths0..64 shifts0/3 reversed both signed-zero ties colliding-tags first-match misses"
+  },
+  "static_codegen": {
+    "_zbtreeScoreRaw": {
+      "present": true,
+      "instructions": 601,
+      "frame_instructions": [
+        "0000000100002dc8\tsub\tsp, sp, #0xf0"
+      ],
+      "memchr_calls": 2,
+      "memcmp_calls": 2,
+      "generic_leaf_calls": 0,
+      "assembly_sha256": "27cb8315aed79b5e746cb517c479482932485c3c436b7da18e5e2f9ceff8786b"
+    },
+    "_zbtScoreLeafFindMember": {
+      "present": true,
+      "instructions": 159,
+      "frame_instructions": [
+        "000000010000b1c4\tsub\tsp, sp, #0x90"
+      ],
+      "memchr_calls": 1,
+      "memcmp_calls": 1,
+      "generic_leaf_calls": 0,
+      "assembly_sha256": "f9996cd7bc60c3347b79d551ffef4fb5dfcdf5d8911a1a41317c39825b79e387"
+    },
+    "_zbtScoreLeafFindMemberReadOnly": {
+      "present": false
+    }
+  },
+  "binary_hashes": {
+    "readonly": "7516fa00f8658f2d2211923923b40bcfb76dba9afa05d6290d0fddf34fde27a8",
+    "upstream-san": "229a6cf3fde5c95326e8f000d1bba0b055c07020bdd8840cb39550dc4d2c8212",
+    "lookup-san": "ccbfa921be77537a5ee661dcdaf2028b191bdf88aa26c1374d89d4722f76ed74",
+    "physical-san": "efbdcad49f8ce15558837f95e39d4822b0ae18e86be1472bbea485f19f623705",
+    "physical": "1e31f0401ed32edef5eabe94ff92ca70e3e0b54d5c0ca4d8665e8e998c262f5b",
+    "lookup": "36fd3eb34898e08c628d4665f3268a84f6ac831f4dc8ce61f0a1fb422d97caf2",
+    "readonly-san": "2cd7073fc31e13cfa424db148023467bc11ca7aabf31f0326a831bea76ba4132",
+    "upstream": "53406a5c38b55b239d55d11a862c627f28a35054fa8b2ff46446fdd4811d7652"
+  },
+  "status": "PASS",
+  "finished_utc": "2026-10-19T03:13:12.274398+00:00"
+}

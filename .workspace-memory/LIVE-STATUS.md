@@ -1,15 +1,16 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
-M6 round 6 reporting update published `c9dee3a05` with matching ok coordinator
-ack at03:09:00UTC; final handoff publication follows. Prior handoff `e78e0d4fd`.
-Core queue complete / source NONE; counts unchanged.
-[Morning report](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
-now links exact comparison identities; README stale next-target/count-one wording
-corrected; supervisor usage through completed round 5 saved. Bounded review verifies
-9 launcher hashes / 12 campaign patch hashes; no builds/tests/profiles/timings or new
-population/acceptance. External interactive root owns `006-followup` proposal review;
-worker stays on report/audit work and does not take over or stop it. Resume host
-HANDOFF and matching publication ack. Campaign08:00UTC; round6 cutoff03:34:01UTC.
+M6 round8 reporting checkpoint: core queue complete / source NONE, counts unchanged.
+Round7 final handoff acknowledged `fa62b37cd`; round8 publication follows.
+Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, three independent proposals
+complete/B selected; latest explicit implementation status PREPARING three isolated
+implementations, deadline04:40:20.349829UTC. No candidate performance/eligibility claim.
+Worker stays reporting-only and must not duplicate or take over that trial. Resume
+host HANDOFF and matching coordinator ack; finish early when no new worker task.
+No agents/builds/tests/profiles/timings or repeated inventory this round. Launcher
+baseline reused:960rows,4/40qualified,14short cells; failed attempt preserved.
+Usage through completed round7 recorded; exact backend/currency cost unknown.
+Campaign08:00UTC, no experiments after07:15UTC; round8 cutoff03:40:59.322879UTC.
 
 M6 round5 decision/audit/report publishedc2b5d7105; seal34988 files verifies,9 launch hashes unchanged. Final handoff publication follows.
 
