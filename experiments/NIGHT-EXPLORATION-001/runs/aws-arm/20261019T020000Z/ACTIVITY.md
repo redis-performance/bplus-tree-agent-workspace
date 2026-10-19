@@ -70,3 +70,7 @@
 ## 2026-10-19T04:49:15.887202+00:00 — Independent corrected ARM proposal
 
 016 separately authored ARM proposal selects exact bounded16-byte NEON all-match as a falsifiable hypothesis, with lane-mask overhead risk and full guard requirements. No peer proposal reads or candidate implementation; original8fab NONE remains final. Corrected21/40 full-baseline precision limits explicit. Runner idle pending chair.
+
+## 2026-10-19 05:07 UTC — Three implementation native validation
+
+017 variantsA/B/C sealed before peer reads; combined600s leased correctness is running with retainedoriginal/V2/interval/wide/live-widen/resize suites and isolated faultcontrols. Exact144row discovery schedule/driver prepared, pending native results and root timing review. Main source and originalAA binary unchanged.
