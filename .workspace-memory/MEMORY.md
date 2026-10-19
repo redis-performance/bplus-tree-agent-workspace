@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 06:33 UTC
+## Current AWS overnight checkpoint — 19 October 06:49 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -38,10 +38,13 @@ private decoder control. Ambient observations complete:183snapshots/180valid int
 root+independentIntel0c6d47cd6 audits pass; currentidleonly, no historicalnoise explanation.
 Fresh06:26:07 allhosts zeroownedunits/PIDs,OSSstopped,timers08UTC intact.
 ARM024 nativecorrected score-only iterator profile4e43c9f59 complete51commands/970samples.
-Root136file andindependentAMDd42ca4ef2 rawaudits pass. Fixed48row300s AAonly nowgranted,
-no candidate/proposal untilcontrols reviewed. Actual013330b39a9 preserved;caller gaps retained.
-Latest observed M6 publication913683def:20640 decoder processes/allshort, sourceNONE;
-corrected index profiles complete and native proposal review/replication preparing.
+Root136file andindependentAMDd42ca4ef2 profileaudits pass. Fixed48rowAA73c9e313f
+qualifiesbothsizes; root235file/AMD41e1ce8cc rawaudits pass. Threeproposalchair
+selectsconditionalexacthistoricalEXP005A preparation, Intel/AMD NONE dissentretained.
+No launchgrantyet; codegen/correctness/time gates andindependentexecutionreviewfirst.
+Actual013330b39a9 preserved;caller gaps retained.
+Latest observed M6 publication8bcd75d70:correctedNEONreplicationPARKbeforecandidate
+aftertwo1Mcontrolfailures;20640decoderprocesses/allshort;sourceNONE.
 <!-- AWS-CURRENT-END -->
 
 # Shared memory

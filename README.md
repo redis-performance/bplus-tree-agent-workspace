@@ -39,8 +39,10 @@ replication is parked before candidate timing. AMD’s baseline score-only itera
 profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM NEON follow-up
 proposal review selected NONE despite qualified controls; all three proposals and
 the conditional implementation dissent are retained. A separate corrected ARM score-only
-iterator baseline now has qualified controls; three independent proposals are under
-review. No new candidate has been selected.
+iterator baseline has qualified controls. After three independent proposals, the chair
+selected preparation of a bounded historical EXP-005 A replication, preserving two
+NONE recommendations. Native codegen/correctness gates and separate execution review
+come first; no new timing or source adoption is claimed.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·

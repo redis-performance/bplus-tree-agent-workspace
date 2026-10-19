@@ -1350,3 +1350,9 @@ timing (two of six precision blocks fail); AMD029 score-only iterator control
 selectsNONE (100K precision fails,1M passes). Root raw audits and independent ARM
 AMD review58fec78b7 retained. No retries/source changes/new population. AWS counts
 8=0accepted/5rejected/3parked; see NIGHT-EXPLORATION-001/AWS-DECISIONS.md.
+
+
+AWS ARM iterator proposal decision: conditional exact historicalEXP005A replication
+preparation, twoNONE dissents retained. No launch/new population/source adoption;
+AWS8counts remain0accepted/5rejected/3parked.
+[Chair](NIGHT-EXPLORATION-001/reviews/aws-arm-iterator-proposals/selection.md).

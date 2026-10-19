@@ -571,3 +571,15 @@ checkpoint; evidence review continues. No source adoption. The06:02 live fleet
 check confirms three stopped OSS coordinators and08:00UTC release timers; actual
 restoration remains pending.
 [Pre-deadline check](reviews/aws-release-preflight-0602.json).
+
+
+## 19 October 06:49 UTC — ARM iterator chair selects conditional historical replication
+
+Three actual independent proposals use qualifiedARM024 profile/AA packet27a4afee1.
+ARM recommends conditional exactEXP005A replication; Intel andAMD recommendNONE.
+Root selects bounded preparation of the unchanged historicalA patch, preserving
+both dissenting proposals and originalPARK/NONE. No code/build/runner grant yet.
+Native codegen/correctness/time gates precede any fixed48-row primary comparison;
+missing guards/fresh confirmation/profile prevent acceptance. No new algorithm or
+measured population; existing8counts and sourceNONE unchanged.
+[Chair and verbatim proposals](reviews/aws-arm-iterator-proposals/selection.md).
