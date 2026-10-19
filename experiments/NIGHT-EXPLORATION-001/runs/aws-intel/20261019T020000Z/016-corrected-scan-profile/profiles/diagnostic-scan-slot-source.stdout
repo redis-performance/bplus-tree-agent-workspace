@@ -1,0 +1,987 @@
+
+build/profile:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+0000000000011c60 <zbtIndexScanSlot>:
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4166
+                                      unsigned int slot_pos,
+                                      unsigned long home_start,
+                                      unsigned long home_end,
+                                      zbtreeScanFunction *fn,
+                                      void *privdata)
+{
+   11c60:	55                   	push   %rbp
+   11c61:	48 89 e5             	mov    %rsp,%rbp
+   11c64:	41 57                	push   %r15
+   11c66:	41 56                	push   %r14
+   11c68:	41 55                	push   %r13
+   11c6a:	41 54                	push   %r12
+   11c6c:	53                   	push   %rbx
+   11c6d:	48 81 ec c8 01 00 00 	sub    $0x1c8,%rsp
+   11c74:	89 c8                	mov    %ecx,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4167
+    uint8_t tag = zbtIndexTags(bucket) >> (slot_pos * 8);
+   11c76:	4c 8b 3a             	mov    (%rdx),%r15
+   11c79:	8d 0c c5 00 00 00 00 	lea    0x0(,%rax,8),%ecx
+   11c80:	49 d3 ef             	shr    %cl,%r15
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4168
+    uint32_t id = zbtIndexGetId(table, bucket, slot_pos);
+   11c83:	44 8b 76 20          	mov    0x20(%rsi),%r14d
+   11c87:	89 c0                	mov    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1775
+    if (table->wide_ids) return bucket->wide.id[pos];
+   11c89:	45 85 f6             	test   %r14d,%r14d
+   11c8c:	74 18                	je     11ca6 <zbtIndexScanSlot+0x46>
+   11c8e:	44 8b 64 82 10       	mov    0x10(%rdx,%rax,4),%r12d
+   11c93:	31 c0                	xor    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4169
+    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;
+   11c95:	4d 89 fd             	mov    %r15,%r13
+   11c98:	49 81 e5 ff 00 00 00 	and    $0xff,%r13
+   11c9f:	75 2c                	jne    11ccd <zbtIndexScanSlot+0x6d>
+   11ca1:	e9 59 01 00 00       	jmp    11dff <zbtIndexScanSlot+0x19f>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1776
+    uint16_t id = bucket->narrow.id[pos];
+   11ca6:	0f b7 4c 42 10       	movzwl 0x10(%rdx,%rax,2),%ecx
+   11cab:	81 f9 ff ff 00 00    	cmp    $0xffff,%ecx
+   11cb1:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1777
+    return id == UINT16_MAX ? ZBT_INDEX_DELETED_ID : id;
+   11cb7:	44 0f 45 e1          	cmovne %ecx,%r12d
+   11cbb:	31 c0                	xor    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4169
+    if (tag == 0 || id == ZBT_INDEX_DELETED_ID) return 0;
+   11cbd:	4d 89 fd             	mov    %r15,%r13
+   11cc0:	49 81 e5 ff 00 00 00 	and    $0xff,%r13
+   11cc7:	0f 84 32 01 00 00    	je     11dff <zbtIndexScanSlot+0x19f>
+   11ccd:	41 83 fc ff          	cmp    $0xffffffff,%r12d
+   11cd1:	0f 84 28 01 00 00    	je     11dff <zbtIndexScanSlot+0x19f>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4170
+    if (home_end) {
+   11cd7:	4d 85 c9             	test   %r9,%r9
+   11cda:	0f 84 84 00 00 00    	je     11d64 <zbtIndexScanSlot+0x104>
+   11ce0:	49 bb 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%r11
+   11ce7:	79 37 9e 
+zbtIndexTagBits():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1807
+    uint64_t mixed = (uint64_t)tag * UINT64_C(0x9e3779b97f4a7c15);
+   11cea:	4d 0f af dd          	imul   %r13,%r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1809
+           (UINT64_C(1) << (mixed >> 58)) |
+   11cee:	4c 89 d9             	mov    %r11,%rcx
+   11cf1:	48 c1 e9 3a          	shr    $0x3a,%rcx
+   11cf5:	bb 01 00 00 00       	mov    $0x1,%ebx
+   11cfa:	48 d3 e3             	shl    %cl,%rbx
+   11cfd:	4d 89 c2             	mov    %r8,%r10
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4173
+        uint64_t bits = zbtIndexTagBits(tag);
+        unsigned long home;
+        for (home = home_start; home < home_end; home++) {
+   11d00:	4d 39 c8             	cmp    %r9,%r8
+   11d03:	73 56                	jae    11d5b <zbtIndexScanSlot+0xfb>
+   11d05:	4c 0f ab fb          	bts    %r15,%rbx
+   11d09:	49 c1 eb 24          	shr    $0x24,%r11
+   11d0d:	4c 0f ab db          	bts    %r11,%rbx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1775
+    if (table->wide_ids) return bucket->wide.id[pos];
+   11d11:	31 c9                	xor    %ecx,%ecx
+   11d13:	45 85 f6             	test   %r14d,%r14d
+   11d16:	0f 95 c1             	setne  %cl
+   11d19:	4c 8b 1e             	mov    (%rsi),%r11
+   11d1c:	c1 e1 04             	shl    $0x4,%ecx
+   11d1f:	48 83 c9 20          	or     $0x20,%rcx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4173
+        for (home = home_start; home < home_end; home++) {
+   11d23:	49 89 ca             	mov    %rcx,%r10
+   11d26:	4d 0f af d0          	imul   %r8,%r10
+   11d2a:	4f 8d 34 1a          	lea    (%r10,%r11,1),%r14
+   11d2e:	49 83 c6 08          	add    $0x8,%r14
+   11d32:	4d 89 c2             	mov    %r8,%r10
+   11d35:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   11d3c:	00 00 00 00 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4174
+            if ((*zbtIndexHomeTagsAt(table, home) & bits) == bits) break;
+   11d40:	4d 8b 1e             	mov    (%r14),%r11
+   11d43:	49 f7 d3             	not    %r11
+   11d46:	4c 85 db             	test   %r11,%rbx
+   11d49:	74 10                	je     11d5b <zbtIndexScanSlot+0xfb>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4173
+        for (home = home_start; home < home_end; home++) {
+   11d4b:	49 ff c2             	inc    %r10
+   11d4e:	49 01 ce             	add    %rcx,%r14
+   11d51:	4d 39 d1             	cmp    %r10,%r9
+   11d54:	75 ea                	jne    11d40 <zbtIndexScanSlot+0xe0>
+   11d56:	e9 a2 00 00 00       	jmp    11dfd <zbtIndexScanSlot+0x19d>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4176
+        }
+        if (home == home_end) return 0;
+   11d5b:	4d 39 ca             	cmp    %r9,%r10
+   11d5e:	0f 84 99 00 00 00    	je     11dfd <zbtIndexScanSlot+0x19d>
+   11d64:	48 89 55 90          	mov    %rdx,-0x70(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4178
+    }
+    zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?
+   11d68:	44 3b 67 54          	cmp    0x54(%rdi),%r12d
+   11d6c:	73 77                	jae    11de5 <zbtIndexScanSlot+0x185>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4179
+        zs->score_leaf_by_id[id] : NULL;
+   11d6e:	48 8b 4f 48          	mov    0x48(%rdi),%rcx
+   11d72:	45 89 e2             	mov    %r12d,%r10d
+   11d75:	4a 8b 14 d1          	mov    (%rcx,%r10,8),%rdx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4180
+    if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {
+   11d79:	48 85 d2             	test   %rdx,%rdx
+   11d7c:	74 67                	je     11de5 <zbtIndexScanSlot+0x185>
+   11d7e:	89 d1                	mov    %edx,%ecx
+   11d80:	83 e1 01             	and    $0x1,%ecx
+   11d83:	75 60                	jne    11de5 <zbtIndexScanSlot+0x185>
+   11d85:	48 89 55 c0          	mov    %rdx,-0x40(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4184
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+        return 0;
+    }
+    serverAssert(leaf->id == id);
+   11d89:	44 39 62 30          	cmp    %r12d,0x30(%rdx)
+   11d8d:	0f 85 bd 06 00 00    	jne    12450 <zbtIndexScanSlot+0x7f0>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4185
+    if (zs->member_rehash) {
+   11d93:	48 8b 47 40          	mov    0x40(%rdi),%rax
+   11d97:	48 85 c0             	test   %rax,%rax
+   11d9a:	74 19                	je     11db5 <zbtIndexScanSlot+0x155>
+   11d9c:	48 8b 4d c0          	mov    -0x40(%rbp),%rcx
+zbtIndexLeafMigrated():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:2086
+           leaf->n.index_resize == zs->member_rehash->resize_id;
+   11da0:	0f b7 49 16          	movzwl 0x16(%rcx),%ecx
+   11da4:	66 3b 48 2c          	cmp    0x2c(%rax),%cx
+   11da8:	0f 94 c1             	sete   %cl
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4187
+        int in_new = table == &zs->member_rehash->table;
+        if (in_new != zbtIndexLeafMigrated(zs, leaf)) return 0;
+   11dab:	48 39 f0             	cmp    %rsi,%rax
+   11dae:	0f 95 c0             	setne  %al
+   11db1:	38 c8                	cmp    %cl,%al
+   11db3:	74 48                	je     11dfd <zbtIndexScanSlot+0x19d>
+   11db5:	4c 89 4d b8          	mov    %r9,-0x48(%rbp)
+   11db9:	48 89 75 b0          	mov    %rsi,-0x50(%rbp)
+   11dbd:	48 8b 45 c0          	mov    -0x40(%rbp),%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   11dc1:	0f b6 48 34          	movzbl 0x34(%rax),%ecx
+   11dc5:	31 db                	xor    %ebx,%ebx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:363
+    return (uint8_t *)(zbtScoreLeafOffsets(leaf) + leaf->n.count);
+   11dc7:	0f b6 40 11          	movzbl 0x11(%rax),%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   11dcb:	48 85 c9             	test   %rcx,%rcx
+   11dce:	4c 89 45 a0          	mov    %r8,-0x60(%rbp)
+zbtScoreLeafScoreBytes():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   11dd2:	74 3d                	je     11e11 <zbtIndexScanSlot+0x1b1>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:351
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   11dd4:	0f af c8             	imul   %eax,%ecx
+   11dd7:	83 c1 07             	add    $0x7,%ecx
+   11dda:	c1 e9 03             	shr    $0x3,%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:352
+    return (bytes + 8 + 1) & ~(size_t)1;
+   11ddd:	83 c1 09             	add    $0x9,%ecx
+   11de0:	83 e1 fe             	and    $0xfffffffe,%ecx
+   11de3:	eb 2e                	jmp    11e13 <zbtIndexScanSlot+0x1b3>
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4181
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+   11de5:	48 83 7f 40 00       	cmpq   $0x0,0x40(%rdi)
+   11dea:	0f 84 48 06 00 00    	je     12438 <zbtIndexScanSlot+0x7d8>
+   11df0:	48 83 c7 18          	add    $0x18,%rdi
+   11df4:	48 39 f7             	cmp    %rsi,%rdi
+   11df7:	0f 85 3b 06 00 00    	jne    12438 <zbtIndexScanSlot+0x7d8>
+   11dfd:	31 c0                	xor    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4223
+        fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
+        emitted++;
+    }
+    serverAssert(home_end || emitted != 0);
+    return emitted;
+}
+   11dff:	48 81 c4 c8 01 00 00 	add    $0x1c8,%rsp
+   11e06:	5b                   	pop    %rbx
+   11e07:	41 5c                	pop    %r12
+   11e09:	41 5d                	pop    %r13
+   11e0b:	41 5e                	pop    %r14
+   11e0d:	41 5f                	pop    %r15
+   11e0f:	5d                   	pop    %rbp
+   11e10:	c3                   	ret
+   11e11:	31 c9                	xor    %ecx,%ecx
+   11e13:	48 be ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rsi
+   11e1a:	fe fe fe 
+   11e1d:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:357
+    return (uint16_t *)(leaf->data +
+   11e21:	48 01 d1             	add    %rdx,%rcx
+   11e24:	48 83 c1 38          	add    $0x38,%rcx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:363
+    return (uint8_t *)(zbtScoreLeafOffsets(leaf) + leaf->n.count);
+   11e28:	48 8d 0c 41          	lea    (%rcx,%rax,2),%rcx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4196
+                                           leaf->n.count, leaf->reversed,
+   11e2c:	0f b6 52 35          	movzbl 0x35(%rdx),%edx
+   11e30:	88 55 c8             	mov    %dl,-0x38(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4137
+    for (unsigned int w = 0; w < words; w++) {
+   11e33:	3c 08                	cmp    $0x8,%al
+   11e35:	73 79                	jae    11eb0 <zbtIndexScanSlot+0x250>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4148
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   11e37:	a8 07                	test   $0x7,%al
+   11e39:	0f 84 8b 01 00 00    	je     11fca <zbtIndexScanSlot+0x36a>
+   11e3f:	89 c6                	mov    %eax,%esi
+   11e41:	83 e6 f8             	and    $0xfffffff8,%esi
+   11e44:	41 80 ff 01          	cmp    $0x1,%r15b
+   11e48:	0f 85 23 01 00 00    	jne    11f71 <zbtIndexScanSlot+0x311>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4136
+    unsigned int last = reversed ? count - 1 : 0;
+   11e4e:	80 7d c8 00          	cmpb   $0x0,-0x38(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11e52:	74 49                	je     11e9d <zbtIndexScanSlot+0x23d>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4148
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   11e54:	89 c2                	mov    %eax,%edx
+   11e56:	f7 d2                	not    %edx
+   11e58:	81 ca 07 ff ff ff    	or     $0xffffff07,%edx
+   11e5e:	01 c2                	add    %eax,%edx
+   11e60:	eb 1c                	jmp    11e7e <zbtIndexScanSlot+0x21e>
+   11e62:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   11e69:	1f 84 00 00 00 00 00 
+   11e70:	48 ff c6             	inc    %rsi
+   11e73:	ff ca                	dec    %edx
+   11e75:	48 39 c6             	cmp    %rax,%rsi
+   11e78:	0f 83 4c 01 00 00    	jae    11fca <zbtIndexScanSlot+0x36a>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4149
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   11e7e:	80 3c 31 01          	cmpb   $0x1,(%rcx,%rsi,1)
+   11e82:	77 ec                	ja     11e70 <zbtIndexScanSlot+0x210>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11e84:	89 df                	mov    %ebx,%edi
+   11e86:	ff c3                	inc    %ebx
+   11e88:	89 94 bd 10 fe ff ff 	mov    %edx,-0x1f0(%rbp,%rdi,4)
+   11e8f:	eb df                	jmp    11e70 <zbtIndexScanSlot+0x210>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4148
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   11e91:	48 ff c6             	inc    %rsi
+   11e94:	48 39 c6             	cmp    %rax,%rsi
+   11e97:	0f 83 2d 01 00 00    	jae    11fca <zbtIndexScanSlot+0x36a>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4149
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   11e9d:	80 3c 31 01          	cmpb   $0x1,(%rcx,%rsi,1)
+   11ea1:	77 ee                	ja     11e91 <zbtIndexScanSlot+0x231>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11ea3:	89 da                	mov    %ebx,%edx
+   11ea5:	ff c3                	inc    %ebx
+   11ea7:	89 b4 95 10 fe ff ff 	mov    %esi,-0x1f0(%rbp,%rdx,4)
+   11eae:	eb e1                	jmp    11e91 <zbtIndexScanSlot+0x231>
+   11eb0:	48 89 f2             	mov    %rsi,%rdx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4135
+    unsigned int words = count / 8;
+   11eb3:	41 89 c0             	mov    %eax,%r8d
+   11eb6:	41 c1 e8 03          	shr    $0x3,%r8d
+   11eba:	49 ba 01 01 01 01 01 	movabs $0x101010101010101,%r10
+   11ec1:	01 01 01 
+   11ec4:	4d 0f af ea          	imul   %r10,%r13
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4136
+    unsigned int last = reversed ? count - 1 : 0;
+   11ec8:	80 7d c8 00          	cmpb   $0x0,-0x38(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4144
+                positions[found++] = reversed ? last - pos : pos;
+   11ecc:	0f 84 28 04 00 00    	je     122fa <zbtIndexScanSlot+0x69a>
+   11ed2:	44 8d 48 ff          	lea    -0x1(%rax),%r9d
+   11ed6:	41 80 ff 01          	cmp    $0x1,%r15b
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4140
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   11eda:	0f 85 cc 04 00 00    	jne    123ac <zbtIndexScanSlot+0x74c>
+   11ee0:	31 f6                	xor    %esi,%esi
+   11ee2:	31 db                	xor    %ebx,%ebx
+   11ee4:	eb 16                	jmp    11efc <zbtIndexScanSlot+0x29c>
+   11ee6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   11eed:	00 00 00 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4137
+    for (unsigned int w = 0; w < words; w++) {
+   11ef0:	48 ff c6             	inc    %rsi
+   11ef3:	4c 39 c6             	cmp    %r8,%rsi
+   11ef6:	0f 84 3b ff ff ff    	je     11e37 <zbtIndexScanSlot+0x1d7>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4138
+        uint64_t word = zbtLeafTagWord(tags + w * 8);
+   11efc:	4c 8b 1c f1          	mov    (%rcx,%rsi,8),%r11
+   11f00:	4c 89 df             	mov    %r11,%rdi
+   11f03:	48 f7 d7             	not    %rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1832
+    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+   11f06:	4d 89 de             	mov    %r11,%r14
+   11f09:	4d 31 d6             	xor    %r10,%r14
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1833
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   11f0c:	49 01 d6             	add    %rdx,%r14
+   11f0f:	49 bc 80 80 80 80 80 	movabs $0x8080808080808080,%r12
+   11f16:	80 80 80 
+   11f19:	4c 21 e7             	and    %r12,%rdi
+   11f1c:	49 01 d3             	add    %rdx,%r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4140
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   11f1f:	4d 09 f3             	or     %r14,%r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   11f22:	49 21 fb             	and    %rdi,%r11
+   11f25:	74 c9                	je     11ef0 <zbtIndexScanSlot+0x290>
+   11f27:	4c 8d 34 f5 00 00 00 	lea    0x0(,%rsi,8),%r14
+   11f2e:	00 
+   11f2f:	eb 18                	jmp    11f49 <zbtIndexScanSlot+0x2e9>
+   11f31:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   11f38:	0f 1f 84 00 00 00 00 
+   11f3f:	00 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4145
+            mask &= mask - 1;
+   11f40:	49 8d 7b ff          	lea    -0x1(%r11),%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   11f44:	49 21 fb             	and    %rdi,%r11
+   11f47:	74 a7                	je     11ef0 <zbtIndexScanSlot+0x290>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1839
+    return __builtin_ctzll(mask) >> 3;
+   11f49:	f3 4d 0f bc e3       	tzcnt  %r11,%r12
+   11f4e:	41 c1 ec 03          	shr    $0x3,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4142
+            unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+   11f52:	45 09 f4             	or     %r14d,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4143
+            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   11f55:	42 80 3c 21 01       	cmpb   $0x1,(%rcx,%r12,1)
+   11f5a:	77 e4                	ja     11f40 <zbtIndexScanSlot+0x2e0>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4144
+                positions[found++] = reversed ? last - pos : pos;
+   11f5c:	44 89 cf             	mov    %r9d,%edi
+   11f5f:	44 29 e7             	sub    %r12d,%edi
+   11f62:	41 89 dc             	mov    %ebx,%r12d
+   11f65:	ff c3                	inc    %ebx
+   11f67:	42 89 bc a5 10 fe ff 	mov    %edi,-0x1f0(%rbp,%r12,4)
+   11f6e:	ff 
+   11f6f:	eb cf                	jmp    11f40 <zbtIndexScanSlot+0x2e0>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4136
+    unsigned int last = reversed ? count - 1 : 0;
+   11f71:	80 7d c8 00          	cmpb   $0x0,-0x38(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11f75:	74 40                	je     11fb7 <zbtIndexScanSlot+0x357>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4148
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   11f77:	89 c7                	mov    %eax,%edi
+   11f79:	f7 d7                	not    %edi
+   11f7b:	81 cf 07 ff ff ff    	or     $0xffffff07,%edi
+   11f81:	01 c7                	add    %eax,%edi
+   11f83:	eb 15                	jmp    11f9a <zbtIndexScanSlot+0x33a>
+   11f85:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   11f8c:	00 00 00 00 
+   11f90:	48 ff c6             	inc    %rsi
+   11f93:	ff cf                	dec    %edi
+   11f95:	48 39 c6             	cmp    %rax,%rsi
+   11f98:	73 30                	jae    11fca <zbtIndexScanSlot+0x36a>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4149
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   11f9a:	44 38 3c 31          	cmp    %r15b,(%rcx,%rsi,1)
+   11f9e:	75 f0                	jne    11f90 <zbtIndexScanSlot+0x330>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11fa0:	41 89 d8             	mov    %ebx,%r8d
+   11fa3:	ff c3                	inc    %ebx
+   11fa5:	42 89 bc 85 10 fe ff 	mov    %edi,-0x1f0(%rbp,%r8,4)
+   11fac:	ff 
+   11fad:	eb e1                	jmp    11f90 <zbtIndexScanSlot+0x330>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4148
+    for (unsigned int pos = words * 8; pos < count; pos++) {
+   11faf:	48 ff c6             	inc    %rsi
+   11fb2:	48 39 c6             	cmp    %rax,%rsi
+   11fb5:	73 13                	jae    11fca <zbtIndexScanSlot+0x36a>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4149
+        if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   11fb7:	44 38 3c 31          	cmp    %r15b,(%rcx,%rsi,1)
+   11fbb:	75 f2                	jne    11faf <zbtIndexScanSlot+0x34f>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4150
+            positions[found++] = reversed ? last - pos : pos;
+   11fbd:	89 df                	mov    %ebx,%edi
+   11fbf:	ff c3                	inc    %ebx
+   11fc1:	89 b4 bd 10 fe ff ff 	mov    %esi,-0x1f0(%rbp,%rdi,4)
+   11fc8:	eb e5                	jmp    11faf <zbtIndexScanSlot+0x34f>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4198
+    serverAssert(count != 0);
+   11fca:	85 db                	test   %ebx,%ebx
+   11fcc:	0f 84 96 04 00 00    	je     12468 <zbtIndexScanSlot+0x808>
+   11fd2:	4c 8b 7d c0          	mov    -0x40(%rbp),%r15
+   11fd6:	49 8d 47 38          	lea    0x38(%r15),%rax
+   11fda:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4170
+    if (home_end) {
+   11fde:	48 83 7d b8 00       	cmpq   $0x0,-0x48(%rbp)
+   11fe3:	0f 95 c0             	setne  %al
+   11fe6:	83 fb 01             	cmp    $0x1,%ebx
+   11fe9:	0f 95 c1             	setne  %cl
+   11fec:	08 c1                	or     %al,%cl
+   11fee:	88 4d d7             	mov    %cl,-0x29(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4201
+    for (unsigned int i = 0; i < count; i++) {
+   11ff1:	89 d8                	mov    %ebx,%eax
+   11ff3:	48 89 45 98          	mov    %rax,-0x68(%rbp)
+   11ff7:	45 31 f6             	xor    %r14d,%r14d
+   11ffa:	31 c0                	xor    %eax,%eax
+   11ffc:	48 89 45 a8          	mov    %rax,-0x58(%rbp)
+   12000:	eb 7f                	jmp    12081 <zbtIndexScanSlot+0x421>
+   12002:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+   12009:	1f 84 00 00 00 00 00 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:511
+        if (bits < 64)
+   12010:	49 c7 c2 ff ff ff ff 	mov    $0xffffffffffffffff,%r10
+   12017:	89 c1                	mov    %eax,%ecx
+   12019:	49 d3 e2             	shl    %cl,%r10
+   1201c:	40 80 ff 40          	cmp    $0x40,%dil
+   12020:	49 f7 d2             	not    %r10
+   12023:	48 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%rax
+   1202a:	4c 0f 43 d0          	cmovae %rax,%r10
+   1202e:	4d 21 ca             	and    %r9,%r10
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:513
+        delta <<= leaf->n.score_shift;
+   12031:	41 0f b6 4f 13       	movzbl 0x13(%r15),%ecx
+   12036:	49 d3 e2             	shl    %cl,%r10
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:515
+    uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+   12039:	4c 89 d0             	mov    %r10,%rax
+   1203c:	48 f7 d8             	neg    %rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   1203f:	45 84 c0             	test   %r8b,%r8b
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:515
+    uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+   12042:	49 0f 44 c2          	cmove  %r10,%rax
+   12046:	49 03 47 28          	add    0x28(%r15),%rax
+zbtOrderedToScore():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:331
+    if (ordered & (UINT64_C(1) << 63))
+   1204a:	48 89 c1             	mov    %rax,%rcx
+   1204d:	48 bf ff ff ff ff ff 	movabs $0x7fffffffffffffff,%rdi
+   12054:	ff ff 7f 
+   12057:	48 21 f9             	and    %rdi,%rcx
+   1205a:	48 85 c0             	test   %rax,%rax
+   1205d:	48 f7 d0             	not    %rax
+   12060:	48 0f 48 c1          	cmovs  %rcx,%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:335
+    memcpy(&score, &bits, sizeof(score));
+   12064:	66 48 0f 6e c0       	movq   %rax,%xmm0
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4218
+        fn(privdata, ele, len, zbtScoreLeafScore(leaf, positions[i]));
+   12069:	48 8b 7d 18          	mov    0x18(%rbp),%rdi
+   1206d:	ff 55 10             	call   *0x10(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4219
+        emitted++;
+   12070:	48 ff 45 a8          	incq   -0x58(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4201
+    for (unsigned int i = 0; i < count; i++) {
+   12074:	49 ff c6             	inc    %r14
+   12077:	4c 3b 75 98          	cmp    -0x68(%rbp),%r14
+   1207b:	0f 84 53 02 00 00    	je     122d4 <zbtIndexScanSlot+0x674>
+   12081:	46 8b a4 b5 10 fe ff 	mov    -0x1f0(%rbp,%r14,4),%r12d
+   12088:	ff 
+   12089:	45 89 e5             	mov    %r12d,%r13d
+   1208c:	41 f7 d5             	not    %r13d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4207
+        if (count > 1 || home_end) {
+   1208f:	80 7d d7 00          	cmpb   $0x0,-0x29(%rbp)
+   12093:	0f 84 27 01 00 00    	je     121c0 <zbtIndexScanSlot+0x560>
+zbtScoreLeafHash():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   12099:	41 0f b6 47 34       	movzbl 0x34(%r15),%eax
+   1209e:	48 85 c0             	test   %rax,%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   120a1:	74 4e                	je     120f1 <zbtIndexScanSlot+0x491>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   120a3:	41 0f b6 4f 11       	movzbl 0x11(%r15),%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:351
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   120a8:	0f af c1             	imul   %ecx,%eax
+   120ab:	83 c0 07             	add    $0x7,%eax
+   120ae:	c1 e8 03             	shr    $0x3,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:352
+    return (bytes + 8 + 1) & ~(size_t)1;
+   120b1:	83 c0 09             	add    $0x9,%eax
+   120b4:	83 e0 fe             	and    $0xfffffffe,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   120b7:	41 80 7f 35 00       	cmpb   $0x0,0x35(%r15)
+   120bc:	44 89 e1             	mov    %r12d,%ecx
+   120bf:	74 08                	je     120c9 <zbtIndexScanSlot+0x469>
+   120c1:	41 0f b6 4f 11       	movzbl 0x11(%r15),%ecx
+   120c6:	44 01 e9             	add    %r13d,%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:357
+    return (uint16_t *)(leaf->data +
+   120c9:	48 03 45 c8          	add    -0x38(%rbp),%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:379
+    return zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)];
+   120cd:	89 c9                	mov    %ecx,%ecx
+   120cf:	0f b7 04 48          	movzwl (%rax,%rcx,2),%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:609
+    return (unsigned char *)leaf + zbtScoreLeafOffset(leaf, pos);
+   120d3:	49 8d 3c 07          	lea    (%r15,%rax,1),%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:625
+    if (record[0] == ZBT_PACKED_EXTERNAL)
+   120d7:	41 0f b6 34 07       	movzbl (%r15,%rax,1),%esi
+   120dc:	81 fe fe 00 00 00    	cmp    $0xfe,%esi
+   120e2:	74 1b                	je     120ff <zbtIndexScanSlot+0x49f>
+   120e4:	81 fe ff 00 00 00    	cmp    $0xff,%esi
+   120ea:	75 1e                	jne    1210a <zbtIndexScanSlot+0x4aa>
+zbtExternalHash():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:561
+    memcpy(&hash, record + ZBT_EXTERNAL_HASH_OFFSET, sizeof(hash));
+   120ec:	8b 47 01             	mov    0x1(%rdi),%eax
+   120ef:	eb 26                	jmp    12117 <zbtIndexScanSlot+0x4b7>
+zbtScoreLeafHash():
+   120f1:	31 c0                	xor    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   120f3:	41 80 7f 35 00       	cmpb   $0x0,0x35(%r15)
+   120f8:	44 89 e1             	mov    %r12d,%ecx
+   120fb:	75 c4                	jne    120c1 <zbtIndexScanSlot+0x461>
+   120fd:	eb ca                	jmp    120c9 <zbtIndexScanSlot+0x469>
+zbtPackedData():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:594
+        memcpy(&shortlen, record + 1, sizeof(shortlen));
+   120ff:	0f b7 77 01          	movzwl 0x1(%rdi),%esi
+   12103:	b8 03 00 00 00       	mov    $0x3,%eax
+   12108:	eb 05                	jmp    1210f <zbtIndexScanSlot+0x4af>
+   1210a:	b8 01 00 00 00       	mov    $0x1,%eax
+   1210f:	48 01 c7             	add    %rax,%rdi
+zbtScoreLeafHash():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:629
+    return (uint32_t)dictGenHashFunction(ele, len);
+   12112:	e8 49 05 00 00       	call   12660 <dictGenHashFunction>
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4209
+            unsigned long home = hash & (table->size - 1);
+   12117:	89 c0                	mov    %eax,%eax
+   12119:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+   1211d:	48 8b 49 08          	mov    0x8(%rcx),%rcx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4170
+    if (home_end) {
+   12121:	48 83 7d b8 00       	cmpq   $0x0,-0x48(%rbp)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4210
+            if (home_end && (home < home_start || home >= home_end))
+   12126:	74 1b                	je     12143 <zbtIndexScanSlot+0x4e3>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4209
+            unsigned long home = hash & (table->size - 1);
+   12128:	8d 71 ff             	lea    -0x1(%rcx),%esi
+   1212b:	89 c2                	mov    %eax,%edx
+   1212d:	21 f2                	and    %esi,%edx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4210
+            if (home_end && (home < home_start || home >= home_end))
+   1212f:	48 3b 55 a0          	cmp    -0x60(%rbp),%rdx
+   12133:	0f 82 3b ff ff ff    	jb     12074 <zbtIndexScanSlot+0x414>
+   12139:	48 3b 55 b8          	cmp    -0x48(%rbp),%rdx
+   1213d:	0f 83 31 ff ff ff    	jae    12074 <zbtIndexScanSlot+0x414>
+   12143:	83 fb 01             	cmp    $0x1,%ebx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4212
+            if (count > 1 && !zbtIndexHashReachesBucket(table, hash, bucket))
+   12146:	74 78                	je     121c0 <zbtIndexScanSlot+0x560>
+zbtIndexHashReachesBucket():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4101
+    unsigned long mask = table->size - 1;
+   12148:	48 89 ca             	mov    %rcx,%rdx
+   1214b:	48 83 ea 01          	sub    $0x1,%rdx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4104
+    for (unsigned long probes = 0; probes < table->size; probes++) {
+   1214f:	0f 82 1f ff ff ff    	jb     12074 <zbtIndexScanSlot+0x414>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4102
+    unsigned long index = hash & mask;
+   12155:	21 d0                	and    %edx,%eax
+   12157:	31 f6                	xor    %esi,%esi
+   12159:	48 8b 7d b0          	mov    -0x50(%rbp),%rdi
+   1215d:	83 7f 20 00          	cmpl   $0x0,0x20(%rdi)
+   12161:	48 8b 3f             	mov    (%rdi),%rdi
+   12164:	40 0f 95 c6          	setne  %sil
+   12168:	c1 e6 04             	shl    $0x4,%esi
+   1216b:	48 83 ce 20          	or     $0x20,%rsi
+zbtIndexBucketAt():
+   1216f:	90                   	nop
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1760
+           index * zbtIndexBucketBytes(table));
+   12170:	49 89 c0             	mov    %rax,%r8
+   12173:	4c 0f af c6          	imul   %rsi,%r8
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1759
+    return (zbtIndexBucket *)((unsigned char *)table->buckets +
+   12177:	49 01 f8             	add    %rdi,%r8
+zbtIndexHashReachesBucket():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4106
+        if (bucket == target) return 1;
+   1217a:	4c 3b 45 90          	cmp    -0x70(%rbp),%r8
+   1217e:	74 40                	je     121c0 <zbtIndexScanSlot+0x560>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4107
+        if (zbtIndexTagMask(zbtIndexTags(bucket), 0)) return 0;
+   12180:	4d 8b 00             	mov    (%r8),%r8
+   12183:	4d 89 c1             	mov    %r8,%r9
+   12186:	49 f7 d1             	not    %r9
+zbtIndexTagMask():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1833
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   12189:	49 ba ff fe fe fe fe 	movabs $0xfefefefefefefeff,%r10
+   12190:	fe fe fe 
+   12193:	4d 01 d0             	add    %r10,%r8
+   12196:	49 ba 80 80 80 80 80 	movabs $0x8080808080808080,%r10
+   1219d:	80 80 80 
+   121a0:	4d 21 d1             	and    %r10,%r9
+zbtIndexHashReachesBucket():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4107
+        if (zbtIndexTagMask(zbtIndexTags(bucket), 0)) return 0;
+   121a3:	4d 85 c1             	test   %r8,%r9
+   121a6:	0f 85 c8 fe ff ff    	jne    12074 <zbtIndexScanSlot+0x414>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4108
+        index = (index + 1) & mask;
+   121ac:	48 ff c0             	inc    %rax
+   121af:	48 21 d0             	and    %rdx,%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4104
+    for (unsigned long probes = 0; probes < table->size; probes++) {
+   121b2:	48 ff c9             	dec    %rcx
+   121b5:	75 b9                	jne    12170 <zbtIndexScanSlot+0x510>
+   121b7:	e9 b8 fe ff ff       	jmp    12074 <zbtIndexScanSlot+0x414>
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4104
+   121bc:	0f 1f 40 00          	nopl   0x0(%rax)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   121c0:	41 0f b6 7f 34       	movzbl 0x34(%r15),%edi
+   121c5:	48 85 ff             	test   %rdi,%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   121c8:	0f 84 d2 00 00 00    	je     122a0 <zbtIndexScanSlot+0x640>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:358
+        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
+   121ce:	41 0f b6 4f 11       	movzbl 0x11(%r15),%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:351
+    size_t bytes = ((size_t)count * score_bits + 7) / 8;
+   121d3:	89 f8                	mov    %edi,%eax
+   121d5:	0f af c1             	imul   %ecx,%eax
+   121d8:	83 c0 07             	add    $0x7,%eax
+   121db:	c1 e8 03             	shr    $0x3,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:352
+    return (bytes + 8 + 1) & ~(size_t)1;
+   121de:	83 c0 09             	add    $0x9,%eax
+   121e1:	83 e0 fe             	and    $0xfffffffe,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   121e4:	45 0f b6 47 35       	movzbl 0x35(%r15),%r8d
+   121e9:	44 89 e1             	mov    %r12d,%ecx
+   121ec:	45 84 c0             	test   %r8b,%r8b
+   121ef:	74 08                	je     121f9 <zbtIndexScanSlot+0x599>
+   121f1:	41 0f b6 4f 11       	movzbl 0x11(%r15),%ecx
+   121f6:	44 01 e9             	add    %r13d,%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:357
+    return (uint16_t *)(leaf->data +
+   121f9:	48 03 45 c8          	add    -0x38(%rbp),%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:379
+    return zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)];
+   121fd:	89 c9                	mov    %ecx,%ecx
+   121ff:	0f b7 0c 48          	movzwl (%rax,%rcx,2),%ecx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:609
+    return (unsigned char *)leaf + zbtScoreLeafOffset(leaf, pos);
+   12203:	49 8d 04 0f          	lea    (%r15,%rcx,1),%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:589
+    if (record[0] < ZBT_PACKED_SHORT) {
+   12207:	41 0f b6 14 0f       	movzbl (%r15,%rcx,1),%edx
+   1220c:	48 81 fa fd 00 00 00 	cmp    $0xfd,%rdx
+   12213:	77 6b                	ja     12280 <zbtIndexScanSlot+0x620>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:591
+        return record + 1;
+   12215:	48 ff c0             	inc    %rax
+   12218:	48 89 c6             	mov    %rax,%rsi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   1221b:	48 85 ff             	test   %rdi,%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:503
+    if (bits != 0) {
+   1221e:	74 78                	je     12298 <zbtIndexScanSlot+0x638>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   12220:	45 84 c0             	test   %r8b,%r8b
+zbtScoreLeafPhysicalPos():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+   12223:	74 08                	je     1222d <zbtIndexScanSlot+0x5cd>
+   12225:	45 0f b6 67 11       	movzbl 0x11(%r15),%r12d
+   1222a:	45 01 ec             	add    %r13d,%r12d
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:504
+        size_t bitpos = (size_t)zbtScoreLeafPhysicalPos(leaf, pos) * bits;
+   1222d:	45 89 e2             	mov    %r12d,%r10d
+   12230:	89 f8                	mov    %edi,%eax
+   12232:	4c 0f af d0          	imul   %rax,%r10
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:505
+        size_t byte = bitpos / 8;
+   12236:	4d 89 d3             	mov    %r10,%r11
+   12239:	49 c1 eb 03          	shr    $0x3,%r11
+   1223d:	48 8b 4d c8          	mov    -0x38(%rbp),%rcx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:507
+        memcpy(&delta, leaf->data + byte, sizeof(delta));
+   12241:	4e 8b 0c 19          	mov    (%rcx,%r11,1),%r9
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:508
+        delta = intrev64ifbe(delta) >> shift;
+   12245:	44 89 d1             	mov    %r10d,%ecx
+   12248:	80 e1 07             	and    $0x7,%cl
+   1224b:	49 d3 e9             	shr    %cl,%r9
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:509
+        if (shift && bits > 64 - shift)
+   1224e:	41 83 e2 07          	and    $0x7,%r10d
+   12252:	0f 84 b8 fd ff ff    	je     12010 <zbtIndexScanSlot+0x3b0>
+   12258:	b9 40 00 00 00       	mov    $0x40,%ecx
+   1225d:	44 29 d1             	sub    %r10d,%ecx
+   12260:	39 f9                	cmp    %edi,%ecx
+   12262:	0f 83 a8 fd ff ff    	jae    12010 <zbtIndexScanSlot+0x3b0>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:510
+            delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+   12268:	47 0f b6 54 3b 40    	movzbl 0x40(%r11,%r15,1),%r10d
+   1226e:	49 d3 e2             	shl    %cl,%r10
+   12271:	4d 09 d1             	or     %r10,%r9
+   12274:	e9 97 fd ff ff       	jmp    12010 <zbtIndexScanSlot+0x3b0>
+   12279:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:592
+    } else if (record[0] == ZBT_PACKED_SHORT) {
+   12280:	81 fa fe 00 00 00    	cmp    $0xfe,%edx
+   12286:	75 30                	jne    122b8 <zbtIndexScanSlot+0x658>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:594
+        memcpy(&shortlen, record + 1, sizeof(shortlen));
+   12288:	0f b7 50 01          	movzwl 0x1(%rax),%edx
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:596
+        return record + 3;
+   1228c:	48 83 c0 03          	add    $0x3,%rax
+   12290:	48 89 c6             	mov    %rax,%rsi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   12293:	48 85 ff             	test   %rdi,%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:503
+    if (bits != 0) {
+   12296:	75 88                	jne    12220 <zbtIndexScanSlot+0x5c0>
+   12298:	45 31 d2             	xor    %r10d,%r10d
+   1229b:	e9 99 fd ff ff       	jmp    12039 <zbtIndexScanSlot+0x3d9>
+   122a0:	31 c0                	xor    %eax,%eax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:372
+    return leaf->reversed ? leaf->n.count - pos - 1 : pos;
+   122a2:	45 0f b6 47 35       	movzbl 0x35(%r15),%r8d
+   122a7:	44 89 e1             	mov    %r12d,%ecx
+   122aa:	45 84 c0             	test   %r8b,%r8b
+   122ad:	0f 85 3e ff ff ff    	jne    121f1 <zbtIndexScanSlot+0x591>
+   122b3:	e9 41 ff ff ff       	jmp    121f9 <zbtIndexScanSlot+0x599>
+zbtExternalPointer():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:576
+    memcpy(&ptr, record + ZBT_EXTERNAL_POINTER_OFFSET, sizeof(ptr));
+   122b8:	48 8b 70 0d          	mov    0xd(%rax),%rsi
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:599
+        serverAssert(ptr != NULL);
+   122bc:	48 85 f6             	test   %rsi,%rsi
+   122bf:	0f 84 5b 01 00 00    	je     12420 <zbtIndexScanSlot+0x7c0>
+zbtExternalLength():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:568
+    memcpy(&len, record + ZBT_EXTERNAL_LENGTH_OFFSET, sizeof(len));
+   122c5:	48 8b 50 05          	mov    0x5(%rax),%rdx
+zbtIndexScanSlot():
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:350
+    if (score_bits == 0) return 0;
+   122c9:	48 85 ff             	test   %rdi,%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:503
+    if (bits != 0) {
+   122cc:	0f 85 4e ff ff ff    	jne    12220 <zbtIndexScanSlot+0x5c0>
+   122d2:	eb c4                	jmp    12298 <zbtIndexScanSlot+0x638>
+   122d4:	48 8b 45 a8          	mov    -0x58(%rbp),%rax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4221
+    serverAssert(home_end || emitted != 0);
+   122d8:	48 09 45 b8          	or     %rax,-0x48(%rbp)
+   122dc:	0f 85 1d fb ff ff    	jne    11dff <zbtIndexScanSlot+0x19f>
+   122e2:	48 8d 3d a6 14 00 00 	lea    0x14a6(%rip),%rdi        # 1378f <_IO_stdin_used+0x78f>
+   122e9:	48 8d 15 21 1a 00 00 	lea    0x1a21(%rip),%rdx        # 13d11 <_IO_stdin_used+0xd11>
+   122f0:	be 7d 10 00 00       	mov    $0x107d,%esi
+   122f5:	e8 86 01 00 00       	call   12480 <standalone_panic>
+   122fa:	45 31 c9             	xor    %r9d,%r9d
+   122fd:	45 89 fa             	mov    %r15d,%r10d
+   12300:	41 80 f2 01          	xor    $0x1,%r10b
+   12304:	31 db                	xor    %ebx,%ebx
+   12306:	eb 17                	jmp    1231f <zbtIndexScanSlot+0x6bf>
+   12308:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   1230f:	00 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4137
+    for (unsigned int w = 0; w < words; w++) {
+   12310:	49 ff c1             	inc    %r9
+   12313:	4d 39 c1             	cmp    %r8,%r9
+   12316:	49 89 f5             	mov    %rsi,%r13
+   12319:	0f 84 18 fb ff ff    	je     11e37 <zbtIndexScanSlot+0x1d7>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4138
+        uint64_t word = zbtLeafTagWord(tags + w * 8);
+   1231f:	4e 8b 34 c9          	mov    (%rcx,%r9,8),%r14
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1832
+    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+   12323:	4d 89 f4             	mov    %r14,%r12
+   12326:	4d 31 ec             	xor    %r13,%r12
+   12329:	4d 89 e3             	mov    %r12,%r11
+   1232c:	49 f7 d3             	not    %r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1833
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   1232f:	49 01 d4             	add    %rdx,%r12
+   12332:	48 be 80 80 80 80 80 	movabs $0x8080808080808080,%rsi
+   12339:	80 80 80 
+   1233c:	49 21 f3             	and    %rsi,%r11
+   1233f:	4d 21 e3             	and    %r12,%r11
+   12342:	41 80 ff 01          	cmp    $0x1,%r15b
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4140
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   12346:	75 10                	jne    12358 <zbtIndexScanSlot+0x6f8>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1833
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   12348:	4d 8d 24 16          	lea    (%r14,%rdx,1),%r12
+   1234c:	49 f7 d6             	not    %r14
+   1234f:	49 21 f6             	and    %rsi,%r14
+   12352:	4d 21 e6             	and    %r12,%r14
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4140
+        if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+   12355:	4d 09 f3             	or     %r14,%r11
+   12358:	4c 89 ee             	mov    %r13,%rsi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   1235b:	4d 85 db             	test   %r11,%r11
+   1235e:	74 b0                	je     12310 <zbtIndexScanSlot+0x6b0>
+   12360:	4e 8d 34 cd 00 00 00 	lea    0x0(,%r9,8),%r14
+   12367:	00 
+   12368:	eb 1b                	jmp    12385 <zbtIndexScanSlot+0x725>
+   1236a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4144
+                positions[found++] = reversed ? last - pos : pos;
+   12370:	89 df                	mov    %ebx,%edi
+   12372:	ff c3                	inc    %ebx
+   12374:	44 89 a4 bd 10 fe ff 	mov    %r12d,-0x1f0(%rbp,%rdi,4)
+   1237b:	ff 
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4145
+            mask &= mask - 1;
+   1237c:	49 8d 7b ff          	lea    -0x1(%r11),%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   12380:	49 21 fb             	and    %rdi,%r11
+   12383:	74 8b                	je     12310 <zbtIndexScanSlot+0x6b0>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1839
+    return __builtin_ctzll(mask) >> 3;
+   12385:	f3 4d 0f bc e3       	tzcnt  %r11,%r12
+   1238a:	41 c1 ec 03          	shr    $0x3,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4142
+            unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+   1238e:	45 09 f4             	or     %r14d,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4143
+            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   12391:	42 0f b6 3c 21       	movzbl (%rcx,%r12,1),%edi
+   12396:	45 89 d5             	mov    %r10d,%r13d
+   12399:	41 08 fd             	or     %dil,%r13b
+   1239c:	41 0f 94 c5          	sete   %r13b
+   123a0:	44 38 ff             	cmp    %r15b,%dil
+   123a3:	74 cb                	je     12370 <zbtIndexScanSlot+0x710>
+   123a5:	45 84 ed             	test   %r13b,%r13b
+   123a8:	74 d2                	je     1237c <zbtIndexScanSlot+0x71c>
+   123aa:	eb c4                	jmp    12370 <zbtIndexScanSlot+0x710>
+   123ac:	45 31 d2             	xor    %r10d,%r10d
+   123af:	31 db                	xor    %ebx,%ebx
+   123b1:	48 be 80 80 80 80 80 	movabs $0x8080808080808080,%rsi
+   123b8:	80 80 80 
+   123bb:	eb 0f                	jmp    123cc <zbtIndexScanSlot+0x76c>
+   123bd:	0f 1f 00             	nopl   (%rax)
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4137
+    for (unsigned int w = 0; w < words; w++) {
+   123c0:	49 ff c2             	inc    %r10
+   123c3:	4d 39 c2             	cmp    %r8,%r10
+   123c6:	0f 84 6b fa ff ff    	je     11e37 <zbtIndexScanSlot+0x1d7>
+   123cc:	4a 8b 3c d1          	mov    (%rcx,%r10,8),%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1832
+    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+   123d0:	4c 31 ef             	xor    %r13,%rdi
+   123d3:	49 89 fb             	mov    %rdi,%r11
+   123d6:	49 f7 d3             	not    %r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1833
+    return (x - UINT64_C(0x0101010101010101)) & ~x &
+   123d9:	48 01 d7             	add    %rdx,%rdi
+   123dc:	49 21 f3             	and    %rsi,%r11
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   123df:	49 21 fb             	and    %rdi,%r11
+   123e2:	74 dc                	je     123c0 <zbtIndexScanSlot+0x760>
+   123e4:	4e 8d 34 d5 00 00 00 	lea    0x0(,%r10,8),%r14
+   123eb:	00 
+   123ec:	eb 0b                	jmp    123f9 <zbtIndexScanSlot+0x799>
+   123ee:	66 90                	xchg   %ax,%ax
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4145
+            mask &= mask - 1;
+   123f0:	49 8d 7b ff          	lea    -0x1(%r11),%rdi
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4141
+        while (mask) {
+   123f4:	49 21 fb             	and    %rdi,%r11
+   123f7:	74 c7                	je     123c0 <zbtIndexScanSlot+0x760>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:1839
+    return __builtin_ctzll(mask) >> 3;
+   123f9:	f3 4d 0f bc e3       	tzcnt  %r11,%r12
+   123fe:	41 c1 ec 03          	shr    $0x3,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4142
+            unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+   12402:	45 09 f4             	or     %r14d,%r12d
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4143
+            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+   12405:	46 38 3c 21          	cmp    %r15b,(%rcx,%r12,1)
+   12409:	75 e5                	jne    123f0 <zbtIndexScanSlot+0x790>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4144
+                positions[found++] = reversed ? last - pos : pos;
+   1240b:	44 89 cf             	mov    %r9d,%edi
+   1240e:	44 29 e7             	sub    %r12d,%edi
+   12411:	41 89 dc             	mov    %ebx,%r12d
+   12414:	ff c3                	inc    %ebx
+   12416:	42 89 bc a5 10 fe ff 	mov    %edi,-0x1f0(%rbp,%r12,4)
+   1241d:	ff 
+   1241e:	eb d0                	jmp    123f0 <zbtIndexScanSlot+0x790>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:599
+        serverAssert(ptr != NULL);
+   12420:	48 8d 3d 68 13 00 00 	lea    0x1368(%rip),%rdi        # 1378f <_IO_stdin_used+0x78f>
+   12427:	48 8d 15 8d 14 00 00 	lea    0x148d(%rip),%rdx        # 138bb <_IO_stdin_used+0x8bb>
+   1242e:	be 57 02 00 00       	mov    $0x257,%esi
+   12433:	e8 48 00 00 00       	call   12480 <standalone_panic>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4181
+        serverAssert(zs->member_rehash && table == &zs->member_index);
+   12438:	48 8d 3d 50 13 00 00 	lea    0x1350(%rip),%rdi        # 1378f <_IO_stdin_used+0x78f>
+   1243f:	48 8d 15 c1 14 00 00 	lea    0x14c1(%rip),%rdx        # 13907 <_IO_stdin_used+0x907>
+   12446:	be 55 10 00 00       	mov    $0x1055,%esi
+   1244b:	e8 30 00 00 00       	call   12480 <standalone_panic>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4184
+    serverAssert(leaf->id == id);
+   12450:	48 8d 3d 38 13 00 00 	lea    0x1338(%rip),%rdi        # 1378f <_IO_stdin_used+0x78f>
+   12457:	48 8d 15 8a 14 00 00 	lea    0x148a(%rip),%rdx        # 138e8 <_IO_stdin_used+0x8e8>
+   1245e:	be 58 10 00 00       	mov    $0x1058,%esi
+   12463:	e8 18 00 00 00       	call   12480 <standalone_panic>
+<workspace>/repo/scratch/intel-corrected-scan-profile/base/src/zset_btree.c:4198
+    serverAssert(count != 0);
+   12468:	48 8d 3d 20 13 00 00 	lea    0x1320(%rip),%rdi        # 1378f <_IO_stdin_used+0x78f>
+   1246f:	48 8d 15 90 18 00 00 	lea    0x1890(%rip),%rdx        # 13d06 <_IO_stdin_used+0xd06>
+   12476:	be 66 10 00 00       	mov    $0x1066,%esi
+   1247b:	e8 00 00 00 00       	call   12480 <standalone_panic>
+
+Disassembly of section .fini:
