@@ -6,3 +6,4 @@ python3 "$job/run-profile.py" --checkout "$PWD" --perf '@PERF@'
 python3 "$job/audit-profile.py" "$job/profile" --out "$job/profile/audit.json"
 python3 "$job/map-code.py" "$job/profile" --variant control --out "$job/profile/control-code-map.json"
 python3 "$job/map-code.py" "$job/profile" --variant A --out "$job/profile/A-code-map.json"
+python3 "$job/finalize-profile.py" "$job/profile"

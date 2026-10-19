@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+"""Separate data integrity from supported mechanism; failure remains PARK, no rescue."""
+import argparse,hashlib,json,pathlib,re,sys
+p=argparse.ArgumentParser();p.add_argument('results',type=pathlib.Path);a=p.parse_args();out=a.results;here=pathlib.Path(__file__).resolve().parent;sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+audit=json.loads((out/'audit.json').read_text());maps={v:json.loads((out/(v+'-code-map.json')).read_text()) for v in ['control','A']};e=json.loads((here/'expected.json').read_text())
+loss_warnings=[r for r in audit['all_nonempty_stderr'] if re.search(r'\b(lost|dropped|overflow|overrun)\b',r['stderr'],re.I)]
+gates=dict(integrity_complete=audit['status']=='pass',all_104_commands=audit['commands']==104,semantic_parity=audit['semantic_parity_pass'],known_arithmetic_and_scope=audit['known_arithmetic_and_scope_pass'],positive_fully_running_counters=audit['counter_runtime_and_positivity_pass'],both_disabled_zero=audit['disabled_zero_pass'],zero_known_loss=audit['known_control']['lost']==0,zero_scientific_loss=audit['total_lost_events']==0,no_unresolved_loss_warning=not loss_warnings,all_six_instruction_direction=audit['all_six_instruction_direction_pass'])
+for v,m in maps.items():
+ gates[v+'_own_timing_binary_identity']=m['actual_timing_binary_sha256']==e['timing_binaries'][v]['sha256']
+ gates[v+'_all_sampled_tree_bytes_match_actual']=m['all_sampled_tree_bytes_match_actual']
+passed=all(gates.values());result=dict(status='VALIDATED_MECHANISM_SUPPORT_NOT_ACCEPTANCE' if passed else 'PARK_PROFILE_VALIDITY_GATES',gates=gates,failed_gates=[k for k,v in gates.items() if not v],unresolved_loss_warnings=loss_warnings,own_mapping_limits={v:dict(groups=m['groups'],full_tree_body_comparison=m['full_tree_body_comparison'],limits=m['limits']) for v,m in maps.items()},input_sha256={n:sha(out/n) for n in ['audit.json','control-code-map.json','A-code-map.json']},execution_freeze_sha256=sha(here/'execution-freeze.json'),source_selection='NONE',limits=['Unknown/non-tree/caller differences remain in full denominators; no unregistered threshold excludes them','Sampled tree exact-byte mapping does not establish equal layout or quantify causality','Supporting PMU instruction direction does not explain the elapsed magnitude alone','No guard/confirmation repair and no adoption authority'])
+(out/'profile-validity.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(dict(status=result['status'],failed_gates=result['failed_gates'])));sys.exit(0 if passed else 1)

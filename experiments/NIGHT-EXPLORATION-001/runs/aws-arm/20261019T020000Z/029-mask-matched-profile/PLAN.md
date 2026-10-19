@@ -47,3 +47,14 @@ or unresolved causal attribution precludes a validated mechanism claim. Original
 remains PARK and all fresh required guards/confirmation remain independent gates.
 
 Native Codex author/root/aws_arm; exact model/token/USD unknown. Preparation only.
+
+Explicit validity decision (prefreeze correction, original acbd0cbe9 retained):
+audit.json status pass means integrity only. finalize-profile.py must additionally
+pass all scoped semantic/arithmetic/positive-counter/disabled-zero gates, zero known
+and scientific losses, no unresolved lost/dropped/overflow/overrun stderr warning,
+each source's exact actual timing identity and all sampled tree byte mappings, and
+all six paired instruction directions. Failure writes PARK_PROFILE_VALIDITY_GATES
+and exits nonzero after preserving all evidence. Success is supporting mechanism
+validation only, never acceptance. Unknown/non-tree/caller samples remain in full
+denominators without adding an unregistered threshold; full body/code-layout limits
+are retained. No result from an earlier profile repairs a failed gate here.
