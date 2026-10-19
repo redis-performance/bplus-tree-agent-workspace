@@ -21,3 +21,5 @@ not M6 evidence. M1 controls failed and no adoption was claimed. No M6 veto yet.
 Baseline src unchanged. No population has started. Backend identity exposed as GPT-6
 family/Codex; exact model identifier and measured token cost unavailable. No agents used.
 Earlier interrupted baseline evidence preserved; no baseline rerun.
+
+Rank referee validation complete at 2026-10-19T01:40:29.447611+00:00: 138 native/sanitizer harness checks pass; injected public rank +1 fault detected. No candidate timing. Frozen bench/night-rank.c and diagnostic sources in 002-rank/freeze.json. Previous status acknowledgement 48b00870.

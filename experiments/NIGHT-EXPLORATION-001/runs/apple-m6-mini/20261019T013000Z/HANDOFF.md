@@ -1,8 +1,8 @@
-# Round 1 working handoff
+# Round 1 working handoff — rank referee validated
 
-Baseline selected by LAUNCH-STATUS.json is baseline-attempt002 and is complete;
-never rerun it. Native/sanitizer checks passed before launcher timing. See its
-SUMMARY.md. Initial baseline/ remains preserved. Next: public rank profiling and
-release assembly at 10K/100K/1M, pre-resolved accumulation diagnostic/census, then one
-frozen calibrated rank harness and A/A. Round ends 02:06:34 UTC; handoff due 02:05:04.
-Baseline src remains unchanged. Coordinator is sole Git writer.
+Baseline completed/reused, published 48b00870. 002-rank/PLAN.md and freeze.json
+record new bench/night-rank.c and 138 passing native/sanitizer checks plus a detected
+rank +1 fault. Next execute run.py profile, inspect actual accumulation assembly,
+then run.py calibrate; freeze counts and publish before run.py qualify. All serial.
+No baseline src changes, candidates or populations yet. Exact source hashes match
+launch. Round end 02:06:34 UTC, handoff due02:05:04 UTC. No active children.
