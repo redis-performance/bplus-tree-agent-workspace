@@ -1,5 +1,36 @@
 # Experiment summary
 
+## Latest: shared-night Apple M1 single lookup, 19 October
+
+[LOOKUP-001](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/004-lookup/RESULT.md)
+validated an independent-query referee and profiled hit/miss at 10K,
+100K and 1M. Platform memchr is prominent in hit samples; untimed counts
+show about 1.14–1.16 full comparisons per hit and few for misses.
+After three sequential proposal passes, the chair selected NONE:
+the supported inline-scan family was already tried in EXP-006 with
+single-query concerns. No new population or source change.
+
+## Latest: shared-night Apple M1 update paths, 19 October
+
+[UPDATE-001](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/003-update/RESULT.md)
+separates same-value, position-preserving, nearby, distant and original +N
+workloads. At 1M, 11,058 of 20,000 position-preserving updates still
+reinsert because the new score does not fit the leaf's packed width/base.
+The new referee passes smoke and sanitizer checks, but its 100K/1M A/A
+controls fail strict precision. Diagnostic COMPLETE; candidate NONE.
+Optimization totals remain 0 accepted / 3 rejected / 5 parked across
+8 populations.
+
+## Latest: shared-night Apple M1 rank trial, 19 October
+
+[RANK-001 result](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/002-rank/RESULT.md):
+three sequential isolated variants passed native, sanitizer and targeted rank
+oracles. A 144-process public-rank ABBA screen found no consistent improvement
+at both 100K and 1M. Trial **REJECT**, source NONE; earlier strict A/A controls
+remain unqualified. Current optimization totals: **0 accepted / 3 rejected /
+5 parked across 8 populations** (six sequential, two multi-agent). M6 publication
+status is UNKNOWN. UPDATE-001 path decomposition is next.
+
 ## Latest: shared-night Apple M1 round 1, 19 October
 
 [Host status](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
@@ -26,8 +57,8 @@ pass. No confirmation or source adoption. [M6 replication guide](REPLICATE-LATES
 block universal adoption; experiment PARK / source NONE. Native/sanitizer checks and
 raw audits pass; both real three-agent population steps and cross-author reviews
 are complete.
-No scalar iterator gain is claimed. Current optimization totals are 0 accepted /
-2 rejected / 5 parked across seven populations; all 21 patches are retained.
+No scalar iterator gain is claimed. At that checkpoint the optimization totals were
+0 accepted / 2 rejected / 5 parked across seven populations; all 21 patches were retained.
 
 ## Earlier: focused decoder benchmark, 19 October
 
@@ -44,8 +75,8 @@ were 0 accepted / 2 rejected / 3 parked. Overnight execution remains stopped.
 | Harnesses locally validated (7 overnight + 2 focused decoder referees + EXP-008) | 10 |
 | Historical overnight baseline explorations | 13 |
 | Post-overnight focused A/A campaigns (decoder + two bulk campaigns) | 4 |
-| Optimisations accepted / rejected / parked | 0 / 2 / 5 |
-| Population rounds executed | 7 (5 sequential fallback + 2 multi-agent) |
+| Optimisations accepted / rejected / parked | 0 / 3 / 5 |
+| Population rounds executed | 8 (6 sequential fallback + 2 multi-agent) |
 | Historical overnight additional measurement diagnostics | 34 |
 | Post-overnight focused decoder investigations | 3 |
 | Additional boundary oracle suites validated | 26 |

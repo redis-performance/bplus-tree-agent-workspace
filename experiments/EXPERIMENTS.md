@@ -1,5 +1,41 @@
 # Experiment log
 
+## 2026-10-19 — shared-night Apple M1 LOOKUP-001 diagnosis
+
+[Result](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/004-lookup/RESULT.md):
+independent construction/query lookup referee passes release and sanitizer
+hit/miss checks at 10K/100K/1M. Long scoped profiles place 251/439,
+189/344 and 160/233 hit PCs in platform memchr. Untimed counts show
+1.14–1.16 full comparisons per hit and about 0.02–0.035 per miss.
+Three proposal passes were sequential; the chair selected NONE because
+the supported inline scanner family already has EXP-006 single-lane
+regression concerns and alternatives lack profile support. No new
+implementation population, source adoption or count change.
+
+## 2026-10-19 — shared-night Apple M1 UPDATE-001 diagnostic
+
+[Result](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/003-update/RESULT.md):
+the separate five-pattern referee passes release and sanitizer smoke checks.
+Untimed counters show that 1,517/20,000 position-preserving updates reinsert
+at 100K and 11,058/20,000 at 1M, entirely because their new exact scores
+do not fit the leaf's current packed representation. A 75-process baseline
+inventory and six scoped profiles are retained. New-referee same-binary A/A
+fails strict precision at both primary sizes. Diagnostic COMPLETE, candidate
+NONE, no source adoption or new population. Totals remain 0 accepted /
+3 rejected / 5 parked across 8 populations; M6 UNKNOWN.
+
+## 2026-10-19 — shared-night Apple M1 RANK-001 bounded decision
+
+[Result](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/002-rank/RESULT.md):
+three sequential isolated implementations from the same launch source pass native,
+ASan/UBSan and targeted rank oracles. A fixed 144-process, six-block ABBA screen
+at 100K and 1M found no consistent dual-primary improvement; all three variants
+are **REJECT** for this trial, source NONE. Earlier A/A controls fail strict
+precision, so there is no adoption or fresh confirmation. All patches and raw rows
+are retained. This is one new sequential optimization population; current totals
+are **0 accepted / 3 rejected / 5 parked across 8 populations**. M6 state is
+UNKNOWN after DNS failures. Commit provenance for this round remains pending.
+
 ## 2026-10-19 — shared-night Apple M1 round 1
 
 [Host evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):

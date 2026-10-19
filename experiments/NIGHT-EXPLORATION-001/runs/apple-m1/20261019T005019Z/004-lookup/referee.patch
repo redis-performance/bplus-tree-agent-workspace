@@ -1,0 +1,43 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -142,6 +142,14 @@
+         size_t j = random64(&rng) % i, tmp = order[i - 1];
+         order[i - 1] = order[j]; order[j] = tmp;
+     }
++    /* An independent permutation for hit and miss query streams. */
++    size_t *query_order = zmalloc(n * sizeof(*query_order));
++    uint64_t query_rng = seed ^ UINT64_C(0xd02703a89f4c51e7);
++    for (size_t i = 0; i < n; i++) query_order[i] = i;
++    for (size_t i = n; i > 1; i--) {
++        size_t j = random64(&query_rng) % i, tmp = query_order[i - 1];
++        query_order[i - 1] = query_order[j]; query_order[j] = tmp;
++    }
+     puts("case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) {
+         if (strcmp(selected, "all") && strcmp(selected, cases[c])) continue;
+@@ -159,7 +167,7 @@
+         size_t tree_bytes = zbtreeAllocSize(tree);
+         size_t traversals = (c == 4 || c == 5) ? 1 + (ops - 1) / n : 0;
+         if (c == 4 || c == 5) count = traversals * n;
+-        if (c == 1 || c == 3) for (size_t i = 0; i < count; i++) expected += order[i % n];
++        if (c == 1 || c == 3) for (size_t i = 0; i < count; i++) expected += (c == 1 ? query_order[i % n] : order[i % n]);
+         else if (c == 6 || c == 7) expected = count;
+         else if (c == 4) expected = ((uint64_t)n * (n - 1) / 2) * traversals;
+         scan_result scanned = {0, 0};
+@@ -173,7 +181,7 @@
+         } else if (c == 1 || c == 2) {
+             for (size_t i = 0; i < count; i++) {
+                 double score = 0;
+-                int found = zbtreeScore(tree, keys[order[i % n] + (c == 2 ? n : 0)], &score);
++                int found = zbtreeScore(tree, keys[query_order[i % n] + (c == 2 ? n : 0)], &score);
+                 checksum += c == 1 ? (found ? (uint64_t)score : UINT64_MAX) : (uint64_t)found;
+             }
+         } else if (c == 3) {
+@@ -241,6 +249,6 @@
+         zbtreeFree(tree);
+     }
+     for (size_t i = 0; i < 2 * n; i++) sdsfree(keys[i]);
+-    zfree(keys); zfree(order);
++    zfree(keys); zfree(order); zfree(query_order);
+     return 0;
+ }

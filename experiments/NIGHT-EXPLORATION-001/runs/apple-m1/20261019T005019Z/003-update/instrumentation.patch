@@ -1,0 +1,23 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3640,6 +3640,7 @@
+ 
+ /* Update an existing member's score. Its hash entry remains in place unless
+  * the member lands in a different score leaf. */
++unsigned long long zbt_update_inplace_count, zbt_update_reinsert_count;
+ void zbtreeUpdateScore(zbtreeSet *zs, sds ele, double score,
+                        const zbtreeInsertPosition *position)
+ {
+@@ -3653,8 +3654,11 @@
+     /* Most small score changes preserve the member's position. In that case
+      * only its packed score bits and the maxima on the path are changed. */
+     if (zbtScoreUpdateInPlace(oldleaf, oldpos, score,
+-                              (unsigned char *)ele, sdslen(ele)))
++                              (unsigned char *)ele, sdslen(ele))) {
++        zbt_update_inplace_count++;
+         return;
++    }
++    zbt_update_reinsert_count++;
+ 
+     /* A larger move removes and reinserts the member in the score tree. Its
+      * hash entry stays in place; only the score leaf number may need

@@ -1,0 +1,453 @@
+scratch/night-apple-m1-20261019T005019Z/round-002/update-path-bench:
+(__TEXT,__text) section
+_zbtreeUpdateScore:
+100006c6c:	ff 83 02 d1	sub	sp, sp, #0xa0
+100006c70:	e9 23 03 6d	stp	d9, d8, [sp, #0x30]
+100006c74:	fc 6f 04 a9	stp	x28, x27, [sp, #0x40]
+100006c78:	fa 67 05 a9	stp	x26, x25, [sp, #0x50]
+100006c7c:	f8 5f 06 a9	stp	x24, x23, [sp, #0x60]
+100006c80:	f6 57 07 a9	stp	x22, x21, [sp, #0x70]
+100006c84:	f4 4f 08 a9	stp	x20, x19, [sp, #0x80]
+100006c88:	fd 7b 09 a9	stp	x29, x30, [sp, #0x90]
+100006c8c:	fd 43 02 91	add	x29, sp, #0x90
+100006c90:	08 40 60 1e	fmov	d8, d0
+100006c94:	f7 03 01 aa	mov	x23, x1
+100006c98:	f3 03 00 aa	mov	x19, x0
+100006c9c:	55 08 40 f9	ldr	x21, [x2, #0x10]
+100006ca0:	56 50 43 29	ldp	w22, w20, [x2, #0x18]
+100006ca4:	48 20 40 b9	ldr	w8, [x2, #0x20]
+100006ca8:	09 5c 40 b9	ldr	w9, [x0, #0x5c]
+100006cac:	1f 01 09 6b	cmp	w8, w9
+100006cb0:	e0 00 00 54	b.eq	0x100006ccc
+100006cb4:	40 00 00 f0	adrp	x0, 11 ; 0x100011000
+100006cb8:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100006cbc:	42 00 00 f0	adrp	x2, 11 ; 0x100011000
+100006cc0:	42 64 29 91	add	x2, x2, #0xa59 ; literal pool for: "position->revision == zs->member_revision"
+100006cc4:	41 c8 81 52	mov	w1, #0xe42
+100006cc8:	e3 27 00 94	bl	_standalone_panic
+100006ccc:	b5 02 00 b4	cbz	x21, 0x100006d20
+100006cd0:	a8 46 40 39	ldrb	w8, [x21, #0x11]
+100006cd4:	df 02 08 6b	cmp	w22, w8
+100006cd8:	42 02 00 54	b.hs	0x100006d20
+100006cdc:	03 00 80 d2	mov	x3, #0x0
+100006ce0:	e9 f2 5f 38	ldurb	w9, [x23, #-0x1]
+100006ce4:	28 09 00 12	and	w8, w9, #0x7
+100006ce8:	1f 05 00 71	cmp	w8, #0x1
+100006cec:	cd 04 00 54	b.le	0x100006d84
+100006cf0:	1f 09 00 71	cmp	w8, #0x2
+100006cf4:	e0 07 00 54	b.eq	0x100006df0
+100006cf8:	1f 0d 00 71	cmp	w8, #0x3
+100006cfc:	01 03 00 54	b.ne	0x100006d5c
+100006d00:	e3 72 5f b8	ldur	w3, [x23, #-0x9]
+100006d04:	e0 03 15 aa	mov	x0, x21
+100006d08:	e1 03 16 aa	mov	x1, x22
+100006d0c:	00 41 60 1e	fmov	d0, d8
+100006d10:	e2 03 17 aa	mov	x2, x23
+100006d14:	98 01 00 94	bl	_zbtScoreUpdateInPlace
+100006d18:	c0 31 00 35	cbnz	w0, 0x100007350
+100006d1c:	3c 00 00 14	b	0x100006e0c
+100006d20:	40 00 00 f0	adrp	x0, 11 ; 0x100011000
+100006d24:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100006d28:	42 00 00 f0	adrp	x2, 11 ; 0x100011000
+100006d2c:	42 0c 2a 91	add	x2, x2, #0xa83 ; literal pool for: "oldleaf != NULL && oldpos < oldleaf->n.count"
+100006d30:	61 c8 81 52	mov	w1, #0xe43
+100006d34:	c8 27 00 94	bl	_standalone_panic
+100006d38:	03 00 80 d2	mov	x3, #0x0
+100006d3c:	e9 f2 5f 38	ldurb	w9, [x23, #-0x1]
+100006d40:	28 09 00 12	and	w8, w9, #0x7
+100006d44:	1f 05 00 71	cmp	w8, #0x1
+100006d48:	ed 01 00 54	b.le	0x100006d84
+100006d4c:	1f 09 00 71	cmp	w8, #0x2
+100006d50:	00 04 00 54	b.eq	0x100006dd0
+100006d54:	1f 0d 00 71	cmp	w8, #0x3
+100006d58:	40 fd ff 54	b.eq	0x100006d00
+100006d5c:	1f 11 00 71	cmp	w8, #0x4
+100006d60:	a1 04 00 54	b.ne	0x100006df4
+100006d64:	e3 f2 5e f8	ldur	x3, [x23, #-0x11]
+100006d68:	e0 03 15 aa	mov	x0, x21
+100006d6c:	e1 03 16 aa	mov	x1, x22
+100006d70:	00 41 60 1e	fmov	d0, d8
+100006d74:	e2 03 17 aa	mov	x2, x23
+100006d78:	7f 01 00 94	bl	_zbtScoreUpdateInPlace
+100006d7c:	a0 2e 00 35	cbnz	w0, 0x100007350
+100006d80:	23 00 00 14	b	0x100006e0c
+100006d84:	68 01 00 34	cbz	w8, 0x100006db0
+100006d88:	1f 05 00 71	cmp	w8, #0x1
+100006d8c:	41 03 00 54	b.ne	0x100006df4
+100006d90:	e3 d2 5f 38	ldurb	w3, [x23, #-0x3]
+100006d94:	e0 03 15 aa	mov	x0, x21
+100006d98:	e1 03 16 aa	mov	x1, x22
+100006d9c:	00 41 60 1e	fmov	d0, d8
+100006da0:	e2 03 17 aa	mov	x2, x23
+100006da4:	74 01 00 94	bl	_zbtScoreUpdateInPlace
+100006da8:	40 2d 00 35	cbnz	w0, 0x100007350
+100006dac:	18 00 00 14	b	0x100006e0c
+100006db0:	23 fd 43 d3	lsr	x3, x9, #3
+100006db4:	e0 03 15 aa	mov	x0, x21
+100006db8:	e1 03 16 aa	mov	x1, x22
+100006dbc:	00 41 60 1e	fmov	d0, d8
+100006dc0:	e2 03 17 aa	mov	x2, x23
+100006dc4:	6c 01 00 94	bl	_zbtScoreUpdateInPlace
+100006dc8:	40 2c 00 35	cbnz	w0, 0x100007350
+100006dcc:	10 00 00 14	b	0x100006e0c
+100006dd0:	e3 b2 5f 78	ldurh	w3, [x23, #-0x5]
+100006dd4:	e0 03 15 aa	mov	x0, x21
+100006dd8:	e1 03 16 aa	mov	x1, x22
+100006ddc:	00 41 60 1e	fmov	d0, d8
+100006de0:	e2 03 17 aa	mov	x2, x23
+100006de4:	64 01 00 94	bl	_zbtScoreUpdateInPlace
+100006de8:	40 2b 00 35	cbnz	w0, 0x100007350
+100006dec:	08 00 00 14	b	0x100006e0c
+100006df0:	e3 b2 5f 78	ldurh	w3, [x23, #-0x5]
+100006df4:	e0 03 15 aa	mov	x0, x21
+100006df8:	e1 03 16 aa	mov	x1, x22
+100006dfc:	00 41 60 1e	fmov	d0, d8
+100006e00:	e2 03 17 aa	mov	x2, x23
+100006e04:	5c 01 00 94	bl	_zbtScoreUpdateInPlace
+100006e08:	40 2a 00 35	cbnz	w0, 0x100007350
+100006e0c:	68 56 40 b9	ldr	w8, [x19, #0x54]
+100006e10:	e9 ff 8f 52	mov	w9, #0x7fff
+100006e14:	1f 01 09 6b	cmp	w8, w9
+100006e18:	63 03 00 54	b.lo	0x100006e84
+100006e1c:	69 22 40 f9	ldr	x9, [x19, #0x40]
+100006e20:	29 02 00 b4	cbz	x9, 0x100006e64
+100006e24:	29 21 40 b9	ldr	w9, [x9, #0x20]
+100006e28:	e9 02 00 35	cbnz	w9, 0x100006e84
+100006e2c:	e9 fd 9f 52	mov	w9, #0xffef
+100006e30:	1f 01 09 6b	cmp	w8, w9
+100006e34:	e2 00 00 54	b.hs	0x100006e50
+100006e38:	e0 03 13 aa	mov	x0, x19
+100006e3c:	81 00 80 52	mov	w1, #0x4
+100006e40:	78 fd ff 97	bl	_zbtIndexRehashStep
+100006e44:	68 22 40 f9	ldr	x8, [x19, #0x40]
+100006e48:	e8 01 00 b5	cbnz	x8, 0x100006e84
+100006e4c:	06 00 00 14	b	0x100006e64
+100006e50:	e0 03 13 aa	mov	x0, x19
+100006e54:	01 08 80 52	mov	w1, #0x40
+100006e58:	72 fd ff 97	bl	_zbtIndexRehashStep
+100006e5c:	68 22 40 f9	ldr	x8, [x19, #0x40]
+100006e60:	88 ff ff b5	cbnz	x8, 0x100006e50
+100006e64:	68 12 40 f9	ldr	x8, [x19, #0x20]
+100006e68:	e8 00 00 b4	cbz	x8, 0x100006e84
+100006e6c:	68 3a 40 b9	ldr	w8, [x19, #0x38]
+100006e70:	a8 00 00 35	cbnz	w8, 0x100006e84
+100006e74:	61 16 40 f9	ldr	x1, [x19, #0x28]
+100006e78:	e0 03 13 aa	mov	x0, x19
+100006e7c:	22 00 80 52	mov	w2, #0x1
+100006e80:	57 0c 00 94	bl	_zbtIndexStartResize
+100006e84:	a8 d2 40 39	ldrb	w8, [x21, #0x34]
+100006e88:	f8 00 80 52	mov	w24, #0x7
+100006e8c:	c8 00 00 b4	cbz	x8, 0x100006ea4
+100006e90:	a9 46 40 39	ldrb	w9, [x21, #0x11]
+100006e94:	28 61 08 1b	madd	w8, w9, w8, w24
+100006e98:	08 7d 03 53	lsr	w8, w8, #3
+100006e9c:	08 25 00 11	add	w8, w8, #0x9
+100006ea0:	08 35 7f 92	and	x8, x8, #0x7ffe
+100006ea4:	aa d6 40 39	ldrb	w10, [x21, #0x35]
+100006ea8:	e9 03 16 aa	mov	x9, x22
+100006eac:	8a 00 00 34	cbz	w10, 0x100006ebc
+100006eb0:	a9 46 40 39	ldrb	w9, [x21, #0x11]
+100006eb4:	ea 03 36 2a	mvn	w10, w22
+100006eb8:	29 01 0a 0b	add	w9, w9, w10
+100006ebc:	b9 e2 00 91	add	x25, x21, #0x38
+100006ec0:	28 03 08 8b	add	x8, x25, x8
+100006ec4:	08 59 69 78	ldrh	w8, [x8, w9, uxtw #1]
+100006ec8:	ba 02 08 8b	add	x26, x21, x8
+100006ecc:	48 03 40 39	ldrb	w8, [x26]
+100006ed0:	1f f5 03 71	cmp	w8, #0xfd
+100006ed4:	89 00 00 54	b.ls	0x100006ee4
+100006ed8:	1f f9 03 71	cmp	w8, #0xfe
+100006edc:	e1 02 00 54	b.ne	0x100006f38
+100006ee0:	48 13 40 78	ldurh	w8, [x26, #0x1]
+100006ee4:	e8 0b 00 f9	str	x8, [sp, #0x10]
+100006ee8:	e8 23 00 91	add	x8, sp, #0x8
+100006eec:	08 61 00 91	add	x8, x8, #0x18
+100006ef0:	09 00 80 d2	mov	x9, #0x0
+100006ef4:	eb f2 5f 38	ldurb	w11, [x23, #-0x1]
+100006ef8:	6a 09 00 12	and	w10, w11, #0x7
+100006efc:	5f 05 00 71	cmp	w10, #0x1
+100006f00:	2d 01 00 54	b.le	0x100006f24
+100006f04:	5f 09 00 71	cmp	w10, #0x2
+100006f08:	20 06 00 54	b.eq	0x100006fcc
+100006f0c:	5f 0d 00 71	cmp	w10, #0x3
+100006f10:	20 06 00 54	b.eq	0x100006fd4
+100006f14:	5f 11 00 71	cmp	w10, #0x4
+100006f18:	41 06 00 54	b.ne	0x100006fe0
+100006f1c:	e9 f2 5e f8	ldur	x9, [x23, #-0x11]
+100006f20:	30 00 00 14	b	0x100006fe0
+100006f24:	ca 05 00 34	cbz	w10, 0x100006fdc
+100006f28:	5f 05 00 71	cmp	w10, #0x1
+100006f2c:	a1 05 00 54	b.ne	0x100006fe0
+100006f30:	e9 d2 5f 38	ldurb	w9, [x23, #-0x3]
+100006f34:	2b 00 00 14	b	0x100006fe0
+100006f38:	5b d3 40 f8	ldur	x27, [x26, #0xd]
+100006f3c:	1b 12 00 b4	cbz	x27, 0x10000717c
+100006f40:	48 53 40 f8	ldur	x8, [x26, #0x5]
+100006f44:	fb a3 00 a9	stp	x27, x8, [sp, #0x8]
+100006f48:	48 13 40 b8	ldur	w8, [x26, #0x1]
+100006f4c:	e8 1b 00 b9	str	w8, [sp, #0x18]
+100006f50:	fb 13 00 f9	str	x27, [sp, #0x20]
+100006f54:	bb fc ff b4	cbz	x27, 0x100006ee8
+100006f58:	1f 01 14 6b	cmp	w8, w20
+100006f5c:	00 02 00 54	b.eq	0x100006f9c
+100006f60:	40 00 00 f0	adrp	x0, 11 ; 0x100011000
+100006f64:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100006f68:	42 00 00 f0	adrp	x2, 11 ; 0x100011000
+100006f6c:	42 c0 2a 91	add	x2, x2, #0xab0 ; literal pool for: "moved.hash == hash"
+100006f70:	a1 ca 81 52	mov	w1, #0xe55
+100006f74:	38 27 00 94	bl	_standalone_panic
+100006f78:	48 03 40 39	ldrb	w8, [x26]
+100006f7c:	1f fd 03 71	cmp	w8, #0xff
+100006f80:	e0 00 00 54	b.eq	0x100006f9c
+100006f84:	40 00 00 f0	adrp	x0, 11 ; 0x100011000
+100006f88:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100006f8c:	42 00 00 f0	adrp	x2, 11 ; 0x100011000
+100006f90:	42 54 2d 91	add	x2, x2, #0xb55 ; literal pool for: "record[0] == ZBT_PACKED_EXTERNAL"
+100006f94:	a1 48 80 52	mov	w1, #0x245
+100006f98:	2f 27 00 94	bl	_standalone_panic
+100006f9c:	5f d3 00 f8	stur	xzr, [x26, #0xd]
+100006fa0:	ff 17 00 f9	str	xzr, [sp, #0x28]
+100006fa4:	b7 32 40 b9	ldr	w23, [x21, #0x30]
+100006fa8:	a8 46 40 39	ldrb	w8, [x21, #0x11]
+100006fac:	1f 09 00 71	cmp	w8, #0x2
+100006fb0:	62 02 00 54	b.hs	0x100006ffc
+100006fb4:	1f 05 00 71	cmp	w8, #0x1
+100006fb8:	41 07 00 54	b.ne	0x1000070a0
+100006fbc:	e0 03 13 aa	mov	x0, x19
+100006fc0:	e1 03 15 aa	mov	x1, x21
+100006fc4:	6d 1f 00 94	bl	_zbtScoreRemoveLeaf
+100006fc8:	3b 00 00 14	b	0x1000070b4
+100006fcc:	e9 b2 5f 78	ldurh	w9, [x23, #-0x5]
+100006fd0:	04 00 00 14	b	0x100006fe0
+100006fd4:	e9 72 5f b8	ldur	w9, [x23, #-0x9]
+100006fd8:	02 00 00 14	b	0x100006fe0
+100006fdc:	69 fd 43 d3	lsr	x9, x11, #3
+100006fe0:	f7 a7 00 a9	stp	x23, x9, [sp, #0x8]
+100006fe4:	f4 1b 00 b9	str	w20, [sp, #0x18]
+100006fe8:	1f 7d 00 a9	stp	xzr, xzr, [x8]
+100006fec:	b7 32 40 b9	ldr	w23, [x21, #0x30]
+100006ff0:	a8 46 40 39	ldrb	w8, [x21, #0x11]
+100006ff4:	1f 09 00 71	cmp	w8, #0x2
+100006ff8:	e3 fd ff 54	b.lo	0x100006fb4
+100006ffc:	a9 d2 40 39	ldrb	w9, [x21, #0x34]
+100007000:	2a 61 08 1b	madd	w10, w9, w8, w24
+100007004:	4a 7d 03 53	lsr	w10, w10, #3
+100007008:	4a 25 00 11	add	w10, w10, #0x9
+10000700c:	4a 35 7f 92	and	x10, x10, #0x7ffe
+100007010:	3f 01 00 f1	cmp	x9, #0x0
+100007014:	e9 03 8a 9a	csel	x9, xzr, x10, eq
+100007018:	aa d6 40 39	ldrb	w10, [x21, #0x35]
+10000701c:	eb 03 36 2a	mvn	w11, w22
+100007020:	08 01 0b 0b	add	w8, w8, w11
+100007024:	5f 01 00 71	cmp	w10, #0x0
+100007028:	c8 02 88 1a	csel	w8, w22, w8, eq
+10000702c:	29 03 09 8b	add	x9, x25, x9
+100007030:	28 59 68 78	ldrh	w8, [x9, w8, uxtw #1]
+100007034:	a9 02 08 8b	add	x9, x21, x8
+100007038:	28 01 40 39	ldrb	w8, [x9]
+10000703c:	1f f9 03 71	cmp	w8, #0xfe
+100007040:	a0 00 00 54	b.eq	0x100007054
+100007044:	1f fd 03 71	cmp	w8, #0xff
+100007048:	81 00 00 54	b.ne	0x100007058
+10000704c:	08 00 80 52	mov	w8, #0x0
+100007050:	0c 00 00 14	b	0x100007080
+100007054:	28 11 40 78	ldurh	w8, [x9, #0x1]
+100007058:	09 0d 00 11	add	w9, w8, #0x3
+10000705c:	1f f9 03 f1	cmp	x8, #0xfe
+100007060:	28 25 88 1a	csinc	w8, w9, w8, hs
+100007064:	09 0c 80 52	mov	w9, #0x60
+100007068:	0a 24 80 52	mov	w10, #0x120
+10000706c:	08 29 09 1b	madd	w8, w8, w9, w10
+100007070:	69 00 84 52	mov	w9, #0x2003
+100007074:	09 40 a0 72	movk	w9, #0x200, lsl #16
+100007078:	08 7d a9 9b	umull	x8, w8, w9
+10000707c:	08 fd 65 d3	lsr	x8, x8, #37
+100007080:	1f 05 00 71	cmp	w8, #0x1
+100007084:	08 85 9f 1a	csinc	w8, w8, wzr, hi
+100007088:	a9 56 40 39	ldrb	w9, [x21, #0x15]
+10000708c:	08 01 09 0b	add	w8, w8, w9
+100007090:	e9 1f 80 52	mov	w9, #0xff
+100007094:	1f fd 03 71	cmp	w8, #0xff
+100007098:	08 31 89 1a	csel	w8, w8, w9, lo
+10000709c:	a8 56 00 39	strb	w8, [x21, #0x15]
+1000070a0:	e0 03 13 aa	mov	x0, x19
+1000070a4:	e1 03 15 aa	mov	x1, x21
+1000070a8:	e2 03 16 aa	mov	x2, x22
+1000070ac:	03 00 80 52	mov	w3, #0x0
+1000070b0:	9b 1f 00 94	bl	_zbtScoreDeleteInPlace
+1000070b4:	e1 23 00 91	add	x1, sp, #0x8
+1000070b8:	e0 03 13 aa	mov	x0, x19
+1000070bc:	00 41 60 1e	fmov	d0, d8
+1000070c0:	63 f5 ff 97	bl	_zbtScoreInsert
+1000070c4:	03 30 40 b9	ldr	w3, [x0, #0x30]
+1000070c8:	ff 02 03 6b	cmp	w23, w3
+1000070cc:	e0 01 00 54	b.eq	0x100007108
+1000070d0:	ff 07 00 b9	str	wzr, [sp, #0x4]
+1000070d4:	e5 13 00 91	add	x5, sp, #0x4
+1000070d8:	e0 03 13 aa	mov	x0, x19
+1000070dc:	e1 03 14 aa	mov	x1, x20
+1000070e0:	e2 03 17 aa	mov	x2, x23
+1000070e4:	04 00 80 52	mov	w4, #0x0
+1000070e8:	00 02 00 94	bl	_zbtIndexMove
+1000070ec:	e0 00 00 35	cbnz	w0, 0x100007108
+1000070f0:	40 00 00 d0	adrp	x0, 10 ; 0x100011000
+1000070f4:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+1000070f8:	42 00 00 d0	adrp	x2, 10 ; 0x100011000
+1000070fc:	42 0c 2b 91	add	x2, x2, #0xac3 ; literal pool for: "zbtIndexMove(zs, hash, oldid, newleaf->id, 0, &target_was_copied)"
+100007100:	81 cc 81 52	mov	w1, #0xe64
+100007104:	d4 26 00 94	bl	_standalone_panic
+100007108:	68 56 40 b9	ldr	w8, [x19, #0x54]
+10000710c:	1f 01 17 6b	cmp	w8, w23
+100007110:	09 12 00 54	b.ls	0x100007350
+100007114:	68 26 40 f9	ldr	x8, [x19, #0x48]
+100007118:	14 79 77 f8	ldr	x20, [x8, x23, lsl #3]
+10000711c:	b4 11 00 b4	cbz	x20, 0x100007350
+100007120:	94 11 00 37	tbnz	w20, #0x0, 0x100007350
+100007124:	88 32 40 b9	ldr	w8, [x20, #0x30]
+100007128:	1f 01 17 6b	cmp	w8, w23
+10000712c:	e0 00 00 54	b.eq	0x100007148
+100007130:	40 00 00 d0	adrp	x0, 10 ; 0x100011000
+100007134:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100007138:	42 00 00 d0	adrp	x2, 10 ; 0x100011000
+10000713c:	42 d8 2d 91	add	x2, x2, #0xb76 ; literal pool for: "leaf->id == id"
+100007140:	e1 85 81 52	mov	w1, #0xc2f
+100007144:	c4 26 00 94	bl	_standalone_panic
+100007148:	88 56 40 39	ldrb	w8, [x20, #0x15]
+10000714c:	1f 61 00 71	cmp	w8, #0x18
+100007150:	03 10 00 54	b.lo	0x100007350
+100007154:	9f 56 00 39	strb	wzr, [x20, #0x15]
+100007158:	88 46 40 39	ldrb	w8, [x20, #0x11]
+10000715c:	89 d2 40 39	ldrb	w9, [x20, #0x34]
+100007160:	29 03 00 b4	cbz	x9, 0x1000071c4
+100007164:	29 61 08 1b	madd	w9, w9, w8, w24
+100007168:	29 7d 03 53	lsr	w9, w9, #3
+10000716c:	29 25 00 11	add	w9, w9, #0x9
+100007170:	2b 35 7f 92	and	x11, x9, #0x7ffe
+100007174:	69 e1 00 91	add	x9, x11, #0x38
+100007178:	15 00 00 14	b	0x1000071cc
+10000717c:	40 00 00 d0	adrp	x0, 10 ; 0x100011000
+100007180:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+100007184:	42 00 00 d0	adrp	x2, 10 ; 0x100011000
+100007188:	42 14 2f 91	add	x2, x2, #0xbc5 ; literal pool for: "ptr != NULL"
+10000718c:	e1 4a 80 52	mov	w1, #0x257
+100007190:	b1 26 00 94	bl	_standalone_panic
+100007194:	48 03 40 39	ldrb	w8, [x26]
+100007198:	1f fd 03 71	cmp	w8, #0xff
+10000719c:	20 ed ff 54	b.eq	0x100006f40
+1000071a0:	40 00 00 d0	adrp	x0, 10 ; 0x100011000
+1000071a4:	00 74 28 91	add	x0, x0, #0xa1d ; literal pool for: "src/zset_btree.c"
+1000071a8:	42 00 00 d0	adrp	x2, 10 ; 0x100011000
+1000071ac:	42 54 2d 91	add	x2, x2, #0xb55 ; literal pool for: "record[0] == ZBT_PACKED_EXTERNAL"
+1000071b0:	e1 46 80 52	mov	w1, #0x237
+1000071b4:	a8 26 00 94	bl	_standalone_panic
+1000071b8:	48 03 40 39	ldrb	w8, [x26]
+1000071bc:	1f fd 03 71	cmp	w8, #0xff
+1000071c0:	4a ff ff 17	b	0x100006ee8
+1000071c4:	0b 00 80 d2	mov	x11, #0x0
+1000071c8:	09 07 80 52	mov	w9, #0x38
+1000071cc:	0a 00 80 d2	mov	x10, #0x0
+1000071d0:	c8 03 00 34	cbz	w8, 0x100007248
+1000071d4:	8b 02 0b 8b	add	x11, x20, x11
+1000071d8:	6b e1 00 91	add	x11, x11, #0x38
+1000071dc:	ec 03 08 aa	mov	x12, x8
+1000071e0:	05 00 00 14	b	0x1000071f4
+1000071e4:	ad 02 80 52	mov	w13, #0x15
+1000071e8:	aa 01 0a 8b	add	x10, x13, x10
+1000071ec:	8c 05 00 f1	subs	x12, x12, #0x1
+1000071f0:	c0 02 00 54	b.eq	0x100007248
+1000071f4:	6d 25 40 78	ldrh	w13, [x11], #0x2
+1000071f8:	8e 02 0d 8b	add	x14, x20, x13
+1000071fc:	cd 01 40 39	ldrb	w13, [x14]
+100007200:	bf f9 03 71	cmp	w13, #0xfe
+100007204:	40 01 00 54	b.eq	0x10000722c
+100007208:	bf fd 03 71	cmp	w13, #0xff
+10000720c:	c0 fe ff 54	b.eq	0x1000071e4
+100007210:	bf f9 03 f1	cmp	x13, #0xfe
+100007214:	ae 0d 00 91	add	x14, x13, #0x3
+100007218:	cd 25 8d 9a	csinc	x13, x14, x13, hs
+10000721c:	aa 01 0a 8b	add	x10, x13, x10
+100007220:	8c 05 00 f1	subs	x12, x12, #0x1
+100007224:	81 fe ff 54	b.ne	0x1000071f4
+100007228:	08 00 00 14	b	0x100007248
+10000722c:	cd 11 40 78	ldurh	w13, [x14, #0x1]
+100007230:	bf f9 03 f1	cmp	x13, #0xfe
+100007234:	ae 0d 00 91	add	x14, x13, #0x3
+100007238:	cd 25 8d 9a	csinc	x13, x14, x13, hs
+10000723c:	aa 01 0a 8b	add	x10, x13, x10
+100007240:	8c 05 00 f1	subs	x12, x12, #0x1
+100007244:	81 fd ff 54	b.ne	0x1000071f4
+100007248:	0b 05 08 8b	add	x11, x8, x8, lsl #1
+10000724c:	29 01 0b 8b	add	x9, x9, x11
+100007250:	35 01 0a 8b	add	x21, x9, x10
+100007254:	81 0e 40 f9	ldr	x1, [x20, #0x18]
+100007258:	bf fe 17 f1	cmp	x21, #0x5ff
+10000725c:	89 03 00 54	b.ls	0x1000072cc
+100007260:	a9 e2 00 d1	sub	x9, x21, #0x38
+100007264:	36 09 c8 9a	udiv	x22, x9, x8
+100007268:	c1 01 00 b4	cbz	x1, 0x1000072a0
+10000726c:	29 44 40 39	ldrb	w9, [x1, #0x11]
+100007270:	28 01 08 0b	add	w8, w9, w8
+100007274:	1f 21 01 71	cmp	w8, #0x48
+100007278:	48 01 00 54	b.hi	0x1000072a0
+10000727c:	c8 56 09 9b	madd	x8, x22, x9, x21
+100007280:	1f fd 2f f1	cmp	x8, #0xbff
+100007284:	e8 00 00 54	b.hi	0x1000072a0
+100007288:	e0 03 13 aa	mov	x0, x19
+10000728c:	e2 03 14 aa	mov	x2, x20
+100007290:	03 09 80 52	mov	w3, #0x48
+100007294:	e4 7f 81 52	mov	w4, #0xbff
+100007298:	cb 20 00 94	bl	_zbtScoreMergePair
+10000729c:	a0 05 00 b5	cbnz	x0, 0x100007350
+1000072a0:	82 12 40 f9	ldr	x2, [x20, #0x20]
+1000072a4:	42 04 00 b4	cbz	x2, 0x10000732c
+1000072a8:	89 46 40 39	ldrb	w9, [x20, #0x11]
+1000072ac:	48 44 40 39	ldrb	w8, [x2, #0x11]
+1000072b0:	09 01 09 0b	add	w9, w8, w9
+1000072b4:	3f 21 01 71	cmp	w9, #0x48
+1000072b8:	a8 03 00 54	b.hi	0x10000732c
+1000072bc:	c8 56 08 9b	madd	x8, x22, x8, x21
+1000072c0:	1f fd 2f f1	cmp	x8, #0xbff
+1000072c4:	89 02 00 54	b.ls	0x100007314
+1000072c8:	19 00 00 14	b	0x10000732c
+1000072cc:	61 01 00 b4	cbz	x1, 0x1000072f8
+1000072d0:	29 44 40 39	ldrb	w9, [x1, #0x11]
+1000072d4:	28 01 08 0b	add	w8, w9, w8
+1000072d8:	1f 21 01 71	cmp	w8, #0x48
+1000072dc:	e8 00 00 54	b.hi	0x1000072f8
+1000072e0:	e0 03 13 aa	mov	x0, x19
+1000072e4:	e2 03 14 aa	mov	x2, x20
+1000072e8:	03 09 80 52	mov	w3, #0x48
+1000072ec:	e4 7f 81 52	mov	w4, #0xbff
+1000072f0:	b5 20 00 94	bl	_zbtScoreMergePair
+1000072f4:	e0 02 00 b5	cbnz	x0, 0x100007350
+1000072f8:	82 12 40 f9	ldr	x2, [x20, #0x20]
+1000072fc:	82 01 00 b4	cbz	x2, 0x10000732c
+100007300:	88 46 40 39	ldrb	w8, [x20, #0x11]
+100007304:	49 44 40 39	ldrb	w9, [x2, #0x11]
+100007308:	28 01 08 0b	add	w8, w9, w8
+10000730c:	1f 21 01 71	cmp	w8, #0x48
+100007310:	e8 00 00 54	b.hi	0x10000732c
+100007314:	e0 03 13 aa	mov	x0, x19
+100007318:	e1 03 14 aa	mov	x1, x20
+10000731c:	03 09 80 52	mov	w3, #0x48
+100007320:	e4 7f 81 52	mov	w4, #0xbff
+100007324:	a8 20 00 94	bl	_zbtScoreMergePair
+100007328:	40 01 00 b5	cbnz	x0, 0x100007350
+10000732c:	e0 03 14 aa	mov	x0, x20
+100007330:	56 26 00 94	bl	_zmalloc_usable_size
+100007334:	a8 fa 7f d3	lsl	x8, x21, #1
+100007338:	08 01 02 91	add	x8, x8, #0x80
+10000733c:	1f 00 08 eb	cmp	x0, x8
+100007340:	83 00 00 54	b.lo	0x100007350
+100007344:	e0 03 13 aa	mov	x0, x19
+100007348:	e1 03 14 aa	mov	x1, x20
+10000734c:	da 1a 00 94	bl	_zbtScoreCompactLeaf
+100007350:	fd 7b 49 a9	ldp	x29, x30, [sp, #0x90]
+100007354:	f4 4f 48 a9	ldp	x20, x19, [sp, #0x80]
+100007358:	f6 57 47 a9	ldp	x22, x21, [sp, #0x70]
+10000735c:	f8 5f 46 a9	ldp	x24, x23, [sp, #0x60]
+100007360:	fa 67 45 a9	ldp	x26, x25, [sp, #0x50]
+100007364:	fc 6f 44 a9	ldp	x28, x27, [sp, #0x40]
+100007368:	e9 23 43 6d	ldp	d9, d8, [sp, #0x30]
+10000736c:	ff 83 02 91	add	sp, sp, #0xa0
+100007370:	c0 03 5f d6	ret
