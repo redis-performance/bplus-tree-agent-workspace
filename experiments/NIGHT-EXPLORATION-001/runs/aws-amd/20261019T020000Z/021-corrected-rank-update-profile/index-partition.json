@@ -1,0 +1,749 @@
+{
+  "status": "partitioned",
+  "groups": {
+    "100000": {
+      "total_period": 33121295645,
+      "events": 7299,
+      "categories": {
+        "reference-search": {
+          "period": 1124937558,
+          "events": 247,
+          "operation_period_pct": 3.396417730928412,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexTableFindReference+0x8e",
+              "period": 522027182,
+              "events": 114,
+              "operation_period_pct": 1.576107370904753,
+              "category_period_pct": 46.40499184044489,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1825",
+              "assembly": "not    %rcx"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x10b",
+              "period": 99814119,
+              "events": 22,
+              "operation_period_pct": 0.3013593431544033,
+              "category_period_pct": 8.87285861247776,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1776",
+              "assembly": "cmp    $0xffff,%ecx"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x104",
+              "period": 49832151,
+              "events": 11,
+              "operation_period_pct": 0.15045350741743305,
+              "category_period_pct": 4.429770403309798,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2029",
+              "assembly": "jmp    118b0 <zbtIndexTableFindReference+0x130>"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x11d",
+              "period": 36295351,
+              "events": 8,
+              "operation_period_pct": 0.10958312557884237,
+              "category_period_pct": 3.2264325021318205,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2032",
+              "assembly": "jne    118d9 <zbtIndexTableFindReference+0x159>"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x180",
+              "period": 31735794,
+              "events": 7,
+              "operation_period_pct": 0.09581688572859572,
+              "category_period_pct": 2.8211160498919,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2026",
+              "assembly": "inc    %r8"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x1c",
+              "period": 27211359,
+              "events": 6,
+              "operation_period_pct": 0.08215668641606366,
+              "category_period_pct": 2.418921726498174,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2020",
+              "assembly": "mov    %rcx,-0x38(%rbp)"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x13e",
+              "period": 27190278,
+              "events": 6,
+              "operation_period_pct": 0.08209303854363152,
+              "category_period_pct": 2.417047755818639,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2031",
+              "assembly": "shr    %cl,%r12"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x7d",
+              "period": 22685826,
+              "events": 5,
+              "operation_period_pct": 0.0684931720158256,
+              "category_period_pct": 2.0166297976869574,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1746",
+              "assembly": "or     $0x20,%r14"
+            }
+          ]
+        },
+        "set-id-in-move": {
+          "period": 63494162,
+          "events": 14,
+          "operation_period_pct": 0.1917019270035262,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexMove+0x11b",
+              "period": 31755371,
+              "events": 7,
+              "operation_period_pct": 0.09587599271586406,
+              "category_period_pct": 50.01305631846909,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1790",
+              "assembly": "cmpl   $0x0,0x38(%rbx)"
+            },
+            {
+              "physical": "zbtIndexMove+0x2b0",
+              "period": 31738791,
+              "events": 7,
+              "operation_period_pct": 0.09582593428766213,
+              "category_period_pct": 49.98694368153091,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1794",
+              "assembly": "jmp    a4d8 <zbtIndexMove+0x2e8>"
+            }
+          ]
+        },
+        "move-other": {
+          "period": 149670698,
+          "events": 33,
+          "operation_period_pct": 0.4518866037252813,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexMove+0xd",
+              "period": 36299013,
+              "events": 8,
+              "operation_period_pct": 0.10959418190960687,
+              "category_period_pct": 24.252584831267374,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "sub    $0x18,%rsp"
+            },
+            {
+              "physical": "zbtIndexMove+0x17",
+              "period": 18151175,
+              "events": 4,
+              "operation_period_pct": 0.054802128499282024,
+              "category_period_pct": 12.127407196297034,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "mov    %rdi,%rbx"
+            },
+            {
+              "physical": "zbtIndexMove+0x0",
+              "period": 18146652,
+              "events": 4,
+              "operation_period_pct": 0.05478847263252947,
+              "category_period_pct": 12.124385228697204,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "push   %rbp"
+            },
+            {
+              "physical": "zbtIndexMove+0x2f1",
+              "period": 18124064,
+              "events": 4,
+              "operation_period_pct": 0.05472027481731686,
+              "category_period_pct": 12.109293430301234,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2391",
+              "assembly": "pop    %rbx"
+            },
+            {
+              "physical": "zbtIndexMove+0xfc",
+              "period": 13610207,
+              "events": 3,
+              "operation_period_pct": 0.041092012661209404,
+              "category_period_pct": 9.093434574615266,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2341",
+              "assembly": "lea    -0x38(%rbp),%rcx"
+            },
+            {
+              "physical": "zbtIndexMove+0x104",
+              "period": 9076743,
+              "events": 2,
+              "operation_period_pct": 0.027404552941666785,
+              "category_period_pct": 6.064475626351392,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2341",
+              "assembly": "mov    %r15d,%esi"
+            },
+            {
+              "physical": "zbtIndexMove+0x1",
+              "period": 9067814,
+              "events": 2,
+              "operation_period_pct": 0.02737759445521232,
+              "category_period_pct": 6.058509862765523,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "mov    %rsp,%rbp"
+            },
+            {
+              "physical": "zbtIndexMove+0x2f8",
+              "period": 9046039,
+              "events": 2,
+              "operation_period_pct": 0.02731185125412083,
+              "category_period_pct": 6.043961256865389,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2391",
+              "assembly": "pop    %r15"
+            }
+          ]
+        },
+        "set-id-outside-move": {
+          "period": 0,
+          "events": 0,
+          "operation_period_pct": 0.0,
+          "top_instructions": []
+        },
+        "other": {
+          "period": 31783193227,
+          "events": 7005,
+          "operation_period_pct": 95.95999373834277,
+          "top_instructions": [
+            {
+              "physical": "zbtScoreLeafBuild+0x480",
+              "period": 2732657888,
+              "events": 603,
+              "operation_period_pct": 8.250455891850121,
+              "category_period_pct": 8.597807868086054,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:493",
+              "assembly": "mov    -0x30(%rbp),%r9"
+            },
+            {
+              "physical": "[unknown]",
+              "period": 2551572561,
+              "events": 572,
+              "operation_period_pct": 7.703722065550253,
+              "category_period_pct": 8.028056031929557,
+              "all_three_bytes_equal": null,
+              "source_line": null,
+              "assembly": null
+            },
+            {
+              "physical": "zbtreeFindForAdd+0x29",
+              "period": 921490461,
+              "events": 204,
+              "operation_period_pct": 2.7821691242900046,
+              "category_period_pct": 2.8993010690228216,
+              "all_three_bytes_equal": true,
+              "source_line": "sds.h:70",
+              "assembly": "mov    %esi,%eax"
+            },
+            {
+              "physical": "zbtScoreLeafLowerBound+0xd6",
+              "period": 912926913,
+              "events": 197,
+              "operation_period_pct": 2.756314012546232,
+              "category_period_pct": 2.872357432683836,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:589",
+              "assembly": "cmp    $0xfd,%rbx"
+            },
+            {
+              "physical": "zbtreeFindForAdd+0x3b2",
+              "period": 886301170,
+              "events": 195,
+              "operation_period_pct": 2.6759254212139987,
+              "category_period_pct": 2.7885844058207536,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1957",
+              "assembly": "jne    646d <zbtreeFindForAdd+0xcfd>"
+            },
+            {
+              "physical": "zbtScoreFindLeaf+0x57",
+              "period": 752621314,
+              "events": 166,
+              "operation_period_pct": 2.272318456580716,
+              "category_period_pct": 2.3679852072278376,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1246",
+              "assembly": "jne    b735 <zbtScoreFindLeaf+0x165>"
+            },
+            {
+              "physical": "main+0x1577",
+              "period": 653314643,
+              "events": 144,
+              "operation_period_pct": 1.972491203249848,
+              "category_period_pct": 2.0555349436852857,
+              "all_three_bytes_equal": null,
+              "source_line": null,
+              "assembly": null
+            },
+            {
+              "physical": "zbtScoreDeleteInPlace+0x2d0",
+              "period": 603094658,
+              "events": 133,
+              "operation_period_pct": 1.8208667452628573,
+              "category_period_pct": 1.8975269529798777,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:420",
+              "assembly": "shl    %cl,%r12"
+            }
+          ]
+        }
+      },
+      "reference_callchains": [
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtScoreInsertAt",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 531192912,
+          "events": 116,
+          "reference_period_pct": 47.21976861937078,
+          "operation_period_pct": 1.6037805938916796
+        },
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtScoreMergePair",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 389896997,
+          "events": 86,
+          "reference_period_pct": 34.65943458170147,
+          "operation_period_pct": 1.1771791815724424
+        },
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 181199543,
+          "events": 40,
+          "reference_period_pct": 16.107520076238757,
+          "operation_period_pct": 0.5470786678822268
+        },
+        {
+          "chain": [
+            "zbtScoreInsertAt",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 13610200,
+          "events": 3,
+          "reference_period_pct": 1.209862707775288,
+          "operation_period_pct": 0.04109199152677048
+        },
+        {
+          "chain": [
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 9037906,
+          "events": 2,
+          "reference_period_pct": 0.803414014913706,
+          "operation_period_pct": 0.027287296055292946
+        }
+      ]
+    },
+    "1000000": {
+      "total_period": 75272721200,
+      "events": 16613,
+      "categories": {
+        "reference-search": {
+          "period": 1744077365,
+          "events": 385,
+          "operation_period_pct": 2.3170111790777135,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexTableFindReference+0x8e",
+              "period": 1277418245,
+              "events": 282,
+              "operation_period_pct": 1.697053360945851,
+              "category_period_pct": 73.24320988478628,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1825",
+              "assembly": "not    %rcx"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x10b",
+              "period": 131370412,
+              "events": 29,
+              "operation_period_pct": 0.1745259237419465,
+              "category_period_pct": 7.532372969016773,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1776",
+              "assembly": "cmp    $0xffff,%ecx"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x13e",
+              "period": 36204829,
+              "events": 8,
+              "operation_period_pct": 0.0480982066581645,
+              "category_period_pct": 2.075872878494699,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2031",
+              "assembly": "shr    %cl,%r12"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x14d",
+              "period": 31749658,
+              "events": 7,
+              "operation_period_pct": 0.04217950074588243,
+              "category_period_pct": 1.8204271574844961,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1746",
+              "assembly": "test   %edi,%edi"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x1c",
+              "period": 27222752,
+              "events": 6,
+              "operation_period_pct": 0.03616549470513895,
+              "category_period_pct": 1.5608683735196576,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2020",
+              "assembly": "mov    %rcx,-0x38(%rbp)"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0x14a",
+              "period": 13621677,
+              "events": 3,
+              "operation_period_pct": 0.018096432257055164,
+              "category_period_pct": 0.7810248142289261,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2031",
+              "assembly": "mov    %r15d,%ecx"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0xc8",
+              "period": 13608164,
+              "events": 3,
+              "operation_period_pct": 0.01807848020246676,
+              "category_period_pct": 0.7802500206176347,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2024",
+              "assembly": "mov    %rax,-0x58(%rbp)"
+            },
+            {
+              "physical": "zbtIndexTableFindReference+0xe2",
+              "period": 13589785,
+              "events": 3,
+              "operation_period_pct": 0.018054063654603204,
+              "category_period_pct": 0.7791962256215624,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1832",
+              "assembly": "mov    %r9,%rcx"
+            }
+          ]
+        },
+        "set-id-in-move": {
+          "period": 5962515089,
+          "events": 1315,
+          "operation_period_pct": 7.921216337001511,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexMove+0x2b0",
+              "period": 5944377056,
+              "events": 1311,
+              "operation_period_pct": 7.897119914405327,
+              "category_period_pct": 99.69579895850558,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1794",
+              "assembly": "jmp    a4d8 <zbtIndexMove+0x2e8>"
+            },
+            {
+              "physical": "zbtIndexMove+0x11b",
+              "period": 13598808,
+              "events": 3,
+              "operation_period_pct": 0.018066050732864963,
+              "category_period_pct": 0.22807167440276813,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1790",
+              "assembly": "cmpl   $0x0,0x38(%rbx)"
+            },
+            {
+              "physical": "zbtIndexMove+0x29e",
+              "period": 4539225,
+              "events": 1,
+              "operation_period_pct": 0.006030371863319855,
+              "category_period_pct": 0.07612936709165283,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1793",
+              "assembly": "cmp    $0x10000,%edx"
+            }
+          ]
+        },
+        "move-other": {
+          "period": 54377178,
+          "events": 12,
+          "operation_period_pct": 0.07224021814691615,
+          "top_instructions": [
+            {
+              "physical": "zbtIndexMove+0xfc",
+              "period": 18102396,
+              "events": 4,
+              "operation_period_pct": 0.02404907875178558,
+              "category_period_pct": 33.290429304735156,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2341",
+              "assembly": "lea    -0x38(%rbp),%rcx"
+            },
+            {
+              "physical": "zbtIndexMove+0x17",
+              "period": 13582565,
+              "events": 3,
+              "operation_period_pct": 0.018044471866389758,
+              "category_period_pct": 24.97842936976244,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "mov    %rdi,%rbx"
+            },
+            {
+              "physical": "zbtIndexMove+0x21",
+              "period": 9075413,
+              "events": 2,
+              "operation_period_pct": 0.012056709064478461,
+              "category_period_pct": 16.689746201982015,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2340",
+              "assembly": "je     a2e8 <zbtIndexMove+0xf8>"
+            },
+            {
+              "physical": "zbtIndexMove+0x8",
+              "period": 4540806,
+              "events": 1,
+              "operation_period_pct": 0.006032472225808146,
+              "category_period_pct": 8.350573102561519,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "push   %r13"
+            },
+            {
+              "physical": "zbtIndexMove+0x104",
+              "period": 4539539,
+              "events": 1,
+              "operation_period_pct": 0.006030789013111964,
+              "category_period_pct": 8.348243080948409,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2341",
+              "assembly": "mov    %r15d,%esi"
+            },
+            {
+              "physical": "zbtIndexMove+0xd",
+              "period": 4536459,
+              "events": 1,
+              "operation_period_pct": 0.00602669722534224,
+              "category_period_pct": 8.342578940010458,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:2337",
+              "assembly": "sub    $0x18,%rsp"
+            }
+          ]
+        },
+        "set-id-outside-move": {
+          "period": 0,
+          "events": 0,
+          "operation_period_pct": 0.0,
+          "top_instructions": []
+        },
+        "other": {
+          "period": 67511751568,
+          "events": 14901,
+          "operation_period_pct": 89.68953226577386,
+          "top_instructions": [
+            {
+              "physical": "zbtreeFindForAdd+0x29",
+              "period": 6431912432,
+              "events": 1419,
+              "operation_period_pct": 8.544811891296419,
+              "category_period_pct": 9.527100516006568,
+              "all_three_bytes_equal": true,
+              "source_line": "sds.h:70",
+              "assembly": "mov    %esi,%eax"
+            },
+            {
+              "physical": "[unknown]",
+              "period": 5163513304,
+              "events": 1153,
+              "operation_period_pct": 6.859740450037031,
+              "category_period_pct": 7.648317787754542,
+              "all_three_bytes_equal": null,
+              "source_line": null,
+              "assembly": null
+            },
+            {
+              "physical": "zbtreeFindForAdd+0x302",
+              "period": 5074912602,
+              "events": 1118,
+              "operation_period_pct": 6.742034193922565,
+              "category_period_pct": 7.517080336581677,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1832",
+              "assembly": "xor    -0x88(%rbp),%r15"
+            },
+            {
+              "physical": "zbtreeUpdateScore+0x6bb",
+              "period": 4242551414,
+              "events": 932,
+              "operation_period_pct": 5.6362402559189,
+              "category_period_pct": 6.284167297491558,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:3679",
+              "assembly": "mov    %rbx,%rdi"
+            },
+            {
+              "physical": "zbtreeFindForAdd+0x3a3",
+              "period": 3197338694,
+              "events": 706,
+              "operation_period_pct": 4.247672520705947,
+              "category_period_pct": 4.735973544960595,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1951",
+              "assembly": "test   %rbx,%rbx"
+            },
+            {
+              "physical": "zbtScoreLeafBuild+0x480",
+              "period": 2931115017,
+              "events": 645,
+              "operation_period_pct": 3.8939936942255784,
+              "category_period_pct": 4.341636750525851,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:493",
+              "assembly": "mov    -0x30(%rbp),%r9"
+            },
+            {
+              "physical": "zbtreeFindForAdd+0x3b2",
+              "period": 2917390069,
+              "events": 644,
+              "operation_period_pct": 3.8757600661845077,
+              "category_period_pct": 4.32130703357846,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1957",
+              "assembly": "jne    646d <zbtreeFindForAdd+0xcfd>"
+            },
+            {
+              "physical": "zbtScoreLeafFindMember+0xf6",
+              "period": 2906784542,
+              "events": 639,
+              "operation_period_pct": 3.861670596811106,
+              "category_period_pct": 4.305597876648473,
+              "all_three_bytes_equal": true,
+              "source_line": "zset_btree.c:1293",
+              "assembly": "cmp    $0xfe,%ecx"
+            }
+          ]
+        }
+      },
+      "reference_callchains": [
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtScoreInsertAt",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 942203021,
+          "events": 208,
+          "reference_period_pct": 54.023006083792616,
+          "operation_period_pct": 1.2517190902353081
+        },
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtScoreMergePair",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 570845053,
+          "events": 126,
+          "reference_period_pct": 32.73048916611563,
+          "operation_period_pct": 0.7583690929457191
+        },
+        {
+          "chain": [
+            "zbtIndexMove",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 212893260,
+          "events": 47,
+          "reference_period_pct": 12.206640844742573,
+          "operation_period_pct": 0.28282923296255164
+        },
+        {
+          "chain": [
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 13616855,
+          "events": 3,
+          "reference_period_pct": 0.7807483356680109,
+          "operation_period_pct": 0.018090026217891002
+        },
+        {
+          "chain": [
+            "zbtScoreInsertAt",
+            "zbtreeUpdateScore",
+            "main",
+            "[unknown]",
+            "__libc_start_main",
+            "_start"
+          ],
+          "period": 4519176,
+          "events": 1,
+          "reference_period_pct": 0.2591155696811649,
+          "operation_period_pct": 0.006003736716243493
+        }
+      ]
+    }
+  },
+  "classification": "disjoint top-IP inline/physical symbols; callers at other IPs excluded",
+  "source_selection": "NONE",
+  "limits": [
+    "A store-successor branch sample does not establish branch cost or removable store latency",
+    "Reference-search category is total sampled code in that helper, not a measured redundant-work fraction",
+    "No saved bucket pointer stability or new proposal is established by this profile",
+    "Existing correctness invariants and resize/migration lifecycle remain mandatory"
+  ]
+}

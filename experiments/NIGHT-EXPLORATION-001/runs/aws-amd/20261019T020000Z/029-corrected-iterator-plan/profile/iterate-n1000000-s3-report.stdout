@@ -1,0 +1,64 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 209  of event 'cycles:u'
+# Event count (approx.): 947255908
+#
+# Overhead  Symbol                  IPC   [IPC Coverage]
+# ........  ......................  ....................
+#
+    58.73%  [.] zbtreeIteratorNext  -      -
+            |
+            |--30.35%--zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x7b964362a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--18.73%--zbtreeIteratorNext
+            |          |
+            |          |--17.30%--main
+            |          |          0x7b964362a1ca
+            |          |          __libc_start_main
+            |          |          _start
+            |          |
+            |           --1.44%--0x7b964362a1ca
+            |                     __libc_start_main
+            |                     _start
+            |
+            |--6.30%--zbtOrderedToScore (inlined)
+            |          zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x7b964362a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --3.35%--zbtScoreLeafPhysicalPos (inlined)
+                       zbtScoreLeafScore (inlined)
+                       zbtreeIteratorNext
+                       main
+                       0x7b964362a1ca
+                       __libc_start_main
+                       _start
+
+    41.27%  [.] main                -      -
+            |
+            ---0x7b964362a1ca
+               __libc_start_main
+               _start
+
+     0.00%  [.] 0x0000000000000be0  -      -
+     0.00%  [.] 0x0000000000015361  -      -
+     0.00%  [k] 0xffffffff893e4638  -      -
+     0.00%  [.] read                -      -
+     0.00%  [k] 0xffffffff893b4027  -      -
+     0.00%  [k] 0xffffffff8a0d40c9  -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

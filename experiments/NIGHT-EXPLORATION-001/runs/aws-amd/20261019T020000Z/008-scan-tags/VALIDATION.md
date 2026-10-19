@@ -1,0 +1,9 @@
+# Correctness and generated-code checkpoint
+
+All123 serial build/test commands passed on CPU2,2026-10-19T03:20:39–03:25:48UTC,1200-second job cap. Baseline and each immutable candidate pass unchanged original43 tests, scan_interval, wide_scan seeds7/19, live_widen_scan seeds7/19 and resize_generation, in native and ASan/UBSan modes. All oracle final counts/digests match across all sources and modes. Extended all-match oracle passes299664checks,79864positions,3072zero spans; source-local forced-portable checks also pass. Frozen source/referee/binary hashes and complete process outputs are retained.
+
+Four isolated deliberately broken A controls are all detected in native/sanitizer builds: fold omission, reversed lane order, omitted residual tags and wrongly aligned loads. The first three abort on oracle assertions; aligned loads signal11 natively and trigger sanitizer failure. All eight results/patches are preserved; none modifies a candidate. Fault job03:26:10–03:26:22UTC,120-second cap.
+
+Rebuilt baseline .text exactly matches the original frozen timing referee binary .text. A/B/C .text hashes differ; size reports are80623/80623/80687 bytes versus baseline80479 (the ELF size utility includes more than the raw .text section). Independent authorship is not independent mechanism confirmation. Initial objdump used a nonexistent zbtreeScanSlot symbol and produced empty section listings; preserved those files and corrected to actual zbtIndexScanSlot in a separate bounded metadata job. No benchmark rerun resulted.
+
+Root static review e47157087 found no blocker. A stale helper comment remains immutable as a documented nit. All candidates eligible only for the fixed exploratory screen. Fresh1M A/A failed: no adoption qualification and no ranking claims from noisy differences. SourceNONE.

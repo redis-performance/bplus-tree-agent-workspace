@@ -1,0 +1,3 @@
+# Additive oracle extension before candidate validation
+
+V1 source and oracle-baseline/ results remain immutable. V2 adds1680 narrowly targeted calls: lengths16/17/31/32/33/63/64/65/95/96, independent offsets1/3/7/15, tags1/17/255, both orientations, and single matches atfirst/last/15/16/31/32/midpoint (out-of-range location means no match). Folded tag1 alternates physical0/1. This catches misaligned complete-vector loads and exact lane/tail omissions that page-edge-only alignment could miss. All original297984 checks remain unchanged. No timing referee change. Baseline native/sanitizer revalidation required before freezing V2 for allcandidate builds. Deliberate fold/order/tail/aligned-load faults will test oracle sensitivity separately from candidate implementations.

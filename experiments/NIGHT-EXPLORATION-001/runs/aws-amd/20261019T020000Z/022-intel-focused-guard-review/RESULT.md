@@ -1,0 +1,9 @@
+# Independent Intel focused B audit: conditional passes, PARK remains
+
+Immutable424b8be4a independently reconstructed with the pre-B auditor frozen3e5d9bda0. All324 calibration +864 A/A +864 B processes (2052total),432ABBA effects,36fixed cells, complete serial schedules, CPU2, exact raw semantic/checksum/ownedmemory joins and phase caps verify. Recomputed36pass counts and36actual deterministic fixture byte hashes. Timing freeze and24focused artifact hashes after each phase plus22original post-B hashes verify unchanged.
+
+All22 A/A-qualified cells pass every one of six +1% guard bounds and100ms duration floor. Fourteen noisy A/A cells remain unresolved and exploratory even though their B rows are retained. Across all216Bblocks, none exceeds+1% (range-24.9512% to+0.2597%); there are no demonstrated all-six regressions or mixed exceedances in this focused set. The earlier original-operation guard gaps and focused14control failures still prevent acceptance; sourceNONE/PARK remains. This does not qualify corrected-adapter builds or another machine.
+
+The metric uses within-block elapsed ratios with exactly equal work, fixed pass counts and callbacks/checksums/owned bytes, not throughput comparisons across different fixtures. The original focused callback consumes ID/length/score, and sparse reversal/no active resize/wide IDs/limited member-length coverage remain explicit. Full candidate semantics validation673commands is worker-reported in its separately preserved validation-summary; this audit independently checks the timing/calibration/fixture/hash evidence and relies on prior referee review rather than falsely claiming a fresh673-command reconstruction.
+
+Same actual native AMD author independently reconstructed the raw results without importing or reading Intel audit-timing.py. Serving model and measured token/USD cost unknown; no stronger-model panel or completed multi-reviewer skill workflow is claimed. Root overall review remains separate.

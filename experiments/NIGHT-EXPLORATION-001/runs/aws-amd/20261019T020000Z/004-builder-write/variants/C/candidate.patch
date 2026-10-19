@@ -1,0 +1,17 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1005,10 +1005,13 @@
+         capacity = ZBT_SCORE_LEAF_BYTES;
+     records = (unsigned char *)leaf + capacity;
+ 
++    /* Finish packed scores before member writes can obscure fixed metadata. */
++    for (unsigned int i = 0; i < count; i++)
++        zbtScoreLeafWriteScore(leaf, i, scores[i]);
++
+     for (unsigned int i = 0; i < count; i++) {
+         size_t item_bytes = zbtElementStorageBytes(&eles[i]);
+ 
+-        zbtScoreLeafWriteScore(leaf, i, scores[i]);
+         debugServerAssert(zbtScoreLeafScore(leaf, i) == scores[i]);
+         records -= item_bytes;
+         serverAssert((char *)records - (char *)leaf <=

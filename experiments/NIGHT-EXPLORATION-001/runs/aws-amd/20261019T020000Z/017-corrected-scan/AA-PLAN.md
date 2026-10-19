@@ -1,0 +1,7 @@
+# Fresh corrected-adapter scan A/A controls
+
+Baseline-only source13e459ff8, exact previously validated015 timing binary1ecbe6a426bd3a593a9fce6b8e8c6796c8c2287706fdd7eafdba595df9bad9ed. No rebuild or candidate measurement. Verify source/referee/compat/header/test and binary hashes before/after. The new5M operation schedule is frozen before any data and does not repair original8fab failed controls or rewrite the completed1M-operation corrected-adapter matrix.
+
+One separate CPU2 owned job:300-second whole-phase cap,30-second child cap. Exactly48 processes: six blocks, seeds401,402,403,401,402,403. Each block covers100K/1M,16-byte members,5000000requested operations; size order100K then1M on even blocks and1M then100K on odd blocks. Each cell runs the same baseline binary four times labeled A/B/B/A. Every row remains, including failures; no retries, duration changes, seed replacement or pruning.
+
+Reconstruct each block as100*((inner elapsed_ns/actual_callbacks sum)/(outer elapsed_ns/actual_callbacks sum)-1). Both sizes qualify only if every block has absolute effect<=1%, every elapsed window>=10ms, exact callback/checksum/tree-owned-memory/traversal/warmup parity, CPU2 and serial schedule/immutable hashes. Minimum-window and noisy failures are retained independently. If either size fails, stop NONE without candidate timing. Passing controls alone do not authorize candidate execution; root reviews the baseline profile and may separately authorize exact B replication under corrected adapter identity.

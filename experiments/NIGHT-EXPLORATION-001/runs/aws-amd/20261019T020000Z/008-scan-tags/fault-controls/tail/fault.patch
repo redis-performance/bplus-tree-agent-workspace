@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4154,6 +4154,7 @@
+         }
+     }
+ #endif
++    if (base) return found; /* Deliberate fault: omit residual tags. */
+     unsigned int words = count / 8;
+     for (unsigned int w = base / 8; w < words; w++) {
+         uint64_t word = zbtLeafTagWord(tags + w * 8);

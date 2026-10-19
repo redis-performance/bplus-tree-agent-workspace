@@ -1,0 +1,1303 @@
+[
+  {
+    "name": "source-archive",
+    "command": [
+      "git",
+      "archive",
+      "--format=tar",
+      "--output",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source.tar",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "src",
+      "compat",
+      "vendor/redis",
+      "tests",
+      "bench",
+      "Makefile"
+    ],
+    "started_utc": "2026-10-19T06:04:52.894144+00:00",
+    "cwd": "<checkout>",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:52.958339+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "compiler-version",
+    "command": [
+      "clang",
+      "--version"
+    ],
+    "started_utc": "2026-10-19T06:04:52.965644+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:52.980353+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original"
+    ],
+    "started_utc": "2026-10-19T06:04:52.980631+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:54.294202+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile"
+    ],
+    "started_utc": "2026-10-19T06:04:54.294546+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:55.621297+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original-san"
+    ],
+    "started_utc": "2026-10-19T06:04:55.621651+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:57.361404+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile-san"
+    ],
+    "started_utc": "2026-10-19T06:04:57.361784+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:59.109355+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-control-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/known-control.c",
+      "-o",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:04:59.109752+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:04:59.168174+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original43",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/original-check",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "check"
+    ],
+    "started_utc": "2026-10-19T06:04:59.168547+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:02.108466+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:02.113462+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:02.381460+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:02.381820+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:02.636130+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:02.636441+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:03.924889+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:03.925400+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:05.199396+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:05.199926+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:05.470359+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:05.470778+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:05.723418+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:05.723761+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:07.024291+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:07.024855+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:08.289708+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:08.290271+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:08.561910+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:08.562300+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:08.816215+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:08.816569+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:10.113966+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:10.114542+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:11.391204+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-san-original",
+    "command": [
+      "build/original-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "started_utc": "2026-10-19T06:05:11.391805+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:11.400604+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-san-disabled",
+    "command": [
+      "build/profile-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "started_utc": "2026-10-19T06:05:11.401006+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:11.408183+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-disabled-zero",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-disabled.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:11.408623+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:11.700772+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-plain",
+    "command": [
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:05:11.701394+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:11.967550+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-disabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known-disabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:05:11.967915+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:12.247919+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-enabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known-enabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:05:12.248393+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:12.526381+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:05:12.526853+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:12.844162+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data"
+    ],
+    "started_utc": "2026-10-19T06:05:12.844677+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.861891+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:12.862307+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.880936+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:05:12.884813+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.886642+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/original"
+    ],
+    "started_utc": "2026-10-19T06:05:12.887035+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.909430+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/profile"
+    ],
+    "started_utc": "2026-10-19T06:05:12.910371+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.931524+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "timing-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "<checkout>/scratch/amd-adapter-requalification-13e459ff8/source/build/adapter-requalification/btree-bench"
+    ],
+    "started_utc": "2026-10-19T06:05:12.932433+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:12.953843+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:12.954776+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:13.268375+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data"
+    ],
+    "started_utc": "2026-10-19T06:05:13.269043+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:13.292199+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:13.292732+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:13.315411+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:05:13.315937+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:14.649953+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data"
+    ],
+    "started_utc": "2026-10-19T06:05:14.650661+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:14.673693+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:14.674164+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:14.696325+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:14.696806+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:15.004414+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data"
+    ],
+    "started_utc": "2026-10-19T06:05:15.005152+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:15.027687+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:15.028231+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:15.049685+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:05:15.050305+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:16.374789+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data"
+    ],
+    "started_utc": "2026-10-19T06:05:16.375555+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:16.398389+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:16.398910+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:16.420883+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:16.421409+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:16.730150+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data"
+    ],
+    "started_utc": "2026-10-19T06:05:16.730883+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:16.753581+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:16.754124+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:16.776026+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:05:16.776560+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:05:18.113856+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data"
+    ],
+    "started_utc": "2026-10-19T06:05:18.114721+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:18.138987+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:05:18.139539+00:00",
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:05:18.162451+00:00",
+    "returncode": 0
+  }
+]

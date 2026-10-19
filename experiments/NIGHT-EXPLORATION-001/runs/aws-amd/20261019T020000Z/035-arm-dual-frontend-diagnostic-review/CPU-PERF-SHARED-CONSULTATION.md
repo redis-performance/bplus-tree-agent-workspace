@@ -1,0 +1,7 @@
+# Shared cpu-perf consultation provenance
+
+Consumed root's actual cpu-perf consultation at immutable revision dfff5540f, canonical [CPU-PERF-CONSULTATION.json](../../../../../ARM-FRONTEND-DIAGNOSTIC-001/CPU-PERF-CONSULTATION.json). Evidence SHA256: 173132e82593de449395ce4ef1f19e512465a392151097608b022be98b4a5b59. Root invoked library_status, ask, read_source and check_evidence using cpu-perf0.1.1 over local stdio with bundled repository deb5a0bac467. This reviewer searched available callable tools and found no cpu-perf endpoint; this is shared root evidence, not an independent invocation by AMD.
+
+The library reported0/287 linked sources indexed. Ask returned reference leads without source passages; the Arm guide read returned empty. No source-backed causal explanation was obtained. Heuristic check_evidence omissions for already supplied core/compiler/workload/method fields are parser limitations; genuinely unknown frequency, turbo/DVFS and SMT metadata remain limitations. No unread manual or bundled benchmark is treated as evidence of the current mechanism.
+
+These findings support retaining uncertainty and architecture/fixture scope. They neither reverse the earlier REJECT nor change source NONE or the frozen schedules/gates. The explicit pre-execution allocator and no-scale fixes remain justified by code/protocol review, not by adapting to measured profile results. Full matched-profile outcomes are pending.

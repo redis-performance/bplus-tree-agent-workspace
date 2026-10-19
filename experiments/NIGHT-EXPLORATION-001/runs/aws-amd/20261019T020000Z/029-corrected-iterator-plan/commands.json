@@ -1,0 +1,1150 @@
+[
+  {
+    "name": "source-archive",
+    "command": [
+      "git",
+      "archive",
+      "--format=tar",
+      "--output",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source.tar",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "src",
+      "compat",
+      "vendor/redis",
+      "tests",
+      "bench",
+      "Makefile"
+    ],
+    "cwd": "<checkout>",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "compiler-version",
+    "command": [
+      "clang",
+      "--version"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "original-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "profile-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "original-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original-san"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "profile-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile-san"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "known-control-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/known-control.c",
+      "-o",
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "original43",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/original-check",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "check"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-san-original",
+    "command": [
+      "build/original-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-san-disabled",
+    "command": [
+      "build/profile-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-disabled-zero",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-disabled.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "known-plain",
+    "command": [
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "known-disabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known-disabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "known-enabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known-enabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "known-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data",
+      "--",
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "known-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "known-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/known.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "known-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/known-control"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "original-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/original"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "profile-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/profile"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "timing-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "<checkout>/scratch/amd-adapter-requalification-13e459ff8/source/build/adapter-requalification/btree-bench"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n100000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n1000000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n100000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n1000000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n100000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n100000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/ack.fifo"
+    }
+  },
+  {
+    "name": "iterate-n1000000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  },
+  {
+    "name": "iterate-n1000000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/amd-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "cwd": "<checkout>/scratch/amd-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    }
+  }
+]

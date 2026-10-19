@@ -1,0 +1,112 @@
+{
+  "source_commit": "8fab511e0e6ec7d4808546cd50064c6bf299e695",
+  "timing_referee": "bench/microbench.c",
+  "timing_referee_sha256": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde",
+  "seed_sets": {
+    "discovery": [
+      1,
+      2,
+      3
+    ],
+    "held_out_confirmation": [
+      101,
+      102,
+      103
+    ]
+  },
+  "blocks": 6,
+  "order": "ABBA; each seed appears in two blocks",
+  "primary": {
+    "sizes": [
+      100000,
+      1000000
+    ],
+    "case": "update",
+    "member_bytes": 16,
+    "requested_ops": 1000000
+  },
+  "guards": [
+    {
+      "id": "standard-five-size",
+      "status": "NOT RUN; conditional on primary gate",
+      "referee": "bench/microbench.c",
+      "sizes": [
+        100,
+        1000,
+        10000,
+        100000,
+        1000000
+      ],
+      "cases": [
+        "insert",
+        "lookup-hit",
+        "lookup-miss",
+        "rank",
+        "iterate",
+        "scan",
+        "update",
+        "delete"
+      ],
+      "member_bytes": [
+        16
+      ],
+      "requested_ops": 1000000,
+      "actual_insert_delete_ops": "size",
+      "timing_budget_seconds": 300
+    },
+    {
+      "id": "member-length-boundaries",
+      "status": "NOT RUN; conditional on primary gate",
+      "referee": "bench/microbench.c",
+      "sizes": [
+        100000
+      ],
+      "cases": [
+        "insert",
+        "lookup-hit",
+        "lookup-miss",
+        "rank",
+        "iterate",
+        "scan",
+        "update",
+        "delete"
+      ],
+      "member_bytes": [
+        8,
+        319,
+        320,
+        321,
+        1024
+      ],
+      "requested_ops": 1000000,
+      "timing_budget_seconds": 300
+    },
+    {
+      "id": "tied-and-mixed-score-construction",
+      "status": "UNIMPLEMENTED; cannot satisfy acceptance until separately frozen, validated and A/A qualified",
+      "referee": "future isolated guard referee; no source/hash exists yet",
+      "sizes": [
+        100000,
+        1000000
+      ],
+      "cases": [
+        "insert",
+        "iterate-forward-full-output",
+        "iterate-reverse-full-output"
+      ],
+      "member_bytes": [
+        16,
+        321
+      ],
+      "score_layouts": {
+        "all_equal": "score +0.0 for every member",
+        "alternating_zero_bits": "score +0.0/-0.0 alternates by member id; preserve exact bits",
+        "mixed_finite": "cyclic [-DBL_MAX,-DBL_MIN,-DBL_TRUE_MIN,-0.0,+0.0,DBL_TRUE_MIN,DBL_MIN,0.5,nextafter(1,0),1,nextafter(1,2),2,DBL_MAX]"
+      },
+      "query_and_construction_seed_policy": "same frozen independent permutations if implemented; no substitute for existing standard guards",
+      "timing_budget_seconds": 300
+    }
+  ],
+  "acceptance": "Every required primary >=2% every fresh block; no guard block >+1%; memory no >1% increase; all A/A cells qualified. Any absent/unqualified/partial guard is PARK. No source adoption overnight.",
+  "budget_rule": "A phase reaching its frozen 300s cap preserves partial evidence and blocks acceptance; no post-hoc guard removal."
+}

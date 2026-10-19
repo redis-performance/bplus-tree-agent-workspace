@@ -1,0 +1,11 @@
+# Corrected iterator baseline profile
+
+All 51 frozen commands passed under the 600s owned lease (job 06:04:52–06:05:18 UTC). Six scientific captures cover score-only iterate, 100K/1M, 16-byte members, 50M visits, seeds 1–3. Six original/disabled native pairs, one sanitizer pair, original 43 tests and checksum/memory/affinity/source/binary controls pass. The separate known-work control has 81 known events of 86, 99.999959% sampled period, zero outside-work events and zero reported loss. Disabled PMU counters are zero/not counted; enabled known-work counters are positive. All seven raw data hashes were verified locally.
+
+Scientific captures contain 594 events at 100K and 624 at 1M, all with zero reported losses. Exclusive sampled-period attribution is score decode 25.819%/29.350%, iterator body 22.980%/22.183%, ordered-to-score 3.607%/4.032% and physical position 3.365%/3.866%. Main accounts for 44.229%/40.568%; unknown and control samples remain in the denominator. These are coarse sampled-period shares, not causal cycle costs or an elapsed improvement prediction.
+
+Actual timing binary 015 remains 1ecbe6a4. Every sampled tree instruction has exact encoded bytes in the diagnostic, rebuilt original and actual timing disassemblies, covering 55.770%/59.431% of total sampled period. Mapping is per instruction, not whole-function equivalence. Caller/control layout differs: 14.806%/16.279% maps to differing instructions at the same relative offset, and 29.423%/24.289% is unmapped. Those rows remain explicit and are not treated as equivalent caller code.
+
+Full sample exports, stdout/stderr, source-linked disassembly, audit, mapping and public/raw checksums are retained here. Seven raw perf.data files remain local and on the owned runner. Operational prefixes are redacted and trailing whitespace normalized in public text; PUBLICATION.json records original and public hashes. No new candidate or hypothesis is selected. The frozen 48-row A/A phase may proceed because controls and mapping passed; its result is separate. Prior old-adapter iterator outcomes remain final.
+
+Reviews: execution freeze234f70f44, independent ARM execution review3adfc0c42, root grantc0cf74241. Exact model/token/cost unknown.

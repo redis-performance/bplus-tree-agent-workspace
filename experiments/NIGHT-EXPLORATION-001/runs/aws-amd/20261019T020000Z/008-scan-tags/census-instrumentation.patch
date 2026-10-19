@@ -1,0 +1,35 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -312,6 +312,16 @@
+     unsigned char *owner_record;
+ } zbtBuildElement;
+ 
++static int amd_active;
++static uint64_t amd_counts[97],amd_matches[97],amd_tags[256],amd_reversed;
++void amdCensusReset(void) {memset(amd_counts,0,sizeof(amd_counts));memset(amd_matches,0,sizeof(amd_matches));memset(amd_tags,0,sizeof(amd_tags));amd_reversed=0;amd_active=1;}
++void amdCensusDump(void) {
++ amd_active=0;fprintf(stderr,"{\"reversed\":%llu,\"counts\":[",(unsigned long long)amd_reversed);
++ for(unsigned i=0;i<97;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_counts[i]);fprintf(stderr,"],\"matches\":[");
++ for(unsigned i=0;i<97;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_matches[i]);fprintf(stderr,"],\"tags\":[");
++ for(unsigned i=0;i<256;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_tags[i]);fprintf(stderr,"]}\n");
++}
++
+ /* ------------------------- Packed score leaves -------------------------- */
+ 
+ /* Turn an IEEE double into an unsigned integer with the same ordering. This
+@@ -4131,6 +4141,7 @@
+                                              uint8_t tag,
+                                              unsigned int *positions)
+ {
++    if(amd_active){amd_counts[count]++;amd_tags[tag]++;amd_reversed+=reversed!=0;}
+     unsigned int found = 0;
+     unsigned int words = count / 8;
+     unsigned int last = reversed ? count - 1 : 0;
+@@ -4149,6 +4160,7 @@
+         if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+             positions[found++] = reversed ? last - pos : pos;
+     }
++    if(amd_active)amd_matches[found]++;
+     return found;
+ }
+ 

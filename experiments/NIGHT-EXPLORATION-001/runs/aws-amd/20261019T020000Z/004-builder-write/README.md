@@ -1,0 +1,7 @@
+# AMD BUILDER-WRITE-001 preparation
+
+Question: can new-leaf construction exploit its known forward orientation and fixed score metadata to reduce generic per-item score-write work? No candidate selected yet. Source8fab511e unchanged; root bench/microbench.c remains frozen. Scoped baseline profiles now match prospective1M-update duration at100K/1Mmembers,16-byte keys,seed1. ScoreLeafBuild15.04/4.30% of timed-region samples; its score write helper10.16/3.31%. Static builder assembly reloads bits atc3c0, orientation atc3ef/c423, base atc3f5/c429,shift atc436 perrecord. The1Mheadroom is small; no performance result is implied.
+
+Primary cells: existing distant+N updates at100K/1Mmembers. Workload minimum1Moperations before duration calibration:10full passes at100K and1fullpassat1M, avoiding the prior5.26%partial1Mtraversal. Three baseline observations/cell choose max(1M,ceil(50ms/fastest ns/op)),cap100M. Counts freeze before variants. A/A6ABBAblocks,seeds1/2/3twice; qualifyeveryeffect±1%andwindows≥10ms. No repeatednoise retry. Screenbudget300s,confirmation300s; sourceadoptionNONEovernight.
+
+Strict gates≥2%bothprimaries eachfreshblock,qualifiedcontrols, no>1%all-eight-operation five-size/long-member/tied-score guards or ownedmemory increase. Candidate failure on eitherprimary rejects; fullguardsandconfirmationonlyifeligible. Three sequential proposal/chairandimplementationpasses unless independentagentcapacitybecomesavailable. Exactbackend/model/token/USDunavailable.

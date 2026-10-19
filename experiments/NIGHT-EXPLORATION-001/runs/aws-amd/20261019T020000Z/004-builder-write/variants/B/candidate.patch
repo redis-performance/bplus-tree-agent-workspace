@@ -1,0 +1,23 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1008,7 +1008,19 @@
+     for (unsigned int i = 0; i < count; i++) {
+         size_t item_bytes = zbtElementStorageBytes(&eles[i]);
+ 
+-        zbtScoreLeafWriteScore(leaf, i, scores[i]);
++        if (score_bits) {
++            uint64_t delta = (zbtScoreToOrdered(scores[i]) - score_base) >>
++                             score_shift;
++            size_t bitpos = (size_t)i * score_bits;
++            size_t byte = bitpos / 8;
++            unsigned int shift = bitpos & 7;
++            uint64_t word;
++            memcpy(&word, leaf->data + byte, sizeof(word));
++            word = intrev64ifbe(intrev64ifbe(word) | (delta << shift));
++            memcpy(leaf->data + byte, &word, sizeof(word));
++            if (shift && score_bits > 64 - shift)
++                leaf->data[byte + 8] |= delta >> (64 - shift);
++        }
+         debugServerAssert(zbtScoreLeafScore(leaf, i) == scores[i]);
+         records -= item_bytes;
+         serverAssert((char *)records - (char *)leaf <=

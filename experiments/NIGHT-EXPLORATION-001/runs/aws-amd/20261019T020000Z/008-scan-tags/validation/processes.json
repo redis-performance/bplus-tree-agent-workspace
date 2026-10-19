@@ -1,0 +1,1972 @@
+[
+  {
+    "name": "base-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:20:39.337967+00:00",
+    "end": "2026-10-19T03:20:43.463935+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:20:43.464042+00:00",
+    "end": "2026-10-19T03:20:44.722947+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-all_match_guard_oracle",
+    "command": [
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:20:44.723103+00:00",
+    "end": "2026-10-19T03:20:44.741212+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:20:44.741324+00:00",
+    "end": "2026-10-19T03:20:46.058611+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-scan_interval_oracle",
+    "command": [
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:20:46.058793+00:00",
+    "end": "2026-10-19T03:20:46.993660+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:20:46.993791+00:00",
+    "end": "2026-10-19T03:20:48.298372+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-wide_scan_oracle-7",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:20:48.298549+00:00",
+    "end": "2026-10-19T03:20:52.343913+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-wide_scan_oracle-19",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:20:52.344105+00:00",
+    "end": "2026-10-19T03:20:56.387325+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:20:56.387516+00:00",
+    "end": "2026-10-19T03:20:57.709445+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-live_widen_scan_oracle-7",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:20:57.709631+00:00",
+    "end": "2026-10-19T03:20:59.423908+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-live_widen_scan_oracle-19",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:20:59.424111+00:00",
+    "end": "2026-10-19T03:21:01.139563+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:21:01.139791+00:00",
+    "end": "2026-10-19T03:21:02.491725+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-resize_generation_oracle",
+    "command": [
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:21:02.491956+00:00",
+    "end": "2026-10-19T03:21:03.031853+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:21:03.032009+00:00",
+    "end": "2026-10-19T03:21:10.797446+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:21:10.797689+00:00",
+    "end": "2026-10-19T03:21:12.451874+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-all_match_guard_oracle",
+    "command": [
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:21:12.452108+00:00",
+    "end": "2026-10-19T03:21:12.492812+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:21:12.493000+00:00",
+    "end": "2026-10-19T03:21:14.239126+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-scan_interval_oracle",
+    "command": [
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:21:14.239372+00:00",
+    "end": "2026-10-19T03:21:15.852550+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:21:15.852789+00:00",
+    "end": "2026-10-19T03:21:17.544957+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-wide_scan_oracle-7",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:21:17.545204+00:00",
+    "end": "2026-10-19T03:21:28.992035+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-wide_scan_oracle-19",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:21:28.992303+00:00",
+    "end": "2026-10-19T03:21:40.404008+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:21:40.404272+00:00",
+    "end": "2026-10-19T03:21:42.133696+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-live_widen_scan_oracle-7",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:21:42.133975+00:00",
+    "end": "2026-10-19T03:21:45.722195+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-live_widen_scan_oracle-19",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:21:45.722476+00:00",
+    "end": "2026-10-19T03:21:49.465286+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:21:49.465576+00:00",
+    "end": "2026-10-19T03:21:51.195439+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-resize_generation_oracle",
+    "command": [
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:21:51.195715+00:00",
+    "end": "2026-10-19T03:21:53.243027+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:21:53.243326+00:00",
+    "end": "2026-10-19T03:21:54.498407+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-portable-oracle",
+    "command": [
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:21:54.498678+00:00",
+    "end": "2026-10-19T03:21:54.518168+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:21:54.518363+00:00",
+    "end": "2026-10-19T03:21:56.177516+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-portable-oracle",
+    "command": [
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:21:56.177815+00:00",
+    "end": "2026-10-19T03:21:56.218117+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<remote_root>/repo/scratch/amd-scan-input/variants/A/candidate.patch"
+    ],
+    "start": "2026-10-19T03:21:56.220317+00:00",
+    "end": "2026-10-19T03:21:56.222613+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:21:56.222833+00:00",
+    "end": "2026-10-19T03:22:00.366507+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:22:00.366835+00:00",
+    "end": "2026-10-19T03:22:01.635503+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-all_match_guard_oracle",
+    "command": [
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:22:01.635819+00:00",
+    "end": "2026-10-19T03:22:01.653869+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:22:01.654096+00:00",
+    "end": "2026-10-19T03:22:02.985450+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-scan_interval_oracle",
+    "command": [
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:22:02.985771+00:00",
+    "end": "2026-10-19T03:22:03.920695+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:22:03.920949+00:00",
+    "end": "2026-10-19T03:22:05.238949+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-wide_scan_oracle-7",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:22:05.239261+00:00",
+    "end": "2026-10-19T03:22:09.303874+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-wide_scan_oracle-19",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:22:09.304208+00:00",
+    "end": "2026-10-19T03:22:13.347963+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:22:13.348375+00:00",
+    "end": "2026-10-19T03:22:14.691317+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-live_widen_scan_oracle-7",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:22:14.691638+00:00",
+    "end": "2026-10-19T03:22:16.400331+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-live_widen_scan_oracle-19",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:22:16.400690+00:00",
+    "end": "2026-10-19T03:22:18.108779+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:22:18.109131+00:00",
+    "end": "2026-10-19T03:22:19.485116+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-resize_generation_oracle",
+    "command": [
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:22:19.485460+00:00",
+    "end": "2026-10-19T03:22:20.023197+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:22:20.023450+00:00",
+    "end": "2026-10-19T03:22:27.826531+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:22:27.826942+00:00",
+    "end": "2026-10-19T03:22:29.499701+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-all_match_guard_oracle",
+    "command": [
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:22:29.500082+00:00",
+    "end": "2026-10-19T03:22:29.539792+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:22:29.540084+00:00",
+    "end": "2026-10-19T03:22:31.310008+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-scan_interval_oracle",
+    "command": [
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:22:31.310390+00:00",
+    "end": "2026-10-19T03:22:32.921824+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:22:32.922205+00:00",
+    "end": "2026-10-19T03:22:34.630821+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-wide_scan_oracle-7",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:22:34.631200+00:00",
+    "end": "2026-10-19T03:22:46.139447+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-wide_scan_oracle-19",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:22:46.139869+00:00",
+    "end": "2026-10-19T03:22:57.459871+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:22:57.460270+00:00",
+    "end": "2026-10-19T03:22:59.204180+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-live_widen_scan_oracle-7",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:22:59.204588+00:00",
+    "end": "2026-10-19T03:23:02.803017+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-live_widen_scan_oracle-19",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:23:02.803422+00:00",
+    "end": "2026-10-19T03:23:06.385273+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:23:06.385686+00:00",
+    "end": "2026-10-19T03:23:08.131445+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-resize_generation_oracle",
+    "command": [
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:23:08.131866+00:00",
+    "end": "2026-10-19T03:23:10.143886+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_FORCE_PORTABLE_TAG_MATCHES",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:23:10.144316+00:00",
+    "end": "2026-10-19T03:23:11.400156+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-portable-oracle",
+    "command": [
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:23:11.400562+00:00",
+    "end": "2026-10-19T03:23:11.417676+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_FORCE_PORTABLE_TAG_MATCHES",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:23:11.417979+00:00",
+    "end": "2026-10-19T03:23:13.075625+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-portable-oracle",
+    "command": [
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:23:13.076058+00:00",
+    "end": "2026-10-19T03:23:13.117021+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<remote_root>/repo/scratch/amd-scan-input/variants/B/candidate.patch"
+    ],
+    "start": "2026-10-19T03:23:13.119296+00:00",
+    "end": "2026-10-19T03:23:13.121583+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:23:13.121897+00:00",
+    "end": "2026-10-19T03:23:17.271994+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:23:17.272447+00:00",
+    "end": "2026-10-19T03:23:18.536002+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-all_match_guard_oracle",
+    "command": [
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:23:18.536450+00:00",
+    "end": "2026-10-19T03:23:18.554456+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:23:18.554773+00:00",
+    "end": "2026-10-19T03:23:19.888901+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-scan_interval_oracle",
+    "command": [
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:23:19.889350+00:00",
+    "end": "2026-10-19T03:23:20.824131+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:23:20.824486+00:00",
+    "end": "2026-10-19T03:23:22.140421+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-wide_scan_oracle-7",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:23:22.140886+00:00",
+    "end": "2026-10-19T03:23:26.225563+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-wide_scan_oracle-19",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:23:26.226072+00:00",
+    "end": "2026-10-19T03:23:30.284618+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:23:30.285100+00:00",
+    "end": "2026-10-19T03:23:31.625952+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-live_widen_scan_oracle-7",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:23:31.626432+00:00",
+    "end": "2026-10-19T03:23:33.335702+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-live_widen_scan_oracle-19",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:23:33.336190+00:00",
+    "end": "2026-10-19T03:23:35.050140+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:23:35.050614+00:00",
+    "end": "2026-10-19T03:23:36.421624+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-resize_generation_oracle",
+    "command": [
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:23:36.422108+00:00",
+    "end": "2026-10-19T03:23:36.959063+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:23:36.959414+00:00",
+    "end": "2026-10-19T03:23:44.762467+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:23:44.763013+00:00",
+    "end": "2026-10-19T03:23:46.437954+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-all_match_guard_oracle",
+    "command": [
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:23:46.438446+00:00",
+    "end": "2026-10-19T03:23:46.477880+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:23:46.478282+00:00",
+    "end": "2026-10-19T03:23:48.245398+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-scan_interval_oracle",
+    "command": [
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:23:48.245912+00:00",
+    "end": "2026-10-19T03:23:49.866188+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:23:49.866678+00:00",
+    "end": "2026-10-19T03:23:51.579373+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-wide_scan_oracle-7",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:23:51.579891+00:00",
+    "end": "2026-10-19T03:24:02.965730+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-wide_scan_oracle-19",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:24:02.966361+00:00",
+    "end": "2026-10-19T03:24:14.369981+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:24:14.370527+00:00",
+    "end": "2026-10-19T03:24:16.109089+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-live_widen_scan_oracle-7",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:24:16.109627+00:00",
+    "end": "2026-10-19T03:24:19.895517+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-live_widen_scan_oracle-19",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:24:19.896045+00:00",
+    "end": "2026-10-19T03:24:23.656400+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:24:23.656987+00:00",
+    "end": "2026-10-19T03:24:25.404949+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-resize_generation_oracle",
+    "command": [
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:24:25.405498+00:00",
+    "end": "2026-10-19T03:24:27.439529+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:24:27.440115+00:00",
+    "end": "2026-10-19T03:24:28.699252+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-portable-oracle",
+    "command": [
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:24:28.699812+00:00",
+    "end": "2026-10-19T03:24:28.718750+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:24:28.719147+00:00",
+    "end": "2026-10-19T03:24:30.370503+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-portable-oracle",
+    "command": [
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:24:30.371080+00:00",
+    "end": "2026-10-19T03:24:30.411402+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<remote_root>/repo/scratch/amd-scan-input/variants/C/candidate.patch"
+    ],
+    "start": "2026-10-19T03:24:30.413763+00:00",
+    "end": "2026-10-19T03:24:30.416781+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:24:30.417193+00:00",
+    "end": "2026-10-19T03:24:34.581410+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:24:34.582007+00:00",
+    "end": "2026-10-19T03:24:35.887435+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-all_match_guard_oracle",
+    "command": [
+      "build/native/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:24:35.888021+00:00",
+    "end": "2026-10-19T03:24:35.906647+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:24:35.907059+00:00",
+    "end": "2026-10-19T03:24:37.236881+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-scan_interval_oracle",
+    "command": [
+      "build/native/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:24:37.237453+00:00",
+    "end": "2026-10-19T03:24:38.174457+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:24:38.174930+00:00",
+    "end": "2026-10-19T03:24:39.488767+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-wide_scan_oracle-7",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:24:39.489355+00:00",
+    "end": "2026-10-19T03:24:43.632786+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-wide_scan_oracle-19",
+    "command": [
+      "build/native/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:24:43.633390+00:00",
+    "end": "2026-10-19T03:24:47.777857+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:24:47.778464+00:00",
+    "end": "2026-10-19T03:24:49.116902+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-live_widen_scan_oracle-7",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:24:49.117480+00:00",
+    "end": "2026-10-19T03:24:50.840636+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-live_widen_scan_oracle-19",
+    "command": [
+      "build/native/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:24:50.841242+00:00",
+    "end": "2026-10-19T03:24:52.564869+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:24:52.565573+00:00",
+    "end": "2026-10-19T03:24:53.932826+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-resize_generation_oracle",
+    "command": [
+      "build/native/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:24:53.933443+00:00",
+    "end": "2026-10-19T03:24:54.472040+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T03:24:54.472501+00:00",
+    "end": "2026-10-19T03:25:02.231535+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-all_match_guard_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:25:02.232230+00:00",
+    "end": "2026-10-19T03:25:03.898954+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-all_match_guard_oracle",
+    "command": [
+      "build/san/all_match_guard_oracle"
+    ],
+    "start": "2026-10-19T03:25:03.899580+00:00",
+    "end": "2026-10-19T03:25:03.938421+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-scan_interval_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/scan_interval_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:25:03.938943+00:00",
+    "end": "2026-10-19T03:25:05.696057+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-scan_interval_oracle",
+    "command": [
+      "build/san/scan_interval_oracle"
+    ],
+    "start": "2026-10-19T03:25:05.696690+00:00",
+    "end": "2026-10-19T03:25:07.318594+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-wide_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/wide_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/wide_scan_oracle"
+    ],
+    "start": "2026-10-19T03:25:07.319243+00:00",
+    "end": "2026-10-19T03:25:09.025510+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-wide_scan_oracle-7",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:25:09.026162+00:00",
+    "end": "2026-10-19T03:25:20.700285+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-wide_scan_oracle-19",
+    "command": [
+      "build/san/wide_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:25:20.700959+00:00",
+    "end": "2026-10-19T03:25:32.473053+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-live_widen_scan_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/live_widen_scan_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/live_widen_scan_oracle"
+    ],
+    "start": "2026-10-19T03:25:32.473717+00:00",
+    "end": "2026-10-19T03:25:34.202594+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-live_widen_scan_oracle-7",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "7"
+    ],
+    "start": "2026-10-19T03:25:34.203243+00:00",
+    "end": "2026-10-19T03:25:37.883793+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-live_widen_scan_oracle-19",
+    "command": [
+      "build/san/live_widen_scan_oracle",
+      "19"
+    ],
+    "start": "2026-10-19T03:25:37.884457+00:00",
+    "end": "2026-10-19T03:25:41.577995+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-resize_generation_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/resize_generation_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:25:41.578663+00:00",
+    "end": "2026-10-19T03:25:43.323767+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-resize_generation_oracle",
+    "command": [
+      "build/san/resize_generation_oracle"
+    ],
+    "start": "2026-10-19T03:25:43.324421+00:00",
+    "end": "2026-10-19T03:25:45.328854+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_LEAF_TAG_MATCHES_SCALAR",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:25:45.329533+00:00",
+    "end": "2026-10-19T03:25:46.585169+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-portable-oracle",
+    "command": [
+      "build/native/portable-oracle"
+    ],
+    "start": "2026-10-19T03:25:46.585832+00:00",
+    "end": "2026-10-19T03:25:46.604132+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-portable-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_LEAF_TAG_MATCHES_SCALAR",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:25:46.604617+00:00",
+    "end": "2026-10-19T03:25:48.265273+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-portable-oracle",
+    "command": [
+      "build/san/portable-oracle"
+    ],
+    "start": "2026-10-19T03:25:48.265971+00:00",
+    "end": "2026-10-19T03:25:48.306322+00:00",
+    "returncode": 0
+  }
+]

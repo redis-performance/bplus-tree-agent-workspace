@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4148,7 +4148,7 @@
+             equal = _mm_or_si128(equal, _mm_cmpeq_epi8(block, zero));
+         unsigned int mask = (unsigned int)_mm_movemask_epi8(equal);
+         while (mask) {
+-            unsigned int pos = base + (unsigned int)__builtin_ctz(mask);
++            unsigned int pos = base + 15U - (unsigned int)__builtin_ctz(mask);
+             positions[found++] = reversed ? last - pos : pos;
+             mask &= mask - 1;
+         }

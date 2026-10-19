@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4144,8 +4144,7 @@
+     for (; base + 16 <= count; base += 16) {
+         __m128i block = _mm_loadu_si128((const __m128i *)(tags + base));
+         __m128i equal = _mm_cmpeq_epi8(block, target);
+-        if (tag == 1)
+-            equal = _mm_or_si128(equal, _mm_cmpeq_epi8(block, zero));
++        /* Deliberate fault: omit folded physical-zero matches. */
+         unsigned int mask = (unsigned int)_mm_movemask_epi8(equal);
+         while (mask) {
+             unsigned int pos = base + (unsigned int)__builtin_ctz(mask);

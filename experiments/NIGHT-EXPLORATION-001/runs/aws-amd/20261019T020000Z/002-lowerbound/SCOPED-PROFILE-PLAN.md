@@ -1,0 +1,5 @@
+# Scope diagnostic after rejection
+
+All three implementations failed both primary2% gates; REJECT/NONE. No new timing trial or acceptance confirmation. Initial profile3M/100K covers many full update sweeps, unlike calibrated discovery101717/100K and52593/1M (only5.26%keys updated). Initial whole-process profile is not mechanism validation for this screen.
+
+Separate diagnostic-only referee adds PR_TASK_PERF_EVENTS_ENABLE/DISABLE around the existing measured loop, with perf --delay=-1. Validate disabled control has zero hardware counts and enabled control has nonzero counts; compare semantic checksum/memory to frozen timing binary. Profile baseline and C (largest yet insufficient median signal), matched size/count/seed for both primary cases plus original3M/100K workload. One counter capture and one cycles:u997Hzsample each; small primary sampling windows yield coarse diagnostics only. No changes to timing binaries/referee. Includes timer wrapper but excludes build/warmup/validation/destruction. Source remains baseline; instrumented file never used to claim speed.

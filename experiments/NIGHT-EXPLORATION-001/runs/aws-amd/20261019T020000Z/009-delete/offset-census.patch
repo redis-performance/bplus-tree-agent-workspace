@@ -1,0 +1,33 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -312,6 +312,22 @@
+     unsigned char *owner_record;
+ } zbtBuildElement;
+ 
++static int amd_active;
++static uint64_t amd_calls,amd_compact,amd_offsets,amd_adjusted,amd_bytes,amd_zero,amd_all,amd_mixed,amd_vector,amd_tail;
++static uint64_t amd_counts[97],amd_density[97];
++void amdCensusReset(void) { amd_calls=amd_compact=amd_offsets=amd_adjusted=amd_bytes=amd_zero=amd_all=amd_mixed=amd_vector=amd_tail=0;memset(amd_counts,0,sizeof(amd_counts));memset(amd_density,0,sizeof(amd_density));amd_active=1; }
++static void amdOffsetObserve(const uint16_t *offsets,unsigned count,unsigned deleted,size_t bytes,int compact) {
++ if(!amd_active)return;amd_calls++;if(!compact)return;serverAssert(count<=96);amd_compact++;amd_counts[count]++;
++ unsigned adjusted=0;for(unsigned i=0;i<count;i++)adjusted+=offsets[i]<deleted;
++ amd_offsets+=count;amd_adjusted+=adjusted;amd_bytes+=bytes;amd_zero+=adjusted==0;amd_all+=adjusted==count;amd_mixed+=adjusted>0&&adjusted<count;amd_vector+=count/16;amd_tail+=count%16;amd_density[adjusted]++;
++}
++void amdCensusDump(void) {
++ amd_active=0;
++ fprintf(stderr,"{\"calls\":%llu,\"compact\":%llu,\"offsets\":%llu,\"adjusted\":%llu,\"deleted_bytes\":%llu,\"zero_loops\":%llu,\"all_loops\":%llu,\"mixed_loops\":%llu,\"full16_chunks\":%llu,\"tail_offsets\":%llu,\"count_histogram\":[",(unsigned long long)amd_calls,(unsigned long long)amd_compact,(unsigned long long)amd_offsets,(unsigned long long)amd_adjusted,(unsigned long long)amd_bytes,(unsigned long long)amd_zero,(unsigned long long)amd_all,(unsigned long long)amd_mixed,(unsigned long long)amd_vector,(unsigned long long)amd_tail);
++ for(unsigned i=0;i<97;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_counts[i]);fprintf(stderr,"],\"adjusted_histogram\":[");
++ for(unsigned i=0;i<97;i++)fprintf(stderr,"%s%llu",i?",":"",(unsigned long long)amd_density[i]);fprintf(stderr,"]}\n");
++}
++
+ /* ------------------------- Packed score leaves -------------------------- */
+ 
+ /* Turn an IEEE double into an unsigned integer with the same ordering. This
+@@ -2608,6 +2624,7 @@
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
++    amdOffsetObserve(offsets,count,deleted_offset,deleted_bytes,compact_records);
+     if (compact_records) {
+         for (unsigned int i = 0; i < count; i++) {
+             if (offsets[i] < deleted_offset) offsets[i] += deleted_bytes;

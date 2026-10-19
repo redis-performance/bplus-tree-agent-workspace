@@ -1,0 +1,982 @@
+[
+  {
+    "name": "base-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:29:18.216589+00:00",
+    "end": "2026-10-19T02:29:22.346935+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:22.347045+00:00",
+    "end": "2026-10-19T02:29:23.616545+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-score_boundary_oracle",
+    "command": [
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:23.616694+00:00",
+    "end": "2026-10-19T02:29:23.655626+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:23.655744+00:00",
+    "end": "2026-10-19T02:29:24.987833+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-zero_physical_oracle",
+    "command": [
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:24.988001+00:00",
+    "end": "2026-10-19T02:29:26.413395+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:26.413536+00:00",
+    "end": "2026-10-19T02:29:27.615814+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-packed_decode_oracle",
+    "command": [
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:27.615991+00:00",
+    "end": "2026-10-19T02:29:27.710867+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:29:27.711001+00:00",
+    "end": "2026-10-19T02:29:35.474904+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:35.475112+00:00",
+    "end": "2026-10-19T02:29:37.160163+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-score_boundary_oracle",
+    "command": [
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:37.160366+00:00",
+    "end": "2026-10-19T02:29:37.290655+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:37.290880+00:00",
+    "end": "2026-10-19T02:29:38.986122+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-zero_physical_oracle",
+    "command": [
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:38.986342+00:00",
+    "end": "2026-10-19T02:29:41.868053+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:41.868275+00:00",
+    "end": "2026-10-19T02:29:43.492479+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-packed_decode_oracle",
+    "command": [
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:43.492710+00:00",
+    "end": "2026-10-19T02:29:43.593175+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-builder-input/variants/A/candidate.patch"
+    ],
+    "start": "2026-10-19T02:29:43.595350+00:00",
+    "end": "2026-10-19T02:29:43.597774+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:29:43.597937+00:00",
+    "end": "2026-10-19T02:29:47.715297+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:47.715532+00:00",
+    "end": "2026-10-19T02:29:48.978931+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-score_boundary_oracle",
+    "command": [
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:29:48.979167+00:00",
+    "end": "2026-10-19T02:29:49.017475+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:49.017725+00:00",
+    "end": "2026-10-19T02:29:50.349909+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-zero_physical_oracle",
+    "command": [
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:29:50.350169+00:00",
+    "end": "2026-10-19T02:29:51.775159+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:51.775362+00:00",
+    "end": "2026-10-19T02:29:52.981313+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-packed_decode_oracle",
+    "command": [
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:29:52.981576+00:00",
+    "end": "2026-10-19T02:29:53.076926+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:29:53.077124+00:00",
+    "end": "2026-10-19T02:30:00.866360+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:00.866647+00:00",
+    "end": "2026-10-19T02:30:02.557162+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-score_boundary_oracle",
+    "command": [
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:02.557448+00:00",
+    "end": "2026-10-19T02:30:02.685879+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:02.686161+00:00",
+    "end": "2026-10-19T02:30:04.394515+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-zero_physical_oracle",
+    "command": [
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:04.394817+00:00",
+    "end": "2026-10-19T02:30:07.283481+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:07.283773+00:00",
+    "end": "2026-10-19T02:30:08.914639+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-packed_decode_oracle",
+    "command": [
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:08.914949+00:00",
+    "end": "2026-10-19T02:30:09.015231+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-builder-input/variants/B/candidate.patch"
+    ],
+    "start": "2026-10-19T02:30:09.017459+00:00",
+    "end": "2026-10-19T02:30:09.019858+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:30:09.020081+00:00",
+    "end": "2026-10-19T02:30:13.136207+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:13.136527+00:00",
+    "end": "2026-10-19T02:30:14.403462+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-score_boundary_oracle",
+    "command": [
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:14.403772+00:00",
+    "end": "2026-10-19T02:30:14.442190+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:14.442417+00:00",
+    "end": "2026-10-19T02:30:15.772081+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-zero_physical_oracle",
+    "command": [
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:15.772395+00:00",
+    "end": "2026-10-19T02:30:17.200888+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:17.201145+00:00",
+    "end": "2026-10-19T02:30:18.406850+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-packed_decode_oracle",
+    "command": [
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:18.407155+00:00",
+    "end": "2026-10-19T02:30:18.502003+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:30:18.502235+00:00",
+    "end": "2026-10-19T02:30:26.282370+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:26.282724+00:00",
+    "end": "2026-10-19T02:30:27.976696+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-score_boundary_oracle",
+    "command": [
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:27.977054+00:00",
+    "end": "2026-10-19T02:30:28.107117+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:28.107477+00:00",
+    "end": "2026-10-19T02:30:29.806589+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-zero_physical_oracle",
+    "command": [
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:29.806963+00:00",
+    "end": "2026-10-19T02:30:32.684783+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:32.685116+00:00",
+    "end": "2026-10-19T02:30:34.317032+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-packed_decode_oracle",
+    "command": [
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:34.317394+00:00",
+    "end": "2026-10-19T02:30:34.419196+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/scratch/amd-builder-input/variants/C/candidate.patch"
+    ],
+    "start": "2026-10-19T02:30:34.421479+00:00",
+    "end": "2026-10-19T02:30:34.422864+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:30:34.423125+00:00",
+    "end": "2026-10-19T02:30:38.550353+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:38.550750+00:00",
+    "end": "2026-10-19T02:30:39.815357+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-score_boundary_oracle",
+    "command": [
+      "build/native/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:39.815728+00:00",
+    "end": "2026-10-19T02:30:39.854422+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:39.854696+00:00",
+    "end": "2026-10-19T02:30:41.187289+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-zero_physical_oracle",
+    "command": [
+      "build/native/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:41.187664+00:00",
+    "end": "2026-10-19T02:30:42.614712+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:42.615026+00:00",
+    "end": "2026-10-19T02:30:43.817476+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-native-packed_decode_oracle",
+    "command": [
+      "build/native/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:43.817868+00:00",
+    "end": "2026-10-19T02:30:43.912939+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-build-test",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "all",
+      "check"
+    ],
+    "start": "2026-10-19T02:30:43.913226+00:00",
+    "end": "2026-10-19T02:30:51.681577+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-score_boundary_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/score_boundary_oracle.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:51.682007+00:00",
+    "end": "2026-10-19T02:30:53.368413+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-score_boundary_oracle",
+    "command": [
+      "build/san/score_boundary_oracle"
+    ],
+    "start": "2026-10-19T02:30:53.368812+00:00",
+    "end": "2026-10-19T02:30:53.496876+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-zero_physical_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/zero_physical_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:53.497275+00:00",
+    "end": "2026-10-19T02:30:55.198752+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-zero_physical_oracle",
+    "command": [
+      "build/san/zero_physical_oracle"
+    ],
+    "start": "2026-10-19T02:30:55.199160+00:00",
+    "end": "2026-10-19T02:30:58.099577+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-packed_decode_oracle-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/packed_decode_oracle.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:58.099972+00:00",
+    "end": "2026-10-19T02:30:59.728242+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "C-san-packed_decode_oracle",
+    "command": [
+      "build/san/packed_decode_oracle"
+    ],
+    "start": "2026-10-19T02:30:59.728652+00:00",
+    "end": "2026-10-19T02:30:59.830529+00:00",
+    "returncode": 0
+  }
+]

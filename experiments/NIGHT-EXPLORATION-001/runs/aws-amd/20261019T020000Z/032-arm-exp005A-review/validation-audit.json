@@ -1,0 +1,1348 @@
+{
+  "status": "validation_and_iterator_static_gate_pass",
+  "revision": "d99bc1077",
+  "public_hashes_verified": 1141,
+  "commands": {
+    "archive": 1,
+    "plain": 33,
+    "original43": 4,
+    "modes": 512,
+    "oracle": 12,
+    "negative": 8
+  },
+  "text_sha256": {
+    "actual": "b17746defd935a8c4d1befc2277cbd06baa92d6ac9881ac3e0ab628a96f646e3",
+    "control": "b17746defd935a8c4d1befc2277cbd06baa92d6ac9881ac3e0ab628a96f646e3",
+    "A": "ec828508190ef261f7d45fdfcfa36ed17914377a962faebaa0d903f6808fa14d"
+  },
+  "timing_binary_sha256": {
+    "baseline": "330b39a991573985c421194cfe83f21b44797e1a83372f623120672eb910b3bc",
+    "candidate": "b1cb9e4b2a1df204a75b4b4a3264364c3f0b5b46dbf475bae72c3c9a3ee5811d"
+  },
+  "assembly_public_sha256": {
+    "actual": "486b42006b108bb12920b42371d00c6c08e587777d2f5118c1ecaa9cde582b4b",
+    "control": "188c0a69547feb4bf708b02e75ba1a2ab7ad45fb9b9de476bd48bdb1d322ddf3",
+    "A": "90d268c51499a7918646bbb1fb39bdfe56139016efece3a4416c38f4a136987e"
+  },
+  "assembly_raw_sha256": {
+    "actual": "dd0c4552e40ff52254d4a5f4b5647e6905c00da46a691c796ed1998e6c361da7",
+    "control": "fe8665e5ac20ec7cbb2658b08cbe4cc965c78755eeeaf4ff4afb370ce52056eb",
+    "A": "146ca57b126c4ecc63908468d7e5efa68bf7fa0f841d303415cdcecdeff9454e"
+  },
+  "baseline_mask_instructions": [
+    {
+      "word": "9280000d",
+      "asm": "mov\tx13, #0xffffffffffffffff"
+    },
+    {
+      "word": "7101017f",
+      "asm": "cmp\tw11, #0x40"
+    },
+    {
+      "word": "9acb21ae",
+      "asm": "lsl\tx14, x13, x11"
+    },
+    {
+      "word": "da8e21ab",
+      "asm": "csinv\tx11, x13, x14, cs"
+    }
+  ],
+  "candidate_mask_instructions": [
+    {
+      "word": "4b0b03eb",
+      "asm": "neg\tw11, w11"
+    },
+    {
+      "word": "9280000d",
+      "asm": "mov\tx13, #0xffffffffffffffff"
+    },
+    {
+      "word": "9acb25ab",
+      "asm": "lsr\tx11, x13, x11"
+    }
+  ],
+  "ordinary_paths": {
+    "shift0": {
+      "baseline_count": 43,
+      "candidate_count": 42,
+      "baseline": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a528 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a550 <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5f8 <zbtreeIteratorNext+0x144>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5d4 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a574 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w11, w12"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta5b4 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0x100",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x104",
+          "asm": "cmp\tw11, #0x40"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsl\tx14, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "csinv\tx11, x13, x14, cs"
+        },
+        {
+          "offset": "0x110",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x114",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x118",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x11c",
+          "asm": "b\ta5d8 <zbtreeIteratorNext+0x124>"
+        },
+        {
+          "offset": "0x124",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x130",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x134",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x138",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x140",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x144",
+          "asm": "cbz\tw1, a608 <zbtreeIteratorNext+0x154>"
+        },
+        {
+          "offset": "0x154",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x158",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x160",
+          "asm": "b.cc\ta63c <zbtreeIteratorNext+0x188>"
+        },
+        {
+          "offset": "0x188",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x190",
+          "asm": "ret"
+        }
+      ],
+      "candidate": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a504 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a52c <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5d0 <zbtreeIteratorNext+0x140>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5ac <zbtreeIteratorNext+0x11c>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a550 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w12, w11"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta590 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0x100",
+          "asm": "neg\tw11, w11"
+        },
+        {
+          "offset": "0x104",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsr\tx11, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x110",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x114",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x118",
+          "asm": "b\ta5b0 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0x120",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x124",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x130",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x134",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x138",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x140",
+          "asm": "cbz\tw1, a5e0 <zbtreeIteratorNext+0x150>"
+        },
+        {
+          "offset": "0x150",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x154",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x158",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "b.cc\ta614 <zbtreeIteratorNext+0x184>"
+        },
+        {
+          "offset": "0x184",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x188",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "ret"
+        }
+      ]
+    },
+    "shift_nonzero_no_cross": {
+      "baseline_count": 47,
+      "candidate_count": 46,
+      "baseline": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a528 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a550 <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5f8 <zbtreeIteratorNext+0x144>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5d4 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a574 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w11, w12"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta5b4 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xe0",
+          "asm": "mov\tw15, #0x40"
+        },
+        {
+          "offset": "0xe4",
+          "asm": "sub\tw14, w15, w14"
+        },
+        {
+          "offset": "0xe8",
+          "asm": "cmp\tw14, w11"
+        },
+        {
+          "offset": "0xec",
+          "asm": "b.cs\ta5b4 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0x100",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x104",
+          "asm": "cmp\tw11, #0x40"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsl\tx14, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "csinv\tx11, x13, x14, cs"
+        },
+        {
+          "offset": "0x110",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x114",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x118",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x11c",
+          "asm": "b\ta5d8 <zbtreeIteratorNext+0x124>"
+        },
+        {
+          "offset": "0x124",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x130",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x134",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x138",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x140",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x144",
+          "asm": "cbz\tw1, a608 <zbtreeIteratorNext+0x154>"
+        },
+        {
+          "offset": "0x154",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x158",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x160",
+          "asm": "b.cc\ta63c <zbtreeIteratorNext+0x188>"
+        },
+        {
+          "offset": "0x188",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x190",
+          "asm": "ret"
+        }
+      ],
+      "candidate": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a504 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a52c <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5d0 <zbtreeIteratorNext+0x140>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5ac <zbtreeIteratorNext+0x11c>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a550 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w12, w11"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta590 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xe0",
+          "asm": "mov\tw15, #0x40"
+        },
+        {
+          "offset": "0xe4",
+          "asm": "sub\tw14, w15, w14"
+        },
+        {
+          "offset": "0xe8",
+          "asm": "cmp\tw14, w11"
+        },
+        {
+          "offset": "0xec",
+          "asm": "b.cs\ta590 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0x100",
+          "asm": "neg\tw11, w11"
+        },
+        {
+          "offset": "0x104",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsr\tx11, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x110",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x114",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x118",
+          "asm": "b\ta5b0 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0x120",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x124",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x130",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x134",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x138",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x140",
+          "asm": "cbz\tw1, a5e0 <zbtreeIteratorNext+0x150>"
+        },
+        {
+          "offset": "0x150",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x154",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x158",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "b.cc\ta614 <zbtreeIteratorNext+0x184>"
+        },
+        {
+          "offset": "0x184",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x188",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "ret"
+        }
+      ]
+    },
+    "shift_nonzero_cross": {
+      "baseline_count": 51,
+      "candidate_count": 50,
+      "baseline": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a528 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a550 <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5f8 <zbtreeIteratorNext+0x144>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5d4 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a574 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w11, w12"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta5b4 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xe0",
+          "asm": "mov\tw15, #0x40"
+        },
+        {
+          "offset": "0xe4",
+          "asm": "sub\tw14, w15, w14"
+        },
+        {
+          "offset": "0xe8",
+          "asm": "cmp\tw14, w11"
+        },
+        {
+          "offset": "0xec",
+          "asm": "b.cs\ta5b4 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xf0",
+          "asm": "add\tx13, x13, x8"
+        },
+        {
+          "offset": "0xf4",
+          "asm": "ldrb\tw13, [x13, #64]"
+        },
+        {
+          "offset": "0xf8",
+          "asm": "lsl\tx13, x13, x14"
+        },
+        {
+          "offset": "0xfc",
+          "asm": "orr\tx12, x13, x12"
+        },
+        {
+          "offset": "0x100",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x104",
+          "asm": "cmp\tw11, #0x40"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsl\tx14, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "csinv\tx11, x13, x14, cs"
+        },
+        {
+          "offset": "0x110",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x114",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x118",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x11c",
+          "asm": "b\ta5d8 <zbtreeIteratorNext+0x124>"
+        },
+        {
+          "offset": "0x124",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x130",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x134",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x138",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x140",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x144",
+          "asm": "cbz\tw1, a608 <zbtreeIteratorNext+0x154>"
+        },
+        {
+          "offset": "0x154",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x158",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x160",
+          "asm": "b.cc\ta63c <zbtreeIteratorNext+0x188>"
+        },
+        {
+          "offset": "0x188",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x190",
+          "asm": "ret"
+        }
+      ],
+      "candidate": [
+        {
+          "offset": "0x0",
+          "asm": "ldr\tx8, [x0]"
+        },
+        {
+          "offset": "0x4",
+          "asm": "cbz\tx8, a504 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "offset": "0x8",
+          "asm": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0xc",
+          "asm": "orr\tx10, x2, x3"
+        },
+        {
+          "offset": "0x10",
+          "asm": "cbz\tx10, a52c <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "offset": "0x9c",
+          "asm": "cbz\tx4, a5d0 <zbtreeIteratorNext+0x140>"
+        },
+        {
+          "offset": "0xa0",
+          "asm": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "offset": "0xa4",
+          "asm": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "offset": "0xa8",
+          "asm": "cbz\tw11, a5ac <zbtreeIteratorNext+0x11c>"
+        },
+        {
+          "offset": "0xac",
+          "asm": "mov\tw12, w9"
+        },
+        {
+          "offset": "0xb0",
+          "asm": "cbz\tw10, a550 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "offset": "0xc0",
+          "asm": "umull\tx12, w12, w11"
+        },
+        {
+          "offset": "0xc4",
+          "asm": "lsr\tx13, x12, #3"
+        },
+        {
+          "offset": "0xc8",
+          "asm": "and\tx16, x12, #0x7"
+        },
+        {
+          "offset": "0xcc",
+          "asm": "add\tx14, x8, x13"
+        },
+        {
+          "offset": "0xd0",
+          "asm": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "offset": "0xd4",
+          "asm": "ands\tw14, w12, #0x7"
+        },
+        {
+          "offset": "0xd8",
+          "asm": "lsr\tx12, x15, x16"
+        },
+        {
+          "offset": "0xdc",
+          "asm": "b.eq\ta590 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xe0",
+          "asm": "mov\tw15, #0x40"
+        },
+        {
+          "offset": "0xe4",
+          "asm": "sub\tw14, w15, w14"
+        },
+        {
+          "offset": "0xe8",
+          "asm": "cmp\tw14, w11"
+        },
+        {
+          "offset": "0xec",
+          "asm": "b.cs\ta590 <zbtreeIteratorNext+0x100>"
+        },
+        {
+          "offset": "0xf0",
+          "asm": "add\tx13, x13, x8"
+        },
+        {
+          "offset": "0xf4",
+          "asm": "ldrb\tw13, [x13, #64]"
+        },
+        {
+          "offset": "0xf8",
+          "asm": "lsl\tx13, x13, x14"
+        },
+        {
+          "offset": "0xfc",
+          "asm": "orr\tx12, x13, x12"
+        },
+        {
+          "offset": "0x100",
+          "asm": "neg\tw11, w11"
+        },
+        {
+          "offset": "0x104",
+          "asm": "mov\tx13, #0xffffffffffffffff"
+        },
+        {
+          "offset": "0x108",
+          "asm": "lsr\tx11, x13, x11"
+        },
+        {
+          "offset": "0x10c",
+          "asm": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "offset": "0x110",
+          "asm": "and\tx11, x12, x11"
+        },
+        {
+          "offset": "0x114",
+          "asm": "lsl\tx11, x11, x13"
+        },
+        {
+          "offset": "0x118",
+          "asm": "b\ta5b0 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "offset": "0x120",
+          "asm": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "offset": "0x124",
+          "asm": "cmp\tw10, #0x0"
+        },
+        {
+          "offset": "0x128",
+          "asm": "cneg\tx10, x11, ne"
+        },
+        {
+          "offset": "0x12c",
+          "asm": "add\tx10, x12, x10"
+        },
+        {
+          "offset": "0x130",
+          "asm": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "offset": "0x134",
+          "asm": "cmp\tx10, #0x0"
+        },
+        {
+          "offset": "0x138",
+          "asm": "csinv\tx10, x11, x10, lt"
+        },
+        {
+          "offset": "0x13c",
+          "asm": "str\tx10, [x4]"
+        },
+        {
+          "offset": "0x140",
+          "asm": "cbz\tw1, a5e0 <zbtreeIteratorNext+0x150>"
+        },
+        {
+          "offset": "0x150",
+          "asm": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "offset": "0x154",
+          "asm": "add\tw9, w9, #0x1"
+        },
+        {
+          "offset": "0x158",
+          "asm": "cmp\tw9, w10"
+        },
+        {
+          "offset": "0x15c",
+          "asm": "b.cc\ta614 <zbtreeIteratorNext+0x184>"
+        },
+        {
+          "offset": "0x184",
+          "asm": "str\tw9, [x0, #8]"
+        },
+        {
+          "offset": "0x188",
+          "asm": "mov\tw0, #0x1"
+        },
+        {
+          "offset": "0x18c",
+          "asm": "ret"
+        }
+      ]
+    }
+  },
+  "shared_callers": {
+    "zbtreeIteratorNext": {
+      "baseline_instructions": 114,
+      "candidate_instructions": 113,
+      "conditional_branches": 20,
+      "memory_mnemonics": {
+        "ldr": 6,
+        "ldrb": 12,
+        "ldrh": 1,
+        "ldurh": 1,
+        "str": 6,
+        "ldur": 2,
+        "stp": 1
+      },
+      "mnemonic_changes": {
+        "lsr": [
+          3,
+          4
+        ],
+        "csinv": [
+          2,
+          1
+        ],
+        "neg": [
+          0,
+          1
+        ],
+        "cmp": [
+          7,
+          6
+        ],
+        "lsl": [
+          3,
+          2
+        ]
+      }
+    },
+    "zbtreeScore": {
+      "baseline_instructions": 25,
+      "candidate_instructions": 25,
+      "conditional_branches": 6,
+      "memory_mnemonics": {
+        "ldurb": 2,
+        "ldur": 2,
+        "ldurh": 1
+      },
+      "mnemonic_changes": {}
+    },
+    "zbtreeScoreRaw": {
+      "baseline_instructions": 491,
+      "candidate_instructions": 491,
+      "conditional_branches": 87,
+      "memory_mnemonics": {
+        "stp": 9,
+        "stur": 1,
+        "ldr": 80,
+        "str": 4,
+        "ldp": 8,
+        "ldur": 2,
+        "ldrh": 22
+      },
+      "mnemonic_changes": {}
+    },
+    "zbtreeRank": {
+      "baseline_instructions": 585,
+      "candidate_instructions": 585,
+      "conditional_branches": 107,
+      "memory_mnemonics": {
+        "stp": 9,
+        "ldurb": 4,
+        "stur": 2,
+        "ldur": 9,
+        "ldurh": 2,
+        "str": 6,
+        "ldr": 88,
+        "ldrh": 22,
+        "ldp": 9,
+        "ldrb": 1
+      },
+      "mnemonic_changes": {}
+    },
+    "zbtreeFindForAdd": {
+      "baseline_instructions": 688,
+      "candidate_instructions": 688,
+      "conditional_branches": 99,
+      "memory_mnemonics": {
+        "stp": 12,
+        "ldurb": 4,
+        "stur": 6,
+        "ldur": 12,
+        "ldurh": 2,
+        "ldr": 91,
+        "str": 10,
+        "ldrh": 22,
+        "ldp": 10
+      },
+      "mnemonic_changes": {}
+    },
+    "zbtIndexScanSlot": {
+      "baseline_instructions": 509,
+      "candidate_instructions": 508,
+      "conditional_branches": 74,
+      "memory_mnemonics": {
+        "stp": 8,
+        "ldr": 28,
+        "ldrh": 5,
+        "ldrb": 24,
+        "str": 8,
+        "ldp": 7,
+        "ldur": 3,
+        "ldurh": 2
+      },
+      "mnemonic_changes": {
+        "lsr": [
+          9,
+          10
+        ],
+        "csinv": [
+          3,
+          2
+        ],
+        "neg": [
+          0,
+          1
+        ],
+        "cmp": [
+          45,
+          44
+        ],
+        "lsl": [
+          10,
+          9
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Instruction counts are not cycles or performance evidence",
+    "Memory/branch mnemonic parity is structural evidence, supplemented by explicit source/operand review",
+    "Raw .text identity attested by frozen successful driver, not reconstructed from normalized text",
+    "Separate root timing grant required; dissent NONE unchanged"
+  ]
+}

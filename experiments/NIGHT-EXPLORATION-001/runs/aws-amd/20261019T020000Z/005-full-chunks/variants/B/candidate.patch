@@ -1,0 +1,50 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -439,12 +439,16 @@
+ 
+     size_t insert_at = (size_t)pos * bits;
+     size_t remaining = (size_t)(leaf->n.count - pos) * bits;
+-    while (remaining) {
+-        unsigned int chunk = remaining > 64 ? 64 : remaining;
+-        size_t source = insert_at + remaining - chunk;
+-        uint64_t part = zbtReadBits(leaf->data, source, chunk);
+-        zbtWriteBits(leaf->data, source + bits, chunk, part);
+-        remaining -= chunk;
++    size_t full_chunks = remaining / 64;
++    for (size_t chunk = 0; chunk < full_chunks; chunk++) {
++        size_t source = insert_at + remaining - (chunk + 1) * 64;
++        uint64_t part = zbtReadBits(leaf->data, source, 64);
++        zbtWriteBits(leaf->data, source + bits, 64, part);
++    }
++    unsigned int tail = remaining % 64;
++    if (tail) {
++        uint64_t part = zbtReadBits(leaf->data, insert_at, tail);
++        zbtWriteBits(leaf->data, insert_at + bits, tail, part);
+     }
+     zbtWriteBits(leaf->data, insert_at, bits, value);
+ }
+@@ -459,13 +463,18 @@
+     size_t destination = (size_t)pos * bits;
+     size_t remaining = (size_t)(leaf->n.count - pos - 1) * bits;
+     size_t moved = 0;
+-    while (moved < remaining) {
+-        unsigned int chunk = remaining - moved > 64 ?
+-                             64 : remaining - moved;
++    size_t full_chunks = remaining / 64;
++    for (size_t chunk = 0; chunk < full_chunks; chunk++) {
+         uint64_t part = zbtReadBits(leaf->data,
+-                                    destination + bits + moved, chunk);
+-        zbtWriteBits(leaf->data, destination + moved, chunk, part);
+-        moved += chunk;
++                                    destination + bits + chunk * 64, 64);
++        zbtWriteBits(leaf->data, destination + chunk * 64, 64, part);
++    }
++    moved = full_chunks * 64;
++    unsigned int tail = remaining % 64;
++    if (tail) {
++        uint64_t part = zbtReadBits(leaf->data,
++                                    destination + bits + moved, tail);
++        zbtWriteBits(leaf->data, destination + moved, tail, part);
+     }
+     zbtWriteBits(leaf->data, (size_t)(leaf->n.count - 1) * bits,
+                  bits, 0);

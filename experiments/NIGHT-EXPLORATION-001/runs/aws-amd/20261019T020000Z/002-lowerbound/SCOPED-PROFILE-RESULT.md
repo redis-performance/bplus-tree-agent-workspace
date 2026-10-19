@@ -1,0 +1,9 @@
+# Scoped diagnostic — rejection unchanged
+
+Attempt001 PR_TASK enable control failed: both conditions produced not-counted events. No mechanism claim from it. Attempt002 perf FIFO enables counters but strict four-byte acknowledgement reader aborted at disable; original logs retained and this attempt excluded. Attempt003 accepts a leading NUL terminator between acknowledgement lines; disabled/nonzero control and matching semantic outputs PASS. This is a functional diagnostic correction, not timing repetition.
+
+Perf starts disabled; diagnostic referee sends enable/disable with acknowledgement around existing timed loop. Count scope includes command-ack/timer edges, excludes construction/warmup/final validation. Referee hashes and raw logs retained. Frozen candidate timing binaries unchanged. Six matched counter captures and six sampled captures, baseline/C at100K101717ops,1M52593ops and original100K3Mops,seed1. Short primary samples have only around50events; percentages are coarse, no repeated-sample estimate.
+
+C executes fewer instructions in these single captures (about2.2–2.5%) but more branch misses (about6.5–8%). That is compatible with less metadata work yet no qualifying elapsed-time gain, not a causal decomposition. Original3M-scoped baseline lowerbound11.88%, leafbuild12.89%, insertAt23.27%. Leafbuild includes7.73%score writes and3.05%encoding, of which1.56%is request-size recomputation. Narrower screening profile differs and is sampling-limited.
+
+Assembly corroborates metadata access movement: baseline lowerbound offset/header loads at a81d/a825 precede score comparison; C score comparisons at a887/a891 precede offset/length path a8a0+. C smaller code and lower instruction count do not overturn failed frozen primary gates. No new candidate timing or confirmation. Source NONE, population REJECT.
