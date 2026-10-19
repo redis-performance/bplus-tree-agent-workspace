@@ -21,6 +21,11 @@ The [baseline geometry census](007-profile/) is a new baseline-only diagnosis.
 It does not select a new optimization or establish cache misses. Detailed sealed
 report is pending. Baseline src/header/referees remain unchanged.
 
+007geometry diagnosis is sealed;008proposal-only review endedNONE with three
+independent proposals. No score-load bottleneck is established.009nowprepares
+a local baseline iterator profile to assess published Intel/ARM cache leads.
+No architecture replication or new candidate is selected yet.
+
 Totals12completedpopulations(9sequential+3multi-agent),0accepted/7rejected/5parked,
 36retainedpatches/15validatedharnesses. M1 night and concurrent AWS populations
 are separate. [Shared live scoreboard](STATUS.md). [Measured supervisor usage](USAGE.json)

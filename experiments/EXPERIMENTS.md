@@ -940,3 +940,14 @@ independent arithmetic audit pending. Source unchanged, all three patches retain
 Totals12 populations(9 sequential+3 actual multi-agent),0 accepted/7 rejected/5 parked,
 36 patches/15 harnesses; M1 night separate. No repeated schedules. Root owns next
 baseline-only geometry diagnosis; no new hypothesis selected.
+
+## 2026-10-19 — M6 geometry diagnosis and proposal-only NONE
+
+[007 census](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/007-profile/RESULTS.md)
+passes41commands with decoder unchanged; it shows address geometry, not cache misses
+or speed. [008chair](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/008-review/selection.md)
+agrees with three actual independentNONEproposals: no paid score-load bottleneck
+is established. No implementations/timings/adoption. Add one proposal-only review;
+completed candidate counts stay12populations/36patches/15harnesses and0/7/5.
+Next inspect published cross-architecture leads and profile locally before choosing
+any M6 replication; no architecture timing is pooled.

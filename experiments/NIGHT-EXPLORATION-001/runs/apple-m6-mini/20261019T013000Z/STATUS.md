@@ -1,6 +1,6 @@
 # M6 live scoreboard
 
-Updated 2026-10-19T03:36:36.711231+00:00. Active driver: interactive root. Campaign ends08:00UTC/09:00Lisbon; experimental cutoff07:15UTC.
+Previous scoreboard updated 2026-10-19T03:36:36.711231+00:00. Active driver: interactive root. Campaign ends08:00UTC/09:00Lisbon; experimental cutoff07:15UTC.
 
 | Target | Decision | M1 action |
 |---|---|---|
@@ -10,7 +10,9 @@ Updated 2026-10-19T03:36:36.711231+00:00. Active driver: interactive root. Campa
 | LOOKUP-001 physical decode | REJECT/NONE |100K-only exploratory lead|
 | DECODE-001 count-one policy | REJECT/NONE | Private count-one lead; universal guards fail|
 | [LOOKUP-CALLER-001](006-followup/RESULTS.md) | REJECT/NONE | A100K−2.712%lead; no dual-primary winner|
-| [Geometry diagnosis](007-profile/) | BASELINE-ONLY IN PROGRESS | No new optimization proposal/decision|
+| [Geometry diagnosis](007-profile/RESULTS.md) | COMPLETE | Geometry only; no cache/speed claim|
+| [Proposal-only follow-up](008-review/selection.md) | NONE | Three independent proposals find insufficient causal evidence|
+| [Iterator baseline profile](009-iterator-profile/) | PREPARING | Separate architecture diagnosis; no replication selected|
 
 Caller follow-up: three actual independent proposals plus three isolated implementations.
 Full baseline101-cellAA complete2424rows;39qualify,62noisy,0short.100Kprimary qualifies,
