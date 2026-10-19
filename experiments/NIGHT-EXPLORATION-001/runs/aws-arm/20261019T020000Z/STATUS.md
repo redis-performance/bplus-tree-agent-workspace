@@ -23,3 +23,7 @@ completedwork; ACTIVITY preserveschronology. Keep the ARM runner idle and remain
 ## 2026-10-19T04:33:41.519731+00:00 — Exact B correctness and distinct adapter baseline
 
 012 exact Intel-selectedB passed native ARM43 tests+V2 oracle in release and ASan/UBSan, no timing. 013 independent corrected-adapter baseline running under1800s lease after B job completion; detached13e459ff8, original1Mops/16bytes/5sizes×8ops/sixABBA,1200s timing budget. Original8fab builds unchanged. No optimization decision/count change.
+
+## 2026-10-19T04:41:27.685766+00:00 — Corrected adapter baseline complete
+
+013 passed120processes/960rows/40cells;21 qualify at±1%/10ms.11short/15precision failures overlap. Exact13e459ff8 detached source/livehashes and binary unchanged. Same-binary baseline only; no old/new speedup or repair of original8fab controls. Root queued new014 corrected SCAN profile and015 fresh401–403 A/A, both preregistered before data; no candidate/proposal yet.
