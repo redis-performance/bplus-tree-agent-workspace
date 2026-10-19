@@ -1,5 +1,24 @@
 # AWS measured decisions — 19 October 2026
 
+Current completed AWS count: **6 populations — 0 accepted, 4 rejected, 2 parked**.
+All losing patches and per-run evidence are retained. No source has been adopted.
+These counts exclude unmeasured diagnoses and do not combine Apple results.
+
+| Host | Hypothesis | Decision | Main reason |
+|---|---|---|---|
+| AMD | Lazy lower-bound member metadata | REJECT | Missed the dual-primary speed gate |
+| Intel | First-match SSE2 lookup | REJECT | Every primary block was slower |
+| AMD | Fixed metadata while building leaves | REJECT | Every primary block was slower |
+| ARM | Count-one private decoder fallback | PARK | Failed precision controls and guard concerns; candidate code identical |
+| AMD | Separate full packed-move chunks | REJECT | No primary block reached 2% improvement |
+| Intel | Lazy iterator offset-array cache | PARK | Conditional A/B leads; noisy control and incomplete fixed schedule |
+
+Active work: ARM is independently testing the exact iterator A/B patches; AMD is
+preparing an exploratory all-match scan comparison after three separately authored
+proposals and a [chair decision](reviews/aws-amd-scan-population/selection.md).
+Failed controls cannot be overridden by favorable candidate timings. See the
+[live dashboard](AWS-WORKERS.md) for current revisions and phases.
+
 
 ## 19 October — AWS AMD LOWERBOUND-001: REJECT / NONE
 

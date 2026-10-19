@@ -12,9 +12,9 @@ scratch and the private fleet inventory, never public evidence.
 
 | Host | Actual CPU | Compiler | Affinity | Baseline | Optimization |
 |---|---|---|---|---|---|
-| AWS Intel | Xeon Platinum 8488C, Sapphire Rapids | Clang 18.1.3 | CPU 2; SMT sibling 50 | Complete | Native profiling active |
-| AWS AMD | EPYC 9R45, Zen 5 | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | Native profiling active |
-| AWS ARM | Neoverse V2, Graviton | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | Native profiling active |
+| AWS Intel | Xeon Platinum 8488C, Sapphire Rapids | Clang 18.1.3 | CPU 2; SMT sibling 50 | Complete | See live dashboard |
+| AWS AMD | EPYC 9R45, Zen 5 | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | See live dashboard |
+| AWS ARM | Neoverse V2, Graviton | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | See live dashboard |
 
 Baseline source/referee commit: `8fab511e` (only Linux affinity metadata differs
 from `9c192c9c`; target source unchanged). Each host runs 100/1K/10K/100K/1M members,
@@ -28,13 +28,13 @@ host, seven validation stages each. Intel338.54s, AMD325.44s, ARM377.83s timing.
 Cells with >1% A/A variation:Intel27/40, AMD30/40, ARM19/40;11short-window cells
 on every AWS host. These are coverage baselines, not blanket precision qualification.
 The [baseline chart](baseline-charts/m1-m6-baseline.png) now includes all five hosts.
-Next: profile locally on each host,
-and apply [population gates](../../docs/POPULATION.md). The exact shorter-side rank
+Profile-led work applies the [population gates](../../docs/POPULATION.md); completed
+results are in the [decision ledger](AWS-DECISIONS.md). The exact shorter-side rank
 candidates rejected on both Apple hosts are skipped; lookup/update/decoder work
 requires fresh AWS profile evidence. No speed claim or candidate acceptance yet.
 
-[Activity log](AWS-ACTIVITY.md). [Worker contract](AWS-WORKER.md). Workers use existing Codex CLI configuration,
-with no permission changes. Actual backend/model and measured usage are retained
+[Activity log](AWS-ACTIVITY.md). [Worker contract](AWS-WORKER.md). Native workers use
+the already authorized session tools, with no permission changes. Actual backend/model and measured usage are retained
 when available; no invented agent identities or costs.
 
 
