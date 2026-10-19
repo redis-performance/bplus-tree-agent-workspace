@@ -61,3 +61,5 @@
 - 2026-10-19T04:31:48.046548+00:00: Independent Intel original-guard audit complete da9b83734:240totalprocesses/1920rows,56qualifiedBguardpasses,one mixed100/16iterate boundfailure,23unqualified controls; no qualified all3 regression. Final22artifacthashes/job provenance pass; PARK/NONE. Separate corrected-adapter AMD baseline now running under1800s lease cap from60afe849b, no original-source changes.
 
 - 2026-10-19T04:33:53.429338+00:00: Corrected-adapter AMD baseline exact13e459ff8 passed all7native/sanitizer validation stages and entered fixed120-process timing matrix. Independent audit/chart scripts prepared for distinct baseline identity; no old/new speed claim or retry. Intel original-guard review72553e841 complete; sourceNONE.
+
+- 2026-10-19T04:39:02.477458+00:00: Corrected-adapter AMD baseline complete:7validationstagesPASS,120processes/960rows/240effects;11of40qualified,11short+18othernoisy retained without retries. Separate13e459ff8 chart/manifest published; originalHEAD/source unchanged. Intel matched-profile independent review5bffe4d28 complete with coarse100K/stronger1M directional attribution. AMD host idle; sourceNONE.

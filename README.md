@@ -207,3 +207,5 @@ SCAN-TAGS-001 PARK/NONE:144processes/36effects. A−5.255%/−4.360% and B−4.2
 ## AWS AMD delete diagnostic — 19 October 2026
 
 Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/009-delete/DECISION.md`.
+
+AWS AMD corrected-adapter baseline13e459ff8 completed separately: [result and chart](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/015-adapter-requalification/RESULT.md),11/40A/A-qualifiedcells. Original candidate comparisons remain on8fab; no old/new speed claim or source adoption.
