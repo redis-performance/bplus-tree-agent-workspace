@@ -51,3 +51,5 @@
 - 2026-10-19T03:58:08.138990+00:00: Independent ARM proposal 675346e5e sealed without peer reads: bounded native 16-byte exact matching, pending root chair and ARM controls. Intel B/referee review published 9b6e529b5; adoption remains PARK. AMD host idle; no Intel runner access or held-out seed use.
 
 - 2026-10-19T04:05:46.958238+00:00: Root explicitly granted idle Intel runner after independent idle proof at04:05:08UTC. Frozen5c29cb07f held-out primary AA now running under existing CPU2 lease/300s cap; B confirmation gated on full control qualification. AMD host remains idle; no rebuild or extra workload.
+
+- 2026-10-19T04:09:34.678573+00:00: Independent Intel B held-out primary confirmation PASS:96 total processes including48 qualified AA and48 comparison; all12 comparisonblocks improve>=2%, medians−6.783%100K/−3.656%1M. Runner explicitly returned idle04:08:54UTC. Source NONE; remaining guards/profile separate. AMD totals unchanged4populations:0accepted,3rejected,1parked.

@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Root explicitly granted idle Intel runner after independent idle proof at04:05:08UTC. Frozen5c29cb07f held-out primary AA now running under existing CPU2 lease/300s cap; B confirmation gated on full control qualification. AMD host remains idle; no rebuild or extra workload.
+Independent Intel B held-out primary confirmation PASS:96 total processes including48 qualified AA and48 comparison; all12 comparisonblocks improve>=2%, medians−6.783%100K/−3.656%1M. Runner explicitly returned idle04:08:54UTC. Source NONE; remaining guards/profile separate. AMD totals unchanged4populations:0accepted,3rejected,1parked.
 
-Source NONE. AMD totals remain4 populations:0accepted,3rejected,1parked.
+Evidence012-intel-confirmation/RESULT.md. Deadline08:00UTC; no new experiments after07:15UTC.
