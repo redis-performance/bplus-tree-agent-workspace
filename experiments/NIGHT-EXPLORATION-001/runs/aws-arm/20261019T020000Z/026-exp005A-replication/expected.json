@@ -1,0 +1,70 @@
+{
+  "commit": "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+  "source_hashes": {
+    "Makefile": "1a17cbc867957aaa4a01bffa5721de7ae5f74d184b27c2affd1acb8461bc5f79",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3",
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "tests/upstream.c": "2ef41dd2918296e3a788f3ee9b20f6e97a12c14d2d7950f7ad9c221bb9d711d6"
+  },
+  "scope_sha256": "86ef544dd7612f35bf9853ad3eb1d871ccd3c0868941e3952aaaa40d04b94dfe",
+  "aa_binary_sha256": "330b39a991573985c421194cfe83f21b44797e1a83372f623120672eb910b3bc",
+  "protected_binaries": {
+    "scratch/adapter-worktree-13e459ff8/build/adapter-requalification/btree-bench": "330b39a991573985c421194cfe83f21b44797e1a83372f623120672eb910b3bc",
+    "scratch/arm-corrected-scan/base/build/btree-bench": "869425ed06643058e561df05177d1b85c42c9f662c5a80654c25caca02349055",
+    "scratch/arm-corrected-neon/A/build/btree-bench": "214a0e7756bf42270da97cbe5ac1d23be70bdc1ea717ca43a623e07bad6d95cd",
+    "scratch/arm-corrected-neon/B/build/btree-bench": "1e58419358c1187f3fdfe99ddce3d9fa6e857f3f52ae43f61efc1b515233af0d",
+    "scratch/arm-corrected-neon/C/build/btree-bench": "1cc97c6fdcd3e99600ed8abecd21205030457fe34bab30664acfff3ac0a4401c"
+  },
+  "candidate_patch_sha256": "ca14579cbf4325816d5511697cb0bec5ab0e618ef661830acbc4bfe72a5cc88f",
+  "candidate_source_sha256": "aa834a771284bed367400a8f54538cd366b2791666d9711a8e160aaa93f62fc4",
+  "oracles": {
+    "packed_decode_oracle.c": "a8314b68fc829742315a6499c6bf1f8bd16be2019dbf3f47d279e628692dd99f",
+    "iterator_mutation_oracle.c": "60d8fd8a336ef45bee6c522c79299ebd027a4ad319a81b881a29120e27c9c8ae",
+    "zero_physical_oracle.c": "f97a4733a039512114526c34036d203a8d0de4b62703cffcb8ebe9c2310b7b4a",
+    "iterator_modes.c": "854997a746fc6dbb0697252248ab2c791096fced3a0a85a0d1eb3b0c4510dab5"
+  },
+  "faults": {
+    "missing-ninth-byte": {
+      "patch": "44d820e1db53a56a1da95c352d62bd86253e808f07e98a0a0e46033bc12b19a3",
+      "oracle": "packed_decode_oracle.c",
+      "needles": [
+        "actual=",
+        "expected="
+      ],
+      "match": "all"
+    },
+    "width64-mask": {
+      "patch": "2ea7862bf52f6910736f7cff3fd26530537b48794adf6c6e71c1f81ffc17dccb",
+      "oracle": "packed_decode_oracle.c",
+      "needles": [
+        "actual=",
+        "expected="
+      ],
+      "match": "all"
+    },
+    "last-zero-base": {
+      "patch": "015f524c5cbe0e31257d8cfa27fa8aa661591f55df65cadae2e23f1fda63c9ab",
+      "oracle": "zero_physical_oracle.c",
+      "needles": [
+        "exact-score",
+        "zbtScoreToOrdered(zbtScoreLeafScore(leaf, i))"
+      ],
+      "match": "any"
+    },
+    "equal-zero-update": {
+      "patch": "07e6d8735669a7f8fb6b2ad799ca76045efc535a142cca2f1482652794441dbc",
+      "oracle": "zero_physical_oracle.c",
+      "needles": [
+        "exact-score",
+        "zbtScoreToOrdered(zbtScoreLeafScore(leaf, i))"
+      ],
+      "match": "any"
+    }
+  }
+}
