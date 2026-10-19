@@ -29,6 +29,21 @@ assert dt(s['finished_utc'])<dt(s['deadline'])
 assert claimed['result_sha256']==sha(files[a.phase+'/result.json'])
 assert len(claimed['raw_files_sha256'])==288
 for n,h in claimed['raw_files_sha256'].items():assert sha(files[a.phase+'/'+n])==h
+seal=j(a.phase+'-evidence-seal.json')['files']
+for n,h in seal.items():assert sha(files[n])==h,n
+publication=j(a.phase+'/PUBLICATION.json')
+for n,v in publication.items():assert sha(files[a.phase+'/'+n])==v['public_sha256'],n
+post=j(a.phase+'-postcheck.json');preflight=j(a.phase+'-preflight.json')
+assert not post['owned_units'] and not post['owned_cgroup_pids']
+assert post['identities']==preflight['identities']==s['identities_before']
+assert post['lease_sha256']==preflight['lease_sha256']==s['lease_sha256']
+assert post['native_freeze_sha256']==preflight['native_freeze_sha256']==s['freeze_sha256']
+assert post['frozen_inputs']==preflight['frozen_inputs']==freeze['files']
+assert dt(preflight['checked_utc'])<dt(s['started_utc'])<dt(s['finished_utc'])<dt(post['checked_utc'])
+assert preflight['remaining_seconds']>=620 and preflight['release_timer_active']=='active'
+assert preflight['coordinator_status']['returncode']==3 and 'STOPPED' in preflight['coordinator_status']['stdout']
+assert preflight['coordinator_pid']['returncode']==7 and preflight['coordinator_pid']['stdout']=='0'
+assert preflight['containers']==dict(returncode=0,stdout='',stderr='')
 refs={};aa=None
 if a.phase=='native-comparison':
  aa=j('native-AA/audit.json');ar=j('native-AA/result.json')
@@ -74,5 +89,5 @@ for cell in cells:
  qualification[cell]=qualified;cc=next(x for x in claimed['cells'] if x['id']==cell)
  assert cc['qualified']==qualified
  for e,b in zip(own,cc['blocks']):assert e['block']==b['block'] and D(e['effect_pct'])==D(b['effect_pct']) and e['minimum_window_ns']==b['minimum_window_ns']
-report=dict(audit_status='PASS',revision=a.revision,phase=a.phase,reviewed_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),processes=144,blocks=36,elapsed_seconds=s['elapsed_seconds'],qualified_cells=qualification,effects=effects,source_selection='NONE',prior_candidate_decision='REJECT',scope='Independent raw reconstruction; H4 fixture oracle independently reviewed separately. No causal or acceptance claim.')
+report=dict(audit_status='PASS',revision=a.revision,phase=a.phase,reviewed_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),processes=144,blocks=36,elapsed_seconds=s['elapsed_seconds'],qualified_cells=qualification,effects=effects,source_selection='NONE',prior_candidate_decision='REJECT',sealed_files=len(seal),post_identity_idle_checked_at=post['checked_utc'],scope='Independent raw reconstruction; H4 fixture oracle independently reviewed separately. No causal or acceptance claim.')
 a.out.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:report[k] for k in ['audit_status','phase','processes','qualified_cells']}))

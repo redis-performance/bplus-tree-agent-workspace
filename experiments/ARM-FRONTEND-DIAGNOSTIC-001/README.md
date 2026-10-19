@@ -36,7 +36,7 @@ same-session measurement schedule. Cross-frontend comparisons are descriptive;
 no single-factor causal claim follows from these confounded programs. New fixture
 or caller crossover experiments would require a separate preregistration.
 
-## Proposed bounded execution
+## Preregistered bounded execution
 
 Exact baseline: `13e459ff8800be3f02b6b45c87dd7b0c39453fa9`.
 Exact rejected patch SHA-256:
@@ -57,8 +57,9 @@ The original referee, target source and historical artifacts remain unchanged.
   timing binary; primary maps cannot qualify guard code. Unknown frames, losses,
   warnings, changed callers and raw per-run data are retained.
 
-This is a plan, not an execution freeze or grant. The executable protocol receives
-independent review before a fresh bounded ARM reservation. Each phase requires
+Native execution freeze fa190bd9b passed independent Intel5fa4ec90c and AMD130d5c904
+review before its baseline-only grant. The profile executable is still in preparation
+and requires separate review and grant. Each phase requires
 fresh exclusivity/identity checks and its entire cap plus margin before the lease
 ends. No automatic retry, row removal, threshold change, alternate candidate or
 extension based on results. A completed diagnostic can end with NONE for a new
@@ -88,5 +89,6 @@ census and source-linked caller maps are required for stronger attribution.
 
 The new release auditor uses a distinct `bplus-front-20261019` namespace. It checks
 fresh release markers, matching saved/live coordinator PIDs, inactive owned slice,
-zero recursive owned processes and inspection errors. It is prepared locally only;
-a timer and scheduled local audit will be armed only with the new reviewed lease.
+zero recursive owned processes and inspection errors. The reviewed attempt2 timer is armed11:45UTC, with a separate read-only audit
+scheduled11:45:10UTC. The first acquisition failure and verified automatic restoration
+are retained in [the activity log](ACTIVITY.md).

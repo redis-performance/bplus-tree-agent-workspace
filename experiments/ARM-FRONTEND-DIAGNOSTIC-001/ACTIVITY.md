@@ -19,3 +19,11 @@ Corrected attempt2 uses a separate lease directory/release unit, precise status 
 ## 2026-10-19T10:55:39.392660+00:00 — Fresh lease acquired; baseline-only grant
 
 AMD7c1598c0d clears corrected operations. Attempt2 acquisition succeeds with coordinatorSTOPPED, no containers, exact deployed helper, independent11:45UTC timer armed before stop. Read-only final auditor scheduled11:45:10UTC. Root grants only native-AA144/600s using reviewed fa190bd9b freeze and exact rendered launcher/config/lease hashes. Comparison/profile remain ungranted. All prior failed preparation/acquisition evidence retained.
+
+## 2026-10-19T11:02:29.673339+00:00 — Native controls independently reconstructed
+
+Operator70103fb6a completes144 baseline-only rows/36blocks in91.589s (helper91.723s). Root reconstruction verifies every row, exact fixture/source/binary/memory joins and all297 sealed files; six of six cells qualify. Separatepostcheck11:00:32UTC confirms exact identity and zero owned jobs/processes. Root supplemental seal inspection first assumed a flat mapping; actual publication uses a files envelope. Only metadata traversal was corrected; unchanged raw arithmetic passed before and after. Intel independently confirms all144rows,6/6qualification, minimum62.676ms/maxabsolute0.844004%; immutable review pin pending. No comparison/profile launched.
+
+## 2026-10-19T11:04:04.184399+00:00 — Exact native comparison granted
+
+Intelcb6bb2a43 independently clears all144 baseline rows/36blocks and six qualified cells. Root grants only the frozen144 baseline/A comparison with600s cap, new preflight and exact rawAA/fixture/source/lease joins. Prior candidate REJECT/sourceNONE remains unchanged; profile is still ungranted.
