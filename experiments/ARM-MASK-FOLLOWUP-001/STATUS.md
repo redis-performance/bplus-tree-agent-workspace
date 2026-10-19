@@ -1,11 +1,11 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; original correctness preparation FAILED.** The injected sign fault
-was caught at an earlier exact-score assertion than the registered diagnostic expected.
-2,048 normal iterator checks passed; six commands never started. Root and independent
-AMD review verify the immutable failed prefix. A separately frozen six-command
-continuation is now granted once under 180s (`39d84533f`, review `7dbeae849`); no timing authorized. ARM coordinator remains stopped,
-with restoration armed for 10:15 UTC / 11:15 Lisbon.
+**ACTIVE lease; six-command correctness suffix completed.** Original preparation
+remains FAILED on diagnostic registration; the separately granted six unstarted
+commands passed at08:46UTC, with all evidence/source/binary identities unchanged.
+Root raw audit passes; independent composite closure and timing review are pending.
+No performance benchmark launched. ARM coordinator remains stopped, with restoration
+armed for10:15UTC /11:15Lisbon.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 
