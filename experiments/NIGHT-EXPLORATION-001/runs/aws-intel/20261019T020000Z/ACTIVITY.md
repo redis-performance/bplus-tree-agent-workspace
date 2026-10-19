@@ -116,3 +116,5 @@
 2026-10-19T06:59:57.580792+00:00 Adversarial reporting auditfd4b5d2cb: one material README213–223 staleoverallPARK contradiction; root notified. Counts8(0/5/3),24patchrecords(21public/3private),160correctedchartcells/sourceparity/roundedtables verify. Read-only metadata/context checks, no benchmarks/tests/builds/runner; prior Intel authorship disclosed. Release remains pending.
 
 2026-10-19T07:21:27.021454+00:00 Independent ARM exacthistoricalA raw audit6bcd8e575 PASS:48rows/12blocks all>=2%, medians−7.766545%/−7.101923%;PARK missingguards/confirmation/profile. Exactfreeze/seals/schedule/serialCPU2/identity/semantics verified; readonlyauditor raw/publichashjoin correction preserved. READMEIntelREJECTfix03445990a verified. No newrunnerwork; releasepending08UTC.
+
+2026-10-19T07:32:46.453141+00:00 Reporting-only ARM chart review a51d1a0ac: all12 primary effects and12 AA effects,48 baseline raw rows,61 immutableinputs andrenderer/artifacthashes verify. PARK/sourceNONE and8populationcounts remain correctly scoped. Known570validation-versus-correctness wording correction pending; no other materialfinding. No workload; releasepending08UTC.
