@@ -1,0 +1,168 @@
+[
+  {
+    "name": "h5-zero-sign-san-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/iterator_modes_v5.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/modes5"
+    ],
+    "cwd": "<job>/fault-h5-zero-sign",
+    "kind": "plain",
+    "original_command_number": 2119
+  },
+  {
+    "name": "h5-zero-sign-san-detect",
+    "command": [
+      "build/san/modes5",
+      "--size",
+      "513",
+      "--ops",
+      "1027",
+      "--mask",
+      "4",
+      "--direction",
+      "forward",
+      "--encoding",
+      "alternating-zero",
+      "--construction",
+      "descending",
+      "--seed",
+      "1502"
+    ],
+    "cwd": "<job>/fault-h5-zero-sign",
+    "kind": "negative",
+    "needles": [
+      "score_bits(score) == score_bits(model_score(i,n,encoding))",
+      "score_bits(nextscore)==score_bits(model_score(nexti,n,encoding))"
+    ],
+    "match": "any",
+    "original_command_number": 2120,
+    "prior_needles": [
+      "score_bits(score) == score_bits(model_score(i,n,encoding))"
+    ]
+  },
+  {
+    "name": "h5-state-native-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "bench/iterator_modes_v5.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/modes5"
+    ],
+    "cwd": "<job>/fault-h5-state",
+    "kind": "plain",
+    "original_command_number": 2121
+  },
+  {
+    "name": "h5-state-native-detect",
+    "command": [
+      "build/native/modes5",
+      "--size",
+      "513",
+      "--ops",
+      "1027",
+      "--mask",
+      "0",
+      "--direction",
+      "reverse",
+      "--encoding",
+      "alternating-zero",
+      "--construction",
+      "descending",
+      "--seed",
+      "1502"
+    ],
+    "cwd": "<job>/fault-h5-state",
+    "kind": "negative",
+    "needles": [
+      "nextlen==sdslen(keys[nexti]) && !memcmp(next,keys[nexti],nextlen)",
+      "score_bits(nextscore)==score_bits(model_score(nexti,n,encoding))"
+    ],
+    "match": "any",
+    "original_command_number": 2122
+  },
+  {
+    "name": "h5-state-san-build",
+    "command": [
+      "clang",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/iterator_modes_v5.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/modes5"
+    ],
+    "cwd": "<job>/fault-h5-state",
+    "kind": "plain",
+    "original_command_number": 2123
+  },
+  {
+    "name": "h5-state-san-detect",
+    "command": [
+      "build/san/modes5",
+      "--size",
+      "513",
+      "--ops",
+      "1027",
+      "--mask",
+      "0",
+      "--direction",
+      "reverse",
+      "--encoding",
+      "alternating-zero",
+      "--construction",
+      "descending",
+      "--seed",
+      "1502"
+    ],
+    "cwd": "<job>/fault-h5-state",
+    "kind": "negative",
+    "needles": [
+      "nextlen==sdslen(keys[nexti]) && !memcmp(next,keys[nexti],nextlen)",
+      "score_bits(nextscore)==score_bits(model_score(nexti,n,encoding))"
+    ],
+    "match": "any",
+    "original_command_number": 2124
+  }
+]
