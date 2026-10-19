@@ -1,6 +1,6 @@
 # Intel overnight experiment ledger
 
-No candidate has been adopted. The corrected-source profile and controls passed independent review. The Intel runner is idle while the coordinator reviews the exact-B guard-first execution scripts.
+No candidate has been adopted. The corrected-source profile and controls passed independent review. The coordinator approved the exact-B guard-first execution scripts. Correctness and binary-identity preparation is now running; primary candidate timing remains unauthorized.
 
 The two local measured populations produced **0 acceptances, 1 rejection and 1 parked result**; all six implementation patches remain available. The separately counted AMD-to-Intel SCAN architecture replication is **rejected**. The coordinator maintains the campaign-wide counts across machines.
 

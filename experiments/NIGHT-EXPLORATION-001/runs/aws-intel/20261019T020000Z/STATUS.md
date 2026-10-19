@@ -51,3 +51,5 @@
 2026-10-19T05:49:58.837123+00:00 Prepared corrected-source exact B replication plan017 for root review only. Correctness precedes fresh trim319/signed-zero guard calibration and24-row AA/B gates; any failed/noisy guard blocks primary timing. No candidate source/build or runner workload created. Exact old B patch retained, no A fallback. ARM fold-predicate chair selected NONE; own independent proposal remains sealed.
 
 2026-10-19T05:56:30.481052+00:00 Corrected exact-B guard-first execution drivers and all source/referee/model bindings sealed locally for final root code review. Plan a8d051d0b, patch, seeds701–703 and600/60/120/120 budgets unchanged. No primary candidate runner supplied, no source snapshot/build/job created; runner remains idle.
+
+2026-10-19T06:00:51.687621+00:00 Root independently reviewed all26 execution hashes and granted frozen017 preparation600s/calibration60s/AA120s/conditional B120s. Correctness/text-identity preparation is now the sole Intel workload. Each failed/noisy gate stops advancement; no retries, source/count changes or primary candidate timing.
