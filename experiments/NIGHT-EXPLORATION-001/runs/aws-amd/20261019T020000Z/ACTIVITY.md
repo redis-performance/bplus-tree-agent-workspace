@@ -31,3 +31,5 @@
 - 2026-10-19T03:07:50.215763+00:00: independent AMD proposal518814bc1 submitted without peer reads. Scan AA48processes:100Kqualifies,1Mfails fixedprecisiongate; no retry. Rootchairpending. Added narrow all-match guard-page/count0/output-canary/exact-order oracle, baseline qualification next.
 
 - 2026-10-19T03:17:32.458905+00:00: root chair0695cf415 selected exact16-byte SSE2 all-match; independent AMD A submitted d76d63b79. Root initial static review finds no blocker. Extended baseline oracle passes299664checks native/sanitizer, with1680 misaligned vector/boundary cases. Corrected guard rationale for selected mechanism without changing fixtures/gates. Awaiting peer implementations and root all-three review; no candidate timing.
+
+- 2026-10-19T03:21:15.051577+00:00: root all-three static review e47157087 clear. Imported immutable Intel B89dc8721f and ARM Cd1921d793; artifacts/scripts published26a1fe78b. Serial AMD validation started CPU2/1200secondcap, original43 plus exact all-match V2 and unchanged scan/wide/live-widen/resize suites. Portable selectors are source-local per author, correctness only.
