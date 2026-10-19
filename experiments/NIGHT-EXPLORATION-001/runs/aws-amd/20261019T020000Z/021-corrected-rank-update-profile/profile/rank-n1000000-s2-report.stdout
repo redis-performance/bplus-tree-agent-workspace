@@ -1,0 +1,240 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cycles:u'
+# Event count (approx.): 8281739324
+#
+# Overhead  Symbol                      IPC   [IPC Coverage]
+# ........  ..........................  ....................
+#
+    37.18%  [.] zbtreeRank              -      -
+            |
+            |--12.98%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--11.39%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--8.81%--sdsType (inlined)
+            |          sdslen (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--1.75%--zbtScoreRank (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.64%--zbtIndexGetId (inlined)
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeRank
+                       main
+                       0x7b005d22a1ca
+                       __libc_start_main
+                       _start
+
+    31.32%  [.] zbtreeRank              -      -
+            |
+            |--10.59%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--9.15%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--7.33%--sdsType (inlined)
+            |          sdslen (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--2.03%--zbtScoreRank (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.89%--zbtIndexGetId (inlined)
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeRank
+                       main
+                       0x7b005d22a1ca
+                       __libc_start_main
+                       _start
+
+     9.74%  [.] zbtScoreLeafFindMember  -      -
+            |
+            |--8.81%--zbtScoreLeafFindMember
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeRank
+            |          main
+            |          0x7b005d22a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --0.55%--zbtScoreLeafScoreBytes (inlined)
+                       zbtScoreLeafOffsets (inlined)
+                       zbtScoreLeafFindMember
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeRank
+                       main
+                       0x7b005d22a1ca
+                       __libc_start_main
+                       _start
+
+     7.35%  [.] zbtScoreLeafFindMember  -      -
+            |
+             --6.63%--zbtScoreLeafFindMember
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeRank
+                       main
+                       0x7b005d22a1ca
+                       __libc_start_main
+                       _start
+
+     2.80%  [.] 0x0000000000198427      -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeRank
+               main
+               0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     1.75%  [.] main                    -      -
+            |
+            ---0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     1.53%  [.] main                    -      -
+            |
+            ---0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     0.99%  [.] 0x00000000001986a5      -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeRank
+               main
+               0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     0.99%  [.] 0x0000000000198445      -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeRank
+               main
+               0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     0.82%  [.] siphash                 -      -
+            |
+             --0.77%--zbtreeRank
+                       main
+                       0x7b005d22a1ca
+                       __libc_start_main
+                       _start
+
+     0.60%  [.] 0x000000000019843c      -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeRank
+               main
+               0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     0.60%  [.] 0x0000000000198400      -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeRank
+               main
+               0x7b005d22a1ca
+               __libc_start_main
+               _start
+
+     0.44%  [.] 0x0000000000198698      -      -
+     0.38%  [.] siphash                 -      -
+     0.35%  [.] 0x0000000000198463      -      -
+     0.33%  [.] 0x00000000001984a4      -      -
+     0.33%  [.] 0x00000000001984ad      -      -
+     0.22%  [.] 0x000000000019842f      -      -
+     0.22%  [.] 0x0000000000198470      -      -
+     0.16%  [.] 0x0000000000198453      -      -
+     0.16%  [.] 0x000000000019846c      -      -
+     0.16%  [.] 0x0000000000198483      -      -
+     0.16%  [.] 0x0000000000198449      -      -
+     0.16%  [.] 0x00000000001986b7      -      -
+     0.11%  [.] 0x00000000001984bc      -      -
+     0.11%  [.] 0x00000000001986b3      -      -
+     0.11%  [.] 0x000000000019868f      -      -
+     0.11%  [.] 0x000000000019843f      -      -
+     0.11%  [.] 0x000000000019842b      -      -
+     0.11%  [.] 0x0000000000198474      -      -
+     0.05%  [.] 0x00000000001986a9      -      -
+     0.05%  [.] dictGenHashFunction     -      -
+     0.05%  [k] 0xffffffff88c00ef0      -      -
+     0.05%  [.] 0x00000000001986ab      -      -
+     0.05%  [.] 0x0000000000198612      -      -
+     0.05%  [.] 0x00000000001984b1      -      -
+     0.05%  [.] memchr@plt              -      -
+     0.05%  [.] 0x0000000000198457      -      -
+     0.05%  [.] bcmp@plt                -      -
+     0.05%  [.] 0x000000000019845f      -      -
+     0.05%  [.] 0x0000000000198407      -      -
+     0.00%  [.] 0x00000000000274fe      -      -
+     0.00%  [.] 0x0000000000015361      -      -
+     0.00%  [k] 0xffffffff8a0d40e5      -      -
+     0.00%  [.] read                    -      -
+     0.00%  [k] 0xffffffff88c0008b      -      -
+     0.00%  [k] 0xffffffff895ba1ee      -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

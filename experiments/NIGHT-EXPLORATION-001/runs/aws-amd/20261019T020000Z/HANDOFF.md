@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Corrected13e459ff8 exactB replication rejects advancement/NONE:48rows12blocks,100Kmedian−1.848% and1M−1.785%; only2/6blocks per size meet2%, so no guards/profile/confirmation/retry. All semantic/hash/CPU2 checks pass; AMD idle05:02:13UTC. Original8fabPARK unchanged. Independent ARM C sealed3b137666b; root/ARM review-validation pending.
+Corrected rank/update survey021 complete74commands/12scopedcaptures in130.03s; all controls/hashes pass and actual015 instruction mapping published. Rank lookup/tag/header and update lookup/packed/indexmove hotspots retained; no new supported distinct hypothesis selected,NONE. Independent Intel focused audit223d6d7de passes22qualifiedguards,14noisycontrols retained. AMD idle05:13:03UTC; ARM C root/ARM validation pending.
 
-AMD counts4populations:0accepted,3rejected,1parked.019 is an exact-patch replication, not a new population. Available for independent review; no new workload planned. Deadline08:00UTC, no new experiment after07:15UTC.
+Corrected B replication019 rejected at fixed primary gates; no further candidate work. Original8fabPARK and AMD4population counts unchanged (0accepted,3rejected,1parked). Deadline08:00UTC, no new experiments after07:15UTC.
