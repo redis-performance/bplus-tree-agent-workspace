@@ -1,0 +1,166 @@
+# Native Intel activity
+
+- 2026-10-19T02:01:35.041923+00:00 — Native SSH verified; existing baseline active. Failed external CLI report preserved. Sequential population fallback because all team slots occupied. Preparing independent-query referee before baseline profiles. No candidate, source NONE.
+- 2026-10-19T02:09:28.269009+00:00 — Baseline complete/audited by root. Lookup referee144checks pass; six gprof captures establish leaf hotspot; PMU unavailable. A/A144rows qualifies2/6cells,100K hit passes but1M hit fails. Three sequential proposal passes/chair select bounded SSE2 scanner for exploratory A/B/C population; no adoption.
+- 2026-10-19T02:15:33.650823+00:00 —432-row/108-block exploratory screen complete: A/B/C all slower at both primaries, REJECT/NONE. Independent root static review038248c1 retained. One sequential population,three losing patches. Raw audit pass; memory unchanged. New update-path profile next.
+- 2026-10-19T02:20:11.164499+00:00 — Separate update referee passes360native/sanitizer cells; five named patterns and exact final model checks. Scoped gprof with disabled-region control now running; source baseline unchanged, no update hypothesis selected.
+- 2026-10-19T02:28:37.633984+00:00 — Update diagnosis complete NONE:360fixturecells,15scopedprofiles+disabledcontrol,25pathcensuscells,75calibration+600AArows.2/25cellsqualify; no recordedsteal/siblingbusy. Three sequentialproposalpasses/chair selectNONE; no implementationpopulation or sourcepatch.
+- 2026-10-19T02:33:58.281063+00:00 — Optionaliterator diagnosis: retainedHARNESS-004 semantics pass1920native/sanitizercells. Uninstrumented profil enabledknown-work66/66samples, disabledknown-work/iteratorempty;10msinterval/2bytebins, overflowguard.24fixedloop-scopedcapturesrunning; no candidate/API/sourcechange.
+
+02:48UTC Iterator cache variants build successfully; first new oracle failed baseline because unequal-score SeekLex was incorrectly assumed. Attempt001 retained; corrected common-score contract and added sentinel checks. No candidate timing yet. Root static review434e39ef5 cleared semantic review.
+
+2026-10-19T02:51:55.045776+00:00 Iterator cache validation passed:4sources×2builds×43originaltests and28,192statechecks,1,920fixturecells/source; two ASan reset-fault detections. Root review434e39ef5. Exact comparison frozen; exploratory576rows/300s next.
+
+2026-10-19T03:00:11.077038+00:00 Iterator decision PARK/NONE: fixed screen stopped300.30s at566/576 rows,141 full ABBA blocks +2 preserved tail; auditPASS. A/B conditional leads, C rejected. Additive oracle89,428 checks/source/build passes. Intel totals2 measured sequential populations (iterator partial),0 accepted/1 rejected/1 parked,6 patches. Root source unchanged.
+
+2026-10-19T03:03:49.809033+00:00 Matched iterator diagnosis complete:36 enabled captures/four disabled controls,55.61s including builds; all audit checks pass. Cache arithmetic bypass confirmed statically, C regression cause unresolved. PARK/NONE unchanged. Root independent raw audit847ed4096. Intel runner idle; separate AMD scan proposal review next, no new timing authorized by a hypothesis yet.
+
+2026-10-19T03:08:01.438420+00:00 Submitted independent AMD scan proposal from common packet b1b670c0a: exact16-byte all-match masks, portable fallback and strict bounds/order/folded-tag guards. No peer proposals read, no candidate code or new Intel timing. This is a proposal in the AMD population, not another measured Intel population.
+
+2026-10-19T03:15:09.390917+00:00 Independent AMD implementation B completed from8fab511e: exact16-byte all-match masks with original bounded SWAR/scalar residual and portable fallback. Eight local correctness executables pass (43tests +297,984 oraclechecks each mode). No peer patches read and no performance measurement. Immutable patch submitted for root review and AMD serial validation.
+
+2026-10-19T03:20:49.864024+00:00 Baseline-only Intel scan diagnostic started under300s helper, preregistration deeba799b. Six fixed5M-op captures after sampler/semantic controls; no candidate timing.
+
+2026-10-19T03:27:08.601402+00:00 Baseline scan diagnosis complete, total helper17.571s under300s.6 captures, repeat controls pass; source-line/LLVM inline attribution confirms helper present. GNU mapping limitation retained. No candidate timing or new Intel population.
+
+2026-10-19T03:31:58.298738+00:00 Intel scan first A/A completed57.31s,48 rows/12 blocks, both controls qualify. Raw schedule/checksum/memory/CPU2/serial auditPASS. No retry or candidate timing; no new population.
+
+03:36UTC: Imported exact AMD A/B and V2 oracle from5594fea17; fixed96-process/300s Intel discovery schedule, B preference if both qualify, separate full guards/profile/fresh201–203 confirmation preregistered. Candidate validation running; no screen rows yet.
+
+2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+
+03:41:35UTC: Discovery timing clarification:113.337s driver execution;133.451s bounded-helper lifetime includes cleanup. Full original5size×2keylength×8operation guard calibration preregistered,10 baseline processes only, before budget freeze and A/A.
+
+2026-10-19T03:44:31.800666+00:00 Full original guard calibration complete10 processes80rows; 12 short windows. Fixed A/A120processes/960rows budget1440s preregistered before launch, baseline only.
+
+2026-10-19T03:49:22.841950+00:00 Independent AMD deletion proposal555da4539 recommended NONE; root chair101895e82 agrees after failed1M control. Prepared separate matched scan baseline/B profile using301–303; no remote execution while full original A/A active. Fresh201–203 reserved for root-coordinated independent confirmation.
+
+2026-10-19T03:54:38.779449+00:00 Original A/A progress47/120 processes,376/960 rows. B complete matrix preregistered e06e7d271,1440s cap and explicit failed-control labels; no silent exclusion. Matched profiles a129375cb and focused referee2ab283daa/root239ac9730 validation prepared locally, no concurrent runner work.36 reviewed noncefiles copied and hash-verified; fixture binaries ignored, deterministic generator/manifests retained.
+
+2026-10-19T04:04:33.171076+00:00 Full original A/A COMPLETE120processes/960rows/240blocks,57/80 cells qualify;12 short plus11 precision-failed cells unresolved. Raw/CPU2/serial/checksum/memory auditPASS. Overall scan PARK/source NONE. Intel runner IDLE: owned job ended04:03:26UTC rc0; no btree-bench process. Root reserves handoff to AMD independent201–203 confirmation; no next Intel job until explicit root return. Prepared008 B matrix/010 matched profiles/011 focused phases remain unlaunched. ARM chaird57515154 also selects NONE after failed1M controls; no native patch.
+
+2026-10-19T04:11:15.442277+00:00 Root returned Intel runner after independent AMD-authored confirmation27fed33a7: all12 primary blocks pass, B medians−6.783%100K/−3.656%1M on untouched201–203. Independent controls pass. Root verified idle04:09:44UTC and unchanged exact binaries. Frozen full original B diagnostic now running120processes/960rows under1440s cap; no other runner workload. Overall PARK/source NONE remains due23 original-control gaps and missing focused/profile/boundary coverage.
+
+2026-10-19T04:15:27.708245+00:00 Before any candidate matched profiling, root revised sample precision:120 captures,10 fixed repetitions per source/size/seed301–303 pair,600s whole-phase cap, alternating order by seed+repetition. Original12-capture v1 plan/driver/audit retained; never executed. Known baseline131/174 samples per size motivated revision, not interim candidate results. Helper samples normalized per actual callback; all controls/denominator limits retained. Full B guards continue uninterrupted.
+
+2026-10-19T04:20:28.941717+00:00 Full B guard progress47/120processes,376/960rows at04:19:37UTC. Still sole Intel workload; no schedule changes. Root reviewed profilev2 0f39b54f1 and approved120captures/600s after guards. ARM prepares a separate supplemental baseline-only guard family; current immutable focused matrix unchanged.
+
+2026-10-19T04:21:29.778890+00:00 Independent auditor requested explicit post-phase artifact identity. Added read-only hash utility to compare baseline/B against existing freezes after each phase, before next workload; no current B driver/schedule mutation or rebuild. Focused unexecuted validation freeze expanded to copied native/san referee inputs.
+
+2026-10-19T04:29:52.551472+00:00 Full original B guards COMPLETE120processes/960rows/240blocks in1111.54s:56/57 qualified guards pass,23 baseline-control gaps plus one mixed100/16 iteration block(+1.329%) keep24/80 unresolved. No demonstrated all-block regression; PARK/source NONE. Raw auditPASS and22 post-phase source/referee/binary hashes unchanged. Matched profilev2 next; no concurrent job.
+
+2026-10-19T04:31:43.197428+00:00 Matched profilev2 running serially after22 post-B hashes pass. Prepared separate corrected-adapter baseline13e459ff8,actual detached worktree scratch/intel-corrected-adapter and new build/corrected-adapter-intel;1M ops,1200s timing/1800s helper, queued after focused guards. Original8fab binaries/source untouched.
+
+2026-10-19T04:34:28.930026+00:00 Matched SCAN profilev2 completes120 captures in160.31s; sampler67/67 known-work,disabled0,all8 matched-mode semantic controls pass. Helper samples337→316 at100K and419→316 at1M; directional diagnosis only, captured-text denominator limits retained.24 diagnostic+22 original post-phase hashes unchanged. PARK/source NONE persists with24 unresolved original guards; focused validation next.
+
+2026-10-19T04:38:00.615849+00:00 Focused validation339 commands complete,baseline half passed; candidate builds underway. Prepared separate root-approved supplemental refereeec21ce601 with original8fab+B,600s prep+180/480/480s calibration/AA/B caps; full30-cell B follows completed AA regardless qualified count. No supplemental execution; current011 immutable.
+
+2026-10-19T04:41:06.131457+00:00 Focused baseline/B validationPASS673 serial commands in312.77s:432 native/sanitizer models,216 census cells,43 originaltests per4builds,16 repeatedfault detections;36 fixturehashes and24 post-validation artifacthashes pass. No focused timing yet; frozen baseline calibration324 one-traversal windows/300s next. Source NONE/PARK unchanged.
+
+2026-10-19T04:45:28.941243+00:00 Focused baseline calibrationCOMPLETE324 serial rows in178.75s/300s. Raw schedule/CPU2/checksum/ownedbytes auditPASS;24 post-calibration hashes unchanged.36 fixedpasscounts1..942 frozen with both864-process AA/B schedules beforecomparison; allcounts below100000cap. Next baseline AA900s, no adaptation/retry/extension.
+
+2026-10-19T04:49:50.160698+00:00 Submitted independent corrected-ARM scan proposal from common9cd8689db: bounded16-byte NEON exactmatch/nibble enumeration with original residual/fallback, subjectto root freshAA audit. Priorold8fab NONE remainsfinal; priorSIMD context disclosed, no peerproposal reads or implementation. Intel011 A/A continues unchanged.
+
+2026-10-19T04:57:05.237822+00:00 Focused AA COMPLETE864 rows/216 blocks in611.62s under900s;22/36 cells qualify,14 precision-failed,zero shortwindows. Raw schedule/CPU2/serial/checksum/ownedbytes auditPASS;24 post-AA hashes unchanged. Full frozen864-row B diagnostic next under900s,including everyfailedcontrol label; no adaptation/retry/source switch. Overall PARK/source NONE.
+
+2026-10-19T05:01:15.445116+00:00 Independent corrected-ARM implementationB sealed from13e459ff8,src only; boundedNEON exactnibble masks with original residual/fallback. Native/forcedportable freestandingcrosscompile smoke passes, no nativecorrectness/performanceclaim. No peerpatchread; ARM owns validation/timing. Intel focusedB864/900s remains sole hostworkload.
+
+2026-10-19T05:09:03.666047+00:00 Focused B COMPLETE864 rows/216 blocks in588.46s/900s. All22 baseline-qualified cells pass everyguard block;14 unqualifiedcells remain unresolved. No shortwindows or qualified regression; exactcallbacks/checksum/ownedbytes/CPU2/serial auditPASS.24 focused+22 original post-phase hashes unchanged. Overall PARK/source NONE retains24 original unresolvedcells. Corrected-adapter baseline013 next; supplemental014 after.
+
+2026-10-19T05:10:33.225617+00:00 Corrected-adapter baseline013 started after focusedB publication424b8be4a and24+22 postphase hashes. Remote5-file executionfreeze matches e2f4084e7; actual detachedsource13e459ff8,newbuild,1M ops,1200s timing/1800s helper. Original8fab source/binaries preserved. Only014 supplemental remains queued; completed010/011 removed frompending status. FocusedB independentAMD review inprogress.
+
+2026-10-19T05:16:04.946008+00:00 Corrected baseline checkpoint:7 validations passed,92/120 timing processes,exact13e459ff8. Root queued separate016 baseline-only60-capture profil diagnostic/600s and fresh48-rowA/A/300s after014; initialsix-capture suggestion retained as unexecuted. Plan/schedule prepared, no diagnostic or corrected candidate timing yet. Independent focused audit223d6d7de linked.
+
+2026-10-19T05:19:42.370259+00:00 Corrected-adapter baseline complete: 120 processes, 960 raw rows, 240 A/A effects and seven validations pass. Exact detached 13e459ff8 and all old/new pre/post hashes verified. Only 10/40 cells qualify, including 11 short cells among the 30 unresolved. This is a new harness baseline, not an optimization result; source adoption NONE. Supplemental 014 preparation is next.
+
+2026-10-19T05:22:31.112702+00:00 Supplemental correctness preparation passes: 756 validator commands, 90 fixture models per source, native/sanitizer public-census parity, 43 original tests per build and 32 total negative controls. Exact reviewed model manifests match, baseline/B outputs agree within build modes, and 38 post-preparation hashes remain unchanged. Completed in 69.55 seconds under the 600-second cap. Frozen baseline calibration is next; no supplemental candidate timing yet.
+
+2026-10-19T05:24:16.815272+00:00 Supplemental calibration completes 684 baseline-only rows in 34.219 seconds under 180 seconds. Raw schedule, CPU2, semantic identity and 38 post-phase hashes pass. All 30 counts and both complete 720-process schedules frozen before comparison; next A/A has a fixed 480-second cap. No retry or adaptation.
+
+2026-10-19T05:27:48.219557+00:00 Supplemental A/A completes 720 raw processes and 180 blocks in 157.126 seconds under 480 seconds. Ten of 30 cells qualify; 0 short cells. Exact frozen schedule, serial CPU2, model/checksum/owned bytes and 38 post-phase hashes pass. All 30 cells remain in the frozen full B diagnostic, including 20 unresolved controls. Overall source NONE/PARK remains.
+
+2026-10-19T05:32:10.024207+00:00 Supplemental B completes 720 processes/180 blocks in 154.887 seconds under 480 seconds. Eight of ten qualified guard cells pass; trim/319-byte/signed-zero regresses in all six blocks (+1.566% to +6.877%, median +4.931%), so the old-source Intel SSE2 B replication is REJECTED. Qualified resize/319-byte/signed-zero is mixed; twenty noisy controls remain. Exact CPU2/serial schedule, checksums/owned bytes and 38 supplemental plus 22 original post-phase hashes pass. Source adoption NONE, no alternate A retry. Corrected-source baseline-only 016 remains a separate approved diagnostic.
+
+2026-10-19T05:36:22.809255+00:00 Corrected profile retains all 60 captures and seven matched controls. Frozen driver stopped in read-only metadata because actual timing binary lacks unreferenced __executable_start; raw failure preserved. Root approved separately frozen ELF-header/symbol attribution continuation, with no benchmark/control/capture reruns and original 600-second deadline retained. Fresh A/A remains unexecuted pending audit.
+
+2026-10-19T05:38:10.657457+00:00 Corrected baseline profile completes all 60 frozen captures and seven matched controls. Known-work control66/66, disabled0; overflow/serial/CPU2/raw checks pass. Helper368/1315 captured samples at100K (27.985%) and478/1740 at1M (27.471%); exact opcode/source map covers542/552 ScanSlot instructions and every sampled helper bucket. Actual/diagnostic identities and22 original post-phase hashes remain unchanged. Metadata-only correction preserved the initial failed driver and completed within original600-second deadline (268.15s total wall time), with no measurement reruns. Fresh48-row A/A is next; no candidate timing or source adoption.
+
+2026-10-19T05:40:34.612697+00:00 Corrected-source A/A completes48 processes/12 blocks in56.650 seconds under300 seconds. Both primary sizes qualify:100K effects[-0.121,+0.288]%,minimum436.623ms;1M[-0.040,+0.196]%,minimum582.990ms. Exact source/binary identities, CPU2/serial schedule, callbacks/checksums/owned bytes pass;22 original post-AA hashes unchanged. Runner verified idle with no active owned unit or btree-bench. HOLD for root review; no corrected candidate timing. Any later plan must separately qualify the known trim319/signed-zero guard; no assumption that the adapter correction removes its old-source regression.
+
+2026-10-19T05:45:34.579543+00:00 Independent corrected ARM fold-predicate proposal: NONE. The measured predicate share does not explain enough of rejected B’s 55–79% slowdown to predict a gain against unchanged8694; no peer proposals read, source edits or runner execution. Proposal and immutable evidence hashes retained under018.
+
+2026-10-19T05:49:58.837123+00:00 Prepared corrected-source exact B replication plan017 for root review only. Correctness precedes fresh trim319/signed-zero guard calibration and24-row AA/B gates; any failed/noisy guard blocks primary timing. No candidate source/build or runner workload created. Exact old B patch retained, no A fallback. ARM fold-predicate chair selected NONE; own independent proposal remains sealed.
+
+2026-10-19T05:56:30.481052+00:00 Corrected exact-B guard-first execution drivers and all source/referee/model bindings sealed locally for final root code review. Plan a8d051d0b, patch, seeds701–703 and600/60/120/120 budgets unchanged. No primary candidate runner supplied, no source snapshot/build/job created; runner remains idle.
+
+2026-10-19T06:00:51.687621+00:00 Root independently reviewed all26 execution hashes and granted frozen017 preparation600s/calibration60s/AA120s/conditional B120s. Correctness/text-identity preparation is now the sole Intel workload. Each failed/noisy gate stops advancement; no retries, source/count changes or primary candidate timing.
+
+2026-10-19T06:03:38.799678+00:00 Corrected exact-B preparation passes in94.403 seconds under600:50 outer commands,756 retained supplemental validator commands,43 original tests across six builds,six exhaustive V2 runs,32 retained negative controls and12 fresh guard cells. Reproduced baseline.text is byte-identical to actual013 (71,349 bytes); full ELF hashes differ with debug paths as expected. Fresh701–703 fixtures have exactly seven reversed long records and zero full16/full8 chunks. Source/referee/binary pre/post identities and within-mode baseline/B parity pass. Frozen60-second baseline-only known-guard calibration is next; no primary timing.
+
+2026-10-19T06:05:09.869976+00:00 Fresh known-guard calibration completes30 baseline-only rows in1.975 seconds under60. Raw schedule/CPU2/fixture/output and actual/build pre/post identities pass. One count of1,316,073 traversals is now frozen for all701–703 seeds, with both24-process AA/B schedules. Fixed120-second A/A next; no retry or count adaptation.
+
+2026-10-19T06:07:26.696993+00:00 Corrected exact-B replication PARKED before candidate timing. The fresh known guard completes24 baseline-only A/A rows in4.953 seconds, but blocks1 and3 differ−1.417% and−1.047%, exceeding the frozen±1% precision gate. All windows exceed199ms; schedule/CPU2/checksum/owned-byte/source/build identities pass. No candidate guard or primary comparison launched, no retry/count/source change. Original22 final artifact hashes unchanged and runner verified idle. The old-source B rejection remains final.
+
+2026-10-19T06:13:21.597408+00:00 Published read-only AMD029 iterator critique: score-only skips the old member-offset cache path; packed width-mask construction is one specific future code-generation question, not a selected candidate. Failed AMD100K controls block advancement. Added observational-only environment snapshot review. No source/build/runner work; Intel remains idle.
+
+2026-10-19T06:15:38.849440+00:00 Prepared MORNING-REPORT: source NONE, old SCAN REJECT, corrected guard-first PARK before candidate timing; lease ACTIVE/release pending08UTC. Reconciled width mask with exact historical EXP-005 A (PARK), no novel hypothesis. Verified root observer fix9bf13ddea; no local runner workload.
+
+2026-10-19T06:21:28.353698+00:00 Read-only EXP-005 inventory completed: exact A/B/C algorithms, original HARNESS-004 source identity, confidence gates/PARK, retained oracle semantics and native replication gaps. No hypothesis selected, compilation, benchmark or runner work. Await immutable ARM baseline evidence.
+
+2026-10-19T06:28:44.611792+00:00 Independent ambient audit PASS:183 snapshots/180 intervals from immutable8a0f9e564; raw counters, guest exclusion, steal, CPU labels/affinity, durations/caps and table reconstructed. Current idle windows only; no historical noise attribution or qualification change. No runner work.
+
+2026-10-19T06:44:47.290055+00:00 Independently proposed NONE from frozen corrected ARM iterator packet27a4afee1. Both native controls qualify; exact mask-region evidence retained. EXP005 A is historical replication only, with missing native guards/confirmation/profile and narrow remaining window; no code or runner work. No peer new proposals read.
+
+2026-10-19T06:50:44.988948+00:00 Reviewed chair4d36b2d0e exact EXP005 A replication preparation: historical patch and verbatim Intel NONE dissent verified. Conditional diagnostic rationale has no scope blocker, but initial900s plus follow-up2400s cannot fit all phase starts before07:15; no follow-up grant, source/build/runner work. Requirements inventory published; primary success alone remainsPARK.
+
+2026-10-19T06:59:57.580792+00:00 Adversarial reporting auditfd4b5d2cb: one material README213–223 staleoverallPARK contradiction; root notified. Counts8(0/5/3),24patchrecords(21public/3private),160correctedchartcells/sourceparity/roundedtables verify. Read-only metadata/context checks, no benchmarks/tests/builds/runner; prior Intel authorship disclosed. Release remains pending.
+
+2026-10-19T07:21:27.021454+00:00 Independent ARM exacthistoricalA raw audit6bcd8e575 PASS:48rows/12blocks all>=2%, medians−7.766545%/−7.101923%;PARK missingguards/confirmation/profile. Exactfreeze/seals/schedule/serialCPU2/identity/semantics verified; readonlyauditor raw/publichashjoin correction preserved. READMEIntelREJECTfix03445990a verified. No newrunnerwork; releasepending08UTC.
+
+2026-10-19T07:32:46.453141+00:00 Reporting-only ARM chart review a51d1a0ac: all12 primary effects and12 AA effects,48 baseline raw rows,61 immutableinputs andrenderer/artifacthashes verify. PARK/sourceNONE and8populationcounts remain correctly scoped. Known570validation-versus-correctness wording correction pending; no other materialfinding. No workload; releasepending08UTC.
+
+2026-10-19T08:03:11.134250+00:00 Campaign COMPLETE; lease RELEASED. Locally checked immutable coordinator proof06785a454: all three OSS coordinators RUNNING08:00:20–08:00:25UTC, owned slicesinactive/zero owned units orPIDs, freshsavedRUNNINGmatcheslive, privatefleetreleased/pushed. STATUS/HANDOFF/MORNING/NATIVE finalized; sourceNONE and all experiment decisions unchanged. No runner access or workload. Proof: https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json
+
+2026-10-19T08:11:29.520782+00:00 User-authorized fresh ARM validation follow-up: prepared independent held-out confirmation protocol027 on sameARMhost, exactold026baseline/candidate, reserved1201–1203twice, fixed48AA thenconditional48ABBA/300seach. Coordinated disjoint discovery/guard/profile/correctnessseeds withARM. No runner access/build/timing; finalnew027 gates, executionfreeze and explicitidlehandoff/rootgrant remain required. Overnightrelease and allprior decisions preserved.
+
+2026-10-19T08:19:08.074518+00:00 Prepared independent sameARM confirmation executionfreeze: separate48AA/48conditionalABBA driver, rootpublication-hashed prerequisite/inventory/idlehandoff receipts, strict10:15UTC deadline/newownedlease, postidentities/rawretention, independentDecimalauditor. Original027protocol/schedules unchanged; syntax/metadata checksonly, no driver/benchmark/build/SSH. Root/AMD review and explicitgrant pending; allprior outcomes unchanged.
+
+2026-10-19T08:37:56.351476+00:00 Repaired unexecuted67365confirmationfreeze afterAMDreview: bind/classify everydiagnostic outcome (qualifiedREJECT/mixedPARK block), separateauditPASS/gatePASS, exact96AArawhash-to-auditjoin, independent30schildaudit. Originalmanifest retained;15syntheticmetadata checksPASS, no phase main/build/benchmark/SSH. Revisedfreeze awaitsroot/AMDreview; ARMpreparation continuation remains separate.
+
+2026-10-19T08:45:37.381719+00:00 Independentstatic ARMtimingreview8d11db31a:25freezehashes/4272sixschedulecommands and82+29required/11diagnostic matricesPASS. No launchclearance pendingcompositepreparationbinding and independentauditor fixture/60schild/phasecap/deadline checks. Scanlegitimate-duplicate semantics and separateguardbinaryprovenance documented. NoARMfiles/runner/build changes.
+
+2026-10-19T08:55:20.594806+00:00 Finalstatic ARMtimingreview380ef3109: allthreeinitial findings resolved;28inputs/4272unchangedcommands, composite513snapshot/4guard/6protected bindings verify; originalFAILEDretained. Independentfixture/SCAN-AA/cap/deadline checks and diagnosticrules sound. No staticblocker; rootexplicitphasegrant stillrequired. No producer/runner/build execution.
+
+2026-10-19T09:09:21.207772+00:00 Preparedindependent guardrawauditor029 forARM original120/120 anditerator1968/1968 phases, exact380ef3109. Localvalidation reconstructs96existingprimary AA/comparison processes24blocks, zero newmeasurement/producerimports. Awaitimmutablefirstguardresult; allrequired/diagnostic cells andfailedgateswillremain. NoSSH/build/runnerwork.
+
+2026-10-19T09:16:21.142595+00:00 Independentoriginal-AA1329e440a auditPASS integrity:120processes/960rows/240blocks,278inputs/248seals, exactidentities/fixtures/serialCPU2.18/29requiredqualified,11precisionfail with0shortrequired;11diagnosticsallshort(8also noisy). OverallPARK/noheldoutconfirmation; allcellsretained, no producerimports/runnerwork.
+
+2026-10-19T09:27:24.469674+00:00 Independentoriginalcomparison4c7668661 auditintegrityPASS:120processes/960rows/240blocks plusfullAA1329reconstruction,527inputs.17qualifiedguardsPASS;100SCANmixedPARK(one+1.477795%,fiveimprove), noqualifiedall6regression.11requirednoisy+11shortdiagnostics remainunqualified; overallPARK/heldoutconfirmationblocked. ExactAAoutput/memory/identity/serialCPU2/capspass; no runnerwork.
+
+2026-10-19T09:46:52.605662+00:00 Independentiterator-AA8ed45423c integrityPASS:1968processes/492blocks/82requiredcells,43qualified/39precisionfail,0short(min44.797ms);3974inputs/3944seals. Fourknownmask6:100Kforward/1Mreversequalify,other2noisy. Exactfixtures/checksums/memory/identity/serialCPU2/capspass. OverallPARK/heldoutineligible. Localoutputdestinationtypo corrected bymoveonly; no scientificrerun/producerimports/runnerwork.
+
+2026-10-19T10:03:48.556592+00:00 Independent iterator comparison audit f30ac4330: all1968 comparison+1968 AA raw rows/984 blocks and7919 immutable inputs pass integrity.43 qualified:30 PASS/9 all-six REJECT/4 mixed PARK;39 unqualified retained. Fresh ARM exact historical EXP005A replication REJECT/NONE; no profile or held-out confirmation. No runner access; release proof pending coordinator. Evidence029-arm-guard-raw-review/iterator-comparison-f30ac4330/REVIEW.md.
+
+2026-10-19T10:35:48.813978+00:00 Local-only independent frontend comparability review030: primary/H4mask4 differ in score distribution, numeric-vs-bit checksum consumer, warm-up, visits, seeds and allocation history; same matched source/flags withinpairs. Actual primaryFCVTZU confirmed, H4actualcaller/layoutprofile evidence missing. No correctness/measurementinvalidity or causaloptimizationhypothesis established; REJECT retained.16 immutableinputs; no runner/build/timing/sourceedits; no ARMnewanalysisread.
+
+2026-10-19T10:45:49.298213+00:00 Independent ARM030preparationa3db7053a review: four actualassembly exports confirm114/113IteratorNext,4assertionaddressdifferences andunswitched11instructionH4mask4loop;648scheduleentrieschecked. Onepublicationblocker missing sealedignoredpycache;63otherhashespass. Census/hooksstaticconsistent; finalcallerPCmapping,loss/runtimegates anddriversremainrequired. No runner/build/timing; REJECT unchanged.
+
+2026-10-19T10:49:22.672470+00:00 Native720b74247 independentreview:15native+63correctedsealinputs,288scheduleentries,13fixturemodels and26syntheticparserchecksPASS. Holdfor4narrowauditfixes:comparisonwindowfloor,AAresultaudit/source/chronologyjoin,exactsourcemapkeys,positivephase+620sstartmargin. No runner/build/benchmark; oldREJECT unchanged. Review030/native-720b74247.
+
+2026-10-19T10:50:44.217115+00:00 Corrective fa190bd9b nativefreeze review:all4priorauditfindingsresolved;15hashesPASS,2driver/auditorfileschanged,13inputsunchanged;newnamespace/sliceCPU2/exact11:45deadline enforced. No staticblocker native-only; rootlivelease/preflight/separategrants stillrequired. No measurement/build/SSH; originalREJECT stands.
+
+2026-10-19T10:59:24.144170+00:00 Prepared independent031 ARM030native raw auditor before resultpublication, exactfa190freeze.15contract/syntheticchecksPASS; no producerimports or runnerwork. Requiresimmutableallraw/seals/AAjoins, preservesnoise and priorREJECT; supplementarylease/preidle/postidentityreviewonpublication.
+
+2026-10-19T11:03:27.038412+00:00 Independent70103fb6a nativeAA complete:144rows/36blocks,6of6qualified,maxabsolute0.844004%,min62.675807ms,314inputs/297sealsPASS. Metadata-onlyfiles-envelope correction preservedoriginal9ba; exactrows/semantics/identities/lease/caps andretainedidle checked. No remotework; priorREJECT/sourceNONE unchanged.
+
+2026-10-19T11:09:00.252244+00:00 Independent native comparison121e9643a:144comparison+144AA rows/72blocks,902inputs integrityPASS,6qualified. Primary medians−7.774723/−7.193561%; H4forward+2.902749/+2.953008%, reverse+8.430613/+3.140979%; everyH4block>1%. ExactAA/source/memory/lease/cap/helper/prepostjoinsPASS. No causalclaim or newdecision; originalREJECT unchanged. No runnerwork.
+
+2026-10-19T11:12:31.030461+00:00 Profilec370e444f staticreview:35inputs/642commands/24syntheticchecks verified; blocker native/sanitizer parity keys omitmode,3smallfixturegroups collide underusable-size allocator. Requested mode separation and explicit--no-scale/reportingprecision. CPU-perf MCP notcallable inworker; rootsharedconsultation pending evidence. No remote/build/profile work; oldREJECT remains.
+
+2026-10-19T11:13:37.598508+00:00 Correctiveprofile2d4e93924 review:36inputsPASS;modekeys separate16sanitizer/500nativefixturecommands;all42statcommandsno-scale,600othercommandsunchanged. No staticblocker fromIntel; runtimegrantroot-owned. Sharedactualcpu-perfconsultationdfff5540f consumedhonestly(ownunavailable,rootcaller,0indexed/noArmguidepassages,nocausal support). No remote/build/PMUwork.
+
+2026-10-19T11:22:19.215701+00:00 Prepared independent ARM030 profile raw auditor033 before result publication:65 synthetic/contract checks, exact counters/census/fixtures/serial identities, full physical-PC/encoded-word mapping and known-negative scope checks. No producer imports or runner work. Shared root MCP consultation identified honestly; old REJECT unchanged.
+
+2026-10-19T11:24:38.361990+00:00 Corrected worker dashboard stale10:15 lease/phase labels: local ARM frontend raw review active, coordinator attempt2deadline11:45, Intel overnightreleased; no worker runnergrant. Historical release proof retained.
+
+2026-10-19T11:27:54.441615+00:00 Independent ARM030profile266360cfb auditPASS:642commands/1411inputs/3395samples,42stats/18instructionreductions,72instrumentblocks;scopevalid but strictcodeattributionFALSE152entryPCs uncredited and only2/12elapsedtransferqualified. Private-only publication metadata correction preserved; no threshold/measurementchanges. REJECT/NONE retained, no causal native explanation or runnerwork.

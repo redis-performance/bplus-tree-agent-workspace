@@ -1,0 +1,33 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -14,6 +14,10 @@
+ #include <sched.h>
+ #endif
+ 
++#ifdef PROFILE_SAMPLE
++void sample_begin(void);
++void sample_end(void);
++#endif
+ static volatile uint64_t sink;
+ static uint64_t random64(uint64_t *state) {
+     uint64_t z = (*state += UINT64_C(0x9e3779b97f4a7c15));
+@@ -163,6 +167,9 @@
+         else if (c == 6 || c == 7) expected = count;
+         else if (c == 4) expected = ((uint64_t)n * (n - 1) / 2) * traversals;
+         scan_result scanned = {0, 0};
++#ifdef PROFILE_SAMPLE
++        if (c == 5) sample_begin();
++#endif
+         int relpri_start, relpri_end;
+         const char *qos_start = qos_reported(&relpri_start);
+         int cpu_start = cpu_id();
+@@ -211,6 +218,9 @@
+         int cpu_end = cpu_id();
+         const char *qos_end = qos_reported(&relpri_end);
+         int64_t thread_elapsed = thread_start >= 0 && thread_end >= thread_start ? thread_end - thread_start : -1;
++#ifdef PROFILE_SAMPLE
++        if (c == 5) sample_end();
++#endif
+         if (c == 5) {
+             /* Cursor scans may legitimately emit duplicates even without edits. */
+             serverAssert(scanned.count >= count && scanned.count <= SIZE_MAX);

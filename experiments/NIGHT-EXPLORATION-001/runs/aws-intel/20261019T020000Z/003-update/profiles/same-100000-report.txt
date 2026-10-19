@@ -1,0 +1,62 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ns/call  ns/call  name    
+ 43.08      0.28     0.28  5000000    56.00   114.00  zbtreeFindForAdd
+ 40.00      0.54     0.26  5070750    51.27    51.27  zbtScoreLeafFindMember
+  6.15      0.58     0.04                             main
+  4.62      0.61     0.03  5000000     6.00     6.00  siphash
+  4.62      0.64     0.03  5000000     6.00     6.00  zbtScoreUpdateInPlace
+  1.54      0.65     0.01  5000000     2.00     8.00  zbtreeUpdateScore
+  0.00      0.65     0.00  5000000     0.00     0.00  dictGenHashFunction
+  0.00      0.65     0.00  5000000     0.00     0.00  target_score
+  0.00      0.65     0.00    74650     0.00     0.00  zbtScoreUpdatePath
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 1.54% of 0.65 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.04    0.61                 main [1]
+                0.28    0.29 5000000/5000000     zbtreeFindForAdd [2]
+                0.01    0.03 5000000/5000000     zbtreeUpdateScore [4]
+                0.00    0.00 5000000/5000000     target_score [8]
+-----------------------------------------------
+                0.28    0.29 5000000/5000000     main [1]
+[2]     87.7    0.28    0.29 5000000         zbtreeFindForAdd [2]
+                0.26    0.00 5070750/5070750     zbtScoreLeafFindMember [3]
+                0.03    0.00 5000000/5000000     siphash [5]
+                0.00    0.00 5000000/5000000     dictGenHashFunction [7]
+-----------------------------------------------
+                0.26    0.00 5070750/5070750     zbtreeFindForAdd [2]
+[3]     40.0    0.26    0.00 5070750         zbtScoreLeafFindMember [3]
+-----------------------------------------------
+                0.01    0.03 5000000/5000000     main [1]
+[4]      6.2    0.01    0.03 5000000         zbtreeUpdateScore [4]
+                0.03    0.00 5000000/5000000     zbtScoreUpdateInPlace [6]
+-----------------------------------------------
+                0.03    0.00 5000000/5000000     zbtreeFindForAdd [2]
+[5]      4.6    0.03    0.00 5000000         siphash [5]
+-----------------------------------------------
+                0.03    0.00 5000000/5000000     zbtreeUpdateScore [4]
+[6]      4.6    0.03    0.00 5000000         zbtScoreUpdateInPlace [6]
+                0.00    0.00   74650/74650       zbtScoreUpdatePath [9]
+-----------------------------------------------
+                0.00    0.00 5000000/5000000     zbtreeFindForAdd [2]
+[7]      0.0    0.00    0.00 5000000         dictGenHashFunction [7]
+-----------------------------------------------
+                0.00    0.00 5000000/5000000     main [1]
+[8]      0.0    0.00    0.00 5000000         target_score [8]
+-----------------------------------------------
+                0.00    0.00   74650/74650       zbtScoreUpdateInPlace [6]
+[9]      0.0    0.00    0.00   74650         zbtScoreUpdatePath [9]
+-----------------------------------------------
+
+Index by function name
+
+   [7] dictGenHashFunction     [8] target_score (update.c) [9] zbtScoreUpdatePath (zset_btree.c)
+   [1] main                    [3] zbtScoreLeafFindMember (zset_btree.c) [2] zbtreeFindForAdd
+   [5] siphash                 [6] zbtScoreUpdateInPlace (zset_btree.c) [4] zbtreeUpdateScore

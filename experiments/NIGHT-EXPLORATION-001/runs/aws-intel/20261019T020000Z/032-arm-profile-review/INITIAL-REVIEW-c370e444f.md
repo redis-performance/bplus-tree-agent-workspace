@@ -1,0 +1,25 @@
+# Independent profile execution review c370e444f
+
+**Hold for allocator-mode parity correction.** This review covers the separate642-command/1200-second profile diagnostic, not native phases or a new optimization. Prior ARM027 REJECT/source NONE remains final. All35 execution-freeze inputs verify and the24 synthetic parser checks reproduce locally. No build, benchmark, profiler, SSH or remote workload ran here; a local `perf stat -h` help query only inspected option semantics.
+
+## Actionable findings
+
+`run-profile.py` uses `frontend/direction/size/seed/requested_ops` as the key for controls and census_controls. `audit-profile.py` uses the corresponding tuple for refs and censuses. These keys omit native versus ASan/UBSan allocator mode. All small129-member native/sanitizer checks therefore collide in three fixture groups; same_semantics includes tree_bytes and census equality includes layout/owned bytes. Frozen13e459ff8 compat/standalone.c:21–26 calls allocator usable-size APIs, so native and ASan allocations may legitimately have different usable capacities. Require exact baseline/A and original/disabled/census parity **within each mode**, preserving both modes and all frozen commands. This is invalid control grouping, not evidence that candidate semantics fail. No phase has executed.
+
+Also align the stat command with the plan's no-scaled-estimate requirement. `profile-command-generator.py:stat` does not include `--no-scale`; local perf help explicitly documents that option as disabling multiplex scaling. Prefer explicit --no-scale before launch with the same count/fixture/event schedule. Runtime CSV value100.00 is rounded reporting and should be described as reported100.00%, not exact proof of enabled==running at arbitrary precision. This limitation remains even after disabling scaling. No post-result tuning is requested.
+
+## Reviewed strengths and limits
+
+The642 commands retain all planned cells and source order:24 frontend builds plus2 known-control builds,4 original43 checks, full/small semantic checks,56 census commands,4 disabled-zero controls, known-work and missing-disable fault controls,288 instrumentation A/A/perturbation processes,36 scientific cycle captures with reports/scripts,36 scoped stats and actual/original/diagnostic assembly exports. Native reference schedules remain unchanged. The1200-second phase includes preparation; no adaptation or retry is permitted if it cannot complete.
+
+Protected source/binary identities are checked before/after; separately rebuilt originals must match each actual .text. Scope helpers are byte-matched to earlier preparation. Driver now explicitly requires known-control zero loss; final scope validity includes all scientific losses and warnings. Raw sample frames/IPs/periods are retained. Mapping requires exact full-function words or a unique exact seven-word window in the same symbol; isolated opcode or symbol-offset equality is insufficient. Unmatched caller bytes remain limitations. This is stricter than the earlier symbol-only helper and resolves that attribution concern.
+
+The census observations remain outside scientific timing. H4 forward census describes the same immutable reverse tree but cannot measure direction-specific locality. Native/sanitizer mode separation is still needed as above. Scalar counter directions are retained independently of scope/integrity/code validity: any valid non-reduction falsifies the fixed18-pair instruction claim; adverse direction does not invalidate otherwise sound data. A supported direction does not explain elapsed time or permit candidate adoption.
+
+All24 local metadata/parser fault checks pass after provisioning their explicitly required retained native row in a scratch copy. This does not validate actual ARM PMU behavior or exercise the omitted allocator-mode grouping. Wrong runtime/counts, missing/duplicate events, disabled nonzero, absent PC/frame/period, mapping ambiguity, losses/warnings and bad visits/checksum/traversals are covered. No ARM inference is made from local tests.
+
+## CPU-performance MCP standing rule
+
+Root communicated the user's standing requirement during this review. This worker searched its current callable tools: the requested cpu-perf `library_status`/`ask` backend is not exposed; available topdown-profiler tools are a distinct backend and were not substituted or run. Root is performing an actual local-stdio cpu-perf consultation and will share immutable evidence. Until that pin is received, this review records availability only and makes no claim of direct or completed shared consultation. Existing frozen experimental decisions and protocols are not altered based on unseen advice.
+
+Reviewer `/root/aws_intel`, native agent tools; exact backend/model/token and currency costs unknown. Prior raw/static authorship is disclosed; this is independent of ARM producer code authorship. Root/AMD must review the corrective freeze and root retains live lease, deadline, launch and release authority. [INITIAL-CHECKS.json](INITIAL-CHECKS.json) pins all35 inputs and counts; parser-checks-reproduced.json preserves24 local outcomes.

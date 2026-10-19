@@ -1,0 +1,969 @@
+{
+  "status": "pass",
+  "captures": 6,
+  "serial_process_windows": 15,
+  "scope": "original scan loop plus timer/control edges; setup/warmup/postvalidation excluded",
+  "denominator": "captured executable-range samples only; nested inline scopes overlap",
+  "aggregate": {
+    "100000": {
+      "captured": 131,
+      "tagmatches": 0,
+      "scan_slot": 113,
+      "captures": 3,
+      "tagmatches_pct": 0.0,
+      "scan_slot_pct": 86.25954198473282,
+      "materially_present": false
+    },
+    "1000000": {
+      "captured": 174,
+      "tagmatches": 0,
+      "scan_slot": 157,
+      "captures": 3,
+      "tagmatches_pct": 0.0,
+      "scan_slot_pct": 90.22988505747126,
+      "materially_present": false
+    }
+  },
+  "records": [
+    {
+      "tag": "scan-100000-seed1",
+      "captured": 43,
+      "inclusive_inline_samples": {
+        "scan_count": 2,
+        "zbtIndexScanGroup": 5,
+        "zbtIndexScanSlot": 34,
+        "zbtOrderedToScore": 1,
+        "zbtScoreLeafScore": 1,
+        "zbtScoreLeafHash": 3,
+        "zbtIndexHashReachesBucket": 2,
+        "zbtIndexTagMask": 1,
+        "siphash": 2
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "434778257",
+        "captured": "43",
+        "max_bin": "4",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x1116c",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4198"
+            }
+          ]
+        },
+        {
+          "offset": "0x113c2",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            }
+          ]
+        },
+        {
+          "offset": "0x113ca",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:589"
+            }
+          ]
+        },
+        {
+          "offset": "0x1117c",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:?"
+            }
+          ]
+        },
+        {
+          "offset": "0x115f6",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1833"
+            }
+          ]
+        },
+        {
+          "offset": "0x11642",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4142"
+            }
+          ]
+        },
+        {
+          "offset": "0x2c08",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "scan_count",
+              "location": "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/scan-profile.c:94"
+            }
+          ]
+        },
+        {
+          "offset": "0x2c10",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "scan_count",
+              "location": "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/scan-profile.c:94"
+            }
+          ]
+        },
+        {
+          "offset": "0xb434",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4248"
+            }
+          ]
+        },
+        {
+          "offset": "0xb43c",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:1776"
+            }
+          ]
+        },
+        {
+          "offset": "0xb4e6",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4253"
+            }
+          ]
+        },
+        {
+          "offset": "0xb6d8",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4261"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "scan-100000-seed2",
+      "captured": 44,
+      "inclusive_inline_samples": {
+        "scan_count": 1,
+        "zbtIndexScanGroup": 3,
+        "zbtIndexScanSlot": 38,
+        "zbtScoreLeafHash": 6,
+        "zbtIndexHashReachesBucket": 5,
+        "siphash": 2
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "441486909",
+        "captured": "44",
+        "max_bin": "13",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x113ca",
+          "samples": 13,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:589"
+            }
+          ]
+        },
+        {
+          "offset": "0x1128a",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:625"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x1161c",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:?"
+            }
+          ]
+        },
+        {
+          "offset": "0x11282",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x1133e",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexHashReachesBucket",
+              "location": "<workspace>/repo/src/zset_btree.c:4106"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4212"
+            }
+          ]
+        },
+        {
+          "offset": "0x115da",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1832"
+            }
+          ]
+        },
+        {
+          "offset": "0x2c3c",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "scan_count",
+              "location": "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/scan-profile.c:93"
+            }
+          ]
+        },
+        {
+          "offset": "0xb466",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4253"
+            }
+          ]
+        },
+        {
+          "offset": "0xb712",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4261"
+            }
+          ]
+        },
+        {
+          "offset": "0xb760",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4261"
+            }
+          ]
+        },
+        {
+          "offset": "0x10f58",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4179"
+            }
+          ]
+        },
+        {
+          "offset": "0x11040",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4148"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "scan-100000-seed3",
+      "captured": 44,
+      "inclusive_inline_samples": {
+        "zbtIndexScanGroup": 1,
+        "zbtIndexScanSlot": 41,
+        "zbtScoreLeafHash": 5,
+        "zbtIndexHashReachesBucket": 4,
+        "siphash": 2
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "444100340",
+        "captured": "44",
+        "max_bin": "5",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x1128a",
+          "samples": 5,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:625"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x113c2",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            }
+          ]
+        },
+        {
+          "offset": "0x115da",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1832"
+            }
+          ]
+        },
+        {
+          "offset": "0x11174",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4198"
+            }
+          ]
+        },
+        {
+          "offset": "0x11342",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexHashReachesBucket",
+              "location": "<workspace>/repo/src/zset_btree.c:4107"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4212"
+            }
+          ]
+        },
+        {
+          "offset": "0x11380",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:358"
+            }
+          ]
+        },
+        {
+          "offset": "0x115f6",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1833"
+            }
+          ]
+        },
+        {
+          "offset": "0x11614",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:?"
+            }
+          ]
+        },
+        {
+          "offset": "0x1170e",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4148"
+            }
+          ]
+        },
+        {
+          "offset": "0xb764",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4261"
+            }
+          ]
+        },
+        {
+          "offset": "0x10e96",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4169"
+            }
+          ]
+        },
+        {
+          "offset": "0x10f3a",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4173"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "scan-1000000-seed1",
+      "captured": 58,
+      "inclusive_inline_samples": {
+        "scan_count": 2,
+        "zbtIndexScanGroup": 2,
+        "zbtIndexScanSlot": 52,
+        "zbtScoreLeafScoreBytes": 1,
+        "zbtScoreLeafOffsets": 1,
+        "zbtScoreLeafHashTags": 1,
+        "zbtScoreLeafHash": 10,
+        "zbtIndexHashReachesBucket": 8,
+        "siphash": 2
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "581669129",
+        "captured": "58",
+        "max_bin": "8",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x11342",
+          "samples": 8,
+          "frames": [
+            {
+              "function": "zbtIndexHashReachesBucket",
+              "location": "<workspace>/repo/src/zset_btree.c:4107"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4212"
+            }
+          ]
+        },
+        {
+          "offset": "0x113c2",
+          "samples": 8,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            }
+          ]
+        },
+        {
+          "offset": "0x115da",
+          "samples": 7,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1832"
+            }
+          ]
+        },
+        {
+          "offset": "0x1128a",
+          "samples": 5,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:625"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x113ca",
+          "samples": 5,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:589"
+            }
+          ]
+        },
+        {
+          "offset": "0x11282",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x2c38",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "scan_count",
+              "location": "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/scan-profile.c:93"
+            }
+          ]
+        },
+        {
+          "offset": "0x2c3c",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "scan_count",
+              "location": "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/006-scan-profile/scan-profile.c:93"
+            }
+          ]
+        },
+        {
+          "offset": "0xb466",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4253"
+            }
+          ]
+        },
+        {
+          "offset": "0xb4b0",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4248"
+            }
+          ]
+        },
+        {
+          "offset": "0x10e30",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4166"
+            }
+          ]
+        },
+        {
+          "offset": "0x10e82",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1776"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "scan-1000000-seed2",
+      "captured": 58,
+      "inclusive_inline_samples": {
+        "zbtIndexScanGroup": 2,
+        "zbtIndexScanSlot": 53,
+        "zbtScoreLeafHash": 7,
+        "zbtIndexHashReachesBucket": 7,
+        "zbtIndexTagMask": 1,
+        "siphash": 3
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "585400287",
+        "captured": "58",
+        "max_bin": "10",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x113ca",
+          "samples": 10,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:589"
+            }
+          ]
+        },
+        {
+          "offset": "0x11342",
+          "samples": 6,
+          "frames": [
+            {
+              "function": "zbtIndexHashReachesBucket",
+              "location": "<workspace>/repo/src/zset_btree.c:4107"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4212"
+            }
+          ]
+        },
+        {
+          "offset": "0x113c2",
+          "samples": 6,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            }
+          ]
+        },
+        {
+          "offset": "0x1128a",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:625"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x115da",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1832"
+            }
+          ]
+        },
+        {
+          "offset": "0x11282",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0xb46a",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4254"
+            }
+          ]
+        },
+        {
+          "offset": "0xb552",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4252"
+            }
+          ]
+        },
+        {
+          "offset": "0x10e96",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4169"
+            }
+          ]
+        },
+        {
+          "offset": "0x10fc6",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:363"
+            }
+          ]
+        },
+        {
+          "offset": "0x1100e",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4223"
+            }
+          ]
+        },
+        {
+          "offset": "0x1104c",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4148"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "scan-1000000-seed3",
+      "captured": 58,
+      "inclusive_inline_samples": {
+        "zbtIndexScanGroup": 4,
+        "zbtIndexScanSlot": 52,
+        "zbtScoreLeafHash": 9,
+        "zbtIndexHashReachesBucket": 4,
+        "siphash": 2
+      },
+      "metadata": {
+        "text_offset_start": "0",
+        "text_offset_end": "75129",
+        "scale": "65536",
+        "bin_bytes": "2",
+        "bins": "37565",
+        "interval_ns": "10000000",
+        "cpu_elapsed_ns": "583495013",
+        "captured": "58",
+        "max_bin": "8",
+        "disabled": "0"
+      },
+      "top_buckets": [
+        {
+          "offset": "0x113c2",
+          "samples": 8,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            }
+          ]
+        },
+        {
+          "offset": "0x115da",
+          "samples": 8,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:1832"
+            }
+          ]
+        },
+        {
+          "offset": "0x113ca",
+          "samples": 6,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:589"
+            }
+          ]
+        },
+        {
+          "offset": "0x1128a",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:625"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x11342",
+          "samples": 4,
+          "frames": [
+            {
+              "function": "zbtIndexHashReachesBucket",
+              "location": "<workspace>/repo/src/zset_btree.c:4107"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4212"
+            }
+          ]
+        },
+        {
+          "offset": "0x11282",
+          "samples": 3,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:609"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x11174",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4198"
+            }
+          ]
+        },
+        {
+          "offset": "0x1124e",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtScoreLeafHash",
+              "location": "<workspace>/repo/src/zset_btree.c:358"
+            },
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:4208"
+            }
+          ]
+        },
+        {
+          "offset": "0x1143a",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:507"
+            }
+          ]
+        },
+        {
+          "offset": "0x115f2",
+          "samples": 2,
+          "frames": [
+            {
+              "function": "zbtIndexScanSlot",
+              "location": "<workspace>/repo/src/zset_btree.c:?"
+            }
+          ]
+        },
+        {
+          "offset": "0xb434",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4248"
+            }
+          ]
+        },
+        {
+          "offset": "0xb456",
+          "samples": 1,
+          "frames": [
+            {
+              "function": "zbtIndexScanGroup",
+              "location": "<workspace>/repo/src/zset_btree.c:4252"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

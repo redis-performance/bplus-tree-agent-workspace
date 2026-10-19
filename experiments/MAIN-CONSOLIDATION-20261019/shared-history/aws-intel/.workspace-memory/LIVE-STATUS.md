@@ -1,0 +1,119 @@
+# Live status — round20 final handoff, 2026-10-18 UTC
+
+## Latest completed task: EXP-007 bulk specialization
+
+[Results](../experiments/EXP-007/RESULTS.md): B has fresh full-leaf gains (-33.14%
+primary; about -43% aligned) and repeated short-range losses (+20.79%, +10.60%,
++6.49%). Reject B as a universal replacement; retain bulk direction PARK, source
+NONE. These losses had qualified discovery controls, not merely unresolved noise.
+4320 serial processes / 557280 measured batches completed in 67.65 seconds total.
+All semantic/sanitizer checks and raw-data audits pass. Two genuine three-agent
+population steps and cross-author reviews completed. Main source and original
+scalar iterator unchanged; no integration started because guards fail. Next is a
+new preregistered short-range scalar fallback experiment. Overnight stays stopped.
+
+## Latest task completed: 19 October decoder diagnostic
+
+The user approved a focused Lemire-style benchmark. It is implemented and measured:
+[report](../experiments/EXP-004/decoder-microbench-2026-10-19/README.md).
+960 serial processes / 123,840 batches finished in 12.58 seconds; release/sanitizer
+checks and raw reconstruction pass. A regresses aligned 8-bit/64-bit decoder loops.
+EXP-004 A/PARK and production baseline unchanged. No new population. The overnight
+supervisor remains stopped; do not infer permission to restart it from this run.
+This adds one standalone harness/diagnostic after historical overnight totals.
+
+## Round 20 final extension and sealed handoff
+
+The final bounded generation-wrap matrix passes8 additional control/A/B/C cells and
+8 builds on fresh94503/94521 seeds. Each cell retains four fixtures,262160 natural
+resizes, four65535→1 growth wraps,262188 complete models and24254190 exact results.
+Only seed literals changed; no new fault or timing run. Round20 final total:112 passing
+semantic cells and six detected repeated faults. Earlier104-cell checkpoint and all
+469 sealed files are preserved and reverified; final report/seal supersede it.
+
+Final audit PASS:3960 hashes,220 serial experimental windows,23 reconstructed patches,
+including all15 optimization patches. Last experimental child ended06:25:59UTC.
+No more experiments start. Counts remain7 harnesses/13 baselines/34 diagnostics/
+26 named suites/5 sequential populations;0 accepted/2 rejected/3 parked. SourceNONE,
+EXP-006C/PARK and all other decisions unchanged. Main baseline preserved.
+
+Canonical [round20](../experiments/OVERNIGHT-2026-10-17/ROUND-020.md),
+[coverage](../experiments/OVERNIGHT-2026-10-17/ROUND-020-CANDIDATE-COVERAGE.md) and
+[next action](../experiments/OVERNIGHT-2026-10-17/ROUND-020-NEXT.md). Final worker must
+write MORNING-REPORT.md before07:00UTC/08:00Lisbon, using the supplied morning draft
+and final seal. Same-size cleanup and actual architecture portability remain gaps;
+forced scalar fallback is not big-endian testing. Independent review/confirmation,
+qualified performance guards and committed provenance remain pending. Reviewer startup
+failed; exact backend/model/token cost unknown, supervisor CLI accounting separate.
+No publishing, git retry, credentials, permission or supervisor/runtime/STOP edits.
+
+
+## Latest: EXP-008 / Apple M1 decoder work
+
+EXP-008 is complete on Apple M1. Scalar cutoffs 4/8/16 failed the frozen count16/count96
+primary gates; count16 A/A precision failed. No confirmation, no selected candidate, and
+root source remains unchanged. The count1 scalar path is only a lead for a separate
+experiment. All recent focused decoder results (EXP-004/007/008) are Apple M1 observations.
+The user plans to rerun the latest decoder campaigns on Apple M6 mini; use
+`experiments/REPLICATE-LATEST.md`, host-specific output folders, and separate A/A/results.
+Do not pool M1 and M6 rows. EXP-008 completed 15360 serial processes / 1981440 batches in
+265.83s; all release/sanitizer tests and raw audit pass. Frequency, DVFS, actual core use
+and within-window migration remain unknown. Source/hash baseline is EXP-008 commit plus
+M1 host metadata in its run manifest.
+
+
+## Latest: four-size baseline ready for M6 replication
+
+Completed SIZE-MATRIX-001 on Apple M1: 100/1K/10K/100K members × all eight standard
+operations, 16-byte members, three seeds, six same-binary ABBA blocks. All 32 cells,
+96 processes and 768 rows are retained; timing took 79.03 seconds. Native/sanitizer
+tests and raw-data reconstruction passed. All cells show >1% variation in at least
+one A/A block; 10 have <10 ms windows. No optimization acceptance or source change.
+See [report](../experiments/SIZE-MATRIX-001/README.md), README chart, and
+[M6 runbook](../experiments/REPLICATE-LATEST.md). The user requested publishing the
+plan/documentation so they can follow up on M6. Run the same matrix into a new
+host-specific directory and compare separately; do not overwrite M1 evidence.
+
+
+## Latest: five-size M1 results and shared night plan published
+
+SIZE-MATRIX-001/apple-m1-five-sizes completes 100/1K/10K/100K/1M × all eight operations:
+120 processes, 960 rows, 40 cells, 351.43s timing; native/sanitizer checks and raw audit
+passed. Variation remains (39 cells >1% in an A/A block, 11 short cells). No tree change.
+See experiments/NIGHT-EXPLORATION-001 for the shared M1/M6 eight-hour plan, launch/stop
+commands, population/measurement rules, and pinned Lemire template/blog/cbitset review.
+All documents/results are prepared for publishing; no overnight run started. User
+wants M6 follow-up using the same five-size definitions and separate host evidence.
+
+
+## 19 October 2026 — AWS overnight launch
+
+Three user-authorized hosts (Intel Sapphire Rapids, AMD Zen 5, ARM Neoverse V2)
+passed SSH preflight; OSS coordinators stopped, five-size baselines running from
+8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
+09:00Lisbon. [Live status](../experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
+completed evidence. No new optimization decision; population counts unchanged.
+
+
+19October2026 AWS Intel native lookup: **REJECT/NONE**,1completed sequential population(0accepted/1rejected/0parked),3retained patches.432rows/108blocks, all variants slow both primaries; baseline source unchanged. [Intel evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/002-lookup/implementation-selection.md). Other-host and historical counts remain separate.
+
+
+19October2026 AWS Intel update diagnosis **NONE**: separate validated five-pattern referee,360semanticcells,15scopedprofiles+disabledcontrol,25censuscells,600baseline rows/25cells(2qualified). No newimplementationpopulation; Intelcount stays1measuredpopulation/1REJECT/3retainedpatches. See experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/003-update/README.md. Source unchanged.
+
+
+19 October2026 AWS Intel iterator cache: **PARK / NONE**, fixed screen566/576 rows (141 complete blocks plus two trailing rows), budget stopped without extension. A/B conditional leads; C rejected. Intel totals: **2 measured sequential populations,0 accepted /1 rejected /1 parked;6 retained patches**. Iterator population comparison is partial. Update diagnosis NONE adds no implementation population. Source unchanged. [Evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/README.md).
+
+
+Intel scan baseline qualification:48 held-out-seed A/A rows complete, both100K/1M controls qualify within±1% with windows>=444ms. No candidate timing or population increment. [Evidence](../experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
+
+2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md
+
+2026-10-19T04:04:33.171076+00:00 Full original A/A COMPLETE120processes/960rows/240blocks,57/80 cells qualify;12 short plus11 precision-failed cells unresolved. Raw/CPU2/serial/checksum/memory auditPASS. Overall scan PARK/source NONE. Intel runner IDLE: owned job ended04:03:26UTC rc0; no btree-bench process. Root reserves handoff to AMD independent201–203 confirmation; no next Intel job until explicit root return. Prepared008 B matrix/010 matched profiles/011 focused phases remain unlaunched. ARM chaird57515154 also selects NONE after failed1M controls; no native patch.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md
+
+2026-10-19T04:29:52.551472+00:00 Full original B guards COMPLETE120processes/960rows/240blocks in1111.54s:56/57 qualified guards pass,23 baseline-control gaps plus one mixed100/16 iteration block(+1.329%) keep24/80 unresolved. No demonstrated all-block regression; PARK/source NONE. Raw auditPASS and22 post-phase source/referee/binary hashes unchanged. Matched profilev2 next; no concurrent job.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md
+
+2026-10-19T05:09:03.666047+00:00 Focused B COMPLETE864 rows/216 blocks in588.46s/900s. All22 baseline-qualified cells pass everyguard block;14 unqualifiedcells remain unresolved. No shortwindows or qualified regression; exactcallbacks/checksum/ownedbytes/CPU2/serial auditPASS.24 focused+22 original post-phase hashes unchanged. Overall PARK/source NONE retains24 original unresolvedcells. Corrected-adapter baseline013 next; supplemental014 after.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/011-focused-scan-guards/README.md

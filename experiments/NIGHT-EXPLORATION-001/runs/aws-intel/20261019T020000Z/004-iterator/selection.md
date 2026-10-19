@@ -1,0 +1,9 @@
+# Chair: member offset-array cache, exploratory only
+
+Rank A>B>C by directprofile/codegen evidence, narrowstate scope and novelty. Select onlyA's lazy per-leaf memberoffset cache. Three sequentialproposalpasses, not independentagents. No publicAPIfunction addition; iteratorstate gets one cachefield. Existingmutationinvalidatesiterator contract remains. No scorepredicate/dispatchretuning.
+
+A/A192rows/48blocks complete:5/8cells qualify including1Mprimary(-0.157..+0.094%);100Kprimary(+0.562..+2.950%)fails.100Kfraction(-13.223..+5.329%) and reverse(-0.221..+3.434%)fail. Therefore ONE fixedexploratory576row screen, no adoptionqualification. Requiredbroaderguardmatrix and freshconfirmation remain unchanged.
+
+Implementation A caches pointer: sizeofiterator24vs16 on64bit, explicitly+8bytesstack/state perliveiterator (no treeowned increase). B cachesuint32 byteoffset inexisting64bitpadding:sizeof16. C cachesuint16 byteoffset inpadding:sizeof16, staticassert leafbyteboundfitsUINT16.32bitABI sizes unmeasured and remain a portabilitylimitation. Allvariants resetcache atall11iter->leaf assignments; zero/NULLsentinel valid becauseoffsetbase is insideleaf afterheader. Cachecomputed onlyfor member/length outputs, originalphysical reversal/packeddecoder preserved. Every driver/test is recompiled fromsame referee source againsteach matchingvariantheader; no objectcompiledwitholdsizeof16 reusedforA. Prefer smaller state among equivalentqualifiedresults.
+
+Validation beforetiming: original43tests release/sanitizer,1920existingiteratorfixtures pervariant, and newpoisoned-state oracle forsuccessful/failed rank/score/lexseeks, bothdirections, nullableoutputs, copies, leaftransitions, exactsignedzero and binary/externalmember semantics. Independentrootreviews exactsource+headerpatches beforetiming.

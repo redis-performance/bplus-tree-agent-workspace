@@ -1,0 +1,4 @@
+make: Entering directory '<workspace>/repo/scratch/intel-variants/C'
+mkdir -p build/sanitize
+clang -Isrc -Icompat -Ivendor/redis -std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all -DREDIS_TEST -DREDIS_DEBUG -fsanitize=address,undefined tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o build/sanitize/btree-test
+make: Leaving directory '<workspace>/repo/scratch/intel-variants/C'

@@ -1,0 +1,219 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 21.45      0.92     0.92  5000000     0.18     0.23  zbtreeFindForAdd
+ 14.69      1.55     0.63  5000000     0.13     0.25  zbtScoreInsertAt
+ 12.82      2.10     0.55  5000000     0.11     0.11  zbtScoreFindLeaf
+  9.79      2.52     0.42  5000000     0.08     0.08  zbtScoreLeafLowerBound
+  9.32      2.92     0.40   845723     0.47     0.47  zbtScoreLeafBuild
+  6.29      3.19     0.27 10456720     0.03     0.03  zbtIndexTableFindReference
+  6.06      3.45     0.26                             main
+  5.13      3.67     0.22 10006004     0.02     0.02  zbtScoreUpdatePath
+  5.13      3.89     0.22  5037935     0.04     0.04  zbtScoreLeafFindMember
+  2.10      3.98     0.09                             _init
+  1.63      4.05     0.07   896372     0.08     0.08  zbtScoreRefreshNode
+  1.40      4.11     0.06  4999996     0.01     0.03  zbtScoreDeleteInPlace
+  1.40      4.17     0.06    75013     0.80     2.35  zbtScoreMergePair
+  0.93      4.21     0.04 10456720     0.00     0.00  siphash
+  0.70      4.24     0.03  5000000     0.01     0.01  zbtScoreUpdateInPlace
+  0.70      4.27     0.03  5000000     0.01     0.56  zbtreeUpdateScore
+  0.23      4.28     0.01  5000000     0.00     0.04  zbtScoreDeleteAt
+  0.23      4.29     0.01  5000000     0.00     0.20  zbtScoreInsert
+  0.00      4.29     0.00 10456720     0.00     0.00  dictGenHashFunction
+  0.00      4.29     0.00 10456720     0.00     0.03  zbtIndexMove
+  0.00      4.29     0.00  5000000     0.00     0.00  target_score
+  0.00      4.29     0.00   931320     0.00     0.00  zmalloc_usable_size
+  0.00      4.29     0.00   849224     0.00     0.00  zfree_usable
+  0.00      4.29     0.00   849201     0.00     0.00  zmalloc_usable
+  0.00      4.29     0.00   845788     0.00     0.00  zbtScoreLeafFreeOwned
+  0.00      4.29     0.00    75017     0.00     0.31  zbtScoreDetachNode
+  0.00      4.29     0.00    74952     0.00     0.30  zbtScoreInsertSibling
+  0.00      4.29     0.00     5947     0.00     0.49  zbtScoreCompactLeaf
+  0.00      4.29     0.00     3317     0.00     0.39  zbtScoreSplitInner
+  0.00      4.29     0.00        1     0.00     0.00  zrealloc_usable
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 0.23% of 4.29 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     97.9    0.26    3.94                 main [1]
+                0.03    2.75 5000000/5000000     zbtreeUpdateScore [2]
+                0.92    0.24 5000000/5000000     zbtreeFindForAdd [4]
+                0.00    0.00 5000000/5000000     target_score [25]
+-----------------------------------------------
+                0.03    2.75 5000000/5000000     main [1]
+[2]     64.8    0.03    2.75 5000000         zbtreeUpdateScore [2]
+                0.63    0.62 5000000/5000000     zbtScoreInsertAt [3]
+                0.01    0.97 5000000/5000000     zbtScoreInsert [5]
+                0.01    0.17 5000000/5000000     zbtScoreDeleteAt [13]
+                0.06    0.12   75013/75013       zbtScoreMergePair [14]
+                0.00    0.13 5000000/10456720     zbtIndexMove [9]
+                0.03    0.00 5000000/5000000     zbtScoreUpdateInPlace [19]
+                0.00    0.00    5947/5947        zbtScoreCompactLeaf [22]
+                0.00    0.00   85597/931320      zmalloc_usable_size [26]
+                0.00    0.00       4/845788      zbtScoreLeafFreeOwned [29]
+-----------------------------------------------
+                0.63    0.62 5000000/5000000     zbtreeUpdateScore [2]
+[3]     29.2    0.63    0.62 5000000         zbtScoreInsertAt [3]
+                0.36    0.00  764763/845723      zbtScoreLeafBuild [8]
+                0.11    0.00 4925048/10006004     zbtScoreUpdatePath [11]
+                0.00    0.09 3561000/10456720     zbtIndexMove [9]
+                0.02    0.00  298132/896372      zbtScoreRefreshNode [17]
+                0.00    0.02   74952/74952       zbtScoreInsertSibling [21]
+                0.01    0.00 3561000/10456720     siphash [18]
+                0.00    0.00    3317/3317        zbtScoreSplitInner [23]
+                0.00    0.00 3561000/10456720     dictGenHashFunction [24]
+                0.00    0.00  689811/845788      zbtScoreLeafFreeOwned [29]
+-----------------------------------------------
+                0.92    0.24 5000000/5000000     main [1]
+[4]     27.0    0.92    0.24 5000000         zbtreeFindForAdd [4]
+                0.22    0.00 5037935/5037935     zbtScoreLeafFindMember [12]
+                0.02    0.00 5000000/10456720     siphash [18]
+                0.00    0.00 5000000/10456720     dictGenHashFunction [24]
+-----------------------------------------------
+                0.01    0.97 5000000/5000000     zbtreeUpdateScore [2]
+[5]     22.8    0.01    0.97 5000000         zbtScoreInsert [5]
+                0.55    0.00 5000000/5000000     zbtScoreFindLeaf [6]
+                0.42    0.00 5000000/5000000     zbtScoreLeafLowerBound [7]
+-----------------------------------------------
+                0.55    0.00 5000000/5000000     zbtScoreInsert [5]
+[6]     12.8    0.55    0.00 5000000         zbtScoreFindLeaf [6]
+-----------------------------------------------
+                0.42    0.00 5000000/5000000     zbtScoreInsert [5]
+[7]      9.8    0.42    0.00 5000000         zbtScoreLeafLowerBound [7]
+-----------------------------------------------
+                0.00    0.00    5947/845723      zbtScoreCompactLeaf [22]
+                0.04    0.00   75013/845723      zbtScoreMergePair [14]
+                0.36    0.00  764763/845723      zbtScoreInsertAt [3]
+[8]      9.3    0.40    0.00  845723         zbtScoreLeafBuild [8]
+                0.00    0.00  845723/849201      zmalloc_usable [28]
+                0.00    0.00  845723/931320      zmalloc_usable_size [26]
+                0.00    0.00       1/1           zrealloc_usable [30]
+-----------------------------------------------
+                0.00    0.05 1895720/10456720     zbtScoreMergePair [14]
+                0.00    0.09 3561000/10456720     zbtScoreInsertAt [3]
+                0.00    0.13 5000000/10456720     zbtreeUpdateScore [2]
+[9]      6.3    0.00    0.27 10456720         zbtIndexMove [9]
+                0.27    0.00 10456720/10456720     zbtIndexTableFindReference [10]
+-----------------------------------------------
+                0.27    0.00 10456720/10456720     zbtIndexMove [9]
+[10]     6.3    0.27    0.00 10456720         zbtIndexTableFindReference [10]
+-----------------------------------------------
+                0.00    0.00    5947/10006004     zbtScoreCompactLeaf [22]
+                0.00    0.00   75013/10006004     zbtScoreMergePair [14]
+                0.11    0.00 4925048/10006004     zbtScoreInsertAt [3]
+                0.11    0.00 4999996/10006004     zbtScoreDeleteInPlace [15]
+[11]     5.1    0.22    0.00 10006004         zbtScoreUpdatePath [11]
+-----------------------------------------------
+                0.22    0.00 5037935/5037935     zbtreeFindForAdd [4]
+[12]     5.1    0.22    0.00 5037935         zbtScoreLeafFindMember [12]
+-----------------------------------------------
+                0.01    0.17 5000000/5000000     zbtreeUpdateScore [2]
+[13]     4.2    0.01    0.17 5000000         zbtScoreDeleteAt [13]
+                0.06    0.11 4999996/4999996     zbtScoreDeleteInPlace [15]
+                0.00    0.00       4/75017       zbtScoreDetachNode [20]
+-----------------------------------------------
+                0.06    0.12   75013/75013       zbtreeUpdateScore [2]
+[14]     4.1    0.06    0.12   75013         zbtScoreMergePair [14]
+                0.00    0.05 1895720/10456720     zbtIndexMove [9]
+                0.04    0.00   75013/845723      zbtScoreLeafBuild [8]
+                0.00    0.02   75013/75017       zbtScoreDetachNode [20]
+                0.01    0.00 1895720/10456720     siphash [18]
+                0.00    0.00   75013/10006004     zbtScoreUpdatePath [11]
+                0.00    0.00 1895720/10456720     dictGenHashFunction [24]
+                0.00    0.00  150026/845788      zbtScoreLeafFreeOwned [29]
+-----------------------------------------------
+                0.06    0.11 4999996/4999996     zbtScoreDeleteAt [13]
+[15]     4.0    0.06    0.11 4999996         zbtScoreDeleteInPlace [15]
+                0.11    0.00 4999996/10006004     zbtScoreUpdatePath [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     2.1    0.09    0.00                 _init [16]
+-----------------------------------------------
+                0.00    0.00   16666/896372      zbtScoreSplitInner [23]
+                0.02    0.00  284942/896372      zbtScoreInsertSibling [21]
+                0.02    0.00  296632/896372      zbtScoreDetachNode [20]
+                0.02    0.00  298132/896372      zbtScoreInsertAt [3]
+[17]     1.6    0.07    0.00  896372         zbtScoreRefreshNode [17]
+-----------------------------------------------
+                0.01    0.00 1895720/10456720     zbtScoreMergePair [14]
+                0.01    0.00 3561000/10456720     zbtScoreInsertAt [3]
+                0.02    0.00 5000000/10456720     zbtreeFindForAdd [4]
+[18]     0.9    0.04    0.00 10456720         siphash [18]
+-----------------------------------------------
+                0.03    0.00 5000000/5000000     zbtreeUpdateScore [2]
+[19]     0.7    0.03    0.00 5000000         zbtScoreUpdateInPlace [19]
+-----------------------------------------------
+                                3435             zbtScoreDetachNode [20]
+                0.00    0.00       4/75017       zbtScoreDeleteAt [13]
+                0.00    0.02   75013/75017       zbtScoreMergePair [14]
+[20]     0.5    0.00    0.02   75017+3435    zbtScoreDetachNode [20]
+                0.02    0.00  296632/896372      zbtScoreRefreshNode [17]
+                0.00    0.00    3436/849224      zfree_usable [27]
+                                3435             zbtScoreDetachNode [20]
+-----------------------------------------------
+                0.00    0.02   74952/74952       zbtScoreInsertAt [3]
+[21]     0.5    0.00    0.02   74952         zbtScoreInsertSibling [21]
+                0.02    0.00  284942/896372      zbtScoreRefreshNode [17]
+-----------------------------------------------
+                0.00    0.00    5947/5947        zbtreeUpdateScore [2]
+[22]     0.1    0.00    0.00    5947         zbtScoreCompactLeaf [22]
+                0.00    0.00    5947/845723      zbtScoreLeafBuild [8]
+                0.00    0.00    5947/10006004     zbtScoreUpdatePath [11]
+                0.00    0.00    5947/845788      zbtScoreLeafFreeOwned [29]
+-----------------------------------------------
+                                 159             zbtScoreSplitInner [23]
+                0.00    0.00    3317/3317        zbtScoreInsertAt [3]
+[23]     0.0    0.00    0.00    3317+159     zbtScoreSplitInner [23]
+                0.00    0.00   16666/896372      zbtScoreRefreshNode [17]
+                0.00    0.00    3478/849201      zmalloc_usable [28]
+                                 159             zbtScoreSplitInner [23]
+-----------------------------------------------
+                0.00    0.00 1895720/10456720     zbtScoreMergePair [14]
+                0.00    0.00 3561000/10456720     zbtScoreInsertAt [3]
+                0.00    0.00 5000000/10456720     zbtreeFindForAdd [4]
+[24]     0.0    0.00    0.00 10456720         dictGenHashFunction [24]
+-----------------------------------------------
+                0.00    0.00 5000000/5000000     main [1]
+[25]     0.0    0.00    0.00 5000000         target_score [25]
+-----------------------------------------------
+                0.00    0.00   85597/931320      zbtreeUpdateScore [2]
+                0.00    0.00  845723/931320      zbtScoreLeafBuild [8]
+[26]     0.0    0.00    0.00  931320         zmalloc_usable_size [26]
+-----------------------------------------------
+                0.00    0.00    3436/849224      zbtScoreDetachNode [20]
+                0.00    0.00  845788/849224      zbtScoreLeafFreeOwned [29]
+[27]     0.0    0.00    0.00  849224         zfree_usable [27]
+-----------------------------------------------
+                0.00    0.00    3478/849201      zbtScoreSplitInner [23]
+                0.00    0.00  845723/849201      zbtScoreLeafBuild [8]
+[28]     0.0    0.00    0.00  849201         zmalloc_usable [28]
+-----------------------------------------------
+                0.00    0.00       4/845788      zbtreeUpdateScore [2]
+                0.00    0.00    5947/845788      zbtScoreCompactLeaf [22]
+                0.00    0.00  150026/845788      zbtScoreMergePair [14]
+                0.00    0.00  689811/845788      zbtScoreInsertAt [3]
+[29]     0.0    0.00    0.00  845788         zbtScoreLeafFreeOwned [29]
+                0.00    0.00  845788/849224      zfree_usable [27]
+-----------------------------------------------
+                0.00    0.00       1/1           zbtScoreLeafBuild [8]
+[30]     0.0    0.00    0.00       1         zrealloc_usable [30]
+-----------------------------------------------
+
+Index by function name
+
+  [16] _init                  [20] zbtScoreDetachNode (zset_btree.c) [17] zbtScoreRefreshNode (zset_btree.c)
+  [24] dictGenHashFunction     [6] zbtScoreFindLeaf (zset_btree.c) [23] zbtScoreSplitInner (zset_btree.c)
+   [1] main                    [5] zbtScoreInsert (zset_btree.c) [19] zbtScoreUpdateInPlace (zset_btree.c)
+  [18] siphash                 [3] zbtScoreInsertAt (zset_btree.c) [11] zbtScoreUpdatePath (zset_btree.c)
+  [25] target_score (update.c) [21] zbtScoreInsertSibling (zset_btree.c) [4] zbtreeFindForAdd
+   [9] zbtIndexMove (zset_btree.c) [8] zbtScoreLeafBuild (zset_btree.c) [2] zbtreeUpdateScore
+  [10] zbtIndexTableFindReference (zset_btree.c) [12] zbtScoreLeafFindMember (zset_btree.c) [27] zfree_usable
+  [22] zbtScoreCompactLeaf (zset_btree.c) [29] zbtScoreLeafFreeOwned (zset_btree.c) [28] zmalloc_usable
+  [13] zbtScoreDeleteAt (zset_btree.c) [7] zbtScoreLeafLowerBound (zset_btree.c) [26] zmalloc_usable_size
+  [15] zbtScoreDeleteInPlace (zset_btree.c) [14] zbtScoreMergePair (zset_btree.c) [30] zrealloc_usable

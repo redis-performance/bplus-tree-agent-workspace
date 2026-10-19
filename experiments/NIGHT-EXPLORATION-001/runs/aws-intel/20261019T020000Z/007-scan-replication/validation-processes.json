@@ -1,0 +1,510 @@
+[
+  {
+    "name": "base-native-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:44.944556+00:00",
+    "finished_utc": "2026-10-19T03:35:48.369642+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:48.369739+00:00",
+    "finished_utc": "2026-10-19T03:35:49.767616+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-native-v2",
+    "command": [
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:49.767750+00:00",
+    "finished_utc": "2026-10-19T03:35:49.792305+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:49.792418+00:00",
+    "finished_utc": "2026-10-19T03:35:57.143078+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:57.143258+00:00",
+    "finished_utc": "2026-10-19T03:35:59.114317+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "base-san-v2",
+    "command": [
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/base",
+    "started_utc": "2026-10-19T03:35:59.114585+00:00",
+    "finished_utc": "2026-10-19T03:35:59.173190+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/variants/A/candidate.patch"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:35:59.264601+00:00",
+    "finished_utc": "2026-10-19T03:35:59.266139+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-timing-build",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build",
+      "OPT=-O3",
+      "build/btree-bench"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:35:59.266273+00:00",
+    "finished_utc": "2026-10-19T03:36:00.715413+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:00.715631+00:00",
+    "finished_utc": "2026-10-19T03:36:04.154539+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:04.154717+00:00",
+    "finished_utc": "2026-10-19T03:36:05.561429+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-v2",
+    "command": [
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:05.561618+00:00",
+    "finished_utc": "2026-10-19T03:36:05.585601+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-portable-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_FORCE_PORTABLE_TAG_MATCHES",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:05.585757+00:00",
+    "finished_utc": "2026-10-19T03:36:06.999481+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-native-portable-v2",
+    "command": [
+      "build/native/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:06.999686+00:00",
+    "finished_utc": "2026-10-19T03:36:07.024181+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:07.024337+00:00",
+    "finished_utc": "2026-10-19T03:36:14.300184+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:14.300408+00:00",
+    "finished_utc": "2026-10-19T03:36:16.289153+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-v2",
+    "command": [
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:16.289360+00:00",
+    "finished_utc": "2026-10-19T03:36:16.345372+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-portable-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_FORCE_PORTABLE_TAG_MATCHES",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:16.345555+00:00",
+    "finished_utc": "2026-10-19T03:36:18.317660+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "A-san-portable-v2",
+    "command": [
+      "build/san/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/A",
+    "started_utc": "2026-10-19T03:36:18.317889+00:00",
+    "finished_utc": "2026-10-19T03:36:18.374946+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-patch",
+    "command": [
+      "patch",
+      "-p1",
+      "-i",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/variants/B/candidate.patch"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:18.467163+00:00",
+    "finished_utc": "2026-10-19T03:36:18.468559+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-timing-build",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build",
+      "OPT=-O3",
+      "build/btree-bench"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:18.468742+00:00",
+    "finished_utc": "2026-10-19T03:36:19.919698+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/native",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "LDFLAGS=",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:19.919983+00:00",
+    "finished_utc": "2026-10-19T03:36:23.353120+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:23.353346+00:00",
+    "finished_utc": "2026-10-19T03:36:24.766073+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-v2",
+    "command": [
+      "build/native/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:24.766308+00:00",
+    "finished_utc": "2026-10-19T03:36:24.789333+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-portable-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O3",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/native/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:24.789540+00:00",
+    "finished_utc": "2026-10-19T03:36:26.193008+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-native-portable-v2",
+    "command": [
+      "build/native/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:26.193248+00:00",
+    "finished_utc": "2026-10-19T03:36:26.218813+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-original-tests",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/san",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+      "LDFLAGS=-fsanitize=address,undefined",
+      "check"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:26.220508+00:00",
+    "finished_utc": "2026-10-19T03:36:33.496634+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:33.496915+00:00",
+    "finished_utc": "2026-10-19T03:36:35.475580+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-v2",
+    "command": [
+      "build/san/oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:35.475846+00:00",
+    "finished_utc": "2026-10-19T03:36:35.531834+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-portable-v2-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-DZBT_LEAF_TAG_MATCHES_FORCE_PORTABLE",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "tests/all_match_guard_oracle_v2.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/san/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:35.532069+00:00",
+    "finished_utc": "2026-10-19T03:36:37.520830+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "B-san-portable-v2",
+    "command": [
+      "build/san/portable-oracle-v2"
+    ],
+    "cwd": "scratch/intel-scan-replication/B",
+    "started_utc": "2026-10-19T03:36:37.521111+00:00",
+    "finished_utc": "2026-10-19T03:36:37.578245+00:00",
+    "returncode": 0
+  }
+]

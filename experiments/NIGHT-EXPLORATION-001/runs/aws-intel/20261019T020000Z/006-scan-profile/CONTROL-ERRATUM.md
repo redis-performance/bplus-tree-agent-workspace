@@ -1,0 +1,5 @@
+# Control correction before scan capture
+
+First helper ended after8.128s, before any enabled scan captures. Enabled/disabled known-work controls passed66/66 in known_work and zero disabled. Original versus scoped-disabled native semantic fields and owned bytes passed for100/1K/10K. The final control incorrectly compared native32544 owned bytes with sanitizer32446; all other semantic fields matched. Sanitizer changes allocator accounting, so that cross-build equality was an invalid precondition.
+
+Preserve original script, output, process metadata and controls under attempt001. Add an original uninstrumented sanitizer executable with the same sanitizer flags/allocator and compare it against the already completed scoped-disabled sanitizer output. Preserve the owned-byte assertion within this matching pair. No target/referee/sampler changes, no repeated successful native controls or known-work executions, no changed operations/seeds and no enabled scan capture was discarded. Continuation helper cap291s keeps aggregate helper caps under300s after first8.128s. The six original5M-op captures remain unrun before this correction.

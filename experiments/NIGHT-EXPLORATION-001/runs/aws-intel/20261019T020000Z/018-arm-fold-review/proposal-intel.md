@@ -1,0 +1,27 @@
+# Independent Intel proposal pass: NONE
+
+Decision: **NONE** for a new timed optimization population on the current evidence. The observed predicate lowering is a credible defect to explain, but the packet does not support a prediction that removing it will beat the unchanged baseline timing binary `869425ed06643058e561df05177d1b85c42c9f662c5a80654c25caca02349055`. A smaller loss against rejected B is not a success.
+
+Actual author: `/root/aws_intel`. Exact backend/model and measured token/USD costs are unknown. This pass reads only common packet `c3323969a`, its frozen 018/019/020 evidence, the baseline helper and the prior sealed B implementation. I authored prior NEON B, so this proposal is not blind to that implementation or earlier operational discussion. I have not read current ARM/AMD proposals or a current chair decision. No source was changed or measurement run for this proposal.
+
+## Evidence and limits
+
+The frozen corrected baseline is `13e459ff8`, with unchanged target C hash `d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2`, Clang 18.1.3 and native O3 on the same ARM runner. Fresh controls qualify at both sizes. Precision therefore permits a new test; it does not establish a useful optimization direction.
+
+Rejected B is 76.65–78.59% slower at 100K and 54.84–55.83% slower at 1M. Its generated fold predicate repeatedly executes 35 instructions per complete 16-byte chunk, including stack stores/reload and scalar-to-vector lane transfers. The exact 70 predicate addresses across the two directions account for 17.67% and 16.87% of timed-call-site sampled period. This is stronger evidence than static instruction counts alone, with all raw classification categories retained and independent review available.
+
+That sampled share still leaves a large explanatory gap. Under the deliberately simplistic assumption that sampled period equals independently removable elapsed cost, deleting the whole predicate would leave roughly 45–47% slowdown at 100K and 29–30% at 1M. Reaching a 2% gain would instead require removing roughly 44–45% and 37% of B's elapsed work. These are illustrative checks, not causal bounds: dependency chains, normalization, register pressure, spill placement and compiler restructuring can make actual effects nonlinear. The packet contains no evidence quantifying a favorable change in those other costs.
+
+Likewise, the continuing zero-mask path is 51 instructions per 16 bytes in B versus 38 across two baseline words. Subtracting 35 and declaring a win would assign equal cost to unequal instructions, ignore match-bearing chunks and residuals, and assume all other generated code stays fixed. The baseline helper already has efficient word matching; vector equality alone does not predict an end-to-end advantage.
+
+## Ranked alternatives and falsification
+
+1. **NONE now.** Keep the rejected population final and retain the measured explanation without claiming that a repair would cross the baseline gate.
+2. **Conditional future hypothesis: specialize the fold case outside the complete-chunk loop.** A source-level ordinary-tag path and a tag-one path could make the zero-fold predicate loop invariant, avoiding per-chunk lane reconstruction. This would be falsified at codegen review if stack predicate construction, equivalent per-lane reconstruction or repeated normalization remains. Even if that codegen gate passes, evidence would still be needed that the resulting full helper can overcome the much larger loss against unchanged 8694. I do not select this for timing on the present packet.
+3. **Rewrite the baseline word mask or downstream decode.** These may avoid the rejected vector code, but this packet does not isolate their removable cost. They need their own baseline evidence and should not be attached to this predicate hypothesis.
+
+If a chair nevertheless selects the fold specialization, constrain it to that one mechanism and exact source/compiler/referee. Preserve the original bounded word/scalar tails, physical order, reversed mapping, folded zero-plus-one semantics and architecture-guarded portable fallback. Treat code-size or stack changes as separate reported tradeoffs, not tree-owned heap savings. Duplicated paths increase instruction-cache footprint and can cause register/layout changes; compiler unswitching may recreate the original pathology. A single scalar branch outside the vector loop does not prove the generated loop is improved.
+
+Correctness must retain the original tests and exhaustive all-match oracle, including every tag, folded 0/1, residual lengths, unaligned bounded spans and reversed results; signed-zero/member-byte/resize/generation/leaf-ID checks remain mandatory. Native and sanitizer runs, forced fallback and exact binary/referee hashes precede timing. No A/A retry or seed pruning is acceptable.
+
+Any later candidate would need every preregistered primary block at least 2% faster than unchanged 8694, qualified guards without demonstrated >1% regressions, exact memory/output identity, fresh independent confirmation and source-specific profile validation. A matched profile should show that predicate work disappears without merely moving cost to normalization, spills, mask extraction, decode or unknown frames. Failure to beat baseline, failed/noisy controls, or unresolved guards must reject or park the round. No comparison solely against rejected B, no post-result compiler/flag/source switch and no second repair loop under the same hypothesis.

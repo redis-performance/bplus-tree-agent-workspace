@@ -1,0 +1,203 @@
+
+experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/build/C-profile-enabled:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .text:
+
+000000000000ca70 <zbtreeIteratorNext>:
+    ca70:	55                   	push   %rbp
+    ca71:	48 89 e5             	mov    %rsp,%rbp
+    ca74:	41 57                	push   %r15
+    ca76:	41 56                	push   %r14
+    ca78:	41 55                	push   %r13
+    ca7a:	41 54                	push   %r12
+    ca7c:	53                   	push   %rbx
+    ca7d:	48 83 ec 28          	sub    $0x28,%rsp
+    ca81:	48 8b 1f             	mov    (%rdi),%rbx
+    ca84:	48 85 db             	test   %rbx,%rbx
+    ca87:	74 39                	je     cac2 <zbtreeIteratorNext+0x52>
+    ca89:	44 8b 77 08          	mov    0x8(%rdi),%r14d
+    ca8d:	48 89 d0             	mov    %rdx,%rax
+    ca90:	48 09 c8             	or     %rcx,%rax
+    ca93:	0f 84 32 01 00 00    	je     cbcb <zbtreeIteratorNext+0x15b>
+    ca99:	0f b7 47 0c          	movzwl 0xc(%rdi),%eax
+    ca9d:	66 85 c0             	test   %ax,%ax
+    caa0:	75 30                	jne    cad2 <zbtreeIteratorNext+0x62>
+    caa2:	0f b6 43 34          	movzbl 0x34(%rbx),%eax
+    caa6:	48 85 c0             	test   %rax,%rax
+    caa9:	74 1e                	je     cac9 <zbtreeIteratorNext+0x59>
+    caab:	44 0f b6 4b 11       	movzbl 0x11(%rbx),%r9d
+    cab0:	41 0f af c1          	imul   %r9d,%eax
+    cab4:	83 c0 07             	add    $0x7,%eax
+    cab7:	c1 e8 03             	shr    $0x3,%eax
+    caba:	83 c0 09             	add    $0x9,%eax
+    cabd:	83 e0 fe             	and    $0xfffffffe,%eax
+    cac0:	eb 09                	jmp    cacb <zbtreeIteratorNext+0x5b>
+    cac2:	31 c0                	xor    %eax,%eax
+    cac4:	e9 0e 02 00 00       	jmp    ccd7 <zbtreeIteratorNext+0x267>
+    cac9:	31 c0                	xor    %eax,%eax
+    cacb:	83 c0 38             	add    $0x38,%eax
+    cace:	66 89 47 0c          	mov    %ax,0xc(%rdi)
+    cad2:	0f b7 c0             	movzwl %ax,%eax
+    cad5:	48 01 d8             	add    %rbx,%rax
+    cad8:	80 7b 35 00          	cmpb   $0x0,0x35(%rbx)
+    cadc:	45 89 f1             	mov    %r14d,%r9d
+    cadf:	74 0e                	je     caef <zbtreeIteratorNext+0x7f>
+    cae1:	44 0f b6 53 11       	movzbl 0x11(%rbx),%r10d
+    cae6:	45 89 f1             	mov    %r14d,%r9d
+    cae9:	41 f7 d1             	not    %r9d
+    caec:	45 01 d1             	add    %r10d,%r9d
+    caef:	45 89 c9             	mov    %r9d,%r9d
+    caf2:	42 0f b7 04 48       	movzwl (%rax,%r9,2),%eax
+    caf7:	4c 8d 3c 03          	lea    (%rbx,%rax,1),%r15
+    cafb:	0f b6 04 03          	movzbl (%rbx,%rax,1),%eax
+    caff:	48 3d fd 00 00 00    	cmp    $0xfd,%rax
+    cb05:	77 14                	ja     cb1b <zbtreeIteratorNext+0xab>
+    cb07:	49 ff c7             	inc    %r15
+    cb0a:	4d 89 fc             	mov    %r15,%r12
+    cb0d:	48 85 d2             	test   %rdx,%rdx
+    cb10:	0f 85 aa 00 00 00    	jne    cbc0 <zbtreeIteratorNext+0x150>
+    cb16:	e9 a8 00 00 00       	jmp    cbc3 <zbtreeIteratorNext+0x153>
+    cb1b:	3d fe 00 00 00       	cmp    $0xfe,%eax
+    cb20:	75 1a                	jne    cb3c <zbtreeIteratorNext+0xcc>
+    cb22:	41 0f b7 47 01       	movzwl 0x1(%r15),%eax
+    cb27:	49 83 c7 03          	add    $0x3,%r15
+    cb2b:	4d 89 fc             	mov    %r15,%r12
+    cb2e:	48 85 d2             	test   %rdx,%rdx
+    cb31:	0f 85 89 00 00 00    	jne    cbc0 <zbtreeIteratorNext+0x150>
+    cb37:	e9 87 00 00 00       	jmp    cbc3 <zbtreeIteratorNext+0x153>
+    cb3c:	4d 8b 67 0d          	mov    0xd(%r15),%r12
+    cb40:	4d 85 e4             	test   %r12,%r12
+    cb43:	75 72                	jne    cbb7 <zbtreeIteratorNext+0x147>
+    cb45:	48 8d 05 ab 90 00 00 	lea    0x90ab(%rip),%rax        # 15bf7 <_IO_stdin_used+0xbf7>
+    cb4c:	4c 8d 0d f2 91 00 00 	lea    0x91f2(%rip),%r9        # 15d45 <_IO_stdin_used+0xd45>
+    cb53:	48 89 7d b8          	mov    %rdi,-0x48(%rbp)
+    cb57:	48 89 c7             	mov    %rax,%rdi
+    cb5a:	89 75 d4             	mov    %esi,-0x2c(%rbp)
+    cb5d:	be 57 02 00 00       	mov    $0x257,%esi
+    cb62:	48 89 55 c0          	mov    %rdx,-0x40(%rbp)
+    cb66:	4c 89 ca             	mov    %r9,%rdx
+    cb69:	4c 89 45 c8          	mov    %r8,-0x38(%rbp)
+    cb6d:	49 89 cd             	mov    %rcx,%r13
+    cb70:	e8 6b 6b 00 00       	call   136e0 <standalone_panic>
+    cb75:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    cb79:	4c 89 e9             	mov    %r13,%rcx
+    cb7c:	8b 75 d4             	mov    -0x2c(%rbp),%esi
+    cb7f:	4c 8b 45 c8          	mov    -0x38(%rbp),%r8
+    cb83:	48 8b 7d b8          	mov    -0x48(%rbp),%rdi
+    cb87:	41 80 3f ff          	cmpb   $0xff,(%r15)
+    cb8b:	74 2a                	je     cbb7 <zbtreeIteratorNext+0x147>
+    cb8d:	48 8d 3d 63 90 00 00 	lea    0x9063(%rip),%rdi        # 15bf7 <_IO_stdin_used+0xbf7>
+    cb94:	48 8d 15 b6 91 00 00 	lea    0x91b6(%rip),%rdx        # 15d51 <_IO_stdin_used+0xd51>
+    cb9b:	be 37 02 00 00       	mov    $0x237,%esi
+    cba0:	e8 3b 6b 00 00       	call   136e0 <standalone_panic>
+    cba5:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    cba9:	4c 89 e9             	mov    %r13,%rcx
+    cbac:	8b 75 d4             	mov    -0x2c(%rbp),%esi
+    cbaf:	4c 8b 45 c8          	mov    -0x38(%rbp),%r8
+    cbb3:	48 8b 7d b8          	mov    -0x48(%rbp),%rdi
+    cbb7:	49 8b 47 05          	mov    0x5(%r15),%rax
+    cbbb:	48 85 d2             	test   %rdx,%rdx
+    cbbe:	74 03                	je     cbc3 <zbtreeIteratorNext+0x153>
+    cbc0:	4c 89 22             	mov    %r12,(%rdx)
+    cbc3:	48 85 c9             	test   %rcx,%rcx
+    cbc6:	74 03                	je     cbcb <zbtreeIteratorNext+0x15b>
+    cbc8:	48 89 01             	mov    %rax,(%rcx)
+    cbcb:	4d 85 c0             	test   %r8,%r8
+    cbce:	0f 84 af 00 00 00    	je     cc83 <zbtreeIteratorNext+0x213>
+    cbd4:	0f b6 43 34          	movzbl 0x34(%rbx),%eax
+    cbd8:	0f b6 53 35          	movzbl 0x35(%rbx),%edx
+    cbdc:	85 c0                	test   %eax,%eax
+    cbde:	74 76                	je     cc56 <zbtreeIteratorNext+0x1e6>
+    cbe0:	44 89 f1             	mov    %r14d,%ecx
+    cbe3:	84 d2                	test   %dl,%dl
+    cbe5:	74 0d                	je     cbf4 <zbtreeIteratorNext+0x184>
+    cbe7:	44 0f b6 4b 11       	movzbl 0x11(%rbx),%r9d
+    cbec:	44 89 f1             	mov    %r14d,%ecx
+    cbef:	f7 d1                	not    %ecx
+    cbf1:	44 01 c9             	add    %r9d,%ecx
+    cbf4:	41 89 cb             	mov    %ecx,%r11d
+    cbf7:	4c 0f af d8          	imul   %rax,%r11
+    cbfb:	4d 89 da             	mov    %r11,%r10
+    cbfe:	49 c1 ea 03          	shr    $0x3,%r10
+    cc02:	4e 8b 4c 13 38       	mov    0x38(%rbx,%r10,1),%r9
+    cc07:	44 89 d9             	mov    %r11d,%ecx
+    cc0a:	80 e1 07             	and    $0x7,%cl
+    cc0d:	49 d3 e9             	shr    %cl,%r9
+    cc10:	41 83 e3 07          	and    $0x7,%r11d
+    cc14:	74 18                	je     cc2e <zbtreeIteratorNext+0x1be>
+    cc16:	b9 40 00 00 00       	mov    $0x40,%ecx
+    cc1b:	44 29 d9             	sub    %r11d,%ecx
+    cc1e:	39 c1                	cmp    %eax,%ecx
+    cc20:	73 0c                	jae    cc2e <zbtreeIteratorNext+0x1be>
+    cc22:	45 0f b6 54 1a 40    	movzbl 0x40(%r10,%rbx,1),%r10d
+    cc28:	49 d3 e2             	shl    %cl,%r10
+    cc2b:	4d 09 d1             	or     %r10,%r9
+    cc2e:	49 c7 c2 ff ff ff ff 	mov    $0xffffffffffffffff,%r10
+    cc35:	89 c1                	mov    %eax,%ecx
+    cc37:	49 d3 e2             	shl    %cl,%r10
+    cc3a:	48 c7 c1 ff ff ff ff 	mov    $0xffffffffffffffff,%rcx
+    cc41:	3c 40                	cmp    $0x40,%al
+    cc43:	49 f7 d2             	not    %r10
+    cc46:	4c 0f 43 d1          	cmovae %rcx,%r10
+    cc4a:	4d 21 ca             	and    %r9,%r10
+    cc4d:	0f b6 4b 13          	movzbl 0x13(%rbx),%ecx
+    cc51:	49 d3 e2             	shl    %cl,%r10
+    cc54:	eb 03                	jmp    cc59 <zbtreeIteratorNext+0x1e9>
+    cc56:	45 31 d2             	xor    %r10d,%r10d
+    cc59:	4c 89 d0             	mov    %r10,%rax
+    cc5c:	48 f7 d8             	neg    %rax
+    cc5f:	84 d2                	test   %dl,%dl
+    cc61:	49 0f 44 c2          	cmove  %r10,%rax
+    cc65:	48 03 43 28          	add    0x28(%rbx),%rax
+    cc69:	48 b9 ff ff ff ff ff 	movabs $0x7fffffffffffffff,%rcx
+    cc70:	ff ff 7f
+    cc73:	48 21 c1             	and    %rax,%rcx
+    cc76:	48 85 c0             	test   %rax,%rax
+    cc79:	48 f7 d0             	not    %rax
+    cc7c:	48 0f 48 c1          	cmovs  %rcx,%rax
+    cc80:	49 89 00             	mov    %rax,(%r8)
+    cc83:	85 f6                	test   %esi,%esi
+    cc85:	74 0c                	je     cc93 <zbtreeIteratorNext+0x223>
+    cc87:	45 85 f6             	test   %r14d,%r14d
+    cc8a:	74 1a                	je     cca6 <zbtreeIteratorNext+0x236>
+    cc8c:	8b 47 08             	mov    0x8(%rdi),%eax
+    cc8f:	ff c8                	dec    %eax
+    cc91:	eb 3c                	jmp    cccf <zbtreeIteratorNext+0x25f>
+    cc93:	41 ff c6             	inc    %r14d
+    cc96:	0f b6 43 11          	movzbl 0x11(%rbx),%eax
+    cc9a:	41 39 c6             	cmp    %eax,%r14d
+    cc9d:	73 21                	jae    ccc0 <zbtreeIteratorNext+0x250>
+    cc9f:	8b 47 08             	mov    0x8(%rdi),%eax
+    cca2:	ff c0                	inc    %eax
+    cca4:	eb 29                	jmp    cccf <zbtreeIteratorNext+0x25f>
+    cca6:	48 8b 43 18          	mov    0x18(%rbx),%rax
+    ccaa:	48 89 07             	mov    %rax,(%rdi)
+    ccad:	66 c7 47 0c 00 00    	movw   $0x0,0xc(%rdi)
+    ccb3:	48 85 c0             	test   %rax,%rax
+    ccb6:	74 1a                	je     ccd2 <zbtreeIteratorNext+0x262>
+    ccb8:	0f b6 40 11          	movzbl 0x11(%rax),%eax
+    ccbc:	ff c8                	dec    %eax
+    ccbe:	eb 0f                	jmp    cccf <zbtreeIteratorNext+0x25f>
+    ccc0:	48 8b 43 20          	mov    0x20(%rbx),%rax
+    ccc4:	48 89 07             	mov    %rax,(%rdi)
+    ccc7:	66 c7 47 0c 00 00    	movw   $0x0,0xc(%rdi)
+    cccd:	31 c0                	xor    %eax,%eax
+    cccf:	89 47 08             	mov    %eax,0x8(%rdi)
+    ccd2:	b8 01 00 00 00       	mov    $0x1,%eax
+    ccd7:	48 83 c4 28          	add    $0x28,%rsp
+    ccdb:	5b                   	pop    %rbx
+    ccdc:	41 5c                	pop    %r12
+    ccde:	41 5d                	pop    %r13
+    cce0:	41 5e                	pop    %r14
+    cce2:	41 5f                	pop    %r15
+    cce4:	5d                   	pop    %rbp
+    cce5:	c3                   	ret
+
+Disassembly of section .fini:

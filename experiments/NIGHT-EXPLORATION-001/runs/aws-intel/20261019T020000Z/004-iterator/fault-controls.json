@@ -1,0 +1,56 @@
+[
+  {
+    "fault": "initial",
+    "returncode": 1,
+    "detected": true,
+    "compile_command": [
+      "clang",
+      "-Iscratch/intel-iterator-variants/B/src",
+      "-Iscratch/intel-iterator-variants/B/compat",
+      "-Iscratch/intel-iterator-variants/B/vendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/cache-oracle.c",
+      "scratch/intel-iterator-variants/fault-initial.c",
+      "scratch/intel-iterator-variants/B/compat/standalone.c",
+      "scratch/intel-iterator-variants/B/vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/build/fault-initial"
+    ]
+  },
+  {
+    "fault": "transition",
+    "returncode": 1,
+    "detected": true,
+    "compile_command": [
+      "clang",
+      "-Iscratch/intel-iterator-variants/B/src",
+      "-Iscratch/intel-iterator-variants/B/compat",
+      "-Iscratch/intel-iterator-variants/B/vendor/redis",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/cache-oracle.c",
+      "scratch/intel-iterator-variants/fault-transition.c",
+      "scratch/intel-iterator-variants/B/compat/standalone.c",
+      "scratch/intel-iterator-variants/B/vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/build/fault-transition"
+    ]
+  }
+]
