@@ -1,5 +1,16 @@
 # Shared memory
 
+Latest M6 round5: [DECODE-001](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md)
+REJECT universal policies / NONE. B/C count1 median≈−30% is exploratory; all three
+lose repeatedly on uncapped qualified guards. Primary A/A fails,41 cells capped,
+three profiles insufficient. Both sequential populations complete;3 patches retained.
+Audit17424 rows/4224 effects passes, with documented selection filename collision
+before executable freeze. No fresh confirmation or independent review. Root unchanged.
+Totals11 populations(9 sequential+2 multi-agent),0 accepted/6 rejected/5 parked,
+33 patches/14 harnesses; M1 night separate. ITERATE skipped; no eligible confirmation.
+Resume host HANDOFF for reporting only; never rerun completed schedules. Coordinator
+alone writes Git. Campaign08:00UTC, reporting07:15UTC. Exact model/cost unknown.
+
 Latest M6 round 4: [LOOKUP-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md).
 REJECT dual primary / NONE. Physical-slot decoding retains memchr. B at 100K improves
 4.80% by median, but 1M fails and its controls are noisy. This is an exploratory lead,

@@ -140,8 +140,10 @@ about 3.4–3.9% longer by median block effect. The 1M signals remain inside A/A
 Source stays unchanged. [M6 update repacking](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md) also fails its 100K primary; its 1M reductions remain exploratory. [M6 lookup physical-score decoding](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md) has a 100K-only exploratory lead but no dual-primary winner. The population steps were
 sequential passes, with all patches preserved.
 
-Recorded on this branch: **10 populations; 0 accepted / 5 rejected / 5 parked;
-30 retained patches; 13 validated harnesses**. Concurrent M1 night populations
+[M6 count-one decoder policies](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md) retain a roughly30% private count-one lead, but repeated qualified guard losses reject all three universal policies. Baseline source stays unchanged.
+
+Recorded on this branch: **11 populations; 0 accepted / 6 rejected / 5 parked;
+33 retained patches; 14 validated harnesses**. Concurrent M1 night populations
 remain separate pending log reconciliation.
 
 ### Decoder experiments

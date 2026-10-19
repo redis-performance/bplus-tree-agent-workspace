@@ -1,5 +1,18 @@
 # Experiment summary
 
+## 2026-10-19 — M6 DECODE-001 universal policy REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md).
+Three sequential proposal/chair and implementation passes, all three patches retained.
+B/C primary median−29.952/−30.160% remains a private count1 lead; all three policies
+have repeated >1% guard regressions in uncapped qualified cells. Primary A/A fails;
+41 capped cells, insufficient guard profiles, no fresh/independent confirmation or
+independent review.17424 rows/4224 effects/3 patches audited; document-only selection
+filename collision recorded before timing. Source unchanged. Branch totals11 populations
+(9 sequential+2 multi-agent),0 accepted/6 rejected/5 parked,33 patches/14 harnesses.
+M1 night counts separate. ITERATE-001 skipped; no eligible confirmation or new target.
+
+
 
 ## Latest — M6 LOOKUP-001 dual-primary REJECT / NONE
 
