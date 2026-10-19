@@ -19,3 +19,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T06:32:35.714221+00:00: Independent ARM024 raw profile audit passes4e43c9f59:51commands/21semanticrows/970scientificsamples,known234/238/outside0,501treeevents exactactual013.110public artifact hashes verified;7rawperf hashes attested. Caller/body differences retained. No AA or runner access; sourceNONE, leaseACTIVE/restorationpending.
 
 - 2026-10-19T06:37:10.669128+00:00: Independent ARM024 AA audit73c9e313f passes48rows/12blocks,98public artifacts/100AAseal/112profile entries. Both sizes qualify(maxabs0.053911%/0.371524%,min166.24/186.78ms). Exactactual013/source/profile freeze unchanged. No proposal/candidate/runner access; sourceNONE, leaseACTIVE/restorationpending.
+
+- 2026-10-19T06:45:01.611844+00:00: Independent ARM iterator proposal031 sealed: NONE. Qualifiednative controls do not establish>=2% recoverable mask cost; exactEXP005A recognized as historical replication,15/22maskevents and missingguards explicit. No peer proposal reads/code/runner work; sourceNONE,leaseACTIVE/restorationpending.
