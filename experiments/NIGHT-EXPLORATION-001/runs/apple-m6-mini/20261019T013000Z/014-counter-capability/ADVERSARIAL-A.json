@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "review_scope": "Static preparation for one root-authorized own-target CPU Counters capability bootstrap only; not recording authorization or metric qualification",
+  "reviewer": "/root/followup_proposal_a",
+  "reviewed_utc": "2026-10-19T04:44:24.571932+00:00",
+  "backend": "Inherited GPT-6/Codex family; exact serving identifier/token/currency cost unknown",
+  "reviewed_hashes": {
+    "freeze.json": "54d6d6e688ec82ec6300047d69e8543fcdaff074871a2ce6fb8fa6c10e516ac9",
+    "driver.py": "d2001bb4bbe1cc6eef27bd0e00f3cc0f23d10ea9c4f3f46e14bdae126adcd21e",
+    "PLAN.json": "cc7fc34080927e037c4f68329a6a4661694a1e137ad3b2a517963e491d49127c",
+    "counter-probe.c": "2cbca52553066c49d8804746c640b8aba0323acc03106a6aad2c46d4086f4e38",
+    "recording-options.json": "cf383cf8017fb9850a53922cd26d37b3c33eccf1e7d0a09231e7d449cd439ef1",
+    "README.md": "1b21dfed907d9b9bacf5ae72ae5ddd9103d92e23a16ebb1ce35ae615a68f5217",
+    "PREPARATION-AUDIT.json": "4860aec46ccf626042afd57270294ca0583bf725a620bd513ec7fa7a5b8dc413",
+    "commands.jsonl": "e5086dda6fcead9e12209a20b1082606b875528fd4ac20983e3a79bc8df71e4e"
+  },
+  "binary_sha256": "803d951e4f281d66385572424d0bc3aef0963e02fc5152f3a67a62358ae2b251",
+  "object_sha256": "8d05463d818dbf7c22094e01b20730d40f5b7c425710da5d1117071710290854",
+  "superseded_freeze_sha256": "ba76caa3fcaea8869dc9fb4ca0ec1c6ef1565f8cd5c48b1450637e48dc99a7cc",
+  "checks": [
+    "One fixed CPU Counters --launch -- own frozen counter-probe; no attach, all-process, remote-device, counter-row export, Processor Trace or powermetrics execution branch.",
+    "Local record help distinguishes --launch from --all-processes and explicitly confirms --show-recording-options is metadata-only. --no-prompt is present on the sole collection command.",
+    "EL0 guided CPU Bottlenecks options are frozen; native event names, units, formula denominators, loss/multiplexing and actual process/thread/interval attribution remain UNKNOWN and cannot be inferred from option names.",
+    "Fixed N=268435456, seed1, 250ms pre-interval sleep, 4s recording; fixed checksums independently confirmed via 64-column GF(2) transition-map exponentiation without running the probe or N-step loop.",
+    "Probe alarm6 is installed before parsing/work; private started/completed PID markers are flushed. Only exact owned marker PID existence is observed with signal0; no process inventory or target-PID killing exists.",
+    "Direct recorder reaping is separate from broker-launched target exit. Missing/invalid marker, PID still existing, or missing exit observation leaves exclusive_runner_release_safe false. The driver never claims it reaped the target.",
+    "One-shot state/trace/output/TOC guards plus per-command raw-log no-overwrite checks prevent automatic retry, append or replacement; denied, timed-out and interrupted attempts remain incomplete.",
+    "Spawn failures are journaled with process=None; final output collection is unconditional across exit races, bounded8s, preserves partial output on drain timeout, closes owned pipes, and waits at most1s more for recorder reap.",
+    "Collection wait is at most51s, with9s drain/reap reservation and8s target observation reservation before the ACK deadline; TOC wait is at most21s with9s drain/reap reserved. Timeout/interruption/drain/reap and post-export/post-parse deadline gates prevent a complete status after failure.",
+    "Trace watchdog is exactly268435456 bytes (256MiB), polled soft stop only. It is not a filesystem quota; helper writers and polling can overshoot. Root ACK must explicitly accept this limitation.",
+    "TOC stays private; public output is limited to bounded schema identifiers and hashes. No wildcard XPath or counter-table row export exists. Actual metric scope/units and signpost visibility must be reviewed before any later qualification.",
+    "Exact published freeze/driver/plan hashes, root+non-root PASS, full commit string, exclusive runner and explicit own-target/scope/soft-cap/TOC-only ACK fields gate the initial attempt. Publication/runner-idle verification remains a root responsibility.",
+    "49 final frozen files, probe source/object/binary,3dSYM files, xctrace/tool launchers and20 preparation command/raw-stream records rehash correctly.20 children exited0/reaped; only3 metadata record commands, each --show-recording-options. No probe execution or trace/state/output artifact exists.",
+    "Initial39-input freeze/source/driver/plan/README plus original object/binary/dSYM remain preserved and verify against their historical hashes.",
+    "Root clarified two README paragraphs to distinguish pre-bootstrap declared targeting review from post-bootstrap actual metric scope qualification; old README/freeze preserved. Final49 inputs rehashed under freeze54d6d6e688ec82ec6300047d69e8543fcdaff074871a2ce6fb8fa6c10e516ac9; code/binary/plan unchanged."
+  ],
+  "limitations": [
+    "Static review only: no recording, probe invocation, failure injection, runtime cleanup or actual counter-scope validation was executed by this reviewer.",
+    "Own-launch CLI targeting does not prove hardware values are partitioned by owned PID/thread; selected instruments may retain platform metadata. Raw traces/TOC must stay private and counters_qualified remains false.",
+    "Soft trace cap, OS broker behavior and Python filesystem/XML operations are not hard real-time limits. Post-deadline status gates prevent success claims; an unobserved target exit means do not release the runner or start other measurements.",
+    "Successful recording/TOC alone does not qualify counters, intervals, precision, frequency, cache behavior or any tree optimization. Future idle/N/2N controls remain a separately reviewed plan; bootstrap must remain the first N capture without replacement.",
+    "The review is independent of B authorship but includes normal cross-author review and requested cleanup changes; exact serving model, token usage and currency cost are unknown."
+  ],
+  "independent_checksum_check": {
+    "method": "64-column unsigned64 GF(2) linear-map exponentiation; no probe invocation or N-iteration loop",
+    "seed": 1,
+    "N": 268435456,
+    "expected_N": 9087321014236724183,
+    "twoN": 536870912,
+    "expected_twoN": 16730757284781413201,
+    "result": "PASS"
+  },
+  "verification": {
+    "final_frozen_files": 49,
+    "dsym_files": 3,
+    "preparation_commands": 20,
+    "raw_log_streams_verified": 40,
+    "all_children_reaped": true,
+    "no_recording_or_probe_execution_artifacts": true,
+    "superseded_inputs_verified": 39,
+    "driver_syntax": "AST parse only, no import/execution",
+    "source_target_or_referee_edits": 0,
+    "review_new_builds_records_or_probe_runs": 0,
+    "git_actions": 0
+  },
+  "preliminary_review_failures": [
+    {
+      "action": "Read freeze.json while B was resealing the preparation",
+      "result": "FileNotFoundError; read-only review command exited1 after completing the algebra check",
+      "resolution": "Waited for final freeze announcement, then independently verified exact final hashes and preserved superseded freeze. No experiment/probe was launched or retried."
+    }
+  ],
+  "blocking_findings": [],
+  "scope_wording_refresh": {
+    "status": "PASS",
+    "prior_reviewed_hashes": {
+      "freeze.json": "6e44e477b014898683c899cdb17777142b8dcb348ffe1028dbdd8dbc30c758b8",
+      "driver.py": "d2001bb4bbe1cc6eef27bd0e00f3cc0f23d10ea9c4f3f46e14bdae126adcd21e",
+      "PLAN.json": "cc7fc34080927e037c4f68329a6a4661694a1e137ad3b2a517963e491d49127c",
+      "counter-probe.c": "2cbca52553066c49d8804746c640b8aba0323acc03106a6aad2c46d4086f4e38",
+      "recording-options.json": "cf383cf8017fb9850a53922cd26d37b3c33eccf1e7d0a09231e7d449cd439ef1",
+      "README.md": "1ab9d8b3a7fbdce96892776592ea7bde2d0ddf62e1ab4bae74f6057f97181e59",
+      "PREPARATION-AUDIT.json": "4860aec46ccf626042afd57270294ca0583bf725a620bd513ec7fa7a5b8dc413",
+      "commands.jsonl": "e5086dda6fcead9e12209a20b1082606b875528fd4ac20983e3a79bc8df71e4e"
+    },
+    "prior_readme_preserved": "README-before-scope-wording.md",
+    "prior_freeze_preserved": "freeze-before-scope-wording.json",
+    "operator_erratum_sha256": "9da81a717aebd504257e73258fc594b7708fa895e5bb1d0a18da2ce8de728348",
+    "interpretation": "Pre-bootstrap review covers declared single-target launch/options and acceptance of private platform metadata. Actual counter-row PID/thread/interval scope remains unqualified until private TOC and selected-schema review; this is not a circular prerequisite to the capability attempt.",
+    "code_binary_plan_changed": false,
+    "new_execution_or_records": false
+  }
+}

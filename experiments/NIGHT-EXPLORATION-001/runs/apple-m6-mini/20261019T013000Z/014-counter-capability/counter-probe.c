@@ -36,6 +36,8 @@ int main(int argc, char **argv) {
     int idle = !strcmp(kind, "idle");
     if ((!idle && strcmp(kind, "alu")) || (idle && items) ||
         (!idle && items != UINT64_C(268435456) && items != UINT64_C(536870912))) return 2;
+    printf("{\"event\":\"started\",\"own_pid\":%d}\n", (int)getpid());
+    if (fflush(stdout)) return 5;
     os_log_t log = os_log_create("org.redis-performance.bplus-tree.counter-qualification", OS_LOG_CATEGORY_POINTS_OF_INTEREST);
     if (!sleep_ms(250)) return 3;
     int enabled = os_signpost_enabled(log);
@@ -46,6 +48,7 @@ int main(int argc, char **argv) {
     else checksum = qualification_alu(items, 1);
     os_signpost_interval_end(log, interval, "qualification-work", "checksum=%{public}llu", (unsigned long long)checksum);
     if (!checksum) return 4; /* Nonzero xorshift state remains nonzero. */
-    printf("{\"case\":\"%s\",\"items\":%" PRIu64 ",\"seed\":1,\"checksum\":%" PRIu64 ",\"own_pid\":%d,\"signposts_enabled\":%s}\n", kind, items, checksum, (int)getpid(), enabled ? "true" : "false");
+    printf("{\"event\":\"completed\",\"case\":\"%s\",\"items\":%" PRIu64 ",\"seed\":1,\"checksum\":%" PRIu64 ",\"own_pid\":%d,\"signposts_enabled\":%s}\n", kind, items, checksum, (int)getpid(), enabled ? "true" : "false");
+    if (fflush(stdout)) return 5;
     return 0;
 }

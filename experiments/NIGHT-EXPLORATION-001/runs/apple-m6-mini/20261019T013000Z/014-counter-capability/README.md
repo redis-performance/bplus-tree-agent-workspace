@@ -31,8 +31,9 @@ and ignored scratch; generic public help/configuration results are in metadata/.
 CPU Counters' standard template also includes Time Profiler and Points of Interest.
 The frozen proposed recording options preserve the advertised configuration, with
 `excludeOSLogs=true` for Points of Interest. That setting alone does not prove all
-instruments exclude unrelated processes. Root must review target scoping before
-authorizing the self-launch attempt. No all-process collection, remote device,
+instruments exclude unrelated processes. Root reviews the declared single-target CLI configuration before
+authorizing this capability attempt. Actual counter-data scope remains unqualified
+until private TOC and selected-schema inspection. No all-process collection, remote device,
 attachment, developer setting change, signing entitlement or elevated invocation
 is part of this driver. If acceptable scope cannot be established, select NONE.
 
@@ -58,8 +59,9 @@ retries, sudo, permission changes or a fallback instrument.
 
 The probe performs a fixed268,435,456-item unsigned xorshift recurrence, starting
 from1. Its named non-inline function, disassembly/object/dSYM and binary hashes are
-retained. Its result must be nonzero because each xorshift transform is invertible
-on the nonzero64-bit state space. Setup includes a250ms sleep before the signposted
+retained. Its result must equal **9087321014236724183**. Root independently derived
+this expectation by GF(2) 64-column transition-matrix exponentiation, without
+executing the probe or repeating its C loop. Setup includes a250ms sleep before the signposted
 work interval. The probe prints its own checksum/identity only to private output;
 it never enumerates processes or reads machine configuration. Compilation is allowed
 now; execution is not.
@@ -72,18 +74,36 @@ trace directory is inspected. Raw traces/TOC/output remain local, with hashes.
 Tool timeout/interruption stops its process group; lack of a completed owned probe
 result prevents treating the attempt as a qualified measurement.
 
+The recorder may use a broker to launch the probe outside that process group.
+Recorder reaping therefore proves only recorder exit. The probe starts its own
+6 second alarm before parsing arguments, flushes a private start/PID marker before
+setup and a separate completed/checksum marker afterward. The driver observes only
+that exact owned marker PID's disappearance for up to8seconds; it never enumerates
+processes or kills a PID. Missing/ambiguous markers or an unobserved exit leave
+`exclusive_runner_release_safe=false`, requiring root review before other work.
+PID reuse conservatively prevents a release rather than prompting a broad query.
+Record wait is at most51seconds, with a bounded8second final pipe drain and1second
+reap wait, keeping the recorder action within60seconds. Partial pipe output is
+retained on drain timeout. The ACK budget reserves these9cleanup seconds plus
+8target-observation seconds before recording; the TOC action similarly reserves
+9cleanup seconds. TOC timeout/interruption, missing reaping or a passed deadline
+cannot produce a complete outcome.
+
 After that single attempt, the driver exports only a private table of contents and
 publishes bounded schema identifiers. It stops for root to inspect the actual units,
 process/thread/CPU fields, signpost interval and loss/multiplexing semantics. No broad
 counter-row export, wildcard XPath, whole-machine/process listing or automatic
-additional recording is implemented. Traces can contain platform metadata; root
-must establish that the selected instruments' measured data targets only the owned
-launch before authorizing collection, and keep raw traces private.
+additional recording is implemented. Traces can contain platform metadata and stay private. The bootstrap authorizes
+only the declared self-launched target. Before counter-row exports or use as a
+measurement, root must verify actual process/thread scope and units from the
+retained private trace/schema evidence. Recording success alone establishes neither.
 
 Stage2 is a plan only, requiring another reviewed scope/schema decision. Its fixed
 six captures would be two idle controls, two N-work controls and two2N-work controls.
 N=268,435,456;2N=536,870,912; seed1. The stage1 capture is retained as the first N
 capture, with no replacement or retry. Idle work sleeps1000ms inside the interval.
+The exact expected checksums are1 for idle and16730757284781413201 for2N, from
+the same independent matrix calculation.
 All cases use the same frozen binary and250ms pre-interval sleep. Permission failure,
 missing fields or an insufficient fixed probe stays unavailable/insufficient; counts
 must not be retuned after inspecting results.
@@ -123,7 +143,7 @@ The unexecuted future bootstrap requires an ACK with status=authorized, exact
 freeze/driver/plan hashes, a full published commit, root and independent PASS
 reviews, exclusive_runner=true, only_self_launch=true,
 template_target_scope_reviewed=true, soft_trace_cap_understood=true,
-stop_after_private_toc=true, and an absolute UTC deadline no more than10minutes
+stop_after_private_toc=true, and an absolute UTC deadline more than20seconds and no more than10minutes
 ahead. No ACK is supplied by preparation. Its future command would be:
 
 ```
@@ -135,3 +155,8 @@ scope, counter values and driver collection behavior are untested. No probe was 
 even as a timing smoke. Any future collection-driver refinements require root review
 and a new exact freeze before collection. Participant /root/followup_proposal_b,
 inherited Codex/GPT-6 family; exact serving model, token usage and cost unknown.
+
+The initial preparation build and freeze were superseded after root static review;
+their source/driver/plan/README/freeze snapshots remain in superseded-pre-review/,
+with the original unexecuted object/binary/dSYM retained in ignored scratch.
+No preparation attempt executed either probe binary or started a recording.

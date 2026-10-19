@@ -6,6 +6,7 @@ import json
 import os
 import re
 import signal
+import shutil
 import subprocess
 import time
 import xml.etree.ElementTree as ET
@@ -34,7 +35,8 @@ def save(path, data):
 
 def generic(value):
     value = value.replace(str(ROOT), "<workspace>")
-    return re.sub(r"/" + r"Users/[^\s\"']+", "<user-path>", value)
+    value = re.sub(r"/" + r"Users/[^\s\"']+", "<user-path>", value)
+    return re.sub(r"/" + r"(?:private/)?var/folders/[^\s\"']+", "<compiler-temp>", value)
 
 
 def trace_size(path):
@@ -51,10 +53,11 @@ def command(args, name, timeout=30, public_output=False, watch_trace=None):
     started = time.monotonic()
     record = dict(name=name, command=[generic(a) for a in args], started_utc=utc(),
                   timeout_seconds=timeout, timed_out=False, trace_cap_triggered=False)
-    process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                               text=True, start_new_session=True)
+    process = None
     stdout, stderr = "", ""
     try:
+        process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                   text=True, start_new_session=True)
         while True:
             left = timeout - (time.monotonic() - started)
             if left <= 0:
@@ -71,13 +74,32 @@ def command(args, name, timeout=30, public_output=False, watch_trace=None):
     except BaseException as error:
         record["interrupted"] = generic(repr(error))
     finally:
-        if process.poll() is None:
+        if process is not None and process.poll() is None:
             try:
                 os.killpg(process.pid, signal.SIGKILL)
             except ProcessLookupError:
                 pass
-            stdout, stderr = process.communicate()
-        record.update(returncode=process.returncode, process_reaped=process.poll() is not None,
+        if process is not None:
+            # Collect even when exit races the poll above. A broker may own the
+            # target; recorder-group reaping alone never establishes target exit.
+            try:
+                stdout, stderr = process.communicate(timeout=8)
+            except subprocess.TimeoutExpired as error:
+                record["output_drain_timeout"] = True
+                stdout = error.output or ""
+                stderr = error.stderr or ""
+                stdout = stdout.decode(errors="replace") if isinstance(stdout, bytes) else stdout
+                stderr = stderr.decode(errors="replace") if isinstance(stderr, bytes) else stderr
+                for pipe in (process.stdout, process.stderr):
+                    if pipe is not None:
+                        pipe.close()
+                try:
+                    process.wait(timeout=1)
+                except subprocess.TimeoutExpired:
+                    record["recorder_reap_incomplete"] = True
+        record.update(returncode=process.returncode if process is not None else None,
+                      process_spawned=process is not None,
+                      process_reaped=process is None or process.poll() is not None,
                       finished_utc=utc(), wall_seconds=time.monotonic() - started)
         record["raw"] = {}
         for channel, text in (("stdout", stdout), ("stderr", stderr)):
@@ -134,22 +156,67 @@ def build():
     assert (OUT / "capability.json").exists()
     obj, binary = SCR / "counter-probe.o", SCR / "counter-probe"
     flags = ["-std=c11", "-g", "-O3", "-Wall", "-Wextra", "-Werror", "-fno-omit-frame-pointer", "-fdebug-compilation-dir=."]
-    for name, args in [("compile-probe", ["clang", *flags, "-c", REL / "counter-probe.c", "-o", obj]),
-                       ("link-probe", ["clang", "-g", obj, "-o", binary]),
-                       ("probe-dsym", ["dsymutil", binary, "-o", SCR / "counter-probe.dSYM"]),
-                       ("probe-disassembly", ["otool", "-tvV", binary])]:
+    for name, args in [("reviewed-compiler-version", ["clang", "--version"]),
+                       ("reviewed-compile-probe", ["clang", *flags, "-c", REL / "counter-probe.c", "-o", obj]),
+                       ("reviewed-link-probe", ["clang", "-g", obj, "-o", binary]),
+                       ("reviewed-probe-dsym", ["dsymutil", binary, "-o", SCR / "counter-probe.dSYM"]),
+                       ("reviewed-probe-disassembly", ["otool", "-tvV", binary])]:
         stdout, _, record = command(args, name, public_output=True)
         assert record["returncode"] == 0
-        if name == "probe-disassembly":
+        if name == "reviewed-probe-disassembly":
             assert "_qualification_alu:" in stdout and "eor" in stdout, "known work disappeared"
     files = [OUT / n for n in ("PLAN.json", "README.md", "driver.py", "counter-probe.c", "recording-options.json", "capability.json")]
     files += [p for p in (OUT / "metadata").iterdir() if p.is_file()]
     save(OUT / "freeze.json", dict(status="PREPARED ONLY; root/independent review and exclusive publication ACK pending",
          frozen_utc=utc(), files_sha256={str(p.relative_to(ROOT)): sha(p) for p in files},
          binary_sha256=sha(binary), object_sha256=sha(obj), xctrace_launcher_sha256=sha(TOOLS["xctrace"]),
+         tool_launcher_sha256={name: sha(shutil.which(name)) for name in ("clang", "dsymutil", "otool")},
+         dsym_files_sha256={str(p): sha(p) for p in (SCR / "counter-probe.dSYM").rglob("*") if p.is_file()},
+         preparation_commands_sha256=sha(OUT / "commands.jsonl"), compiler_flags=flags,
          probe_executed=False, recording_started=False, tree_source_changed=False,
          participant="/root/followup_proposal_b; inherited Codex/GPT-6 family; exact serving model/token/cost unknown"))
     print("BUILT/FROZEN, NOT EXECUTED: standalone known work; no tree/referee changes")
+
+
+def observe_own_target(target_output, deadline):
+    """Private owned start marker only; no process list, broad query or PID kill."""
+    result = dict(target_exit_observed=False, target_reaped_by_driver=False,
+                  exclusive_runner_release_safe=False)
+    until = min(deadline, time.time() + 8)
+    while time.time() < until:
+        try:
+            records = [json.loads(line) for line in target_output.read_text().splitlines()]
+            starts = [r for r in records if r.get("event") == "started"]
+            if len(starts) != 1:
+                break
+            pid = starts[0]["own_pid"]
+            if not isinstance(pid, int) or pid <= 1:
+                break
+            result["owned_start_marker_observed"] = True
+            try:
+                os.kill(pid, 0)  # Existence observation only, never signals/kills.
+            except ProcessLookupError:
+                result.update(target_exit_observed=True, exclusive_runner_release_safe=True)
+                break
+            except PermissionError:
+                break
+        except (OSError, ValueError, KeyError, TypeError):
+            break
+        time.sleep(min(.05, max(0, until - time.time())))
+    if target_output.exists():
+        result["private_probe_output_sha256"] = sha(target_output)
+        try:
+            records = [json.loads(line) for line in target_output.read_text().splitlines()]
+            starts = [r for r in records if r.get("event") == "started"]
+            ends = [r for r in records if r.get("event") == "completed"]
+            probe = ends[0] if len(ends) == 1 and len(starts) == 1 else {}
+            result["probe_completed"] = (probe.get("own_pid") == starts[0]["own_pid"]
+                and probe.get("case") == "alu" and probe.get("items") == PLAN["bootstrap"]["items"]
+                and probe.get("seed") == 1 and probe.get("checksum") == PLAN["bootstrap"]["expected_checksum"])
+            result["signposts_enabled"] = bool(probe.get("signposts_enabled", False))
+        except (OSError, ValueError, KeyError, IndexError, TypeError):
+            result["probe_completed"] = False
+    return result
 
 
 def availability(ack_path):
@@ -165,7 +232,7 @@ def availability(ack_path):
     assert any(r["reviewer"] == "/root" and r["status"] == "PASS" for r in ack["reviews"])
     assert any(r["reviewer"] != "/root" and r["status"] == "PASS" for r in ack["reviews"])
     deadline = datetime.fromisoformat(ack["absolute_stop_utc"]).timestamp()
-    assert 0 < deadline - time.time() <= 600
+    assert 20 < deadline - time.time() <= 600, "reserve drain/reap9seconds and owned-target observation8seconds"
     for path, digest in freeze["files_sha256"].items():
         assert sha(path) == digest
     binary = SCR / "counter-probe"
@@ -178,39 +245,46 @@ def availability(ack_path):
             "--no-prompt", "--time-limit", "4s", "--output", str(trace.resolve()),
             "--target-stdout", str(target_output.resolve()), "--launch", "--", str(binary.resolve()),
             "--case", "alu", "--items", "268435456"]
-    stdout, stderr, record = command(args, "availability-record", min(60, deadline - time.time()), watch_trace=trace)
+    # At most51seconds collection wait + bounded8second pipe drain +1second
+    # reap, then up to8seconds owned-target observation, all before ACK deadline.
+    stdout, stderr, record = command(args, "availability-record", min(51, deadline - time.time() - 17), watch_trace=trace)
     outcome = dict(record_returncode=record["returncode"], timed_out=record["timed_out"],
                    trace_cap_triggered=record["trace_cap_triggered"], trace_bytes=trace_size(trace),
                    no_table_row_exports=True, counters_qualified=False, scope_and_units="PENDING ROOT SCHEMA REVIEW")
-    if record["returncode"] != 0 or record["timed_out"] or record["trace_cap_triggered"] or "interrupted" in record:
+    outcome.update(observe_own_target(target_output, deadline))
+    outcome["recorder_reaped"] = record["process_reaped"]
+    outcome["exclusive_runner_release_safe"] &= record["process_reaped"] and not record.get("output_drain_timeout", False)
+    if (record["returncode"] != 0 or record["timed_out"] or record["trace_cap_triggered"]
+            or "interrupted" in record or record.get("output_drain_timeout") or not record["process_reaped"]):
         outcome["status"] = "UNAVAILABLE/INCOMPLETE; preserve evidence, stop without retry or permission changes"
         save(state_path, outcome)
         return
-    if target_output.exists():
-        outcome["private_probe_output_sha256"] = sha(target_output)
-        try:
-            probe = json.loads(target_output.read_text().strip())
-            valid = (probe["case"] == "alu" and probe["items"] == 268435456
-                     and probe["seed"] == 1 and probe["checksum"] > 0)
-            outcome.update(probe_completed=valid, signposts_enabled=bool(probe["signposts_enabled"]))
-        except (ValueError, KeyError, TypeError):
-            outcome["probe_completed"] = False
-    else:
-        outcome["probe_completed"] = False
+    if not outcome["target_exit_observed"]:
+        outcome["status"] = "INCOMPLETE: owned target exit unobserved; do not release exclusive runner"
+        save(state_path, outcome)
+        return
     left = deadline - time.time()
-    if left <= 0:
+    if left <= 9:
         outcome["status"] = "INCOMPLETE: deadline before private TOC"
         save(state_path, outcome)
         return
     _, _, exported = command([TOOLS["xctrace"], "export", "--input", trace, "--toc", "--output", toc],
-                              "availability-toc", min(30, left))
-    if exported["returncode"] != 0 or not toc.exists():
+                              "availability-toc", min(21, left - 9))
+    outcome["exclusive_runner_release_safe"] &= exported["process_reaped"] and not exported.get("output_drain_timeout", False)
+    if (exported["returncode"] != 0 or not toc.exists() or exported["timed_out"]
+            or "interrupted" in exported or exported.get("output_drain_timeout")
+            or not exported["process_reaped"] or time.time() >= deadline):
         outcome["status"] = "INCOMPLETE: TOC unavailable"
     else:
-        names = sorted({x.attrib["schema"] for x in ET.parse(toc).iter()
-                        if "schema" in x.attrib and re.fullmatch(r"[A-Za-z0-9._-]{1,120}", x.attrib["schema"])})
-        outcome.update(status="STOP FOR ROOT REVIEW: bootstrap recorded; no counter metric/unit/scope qualification yet",
-                       private_toc_sha256=sha(toc), public_schema_names=names)
+        try:
+            names = sorted({x.attrib["schema"] for x in ET.parse(toc).iter()
+                            if "schema" in x.attrib and re.fullmatch(r"[A-Za-z0-9._-]{1,120}", x.attrib["schema"])})
+            outcome.update(status="STOP FOR ROOT REVIEW: bootstrap recorded; no counter metric/unit/scope qualification yet",
+                           private_toc_sha256=sha(toc), public_schema_names=names)
+        except (ET.ParseError, OSError):
+            outcome["status"] = "INCOMPLETE: invalid private TOC"
+    if time.time() >= deadline:
+        outcome["status"] = "INCOMPLETE: ACK deadline reached after TOC derivation"
     save(state_path, outcome)
     # No --xpath path, broad export, attach, all-process collection or escalation.
 
