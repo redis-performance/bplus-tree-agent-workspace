@@ -1,0 +1,33 @@
+{
+  "checked_utc": "2026-10-19T03:51:00.324910+00:00",
+  "reviewer": "root native agent; actual serving model/costs unknown",
+  "revision": "2ab283daa",
+  "referee_hashes_verified": {
+    "scan-guard.c": "b98c3ef189239983fb738c971fa8f755703006144032a584e3d8dd910030de41",
+    "tree-census.c": "af6848550907fcf21c3ae660ad870ab73645a8e5846062a045eb1731684e9ba2",
+    "build.py": "b8c827218b5e2a720d54caf0c0501e2be3cf0bd5cb8a593507bbd6feceb00bc4",
+    "validate.py": "f3d44abc91ca13966ba50dceafb108a1946367fc4a6c4309295bf8df774cff49",
+    "PLAN.md": "b8e7f761ead1542818bd72b1f70b6c3d50c681924dd4d8cd639a2c96514223e6",
+    "README.md": "708f7584926bcdb8f73fd1ee3ff912abe707820b97db42b5c189d325aeb7d606"
+  },
+  "fixture_manifest_hash_verified": true,
+  "baseline_cells_reconstructed": 108,
+  "validation_commands": 368,
+  "negative_controls": 8,
+  "native_diagnostic_parity": true,
+  "sanitizer_independent_semantics": true,
+  "timing_observations": 0,
+  "verdict": "Referee approved for frozen Intel baseline qualification and same-source B comparison; no acceptance from this review. Separate-TU tree, real hashes, complete independent expected outputs, corrected actual-callback omission fault and relative compiler paths are sound.",
+  "limitations": [
+    "Only one naturally reversed64-member leaf per descending fixture; not broad reversed performance coverage",
+    "No active rehash or wide-ID performance cases",
+    "321-byte external records covered, not all member-length boundaries",
+    "New callback checksum cost differs from original microbench; comparisons are within this referee only",
+    "Intel must validate both native/sanitizer sources, enforce identical relative build paths and hashes, freeze calibration counts, retain all failed/short/noisy cells; no retuning or phase-budget extensions"
+  ],
+  "approved_budgets_seconds": {
+    "calibration": 300,
+    "AA": 900,
+    "B": 900
+  }
+}

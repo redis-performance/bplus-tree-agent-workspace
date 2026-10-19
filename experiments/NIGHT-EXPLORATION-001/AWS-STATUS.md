@@ -88,3 +88,18 @@ population. All proposals and baseline profile/census/control evidence are retai
 AWS counts remain7 populations (0 accepted/4 rejected/3 parked), plus a parked ARM
 replication and Intel scan B follow-up. Source NONE.
 [Chair and participant evidence](reviews/aws-amd-delete-population/selection.md).
+
+
+## 19 October 03:51 UTC — Focused scan referee independently reviewed
+
+Root verified the immutable ARM publication2ab283daa:108 baseline cells,368 commands,
+eight realistic wrong-output controls, source/referee hashes, genuine tag distributions
+and native diagnostic parity. Approved for Intel baseline qualification and B comparison
+within the frozen300s/900s/900s phase budgets. Sparse reversal (one64-member leaf),
+absent active resize/wide IDs and incomplete length boundaries remain explicit gaps.
+No timing or source acceptance follows from this referee validation.
+[Review](reviews/aws-focused-scan-referee-review.json).
+
+A targeted publication check scanned25,819 text files across main and three worker
+worktrees for the known private endpoints/key path; no matches. This is a targeted
+check, not a comprehensive secret audit.
