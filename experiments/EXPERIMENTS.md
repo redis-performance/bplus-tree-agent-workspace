@@ -813,3 +813,16 @@ below 10 ms. Baseline coverage is complete; no optimization or precision claim.
 Plan, scripts, raw data, summaries and chart are retained. M6 rerun commands are in
 [REPLICATE-LATEST.md](REPLICATE-LATEST.md); keep new host results separate.
 Source and optimization/population counts are unchanged.
+
+
+## 2026-10-19 — shared overnight plan and five-size extension
+
+[NIGHT-EXPLORATION-001](NIGHT-EXPLORATION-001/README.md) is prepared for separate M1/M6
+eight-hour runs: rank, update-path workloads, single-query lookup, optional single-score
+decode, confirmation and final report. Both population steps, budgets, host isolation
+and explicit stop/skip rules are documented. Supervisor custom prompt/host evidence
+support passes six process-control tests. No overnight campaign started.
+The size runner now includes 1M: 120 processes / 960 rows / 40 cells, with a separately
+frozen [extension plan](SIZE-MATRIX-001/PLAN-5-SIZES.md). Original data remains intact.
+[Lemire template notes](NIGHT-EXPLORATION-001/LEMIRE-NOTES.md) record inspected revisions
+and concrete measurement lessons. No optimization candidate selected or adopted.

@@ -1,6 +1,6 @@
 # Reproduce the latest benchmarks on a second Apple host
 
-This runbook covers the four-size whole-tree baseline and three standalone decoder campaigns: EXP-004's packed
+This runbook covers the five-size whole-tree baseline and three standalone decoder campaigns: EXP-004's packed
 score decoder microbenchmark, EXP-007's private bulk specialization, and EXP-008's
 scalar/bulk cutoff matrix. The checked-in observations are from an **Apple M1**. Run a
 second machine such as the user's Apple M6 mini into a separate output tree; do not pool
@@ -25,14 +25,16 @@ remain unknown. Record them as unknown; do not infer frequency from elapsed time
 Run the matrix campaigns serially on an idle machine, with no other benchmark, build,
 sanitizer or profiler active during a timing window.
 
-## Whole-tree size matrix: 100 / 1K / 10K / 100K
+## Whole-tree size matrix: 100 / 1K / 10K / 100K / 1M
+
+For autonomous exploration, use the [shared overnight plan](NIGHT-EXPLORATION-001/README.md).
 
 This runs all eight standard operations with 16-byte members, three seeds and
 six same-binary ABBA blocks. It builds and validates native/sanitizer binaries
 before timing. Run from the repository root; the output directory must be new.
 
 ```sh
-python3 scripts/run-size-matrix.py --out "$REPLICA_ROOT/size-matrix"
+python3 scripts/run-size-matrix.py --out "$REPLICA_ROOT/size-matrix" --budget-seconds 600
 python3 scripts/analyse-size-matrix.py "$REPLICA_ROOT/size-matrix"
 ```
 

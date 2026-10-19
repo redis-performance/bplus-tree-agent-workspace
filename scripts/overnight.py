@@ -11,6 +11,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import shutil
 import signal
 import subprocess
@@ -94,12 +95,26 @@ def main():
     parser.add_argument("--deadline", required=True, help="ISO timestamp with timezone")
     parser.add_argument("--run-dir", required=True, help="New directory beneath scratch/")
     parser.add_argument("--round-seconds", type=int, default=1800)
+    parser.add_argument("--prompt-file", default="docs/OVERNIGHT-PROMPT.md")
+    parser.add_argument("--campaign-dir", default="experiments/OVERNIGHT-2026-10-17",
+                        help="Host-specific evidence directory beneath experiments/")
+    parser.add_argument("--host-label", default="unspecified",
+                        help="Directory-safe label; actual CPU must be recorded separately")
     args = parser.parse_args()
     deadline = datetime.fromisoformat(args.deadline)
     if deadline.tzinfo is None or deadline.timestamp() <= time.time():
         parser.error("deadline must be in the future with an explicit timezone")
     if not 60 <= args.round_seconds <= 3600:
         parser.error("round-seconds must be 60..3600")
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", args.host_label):
+        parser.error("host-label must contain lowercase letters, digits and hyphens")
+    campaign_dir = (ROOT / args.campaign_dir).resolve()
+    if not campaign_dir.is_relative_to(ROOT / "experiments") or campaign_dir == ROOT / "experiments":
+        parser.error("campaign-dir must be a directory beneath experiments/")
+    template_path = (ROOT / args.prompt_file).resolve()
+    if not template_path.is_relative_to(ROOT) or not template_path.is_file():
+        parser.error("prompt-file must be an existing file inside the repository")
+    template = template_path.read_text()
     run_dir = (ROOT / args.run_dir).resolve()
     if not run_dir.is_relative_to(ROOT / "scratch"):
         parser.error("run-dir must be beneath this repository's scratch/")
@@ -114,7 +129,6 @@ def main():
     codex = shutil.which("codex")
     if not codex:
         parser.error("codex is not installed")
-    template = (ROOT / "docs/OVERNIGHT-PROMPT.md").read_text()
     (run_dir / "prompt-template.md").write_text(template)
     stop_requested = False
 
@@ -127,6 +141,9 @@ def main():
     state = {"started_utc": utc(), "deadline_utc": deadline.isoformat(),
              "supervisor_pid": os.getpid(), "status": "starting", "rounds": [],
              "prompt_sha256": hashlib.sha256(template.encode()).hexdigest(),
+             "prompt_file": str(template_path.relative_to(ROOT)),
+             "campaign_dir": str(campaign_dir.relative_to(ROOT)),
+             "host_label": args.host_label,
              "round_limit_seconds": args.round_seconds,
              "sandbox": "workspace-write", "publication": "local drafts; no automatic push"}
     (run_dir / "supervisor.pid").write_text(str(os.getpid()) + "\n")
@@ -155,6 +172,7 @@ def main():
             prompt = (template + f"\nRound: {index}. Current UTC: {utc()}. "
                       f"This round ends: {end}. Campaign ends: {deadline.isoformat()}.\n"
                       f"Final round: {final_round}. Runtime directory: {run_dir.relative_to(ROOT)}.\n"
+                      f"Host label: {args.host_label}. Evidence directory: {campaign_dir.relative_to(ROOT)}.\n"
                       "Read previous round reports here before choosing work. "
                       "Finish active work and save a handoff at least 90 seconds before round end.\n")
             (current / "prompt.md").write_text(prompt)
@@ -195,7 +213,7 @@ def main():
             failures = 0 if record["status"] == "completed" else failures + 1
             state["heartbeat_utc"] = utc()
             atomic_json(run_dir / "status.json", state)
-            if (ROOT / "experiments/OVERNIGHT-2026-10-17/BLOCKED.md").exists():
+            if (campaign_dir / "BLOCKED.md").exists():
                 state["status"] = "blocked_reported_by_worker"
                 break
             if failures >= 3:

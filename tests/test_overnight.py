@@ -32,11 +32,11 @@ class SupervisorTests(unittest.TestCase):
             signal.signal(sig, handler)
         self.tmp.cleanup()
 
-    def run_supervisor(self, code, seconds):
+    def run_supervisor(self, code, seconds, extra_args=()):
         self.worker.write_text(f"#!{sys.executable}\n" + code)
         self.worker.chmod(0o700)
         end = (datetime.now(timezone.utc) + timedelta(seconds=seconds)).isoformat()
-        argv = ["overnight", "--deadline", end, "--run-dir", "scratch/test"]
+        argv = ["overnight", "--deadline", end, "--run-dir", "scratch/test", *extra_args]
         with patch.object(overnight, "ROOT", self.root), patch.object(sys, "argv", argv), \
              patch.object(overnight.shutil, "which", side_effect=lambda n: str(self.worker) if n == "codex" else None):
             overnight.main()
@@ -102,6 +102,37 @@ if n == 2:
                 self.run_supervisor("raise Exception('must not start')\n", 45)
             self.assertEqual(caught.exception.code, 2)
         self.assertFalse((self.root / "scratch/test").exists())
+
+    def test_custom_campaign_uses_own_prompt_and_blocker(self):
+        (self.root / "docs/new-night.md").write_text("NEW CAMPAIGN INSTRUCTIONS\n")
+        old = self.root / "experiments/OVERNIGHT-2026-10-17"
+        old.mkdir(parents=True)
+        (old / "BLOCKED.md").write_text("Historical blocker must not stop new campaign")
+        state = self.run_supervisor("""
+import json, pathlib, sys
+prompt = sys.stdin.read()
+assert 'NEW CAMPAIGN INSTRUCTIONS' in prompt
+assert 'Host label: apple-m6-mini' in prompt
+assert 'Evidence directory: experiments/new-night/apple-m6-mini' in prompt
+count = pathlib.Path('count.txt')
+n = int(count.read_text()) + 1 if count.exists() else 1
+count.write_text(str(n))
+if n == 2:
+    evidence = pathlib.Path('experiments/new-night/apple-m6-mini')
+    evidence.mkdir(parents=True)
+    (evidence/'BLOCKED.md').write_text('This campaign is blocked')
+print(json.dumps({'type':'turn.completed','usage':{}}))
+""", 45, ['--prompt-file', 'docs/new-night.md', '--campaign-dir',
+          'experiments/new-night/apple-m6-mini', '--host-label', 'apple-m6-mini'])
+        self.assertEqual(len(state['rounds']), 2)
+        self.assertEqual(state['status'], 'blocked_reported_by_worker')
+        self.assertEqual(state['host_label'], 'apple-m6-mini')
+
+    def test_invalid_campaign_path_refused_before_launch(self):
+        with self.assertRaises(SystemExit):
+            self.run_supervisor("raise Exception('must not start')\n", 45,
+                                ['--campaign-dir', '../outside'])
+        self.assertFalse((self.root / 'scratch/test').exists())
 
 
 if __name__ == "__main__":

@@ -88,3 +88,10 @@ Use [SIZE-MATRIX-001](SIZE-MATRIX-001/README.md) and [the rerun guide](REPLICATE
 to collect M6 results separately. Compare matched sizes/operations and retain compiler
 and host differences. Small insert/delete windows and iteration duration need better
 batching before fine-grained optimization claims. No unchanged rerun is needed on M1.
+
+
+## Latest: shared M1/M6 night preparation
+
+Use [NIGHT-EXPLORATION-001](NIGHT-EXPLORATION-001/README.md), not the expired October17
+prompt. Five-size matrix is 100/1K/10K/100K/1M × eight operations. Start each host
+explicitly using its own branch/runtime/evidence path. Preparation is not a launch.

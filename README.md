@@ -8,6 +8,11 @@ The data structure runs as a standalone C program; no Redis server is needed.
 speedup, but short-range regressions still prevent adoption. No optimization has
 been merged into `src/`; experimental implementations and results live in `experiments/`.
 
+The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
+is prepared for M1 and M6: rank, update paths, single-query lookup, and a decoder
+fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
+The original four-size M1 results below remain preserved.
+
 ## Build and test
 
 Requires a C11 compiler (Clang or GCC), Make, and Python 3. Supports macOS and Linux.
@@ -41,11 +46,11 @@ Available cases: `insert`, `lookup-hit`, `lookup-miss`, `rank`, `iterate`, `scan
 memory, and a result checksum. Iteration and scan report time per visited member.
 Use `make smoke` for a quick small-fixture check.
 
-To run **all eight operations at 100, 1K, 10K and 100K members**, including build,
+To run **all eight operations at 100, 1K, 10K, 100K and 1M members**, including build,
 correctness checks, and repeated measurements:
 
 ```sh
-python3 scripts/run-size-matrix.py --out scratch/size-matrix
+python3 scripts/run-size-matrix.py --out scratch/size-matrix --budget-seconds 600
 python3 scripts/analyse-size-matrix.py scratch/size-matrix
 ```
 

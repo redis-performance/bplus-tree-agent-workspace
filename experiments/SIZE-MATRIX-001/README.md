@@ -1,11 +1,13 @@
 # Sorted-set size matrix
 
-Measures the actual standalone tree at **100, 1K, 10K and 100K members**, with
+The runner now measures the standalone tree at **100, 1K, 10K, 100K and 1M members**, with
 16-byte members and all eight standard operations. Each case gets its own tree.
 Insert grows from empty to the stated size; delete removes that many members;
 lookup, rank, iteration, scan and score update operate on a populated tree.
 
-## Apple M1 results
+[Five-size extension plan](PLAN-5-SIZES.md). The original four-size data below is preserved.
+
+## Original four-size Apple M1 results
 
 Completed on Apple M1 / macOS 26.3, Apple Clang 17, C11 `-O3`, one unpinned thread.
 All **32 size/operation combinations** are present: 96 processes, 768 CSV rows,
@@ -31,7 +33,7 @@ Requires Clang, Make and Python 3. The runner builds fresh release and sanitizer
 binaries, validates them, then measures serially. Use a new directory each time.
 
 ```sh
-python3 scripts/run-size-matrix.py --out experiments/replications/apple-m6-mini/size-matrix
+python3 scripts/run-size-matrix.py --out experiments/replications/apple-m6-mini/size-matrix --budget-seconds 600
 python3 scripts/analyse-size-matrix.py experiments/replications/apple-m6-mini/size-matrix
 ```
 

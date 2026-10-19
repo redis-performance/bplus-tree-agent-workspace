@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build, validate and measure all eight tree operations at four fixed sizes."""
+"""Build, validate and measure all eight tree operations at five fixed sizes."""
 import argparse
 import csv
 import hashlib
@@ -13,7 +13,7 @@ import time
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
-SIZES = (100, 1000, 10000, 100000)
+SIZES = (100, 1000, 10000, 100000, 1000000)
 CASES = ('insert', 'lookup-hit', 'lookup-miss', 'rank', 'iterate', 'scan', 'update', 'delete')
 
 
@@ -41,7 +41,7 @@ def main():
              'scripts/analyse-size-matrix.py']
     manifest = dict(status='preparing', started_utc=datetime.now(timezone.utc).isoformat(),
         commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
-        arguments=vars(a), source_hashes={f: sha(f) for f in files},
+        arguments=vars(a), sizes=SIZES, source_hashes={f: sha(f) for f in files},
         machine=dict(os=platform.system(), release=platform.release(), arch=platform.machine(),
                      threads=1, affinity='unpinned', frequency='unknown', core_residency='unknown'),
         compiler=subprocess.check_output(['clang', '--version'], text=True),
@@ -81,7 +81,7 @@ def main():
         # Same binary on both A/B sides; seeds 1,2,3 occur twice each.
         for block in range(6):
             seed = 1 + block % 3
-            for size in SIZES[block % 4:] + SIZES[:block % 4]:
+            for size in SIZES[block % len(SIZES):] + SIZES[:block % len(SIZES)]:
                 invariants = None
                 for step, label in enumerate('ABBA'):
                     remaining = a.budget_seconds - (time.monotonic()-start)

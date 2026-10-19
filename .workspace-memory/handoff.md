@@ -1081,3 +1081,13 @@ See [report](../experiments/SIZE-MATRIX-001/README.md), README chart, and
 [M6 runbook](../experiments/REPLICATE-LATEST.md). The user requested publishing the
 plan/documentation so they can follow up on M6. Run the same matrix into a new
 host-specific directory and compare separately; do not overwrite M1 evidence.
+
+
+## Latest: night preparation, five sizes, Lemire review
+
+Shared M1/M6 plan: experiments/NIGHT-EXPLORATION-001/README.md. Prepared only; no
+overnight start. Supervisor supports --prompt-file/--campaign-dir/--host-label and
+six real process-control tests passed. New runner includes 1M with 600s timing cap;
+old four-size results preserved, analyzer backward compatibility checked. User wants
+all plans pushed and both hosts to follow the same queue. Lemire template and pinned
+counters v3.2.0 inspected; adaptation notes saved. No tree source change.

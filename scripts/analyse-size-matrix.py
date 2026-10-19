@@ -9,7 +9,7 @@ from pathlib import Path
 import statistics as stats
 
 CASES = ('insert', 'lookup-hit', 'lookup-miss', 'rank', 'iterate', 'scan', 'update', 'delete')
-SIZES = (100, 1000, 10000, 100000)
+LEGACY_SIZES = (100, 1000, 10000, 100000)
 
 
 def main():
@@ -18,7 +18,9 @@ def main():
     p.add_argument('--plot', action='store_true', help='Requires matplotlib')
     a = p.parse_args()
     m = json.loads((a.directory/'manifest.json').read_text())
-    assert m['status'] == 'complete' and len(m['runs']) == 96
+    sizes = tuple(m.get('sizes', LEGACY_SIZES))
+    expected_runs = len(sizes)*6*4
+    assert m['status'] == 'complete' and len(m['runs']) == expected_runs
     groups = defaultdict(list)
     for run in m['runs']:
         assert run['returncode'] == 0
@@ -42,9 +44,9 @@ def main():
                 assert ops == requested
             assert int(r['elapsed_ns']) > 0 and ops > 0
             groups[(run['size'], r['case'])].append(dict(r, block=run['block'], label=run['label']))
-    assert len(groups) == 32
+    assert len(groups) == len(sizes)*len(CASES)
     results = []
-    for size in SIZES:
+    for size in sizes:
         for case in CASES:
             rows = groups[(size, case)]
             assert len(rows) == 24
@@ -62,15 +64,15 @@ def main():
                 tree_bytes_median=stats.median(int(r['tree_bytes']) for r in rows)))
     (a.directory/'summary.json').write_text(json.dumps(results, indent=2)+'\n')
     with (a.directory/'summary.csv').open('w') as f:
-        w = csv.DictWriter(f, [k for k in results[0] if k != 'aa_block_effects_pct'], extrasaction='ignore')
+        w = csv.DictWriter(f, [k for k in results[0] if k != 'aa_block_effects_pct'], extrasaction='ignore', lineterminator='\n')
         w.writeheader(); w.writerows(results)
     host = m['machine'].get('machdep.cpu.brand_string', m['machine']['arch'])
     lines = [f'# Size matrix — {host}', '',
         'Median batch-average ns/op over 24 observations per cell; lower is better.',
         'Three seeds, six same-binary ABBA blocks. These are baseline measurements, not speedups.', '',
-        '| Operation | 100 | 1K | 10K | 100K |', '|---|---:|---:|---:|---:|']
+        '| Operation | '+' | '.join(str(n) for n in sizes)+' |', '|---|'+'---:|'*len(sizes)]
     for case in CASES:
-        lines.append('| '+case+' | '+' | '.join(f'{next(r for r in results if r["size"] == n and r["case"] == case)["median_ns_op"]:.2f}' for n in SIZES)+' |')
+        lines.append('| '+case+' | '+' | '.join(f'{next(r for r in results if r["size"] == n and r["case"] == case)["median_ns_op"]:.2f}' for n in sizes)+' |')
     lines += ['', '## Variation and timing duration', '',
         'Ranges describe observed batch averages, not per-operation latency percentiles or confidence intervals.',
         'A/A is the difference between identical-binary sides. Large values show noise, not a code change.',
@@ -88,15 +90,17 @@ def main():
         for ax, case in zip(axes.flat, CASES):
             rr = [r for r in results if r['case'] == case]
             med = [r['median_ns_op'] for r in rr]
-            ax.errorbar(range(4), med, yerr=[[r['median_ns_op']-r['min_ns_op'] for r in rr],
+            ax.errorbar(range(len(sizes)), med, yerr=[[r['median_ns_op']-r['min_ns_op'] for r in rr],
                         [r['max_ns_op']-r['median_ns_op'] for r in rr]], marker='o', capsize=3, color='#2563eb')
-            ax.set_xticks(range(4), ['100', '1K', '10K', '100K'])
+            ax.set_xticks(range(len(sizes)), [f'{n//1000000}M' if n >= 1000000 else f'{n//1000}K' if n >= 1000 else str(n) for n in sizes])
             ax.set_ylim(bottom=0); ax.set_title(case); ax.set_ylabel('ns/op'); ax.set_xlabel('Members')
             ax.grid(axis='y', alpha=.2)
         fig.suptitle(f'{host} · sorted-set baseline · {m["arguments"]["member_bytes"]}-byte members\nMedian and observed min–max; each panel has its own y-axis')
         fig.savefig(a.directory/'size-matrix.svg', metadata={'Date': None})
+        svg = a.directory/'size-matrix.svg'
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
         plt.close(fig)
-    print(f'Validated 96 raw runs / 768 rows / {len(results)} cells; summaries written.')
+    print(f'Validated {expected_runs} raw runs / {expected_runs*len(CASES)} rows / {len(results)} cells; summaries written.')
 
 
 if __name__ == '__main__':
