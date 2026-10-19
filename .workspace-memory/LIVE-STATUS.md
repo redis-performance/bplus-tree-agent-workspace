@@ -1,5 +1,14 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Operator013capture checkpoint: all16corrected-adapterbaselineprofilescomplete,
+35–75PCs/capture,937total(734IteratorNext/190traverse/13threadaccounting),8.198410s
+phasewall/allchildrenreaped. Elapsedfieldsunused;PCcountsnotcosts. Rootlauncher
+reviewfixexplicitlypassesPROFILE_USEC1000;source/referees/sampler unchanged.
+Regionanalysisandindependentrawauditpending. Main012chartpublished5839e139e;
+root012finaland013freezepublished7c8f5c0bd.014CPUcountercapabilityread-only
+preparationactive;nocounterrecord/attachments/privilegechanges. SourceNONE/countsunchanged.
+
+
 Operator012diagnostic COMPLETE/audit PASS:576rows/144exacteffects,604commands,
 1208public/private logpairs,22frozenidentities, all576measuredintervalsserial/reaped.
 Chart complete/rootvisuallyinspected. old3/8,new0/8AAqualify;0joint,all8conditional.
