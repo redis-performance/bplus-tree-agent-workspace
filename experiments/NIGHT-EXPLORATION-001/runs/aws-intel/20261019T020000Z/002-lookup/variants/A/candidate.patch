@@ -1,0 +1,45 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1269,6 +1269,33 @@
+     return lo;
+ }
+ 
++#if defined(__SSE2__)
++#include <emmintrin.h>
++#endif
++
++/* Bounded inline tag search; never reads outside [next, next + count). */
++static inline uint8_t *zbtFindTagSIMD(uint8_t *next, uint8_t tag, size_t count)
++{
++#if defined(__SSE2__)
++    __m128i needle = _mm_set1_epi8((char)tag);
++    while (count >= 16) {
++        __m128i bytes = _mm_loadu_si128((const __m128i *)(const void *)next);
++        unsigned mask = (unsigned)_mm_movemask_epi8(_mm_cmpeq_epi8(bytes, needle));
++        if (mask) return next + __builtin_ctz(mask);
++        next += 16;
++        count -= 16;
++    }
++    while (count) {
++        if (*next == tag) return next;
++        next++;
++        count--;
++    }
++    return NULL;
++#else
++    return memchr(next, tag, count);
++#endif
++}
++
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+@@ -1284,7 +1311,7 @@
+     uint8_t *end = tags + leaf->n.count;
+ 
+     while (next < end) {
+-        uint8_t *found = memchr(next, tag, end - next);
++        uint8_t *found = zbtFindTagSIMD(next, tag, end - next);
+         if (found == NULL) break;
+         unsigned int physical = found - tags;
+         uint16_t offset = offsets[physical];
