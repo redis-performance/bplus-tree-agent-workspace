@@ -117,3 +117,9 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 2026-10-19T06:45:36.715392+00:00: Submitted independent025 proposal from common27a4afee1: conditional exact historical EXP-005 A architecture replication, explicitly not new algorithm/population; NONE if native codegen or fixed time feasibility fails. Exact four-PC mask attribution3.524/3.666% from existing024, only33 events and causal limits retained. No peer new proposal reads, source edits/build/runner activity.
 
 2026-10-19T06:55:13.286029+00:00: Prepared026 exact historicalEXP005A replication under rootchair4d36b2d0e;570-command600s correctness/nativecodegen phase and conditional48-row300s primary screen frozen. No builds/runner workload. Root+AMD review/grant and subsequent independent static gate required; missingbroadguards implyPARK/noadoption.
+
+- 07:02 UTC: root explicitly granted validation only after root and AMD15cd3d37f preparation reviews. Started exact026 600s/570-command CPU2 job. No screen grant; immutable source/referees retained.
+
+- 07:04 UTC: first launcher rejected uppercase suffix before creating any job, output log or validation directory. Read-only source/protected identity, all20 freeze hashes and zero-owned-job/PID proofs passed. Root explicitly distinguished pre-execution name correction from a workload retry and authorized lowercase suffix only. Same frozen600s phase launched as arm026-exp005a-validation, with rejected attempt retained.
+
+- 07:05 UTC: executed026 native validation completed570/570 commands,4 original43 runs,512 iterator cells,12 oracles,8 expected negatives. Actual/control .text byte-identical; all protected/source identities unchanged. Full assembly published for root/AMD gate review; no timing begun.
