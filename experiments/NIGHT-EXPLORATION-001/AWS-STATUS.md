@@ -260,3 +260,14 @@ separately frozen baseline profiles and48-row A/A controls at5M requested operat
 Failed controls stop that new comparison without retry. These new harness results
 do not repair or replace any original8fab511e decision. Source NONE; measured
 AWS population counts remain7:0 accepted/4 rejected/3 parked.
+
+
+## 19 October 04:45 UTC — Apple branch status checked read-only
+
+Git fetch confirms M6 publication8efe8804c with corrected-adapter profile analysis
+and preparation for a bounded counter capability probe; source NONE. M1's latest
+published revision remains4c48fa7ed (01:33 UTC, round2), and its status reports an
+unresolved DNS check. The AWS controller does not claim M1 is currently running
+and does not access or alter either Apple runner. Original M1 baseline evidence
+remains valid for its recorded identity; no corrected-adapter M1 baseline exists
+in this campaign's published evidence.

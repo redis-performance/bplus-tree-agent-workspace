@@ -9,9 +9,11 @@ experiments continue with correctness, precision and regression checks. No optim
 has been merged into `src/`; candidate patches and measured decisions live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
-is running on separate M1 and M6 host branches: rank, update paths, single-query
-lookup, and an optional decoder experiment. Both hosts have completed the
-**100 / 1K / 10K / 100K / 1M** baseline. See the latest results and live status links below.
+tracks separate M1 and M6 host branches: rank, update paths, single-query lookup,
+and decoder experiments. Both hosts have completed the **100 / 1K / 10K / 100K / 1M**
+baseline. M6 continues publishing; M1's latest published checkpoint is 01:33 UTC
+and reports an unresolved DNS check, so its current runner state is unverified.
+See the latest results and live status links below.
 
 <!-- AWS-NIGHT-START -->
 The **AWS Intel, AMD and Graviton campaign** is bounded to **19 October,
