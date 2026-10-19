@@ -69,3 +69,5 @@
 - 2026-10-19T04:48:13.743873+00:00: Corrected13e459ff8 scan baseline profile/control phase complete44commands; helper period31.277%100K/29.900%1M. FreshAA48process/12blocks both qualify,maxabs0.504%/0.890%,min338/434ms. No candidate measured or authorized; sourceNONE pending root replication decision. AMD idle; original8fabPARK/discrepancy unchanged.
 
 - 2026-10-19T04:52:00.555797+00:00: Independent corrected ARM proposal submitted from common9cd8689db: bounded16-byte NEON exact all-match with original residual/fallback; no peer reads or implementation. Corrected AMD017 controls/profile published a7881e410; read-only actual timing-binary mapping in progress, no candidate authorized.
+
+- 2026-10-19T04:55:47.404329+00:00: Root approved exactB corrected-adapter replication after017 controls/code mapping.019 plan/drivers frozen before data:600s serial correctness then conditional300s48row primary. Original015 binary unchanged; no new population or source adoption.
