@@ -143,3 +143,5 @@
 - 2026-10-19T09:00:34.827176+00:00: Fresh ARM primary AA53e193c5b independently qualifies both sizes:48 raw rows/12 blocks, max absolute0.490027%/0.281102%, protected baseline and composite identities unchanged. Precision only; no candidate result, execution grant or source adoption.
 
 - 2026-10-19T09:05:33.671910+00:00: Independent451456c2f primary comparison audit passes48 rows/12 blocks; every block exceeds2% improvement, median−7.780706%/−7.212021%. Exact baseline/candidate and fresh AA output/memory/identity joins pass. Primary-only, source NONE; no guard/profile/confirmation acceptance.
+
+- 2026-10-19T09:08:40.663311+00:00: ARM029 acbd0cbe9 static matched-profile review passes20 inputs/104 commands, unchanged scope imports and own-actual mapping design. Manual loss/instruction-direction/mapping gates explicitly required; integrity status is not mechanism validation. No launch or workload; source NONE.
