@@ -192,3 +192,20 @@ tests and an independent static review pass. The corrected live preflight detect
 three Intel job processes and zero AMD/ARM job processes; every coordinator remains
 stopped and no host is yet released. Host restoration timers are unchanged.
 [Sanitized preflight](reviews/aws-release-auditor-preflight.json).
+
+
+## 19 October 04:29 UTC — Corrected-adapter baselines queued
+
+Main13e459ff8 contains the independently reviewed C11 `_Noreturn` correction to the
+standalone panic declaration and definition, plus an isolated build-path option.
+Each AWS host will requalify this distinct harness identity in a fresh detached
+checkout after its current serial queue: the original five-size/eight-operation
+matrix,16-byte members,1M requested operations,seeds1/2/3,six same-binary ABBA blocks,
+seven native/sanitizer validation stages,1200-second timing cap and1800-second owned
+job cap. Source/referee/binary hashes are retained before and after.
+
+This is baseline requalification, not a new optimization population, an old/new
+adapter speed comparison, or a retry of the original candidate controls. All prior
+8fab511e evidence, decisions and timing binaries remain unchanged. No new baseline
+results are claimed yet. The actual detached Git HEAD must match the recorded
+source identity; a plain archive must not silently inherit a parent checkout's HEAD.

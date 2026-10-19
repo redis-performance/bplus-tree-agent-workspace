@@ -36,6 +36,8 @@ and abort check; tree source and benchmark loops are unchanged.
 [fresh M6 baseline](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/ce4a5e47c/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/011-contract-baseline/RESULTS.md) pass correctness/raw audits.
 Only **5/40 cells qualify**, and **14 have short windows**. The five-host chart below
 retains the original adapter on every host; corrected-adapter rows have their own identity.
+Separate corrected-adapter baseline matrices are queued on the three AWS hosts;
+they will preserve the earlier baselines and all existing experiment decisions.
 
 ## Build and test
 
