@@ -1,8 +1,8 @@
 # M6 scoreboard — core queue complete, source NONE
 
-Updated 2026-10-19 03:08 UTC, round 6. Round deadline 03:35:31.651865 UTC;
-mandatory handoff cutoff 03:34:01.651865 UTC. Campaign ends 08:00 UTC / 09:00
-Lisbon; no experiments after 07:15 UTC.
+Updated round 7, 19 October 2026. Round deadline 03:40:06.072034 UTC;
+handoff cutoff 03:38:36.072034 UTC. Campaign ends 08:00 UTC / 09:00 Lisbon;
+no experiments after 07:15 UTC.
 
 | Target | Decision | M1 action |
 |---|---|---|
@@ -12,37 +12,35 @@ Lisbon; no experiments after 07:15 UTC.
 | LOOKUP-001 | REJECT dual primary / NONE | B at 100K exploratory only; [result](004-lookup/RESULTS.md) |
 | DECODE-001 | REJECT universal policies / NONE | Count-one lead only; [result](005-decode/RESULTS.md) |
 | ITERATE-001 | SKIPPED | Optional slot used by decoder |
-| Fresh confirmation | NOT ELIGIBLE | No discovery survivor |
-| Operator follow-up | PROPOSAL REVIEW / owner external interactive root | [population](006-followup/population.json); decision pending, no worker takeover |
+| Core confirmation | NOT ELIGIBLE | No discovery survivor |
+| Operator follow-up | PREREGISTERED / implementation preparation | M6-LOOKUP-CALLER-001; no measured result or replication eligibility |
 
-Exact hypothesis/patch/referee identities and acknowledged comparison commits are
-in [MORNING-REPORT.md](MORNING-REPORT.md). Prior final handoff published
-**e78e0d4fd7abb323755a3046922792e00f78e228**, matching coordinator ack
-r5-final-audited-handoff-20261019T030500Z. Round 6 reporting correction published **c9dee3a05**, matching request
-`r6-report-review-20261019T030859090633Z` (ok at03:09:00UTC).
-Final handoff publication follows; read its matching acknowledgement on resume.
+New operator decision: [chair selection](006-followup/selection.md) chooses proposal
+B's leaf-search call-boundary hypothesis after three actual independent proposals.
+[Plan](006-followup/PLAN.json) declares both 100K/1M successful score-lookup primaries,
+101 required cells, unchanged memory/semantic guards, and deadline
+04:40:20.349829 UTC. [Population](006-followup/population.json) records implementation
+preparation as observed in [round 7 checkpoint](ROUND-007-HANDOFF.json). This is an
+operator-owned new hypothesis, not a reopening of the four rejected objectives.
+Do not infer implementation completion, frozen comparison provenance or eligibility.
 
-Round 6 is reporting-only: corrected stale README target/decoder wording, refreshed
-supervisor usage through completed round 5, verified 9 launcher hashes and 12 retained
-patch hashes, and reviewed existing result/audit links. No build, test, profile,
-timing, population or acceptance decision was added. See
-[bounded review](ROUND-006-REPORT-REVIEW.json); no repeated evidence inventory.
-Core queue's last experimental child remains 03:00:37.811992 UTC.
+Worker stays on reporting while the operator owns this trial; no duplicate agents,
+builds, tests, profiles or timings. No large evidence audit was repeated. The saved
+launcher baseline is complete and preserved; direct sysctl/profiler permission
+limitations remain. Last core experimental child: 03:00:37.811992 UTC.
 
-The operator is running an independent proposal population under 006-followup.
-Shared memory explicitly reserves any selected follow-up to that operator. Worker
-must stay on report/audit work while that review is active. Do not mutate its files,
-spawn duplicate agents, start new trials, or create a BLOCKED.md that stops its work.
-No claim about that review's completion or candidate eligibility is made here.
+Round 6 final handoff has matching ok coordinator acknowledgement: **60613cc05**,
+request `r6-final-handoff-20261019T030943224909Z`. Round 7 publication follows.
+Coordinator alone commits/pushes; worker performs no Git writes or permission changes.
 
-Launcher-verified Apple M6, Clang 21; direct sysctl unavailable and not retried.
-Frequency/DVFS/core residency/migration/PMU unknown. Cached M1 4c48fa7e is context
-only; exact cross-host replication NOT RUN. Baseline source/referee unchanged.
-All four core M6 populations were sequential; independent confirmation/review and
-selected-candidate profile gates remain missing. No adoption.
+Exact core identities and reproduction: [morning report](MORNING-REPORT.md).
+Launcher-verified Apple M6 / Clang21; frequency/DVFS/core residency/migration/PMU
+unknown. Cached M1 4c48fa7e read as context only; remote state UNKNOWN, no cross-host
+sample pooling. All four completed core populations were sequential. Candidate
+profiles, qualified complete guards, fresh independent confirmation and independent
+review remain absent for adoption. Baseline source remains unchanged.
 
-Branch totals unchanged: 11 completed populations (9 sequential + 2 historical
-multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches / 14 harnesses. Pending
-operator population and concurrent M1 night counts excluded. Actual supervisor
-usage in USAGE.json; exact model/backend/currency cost unknown. Coordinator alone
-writes Git; no permission, sysctl, profiler, Git-denial or network-denial retries.
+Completed branch totals unchanged: 11 populations (9 sequential + 2 historical
+multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches / 14 harnesses. In-flight
+operator implementation population and concurrent M1 night excluded. [Usage](USAGE.json)
+now records completed round 6; round 7/exact backend/currency cost remain unknown.

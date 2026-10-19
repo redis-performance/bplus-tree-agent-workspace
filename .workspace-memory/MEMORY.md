@@ -859,3 +859,15 @@ host comparisons. Coordinator publishes each status milestone and completed roun
 Last 45 minutes reserved for report/audit. Worker sysctl denied by its existing
 sandbox; use launcher-captured host metadata, with no permission changes. Launch
 validation: 4 publication tests and 6 supervisor tests pass. No M6 result yet.
+
+
+## M6 round 7 operator checkpoint — 19 October
+
+External interactive root completed its three actual independent proposals and
+selected M6-LOOKUP-CALLER-001, generic leaf-search call-boundary exposure, under
+006-followup/selection.md and PLAN.json. Implementation preparation is recorded;
+no new measured outcome or eligibility. The operator owns that trial (deadline
+04:40:20.349829UTC); workers remain reporting-only and must not duplicate/take over
+its agents, harness or timings. Core four REJECT/NONE decisions and completed counts
+unchanged. Resume host HANDOFF and latest operator status; no repeated schedules
+or inventories. Round7 launched no experimental children.

@@ -1,10 +1,12 @@
 # M6 morning report — interim, core queue complete
 
-Updated 19 October 2026, round 6. Campaign authorization ends 08:00 UTC / 09:00
+Updated 19 October 2026, round 7. Campaign authorization ends 08:00 UTC / 09:00
 Lisbon; no experiments after 07:15 UTC. Source selection **NONE**. The core queue
-has no contender eligible for confirmation. A separate operator-owned proposal
-review is recorded in [006-followup](006-followup/population.json); its outcome is
-pending and does not change these completed decisions.
+has no contender eligible for confirmation. A separate operator-owned trial
+is preregistered in [006-followup](006-followup/PLAN.json). Its chair selected
+M6-LOOKUP-CALLER-001 after three actual independent proposals; implementation
+preparation is recorded, with no measured result yet. This does not change the
+completed core decisions.
 
 The launcher-selected [baseline-attempt002](baseline-attempt002/SUMMARY.md) is
 complete: 120 serial processes, 960 rows, 40 cells and 162.423 seconds of timed work.
@@ -87,19 +89,27 @@ hashes and all 12 retained campaign patch hashes, and reads the previous raw aud
 without repeating experiments or whole-evidence inventories. It corrects stale
 README next-target wording. This is sequential reporting review, not independent
 validation. [USAGE.json](USAGE.json) records supervisor-reported tokens through
-completed round 5; current-round usage, exact serving model and currency cost remain
+completed round 6; current-round usage, exact serving model and currency cost remain
 unknown. Token fields retain their original meanings and are not double-counted.
 
 Core queue's last experimental child ended 03:00:37.811992 UTC. Round 6 launched no
 build, test, profile or timing child. Prior final handoff was acknowledged/published
 as `e78e0d4fd7abb323755a3046922792e00f78e228` on
 `exploration/apple-m6-mini-20261019T013000Z`; round 6 reporting update was acknowledged as **c9dee3a05** at03:09:00UTC
-for `r6-report-review-20261019T030859090633Z`. Final handoff publication follows.
+for `r6-report-review-20261019T030859090633Z`. Round 6 final handoff was subsequently acknowledged as **60613cc05**.
+Round 7 reporting handoff publication follows.
 The coordinator alone commits/pushes. Baseline src remains unchanged.
 
 Recorded branch totals remain 11 completed populations (9 sequential + 2 historical
 multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches and 14 harnesses. The
-operator-owned proposal review is pending and not added to these completed counts;
+operator-owned implementation trial is in preparation and not added to these completed counts;
 concurrent M1 night counts remain separate. Next worker action: resume the host
 HANDOFF and operator review status, without restarting any completed schedule or
 taking over the operator's follow-up.
+
+Round 7 observed the [chair decision](006-followup/selection.md) and preregistered
+101-cell caller-boundary trial (deadline04:40:20.349829UTC), without taking over its
+files or running experimental children. [Checkpoint](ROUND-007-HANDOFF.json) pins
+the documents as observed; these are not frozen timing source/harness identities.
+M1 action for this new hypothesis: await published exact patches, frozen referee
+and a completed result before replication. No speed or eligibility claim exists.
