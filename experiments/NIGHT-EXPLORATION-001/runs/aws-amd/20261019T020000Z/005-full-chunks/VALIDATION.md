@@ -1,0 +1,7 @@
+# Full-chunk validation complete
+
+All59commands passed: four isolated snapshots times native and ASan/UBSan original43 tests plus unchanged packed-move, packed-decode, score-boundary oracles. Packed-move pass:146250 operations, widths0..64, allpositions at15selected counts, two seeds, whole824byte buffer exact out-of-place reference and canaries. This is selected count coverage, not every integer count through96. All referee hashes equal. Source/binary/referee hashes in validation/freeze.json; every process and stdout/stderr retained.
+
+Root independent pre-screen static review pinned all3patchhashes, no blocker. A and C can lower identically despite source differences; compare codegen/text-sha256.txt. Code identity is not independent mechanism confirmation. Fixed screen still measures preregistered variants but any identical-code runs are repeated observations, not evidence from distinct generated mechanisms. No extra post-result trial allowed.
+
+Codegen inspection: A/C have the same81615-byte text size but distinct .text hashes; insertion scheduling and deletion register/stack allocation differ beyond assertion line constants. B text82383 vs baseline80479. Thus all three are distinct generated programs, but A/C remain related source transforms, not independent evidence. Packed-move total corrected from a drafting typo to observed146250 operations; raw oracle output always retained the correct count.

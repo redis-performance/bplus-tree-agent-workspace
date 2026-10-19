@@ -15,3 +15,7 @@
 - 2026-10-19T02:42:20.352478+00:00: full-chunk census7runs complete incldisabledzero/semanticmatch; proposal and exact1M-op primaries frozen before implementation, fresh AA next.
 
 - 2026-10-19T02:44:19.745299+00:00: full-chunk fresh A/A48processes qualifies bothsizes (maxabs0.557%/0.386%); sequential proposal/implementation artifacts frozen; serial59-command correctness phase started.
+
+- 2026-10-19T02:46:29.443560+00:00: full-chunk59build/test commands pass, root7f833d000 review no blocker; fixed144process screen next.
+
+- 2026-10-19T02:47:20.296268+00:00: fail-closed publication scanner blocked two attempts because raw validation process commands contained private remote-root prefixes; no commit/push occurred. Sanitized public process commands, raw logs retained locally. Screen had started after first scanner failure because outer shell did not abort; scientific validation/review and frozen files predated screen, but publication lag is retained explicitly. Further composite commands use fail-fast sequencing.
