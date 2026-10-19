@@ -9,3 +9,5 @@ Native continuation: A/root screens complete and audited; B running, C next. Bot
 Decoder final: PARK/NONE,1 new measured population0/0/1. All four screens complete; A/B/C executable text identical, so no ranking. Required precision unresolved; no full guards/fresh confirmation/candidate profile. Root review requested. Continue004-update unchanged baseline validation/profile, then evidence-led distinct hypothesis orNONE.
 
 004-update diagnosis completes eight baseline profiles and40 validation cells. Three sequential proposals/chairNONE, no candidate. Remain available for evidence-led cross-host replication before07:15UTC; no remote workload active. Do not repeat unsupported families merely to occupy runner.
+
+Iterator replication complete and PARK; all576 processes/144blocks retained, primary A/A failed. Request root audit against immutable RESULT commit. No broader guards/freshconfirmation/candidate profiles; no winner or adoption. Independent AMD C immutable patch d1921d793 belongs to AMD population, not new ARM population. No active ARM remote job.

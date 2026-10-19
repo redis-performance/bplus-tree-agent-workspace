@@ -97,3 +97,5 @@ completed evidence. No new optimization decision; population counts unchanged.
 ARM native 2026-10-19T02:51:03.361612+00:00: Decoder population PARK/NONE;2784 screen processes, identical A/B/C executable text, primaryA/A fails.1 new measured population0/0/1. No source adoption. Parent final review completed in46c0ce2c2; fresh unchanged-root update diagnosis next. See experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/003-decode/RESULT.md.
 
 ARM 2026-10-19T02:56:29.539054+00:00:004-update fresh diagnosisNONE after8profiles/40checks and3sequential proposals. No new measured population/candidate. Monitoring for supported cross-host contender; stop new experiments07:15UTC,deadline08:00UTC.
+
+ARM 2026-10-19T03:18:30.219112+00:00: Iterator A/B replication PARK after576 processes/144 blocks; both primary controls fail, no winner/adoption. One separate replication, new-population count stays1. Independent AMD C published d1921d793. Root raw audit pending; no active ARM workload.

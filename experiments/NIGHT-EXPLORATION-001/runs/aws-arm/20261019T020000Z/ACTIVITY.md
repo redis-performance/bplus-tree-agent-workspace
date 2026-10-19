@@ -30,3 +30,5 @@
 - 2026-10-19T03:08:31.224350+00:00: ARM iterator calibration audited and counts frozen before A/A; six-block qualification running. Independent AMD all-match scan proposal submitted in2d70dfd38 without reading peers. Root tentative memchr context arrived after submission and did not influence it. No added remote workload.
 
 - 2026-10-19T03:09:08.398837+00:00: Iterator A/A completes192 processes/48blocks; only1/8 cells qualifies. Both primaries fail (100K -2.523..+1.985%;1M -3.997..+0.735%). Fixed exploratoryA/B screens remain; no noise iteration or acceptance.
+
+- 2026-10-19T03:18:30.219112+00:00: Iterator A/B screens complete, 384 processes / 96 blocks; with A/A, 576 processes / 144 blocks. Both full-output primaries improve in every exploratory block, but required controls failed. PARK, no qualified winner or adoption. A iterator24bytes, B16. Result and raw evidence published for root audit. Independent AMD implementationC published d1921d793 with local bounded correctness; no additional ARM runner load.

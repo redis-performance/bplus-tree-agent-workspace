@@ -1,14 +1,14 @@
 # AWS ARM overnight exploration
 
-Native worker continues until19 October2026,08:00 UTC/09:00 Lisbon; new experiments stop07:15 UTC. Historical external CLI failure remains preserved.
+Campaign deadline:19 October2026,08:00 UTC /09:00 Lisbon. New experiments stop07:15 UTC. Historical external CLI failures remain preserved separately.
 
-| Work | Status |
+| Work | Outcome |
 |---|---|
-| Five-size baseline | Complete120 processes/960 rows/40 cells; native/sanitizer checks pass |
-| Independent-query lookup | Diagnostic NONE;80 validation cells,288 A/A processes,10/12 qualify |
-| Exact-mask preparation | Withdrawn before timing after instruction-attribution correction;3 unmeasured patches |
-| Count-one decoder | PARK/NONE;3 source variants plusroot anchor,2784 processes/696 effects |
-| Public update paths | Diagnostic NONE;40 validation cells/eight profiles/three sequential proposals |
-| Intel iterator A/B replication | Fresh ARM baseline profile supports exact patches; all correctness passes, calibration running |
+| Five-size baseline | Complete:120 processes /960 rows /40 cells |
+| Independent-query lookup | Diagnostic NONE; corrected instruction attribution;3 unmeasured patches |
+| Count-one decoder | PARK;2784 screen processes; independent root audit complete |
+| Public-update diagnosis | NONE;40 validation cells,8 profiles,3 sequential proposals |
+| Intel iterator A/B architecture replication | PARK;576 comparison processes /144 blocks, no qualified winner |
+| Independent AMD scan contribution | Proposal and implementationC published; AMD owns its population timing |
 
-**ARM new measured populations:1;0 accepted/0 rejected/1 parked.** No source adoption. Three decoder variants compile to identical machine-code text; failed primary A/A prevents acceptance or ranking. Relative-B gains are conditional on unadopted EXP007B, not root/public-tree gains. Count8 slowdowns are observed on an unqualified bulk-control cell. [Complete decision](003-decode/RESULT.md); independent final review completed in46c0ce2c2. See ACTIVITY.md and STATUS.md.
+**ARM new measured populations:1;0 accepted /0 rejected /1 parked.** Separately, **1 parked architecture replication**. Source adoption NONE. Iterator B preserves16-byte state; A uses24 bytes. Observed gains remain exploratory because required A/A controls failed. [Iterator result](005-iterator/RESULT.md), [decoder decision](003-decode/RESULT.md), [activity](ACTIVITY.md).
