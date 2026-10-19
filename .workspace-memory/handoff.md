@@ -1,3 +1,17 @@
+<!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT -->
+## Authorized continuation — ARM frontend diagnostic preparation
+
+User asked to continue the optimization effort. New ARM-FRONTEND-DIAGNOSTIC-001
+investigates opposite primary/H4 timing directions before proposing new target code.
+No new performance lease or measurement; prior mask REJECT and release unchanged.
+Existing ARM prepares protocol, Intel audits frontend comparability, AMD audits
+profile attribution controls. Read-only archived-binary retrieval authorized on the
+previously user-selected ARM host. Six modes/sizes; proposed native AA144/comparison144
+and bounded dual-frontend scoped profiles. Executable freeze/review precedes fresh
+lease/grants. Source NONE; no new population; unknown serving-model/token/cost values.
+[Plan](../experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md).
+<!-- ARM-FRONTEND-DIAGNOSTIC-CURRENT-END -->
+
 <!-- ARM-MASK-FOLLOWUP-CURRENT -->
 ## ARM follow-up closed — 19 October 10:03 UTC handback
 

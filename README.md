@@ -4,6 +4,11 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
+**Continuing:** [ARM frontend diagnostic](experiments/ARM-FRONTEND-DIAGNOSTIC-001/README.md)
+is preparing matched profiles of the original benchmark and iterator guards to
+investigate their opposite timing directions. No new performance lease is active;
+the completed rejection and release below remain intact.
+
 **ARM follow-up complete — REJECT, source NONE.** The primary benchmark reproduced
 −7.78% / −7.21% elapsed-time changes, but nine qualified score-only iterator guard
 cases regressed in all six blocks (median slowdowns +2.86% to +8.52%). The different
