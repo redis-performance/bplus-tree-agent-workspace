@@ -672,3 +672,33 @@ AWS population counts stay **6 — 0 accepted / 4 rejected / 2 parked**, plus
 **1 parked architecture replication**. Intel and ARM timings are not pooled.
 Result pin: ARM `ca5ffa2a8`; independent audit is
 `reviews/aws-arm-iterator-cache-raw-audit.json` in the night campaign.
+
+
+## 19 October — AWS AMD SCAN-TAGS-001: PARK / NONE
+
+Three actual agents separately authored proposals and isolated implementations,
+with a fourth agent chairing and reviewing. The selected hypothesis replaces the
+all-match leaf-tag loop with exact bounded SSE2 masks and retains a portable
+fallback. All three patches remain immutable. Native/sanitizer, exact-position,
+scan/resize/widen and fallback checks pass; all eight deliberate faults are caught.
+
+The fixed 144-process screen completes all 36 ABBA effects. A/B show roughly
+5.25/4.28% lower elapsed time at 100K and 4.36/4.30% at 1M, meeting the 2% gate in
+every block. C misses the every-block 1M gate. Fresh 1M A/A fails, so no qualified
+implementation winner follows. One alphabetical-priority A profile finds about
+12% fewer instructions/branches but under 1% lower cycles, which does not validate
+the 4–5% exploratory elapsed magnitude. Dense/folded/reversed/resize performance
+guards remain missing. Decision PARK; source NONE.
+
+Root independently reconstructs all 48 A/A and 144 comparison rows, verifies the
+exact schedules, serial CPU2 windows, requested work, actual callback counts,
+checksums and owned bytes. Effects reconstructed from integer elapsed times differ
+from the worker's rounded ns/op calculation by at most 0.000654 percentage points.
+Decision/profile pin: AMD `9f96d0518`; independent audit in the night campaign is
+`reviews/aws-amd-scan-raw-audit.json`.
+
+AWS completed populations: **7 — 0 accepted / 4 rejected / 3 parked**, plus
+**1 parked ARM architecture replication**. Intel's separately preregistered scan
+controls qualify and exact A/B replication is preparing; those measurements cannot
+repair AMD's failed control. Full guards, fresh confirmation, profile validation
+and final review remain mandatory before any acceptance recommendation.

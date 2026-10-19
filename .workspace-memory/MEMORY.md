@@ -861,3 +861,18 @@ plus1 parked architecture replication. AMD's distinct all-match SSE2 round now
 has3 actual independent proposals and implementations, root chair/static review
 0695cf415/e47157087; serial correctness/fault controls precede its fixed exploratory
 screen.1M scan A/A fails, so acceptance is unavailable. Lease/release08:00UTC intact.
+
+
+## 19 October03:36 UTC — AMD scan parked; qualified Intel controls
+
+AMD SCAN-TAGS-001 completes 144 rows/36 effects after123 validation commands and
+eight detected faults. A/B conditional gains about4–5%, C fails1M every-block gate.
+Failed AMD1M A/A and missing guards/profile magnitude keep PARK/NONE. Root raw audit
+verifies48 controls+144 comparison rows and exact schedules/callbacks/memory. AWS
+count7 populations (0 accepted/4 rejected/3 parked), plus1 parked ARM replication.
+Actual independent AMD/Intel/ARM proposals and implementations, separate root chair.
+Intel's fresh5M-op scan controls qualify both sizes; exact A/B replication begins
+after validation. B is predeclared source preference if both pass, not a speed
+superiority claim. ARM prepares missing focused guards; AMD profiles deletion only.
+No source adoption. Deadline/release08:00UTC unchanged. Dashboard push race repaired
+without dropping its pending commit; bounded rebase/push retries now installed.

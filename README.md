@@ -21,7 +21,7 @@ Each host publishes its completed decisions and evidence on a separate branch.
 Source adoption remains NONE.
 <!-- AWS-NIGHT-END -->
 
-AWS completed measured populations: **6 — 0 accepted / 4 rejected / 2 parked**.
+AWS completed measured populations: **7 — 0 accepted / 4 rejected / 3 parked**.
 One additional ARM architecture replication is parked.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md).
 
