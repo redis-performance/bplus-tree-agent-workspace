@@ -9,3 +9,5 @@ then at most ONE frozen exploratory screen of three isolated implementations if
 justified. No baseline adoption regardless of screen: controls and independent
 review missing. No candidate yet. No active children. Do not recalibrate/redo A/A.
 Roundend02:06:34UTC; final handoff due02:05:04. Campaigndeadline08:00UTC.
+
+Chair has now chosen shorter-side hypothesis via three explicitly sequential proposal passes; see selection.md and DISCOVERY-PLAN.md. Await publication then construct three isolated implementations. No candidate built yet.
