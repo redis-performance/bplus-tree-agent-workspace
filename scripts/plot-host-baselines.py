@@ -14,7 +14,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directory', type=Path, help='Contains sources.json and pinned summaries')
     args = parser.parse_args()
-    sources = json.loads((args.directory/'sources.json').read_text())['hosts']
+    manifest = json.loads((args.directory/'sources.json').read_text())
+    sources = manifest['hosts']
+    pending = manifest.get('pending_hosts', [])
+    assert all(p['status'] == 'NOT RUN' and 'file' not in p for p in pending)
     hosts = []
     for source in sources:
         payload = (args.directory/source['file']).read_bytes()
@@ -32,6 +35,7 @@ def main():
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
     from matplotlib.ticker import MaxNLocator
     plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 10,
                          'svg.fonttype': 'none', 'svg.hashsalt': 'bplus-m1-m6-baselines'})
@@ -70,12 +74,18 @@ def main():
                  fontsize=11, color='#475569')
         if combined:
             handles, labels = axes.flat[0].get_legend_handles_labels()
+            for platform in pending:
+                handles.append(Line2D([], [], marker='s', markerfacecolor='none',
+                                      linestyle='none', color='#64748b'))
+                labels.append(platform['label']+' · NOT RUN')
             fig.legend(handles, labels, loc='lower left', bbox_to_anchor=(.065, .855),
-                       ncol=2, frameon=False, fontsize=11)
+                       ncol=len(labels), frameon=False, fontsize=10)
         fig.subplots_adjust(left=.07, right=.98, bottom=.19, top=.79, wspace=.42, hspace=.65)
+        note = ('Intel, AMD and Graviton: placeholders only; no measurements plotted.'
+                if combined and pending else
+                'Host series remain separate. Each panel has its own y-axis. Host/compiler differences are not candidate gains.')
         fig.text(.07, .035,
-                 'Dots: median batch-average ns/op. Whiskers: observed min–max. Lower is less time.\n'
-                 'Host series remain separate. Each panel has its own y-axis. Host/compiler differences are not candidate gains.',
+                 'Dots: median batch-average ns/op. Whiskers: observed min–max. Lower is less time.\n'+note,
                  fontsize=10, color='#475569', linespacing=1.5)
         stem = args.directory/('m1-m6-baseline' if combined else group[0][0]['host']+'-baseline')
         fig.savefig(stem.with_suffix('.png'), dpi=150, facecolor='white', metadata={'Software': 'Matplotlib'})

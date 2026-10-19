@@ -88,7 +88,8 @@ and 960 rows per host. Native and ASan/UBSan validations pass on both hosts.
 
 The chart overlays **M1 (blue circles)** and **M6 (orange squares)** in each
 operation panel, with median batch-average **ns/op** and observed min–max ranges.
-Each panel has its own y-axis. Lower is less time.
+Each panel has its own y-axis. Lower is less time. Intel, AMD and AWS Graviton
+are reserved in the legend as **NOT RUN**; they have no plotted measurements.
 
 ![Apple M1 and M6 latest baselines overlaid across all eight operations and five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/m1-m6-baseline.png)
 
@@ -100,6 +101,9 @@ Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing upd
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
 | Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank diagnosis running; driver campaign through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
+| AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
+| AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
 
 Median batch-average **ns/op** from these overnight baselines; lower is less time.
 Full five-size tables, observed ranges, raw rows and precision checks are linked above.
