@@ -80,3 +80,5 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 ## 2026-10-19T05:14:09.131506+00:00 — Corrected NEON native validation complete
 
 017 allthree implementations pass145command full native/sanitizer/referee/portable validation in392.6s.8 isolatedfaults detected, overread fault caught by cardinality rather than guard-page signal (explicit). Native cmeq/shrn codegen retained. Exact baseline8694 unchanged;144row/300s discovery and actual binaries frozen, awaiting root timing review. No new measuredpopulation/count change yet.
+
+- 2026-10-19T05:20:39.594191+00:00: Root approved exact frozen corrected NEON discovery after native/static/protocol and independent coverage reviews. Started serial CPU2 144-row comparison with a 300-second hard cap; no retries or source changes. Conditional confirmation preregistered at 0d5650c24 before discovery observations.
