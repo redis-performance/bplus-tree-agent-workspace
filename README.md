@@ -182,3 +182,8 @@ Full procedure: [population protocol](docs/POPULATION.md).
 - [`experiments/`](experiments/): candidate patches, reports, profiles, and raw results.
 - [`compat/`](compat/) and [`vendor/redis/`](vendor/redis/): standalone adapter and required upstream support.
 - [Source manifest](source-manifest.json), [extraction notes](docs/STANDALONE.md), and [licensing](NOTICE.md).
+
+
+## AWS AMD overnight — LOWERBOUND-001
+
+[Lazy lower-bound member decoding](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/002-lowerbound/implementation-selection.md): REJECT/NONE,3sequential proposals and3isolated implementations,144comparison rows. AMD totals1population,0accepted/1rejected/0parked. Allprimary2%gates fail; sourcebaseline unchanged.

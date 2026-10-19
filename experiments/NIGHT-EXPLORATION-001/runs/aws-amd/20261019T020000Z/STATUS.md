@@ -1,5 +1,5 @@
 # AMD status
 
-2026-10-19T02:06:23.009279+00:00 — LOWERBOUND-001 candidate validation. Three sequential proposals/chair select lazy member decoding in leaf binary search; three isolated implementations underway. Profiles and exact A/A rows retained.100K qualified,1M fails one1.113%block: exploratory screen only. Native source selection NONE. Independent root semantics review requested.
+2026-10-19T02:11:38.270264+00:00 — LOWERBOUND-001 REJECT/NONE; all3lazy-member variants fail2%bothprimaries,144rows retained. One explicitly sequential population,0accepted/1rejected/0parked. Source unchanged. Root pre-screen semantic review passed; outcome audit requested.
 
-Deadline08:00UTC; stop new experiments07:15UTC. Initial baseline completed; controller publishes baseline/chart. External CLI infrastructure failure retained separately. Backend/model/token costs unavailable.
+Scoped profile diagnostic pending, then next distinct profile-led target. Deadline08:00UTC; no new experiments after07:15UTC. Exact backend/model/token/USD costs unavailable.

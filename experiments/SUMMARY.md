@@ -523,3 +523,8 @@ passed SSH preflight; OSS coordinators stopped, five-size baselines running from
 8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
 09:00Lisbon. [Live status](NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
 completed evidence. No new optimization decision; population counts unchanged.
+
+
+## AWS AMD overnight — LOWERBOUND-001
+
+[Lazy lower-bound member decoding](NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/002-lowerbound/implementation-selection.md): REJECT/NONE,3sequential proposals and3isolated implementations,144comparison rows. AMD totals1population,0accepted/1rejected/0parked. Allprimary2%gates fail; sourcebaseline unchanged.
