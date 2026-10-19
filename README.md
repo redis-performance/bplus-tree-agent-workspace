@@ -86,6 +86,15 @@ Both overnight campaigns have completed all eight operations at all five sizes:
 16-byte members, three seeds, six same-binary ABBA blocks, 120 serial processes
 and 960 rows per host. Native and ASan/UBSan validations pass on both hosts.
 
+The charts show median batch-average **ns/op** and observed min–max ranges.
+Each operation uses the same y-axis on both hosts' charts. Lower is less time.
+
+![Apple M6 latest baseline: all eight operations across five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/apple-m6-baseline.png)
+
+![Apple M1 latest baseline: all eight operations across five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/apple-m1-baseline.png)
+
+[Chart data, pinned source revisions and reproduction](experiments/NIGHT-EXPLORATION-001/baseline-charts/README.md).
+
 Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing updates.
 
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
@@ -112,13 +121,9 @@ Their differences are not candidate optimization gains. A/A variation and short
 windows require targeted qualification before small performance claims; no tree
 optimization has been adopted. Each candidate must beat its own host's baseline.
 
-The earlier M1 preparation run is preserved separately. Its chart shows all five
-sizes, with median batch-average ns/op and observed min–max ranges:
-
-![Earlier Apple M1 sorted-set operation costs by size](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg)
-
-[Earlier M1 results](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) ·
-[Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
+The [earlier M1 preparation results](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md)
+and [chart](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg) remain
+separate from these overnight baselines. [Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
 
 ### Decoder experiments
 
