@@ -106,3 +106,5 @@
 2026-10-19T06:15:38.849440+00:00 Prepared MORNING-REPORT: source NONE, old SCAN REJECT, corrected guard-first PARK before candidate timing; lease ACTIVE/release pending08UTC. Reconciled width mask with exact historical EXP-005 A (PARK), no novel hypothesis. Verified root observer fix9bf13ddea; no local runner workload.
 
 2026-10-19T06:21:28.353698+00:00 Read-only EXP-005 inventory completed: exact A/B/C algorithms, original HARNESS-004 source identity, confidence gates/PARK, retained oracle semantics and native replication gaps. No hypothesis selected, compilation, benchmark or runner work. Await immutable ARM baseline evidence.
+
+2026-10-19T06:28:44.611792+00:00 Independent ambient audit PASS:183 snapshots/180 intervals from immutable8a0f9e564; raw counters, guest exclusion, steal, CPU labels/affinity, durations/caps and table reconstructed. Current idle windows only; no historical noise attribution or qualification change. No runner work.
