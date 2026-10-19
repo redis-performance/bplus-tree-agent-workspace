@@ -19,3 +19,9 @@ This is operational preparation, not an optimization decision. Counts unchanged.
   (32.34seconds), including hard deadline cleanup, STOP, continuation/usage,
   duplicate-supervisor exclusion and campaign isolation. Remote helper compiles
   on all three hosts. No permission settings changed.
+
+- 02:03 UTC: all three baseline services succeeded. Reconstructed960rows/host and
+  verified all raw CSV/stderr hashes, source commit, CPU2 affinity and seven
+  validation stages. Evidence committed4e8edf65. Generated and visually inspected
+  the five-host chart (200cells). Native workers independently verified SSH and
+  published initial status; failed detached CLI evidence retained separately.

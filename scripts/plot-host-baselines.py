@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Plot pinned M1/M6 baseline summaries with matching axes and observed ranges."""
+"""Plot pinned host baseline summaries with matching axes and observed ranges."""
 import argparse
 import hashlib
 import json
@@ -8,6 +8,11 @@ from pathlib import Path
 CASES = ('insert', 'lookup-hit', 'lookup-miss', 'rank', 'iterate', 'scan', 'update', 'delete')
 TITLES = ('Insert', 'Hit lookup', 'Miss lookup', 'Rank', 'Forward iteration', 'Scan', 'Score update', 'Delete')
 SIZES = (100, 1000, 10000, 100000, 1000000)
+STYLES = {'apple-m1': ('#1d4ed8', 'o', '-'),
+          'apple-m6': ('#b45309', 's', '--'),
+          'aws-intel': ('#7c3aed', '^', '-.'),
+          'aws-amd': ('#15803d', 'D', ':'),
+          'aws-arm': ('#be123c', 'v', '-')}
 
 
 def main():
@@ -30,7 +35,8 @@ def main():
             assert r['observations'] == 24
             assert 0 < r['min_ns_op'] <= r['median_ns_op'] <= r['max_ns_op']
         hosts.append((source, cells))
-    assert {s['host'] for s, _ in hosts} == {'apple-m1', 'apple-m6'}
+    assert len({s['host'] for s, _ in hosts}) == len(hosts)
+    assert {s['host'] for s, _ in hosts} <= set(STYLES)
 
     import matplotlib
     matplotlib.use('Agg')
@@ -47,14 +53,13 @@ def main():
         fig.patch.set_facecolor('white')
         for ax, case, title in zip(axes.flat, CASES, TITLES):
             for source, cells in group:
-                m1 = source['host'] == 'apple-m1'
-                color = '#1d4ed8' if m1 else '#b45309'
+                color, marker, linestyle = STYLES[source['host']]
                 rows = [cells[(case, size)] for size in SIZES]
                 med = [r['median_ns_op'] for r in rows]
                 ax.errorbar(range(5), med,
                     yerr=[[v-r['min_ns_op'] for v, r in zip(med, rows)],
                           [r['max_ns_op']-v for v, r in zip(med, rows)]],
-                    marker='o' if m1 else 's', linestyle='-' if m1 else '--',
+                    marker=marker, linestyle=linestyle,
                     markersize=4.5, linewidth=2, elinewidth=1.2, capsize=3,
                     color=color, label=source['label'], zorder=3)
             ax.set_xticks(range(5), ['100', '1K', '10K', '100K', '1M'])
@@ -65,11 +70,12 @@ def main():
             ax.set_xlabel('Members')
             ax.grid(axis='y', alpha=.2, zorder=0)
             ax.spines[['top', 'right']].set_visible(False)
-        label = 'Apple M1 + M6' if combined else group[0][0]['label']
-        compiler = ('M1: Apple Clang 17 · M6: Apple Clang 21' if combined
-                    else group[0][0]['compiler'])
+        label = ('Apple M1 / M6 + AWS Intel / AMD / Graviton' if len(group) == 5 else
+                 'Apple M1 + M6') if combined else group[0][0]['label']
+        compiler = ('Apple Clang 17 / 21 · AWS Clang 18.1.3' if len(group) == 5 else
+                    'M1: Apple Clang 17 · M6: Apple Clang 21') if combined else group[0][0]['compiler']
         fig.suptitle(f'{label} · whole-tree baseline',
-                     fontsize=22, fontweight='bold', x=.07, ha='left', y=.98)
+                     fontsize=20, fontweight='bold', x=.07, ha='left', y=.98)
         fig.text(.07, .925, f'{compiler} · -O3 · 16-byte members · 24 observations per cell',
                  fontsize=11, color='#475569')
         if combined:
@@ -93,7 +99,7 @@ def main():
         plt.close(fig)
         svg = stem.with_suffix('.svg')
         svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
-    print('Validated 80 host cells; wrote combined and individual PNG/SVG charts.')
+    print(f'Validated {len(hosts)*40} host cells; wrote combined and individual PNG/SVG charts.')
 
 
 if __name__ == '__main__':

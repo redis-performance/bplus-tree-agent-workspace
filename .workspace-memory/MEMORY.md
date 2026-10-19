@@ -793,3 +793,14 @@ passed SSH preflight; OSS coordinators stopped, five-size baselines running from
 8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
 09:00Lisbon. [Live status](../experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
 completed evidence. No new optimization decision; population counts unchanged.
+
+
+## 19 October — AWS baselines complete and native workers active
+
+All three AWS baselines pass seven native/sanitizer validation stages and raw audit:
+120processes/960rows/40cells each, frozen8fab511e. Intel338.54s/27noisy cells,
+AMD325.44s/30noisy cells, ARM377.83s/19noisy cells;11short cells each. Results
+committed4e8edf65; five-host README chart now measured. Source adoption NONE and
+optimization counts unchanged. Detached CLI workers failed bwrap uid-map setup;
+original reports preserved, supervisors stopped. Native agents independently
+verified SSH and continue on host branches, no permission changes. Deadline08:00UTC.

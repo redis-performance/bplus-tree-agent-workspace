@@ -1,47 +1,38 @@
-# Latest M1 and M6 baseline charts
+# Five-host baseline charts
 
-These figures use the two overnight baselines linked from the root README, not the
-earlier M1 preparation run. Each host has 40 cells: eight operations, five sizes,
-24 observations per cell. Dots show median batch-average ns/op; whiskers show the
-full observed min–max. The combined chart overlays both hosts in each operation panel,
-with blue circles for M1 and orange squares for M6. Each panel has its own y-axis.
-These are host baseline costs with different compilers, not candidate gains.
+Measured Apple M1, Apple M6, AWS Intel Sapphire Rapids, AMD Zen5 and ARM NeoverseV2
+baselines. Each host has40cells: eight operations, five sizes,24observations/cell.
+Dots show median batch-average ns/op; whiskers show the complete observed min–max.
+Each panel has its own y-axis. Host/compiler/placement differences are not
+candidate gains. AWS runs inherit CPU2 affinity; Apple runs are unpinned.
 
-![Apple M1 and M6 baselines overlaid](m1-m6-baseline.png)
+![Five measured host baselines](m1-m6-baseline.png)
 
-[Combined SVG](m1-m6-baseline.svg) · [Individual M6 chart](apple-m6-baseline.png) ·
-[Individual M1 chart](apple-m1-baseline.png)
+The original image URL is preserved. [Combined SVG](m1-m6-baseline.svg).
+Individual charts: [M1](apple-m1-baseline.png), [M6](apple-m6-baseline.png),
+[Intel](aws-intel-baseline.png), [AMD](aws-amd-baseline.png), [Graviton](aws-arm-baseline.png).
 
-[sources.json](sources.json) pins the exact published Git revisions, source paths
-and SHA256 of both summary snapshots. The original host reports retain raw rows,
-A/A variation and short-window checks. Both hosts remain separate; no pooled rows.
-M6 uses Apple Clang 21 and M1 Apple Clang 17, both at -O3.
+[sources.json](sources.json) pins published Git revisions, source paths and SHA256
+of all five summaries. AWS baseline code/referee is8fab511e; raw evidence is pinned
+at4e8edf65. All hosts completed native and ASan/UBSan validation. No pooled samples.
 
-Reproduce from the repository root with matplotlib installed:
+| Host | Compiler | Cells outside ±1% A/A | Placement |
+|---|---|---:|---|
+| Apple M1 | Apple Clang17 |39/40| Unpinned |
+| Apple M6 | Apple Clang21 |36/40| Unpinned |
+| AWS Intel | Clang18.1.3 |27/40| CPU2; SMT sibling50 |
+| AWS AMD | Clang18.1.3 |30/40| CPU2; no SMT |
+| AWS Graviton | Clang18.1.3 |19/40| CPU2; no SMT |
+
+Each AWS host also has11cells with a shortest window below10ms. Small claimed gains
+require fresh targeted controls and guards; this inventory does not qualify them.
+All sources use-O3,16-byte members, seeds1/2/3 and six same-binary ABBA blocks.
+
+Reproduce without rerunning benchmarks:
 
 ```sh
 python3 scripts/plot-host-baselines.py experiments/NIGHT-EXPLORATION-001/baseline-charts
 ```
 
-The generator verifies checksums, all 80 cells, 24 observations per cell and
-min/median/max ordering before rendering. PNGs are embedded for GitHub display;
-[Apple M6 SVG](apple-m6-baseline.svg) and [Apple M1 SVG](apple-m1-baseline.svg) are
-also available for export. No benchmark rerun is needed to reproduce these charts.
-
-## Architecture coverage
-
-| Platform | Architecture | Baseline status | Host details |
-|---|---|---|---|
-| Apple M1 | arm64 | Measured | Apple Clang 17 |
-| Apple M6 | arm64 | Measured | Apple Clang 21 |
-| Intel | x86-64 | **NOT RUN** | CPU model, compiler and runner pending |
-| AMD | x86-64 | **NOT RUN** | CPU model, compiler and runner pending |
-| AWS Graviton | arm64 | **NOT RUN** | Generation, compiler and runner pending |
-
-The combined chart reserves legend entries for the three unmeasured platforms.
-It plots no values for them. sources.json keeps placeholders separate from measured
-hosts; no zero-valued data or results from the HDR project are imported.
-The architecture layout follows hdr-agent-workspace's C performance by architecture
-section (local reference revision 9bf3a84). Actual hardware is selected only when
-a B+ tree campaign is run on that host, using the same five-size/eight-operation
-definitions and separate correctness, A/A, raw evidence and source/toolchain pins.
+The generator verifies SHA256,200host cells,24observations/cell and min/median/max
+ordering before rendering. PNGs are embedded for GitHub; SVGs are exportable.

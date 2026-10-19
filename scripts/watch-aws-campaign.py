@@ -33,27 +33,31 @@ def main():
     previous = None
     final_since = None
     while True:
+        run(['git','fetch','origin'], args.checkout)
         records = []
         for config in configs:
             runtime = args.controller/config['worktree']/config['runtime_dir']/'status.json'
             status = json.loads(runtime.read_text()) if runtime.exists() else {'status':'starting','rounds':[]}
+            native = args.controller/config['worktree']/config['campaign_dir']/'NATIVE-STATUS.json'
+            native_status = json.loads(native.read_text()) if native.exists() else None
             sync = args.controller/'scratch'/f"{config['host_label']}-launch-sync-status.json"
             publication = json.loads(sync.read_text()) if sync.exists() else {}
-            records.append(dict(host=config['host_label'], state=status['status'],
+            branch_commit = run(['git', 'rev-parse', 'origin/' + config['branch']], args.checkout)
+            records.append(dict(host=config['host_label'], state=native_status.get('status', 'running') if native_status else status['status'],
                 rounds=sum(r['status'] != 'running' for r in status['rounds']),
-                publication=publication.get('status', 'pending first completed round'),
+                publication='native worker commits' if native_status else publication.get('status', 'pending first completed round'),
+                head=branch_commit,
                 branch=config['branch'], path=config['campaign_dir']))
         fingerprint = hashlib.sha256(json.dumps(records, sort_keys=True).encode()).hexdigest()
         if fingerprint != previous:
-            run(['git','fetch','origin'], args.checkout)
             run(['git','merge','--ff-only','origin/main'], args.checkout)
             stamp = datetime.now(timezone.utc).isoformat()
             text = '# AWS worker publication status\n\nUpdated '+stamp+'. Deadline08:00UTC /09:00Lisbon.\n\n'
-            text += '| Host | Supervisor | Completed rounds | Publication | Latest evidence |\n|---|---|---:|---|---|\n'
+            text += '| Host | Worker | Historical CLI rounds | Publication | Latest evidence |\n|---|---|---:|---|---|\n'
             for record in records:
                 url = 'https://github.com/redis-performance/bplus-tree-agent-workspace/blob/'+record['branch']+'/'+record['path']
-                text += f"| {record['host']} | {record['state']} | {record['rounds']} | {record['publication']} | [Status]({url}/STATUS.md), [activity]({url}/ACTIVITY.md), [handoff]({url}/HANDOFF.md) |\n"
-            text += '\nRaw results, decisions, losing patches and measured token usage are retained on each host branch.\nNo baseline source change or cross-host pooled performance claim is made here.\n'
+                text += f"| {record['host']} | {record['state']} | {record['rounds']} | {record['publication']} `{record['head'][:8]}` | [Status]({url}/STATUS.md), [activity]({url}/ACTIVITY.md), [handoff]({url}/HANDOFF.md) |\n"
+            text += '\nDetached CLI launchers failed before shell execution (bwrap uid-map failure) and were stopped. Native session agents continue via already-available authorized tools; no permission settings changed. Historical CLI usage is separate from native-agent usage, which is unknown.\nRaw results, decisions and losing patches are retained on each host branch.\nNo baseline source change or cross-host pooled performance claim is made here.\n'
             if re.search(r'/home/|\.pem|\b(?:\d{1,3}\.){3}\d{1,3}\b', text):
                 raise RuntimeError('private-detail guard')
             dest=args.checkout/'experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md'

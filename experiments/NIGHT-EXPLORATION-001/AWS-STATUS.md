@@ -12,9 +12,9 @@ scratch and the private fleet inventory, never public evidence.
 
 | Host | Actual CPU | Compiler | Affinity | Baseline | Optimization |
 |---|---|---|---|---|---|
-| AWS Intel | Xeon Platinum 8488C, Sapphire Rapids | Clang 18.1.3 | CPU 2; SMT sibling 50 | Running | Pending profiles |
-| AWS AMD | EPYC 9R45, Zen 5 | Clang 18.1.3 | CPU 2, no SMT sibling | Running | Pending profiles |
-| AWS ARM | Neoverse V2, Graviton | Clang 18.1.3 | CPU 2, no SMT sibling | Running | Pending profiles |
+| AWS Intel | Xeon Platinum 8488C, Sapphire Rapids | Clang 18.1.3 | CPU 2; SMT sibling 50 | Complete | Native profiling active |
+| AWS AMD | EPYC 9R45, Zen 5 | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | Native profiling active |
+| AWS ARM | Neoverse V2, Graviton | Clang 18.1.3 | CPU 2, no SMT sibling | Complete | Native profiling active |
 
 Baseline source/referee commit: `8fab511e` (only Linux affinity metadata differs
 from `9c192c9c`; target source unchanged). Each host runs 100/1K/10K/100K/1M members,
@@ -23,8 +23,12 @@ and ASan/UBSan validation precede timing. The per-host timing budget is 1200 sec
 results are never pooled. The initial jobs are managed by systemd, bounded to
 1800 seconds, and all baseline children inherit CPU2 affinity.
 
-Next: collect and audit each baseline, add its measured series to the existing
-[baseline chart](baseline-charts/m1-m6-baseline.png), profile locally on each host,
+All three baselines are complete and raw-audited:120processes/960rows/40cells per
+host, seven validation stages each. Intel338.54s, AMD325.44s, ARM377.83s timing.
+Cells with >1% A/A variation:Intel27/40, AMD30/40, ARM19/40;11short-window cells
+on every AWS host. These are coverage baselines, not blanket precision qualification.
+The [baseline chart](baseline-charts/m1-m6-baseline.png) now includes all five hosts.
+Next: profile locally on each host,
 and apply [population gates](../../docs/POPULATION.md). The exact shorter-side rank
 candidates rejected on both Apple hosts are skipped; lookup/update/decoder work
 requires fresh AWS profile evidence. No speed claim or candidate acceptance yet.
@@ -32,3 +36,17 @@ requires fresh AWS profile evidence. No speed claim or candidate acceptance yet.
 [Activity log](AWS-ACTIVITY.md). [Worker contract](AWS-WORKER.md). Workers use existing Codex CLI configuration,
 with no permission changes. Actual backend/model and measured usage are retained
 when available; no invented agent identities or costs.
+
+
+## Execution update
+
+Detached Codex CLI launchers failed before any shell command with `bwrap: setting
+up uid map: Permission denied`. Their reports and measured CLI usage remain on the
+host branches. The failed supervisors were stopped. Three native session agents
+then verified SSH independently and continue with the existing authorized tools;
+no permission settings changed. Native agent token costs are unknown. The root
+session coordinates review, Git updates and reporting through the deadline.
+
+Each host branch has STATUS.md, HANDOFF.md, ACTIVITY.md and NATIVE-STATUS.json.
+[Worker dashboard](AWS-WORKERS.md) tracks published host revisions. Sequential
+three-pass populations are explicitly labelled when independent slots are unavailable.
