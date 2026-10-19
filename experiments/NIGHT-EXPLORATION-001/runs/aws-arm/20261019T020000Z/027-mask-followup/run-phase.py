@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Exact fixed phase runner. No schedule changes, calibration or retries."""
-import argparse,csv,datetime,hashlib,json,math,os,pathlib,struct,subprocess,time
+import argparse,csv,datetime,hashlib,json,math,os,pathlib,struct,subprocess,time,importlib.util
 p=argparse.ArgumentParser();p.add_argument('--checkout',type=pathlib.Path,required=True);p.add_argument('--phase',choices=['primary-AA','primary-replication','original-AA','original-comparison','iterator-AA','iterator-comparison'],required=True);a=p.parse_args()
 here=pathlib.Path(__file__).resolve().parent;out=here/a.phase;out.mkdir();now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat();sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();start=time.monotonic();assert sorted(os.sched_getaffinity(0))==[2]
 assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime(2026,10,19,10,15,tzinfo=datetime.timezone.utc)
 freeze=json.loads((here/'timing-freeze.json').read_text());e=json.loads((here/'expected.json').read_text());ids=json.loads((here/'identities.json').read_text());budgets=json.loads((here/'phase-budgets.json').read_text());cap=next(x['cap_seconds'] for x in budgets['phases'] if x['name']==a.phase);schedule=json.loads((here/'schedules'/(a.phase+'.json')).read_text());family=a.phase.split('-')[0]
 for n,h in freeze['files'].items():assert sha(here/n)==h,n
-validation=json.loads((here/'validation/result.json').read_text());assert validation['status']=='correctness_complete';binding=json.loads((here/'validation-approval.json').read_text());assert binding['status']=='PASS' and binding['validation_result_sha256']==sha(here/'validation/result.json') and binding['preparation_freeze_sha256']==sha(here/'preparation-freeze.json')
+spec=importlib.util.spec_from_file_location('composite_gate',here/'composite-gate.py');gate=importlib.util.module_from_spec(spec);spec.loader.exec_module(gate);composite_before=gate.verify(here,a.checkout)
+assert (datetime.datetime(2026,10,19,10,15,tzinfo=datetime.timezone.utc)-datetime.datetime.now(datetime.timezone.utc)).total_seconds()>=cap
 if a.phase=='primary-replication':assert json.loads((here/'primary-AA/audit.json').read_text())['all_required_qualified']
 if family!='primary':
  assert json.loads((here/'primary-AA/audit.json').read_text())['all_required_qualified']
@@ -20,8 +21,8 @@ def sources():
   if v in ['A','actualA']:expected['src/zset_btree.c']=e['candidate_source_sha256']
   assert result[v]==expected
  return result
-source_before=sources();guard_before={v:{h:sha(here/v/'build/native'/h) for h in ['modes','modes5']} for v in ['control','A']};assert guard_before==validation['guard_binary_sha256']
-state=dict(status='running',phase=a.phase,started_utc=now(),cap_seconds=cap,cpu=2,timing_freeze_sha256=sha(here/'timing-freeze.json'),validation_approval_sha256=sha(here/'validation-approval.json'),schedule_sha256=sha(here/'schedules'/(a.phase+'.json')),protected_before=protected_before,sources_before=source_before,guard_binaries_before=guard_before,runs=[])
+source_before=sources();guard_before={v:{h:sha(here/v/'build/native'/h) for h in ['modes','modes5']} for v in ['control','A']};assert guard_before==composite_before['guard_binary_sha256']
+state=dict(status='running',phase=a.phase,started_utc=now(),cap_seconds=cap,cpu=2,timing_freeze_sha256=sha(here/'timing-freeze.json'),composite_before=composite_before,composite_receipt_sha256=sha(here/'composite-correctness.json'),schedule_sha256=sha(here/'schedules'/(a.phase+'.json')),protected_before=protected_before,sources_before=source_before,guard_binaries_before=guard_before,runs=[])
 def save():(out/'result.json').write_text(json.dumps(state,indent=2)+'\n')
 def expand(s):return s.replace('<checkout>',str(a.checkout)).replace('<job>',str(here))
 score_sums={}
@@ -87,6 +88,8 @@ try:
  state['protected_after']={n:sha(a.checkout/n) for n in e['protected_binaries']};assert state['protected_after']==protected_before
  state['sources_after']=sources();assert state['sources_after']==source_before
  state['guard_binaries_after']={v:{h:sha(here/v/'build/native'/h) for h in ['modes','modes5']} for v in ['control','A']};assert state['guard_binaries_after']==guard_before
+ state['composite_after']=gate.verify(here,a.checkout);assert state['composite_after']==composite_before
+ assert time.monotonic()-start<=cap
  state['status']='complete'
 except BaseException as ex:state.update(status='failed',error=type(ex).__name__+': '+str(ex));raise
 finally:state.update(finished_utc=now(),elapsed_seconds=time.monotonic()-start);save()

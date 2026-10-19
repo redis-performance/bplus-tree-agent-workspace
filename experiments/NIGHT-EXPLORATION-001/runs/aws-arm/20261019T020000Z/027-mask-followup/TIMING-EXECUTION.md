@@ -8,7 +8,7 @@ diagnostic all-six loss>1% rejects; mixed loss parks; only precision failure is 
 for the11 declared diagnostics. Synthetic local decision tests verify this rule; their
 invented inputs remain ignored local test fixtures and are never benchmark evidence.
 
-run-phase.py checks every frozeninput plus runtime validation-approval.json binding
+run-phase.py checks every frozeninput plus exact composite-correctness.json binding
 before execution, exact pre/post source/referee and six protectedbinary identities,
 new guardbinary hashes, baseline-only primaryAA before candidateprimary and primary
 survival before guard phases. Guardcomparison requires completed AA but preserves
@@ -16,9 +16,11 @@ unqualified cells as diagnostic. It records all process start/end/argv/exit/CSV/
 and retains partial timeout streams. All childprocesses<=60s plus remainingwholecap.
 No source/ops/schedule change, retries, overlapping work or deadline extension.
 
-Runtime validation approval is a separately published root/AMD reviewed certificate
-bound to the immutable preparation result and preparationfreeze hashes. It is not
-filled by this preparation. Each phase requires its own explicitrootgrant; files alone
+The frozen composite receipt binds original027 FAILED plus the separately granted028
+six-command suffix, root5ae6aa40b/c95d07f81 and AMD7cf304361/dc9d915fe audits, every
+original/suffix raw artifact,513 source/referee/oracle/fault snapshot bindings, guards
+and protected binaries. Both attempts remain immutable. It records composite
+correctness only; it never relabels the original failure or carries old performance. Each phase requires its own explicitrootgrant; files alone
 never authorize execution. Every operational shell launcher is rendered as a separate
 scratch file; frozen @REPO@ templates remain unchanged. The new followup lease controls
 CPU2/systemd cgroup and10:15UTC deadline, never the releasednightlease.
@@ -29,3 +31,14 @@ fold. Public originallookup/rank/iterate/update/delete arithmetic is independent
 checked; SCANduplicates retain originalfullseen-set oracle and paired exact count/sum.
 No new scientific profiler is bundled into these timing phases. Matched profile needs
 its own immutable driver/controls freeze and independentreview before separategrant.
+
+This revision supersedes the unexecuted8d11db31a timing freeze, retained in Git.
+All4272 schedule entries, seeds, operation counts, thresholds and caps are unchanged.
+composite-gate.py verifies the full raw/snapshot/source joins at each phase boundary.
+The independent auditor does not trust producer.checked for semantics: it verifies
+fixture fields, integer/IEEE checksum models, visit counts, warmup, CPU2, seriality,
+60s child limits, fixed phase caps/deadline, protected/source/guard bindings and the
+exact composite receipt. Comparisons also join same-fixture A/A callback/memory
+outputs. SCAN allows legitimate duplicates: counts/sums must be divisible by traversal
+count and satisfy basic bounds; the unchanged full seen/key/score referee remains the
+semantic oracle. Qualified diagnostic losses still reject/park; no averaging rescue.
