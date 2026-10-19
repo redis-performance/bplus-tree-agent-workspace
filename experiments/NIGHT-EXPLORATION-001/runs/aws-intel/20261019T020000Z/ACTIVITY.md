@@ -160,3 +160,5 @@
 2026-10-19T11:13:37.598508+00:00 Correctiveprofile2d4e93924 review:36inputsPASS;modekeys separate16sanitizer/500nativefixturecommands;all42statcommandsno-scale,600othercommandsunchanged. No staticblocker fromIntel; runtimegrantroot-owned. Sharedactualcpu-perfconsultationdfff5540f consumedhonestly(ownunavailable,rootcaller,0indexed/noArmguidepassages,nocausal support). No remote/build/PMUwork.
 
 2026-10-19T11:22:19.215701+00:00 Prepared independent ARM030 profile raw auditor033 before result publication:65 synthetic/contract checks, exact counters/census/fixtures/serial identities, full physical-PC/encoded-word mapping and known-negative scope checks. No producer imports or runner work. Shared root MCP consultation identified honestly; old REJECT unchanged.
+
+2026-10-19T11:24:38.361990+00:00 Corrected worker dashboard stale10:15 lease/phase labels: local ARM frontend raw review active, coordinator attempt2deadline11:45, Intel overnightreleased; no worker runnergrant. Historical release proof retained.

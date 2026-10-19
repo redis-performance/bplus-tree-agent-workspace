@@ -1,5 +1,12 @@
 # Intel native status
 
+Current review update 2026-10-19T11:24:38.361990+00:00
+
+**Local review active; Intel runner remains released.** The separately authorized ARM frontend diagnostic attempt2 lease belongs to the coordinator and ends11:45UTC. This worker has no runner workload or execution grant. Native AA/comparison independent audits cb6bb2a43/06a776000 are complete; profile freeze clearance4daa1473f and independent raw auditor e7c5a3b16 are published. Await immutable operator profile output, then check samples/counters/code maps and publication/lease records. Prior ARM mask REJECT/source NONE is unchanged. Shared root CPU-perf consultation dfff5540f is disclosed; no supporting indexed passages.
+
+The overnight completion and release text below is historical, not a statement that the new ARM diagnostic lease has already ended.
+
+
 Final update 2026-10-19T08:03:11.134250+00:00
 
 **COMPLETE; lease RELEASED.** The coordinator verified all three live OSS coordinators RUNNING during 2026-10-19 08:00:20–08:00:25 UTC (09:00 Lisbon), with inactive owned slices, zero owned units/processes and fresh saved RUNNING status matching live PIDs. The private fleet reservation was released and pushed. [Immutable release proof](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/06785a454/experiments/NIGHT-EXPLORATION-001/reviews/aws-release-final.json). Release markers identify attempt start, not restoration completion; this worker checked the retained proof locally and performed no additional runner access.
