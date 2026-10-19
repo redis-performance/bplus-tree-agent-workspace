@@ -40,3 +40,20 @@ improvement is conditional on that helper and is not a public-tree gain. Count-o
 fixtures are seed-invariant in their decoded deltas (the generator sets position
 zero's delta to zero); repeated seeds are repeated measurements, not independent
 input diversity. The call/inlining mechanism must be checked in generated code.
+
+## Duration revision reviewed before candidate results
+
+Worker commit `00271fef6` freezes a separate driver revision. Root verified byte-for-byte
+that only the rounds-limit constant and corresponding help text change; the kernel,
+candidate patches and original correctness tests remain unchanged. Revised driver
+SHA256: `039d55a5cce8f9f886ecf56fc54de2ea831dd4693dca8a839bddafbd6950f323`. Integer operation accounting
+uses uint64_t, and the new 100,000,000-round maximum fits the unsigned loop counter.
+
+The worker retained the original controls and attempted one preregistered longer
+qualification. Its fixed 300-second budget ended at 1391/1392 processes; the three
+rows of the incomplete final block are retained and uninterpreted. Both completed
+primary controls still fail (bulk −3.13%..+5.81%, root +0.017%..+2.336%). Longer
+windows did not resolve precision in this attempt. No further duration/noise retry
+is authorized by the frozen plan. Qualification remains a blocker, independently
+of candidate speed. This addendum reviews the driver diff and interpretation; it
+does not claim an independent reconstruction of all revised raw timings.
