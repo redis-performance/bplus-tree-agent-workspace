@@ -1,5 +1,5 @@
 <!-- M6-METROLOGY-CURRENT -->
-M6-METROLOGY-001 ACTIVE: user-authorized continuation, offline diagnosis of retained EXP-009 wall/thread clocks and schedule metadata. No native runner lease or benchmark queued. Three actual independent diagnostic reviews pending; source NONE and EXP-009 PARK unchanged. Read experiments/M6-METROLOGY-001/README.md.
+M6-METROLOGY-001 CLOSED offline diagnostic: root plus3actual independent reviewers reconstruct all48rawrows/12blocks/96streams. All3failed1Mwallcontrasts alsofailthreadCPUdiagnostic; residualcomponent≤0.029wallpp. Nestedclockbrackets/accountingerror remain unbounded, so no strictcausal attribution orclocksubstitution. Seedrepeat signflips confounded withtime/sizeorder; endpoints notresidency. NONE for a ready corrective method. Future nestedclock-attribution design is unimplemented/unexecuted; no nativeworkload/lease queued. Source NONE and EXP-009 PARK unchanged; M6historical12populations0accepted/7rejected/5parked unchanged. Read experiments/M6-METROLOGY-001/RESULTS.md and selection.md.
 <!-- M6-METROLOGY-CURRENT-END -->
 
 <!-- PERFORMANCE-MCP-RULE -->

@@ -1,10 +1,10 @@
 # Active optimization sessions
 
-M6 updated 2026-10-19T08:38:59.265187+00:00. Shared coordination index, first recorded 19 October 2026 at 08:17 UTC. Read each linked status before starting overlapping work. Source acceptance and host measurements are separate; baseline timings never qualify another host. Each owner updates its own status and publishes it to main. This index does not assert a fleet-wide lease or replace per-run exclusive-runner checks.
+M6 updated 2026-10-19T11:41:56.047354+00:00. Shared coordination index, first recorded 19 October 2026 at 08:17 UTC. Read each linked status before starting overlapping work. Source acceptance and host measurements are separate; baseline timings never qualify another host. Each owner updates its own status and publishes it to main. This index does not assert a fleet-wide lease or replace per-run exclusive-runner checks.
 
 | Session / host | Observed state | Owner and canonical status |
 |---|---|---|
-| M6-METROLOGY-001 / local Apple M6 | ACTIVE offline analysis of retained failed controls; no native workload/lease | Interactive M6 root; [scope/status](M6-METROLOGY-001/README.md) |
+| M6-METROLOGY-001 / local Apple M6 | CLOSED offline diagnostic; 3 independent raw reconstructions agree; no native workload/lease; cause unresolved, source NONE | Interactive M6 root; [result](M6-METROLOGY-001/RESULTS.md), [status](M6-METROLOGY-001/STATUS.md) |
 | EXP-009 / local Apple M6 | PARK; fresh controls100K6/6,1M3/6; native lease released; raw audit/decision review complete | Interactive M6 root; [live status](EXP-009/STATUS.md), [result](EXP-009/RESULTS.md) |
 | ARM-FRONTEND-DIAGNOSTIC-001 / remote Graviton | CLOSED; native causeINCONCLUSIVE, candidateREJECT/NONE; all642profilecommands complete; OSS release verified11:24:35–37UTC; no queuedwork | AWS controller / ARM operator; [status](ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md), [plan](ARM-FRONTEND-DIAGNOSTIC-001/README.md) |
 | ARM-MASK-FOLLOWUP-001 / remote Graviton | CLOSED REJECT; nine qualified all-six guard regressions; source NONE; OSS release verified 10:03:25–27 UTC; no queued work | AWS controller / ARM operator; [final results](ARM-MASK-FOLLOWUP-001/RESULTS.md), [live release proof](ARM-MASK-FOLLOWUP-001/RELEASE-FINAL.json) |

@@ -1,6 +1,10 @@
 # M6-METROLOGY-001 — offline diagnosis of failed lookup controls
 
-Status: ACTIVE, source NONE. Authorized by the user’s “continue exploring” request.
+Status: CLOSED offline diagnostic, source NONE. [Final results](RESULTS.md) and
+[three-reviewer agreement](review-agreement.json) retain all rows and prior PARK.
+No corrective timing method is selected; native cause/accounting bounds remain unresolved.
+
+Historical scope: Authorized by the user’s “continue exploring” request.
 Owner: interactive M6 controller. This study reads completed EXP-009 evidence;
 it acquires no native measurement lease and launches no benchmark/profile process.
 The completed EXP-009 protocol, rows, thresholds and PARK decision stay frozen.
@@ -36,12 +40,12 @@ token and currency costs unknown. No tree speedup or acceptance can result here.
 Budget: one offline pass per reviewer plus bounded corrections for analysis errors;
 no native workload and no measurement lease. Finish with explicit decision/limits.
 
-## Intermediate reconstruction
+## Historical intermediate reconstruction (9cb7a600f)
 
 Root verifies all96 raw streams, all48 rows, all12 blocks and both old frozen seals
 (69 input pins and297 timing pins). Thread diagnostics also qualify100K6/6 and1M3/6.
 The same failed1M blocks have thread effects−1.401384%,+1.008640%,+2.542454%.
-Three independent reviews remain pending; see [analysis](analysis.json),
+At this checkpoint three independent reviews were pending; see [analysis](analysis.json),
 [reproducer](analyze.py) and [actual MCP consultation](cpu-perf/README.md).
 
 ![All original M6 ABBA contrasts on both clocks](wall-thread.png)

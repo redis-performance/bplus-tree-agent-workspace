@@ -1442,3 +1442,18 @@ AWS8populations remain0accepted/5rejected/3parked,24variants retained. ARM OSS l
 release verified11:24:35–37UTC; private fleet RELEASED, no queued runner work.
 EveryCodex/Claude session now requires the performance MCP; actual consultations and
 unavailable source passages are logged. No source-backed mechanism or upstream action.
+
+## 19 October — M6 retained-control clock diagnosis complete
+
+[M6-METROLOGY-001](M6-METROLOGY-001/RESULTS.md) adds one offline diagnostic, zero new
+native executions or source populations. Root and three actual independent reviewers
+reconstruct48rawrows/12blocks/96streams;69/297originalpins remain intact. Failed1M
+wall controls also fail thread diagnostics (−1.401384%,+1.008640%,+2.542454%);
+recorded residual contributions are≤0.029wallpp. Unbounded nested-clock/accounting
+uncertainty prevents formal descheduling attribution. Repeated1Mseeds flip signs but
+time/sizeorder are confounded; CPUendpoints cannot establishresidency. Chair NONE for
+a ready corrective method, retaining B’s dissent; A/C’s separate clock-attribution
+design stays unimplemented/unexecuted. Actual MCPcalls/coverage/parserlimits and all
+review ownership are retained. EXP-009 PARK/sourceNONE unchanged; historical M6
+counts12populations,0accepted/7rejected/5parked unchanged. New README dual-clock chart.
+No nativelease/work queued or upstreamaction.
