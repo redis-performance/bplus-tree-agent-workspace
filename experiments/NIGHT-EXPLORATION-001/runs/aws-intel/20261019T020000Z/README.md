@@ -25,3 +25,5 @@ The corrected adapter is a separate frozen source, `13e459ff8`. Its baseline-onl
 Helper sample attribution matches the actual timing binary's instructions and source locations. These are captured executable-text samples, not whole CPU time or cycles. The initial metadata failure and its read-only correction are preserved; no measurement was repeated. The old-source rejection remains final. The separately qualified 319-byte signed-zero guard failed fresh A/A precision (−1.417% and −1.047% in two blocks), stopping the corrected-source plan before candidate timing. No retry is authorized.
 
 See [EXPERIMENTS.md](EXPERIMENTS.md), [SUMMARY.md](SUMMARY.md), [ACTIVITY.md](ACTIVITY.md), and [NATIVE-STATUS.json](NATIVE-STATUS.json). Exact backend/model and measured token/USD costs are unknown.
+
+[Read-only AMD iterator critique](019-amd-iterator-review/REVIEW.md) distinguishes score-only decoding from the earlier member cache. It selects no candidate and does not change the counts or failed controls.

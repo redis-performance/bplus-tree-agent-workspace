@@ -1,0 +1,9 @@
+# Proposed idle environment snapshot
+
+A fixed 60-window, ten-second observational snapshot is reasonable for documenting current ambient conditions. It cannot explain, remove or retroactively qualify any failed benchmark block. No benchmark/source/governor/service change is part of this scope.
+
+Record raw counters and monotonic timestamps/actual intervals; preserve every window, missing file and error. For 60 deltas, use an initial sample followed by 60 scheduled observations (61 endpoints), with a bounded cap allowing collection overhead. Avoid cumulative sleep drift. Record CPU online state and actual CPU2 sibling topology. Keep steal separate; Linux guest time is already included in user/nice counters, so avoid counting it twice. Flag decreases/resets rather than manufacturing utilization. Context switches and load average are host-wide, not attribution to the benchmark CPU.
+
+PSI averages and cpufreq sysfs values describe reported state; absent virtual-machine frequency files or a constant reported frequency do not establish throttling, effective MHz or absence of contention. Record clocksource identity without changing it. The collector itself creates small activity; do not pin it to CPU2, and retain its placement/elapsed overhead where available. Idle observational data are neither a stress test nor an A/A replacement. No validity blocker under these limits. Root owns freeze and execution authorization.
+
+Code review of root freeze `d3da570d1` found one contract gap before launch: iterating only current CPU-counter keys misses a wholly disappeared expected label. Requested exact expected key sets at both endpoints, observer-affinity validation and explicit nonpositive monotonic-duration invalidation. Root was notified; no script edit or execution by this reviewer. Absolute scheduling, raw retention and first-eight-field counter totals otherwise match the plan.
