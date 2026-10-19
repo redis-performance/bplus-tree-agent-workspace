@@ -1,6 +1,6 @@
 # M6 overnight evidence — 19 October 2026
 
-Checkpoint at 07:00 UTC / 08:00 Lisbon; final reporting continues to 09:00 Lisbon. No further source experiment is queued. Experimental work has an absolute 07:15 UTC cutoff.
+Checkpoint at 07:15 UTC / 08:15 Lisbon; the experimental cutoff has passed. Final reporting continues to 09:00 Lisbon. No further native workload is authorized.
 
 The tree source remains unchanged. There is no accepted tree optimization. The separate truthful `_Noreturn` correction to the always-aborting standalone panic adapter is on main; old-adapter results retain their original identity. Corrected comparisons require fresh controls.
 
@@ -34,3 +34,5 @@ The [final report review](024-final-audit/REPORT-REVIEW-A.md), [integrity audit]
 [Existing clock metadata](023-neon-replication/AA-METADATA-DIAGNOSIS.md) has a [separate independent review](024-final-audit/METADATA-REVIEW-A.md). The two failed 1M blocks have thread-clock differences of −1.440359% and +1.587803%. Twenty of 48 runs have different CPU endpoints; endpoints do not establish full residency or a migration count. The original wall-clock gate and PARK decision remain unchanged. No cause or alternative qualification metric is inferred.
 
 Main README editorial corrections are published at `d7cf967a8`; chart bytes are unchanged. All planned native work is complete or parked. Shared status monitoring continues to the agreed 09:00 Lisbon handoff.
+
+The [experimental cutoff receipt](EXPERIMENTAL-CUTOFF.json) records closure at 07:15 UTC. The last timing phase ended at 06:36:04 UTC; no new native workload ran to fill the remaining experimental window. Root source/referee hashes still match, and the original supervisor stop settings are unchanged.
