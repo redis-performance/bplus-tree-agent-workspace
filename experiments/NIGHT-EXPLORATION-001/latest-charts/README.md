@@ -48,3 +48,15 @@ The main copies are byte-identical PNG/SVG/JSON artifacts.
 M6 member-index profile: `m6-member-profile.{png,svg,json}` is pinned to source commit `0e7325081`. Regenerate from the source directory with `uv run --with matplotlib python <source-directory>/plot.py`. The figure conserves all 16 captures and 2,469 observations; counts do not establish costs, time shares or speed. File hashes are in `m6-member-profile-publication.json`.
 
 M6 fresh SCAN controls: `m6-neon-aa.{png,svg,json}` is pinned to 8bcd75d704eae2b4f45131531a3d8177cb852c09. Regenerate with `uv run --with matplotlib python <source-directory>/plot-aa.py`. All twelve A/A blocks are shown; no candidate comparison ran. File hashes are in `m6-neon-aa-publication.json`.
+
+
+ARM exact historical mask replay: `aws-arm-mask-primary.{png,svg,json}` retains all
+12 qualifying baseline A/A effects and12 candidate primary effects. Screen source
+`6bcd8e575`, baseline source `73c9e313f`, root control audit `27a4afee1`. Decision PARK,
+no source adoption: guards, fresh confirmation and matched candidate profile remain
+missing. Medians−7.766545%/−7.101923% are elapsed changes in forward score-only16B/50M
+visits, not a general tree improvement or causal instruction-cost estimate.
+Regenerate from the repository root with `python3 scripts/render-aws-arm-mask-primary.py`.
+The JSON records exact effects, artifact hashes and renderer hash. Root visually
+inspected the figure; plotted values independently agree with raw audit and Intel
+16f074fbe. Original baseline/discovery artifacts are unchanged.

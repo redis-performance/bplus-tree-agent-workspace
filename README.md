@@ -4,8 +4,8 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
-**Current state:** all five machines have completed the baseline matrix. Optimization
-experiments continue with correctness, precision and regression checks. No optimization
+**Current state:** all five machines have completed the baseline matrix. Overnight
+benchmark phases are closed; evidence audits and the09:00 Lisbon closeout continue. No optimization
 has been merged into `src/`; candidate patches and measured decisions live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
@@ -25,7 +25,7 @@ Source adoption remains NONE.
 <!-- AWS-NIGHT-END -->
 
 AWS completed measured populations: **8 — 0 accepted / 5 rejected / 3 parked**.
-One additional ARM architecture replication is parked. Intel scan replication passed
+Two additional ARM architecture replications are parked. Intel scan replication passed
 both primary gates and fresh independent confirmation, but a qualified supplemental
 guard regressed in all six blocks (+4.93% median); B is rejected, with no adoption.
 AMD deletion and native ARM scan planning stopped before implementation because
@@ -40,10 +40,11 @@ replication is parked before candidate timing. AMD’s baseline score-only itera
 profile passes its controls; fresh100K A/A fails, preventing candidate work. ARM NEON follow-up
 proposal review selected NONE despite qualified controls; all three proposals and
 the conditional implementation dissent are retained. A separate corrected ARM score-only
-iterator baseline has qualified controls. After three independent proposals, the chair
-selected preparation of a bounded historical EXP-005 A replication, preserving two
-NONE recommendations. Native codegen/correctness gates and separate execution review
-come first; no new timing or source adoption is claimed.
+iterator baseline qualified both sizes. Exact historical EXP-005 A then passed all
+12 primary blocks (median elapsed−7.77% at100K,−7.10% at1M), after570 correctness
+commands and independently reviewed codegen. This separate replication remains PARK:
+qualified performance guards, fresh confirmation and matched profile are missing.
+The two NONE proposal recommendations are retained; source adoption remains NONE.
 AMD’s exact SSE2 replication under the corrected adapter failed the every-block2%
 primary gate (medians−1.85%/−1.79% at100K/1M) and stopped with NONE.
 [Decision ledger](experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·
@@ -210,6 +211,20 @@ chart above keeps its original identity. There is no corrected M1 series.
 These outcome columns are disjoint. Qualification requires all six A/A blocks within
 ±1% and windows of at least 10 ms. Machine/compiler/OS/affinity differences are not
 candidate gains. [Exact data, 100K/1M tables, source parity and reproduction](experiments/NIGHT-EXPLORATION-001/corrected-adapter-charts/README.md).
+
+### ARM historical mask replay: primary lead, parked
+
+Exact EXP-005 A produced **7.77% /7.10% lower median elapsed time** at100K/1M in
+forward score-only iteration on AWS NeoverseV2. All12 paired blocks passed; outputs,
+owned memory and frozen identities match. This is a historical architecture replay,
+not a new population or general tree speed claim. **PARK; no source adoption:**
+qualified mixed-output and broader guards, fresh confirmation and a matched candidate
+profile are missing. The4→3 static mask instruction change does not establish the
+cause of the larger measured improvement.
+[Root raw audit](experiments/NIGHT-EXPLORATION-001/reviews/aws-arm-mask-screen-independent-audit.json) ·
+[Independent review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md).
+
+![ARM exact historical mask replay: all baseline controls and primary blocks; PARK](experiments/NIGHT-EXPLORATION-001/latest-charts/aws-arm-mask-primary.png)
 
 ### Intel scan replication: rejected after a qualified guard regression
 

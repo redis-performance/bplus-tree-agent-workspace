@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 06:49 UTC
+## Current AWS overnight checkpoint — 19 October 07:22 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -30,8 +30,9 @@ unchanged; corrected M1 baseline absent. Never combine old/new adapter identitie
 All three OSS coordinators remain stopped for the reserved campaign. Release timers
 08:00 UTC and corrected read-only auditor 08:00:20 UTC are armed/alive. Actual restoration
 is NOT YET verified; do not report completion before live proof. Native model/token/USD
-costs unknown; no upstream actions. M6 continues publishing; M1 latest 01:33 UTC checkpoint
-reports DNS unknown and its current runner state is unverified.
+costs unknown; no upstream actions. M6fc7350a91 reports07:15experimentalcutoff, noqueued
+workload. M1d41738b05/2baeafcef resolves earlier publication/DNS failures and records
+06:50 M6decision receipt, no further sourceexperimentqueued. Applecounts separate.
 
 All24 measured-population patches indexed;21 public-tree apply checks pass,3 target
 private decoder control. Ambient observations complete:183snapshots/180valid intervals,
@@ -39,11 +40,13 @@ root+independentIntel0c6d47cd6 audits pass; currentidleonly, no historicalnoise 
 Fresh06:26:07 allhosts zeroownedunits/PIDs,OSSstopped,timers08UTC intact.
 ARM024 nativecorrected score-only iterator profile4e43c9f59 complete51commands/970samples.
 Root136file andindependentAMDd42ca4ef2 profileaudits pass. Fixed48rowAA73c9e313f
-qualifiesbothsizes; root235file/AMD41e1ce8cc rawaudits pass. Threeproposalchair
-selectsconditionalexacthistoricalEXP005A preparation, Intel/AMD NONE dissentretained.
-No launchgrantyet; codegen/correctness/time gates andindependentexecutionreviewfirst.
-Actual013330b39a9 preserved;caller gaps retained.
-Latest observed M6 publication8bcd75d70:correctedNEONreplicationPARKbeforecandidate
+qualifiesbothsizes; root235file/AMD41e1ce8cc rawaudits pass. HistoricalEXP005A026
+6bcd8e575 PARK:570correctnesscommands/93.39s, independentlyreviewed4to3maskcodegen,
+48primaryrows/all12passmedians−7.766545%/−7.101923%. Root105seal/Intel16f074fbe
+rawaudits pass; missingguards/freshconfirmation/profile. Separateoldreplication, not
+newpopulation; twoARMreplicationsnowPARK. Allbenchmarkphasesclosed; no more launches.
+Actual013330b39a9 preserved; post07:16:28zeroownedunits/PIDs. OSSrestorationpending.
+Latest observed M6 publicationfc7350a91:correctedNEONreplicationPARKbeforecandidate
 aftertwo1Mcontrolfailures;20640decoderprocesses/allshort;sourceNONE.
 <!-- AWS-CURRENT-END -->
 

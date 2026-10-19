@@ -1356,3 +1356,12 @@ AWS ARM iterator proposal decision: conditional exact historicalEXP005A replicat
 preparation, twoNONE dissents retained. No launch/new population/source adoption;
 AWS8counts remain0accepted/5rejected/3parked.
 [Chair](NIGHT-EXPLORATION-001/reviews/aws-arm-iterator-proposals/selection.md).
+
+
+AWS final historical ARM EXP005A replication is PARK:48fixed primary rows/all12blocks
+pass, median elapsed−7.766545%/−7.101923% at100K/1M; qualified broaderguards, independent
+freshconfirmation and matchedprofile absent. Root and independentIntel16f074fbe raw
+audits pass. No further benchmarkphases after07:15; no sourceadoption. Separate
+replication only; AWS8populations remain0accepted/5rejected/3parked.
+[Decision](NIGHT-EXPLORATION-001/AWS-DECISIONS.md) ·
+[Chart](NIGHT-EXPLORATION-001/latest-charts/aws-arm-mask-primary.png).

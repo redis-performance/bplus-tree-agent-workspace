@@ -584,3 +584,46 @@ Native codegen/correctness/time gates precede any fixed48-row primary comparison
 missing guards/fresh confirmation/profile prevent acceptance. No new algorithm or
 measured population; existing8counts and sourceNONE unchanged.
 [Chair and verbatim proposals](reviews/aws-arm-iterator-proposals/selection.md).
+
+
+## 19 October 07:22 UTC — exact historical ARM mask replay PARK
+
+The final fixed screen started07:14:48.402962, before the07:15 cutoff, and ended
+07:15:27.708533UTC. All48 processes/twelve ABBA blocks completed in39.315s under
+the300s cap. Every primary block passes the2% gate. Median elapsed changes are
+−7.766545% at100K and−7.101923% at1M; all blocks range−7.86216..−7.73669% and
+−7.39053..−6.95661%, respectively. Minimum windows153.430/173.464ms. Outputs and
+owned memory match exactly; actual/candidate/source/freeze identities are unchanged.
+
+**PARK, source NONE.** This is exact historicalEXP005A on corrected native ARM,
+forward score-only public iteration,16-byte members,50M visits. It is a separate
+architecture replication, not a new algorithm or measured population. Prior EXP005
+PARK and all other host decisions remain unchanged. Missing qualified mixed-output,
+no-output, reverse, encoding/length and shared-decoder operation guards, independent
+fresh confirmation and matched candidate profile prevent acceptance. Static mask
+construction4→3 instructions does not causally explain the7–8% elapsed reduction;
+compiler layout and caller effects remain unresolved. No further phases or retries.
+
+Correctness passed570 commands (four original43 runs,512mode cells,12 full oracles,
+eight expected faults) in93.390s. Root independently reconstructs actual/control
+66880-byte.text equality from public encoded words; candidate.text66808 bytes. Root
+and AMD40187b32b reviewed codegen before the bound347ec1b7a gate and separate grant.
+Root raw audit checks105 screen seals/20 frozen inputs/all48 rows; independent Intel
+16f074fbe reconstructs every block and verifies1290 immutable input objects. Postscreen
+07:16:28 live inspection records unchanged protected inputs and zero owned units/PIDs.
+This is idleness, not completed OSS restoration.08:00UTC release proof remains pending.
+
+[Root raw audit](reviews/aws-arm-mask-screen-independent-audit.json),
+[independent Intel review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/16f074fbe/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/025-arm-mask-raw-review/REVIEW.md),
+[primary-only chart](latest-charts/aws-arm-mask-primary.png).
+Counts remain8 measured AWS populations:0 accepted/5 rejected/3 parked. ARM now has
+two additional separately parked architecture replications. All24 population patches
+and the exact historical replication patch remain retained.
+
+
+Latest Apple read-only refresh: M6fc7350a91 records07:15 experimental cutoff with no
+queued native workload; sourceNONE. M1d41738b05 explicitly consumed M6's published
+decision at06:50UTC and queues no further source experiment; earlier DNS/publication
+failures are historical. M1head2baeafcef adds a separate metadata fallback, not applied
+to frozen AWS inputs. Host ledgers and counts remain separate; AWS did not control
+Apple runners.
