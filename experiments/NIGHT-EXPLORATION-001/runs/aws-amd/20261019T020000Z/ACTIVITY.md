@@ -29,3 +29,5 @@
 - 2026-10-19T03:04:56.955369+00:00: distinct all-match scan profile/census published as common packet for actual independent AMD/Intel/ARM proposals, rootchair; no hypothesis selected. Fresh A/A next.
 
 - 2026-10-19T03:07:50.215763+00:00: independent AMD proposal518814bc1 submitted without peer reads. Scan AA48processes:100Kqualifies,1Mfails fixedprecisiongate; no retry. Rootchairpending. Added narrow all-match guard-page/count0/output-canary/exact-order oracle, baseline qualification next.
+
+- 2026-10-19T03:17:32.458905+00:00: root chair0695cf415 selected exact16-byte SSE2 all-match; independent AMD A submitted d76d63b79. Root initial static review finds no blocker. Extended baseline oracle passes299664checks native/sanitizer, with1680 misaligned vector/boundary cases. Corrected guard rationale for selected mechanism without changing fixtures/gates. Awaiting peer implementations and root all-three review; no candidate timing.
