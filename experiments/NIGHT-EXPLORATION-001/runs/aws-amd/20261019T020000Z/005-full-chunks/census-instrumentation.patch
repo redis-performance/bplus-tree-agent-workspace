@@ -1,0 +1,41 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -312,6 +312,22 @@
+     unsigned char *owner_record;
+ } zbtBuildElement;
+ 
++static int amd_active;
++static uint64_t amd_calls[2][65], amd_full[2][65], amd_tail[2][65], amd_zero[2][65];
++void amdCensusReset(void) {
++ memset(amd_calls,0,sizeof(amd_calls));memset(amd_full,0,sizeof(amd_full));memset(amd_tail,0,sizeof(amd_tail));memset(amd_zero,0,sizeof(amd_zero));amd_active=1;
++}
++static void amdCensusMove(unsigned int kind,unsigned int bits,size_t remaining) {
++ if(!amd_active)return;
++ amd_calls[kind][bits]++;amd_full[kind][bits]+=remaining/64;amd_tail[kind][bits]+=remaining%64!=0;amd_zero[kind][bits]+=remaining==0;
++}
++void amdCensusDump(void) {
++ amd_active=0;fprintf(stderr,"{\"widths\":[");
++ for(unsigned int k=0;k<2;k++)for(unsigned int i=0;i<65;i++)
++ fprintf(stderr,"%s{\"kind\":%u,\"bits\":%u,\"calls\":%llu,\"full_chunks\":%llu,\"tail_chunks\":%llu,\"zero_moves\":%llu}",k||i?",":"",k,i,(unsigned long long)amd_calls[k][i],(unsigned long long)amd_full[k][i],(unsigned long long)amd_tail[k][i],(unsigned long long)amd_zero[k][i]);
++ fprintf(stderr,"]}\n");
++}
++
+ /* ------------------------- Packed score leaves -------------------------- */
+ 
+ /* Turn an IEEE double into an unsigned integer with the same ordering. This
+@@ -434,6 +450,7 @@
+ static void zbtInsertScoreBits(zbtScoreLeaf *leaf, unsigned int pos,
+                                uint64_t value)
+ {
++    amdCensusMove(0,leaf->score_bits,(size_t)(leaf->n.count - pos)*leaf->score_bits);
+     unsigned int bits = leaf->score_bits;
+     if (bits == 0) return;
+ 
+@@ -453,6 +470,7 @@
+  * and destination overlap. The final field is cleared because later writes
+  * add bits to a field that is expected to start at zero. */
+ static void zbtDeleteScoreBits(zbtScoreLeaf *leaf, unsigned int pos) {
++    amdCensusMove(1,leaf->score_bits,(size_t)(leaf->n.count - pos - 1)*leaf->score_bits);
+     unsigned int bits = leaf->score_bits;
+     if (bits == 0) return;
+ 

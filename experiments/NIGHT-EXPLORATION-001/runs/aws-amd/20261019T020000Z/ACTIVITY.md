@@ -11,3 +11,5 @@
 - 2026-10-19T02:32:50.297808+00:00: BUILDER-WRITE-001 both primary A/A cells qualify. Three isolated variants pass all 59 build/test commands: original 43 tests and three unchanged targeted oracles in native/sanitizer modes. Root static review clears all patches. Exact performance guard manifest frozen, including explicitly unimplemented tie/mixed-score guards that would block acceptance. Fixed 144-process screen next.
 
 - 2026-10-19T02:39:28.158993+00:00: BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+1.362%, B +1.250%/+1.745%, C +5.777%/+2.766% median elapsed at 100K/1M; no guards or confirmation. All patches/raw rows retained. AMD totals: 2 populations, 0 accepted, 2 rejected, 0 parked. Baseline source unchanged. Next: inspect distinct full-chunk packed moves before proposing.
+
+- 2026-10-19T02:42:20.352478+00:00: full-chunk census7runs complete incldisabledzero/semanticmatch; proposal and exact1M-op primaries frozen before implementation, fresh AA next.
