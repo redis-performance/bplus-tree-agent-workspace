@@ -1,33 +1,51 @@
-# Round4 live handoff — resume lookup after frozen profile
+# Round4 handoff — LOOKUP-001 complete; optional target next
 
-Saved 2026-10-19T02:27:24.049845+00:00; round ends02:55:27 UTC. All prior baseline/rank/update schedules done,
-never rerun. Launch selected baseline-attempt002 complete. Rank/update REJECT/NONE.
-Round3 partial lookup work published f07e217e; it ended exit1 after10K miss profile
-minimum25 check found13 samples. Original logs and referee preserved. Round4 resumed
-only four unrun captures;10K/100K misses remain insufficient. No profile retries.
+Saved 2026-10-19T02:36:08.646356+00:00, more than90s before02:55:27 round end. All experimental children finished.
+Campaign deadline08:00 UTC /09:00 Lisbon; no new experiments after07:15 UTC.
+Source selectionNONE. Baseline nine launch hashes unchanged. Do not restart completed
+baseline/rank/update/lookup schedules. Launch selected baseline-attempt002 is complete;
+earlier failedbaseline/ preserved. Rank/update/lookup dual-primary decisionsREJECT/NONE.
 
-Read004-lookup/PLAN.md,PROFILE-DIAGNOSIS.md,freeze.json,resume-profile.py.
-All size/length semantic validations and two deliberate faults passed. Twelve census
-cells complete. Profiles/assembly complete with explicit insufficiency. Next publish
-this milestone, await matching ack without child work, then run original run.py
-calibrate and qualify exactly once. Then three sequential proposal passes/chair;
-no new justified mechanism meansNONE, no invented implementation population.
-EXP-006 unchanged scanner is control only. M1 cached branch4c48fa7e lookup chairNONE.
+Lookup hypothesis M6-LOOKUP-PHYSICAL-001 retains memchr but decodes already-known
+physical slot directly. Both population steps three sequential passes, not independent
+agents. [Results](004-lookup/RESULTS.md),[selection](004-lookup/implementation-selection.md),
+[audit](004-lookup/final-audit.json). Three patches in004-lookup/variants; snapshots/
+builds underignored scratch/m6-lookup/variants/0,A,B,C. Worktree creation denied once
+in earlier round, never retry. Exact model/cost unknown beyond Codex/GPT-6family.
 
-Coordinator alone commits/pushes. Only atomic publish-request.json writes then5s
-poll<=120s; no builds/tests/profiles/timings in barrier. Git worktree denied previously,
-never retry or bypass. No supervisor/STOP/deadline/permission/upstream changes.
-Final handoff at least90s before02:55:27. Campaign cutoff07:15,deadline08:00 UTC.
+B100K primary every block−3.48..−6.24%, median−4.80%, exceeds qualifiedsame-cell
+A/A0.745%. B1M−3.93..+5.68%, median+0.43%, A/A4.184%failed. No dual-primary winner,
+no adoption shortlist or fine1Mranking. A/C fail100K2%gate. B retained as100Klead for
+a separately declared future scope/replication, never retrospectiveprimaryrelabelling.
+No confirmation, candidateprofile, fullcandidateguards or independentreview. All4
+sources pass originalnative/sanitizer43tests/build, targeted lookup cells and
+4160-cell/515840check physicaloracle/build. Two deliberatefaults detected. Audit
+222rows/48effects/3patches/524serialwindows PASS; last child02:33:28UTC.
 
-Round4 progress: profile/referee ack e18d69d0. Calibration30rows/A/A48rows done;
-100K qualifies,1M fails4.184%. Three sequential proposal passes/chair now select
-M6-LOOKUP-PHYSICAL-001 in004-lookup/selection.md, a distinct score decode mechanism
-retaining memchr. Next acknowledge chair then three copied source/build variants,
-original/targeted native+sanitizer tests, publish candidate freeze, fixed screen.
-Never rerun calibration/A/A. All source/referee hashes unchanged.
+Round3 lookup partial work preserved:13sample10Kmiss triggered minimum25assertion;
+round4 resumed four unrunprofiles only. 100Kmiss19samples also insufficient, no retries.
+Original referee/run.py unchanged;resume-profile.py records exact salvage. 4/6profiles
+sufficient,2samplercontrols pass. No profilingpermissionchanges/counters fabricated.
 
-Candidate validation complete all4sources/bothbuilds,2deliberatefaults detected.
-See004-lookup/candidate-validation.json,physical-fault-controls.json,codegen/summary.json.
-comparison-freeze.json holds identities; next matching ack then compare.py discover
-exactly once. Do not rerun completed validation/calibration/A/A. No candidate source
-adoption. Full guards/freshconfirmation/independentreview absent;1M control failed.
+Next bounded queue: choose optional **DECODE-001 OR ITERATE-001**, not both, from
+profile evidence and sharedPLAN.md. Suggested preflight: inspect publishedM1optional
+work at cached4c48fa7e and EXP-007/008. DECODE-001 count1-only scalar path is distinct
+from rejected4/8/16cutoffs; retain EXP-007Bbulk decoder every larger count. This is
+privatehelper work, no publiciterator improvement. Freeze exactmaterialization,
+allwidth/orientation/countguards and one profile before three sequentialproposals.
+If no supportedbounded opportunity, explicitNONE is valid; do not fill night with
+failedtimingschedules or unrelatedcorrectness. Fulloptional ceiling onehour.
+
+Coordinator alone commits/pushes. Ackprofilee18d69d0,chaire1f3b73c,candidates94e4e897.
+Decision/handoff publication requested after this save; readmatchingackfirst onresume
+and recordcommit. Atomicpublish-request.json freshID,exactnewharnesspaths ifneeded;
+poll5s<=120s,nochildren duringbarrier. Preservefailureonce,continueboundedlocalwork.
+NoGitwrites,denialretries,permission/credentials/supervisor/STOP/deadline/upstreamchanges.
+
+M1cachedbranch4c48fa7e is publishedcontext,notfreshremoterefresh. It chose lookup
+scannerNONE;differentrefereehash,exactM6physicalcandidateNOTRUN. RemoteDNSfailed
+earlier,do not infer unseenresults. M6leads; do not waitforownM6 remotely.
+HostAppleM6provenbylaunchermetadata;directsysctldenied previously,notretried.
+Frequency/DVFS/performancecoreresidency/migration/PMUunknown. SourceNONE.
+Branchcounts10populations(8sequential+2multiagent),0accepted/5rejected/5parked,
+30patches/13harnesses. M1nightcountsseparatependingreconciliation.

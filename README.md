@@ -14,7 +14,7 @@ lookup, and an optional decoder experiment. Both hosts have completed the
 **100 / 1K / 10K / 100K / 1M** baseline. See the latest results and live status links below.
 
 The [M6 driver campaign](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md)
-is launching through **19 October, 09:00 Lisbon**. Its host branch publishes each
+is running through **19 October, 09:00 Lisbon**. Its host branch publishes each
 status/decision milestone so the M1 session can follow the M6 evidence separately.
 
 ## Build and test
@@ -104,7 +104,7 @@ Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing upd
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
-| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank population rejected; update paths next through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank/update/lookup rejected; optional target next through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
@@ -137,11 +137,11 @@ separate from these overnight baselines. [Baseline plan and rerun commands](expe
 [The first M6 rank population](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
 rejects all three shorter-side summation implementations: the 100K primary took
 about 3.4–3.9% longer by median block effect. The 1M signals remain inside A/A noise.
-Source stays unchanged. [M6 update repacking](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md) also fails its 100K primary; its 1M reductions remain exploratory. Lookup profiling is next. Both population steps were
+Source stays unchanged. [M6 update repacking](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md) also fails its 100K primary; its 1M reductions remain exploratory. [M6 lookup physical-score decoding](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md) has a 100K-only exploratory lead but no dual-primary winner. The population steps were
 sequential passes, with all patches preserved.
 
-Recorded on this branch: **9 populations; 0 accepted / 4 rejected / 5 parked;
-27 retained patches; 12 validated harnesses**. Concurrent M1 night populations
+Recorded on this branch: **10 populations; 0 accepted / 5 rejected / 5 parked;
+30 retained patches; 13 validated harnesses**. Concurrent M1 night populations
 remain separate pending log reconciliation.
 
 ### Decoder experiments

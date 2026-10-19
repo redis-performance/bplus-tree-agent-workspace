@@ -1,5 +1,21 @@
 # Experiment summary
 
+
+## Latest — M6 LOOKUP-001 dual-primary REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md).
+New physical-slot score decoding retains memchr. Both sequential population steps
+complete;A/C fail100K2%gate;B100Kmedian−4.800%(allblocks−6.243..−3.482%)but1M
+median+0.428%(−3.926..+5.681%),so no dual-primary contender. B100Kexploratorylead only.
+A/A100Kqualified(max0.745%),1Mfailed(max4.184%).30calibration+48controls+144screen
+rows retained;no confirmation/fullguards/candidateprofile/independentreview/adoption.
+Alloriginal43tests/build,native+sanitizer,targeted4160-cell/515840checkoracles pass;
+twophysicalfaults detected. Audit222rows/48effects/3patches/524serialwindows PASS.
+Branchcounts10populations(8sequential+2multiagent),0accepted/5rejected/5parked,
+30patches/13harnesses;M1nightcountsseparate. Coordinatoralonepublishes. Next optional
+DECODE-001orITERATE-001 fromprofile,notboth; never rerun completed schedules.
+
+
 ## 19 October — M6 UPDATE-001 dual-primary repack REJECT / NONE
 
 [Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md):
@@ -64,12 +80,12 @@ were 0 accepted / 2 rejected / 3 parked. Overnight execution remains stopped.
 | Category | Count |
 |---|---:|
 | Preparation completed | 1 |
-| Harnesses locally validated (7 historical overnight + 3 decoder + 2 M6) | 12 |
+| Harnesses locally validated (7 historical overnight + 3 decoder + 3 M6) | 13 |
 | Historical overnight baseline explorations | 13 |
 | Post-overnight focused A/A campaigns (decoder + two bulk campaigns) | 4 |
-| M6 night baseline inventories / rank+update A/A / diagnoses | 1 / 2 / 2 |
-| Optimisations accepted / rejected / parked on this branch | 0 / 4 / 5 |
-| Population rounds recorded on this branch | 9 (7 sequential fallback + 2 multi-agent) |
+| M6 night baseline inventories / rank+update+lookup A/A / diagnoses | 1 / 3 / 3 |
+| Optimisations accepted / rejected / parked on this branch | 0 / 5 / 5 |
+| Population rounds recorded on this branch | 10 (8 sequential fallback + 2 multi-agent) |
 | Historical overnight additional measurement diagnostics | 34 |
 | Post-overnight focused decoder investigations | 3 |
 | Additional boundary oracle suites validated | 26 |

@@ -1,5 +1,19 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Latest M6 round4: [LOOKUP-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md).
+REJECTdual-primary/NONE. Physical-slot decode retains memchr. B100K−4.80%median(all
+blocksnegative) is exploratorylead only;1Mfails/controlsnoise. Allthreepatcheskept,
+bothpopulationstepssequential. Allnative/sanitizer/oraclechecks pass,twofaultsdetected.
+Audit222rows/48effects/3patches/524serialwindowsPASS. No freshconfirmation/fullguards/
+candidateprofile/independentreview/adoption. Round3partialprofilespreserved,resumed
+onlyunrunchildren;4/6sufficient. Next optionalDECODE-001ORITERATE-001 fromprofile,
+notboth. Never rerun completed baseline/rank/update/lookup schedules. Counts10populations
+(8sequential+2multiagent),0accepted/5rejected/5parked,30patches/13harnesses. M1night
+countsseparate. Coordinatoralonepublishes;profilee18d69d0,chaire1f3b73c,candidates94e4e897.
+Sourceunchanged. Exactservingmodel/tokenunknown;Codex/GPT-6familyvisible. Deadline08:00UTC,
+reporting07:15UTC. ResumehostHANDOFF.md and matchingpublicationack.
+
+
 Latest M6 round 2: [UPDATE-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md)
 REJECT / NONE. All three repacking variants fail 100K primary; 1M reductions are
 exploratory only. Both sequential population steps complete; all native/sanitizer

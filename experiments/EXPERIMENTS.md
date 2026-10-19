@@ -898,3 +898,17 @@ Both population steps used sequential passes, not independent agents. Exact mode
 cost unknown. Branch totals 9 populations (7 sequential +2 multi-agent), 0 accepted /
 4 rejected /5 parked; 27 retained patches, 12 validated harnesses. M1 night counts
 remain separate pending reconciliation. Next LOOKUP-001. Coordinator alone publishes.
+
+## 2026-10-19 — M6 LOOKUP-001 dual-primary REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/004-lookup/RESULTS.md).
+New physical-slot score decoding retains memchr. Both sequential population steps
+complete;A/C fail100K2%gate;B100Kmedian−4.800%(allblocks−6.243..−3.482%)but1M
+median+0.428%(−3.926..+5.681%),so no dual-primary contender. B100Kexploratorylead only.
+A/A100Kqualified(max0.745%),1Mfailed(max4.184%).30calibration+48controls+144screen
+rows retained;no confirmation/fullguards/candidateprofile/independentreview/adoption.
+Alloriginal43tests/build,native+sanitizer,targeted4160-cell/515840checkoracles pass;
+twophysicalfaults detected. Audit222rows/48effects/3patches/524serialwindows PASS.
+Branchcounts10populations(8sequential+2multiagent),0accepted/5rejected/5parked,
+30patches/13harnesses;M1nightcountsseparate. Coordinatoralonepublishes. Next optional
+DECODE-001orITERATE-001 fromprofile,notboth; never rerun completed schedules.
