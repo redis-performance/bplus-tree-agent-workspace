@@ -1047,3 +1047,9 @@ replication only; AWS8populations remain0accepted/5rejected/3parked.
 AWS campaign closed on19 October: all three OSS coordinators restored, live verified
 08:00:20–08:00:25 UTC. Eight measured populations remain0 accepted/5 rejected/3 parked;
 source adoption NONE. [Morning report](NIGHT-EXPLORATION-001/AWS-MORNING-REPORT.md).
+
+
+ARM-MASK-FOLLOWUP-001: user-authorized fresh-session validation of exact historical
+EXP-005 A after verified overnight handback. Dedicated ARM-only lease through10:15UTC;
+preparation/root+independent reviews published. No new candidate population or timing
+result yet; prior PARK/sourceNONE unchanged. [Plan and status](ARM-MASK-FOLLOWUP-001/README.md).
