@@ -27,3 +27,5 @@
 - 2026-10-19T03:00:54.075227+00:00: bounded12-capture matched inner-child profile confirms limited nominal1M loop headroom1.940%; chair NONE, no candidate population. Raw periods/census preserved. Distinct index-scan baseline investigation next, avoiding iterator duplication.
 
 - 2026-10-19T03:04:56.955369+00:00: distinct all-match scan profile/census published as common packet for actual independent AMD/Intel/ARM proposals, rootchair; no hypothesis selected. Fresh A/A next.
+
+- 2026-10-19T03:07:50.215763+00:00: independent AMD proposal518814bc1 submitted without peer reads. Scan AA48processes:100Kqualifies,1Mfails fixedprecisiongate; no retry. Rootchairpending. Added narrow all-match guard-page/count0/output-canary/exact-order oracle, baseline qualification next.
