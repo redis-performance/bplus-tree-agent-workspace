@@ -1,0 +1,1236 @@
+{
+  "status": "PASS",
+  "scope": "Independent retained native codegen review only; no performance or clock-accuracy qualification",
+  "reviewer": "/root/followup_proposal_b",
+  "model": "Inherited Codex/GPT-6 family; exact serving variant/token/currency costs unknown",
+  "created_utc": "2026-10-19T15:13:37.601262+00:00",
+  "native_execution": false,
+  "peer_new_reviews_read": false,
+  "offline_attempt_history": [
+    "Initial offline analyzer attempt looked for input-manifest.json rather than actual inputs.json and stopped with FileNotFoundError after assembly checks; no result/native execution. Filename corrected."
+  ],
+  "provenance_sha256": {
+    "experiments/M6-CLOCK-BRACKET-001/review/codegen/old-lookup.asm": "2e8b0fc76e245ba131e0d4444490d4c77e6e98b039643fa1ba8ce42871910d72",
+    "experiments/M6-CLOCK-BRACKET-001/results/build/raw/lookup-assembly.stdout": "11d3bcdc072d679ff5d4953eadae271838c7d8c76917839e6b8bba551b6b5d28",
+    "experiments/M6-CLOCK-BRACKET-001/results/build/raw/controls-assembly.stdout": "042fc1b44c1b0d335b5c1316ebf294414d8e1082737e5dfdd80efd80cebcfb5d",
+    "experiments/M6-CLOCK-BRACKET-001/review/codegen/command.json": "83584e86bec0f2bd3d36773dff526325e1eaf403af2a6df302fac403afc695cb",
+    "experiments/M6-CLOCK-BRACKET-001/results/build/status.json": "35778bd0adaf07e2fbe4563c6b8f49fee57b9267ab974debcc5f99b6554d0603",
+    "experiments/M6-CLOCK-BRACKET-001/results/build/build-manifest.json": "2d3191c58d82282c9a37b055f342975043a5ec740e74ab7ed421c0caa237a036",
+    "experiments/M6-CLOCK-BRACKET-001/inputs.json": "1d3d24be7af6b7beff91b77b65ef859ef1d49a4b07b58d9d42fb54eda4d986b4",
+    "experiments/M6-CLOCK-BRACKET-001/driver.py": "f40391795c7cd3d02068b23c8a1459b0f43631659845aa04a04e72d5a4e34d69",
+    "experiments/M6-CLOCK-BRACKET-001/PLAN.json": "b50d0fe0d7c553f872075815b70f4c7e066a30efb33c77ab4f3e4c1d6aea2c5e",
+    "experiments/M6-CLOCK-BRACKET-001/harness/clock-bracket.h": "74f83a8ccdecba0b03a4089ecdc92ddacf8225e26c04d67562c9f44112f34581",
+    "experiments/M6-CLOCK-BRACKET-001/harness/lookup.c": "5b05314ccf22c9530d099ffb4b4733ed217c3908d4052f2b1a74ea3abc1187d9",
+    "experiments/M6-CLOCK-BRACKET-001/harness/controls.c": "c6e76f69b3c025d938243e5e48dc6cdac8a5a06ce39950d69b23c464698472bd",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "build/m6-clock-bracket-001/native/lookup": "411afa7ed232e0796ada813b2db333d36ea4d790d838bd37723c71db1f4220ba",
+    "build/m6-clock-bracket-001/native/controls": "405f612e8581e782d48edbf5f94f2bafdb63317b22f1678fc7b2c36289acee7e",
+    "build/m6-clock-bracket-001/native/old-lookup": "2be907b017ea7814ad88a4d2ddafb91d5196e7cc1989948a3edb30bdff7f0051"
+  },
+  "input_pins": {
+    "count": 80,
+    "mismatches": []
+  },
+  "tree": {
+    "functions": 72,
+    "instructions": 16025,
+    "all_same_instruction_counts": true,
+    "all_normalized_equal": true,
+    "unresolved": [],
+    "relocation_normalization_counts": {
+      "ADRP identical effective absolute page": 6,
+      "aligned branch target identical symbol+instruction offset": 2575,
+      "external stub address with identical symbol": 64,
+      "literal low-address with identical annotated string": 148,
+      "adjacent ADRP+ADD identical annotated literal": 30
+    },
+    "function_details": [
+      {
+        "name": "_zbtreeCreate",
+        "instructions": 24,
+        "old_start": "0x100001f2c",
+        "new_start": "0x100002004",
+        "start_delta": 216,
+        "old_normalized_sha256": "5028c2b67f560e74ae19a9aba257796d2a1f1cd20647617d1f9efd53258eaeba",
+        "new_normalized_sha256": "5028c2b67f560e74ae19a9aba257796d2a1f1cd20647617d1f9efd53258eaeba",
+        "relocation_changes": {
+          "ADRP identical effective absolute page": 1
+        }
+      },
+      {
+        "name": "_zbtreeReserve",
+        "instructions": 9,
+        "old_start": "0x100001f8c",
+        "new_start": "0x100002064",
+        "start_delta": 216,
+        "old_normalized_sha256": "d43d6468a7eb5397ddedfe32931da2081b7b05a45bdea84b298a860642e52ef4",
+        "new_normalized_sha256": "d43d6468a7eb5397ddedfe32931da2081b7b05a45bdea84b298a860642e52ef4",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 4
+        }
+      },
+      {
+        "name": "_zbtIndexExpandIfNeeded",
+        "instructions": 149,
+        "old_start": "0x100001fb0",
+        "new_start": "0x100002088",
+        "start_delta": 216,
+        "old_normalized_sha256": "f3420f5cb9597e8df45585c68a42dcbab06e2e7f51e723cb4dc7cc9243b536bf",
+        "new_normalized_sha256": "f3420f5cb9597e8df45585c68a42dcbab06e2e7f51e723cb4dc7cc9243b536bf",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 20,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtreeDup",
+        "instructions": 135,
+        "old_start": "0x100002204",
+        "new_start": "0x1000022dc",
+        "start_delta": 216,
+        "old_normalized_sha256": "0c77b57e295cacd2ec18399ae048eba1163f463872af9f6d66a63dc219de51f1",
+        "new_normalized_sha256": "0c77b57e295cacd2ec18399ae048eba1163f463872af9f6d66a63dc219de51f1",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 5,
+          "external stub address with identical symbol": 3
+        }
+      },
+      {
+        "name": "_zbtScoreDupTree",
+        "instructions": 133,
+        "old_start": "0x100002420",
+        "new_start": "0x1000024f8",
+        "start_delta": 216,
+        "old_normalized_sha256": "bbf32342b460c25c804154ea61f14cec4cb22015305dc8bdbd7ac7a887510e12",
+        "new_normalized_sha256": "bbf32342b460c25c804154ea61f14cec4cb22015305dc8bdbd7ac7a887510e12",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 16,
+          "external stub address with identical symbol": 2,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtreeFree",
+        "instructions": 56,
+        "old_start": "0x100002634",
+        "new_start": "0x10000270c",
+        "start_delta": 216,
+        "old_normalized_sha256": "c2e52f35609ccbcf7319829780dd4d1104517a14faf8df3e04f99e0bf97fac08",
+        "new_normalized_sha256": "c2e52f35609ccbcf7319829780dd4d1104517a14faf8df3e04f99e0bf97fac08",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 5
+        }
+      },
+      {
+        "name": "_zbtScoreFreeTree",
+        "instructions": 74,
+        "old_start": "0x100002714",
+        "new_start": "0x1000027ec",
+        "start_delta": 216,
+        "old_normalized_sha256": "bee8376073c439b7432dccd4154548aa200c20accac3183be2dd590f47e27cc9",
+        "new_normalized_sha256": "bee8376073c439b7432dccd4154548aa200c20accac3183be2dd590f47e27cc9",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 10
+        }
+      },
+      {
+        "name": "_zbtreeLength",
+        "instructions": 2,
+        "old_start": "0x10000283c",
+        "new_start": "0x100002914",
+        "start_delta": 216,
+        "old_normalized_sha256": "1c7d7ac2cab9deaa4ac00657573a4672a3193c5f79f513bfbebe3ae2eba16e57",
+        "new_normalized_sha256": "1c7d7ac2cab9deaa4ac00657573a4672a3193c5f79f513bfbebe3ae2eba16e57",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeAllocSize",
+        "instructions": 2,
+        "old_start": "0x100002844",
+        "new_start": "0x10000291c",
+        "start_delta": 216,
+        "old_normalized_sha256": "fb0bb8d843c4e9880ef81697a85a2bc51878baca29380f0da3b992ced943e04e",
+        "new_normalized_sha256": "fb0bb8d843c4e9880ef81697a85a2bc51878baca29380f0da3b992ced943e04e",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeDismissMemory",
+        "instructions": 85,
+        "old_start": "0x10000284c",
+        "new_start": "0x100002924",
+        "start_delta": 216,
+        "old_normalized_sha256": "878d1102599a1436f1330965d5a9f49986e60adfcd1a573f63336d8176a8fe8d",
+        "new_normalized_sha256": "878d1102599a1436f1330965d5a9f49986e60adfcd1a573f63336d8176a8fe8d",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 13
+        }
+      },
+      {
+        "name": "_zbtreeDefragStart",
+        "instructions": 83,
+        "old_start": "0x1000029a0",
+        "new_start": "0x100002a78",
+        "start_delta": 216,
+        "old_normalized_sha256": "39c0e74a6a416a486e8ba001f7c359f58349794f9724c5fe6dca4686b3aa9093",
+        "new_normalized_sha256": "39c0e74a6a416a486e8ba001f7c359f58349794f9724c5fe6dca4686b3aa9093",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 9
+        }
+      },
+      {
+        "name": "_zbtreeDefragStateReset",
+        "instructions": 2,
+        "old_start": "0x100002aec",
+        "new_start": "0x100002bc4",
+        "start_delta": 216,
+        "old_normalized_sha256": "ec847f6f65dbcdfbc4d43d4ca7822b9a3cc63176cb6892e6fb288ad39b1ceed9",
+        "new_normalized_sha256": "ec847f6f65dbcdfbc4d43d4ca7822b9a3cc63176cb6892e6fb288ad39b1ceed9",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeDefragStep",
+        "instructions": 193,
+        "old_start": "0x100002af4",
+        "new_start": "0x100002bcc",
+        "start_delta": 216,
+        "old_normalized_sha256": "1edb61a0620b00b7bb9e2bc67436f7552dda0300835f9016e658b8e9be650ff1",
+        "new_normalized_sha256": "1edb61a0620b00b7bb9e2bc67436f7552dda0300835f9016e658b8e9be650ff1",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 26,
+          "literal low-address with identical annotated string": 6
+        }
+      },
+      {
+        "name": "_zbtDefragScoreNode",
+        "instructions": 98,
+        "old_start": "0x100002df8",
+        "new_start": "0x100002ed0",
+        "start_delta": 216,
+        "old_normalized_sha256": "83ec59b78e6b0dba74d2abf15485c3eefb60f5007b213053f0d6cfb04d878a22",
+        "new_normalized_sha256": "83ec59b78e6b0dba74d2abf15485c3eefb60f5007b213053f0d6cfb04d878a22",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 16,
+          "adjacent ADRP+ADD identical annotated literal": 2,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtreeScoreRaw",
+        "instructions": 491,
+        "old_start": "0x100002f80",
+        "new_start": "0x100003058",
+        "start_delta": 216,
+        "old_normalized_sha256": "3c9aacd9d0a40fd2b857f5a2306ee417692efc386f4ee184041e98aa1a7b668f",
+        "new_normalized_sha256": "3c9aacd9d0a40fd2b857f5a2306ee417692efc386f4ee184041e98aa1a7b668f",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 111,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtreeScore",
+        "instructions": 25,
+        "old_start": "0x10000372c",
+        "new_start": "0x100003804",
+        "start_delta": 216,
+        "old_normalized_sha256": "d33524005c5854ecf02b7670f64bf78ef42c56f087eee18acc3377d4d6c23728",
+        "new_normalized_sha256": "d33524005c5854ecf02b7670f64bf78ef42c56f087eee18acc3377d4d6c23728",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 6
+        }
+      },
+      {
+        "name": "_zbtreeScores",
+        "instructions": 859,
+        "old_start": "0x100003790",
+        "new_start": "0x100003868",
+        "start_delta": 216,
+        "old_normalized_sha256": "8a4ebda0824d5ae4bc91be95c7ebe1ee8043ca3391cd12f804bfea55c370ea34",
+        "new_normalized_sha256": "8a4ebda0824d5ae4bc91be95c7ebe1ee8043ca3391cd12f804bfea55c370ea34",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 194,
+          "external stub address with identical symbol": 5,
+          "literal low-address with identical annotated string": 8
+        }
+      },
+      {
+        "name": "_zbtreeFindForAdd",
+        "instructions": 697,
+        "old_start": "0x1000044fc",
+        "new_start": "0x1000045d4",
+        "start_delta": 216,
+        "old_normalized_sha256": "130a9ad6e48ab6ff52d4f84e95b35d32d85c7472b1138ffb4c64cd1b0e790888",
+        "new_normalized_sha256": "130a9ad6e48ab6ff52d4f84e95b35d32d85c7472b1138ffb4c64cd1b0e790888",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 155,
+          "adjacent ADRP+ADD identical annotated literal": 4,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtreeRank",
+        "instructions": 596,
+        "old_start": "0x100004fe0",
+        "new_start": "0x1000050b8",
+        "start_delta": 216,
+        "old_normalized_sha256": "9f538b63f9e425af038b465bdcd05bb3452328f5c7043445ea6dbdd6222c9a02",
+        "new_normalized_sha256": "9f538b63f9e425af038b465bdcd05bb3452328f5c7043445ea6dbdd6222c9a02",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 142,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtreeInsertNewRaw",
+        "instructions": 43,
+        "old_start": "0x100005930",
+        "new_start": "0x100005a08",
+        "start_delta": 216,
+        "old_normalized_sha256": "753a5e6c763a6c44606c0435fbd19daaf15581909c619a6d593bfb6bf06816ad",
+        "new_normalized_sha256": "753a5e6c763a6c44606c0435fbd19daaf15581909c619a6d593bfb6bf06816ad",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 2
+        }
+      },
+      {
+        "name": "_zbtScoreInsert",
+        "instructions": 81,
+        "old_start": "0x1000059dc",
+        "new_start": "0x100005ab4",
+        "start_delta": 216,
+        "old_normalized_sha256": "2f3f8d71bf471c3e38f1ce6f0bd37b2d154537fd1bf590fa4063757143a2d937",
+        "new_normalized_sha256": "2f3f8d71bf471c3e38f1ce6f0bd37b2d154537fd1bf590fa4063757143a2d937",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 7,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtIndexInsert",
+        "instructions": 150,
+        "old_start": "0x100005b20",
+        "new_start": "0x100005bf8",
+        "start_delta": 216,
+        "old_normalized_sha256": "9ff0a9324766ed57c18310b39fe248a13d39f920aa24d6e9a3732a2547859e98",
+        "new_normalized_sha256": "9ff0a9324766ed57c18310b39fe248a13d39f920aa24d6e9a3732a2547859e98",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 17,
+          "literal low-address with identical annotated string": 6
+        }
+      },
+      {
+        "name": "_zbtreeInsertNew",
+        "instructions": 68,
+        "old_start": "0x100005d78",
+        "new_start": "0x100005e50",
+        "start_delta": 216,
+        "old_normalized_sha256": "3108350881e8a8ef8c804294f091d6d8a64e30bf40dfa3df9688a60260033a4c",
+        "new_normalized_sha256": "3108350881e8a8ef8c804294f091d6d8a64e30bf40dfa3df9688a60260033a4c",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 15
+        }
+      },
+      {
+        "name": "_zbtreeInsertNewAppend",
+        "instructions": 22,
+        "old_start": "0x100005e88",
+        "new_start": "0x100005f60",
+        "start_delta": 216,
+        "old_normalized_sha256": "7166e18b954c215c3fd137a6f2cd9d4d224f251f91fab2b4559e387ebdc27528",
+        "new_normalized_sha256": "7166e18b954c215c3fd137a6f2cd9d4d224f251f91fab2b4559e387ebdc27528",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeInsertNewAppendWithHash",
+        "instructions": 64,
+        "old_start": "0x100005ee0",
+        "new_start": "0x100005fb8",
+        "start_delta": 216,
+        "old_normalized_sha256": "c8830985a869aad781f5a424ecac26f64868dd8c18bbda02ca2a2a646829f42c",
+        "new_normalized_sha256": "c8830985a869aad781f5a424ecac26f64868dd8c18bbda02ca2a2a646829f42c",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 3,
+          "ADRP identical effective absolute page": 1,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtreeAppendBatchCreate",
+        "instructions": 10,
+        "old_start": "0x100005fe0",
+        "new_start": "0x1000060b8",
+        "start_delta": 216,
+        "old_normalized_sha256": "cd31eb6692a31956faf087a214dd0de0ad9571958ae2da45707e884f2d77ca7b",
+        "new_normalized_sha256": "cd31eb6692a31956faf087a214dd0de0ad9571958ae2da45707e884f2d77ca7b",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeAppendBatchAddWithHash",
+        "instructions": 91,
+        "old_start": "0x100006008",
+        "new_start": "0x1000060e0",
+        "start_delta": 216,
+        "old_normalized_sha256": "3bc5f0f4577a65babb65d7b349fa4dcb758caf6190d0b1dddbe7699a085e8d49",
+        "new_normalized_sha256": "3bc5f0f4577a65babb65d7b349fa4dcb758caf6190d0b1dddbe7699a085e8d49",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 5,
+          "external stub address with identical symbol": 2
+        }
+      },
+      {
+        "name": "_zbtreeAppendBatchFlush",
+        "instructions": 118,
+        "old_start": "0x100006174",
+        "new_start": "0x10000624c",
+        "start_delta": 216,
+        "old_normalized_sha256": "7e7c28991f621cb2df7d8003d07160421bb70a7123dea4aa15d89616cb897c48",
+        "new_normalized_sha256": "7e7c28991f621cb2df7d8003d07160421bb70a7123dea4aa15d89616cb897c48",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 11
+        }
+      },
+      {
+        "name": "_zbtreeAppendBatchAdd",
+        "instructions": 22,
+        "old_start": "0x10000634c",
+        "new_start": "0x100006424",
+        "start_delta": 216,
+        "old_normalized_sha256": "e1e1b8c82d6ec82bbb3badcd4954846b5c218dea57c7600bc36e7acb1ba360b6",
+        "new_normalized_sha256": "e1e1b8c82d6ec82bbb3badcd4954846b5c218dea57c7600bc36e7acb1ba360b6",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeAppendBatchFinish",
+        "instructions": 9,
+        "old_start": "0x1000063a4",
+        "new_start": "0x10000647c",
+        "start_delta": 216,
+        "old_normalized_sha256": "4bd7bb4c4975801beea6d3bd24c151609abc0d2d598aa51752caaf0dc727a1d9",
+        "new_normalized_sha256": "4bd7bb4c4975801beea6d3bd24c151609abc0d2d598aa51752caaf0dc727a1d9",
+        "relocation_changes": {}
+      },
+      {
+        "name": "_zbtreeDelete",
+        "instructions": 559,
+        "old_start": "0x1000063c8",
+        "new_start": "0x1000064a0",
+        "start_delta": 216,
+        "old_normalized_sha256": "e60c5909a6b14416301b7178dd629d0a4ba85b9abbcd762b1652079d7f4cb0ea",
+        "new_normalized_sha256": "e60c5909a6b14416301b7178dd629d0a4ba85b9abbcd762b1652079d7f4cb0ea",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 131,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtIndexDeleteAt",
+        "instructions": 63,
+        "old_start": "0x100006c84",
+        "new_start": "0x100006d5c",
+        "start_delta": 216,
+        "old_normalized_sha256": "ed4942f46894b52dcd7afc723248f79c1251fe32112ce9ec24ab63eebd5dae68",
+        "new_normalized_sha256": "ed4942f46894b52dcd7afc723248f79c1251fe32112ce9ec24ab63eebd5dae68",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 8,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtScoreDeleteAt",
+        "instructions": 652,
+        "old_start": "0x100006d80",
+        "new_start": "0x100006e58",
+        "start_delta": 216,
+        "old_normalized_sha256": "a0f7b308837c21c3171ff87bdb05a711a543b841e25ca3c7ad3faf1ffc36d18f",
+        "new_normalized_sha256": "a0f7b308837c21c3171ff87bdb05a711a543b841e25ca3c7ad3faf1ffc36d18f",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 84,
+          "external stub address with identical symbol": 2
+        }
+      },
+      {
+        "name": "_zbtIndexShrinkIfNeeded",
+        "instructions": 73,
+        "old_start": "0x1000077b0",
+        "new_start": "0x100007888",
+        "start_delta": 216,
+        "old_normalized_sha256": "3c7b593e35134c5d461f0164d26da73d71bf5a04b071fd7c4c896178b2b45e7d",
+        "new_normalized_sha256": "3c7b593e35134c5d461f0164d26da73d71bf5a04b071fd7c4c896178b2b45e7d",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 7
+        }
+      },
+      {
+        "name": "_zbtreeDeleteEdge",
+        "instructions": 33,
+        "old_start": "0x1000078d4",
+        "new_start": "0x1000079ac",
+        "start_delta": 216,
+        "old_normalized_sha256": "7d4c8af823356f42316d74be73de165c912da143754fe5290244f839c9312b53",
+        "new_normalized_sha256": "7d4c8af823356f42316d74be73de165c912da143754fe5290244f839c9312b53",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 3,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtIndexRehashStep",
+        "instructions": 93,
+        "old_start": "0x100007958",
+        "new_start": "0x100007a30",
+        "start_delta": 216,
+        "old_normalized_sha256": "99efdc87bf439bad45149c80d15b3c28758a8608d45a28eb5522537c7e8d6664",
+        "new_normalized_sha256": "99efdc87bf439bad45149c80d15b3c28758a8608d45a28eb5522537c7e8d6664",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 16,
+          "literal low-address with identical annotated string": 2,
+          "adjacent ADRP+ADD identical annotated literal": 1
+        }
+      },
+      {
+        "name": "_zbtScoreDeleteRun",
+        "instructions": 391,
+        "old_start": "0x100007acc",
+        "new_start": "0x100007ba4",
+        "start_delta": 216,
+        "old_normalized_sha256": "3d5e88a57e0a1510d8ff085af5e48fbefa93ba3239b43b6c9f4e4a29b71e3aab",
+        "new_normalized_sha256": "3d5e88a57e0a1510d8ff085af5e48fbefa93ba3239b43b6c9f4e4a29b71e3aab",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 59,
+          "ADRP identical effective absolute page": 1,
+          "literal low-address with identical annotated string": 8,
+          "adjacent ADRP+ADD identical annotated literal": 3,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtreeUpdateScore",
+        "instructions": 680,
+        "old_start": "0x1000080e8",
+        "new_start": "0x1000081c0",
+        "start_delta": 216,
+        "old_normalized_sha256": "28d5126ba26d9f57ca8aff7b037f8e36f79f0f5782489d40db5cdf2d409a17de",
+        "new_normalized_sha256": "28d5126ba26d9f57ca8aff7b037f8e36f79f0f5782489d40db5cdf2d409a17de",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 139,
+          "external stub address with identical symbol": 6,
+          "literal low-address with identical annotated string": 12
+        }
+      },
+      {
+        "name": "_zbtIndexMove",
+        "instructions": 223,
+        "old_start": "0x100008b88",
+        "new_start": "0x100008c60",
+        "start_delta": 216,
+        "old_normalized_sha256": "dab6f579fffbfbaab6b624141d7be11a53180044ffcfdef88c34a90300fe625e",
+        "new_normalized_sha256": "dab6f579fffbfbaab6b624141d7be11a53180044ffcfdef88c34a90300fe625e",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 40,
+          "literal low-address with identical annotated string": 10,
+          "adjacent ADRP+ADD identical annotated literal": 4
+        }
+      },
+      {
+        "name": "_zbtreeDeleteRangeByRank",
+        "instructions": 342,
+        "old_start": "0x100008f04",
+        "new_start": "0x100008fdc",
+        "start_delta": 216,
+        "old_normalized_sha256": "55390903e80e95c71de3cf23d2342d2966a4091112c0610d9b89e84c6c8e609a",
+        "new_normalized_sha256": "55390903e80e95c71de3cf23d2342d2966a4091112c0610d9b89e84c6c8e609a",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 51,
+          "external stub address with identical symbol": 2,
+          "literal low-address with identical annotated string": 6,
+          "adjacent ADRP+ADD identical annotated literal": 1
+        }
+      },
+      {
+        "name": "_zbtreeIteratorSeekRank",
+        "instructions": 32,
+        "old_start": "0x10000945c",
+        "new_start": "0x100009534",
+        "start_delta": 216,
+        "old_normalized_sha256": "79a48e82431b8f7f3a24ed9a81209dffbb5d87af21c883bc86f4ba6e4f969468",
+        "new_normalized_sha256": "79a48e82431b8f7f3a24ed9a81209dffbb5d87af21c883bc86f4ba6e4f969468",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 6
+        }
+      },
+      {
+        "name": "_zbtreeDeleteRangeByScore",
+        "instructions": 37,
+        "old_start": "0x1000094dc",
+        "new_start": "0x1000095b4",
+        "start_delta": 216,
+        "old_normalized_sha256": "7e26b52bb74b8353a2da86370b13497e41d1847759429203ab0731d7822a84d3",
+        "new_normalized_sha256": "7e26b52bb74b8353a2da86370b13497e41d1847759429203ab0731d7822a84d3",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 3
+        }
+      },
+      {
+        "name": "_zbtreeIteratorSeekScore",
+        "instructions": 183,
+        "old_start": "0x100009570",
+        "new_start": "0x100009648",
+        "start_delta": 216,
+        "old_normalized_sha256": "ea4117022cf8936fd96ed39588fbe623ab7eb4c3f0bb94e182395f57f15e996c",
+        "new_normalized_sha256": "ea4117022cf8936fd96ed39588fbe623ab7eb4c3f0bb94e182395f57f15e996c",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 44
+        }
+      },
+      {
+        "name": "_zbtScoreLeafScoreBound",
+        "instructions": 114,
+        "old_start": "0x10000984c",
+        "new_start": "0x100009924",
+        "start_delta": 216,
+        "old_normalized_sha256": "3a00ce683dbd8dbd91ade680d0bbe773af82fba136e22eed210d86b49fc76fb1",
+        "new_normalized_sha256": "3a00ce683dbd8dbd91ade680d0bbe773af82fba136e22eed210d86b49fc76fb1",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 19
+        }
+      },
+      {
+        "name": "_zbtreeIteratorSeekLex",
+        "instructions": 308,
+        "old_start": "0x100009a14",
+        "new_start": "0x100009aec",
+        "start_delta": 216,
+        "old_normalized_sha256": "1ad4c242b1d556e05136c2cf04b1a01f70b0cbccbf6ea3ed60ab07a4d06b435f",
+        "new_normalized_sha256": "1ad4c242b1d556e05136c2cf04b1a01f70b0cbccbf6ea3ed60ab07a4d06b435f",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 76,
+          "external stub address with identical symbol": 1,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtreeIteratorStart",
+        "instructions": 15,
+        "old_start": "0x100009ee4",
+        "new_start": "0x100009fbc",
+        "start_delta": 216,
+        "old_normalized_sha256": "26f552c24296d5232800f86e979d7da50a6616ca8f4bd3f90262615576174613",
+        "new_normalized_sha256": "26f552c24296d5232800f86e979d7da50a6616ca8f4bd3f90262615576174613",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 2
+        }
+      },
+      {
+        "name": "_zbtScoreFindLeaf",
+        "instructions": 107,
+        "old_start": "0x100009f20",
+        "new_start": "0x100009ff8",
+        "start_delta": 216,
+        "old_normalized_sha256": "000045555d027c8e20cb46b20bf4f19071ab9b48931bdac3b238e4446a9832e9",
+        "new_normalized_sha256": "000045555d027c8e20cb46b20bf4f19071ab9b48931bdac3b238e4446a9832e9",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 22,
+          "external stub address with identical symbol": 3,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreLeafLowerBound",
+        "instructions": 123,
+        "old_start": "0x10000a0cc",
+        "new_start": "0x10000a1a4",
+        "start_delta": 216,
+        "old_normalized_sha256": "fa4ddca82646fd3d39bf7e1b0258c8cb95659a5c0524c6b8a34b04afa55ed251",
+        "new_normalized_sha256": "fa4ddca82646fd3d39bf7e1b0258c8cb95659a5c0524c6b8a34b04afa55ed251",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 19,
+          "external stub address with identical symbol": 1,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtreeIteratorNext",
+        "instructions": 114,
+        "old_start": "0x10000a2b8",
+        "new_start": "0x10000a390",
+        "start_delta": 216,
+        "old_normalized_sha256": "556e373fde93baa1b2201fb291f57a86b3396b399d762acfdea692870eb0b79b",
+        "new_normalized_sha256": "556e373fde93baa1b2201fb291f57a86b3396b399d762acfdea692870eb0b79b",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 25,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtreeCountByScore",
+        "instructions": 168,
+        "old_start": "0x10000a480",
+        "new_start": "0x10000a558",
+        "start_delta": 216,
+        "old_normalized_sha256": "4eb2de62e3cd7e1ba63d131faa745df41f650637d096dd797a100dd03363564d",
+        "new_normalized_sha256": "4eb2de62e3cd7e1ba63d131faa745df41f650637d096dd797a100dd03363564d",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 40
+        }
+      },
+      {
+        "name": "_zbtreeScan",
+        "instructions": 109,
+        "old_start": "0x10000a720",
+        "new_start": "0x10000a7f8",
+        "start_delta": 216,
+        "old_normalized_sha256": "58b7903e2d23bd7227ee64b25517272643c0bd475c3b03c39ab4d50d91d8b05a",
+        "new_normalized_sha256": "58b7903e2d23bd7227ee64b25517272643c0bd475c3b03c39ab4d50d91d8b05a",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 12
+        }
+      },
+      {
+        "name": "_zbtIndexScanGroup",
+        "instructions": 506,
+        "old_start": "0x10000a8d4",
+        "new_start": "0x10000a9ac",
+        "start_delta": 216,
+        "old_normalized_sha256": "d0286c145d0c8c4485cdd21057753c0a366c4530df6f0d037c6b525d6d37a4ce",
+        "new_normalized_sha256": "d0286c145d0c8c4485cdd21057753c0a366c4530df6f0d037c6b525d6d37a4ce",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 63
+        }
+      },
+      {
+        "name": "_zbtIndexStartResize",
+        "instructions": 159,
+        "old_start": "0x10000b0bc",
+        "new_start": "0x10000b194",
+        "start_delta": 216,
+        "old_normalized_sha256": "8efa84abdbc81f621385a627dd26608231f37d80352af3e53e6578638b04a588",
+        "new_normalized_sha256": "8efa84abdbc81f621385a627dd26608231f37d80352af3e53e6578638b04a588",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 18,
+          "external stub address with identical symbol": 2,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreLeafFindMember",
+        "instructions": 142,
+        "old_start": "0x10000b338",
+        "new_start": "0x10000b410",
+        "start_delta": 216,
+        "old_normalized_sha256": "050ac35f6926dba20d23b883a9f640d1abb021b56f17767acd8751f449e61b9b",
+        "new_normalized_sha256": "050ac35f6926dba20d23b883a9f640d1abb021b56f17767acd8751f449e61b9b",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 25,
+          "external stub address with identical symbol": 2,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreLeafBuild",
+        "instructions": 652,
+        "old_start": "0x10000b570",
+        "new_start": "0x10000b648",
+        "start_delta": 216,
+        "old_normalized_sha256": "d076fc34a8d46d93dbb13a9dffbdbd07ce126a2bce799e6196c49d389d753def",
+        "new_normalized_sha256": "d076fc34a8d46d93dbb13a9dffbdbd07ce126a2bce799e6196c49d389d753def",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 73,
+          "external stub address with identical symbol": 2,
+          "adjacent ADRP+ADD identical annotated literal": 8,
+          "literal low-address with identical annotated string": 8
+        }
+      },
+      {
+        "name": "_zbtScoreInsertAt",
+        "instructions": 2611,
+        "old_start": "0x10000bfa0",
+        "new_start": "0x10000c078",
+        "start_delta": 216,
+        "old_normalized_sha256": "036b4a374750e75a2a0089446f1e1dc61f70bf16d7c429ae0ff47eae182f7b71",
+        "new_normalized_sha256": "036b4a374750e75a2a0089446f1e1dc61f70bf16d7c429ae0ff47eae182f7b71",
+        "relocation_changes": {
+          "ADRP identical effective absolute page": 2,
+          "aligned branch target identical symbol+instruction offset": 334,
+          "external stub address with identical symbol": 8,
+          "literal low-address with identical annotated string": 6
+        }
+      },
+      {
+        "name": "_zbtBuildElementWrite",
+        "instructions": 72,
+        "old_start": "0x10000e86c",
+        "new_start": "0x10000e944",
+        "start_delta": 216,
+        "old_normalized_sha256": "c14f48ac465c12a89d1c5203f89155da8a4f2b11441883d666cce74c670b0f9b",
+        "new_normalized_sha256": "c14f48ac465c12a89d1c5203f89155da8a4f2b11441883d666cce74c670b0f9b",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 6,
+          "external stub address with identical symbol": 2,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreInsertEdgeLeaf",
+        "instructions": 119,
+        "old_start": "0x10000e98c",
+        "new_start": "0x10000ea64",
+        "start_delta": 216,
+        "old_normalized_sha256": "83c41bd45e9e073012b6b5e6374114b47c56dfc0eca441c61e219c657b399396",
+        "new_normalized_sha256": "83c41bd45e9e073012b6b5e6374114b47c56dfc0eca441c61e219c657b399396",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 10,
+          "external stub address with identical symbol": 3
+        }
+      },
+      {
+        "name": "_zbtScoreReplaceLeaf",
+        "instructions": 91,
+        "old_start": "0x10000eb68",
+        "new_start": "0x10000ec40",
+        "start_delta": 216,
+        "old_normalized_sha256": "01d50956b020bba3dc13116dcec1fe570458a67dd29bafd266313f0d6a5a1c64",
+        "new_normalized_sha256": "01d50956b020bba3dc13116dcec1fe570458a67dd29bafd266313f0d6a5a1c64",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 13
+        }
+      },
+      {
+        "name": "_zbtScoreInsertSibling",
+        "instructions": 69,
+        "old_start": "0x10000ecd4",
+        "new_start": "0x10000edac",
+        "start_delta": 216,
+        "old_normalized_sha256": "c0addcf6388e28b0c23336fdcd1f6fbc6405ac3b3c662b3d7c5a7c05f5ef082e",
+        "new_normalized_sha256": "c0addcf6388e28b0c23336fdcd1f6fbc6405ac3b3c662b3d7c5a7c05f5ef082e",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 4,
+          "external stub address with identical symbol": 2
+        }
+      },
+      {
+        "name": "_zbtScoreCompactLeaf",
+        "instructions": 220,
+        "old_start": "0x10000ede8",
+        "new_start": "0x10000eec0",
+        "start_delta": 216,
+        "old_normalized_sha256": "7abc83b0fe9f98806a6c7de68371dc1be388ab23482a5a462d8ff827f35a9e4e",
+        "new_normalized_sha256": "7abc83b0fe9f98806a6c7de68371dc1be388ab23482a5a462d8ff827f35a9e4e",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 27,
+          "literal low-address with identical annotated string": 2,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtScoreRefreshNode",
+        "instructions": 70,
+        "old_start": "0x10000f158",
+        "new_start": "0x10000f230",
+        "start_delta": 216,
+        "old_normalized_sha256": "636d8519534198429b6c8dc2791a2d153d7f926dec225214601668bf5df49761",
+        "new_normalized_sha256": "636d8519534198429b6c8dc2791a2d153d7f926dec225214601668bf5df49761",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 9
+        }
+      },
+      {
+        "name": "_zbtScoreSplitInner",
+        "instructions": 291,
+        "old_start": "0x10000f270",
+        "new_start": "0x10000f348",
+        "start_delta": 216,
+        "old_normalized_sha256": "5283afd19441198b45fd8c64ec938c87a84e2d4a2bdbeda64be6629f22e61ab4",
+        "new_normalized_sha256": "5283afd19441198b45fd8c64ec938c87a84e2d4a2bdbeda64be6629f22e61ab4",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 47,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_zbtScoreUpdatePath",
+        "instructions": 68,
+        "old_start": "0x10000f6fc",
+        "new_start": "0x10000f7d4",
+        "start_delta": 216,
+        "old_normalized_sha256": "0cd3c8eaacf198dcac0400406088a1ec12f02a1addc8124b851c5999959b549a",
+        "new_normalized_sha256": "0cd3c8eaacf198dcac0400406088a1ec12f02a1addc8124b851c5999959b549a",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 12
+        }
+      },
+      {
+        "name": "_zbtIndexCopyLeaf",
+        "instructions": 79,
+        "old_start": "0x10000f80c",
+        "new_start": "0x10000f8e4",
+        "start_delta": 216,
+        "old_normalized_sha256": "f8da9b5cc85fd43fee734fd6a450640bdb378045b6a8221490f778bce9ee84f0",
+        "new_normalized_sha256": "f8da9b5cc85fd43fee734fd6a450640bdb378045b6a8221490f778bce9ee84f0",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 9,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtIndexTableInsertRaw",
+        "instructions": 239,
+        "old_start": "0x10000f948",
+        "new_start": "0x10000fa20",
+        "start_delta": 216,
+        "old_normalized_sha256": "d7c529f7ae2d41e02d1d3c6935e873b33c625bf1001fcac819b6e13a5c41d99a",
+        "new_normalized_sha256": "d7c529f7ae2d41e02d1d3c6935e873b33c625bf1001fcac819b6e13a5c41d99a",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 45,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtScoreRemoveLeaf",
+        "instructions": 104,
+        "old_start": "0x10000fd04",
+        "new_start": "0x10000fddc",
+        "start_delta": 216,
+        "old_normalized_sha256": "f0edf16fc0fd27144d30672fba6e208dbefcd38d867e28f4630b9cf30cf8ff11",
+        "new_normalized_sha256": "f0edf16fc0fd27144d30672fba6e208dbefcd38d867e28f4630b9cf30cf8ff11",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 16,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreDeleteInPlace",
+        "instructions": 340,
+        "old_start": "0x10000fea4",
+        "new_start": "0x10000ff7c",
+        "start_delta": 216,
+        "old_normalized_sha256": "96e61fc716e79bdbd5bd54b2f2be1bb066a7b310b8b785c3f48bd8f8e7ec8acc",
+        "new_normalized_sha256": "96e61fc716e79bdbd5bd54b2f2be1bb066a7b310b8b785c3f48bd8f8e7ec8acc",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 51,
+          "external stub address with identical symbol": 7,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtScoreDetachNode",
+        "instructions": 71,
+        "old_start": "0x1000103f4",
+        "new_start": "0x1000104cc",
+        "start_delta": 216,
+        "old_normalized_sha256": "e9d0d30a446cff3fabaa28fb815d98c71e0a36d3f049b620472431cfc7d34cb1",
+        "new_normalized_sha256": "e9d0d30a446cff3fabaa28fb815d98c71e0a36d3f049b620472431cfc7d34cb1",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 7,
+          "external stub address with identical symbol": 1,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_zbtScoreMergePair",
+        "instructions": 709,
+        "old_start": "0x100010510",
+        "new_start": "0x1000105e8",
+        "start_delta": 216,
+        "old_normalized_sha256": "8b95ecd5a01c54975745c753ea7b0a1794388022f3517c2c2f42e816074486ab",
+        "new_normalized_sha256": "8b95ecd5a01c54975745c753ea7b0a1794388022f3517c2c2f42e816074486ab",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 96,
+          "ADRP identical effective absolute page": 1,
+          "external stub address with identical symbol": 1,
+          "adjacent ADRP+ADD identical annotated literal": 3,
+          "literal low-address with identical annotated string": 4
+        }
+      },
+      {
+        "name": "_zbtIndexTableFindReference",
+        "instructions": 89,
+        "old_start": "0x100011024",
+        "new_start": "0x1000110fc",
+        "start_delta": 216,
+        "old_normalized_sha256": "afc07403d7f8a6f5bc52de8b65a9d3c79193548123bd48d909d7af41781af534",
+        "new_normalized_sha256": "afc07403d7f8a6f5bc52de8b65a9d3c79193548123bd48d909d7af41781af534",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 12
+        }
+      },
+      {
+        "name": "_zbtIndexScanSlot",
+        "instructions": 514,
+        "old_start": "0x100011188",
+        "new_start": "0x100011260",
+        "start_delta": 216,
+        "old_normalized_sha256": "94341792e3b3143aacc2512eecf7e08cdba23b5bb8018c4286a86e18066af6d0",
+        "new_normalized_sha256": "94341792e3b3143aacc2512eecf7e08cdba23b5bb8018c4286a86e18066af6d0",
+        "relocation_changes": {
+          "aligned branch target identical symbol+instruction offset": 100,
+          "literal low-address with identical annotated string": 10,
+          "adjacent ADRP+ADD identical annotated literal": 2,
+          "external stub address with identical symbol": 1
+        }
+      },
+      {
+        "name": "_OUTLINED_FUNCTION_0",
+        "instructions": 6,
+        "old_start": "0x100011c78",
+        "new_start": "0x100011d50",
+        "start_delta": 216,
+        "old_normalized_sha256": "d674664f9b535edeafb1a212d7916b94964796ff82df2a9df768c20de501bca5",
+        "new_normalized_sha256": "d674664f9b535edeafb1a212d7916b94964796ff82df2a9df768c20de501bca5",
+        "relocation_changes": {
+          "adjacent ADRP+ADD identical annotated literal": 1,
+          "literal low-address with identical annotated string": 2
+        }
+      },
+      {
+        "name": "_OUTLINED_FUNCTION_1",
+        "instructions": 6,
+        "old_start": "0x100011c90",
+        "new_start": "0x100011d68",
+        "start_delta": 216,
+        "old_normalized_sha256": "4a1910fa5fd814a57b8f09b696a84cd3c66448922e4929280400d3f223df9d3a",
+        "new_normalized_sha256": "4a1910fa5fd814a57b8f09b696a84cd3c66448922e4929280400d3f223df9d3a",
+        "relocation_changes": {
+          "adjacent ADRP+ADD identical annotated literal": 1,
+          "literal low-address with identical annotated string": 2
+        }
+      }
+    ],
+    "compiler_outlined_helpers": 2
+  },
+  "lookup": {
+    "all_clock_calls": [
+      {
+        "index": 836,
+        "address": "0x1000012f8",
+        "clock_id": 6
+      },
+      {
+        "index": 905,
+        "address": "0x10000140c",
+        "clock_id": 6
+      },
+      {
+        "index": 1024,
+        "address": "0x1000015e8",
+        "clock_id": 6
+      },
+      {
+        "index": 1030,
+        "address": "0x100001600",
+        "clock_id": 16
+      },
+      {
+        "index": 1036,
+        "address": "0x100001618",
+        "clock_id": 6
+      },
+      {
+        "index": 1263,
+        "address": "0x1000019a4",
+        "clock_id": 6
+      },
+      {
+        "index": 1270,
+        "address": "0x1000019c0",
+        "clock_id": 16
+      },
+      {
+        "index": 1279,
+        "address": "0x1000019e4",
+        "clock_id": 6
+      }
+    ],
+    "bracket_clock_calls": [
+      {
+        "index": 1024,
+        "address": "0x1000015e8",
+        "clock_id": 6
+      },
+      {
+        "index": 1030,
+        "address": "0x100001600",
+        "clock_id": 16
+      },
+      {
+        "index": 1036,
+        "address": "0x100001618",
+        "clock_id": 6
+      },
+      {
+        "index": 1263,
+        "address": "0x1000019a4",
+        "clock_id": 6
+      },
+      {
+        "index": 1270,
+        "address": "0x1000019c0",
+        "clock_id": 16
+      },
+      {
+        "index": 1279,
+        "address": "0x1000019e4",
+        "clock_id": 6
+      }
+    ],
+    "bracket_clock_ids": [
+      6,
+      16,
+      6,
+      6,
+      16,
+      6
+    ],
+    "score_call": "0x100001738",
+    "score_loop_head": "0x100001704",
+    "score_loop_exit_test": "0x100001700",
+    "score_loop_continue": "0x10000175c -> 0x1000016e4 -> 0x100001704",
+    "after_w3_cpu_endpoint_call": "0x1000019f8",
+    "timestamp_csv_printf": "0x10000124c",
+    "observation": "Score call, score checksum conversion and query/count backedge remain after w1 and before w2 on the actual hit path; dispatch overhead remains in I. Conversion/emission uses the six retained timestamps; no extra profiling hooks."
+  },
+  "controls": {
+    "all_clock_calls": [
+      {
+        "index": 32,
+        "address": "0x100000618",
+        "clock_id": 6
+      },
+      {
+        "index": 37,
+        "address": "0x10000062c",
+        "clock_id": 16
+      },
+      {
+        "index": 42,
+        "address": "0x100000640",
+        "clock_id": 6
+      },
+      {
+        "index": 69,
+        "address": "0x1000006ac",
+        "clock_id": 6
+      },
+      {
+        "index": 90,
+        "address": "0x100000700",
+        "clock_id": 6
+      },
+      {
+        "index": 102,
+        "address": "0x100000730",
+        "clock_id": 6
+      },
+      {
+        "index": 108,
+        "address": "0x100000748",
+        "clock_id": 16
+      },
+      {
+        "index": 115,
+        "address": "0x100000764",
+        "clock_id": 6
+      }
+    ],
+    "outer_clock_indices": [
+      32,
+      37,
+      42,
+      102,
+      108,
+      115
+    ],
+    "outer_clock_ids": [
+      6,
+      16,
+      6,
+      6,
+      16,
+      6
+    ],
+    "lcg": {
+      "iterations": 2000000,
+      "initial": 1,
+      "multiplier": 1664525,
+      "increment": 1013904223,
+      "modulus": "2^64",
+      "loop_madd": "0x100000674",
+      "loop_decrement": "0x100000678",
+      "loop_backedge": "0x10000067c",
+      "not_folded": true
+    },
+    "block": {
+      "requested_ns": 20000000,
+      "first_nanosleep": "0x1000006c0",
+      "retry_nanosleep": "0x1000006f0",
+      "errno_eintr_test": "0x1000006d4",
+      "inner_wall_start": "0x1000006ac",
+      "inner_wall_end": "0x100000700",
+      "remaining_request_copy": "0x1000006dc..0x1000006e0",
+      "all_inside_outer_brackets": true
+    },
+    "sink_update": "0x10000079c..0x1000007ac after w3",
+    "timestamp_csv_printf": "0x10000083c"
+  },
+  "ancillary": {
+    "scan_verify": "Harness-only cold assertion file/line differences are retained, expected from lookup frontend path and line movement; excluded from tree-equality claim.",
+    "siphash_nocase_relocated_vectors": [
+      {
+        "old_address": "0x100012380",
+        "new_address": "0x100012470",
+        "length": 16,
+        "sha256": "bcb3ff2eb6e04db3b20a0ab0e0e7663eb8a9bd68b4e585b5268f5dbeb32d7a1d",
+        "equal": true
+      },
+      {
+        "old_address": "0x100012390",
+        "new_address": "0x100012480",
+        "length": 16,
+        "sha256": "c4672f0554a371aaa20a6b9c9914744d98c9cc7815d4b655b748f4c3b15e1ed3",
+        "equal": true
+      }
+    ],
+    "tree_scope": "All 72 emitted _zbt labels and both compiler-outlined helpers; inlined target operations are covered within their containing function. Not a formal whole-program equivalence proof."
+  },
+  "mcp": {
+    "own_availability_check_utc": "2026-10-19T15:09:02Z",
+    "own_exposed_matching_tools": [],
+    "consultation": "Explicit shared root stdio consultation, not a B-owned endpoint call",
+    "journal_generic": "scratch/cpu-perf-m6-bracket-20261019/codegen/codegen-calls.jsonl",
+    "journal_sha256": "5526f8dc3ff9aa70fc1d8aa6a4358fc4e3d623392552c6d42de926d735d5cf6e",
+    "calls": [
+      {
+        "method": "initialize",
+        "tool": null,
+        "started_utc": "2026-10-19T15:08:31.081538+00:00",
+        "finished_utc": "2026-10-19T15:08:31.505883+00:00",
+        "request_sha256": "03c8e8971eaec77695ad44b85d19180d75d06f9b672644517a145d3da63c339c",
+        "response_sha256": "94f9e6263ec985723193fbc586aa2d74d483edbcfca236463cba43f2d14e8ec1"
+      },
+      {
+        "method": "tools/call",
+        "tool": "library_status",
+        "started_utc": "2026-10-19T15:08:31.506212+00:00",
+        "finished_utc": "2026-10-19T15:08:31.507992+00:00",
+        "request_sha256": "37c095fdaf36beb235d335fdb3f9679b1e6a9d4793524ec3927d0c34975f7568",
+        "response_sha256": "1a199aeca061479e1a0de80ed5d53f11f3c343c1b3fa4e7a085b95c769168ac7"
+      },
+      {
+        "method": "tools/call",
+        "tool": "ask",
+        "started_utc": "2026-10-19T15:08:31.508119+00:00",
+        "finished_utc": "2026-10-19T15:08:31.533113+00:00",
+        "request_sha256": "2c823a58e3215ceb0b7d457b12bf91c77e340e85341a29af2b22927ea4958da9",
+        "response_sha256": "06d6cef1505a9f5ec2a362117aeaf74170198e09d17d7ee8451b093da6362a17"
+      }
+    ],
+    "coverage": "2 of 287 indexed sources, 93 passages, keyword-only",
+    "limitation": "Actual arm64 otool context misclassified as perf stat and routed to irrelevant Intel/AMD recommendations; no relevant supporting passage. No routing advice or recommendations used."
+  },
+  "limits": [
+    "Static instruction placement does not bound clock accuracy, resolution error, accounting lag, interrupt/descheduling latency or sample cost.",
+    "Conditional thread interval remains conditional; empirical controls cannot establish a worst-case error bound.",
+    "Relocations change addresses/layout. Static normalized instruction agreement is not a claim of identical runtime performance, branch-predictor/cache state or unchanged surrounding harness overhead.",
+    "No native build, benchmark, profile or control execution was performed by this reviewer."
+  ]
+}

@@ -4,7 +4,7 @@ M6 updated 2026-10-19T11:41:56.047354+00:00. Shared coordination index, first re
 
 | Session / host | Observed state | Owner and canonical status |
 |---|---|---|
-| M6-CLOCK-BRACKET-001 / local Apple M6 | BUILD_COMPLETE; native/sanitizer correctness PASS; independent codegen pending; no timing lease | Interactive M6 root; [plan/status](M6-CLOCK-BRACKET-001/README.md) |
+| M6-CLOCK-BRACKET-001 / local Apple M6 | NATIVE_RESERVED; correctness/codegen PASS; root owns fixed controls/A/A, workers idle | Interactive M6 root; [plan/status](M6-CLOCK-BRACKET-001/README.md) |
 | M6-METROLOGY-001 / local Apple M6 | CLOSED offline diagnostic; 3 independent raw reconstructions agree; no native workload/lease; cause unresolved, source NONE | Interactive M6 root; [result](M6-METROLOGY-001/RESULTS.md), [status](M6-METROLOGY-001/STATUS.md) |
 | EXP-009 / local Apple M6 | PARK; fresh controls100K6/6,1M3/6; native lease released; raw audit/decision review complete | Interactive M6 root; [live status](EXP-009/STATUS.md), [result](EXP-009/RESULTS.md) |
 | ARM-FRONTEND-DIAGNOSTIC-001 / remote Graviton | CLOSED; native causeINCONCLUSIVE, candidateREJECT/NONE; all642profilecommands complete; OSS release verified11:24:35–37UTC; no queuedwork | AWS controller / ARM operator; [status](ARM-FRONTEND-DIAGNOSTIC-001/STATUS.md), [plan](ARM-FRONTEND-DIAGNOSTIC-001/README.md) |

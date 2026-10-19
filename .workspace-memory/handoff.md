@@ -1,5 +1,5 @@
 <!-- M6-BRACKET-CURRENT -->
-M6-CLOCK-BRACKET-001 BUILD_COMPLETE:85serialcommands/11.7586s, original43tests native+san and36paired new/old lookupsmokes PASS exactoutputs/ownedmemory.80inputpins intact. Actual clock/control assembly checked byroot; independent compiled-tree review pending. Controls/A/A unexecuted, no timing lease. Source NONE; earlierdecisions frozen.
+M6-CLOCK-BRACKET-001 NATIVE_RESERVED: correctness and independent actualcodegen PASS;72treefunctions16025instructions match recognizedrelocations,6clockreads enclosework. Root reserves localM6 for fixed72controlrows then48A/Aprocesses, serial, hardstop2026-10-19T15:41:10.756095+00:00. All workersidle; known targetprocesscheckempty. No sourcecandidate; olddecisions frozen.
 <!-- M6-BRACKET-CURRENT-END -->
 
 <!-- M6-METROLOGY-CURRENT -->
