@@ -36,3 +36,7 @@
 - 2026-10-19T03:20:44.583445+00:00: Native ARM C portable fallback passes297984 common-oracle checks and43 originaltests inbothnative/sanitizer builds. Exactimmutablepatch/source verified; noperformance run. ARM runner idle again.
 
 - 2026-10-19T03:21:52.808193+00:00: Independent root iterator audit b0c5a43e2 validates576 rows/144blocks,1164 sealedfiles andlivebinaryhashes. Original sealed RESULT unchanged; additive review note published. Corrected worker ledger entries into existingexperiments/EXPERIMENTS.md andexperiments/SUMMARY.md; removed only worker-created root-level duplicates, preserving all entries. Native ARM C fallback evidence added without changing immutablepatch/provenance.
+
+2026-10-19T03:39:04.447390+00:00: Developing additive007 SCAN guard referee:36 cells, independent outputs and natural-layout census. No candidate timing; root review and total budget pending.
+
+2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.

@@ -13,3 +13,5 @@ Decoder final: PARK/NONE,1 new measured population0/0/1. All four screens comple
 Iterator replication complete and PARK; all576 processes/144blocks retained, primary A/A failed. Request root audit against immutable RESULT commit. No broader guards/freshconfirmation/candidate profiles; no winner or adoption. Independent AMD C immutable patch d1921d793 belongs to AMD population, not new ARM population. No active ARM remote job.
 
 Final iterator root audit b0c5a43e2 complete; sealed original result unchanged, additive INDEPENDENT-REVIEW.md resolves pending status. Native ARM C fallback checks pass bothmodes and originaltests. No active remote work; available for supported follow-up.
+
+2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.

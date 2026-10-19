@@ -7,3 +7,7 @@ One completed new measured population: decoder PARK (0 accepted / 0 rejected / 1
 Iterator replication completed all 576 comparison processes and 144 blocks. Both candidates show large exploratory full-output gains; both primary A/A cells failed, so no qualified winner or acceptance. A adds8 bytes per live64-bit iterator; B preserves16 bytes. All correctness checks pass. Broader performance guards, fresh confirmation and candidate matched profiles remain unrun. Independent root audit b0c5a43e2 validates all576 rows/144 blocks and1164 sealed files; see005-iterator/INDEPENDENT-REVIEW.md.
 
 Independent AMD all-match proposal and implementationC are published under006-amd-scan-review; root chairs that population and AMD owns all runner timing. ARM supplied an independently authored patch and bounded local correctness only. Remain available for supported follow-up work or review.
+
+2026-10-19T03:39:04.447390+00:00: Developing additive007 SCAN guard referee:36 cells, independent outputs and natural-layout census. No candidate timing; root review and total budget pending.
+
+2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.

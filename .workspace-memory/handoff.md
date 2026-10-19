@@ -1119,3 +1119,5 @@ ARM 2026-10-19T02:56:29.539054+00:00:004-update fresh diagnosisNONE after8profil
 ARM 2026-10-19T03:18:30.219112+00:00: Iterator A/B replication PARK after576 processes/144 blocks; both primary controls fail, no winner/adoption. One separate replication, new-population count stays1. Independent AMD C published d1921d793. Root raw audit pending; no active ARM workload.
 
 ARM 2026-10-19T03:21:52.808193+00:00: Root iterator audit b0c5a43e2 completed;576 rows/144blocks/1164 sealedfiles andlivehashes pass. Original seal unchanged. C nativeARM fallback correctness passes; patch/provenance immutable. No active remote job.
+
+2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged. See experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/007-scan-guards/RESULT.md.
