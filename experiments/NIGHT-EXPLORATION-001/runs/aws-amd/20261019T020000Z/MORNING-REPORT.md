@@ -64,3 +64,5 @@ Raw timing rows and validation failures are public. Large raw perf files remain 
 Native work used the inherited Codex agent; exact serving model, native token usage and USD cost are unknown. Old CLI usage fields describe only that failed launch and are not native campaign totals. The benchmark parity checklist was consulted as a reference for one standalone review, not a completed stronger-model/memtier/server panel.
 
 README, activity, status and immutable evidence commits are updated. Root owns the remaining observational capture and08:00 release/restoration verification. **Lease ACTIVE, restoration pending; source NONE.**
+
+Additional local review: [ARM024 iterator adaptation](030-arm-iterator-review/REVIEW.md), immutable d5105925e. No execution blocker; source/binary/scope/schedule/ARM parser checked. Root idle handoff and profile/A/A phase grants remain required; this is preparation review, not a new AMD experiment.
