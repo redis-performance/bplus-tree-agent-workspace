@@ -55,3 +55,5 @@
 - 2026-10-19T04:09:34.678573+00:00: Independent Intel B held-out primary confirmation PASS:96 total processes including48 qualified AA and48 comparison; all12 comparisonblocks improve>=2%, medians−6.783%100K/−3.656%1M. Runner explicitly returned idle04:08:54UTC. Source NONE; remaining guards/profile separate. AMD totals unchanged4populations:0accepted,3rejected,1parked.
 
 - 2026-10-19T04:21:29.450032+00:00: Independent Intel original-guard audit prepared before completed B evidence; baseline raw reconstruction verifies120processes/960rows/240effects,57of80qualified,12short+11other failures retained. Awaiting immutable B result; no runner access, sourceNONE.
+
+- 2026-10-19T04:23:43.061067+00:00: Independent original-guard auditor ready: baseline57of80qualified,23failures retained; awaiting complete immutable Intel B matrix. Separate release-auditor static review confirms main507de297e exactly matches reviewed nested-cgroup fix. No runner access; sourceNONE.

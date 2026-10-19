@@ -9,3 +9,5 @@ Unexpected paths, nonzero property-query status, missing active cgroups, missing
 An inactive slice with an absent expected cgroup is allowed, which matches systemd removing an empty inactive slice. This still needs the other live-state predicates; a directory's absence alone is not release proof. The implementation is a point-in-time observation, not an atomic snapshot across supervisor/systemd/proc/cgroup. Existing independent stop timers and lease controls remain responsible for preventing new work; this auditor does not change services or timers.
 
 Useful targeted mocks: nested descendant processes (including duplicate IDs), inactive absent expected cgroup, active absent cgroup, unexpected ControlGroup, property-query failure, os.walk onerror, missing cgroup.procs and read failure. These distinguish a safe empty result from an incomplete inspection. No alteration to acceptance criteria or benchmark evidence follows from this operational fix.
+
+Published follow-up: main507de297e contains exactly the reviewed source hash. Root reports six targeted mocked tests and live generic preflight; those executions were not rerun by this reviewer.

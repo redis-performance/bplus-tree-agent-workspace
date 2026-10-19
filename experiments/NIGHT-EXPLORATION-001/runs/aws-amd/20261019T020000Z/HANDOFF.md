@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent Intel original-guard audit prepared before completed B evidence; baseline raw reconstruction verifies120processes/960rows/240effects,57of80qualified,12short+11other failures retained. Awaiting immutable B result; no runner access, sourceNONE.
+Independent original-guard auditor ready: baseline57of80qualified,23failures retained; awaiting complete immutable Intel B matrix. Separate release-auditor static review confirms main507de297e exactly matches reviewed nested-cgroup fix. No runner access; sourceNONE.
 
-AMD counts remain4populations:0accepted,3rejected,1parked. Intel runner returned04:08:54UTC.
+AMD counts4populations:0accepted,3rejected,1parked; independent Intel primary confirmation already complete.
