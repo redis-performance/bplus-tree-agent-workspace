@@ -1,0 +1,17 @@
+# Independent suffix-result review — 19fd53594
+
+The six-command suffix passes its separately frozen contract. Evidence supports a separately reviewed composite correctness eligibility record; it does not change original027 FAILED, qualify timing or grant execution. No benchmark, compiler, producer driver or remote tool was run by this reviewer.
+
+Independently verified29 evidence-seal entries,13 normalized new artifact hashes and9 immutable execution inputs. The six exact commands are original2,119–2,124 in order, with unchanged argv/cwd/flags/fixtures. Builds returned0; the three negative runs returned−6 with their specifically registered copied-next sign or state assertions. CPU2 is recorded, serial timestamps are consistent, each child is below60seconds, and the phase lasts6.416300seconds within180seconds and the10:15UTC deadline. All three output binaries were recorded absent before creation and receive retained hashes.
+
+Every4,241 original raw-artifact binding,513 snapshot files across9 sources,28 prior frozen inputs,6 protected binaries,4 guard binaries, both actual source sets and text hashes match before/after and the frozen bindings. The separate08:46:55 idle check agrees with all original raw/snapshot/protected/guard bindings and both input freezes, and records no owned units/PIDs. The original failed result is included among unchanged raw hashes. These are operator live-hash observations independently joined here, not new live binary reads by this reviewer.
+
+The result discloses that a local preflight collector briefly wrote its historical027 output path, then restored the exact published bytes. I compared the complete Git tree for027 between39d84533f and19fd53594: the tree objects are identical, not merely result.json. New preflight evidence remains under028. Remote pre/post raw hashes also match. This supports preservation of published/observed evidence while retaining the disclosed local working-copy mistake.
+
+Combined semantic evidence now comprises all2,048 normal mode cells,4 original43 suites and12 unchanged oracles from the audited failed prefix,10 original registered negative detections,1 original native sign fault independently identified by its earlier exact assertion, and3 newly registered negative detections. Thus14 intended fault detections are evidenced across the failed prefix and six-command continuation. It would be misleading to call the original phase a registeredPASS or to hide the separate metadata correction.
+
+No correctness closure blocker remains in these raw outcomes and identity joins. A composite receipt must bind both immutable attempts, originalfailure status/reviews, exact result/rawseals/source identities, this independent audit and the new suffix. Its status must clearly be composite correctness only. The unexecuted timing driver needs a separately reviewed gate-only change before it may consume that receipt; no arbitrary-failure bypass, freshAA reuse or performance-gate modification is acceptable.
+
+Fresh primary/guard A/A, required guard performance, matched profile, independent held-out confirmation and adversarial scope assessment remain outstanding. Uniform-width0 performance and broader architecture limits stay explicit. Source selectionNONE; old026 PARK and priorNONE dissent unchanged. New ARM lease ACTIVE until10:15UTC, old overnight release remains final.
+
+Reviewer/root/aws_amd, inherited native model/token/USD unknown. See audit-six-result.py and six-result-audit-19fd53594.json for independent reconstruction and exact original027 tree hashes.
