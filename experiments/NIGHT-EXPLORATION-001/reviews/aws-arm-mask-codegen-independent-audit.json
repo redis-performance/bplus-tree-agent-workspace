@@ -1,0 +1,532 @@
+{
+  "status": "root static eligibility PASS; independent review and screen grant pending",
+  "reviewed_at": "2026-10-19T07:09:47.406570+00:00",
+  "validation_revision": "d99bc1077",
+  "baseline_mask": [
+    {
+      "pc": "0xa5b4",
+      "word": "9280000d",
+      "instruction": "mov\tx13, #0xffffffffffffffff    \t// #-1"
+    },
+    {
+      "pc": "0xa5b8",
+      "word": "7101017f",
+      "instruction": "cmp\tw11, #0x40"
+    },
+    {
+      "pc": "0xa5bc",
+      "word": "9acb21ae",
+      "instruction": "lsl\tx14, x13, x11"
+    },
+    {
+      "pc": "0xa5c0",
+      "word": "da8e21ab",
+      "instruction": "csinv\tx11, x13, x14, cs\t// cs = hs, nlast"
+    }
+  ],
+  "candidate_mask": [
+    {
+      "pc": "0xa590",
+      "word": "4b0b03eb",
+      "instruction": "neg\tw11, w11"
+    },
+    {
+      "pc": "0xa594",
+      "word": "9280000d",
+      "instruction": "mov\tx13, #0xffffffffffffffff    \t// #-1"
+    },
+    {
+      "pc": "0xa598",
+      "word": "9acb25ab",
+      "instruction": "lsr\tx11, x13, x11"
+    }
+  ],
+  "mask_instruction_counts": [
+    4,
+    3
+  ],
+  "common_final_AND_excluded": {
+    "actual": "0xa5c8",
+    "A": "0xa5a0"
+  },
+  "ordinary_path_conditions": "Nonnull leaf, NULL member/length outputs, present score output, nonzero width, normal physical order, aligned score bit position, forward iteration within same leaf. Full other branch structure retained and reviewed.",
+  "ordinary_paths": {
+    "actual": {
+      "instructions": 43,
+      "encoded_path": [
+        {
+          "pc": "0xa4b4",
+          "word": "f9400008",
+          "instruction": "ldr\tx8, [x0]"
+        },
+        {
+          "pc": "0xa4b8",
+          "word": "b4000388",
+          "instruction": "cbz\tx8, a528 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "pc": "0xa4bc",
+          "word": "b9400809",
+          "instruction": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "pc": "0xa4c0",
+          "word": "aa03004a",
+          "instruction": "orr\tx10, x2, x3"
+        },
+        {
+          "pc": "0xa4c4",
+          "word": "b400046a",
+          "instruction": "cbz\tx10, a550 <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "pc": "0xa550",
+          "word": "b4000544",
+          "instruction": "cbz\tx4, a5f8 <zbtreeIteratorNext+0x144>"
+        },
+        {
+          "pc": "0xa554",
+          "word": "3940d10b",
+          "instruction": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "pc": "0xa558",
+          "word": "3940d50a",
+          "instruction": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "pc": "0xa55c",
+          "word": "340003cb",
+          "instruction": "cbz\tw11, a5d4 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "pc": "0xa560",
+          "word": "2a0903ec",
+          "instruction": "mov\tw12, w9"
+        },
+        {
+          "pc": "0xa564",
+          "word": "3400008a",
+          "instruction": "cbz\tw10, a574 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "pc": "0xa574",
+          "word": "9bac7d6c",
+          "instruction": "umull\tx12, w11, w12"
+        },
+        {
+          "pc": "0xa578",
+          "word": "d343fd8d",
+          "instruction": "lsr\tx13, x12, #3"
+        },
+        {
+          "pc": "0xa57c",
+          "word": "92400990",
+          "instruction": "and\tx16, x12, #0x7"
+        },
+        {
+          "pc": "0xa580",
+          "word": "8b0d010e",
+          "instruction": "add\tx14, x8, x13"
+        },
+        {
+          "pc": "0xa584",
+          "word": "f9401dcf",
+          "instruction": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "pc": "0xa588",
+          "word": "7200098e",
+          "instruction": "ands\tw14, w12, #0x7"
+        },
+        {
+          "pc": "0xa58c",
+          "word": "9ad025ec",
+          "instruction": "lsr\tx12, x15, x16"
+        },
+        {
+          "pc": "0xa590",
+          "word": "54000120",
+          "instruction": "b.eq\ta5b4 <zbtreeIteratorNext+0x100>  // b.none"
+        },
+        {
+          "pc": "0xa5b4",
+          "word": "9280000d",
+          "instruction": "mov\tx13, #0xffffffffffffffff    \t// #-1"
+        },
+        {
+          "pc": "0xa5b8",
+          "word": "7101017f",
+          "instruction": "cmp\tw11, #0x40"
+        },
+        {
+          "pc": "0xa5bc",
+          "word": "9acb21ae",
+          "instruction": "lsl\tx14, x13, x11"
+        },
+        {
+          "pc": "0xa5c0",
+          "word": "da8e21ab",
+          "instruction": "csinv\tx11, x13, x14, cs\t// cs = hs, nlast"
+        },
+        {
+          "pc": "0xa5c4",
+          "word": "39404d0d",
+          "instruction": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "pc": "0xa5c8",
+          "word": "8a0b018b",
+          "instruction": "and\tx11, x12, x11"
+        },
+        {
+          "pc": "0xa5cc",
+          "word": "9acd216b",
+          "instruction": "lsl\tx11, x11, x13"
+        },
+        {
+          "pc": "0xa5d0",
+          "word": "14000002",
+          "instruction": "b\ta5d8 <zbtreeIteratorNext+0x124>"
+        },
+        {
+          "pc": "0xa5d8",
+          "word": "f940150c",
+          "instruction": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "pc": "0xa5dc",
+          "word": "7100015f",
+          "instruction": "cmp\tw10, #0x0"
+        },
+        {
+          "pc": "0xa5e0",
+          "word": "da8b056a",
+          "instruction": "cneg\tx10, x11, ne\t// ne = any"
+        },
+        {
+          "pc": "0xa5e4",
+          "word": "8b0a018a",
+          "instruction": "add\tx10, x12, x10"
+        },
+        {
+          "pc": "0xa5e8",
+          "word": "9240f94b",
+          "instruction": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "pc": "0xa5ec",
+          "word": "f100015f",
+          "instruction": "cmp\tx10, #0x0"
+        },
+        {
+          "pc": "0xa5f0",
+          "word": "da8ab16a",
+          "instruction": "csinv\tx10, x11, x10, lt\t// lt = tstop"
+        },
+        {
+          "pc": "0xa5f4",
+          "word": "f900008a",
+          "instruction": "str\tx10, [x4]"
+        },
+        {
+          "pc": "0xa5f8",
+          "word": "34000081",
+          "instruction": "cbz\tw1, a608 <zbtreeIteratorNext+0x154>"
+        },
+        {
+          "pc": "0xa608",
+          "word": "3940450a",
+          "instruction": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "pc": "0xa60c",
+          "word": "11000529",
+          "instruction": "add\tw9, w9, #0x1"
+        },
+        {
+          "pc": "0xa610",
+          "word": "6b0a013f",
+          "instruction": "cmp\tw9, w10"
+        },
+        {
+          "pc": "0xa614",
+          "word": "54000143",
+          "instruction": "b.cc\ta63c <zbtreeIteratorNext+0x188>  // b.lo, b.ul, b.last"
+        },
+        {
+          "pc": "0xa63c",
+          "word": "b9000809",
+          "instruction": "str\tw9, [x0, #8]"
+        },
+        {
+          "pc": "0xa640",
+          "word": "52800020",
+          "instruction": "mov\tw0, #0x1                   \t// #1"
+        },
+        {
+          "pc": "0xa644",
+          "word": "d65f03c0",
+          "instruction": "ret"
+        }
+      ]
+    },
+    "A": {
+      "instructions": 42,
+      "encoded_path": [
+        {
+          "pc": "0xa490",
+          "word": "f9400008",
+          "instruction": "ldr\tx8, [x0]"
+        },
+        {
+          "pc": "0xa494",
+          "word": "b4000388",
+          "instruction": "cbz\tx8, a504 <zbtreeIteratorNext+0x74>"
+        },
+        {
+          "pc": "0xa498",
+          "word": "b9400809",
+          "instruction": "ldr\tw9, [x0, #8]"
+        },
+        {
+          "pc": "0xa49c",
+          "word": "aa03004a",
+          "instruction": "orr\tx10, x2, x3"
+        },
+        {
+          "pc": "0xa4a0",
+          "word": "b400046a",
+          "instruction": "cbz\tx10, a52c <zbtreeIteratorNext+0x9c>"
+        },
+        {
+          "pc": "0xa52c",
+          "word": "b4000524",
+          "instruction": "cbz\tx4, a5d0 <zbtreeIteratorNext+0x140>"
+        },
+        {
+          "pc": "0xa530",
+          "word": "3940d10b",
+          "instruction": "ldrb\tw11, [x8, #52]"
+        },
+        {
+          "pc": "0xa534",
+          "word": "3940d50a",
+          "instruction": "ldrb\tw10, [x8, #53]"
+        },
+        {
+          "pc": "0xa538",
+          "word": "340003ab",
+          "instruction": "cbz\tw11, a5ac <zbtreeIteratorNext+0x11c>"
+        },
+        {
+          "pc": "0xa53c",
+          "word": "2a0903ec",
+          "instruction": "mov\tw12, w9"
+        },
+        {
+          "pc": "0xa540",
+          "word": "3400008a",
+          "instruction": "cbz\tw10, a550 <zbtreeIteratorNext+0xc0>"
+        },
+        {
+          "pc": "0xa550",
+          "word": "9bab7d8c",
+          "instruction": "umull\tx12, w12, w11"
+        },
+        {
+          "pc": "0xa554",
+          "word": "d343fd8d",
+          "instruction": "lsr\tx13, x12, #3"
+        },
+        {
+          "pc": "0xa558",
+          "word": "92400990",
+          "instruction": "and\tx16, x12, #0x7"
+        },
+        {
+          "pc": "0xa55c",
+          "word": "8b0d010e",
+          "instruction": "add\tx14, x8, x13"
+        },
+        {
+          "pc": "0xa560",
+          "word": "f9401dcf",
+          "instruction": "ldr\tx15, [x14, #56]"
+        },
+        {
+          "pc": "0xa564",
+          "word": "7200098e",
+          "instruction": "ands\tw14, w12, #0x7"
+        },
+        {
+          "pc": "0xa568",
+          "word": "9ad025ec",
+          "instruction": "lsr\tx12, x15, x16"
+        },
+        {
+          "pc": "0xa56c",
+          "word": "54000120",
+          "instruction": "b.eq\ta590 <zbtreeIteratorNext+0x100>  // b.none"
+        },
+        {
+          "pc": "0xa590",
+          "word": "4b0b03eb",
+          "instruction": "neg\tw11, w11"
+        },
+        {
+          "pc": "0xa594",
+          "word": "9280000d",
+          "instruction": "mov\tx13, #0xffffffffffffffff    \t// #-1"
+        },
+        {
+          "pc": "0xa598",
+          "word": "9acb25ab",
+          "instruction": "lsr\tx11, x13, x11"
+        },
+        {
+          "pc": "0xa59c",
+          "word": "39404d0d",
+          "instruction": "ldrb\tw13, [x8, #19]"
+        },
+        {
+          "pc": "0xa5a0",
+          "word": "8a0b018b",
+          "instruction": "and\tx11, x12, x11"
+        },
+        {
+          "pc": "0xa5a4",
+          "word": "9acd216b",
+          "instruction": "lsl\tx11, x11, x13"
+        },
+        {
+          "pc": "0xa5a8",
+          "word": "14000002",
+          "instruction": "b\ta5b0 <zbtreeIteratorNext+0x120>"
+        },
+        {
+          "pc": "0xa5b0",
+          "word": "f940150c",
+          "instruction": "ldr\tx12, [x8, #40]"
+        },
+        {
+          "pc": "0xa5b4",
+          "word": "7100015f",
+          "instruction": "cmp\tw10, #0x0"
+        },
+        {
+          "pc": "0xa5b8",
+          "word": "da8b056a",
+          "instruction": "cneg\tx10, x11, ne\t// ne = any"
+        },
+        {
+          "pc": "0xa5bc",
+          "word": "8b0a018a",
+          "instruction": "add\tx10, x12, x10"
+        },
+        {
+          "pc": "0xa5c0",
+          "word": "9240f94b",
+          "instruction": "and\tx11, x10, #0x7fffffffffffffff"
+        },
+        {
+          "pc": "0xa5c4",
+          "word": "f100015f",
+          "instruction": "cmp\tx10, #0x0"
+        },
+        {
+          "pc": "0xa5c8",
+          "word": "da8ab16a",
+          "instruction": "csinv\tx10, x11, x10, lt\t// lt = tstop"
+        },
+        {
+          "pc": "0xa5cc",
+          "word": "f900008a",
+          "instruction": "str\tx10, [x4]"
+        },
+        {
+          "pc": "0xa5d0",
+          "word": "34000081",
+          "instruction": "cbz\tw1, a5e0 <zbtreeIteratorNext+0x150>"
+        },
+        {
+          "pc": "0xa5e0",
+          "word": "3940450a",
+          "instruction": "ldrb\tw10, [x8, #17]"
+        },
+        {
+          "pc": "0xa5e4",
+          "word": "11000529",
+          "instruction": "add\tw9, w9, #0x1"
+        },
+        {
+          "pc": "0xa5e8",
+          "word": "6b0a013f",
+          "instruction": "cmp\tw9, w10"
+        },
+        {
+          "pc": "0xa5ec",
+          "word": "54000143",
+          "instruction": "b.cc\ta614 <zbtreeIteratorNext+0x184>  // b.lo, b.ul, b.last"
+        },
+        {
+          "pc": "0xa614",
+          "word": "b9000809",
+          "instruction": "str\tw9, [x0, #8]"
+        },
+        {
+          "pc": "0xa618",
+          "word": "52800020",
+          "instruction": "mov\tw0, #0x1                   \t// #1"
+        },
+        {
+          "pc": "0xa61c",
+          "word": "d65f03c0",
+          "instruction": "ret"
+        }
+      ]
+    }
+  },
+  "function_instruction_counts": {
+    "zbtreeIteratorNext": {
+      "actual": 114,
+      "A": 113
+    },
+    "zbtreeScore": {
+      "actual": 25,
+      "A": 25
+    },
+    "zbtreeScoreRaw": {
+      "actual": 491,
+      "A": 491
+    },
+    "zbtreeRank": {
+      "actual": 585,
+      "A": 585
+    },
+    "zbtreeFindForAdd": {
+      "actual": 688,
+      "A": 688
+    },
+    "zbtIndexScanSlot": {
+      "actual": 509,
+      "A": 508
+    },
+    "zbtScoreLeafScoreBound": {
+      "actual": 115,
+      "A": 114
+    }
+  },
+  "shared_caller_findings": [
+    "Iterator mask NEG/MOV/LSR replaces MOV/CMP/LSL/CSINV with no feeding work hoisted elsewhere; retained finalAND/load/shift, zero-width and conditional ninth-byte guards. UMULL operand order changes commutatively.",
+    "Score25instructions match encoded words. ScoreRaw491, Rank585 andFindForAdd688 retain operation structure; explicit assertion address/source-line and call/branch relocation changes are not hidden or declared byte identity.",
+    "ScanSlot509to508 removes one mask construction instruction; CBZw8toCBZx8 follows LDRBw8 zeroextension, not widened memory access; commutative UMULL swap. Same load/conditionalbranch/call counts.",
+    "ScoreLeafScoreBound115to114 uses three mask setup instructions below the existing zero-width test; baseline four mask setup operations were above it. Register renames preserve zeroextended width/base dependencies and guarded ninth-byte load.",
+    "Full ordinary aligned score-only path43to42 instructions; nonaligned/crossing/reversed paths preserve their guards and added path work. No extra memory read, conditionalbranch or call introduced in inspected equivalent paths."
+  ],
+  "limits": [
+    "Static eligibility only, no elapsed-speed or causal cycle claim.",
+    "Raw assembly and all encoded words remain retained; explanatory address normalization used only to inspect diffs, not to alter artifacts.",
+    "Compiler layout/assertion-address changes remain explicit. Broad performance guards, freshconfirmation and matched candidate profiles are absent; any primary survival onlyPARK."
+  ]
+}
