@@ -203,3 +203,5 @@ Intel scan architecture replication: exact A/B pass both discovery primaries; B 
 Intel full original guard A/A completes960rows;57/80 cells qualify,23 unresolved. Scan B remains **PARK/source NONE**; no new population. Runner handed idle for independent confirmation. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md).
 
 Intel full original B guard comparison completes960rows;56/57 qualified cells pass,24/80 unresolved overall. **PARK/source NONE**, no population increment. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md).
+
+Intel focused SCAN controls complete864rows/216blocks:22/36 cells qualify,14 failprecision,none short. **PARK/source NONE**, no population increment. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/011-focused-scan-guards/README.md).

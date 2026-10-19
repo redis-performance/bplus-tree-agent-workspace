@@ -60,3 +60,5 @@
 2026-10-19T04:45:28.941243+00:00 Focused baseline calibrationCOMPLETE324 serial rows in178.75s/300s. Raw schedule/CPU2/checksum/ownedbytes auditPASS;24 post-calibration hashes unchanged.36 fixedpasscounts1..942 frozen with both864-process AA/B schedules beforecomparison; allcounts below100000cap. Next baseline AA900s, no adaptation/retry/extension.
 
 2026-10-19T04:49:50.160698+00:00 Submitted independent corrected-ARM scan proposal from common9cd8689db: bounded16-byte NEON exactmatch/nibble enumeration with original residual/fallback, subjectto root freshAA audit. Priorold8fab NONE remainsfinal; priorSIMD context disclosed, no peerproposal reads or implementation. Intel011 A/A continues unchanged.
+
+2026-10-19T04:57:05.237822+00:00 Focused AA COMPLETE864 rows/216 blocks in611.62s under900s;22/36 cells qualify,14 precision-failed,zero shortwindows. Raw schedule/CPU2/serial/checksum/ownedbytes auditPASS;24 post-AA hashes unchanged. Full frozen864-row B diagnostic next under900s,including everyfailedcontrol label; no adaptation/retry/source switch. Overall PARK/source NONE.
