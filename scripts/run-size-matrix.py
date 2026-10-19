@@ -52,6 +52,8 @@ def main():
         manifest['machine']['macos'] = subprocess.check_output(['sw_vers', '-productVersion'], text=True).strip()
     else:
         manifest['machine']['cpu_info'] = Path('/proc/cpuinfo').read_text().split('\n\n')[0]
+        manifest['machine']['affinity'] = sorted(os.sched_getaffinity(0))
+        manifest['machine']['affinity_note'] = 'Inherited by all validation and timing children'
     def save():
         (out/'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     def validate(name, command):
