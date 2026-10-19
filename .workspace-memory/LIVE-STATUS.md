@@ -1,4 +1,49 @@
-# Live status — round20 final handoff, 2026-10-18 UTC
+# Live status — Apple M1 shared night, 2026-10-19 UTC
+
+## Post-run gate check, 06:50 UTC
+
+The M1 first-pass queue ended early with 0 accepted / 3 rejected / 6 parked
+across 9 populations; source NONE. Round-three evidence is pushed at
+`9ce51754a9eebb0e53c65afe650c54a146515808`. The published M6 branch now
+selects no tree optimization and offers no eligible patch for exact M1
+replication. [Decision and observed M6 commit](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md).
+No further M1 source trial is queued. Historical UNKNOWN/pending statements
+below were accurate at their respective checkpoints.
+
+## Current campaign: round 3 optional slot completed
+
+[DECODE-001](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md)
+tested three sequential private count-one policies. All pass correctness;
+four serial phases/6,720 processes and independent raw audit pass. The
+width-60 count-one gains are unqualified because all 70 A/A cells have short
+windows, and every variant has large guard losses. Decision PARK, source
+NONE, no fresh confirmation. M6 remains UNKNOWN; git provenance pending
+the recorded denial. Totals 0 accepted / 3 rejected / 6 parked across
+9 populations. First eight-hour queue is exhausted.
+
+## Current campaign: round 2 evidence saved
+
+[Host status](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
+RANK-001 completed three sequential isolated variants and 144 serial
+public-rank processes; no consistent dual-primary gain, bounded REJECT,
+source NONE. UPDATE-001 completed the five-path inventory, reason census,
+profile and failed primary A/A; candidate NONE. LOOKUP-001 validated
+independent-query hit/miss profiles and chose NONE after three sequential
+proposal passes. Optional slot DECODE-001 count-one diagnostic is next.
+Current totals 0 accepted / 3 rejected / 5 parked across 8 populations.
+M6 state UNKNOWN after DNS failures; git provenance pending after the
+recorded index-lock denial. Use the injected deadline and round status.
+
+## Current campaign: round 1 complete
+
+[Host status and handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
+five-size baseline passes native/sanitizer validation and reconstructs
+120 processes / 960 rows. Rank-only controls fail strict precision at all three
+targeted sizes; public sampled PCs and a structural census support a bounded
+shorter-side sum hypothesis. Three proposal passes were sequential, not agents.
+No candidate, source change or M6 result. Git writes denied once; patch/hashes
+retained. Next check M6 publication before isolated rank implementations;
+acceptance remains unavailable without qualified controls and full guards.
 
 ## Latest completed task: EXP-007 bulk specialization
 

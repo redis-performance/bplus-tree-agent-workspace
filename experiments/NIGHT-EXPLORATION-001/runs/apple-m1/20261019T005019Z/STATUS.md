@@ -1,5 +1,13 @@
 # Apple M1 night exploration — status during round 3
 
+**Post-round checkpoint, 06:50 UTC:** The round-three evidence is published
+at `9ce51754a9eebb0e53c65afe650c54a146515808`. The M6 branch is now
+reachable and selects no source candidate; its later NEON trial is parked
+before candidate timing. The [cross-host gate check](M6-GATE-20261019T0650Z.md)
+records the exact remote commit and decision. No further M1 source experiment
+is queued under the M6-priority and stop-early rules. Earlier UNKNOWN and
+Git-failure entries below describe what the worker knew at those times.
+
 Round 3 optional DECODE-001 is [complete](005-decode/RESULT.md): three
 sequential isolated count-one policies pass release/sanitizer self-tests and
 1,040 focused cells. Four phases ran 6,720 serial processes / 866,880 sample

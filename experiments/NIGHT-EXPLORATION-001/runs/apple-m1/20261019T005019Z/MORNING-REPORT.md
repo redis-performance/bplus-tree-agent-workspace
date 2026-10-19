@@ -1,5 +1,11 @@
 # Early final report — Apple M1, 20261019T005019Z
 
+Post-report coordination at 06:50 UTC: [M6 gate check](M6-GATE-20261019T0650Z.md)
+documents the now-published M6 decisions and the reason no further M1 source
+trial is queued. Round-three M1 evidence was subsequently committed and pushed
+at `9ce51754a9eebb0e53c65afe650c54a146515808`. The UNKNOWN and pending
+publication statements below reflect the original 01:44 UTC report.
+
 Status: first-pass queue complete; no source candidate selected. Started
 2026-10-19 00:50:42 UTC; early final report prepared about 01:44 UTC under
 the PLAN.md stop-early rule. Injected campaign deadline remains 20:00 UTC.

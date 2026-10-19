@@ -1,5 +1,17 @@
 # Experiment log
 
+## 2026-10-19 — M1 first-pass stop and published M6 decision check
+
+[M1 round-three evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+is pushed at `9ce51754a9eebb0e53c65afe650c54a146515808`.
+The [cross-host gate check](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+records the observed M6 commit, source NONE decisions, and lack of an eligible
+patch for exact M1 replication. M1 stops under the preregistered stop-early
+and M6-priority rules; no further source timing is queued. This adds no new
+optimization population. M1 totals remain 0 accepted / 3 rejected / 6 parked
+across 9 populations, and root tree source is unchanged. Earlier UNKNOWN and
+pending-Git statements below are historical checkpoints.
+
 ## 2026-10-19 — shared-night Apple M1 LOOKUP-001 diagnosis
 
 [Result](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/004-lookup/RESULT.md):

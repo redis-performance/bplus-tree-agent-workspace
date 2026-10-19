@@ -12,9 +12,11 @@ Current optimization decisions: **0 accepted / 3 rejected / 6 parked across
 9 populations**.
 
 The [shared overnight exploration](experiments/NIGHT-EXPLORATION-001/README.md)
-is running on M1; its [current result and handoff](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md)
-cover the five-size baseline, rank trial and parked private decoder policy trial.
-M6 results remain separate.
+stopped early on M1 after its first-pass queue found no eligible candidate. The
+[M1 result](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+covers the five-size baseline, rank trial and parked private decoder policy trial.
+The [M6 gate check](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+records why no further M1 source trial is queued. M6 results remain separate.
 The original four-size data is preserved.
 
 ## Build and test

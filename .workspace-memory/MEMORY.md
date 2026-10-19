@@ -1,5 +1,50 @@
 # Shared memory
 
+Latest M1/M6 coordination: the [M1 report](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+and [M6 gate check](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+are published. M1 stopped early after its first-pass queue: 0 accepted /
+3 rejected / 6 parked across 9 populations; source NONE. M6 now reports
+0 accepted / 7 rejected / 5 parked across 12 separate populations and no
+patch eligible for M1 replication. No further M1 source trial is queued.
+Earlier UNKNOWN and Git-denial statements below are historical checkpoints.
+
+Latest M1 [DECODE-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md):
+three sequential isolated count-one private decoder policies pass native/
+sanitizer and targeted checks. 6,720 serial processes / 866,880 raw sample rows
+pass independent reconstruction. Width-60 count-one effects are exploratory
+gains, but 0/70 A/A cells qualify and all candidates show large guard losses.
+PARK/source NONE; no fresh confirmation or iterator integration. M6 decision
+UNKNOWN after DNS failures. Optimization totals 0 accepted / 3 rejected /
+6 parked across 9 populations. First eight-hour queue is exhausted; no
+eligible contender awaits confirmation.
+
+Latest M1 LOOKUP-001 [result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/004-lookup/RESULT.md):
+independent-query hit/miss referee passes release/sanitizer through 1M.
+Longer scoped hit profiles land many PCs in platform memchr, while untimed
+counts show 1.14–1.16 full comparisons per hit. Three sequential proposal
+passes led the chair to NONE because the supported inline scanner was
+already tried in EXP-006 and showed single-lane concerns. No new candidate,
+population or source change. M6 result remains UNKNOWN after DNS failure.
+
+Latest active M1 run: [round 2 status](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md).
+RANK-001's three sequential isolated variants pass native/sanitizer and
+targeted rank oracles, but 144 serial public-rank processes show no consistent
+dual-primary improvement: bounded trial REJECT, source NONE. UPDATE-001
+diagnostic completed five named paths, 75 inventory processes, scoped profiles
+and a 48-process A/A. At 1M, 11,058/20,000 position-preserving updates
+reinsert solely after exact pack failure; both primary A/A cells fail strict
+precision. No update candidate/population. M6 publication remains UNKNOWN
+after DNS failures. Next: LOOKUP-001 independent-query profile. Current
+optimization totals 0 accepted / 3 rejected / 5 parked across 8 populations.
+
+Latest active run: [Apple M1 night round 1](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md).
+Five-size baseline complete; rank public profile and structural census support
+one shorter-side exploration, but strict A/A fails at 10K/100K/1M. Three
+proposal passes were sequential; no variant, adoption or M6 observation yet.
+Git writes denied at index lock; exact patch/hashes retained. Next: check M6
+publication, then isolated implementations under the frozen rank discovery plan.
+Existing optimization totals are unchanged.
+
 Latest: [EXP-007 bulk decoder results](../experiments/EXP-007/RESULTS.md).
 Completed both real three-agent population steps. B shortlist gives -33.14% primary
 and about -43% aligned full-leaf elapsed time on fresh seeds, but three qualified

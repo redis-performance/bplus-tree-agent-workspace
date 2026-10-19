@@ -1,5 +1,16 @@
 # Experiment summary
 
+## Latest: M1 first-pass stop and M6 gate check, 19 October
+
+The [M1 final report](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+records 0 accepted / 3 rejected / 6 parked across 9 M1 optimization
+populations. Round-three evidence is published; the tree source is unchanged.
+The [M6 decision check](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+finds no selected M6 patch for exact M1 replication, so no further M1 source
+trial is queued under the stop-early and M6-priority rules. The separate M6
+record has 0 accepted / 7 rejected / 5 parked across 12 populations.
+Neither host's timing data is pooled with the other's.
+
 ## Latest: shared-night Apple M1 single lookup, 19 October
 
 [LOOKUP-001](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/004-lookup/RESULT.md)
