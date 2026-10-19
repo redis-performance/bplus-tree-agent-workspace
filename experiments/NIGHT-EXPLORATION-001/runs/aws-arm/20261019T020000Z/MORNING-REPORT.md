@@ -127,3 +127,15 @@ native Codex backend; exact model and measured token/monetary cost are unknown.
 Root owns central reporting and the scheduled08:00UTC lease release. Record actual
 job termination, lease release and OSS restoration separately when observed; this
 report does not assert those events have occurred.
+
+## Addendum after the initial report — 2026-10-19T06:35:09.380034+00:00
+
+Root requested a separate [corrected ARM score-only iterator baseline diagnosis](024-corrected-iterator/RESULT.md),
+then granted each phase after independent review and a verified post-observer idle
+handoff. It is distinct from old8fab full-member replication and AMD029. Fixed profile
+passes51 commands/six captures/970 samples; root and AMDd42ca4ef2 independently verify
+controls and actual013 code mapping. Fixed50M-op A/A completes48 rows/12 blocks:
+100K/1M both qualify, maximum absolute variation0.053911%/0.371524%, minimum windows
+166.240/186.780ms. No priming/calibration/retry or candidate measurement. SourceNONE,
+population counts and all prior decisions remain unchanged. Raw A/A review/root next
+step remain pending; runner is idle. LeaseACTIVE/restorationPENDING still applies.

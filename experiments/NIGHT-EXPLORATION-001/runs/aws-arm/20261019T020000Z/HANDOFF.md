@@ -23,3 +23,5 @@ The [activity log](ACTIVITY.md) and Git retain chronological milestone states.
 Root requested a separate [corrected ARM score-only iterator diagnosis](024-corrected-iterator/PLAN.md). Plan/execution freeze prepared; no launch, pending root and independent AMD review plus post-ambient idle handoff. Morning results and all prior decisions remain unchanged.
 
 Profile-only024 completed: [immutable result](024-corrected-iterator/PROFILE-RESULT.md),51 commands/6 captures/970 samples, controls pass. No A/A/candidate yet; runner idle for independent raw review and root phase grant.
+
+024 baseline now complete: [result](024-corrected-iterator/RESULT.md),48 A/A rows/12 blocks; bothsizes qualify. SourceNONE/counts unchanged, no candidate/proposal authorized. Runner idle awaiting independent raw review/root decision.

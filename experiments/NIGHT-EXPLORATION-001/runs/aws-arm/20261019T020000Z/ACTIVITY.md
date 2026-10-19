@@ -109,3 +109,7 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 2026-10-19T06:27:07.210227+00:00: Root explicit post-observer idle handoff/profile-only grant received after native review and AMD ec90b042f. Launched exact frozen024 profile via owned600s CPU2 helper. Source/candidate unchanged; no A/A grant yet.
 
 2026-10-19T06:28:38.206574+00:00: ARM024 fixed baseline-only profile completes51 commands/6 captures/970 scientific samples in29.623s; all semantic/known/disabled controls and before/after identities pass. Known234/238 physical events,99.999992% period, outside0; reportedloss0. Exact501 tree-event opcode mappings to actual013 pass; caller differences retained. No A/A yet, runner workload ended awaiting independent raw review/root phase grant.
+
+2026-10-19T06:33:14.475906+00:00: Root independent profile reconstruction and AMD d42ca4ef2 pass; explicit A/A-only300s grant received. Launched frozen02448-row50Mops seed701–703twice schedule on unchanged actual013330b39a9 under serialCPU2 owned helper. No candidate/proposal authorized.
+
+2026-10-19T06:35:09.380034+00:00: ARM024 completes exact48 same-binary A/A rows/12 blocks. Bothsizes qualify; maxabs100K0.05391125%,1M0.37152408%, min166.240/186.780ms. No retries/exclusions; actual013 binary330b39a9 andsource/referee unchanged. No candidate/proposal authorization; runner workload ended, independent raw review pending. Counts/sourceNONE unchanged.
