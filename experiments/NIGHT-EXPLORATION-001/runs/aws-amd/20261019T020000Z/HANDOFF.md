@@ -16,3 +16,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T05:36:29.237845+00:00: Independent Intel supplemental audit026 reconstructs2124 processes/360 ABBA effects and360 census rows. Ten qualified cells:8PASS,1REJECT(trim319 exact signedzero,all6>1%,median+4.930768%),1mixedPARK;20 noisy retained.38 supplemental+22 original posthashes verified. REJECT exactold-adapterB/sourceNONE; AMD idle, no runner measurements.
 
 - 2026-10-19T05:41:03.897171+00:00: Independent ARM019 profile audit reconstructsall17482samples,52commands/28semanticrows/124hashes. Exact70addressBpredicate17.669828%/16.866355% timed-period,400/421events; allpreregisteredmaterialitygatespass. FullprocessPMU/post-filter andcausallimits retained; REJECT/NONEunchanged,noimplementationproposal. AMDidle/nohostaccess.
+
+- 2026-10-19T05:45:07.889153+00:00: Independent ARM fold proposal028 recommends NONE: fresh controls qualify, but sampled predicate17% does not establish enough recovery from prior B+55–79% to beat unchanged baseline by2%. Deferred mask-hoist mechanism/risks/falsification recorded, no peer proposal reads or code/measurements. SourceNONE, AMDidle.
