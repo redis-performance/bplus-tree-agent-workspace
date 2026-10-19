@@ -20,3 +20,7 @@ not confidence intervals. The shaded band is±1%; both baseline A/A controls qua
 B advances by preregistered source preference, not a claim of superiority over A.
 Guards, fresh confirmation and profile validation remain; source NONE. This chart
 is a discovery checkpoint, not a portable or whole-operation-suite performance claim.
+
+## M6 adapter/compiler-contract diagnostic
+
+Pinned source: [7c8f5c0bd results](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/RESULTS.md), [raw independent audit](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/INDEPENDENT-AUDIT.md), [reproduction and exact data](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/CHART.md). Copied PNG/SVG/data are byte-identical to that commit. All eight effects conditional (zero ofeight workloads qualify controls onbothadapters); no tree acceptance or candidate population. The source tree and exact owned memory are unchanged. Six points and observed ranges are not confidence intervals.
