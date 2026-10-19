@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover.
+Independent Intel B discovery and focused referee review complete: no semantic blocker; adoption remains PARK with missing guards, confirmation and matched profile. Read-only audit verified 368 focused validation commands, 108 cells and eight fault exits. AMD host idle; no Intel access. Next: independent proposal from immutable ARM scan baseline packet, without peer proposal reads.
 
-Evidence009-delete/DECISION.md and010-intel-scan-review/. SourceNONE. Deadline08:00UTC, no new experiments after07:15UTC.
+AMD totals: 4 populations, 0 accepted, 3 rejected, 1 parked. Source NONE. Deadline 08:00 UTC; no new experiments after 07:15 UTC.

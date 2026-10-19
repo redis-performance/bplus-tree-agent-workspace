@@ -45,3 +45,5 @@
 - 2026-10-19T03:45:34.509158+00:00: independent AMD proposalc4d69f7f7 submitted without peer reads. Fixed delete A/A48processes:100Kqualifies(maxabs0.742%),1Mfails(+4.682%,+3.035%,+1.087%blocks). No retries/ops changes. Noise approaches nominal5.496% loop share; root chair may chooseNONE. Every control row retained.
 
 - 2026-10-19T03:48:40.516973+00:00: Delete-offset diagnostic chair101895e82 selectsNONE:1M AA noise up to4.682% versus approximate5.496% loop attribution,100K sparse samples. Three actual proposals retained; no implementation/retry/new optimization count. AMD totals remain4populations:0accepted,3rejected,1parked. AMD host idle; independent Intel scan B review next, no runner access before handover.
+
+- 2026-10-19T03:56:35.069171+00:00: Independent Intel B discovery and focused referee review complete: no semantic blocker; adoption remains PARK with missing guards, confirmation and matched profile. Read-only audit verified 368 focused validation commands, 108 cells and eight fault exits. AMD host idle; no Intel access. Next: independent proposal from immutable ARM scan baseline packet, without peer proposal reads.
