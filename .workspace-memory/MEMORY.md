@@ -1,3 +1,13 @@
+<!-- MCP-PR-CURRENT -->
+CPU-perf upstream PR #13 opened with explicit user authorisation:
+https://github.com/usamahz/cpu-performance-engineering/pull/13
+Head a5a05e6 fixes unknown clock/SMT state handling and equivalent metadata wording.
+Actual evals36/36 vs10/36 baseline; falsequotable18→0; fullsuite211passed/2crawled-DB
+skips; realstdio36/36; existinglistretrieval21/21. UpstreamCI action_required, not
+passed. See experiments/MCP-TOOLING-REVIEW-001/pr-validation/VALIDATION.json.
+No source-tree optimisation, AWS workload, new population or upstream merge.
+<!-- MCP-PR-CURRENT-END -->
+
 <!-- M6-BRACKET-CURRENT -->
 M6-CLOCK-BRACKET-001 CLOSED: lookup clock-bracket harness implemented and validated;
 fresh two-size baseline PARK, source NONE. Original43 tests pass native+ASan/UBSan,

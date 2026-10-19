@@ -1,0 +1,75 @@
+{
+  "recorded_at": "2026-10-19T15:30:20.142947+00:00",
+  "pr": "https://github.com/usamahz/cpu-performance-engineering/pull/13",
+  "repository": "usamahz/cpu-performance-engineering",
+  "baseline": "deb5a0bac46760503b6f4a2608bdfed470c8532e",
+  "candidate": "a5a05e6bf7c90a1a2403d9a00b3d43f996eb847d",
+  "eval_only_commit": "e150e17",
+  "author": "/root",
+  "backend": "native Codex",
+  "exact_model": null,
+  "token_cost": null,
+  "python": "3.14.0",
+  "os": "Linux",
+  "full_suite": {
+    "passed": 211,
+    "skipped": 2,
+    "elapsed_seconds": 32.44
+  },
+  "skip_reason": "Two tests require CPU_PERF_EVAL_DB pointing to a crawled source library; unavailable.",
+  "list_eval": {
+    "passed": 21,
+    "total": 21
+  },
+  "claim_eval": {
+    "before": 10,
+    "after": 36,
+    "total": 36,
+    "false_quotable_before": 18,
+    "false_quotable_after": 0,
+    "false_rejection_before": 8,
+    "false_rejection_after": 0
+  },
+  "stdio_eval": {
+    "passed": 36,
+    "total": 36
+  },
+  "link_check": {
+    "exit_code": 0,
+    "ok": 260,
+    "blocked": 37,
+    "unreachable": 2,
+    "dead": 0,
+    "browser_rechecked": false
+  },
+  "ci": {
+    "observed": "action_required",
+    "url": "https://github.com/usamahz/cpu-performance-engineering/actions/runs/39278373036",
+    "no_remote_pass_claim": true
+  },
+  "mcp_consultation": {
+    "server": "cpu-perf",
+    "version": "0.1.1",
+    "direct_endpoint_available": false,
+    "transport": "actual local stdio",
+    "calls": [
+      {
+        "tool": "library_status",
+        "called_at": "2026-10-19T15:22:54.220775+00:00",
+        "arguments": {},
+        "raw_response_sha256": "7bc0d1b0c509d5ad824c167fd30a9536bdef820375fa3087fc37e990d7754887"
+      },
+      {
+        "tool": "ask",
+        "called_at": "2026-10-19T15:22:54.228159+00:00",
+        "arguments": {
+          "question": "What validation evidence should distinguish checker metadata parsing fixes from performance or retrieval improvements? Challenge false positives, false negatives and overclaiming; no unrelated optimization.",
+          "context": "User authorizes upstream MCP PR with actual eval validation. Source deb5a0bac467, cpu-perf0.1.1. Reproduced check_evidence quotable for nominal2.6GHz with frequency unmeasured, turbo unknown and SMT unknown; Six runs missed while6runs passes; Clang18.1.3 and one pinned core missed. Plan narrow fix preserving evidence schema and existing tests, golden positive/negative minimal pairs, before/after eval, full offline suite, real MCP call, format/link checks. No benchmark changes."
+        },
+        "raw_response_sha256": "c91a125c8845da9e3b74803c79070ea1bce521a8a37caa3b2fed54b0df7c8195"
+      }
+    ],
+    "limitation": "0/287 source passages indexed; no source-backed advice. Findings verified by source inspection and executed tests."
+  },
+  "scope": "Evidence checker, documentation and deterministic evals; no benchmark changes, source optimization adoption, library indexing, upstream merge or source-library retrieval claim."
+}

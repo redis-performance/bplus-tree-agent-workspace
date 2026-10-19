@@ -75,7 +75,7 @@ as directly applicable. Source relevance and numerical portability remain separa
 3. Add typed metadata and text-parser compatibility tests.
 4. Improve vendor resolution and architecture/OS routing with captured fixtures.
 
-These are reviewed recommendations, not implemented upstream changes. Existing
+The checker fixes are now implemented in [upstream PR #13](https://github.com/usamahz/cpu-performance-engineering/pull/13); other recommendations remain separate follow-ups. Existing
 benchmark decisions remain unchanged. Exact serving model and token/currency costs
 are unknown. No optimization-population counts change.
 
@@ -85,3 +85,28 @@ Primary sources inspected:
 - [Evidence checker](https://github.com/usamahz/cpu-performance-engineering/blob/deb5a0bac46760503b6f4a2608bdfed470c8532e/misc/mcp/src/cpu_perf/evidence.py)
 - [Question routing](https://github.com/usamahz/cpu-performance-engineering/blob/deb5a0bac46760503b6f4a2608bdfed470c8532e/misc/mcp/src/cpu_perf/brain.py)
 - [Vendor link resolver](https://github.com/usamahz/cpu-performance-engineering/blob/deb5a0bac46760503b6f4a2608bdfed470c8532e/misc/mcp/src/cpu_perf/library/resolve.py)
+
+
+## Upstream PR with executed evals — 19 October
+
+User explicitly authorised opening an MCP PR with actual evaluation. Opened
+[PR #13](https://github.com/usamahz/cpu-performance-engineering/pull/13), head
+`a5a05e6bf7c90a1a2403d9a00b3d43f996eb847d`. The first commit adds failing cases;
+the second fixes the checker and verifies the cases through the MCP interface.
+No upstream merge is requested or performed.
+
+| Evaluation | Original | Candidate |
+|---|---:|---:|
+| Authored claim cases (verdict and field checks) | 10/36 | 36/36 |
+| False quotable verdicts | 18 | 0 |
+| False rejections of complete claims | 8 | 0 |
+| Existing list retrieval cases | 21/21 | 21/21 |
+
+Full local suite:211passed/2skipped in32.44s on Linux/Python3.14.0. All36cases
+also passed through actual subprocess stdio MCP. Selftest and format checks pass.
+Link checker exits0:260OK/37blocked/2unreachable/0dead; unchanged blocked URLs were
+not manually browser-verified. The two skipped tests require a crawled source eval
+database. These are authored regression cases, not blinded general-accuracy evidence.
+[Per-case results, logs and consultation](pr-validation/VALIDATION.json) preserve
+what actually ran. Upstream workflows currently report action_required; local test
+success is not presented as an upstream CI pass. No runner or benchmark changes.
