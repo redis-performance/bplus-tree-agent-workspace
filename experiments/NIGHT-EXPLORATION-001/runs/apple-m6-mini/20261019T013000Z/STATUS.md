@@ -18,7 +18,9 @@ Lisbon; no experiments after 07:15 UTC.
 Exact hypothesis/patch/referee identities and acknowledged comparison commits are
 in [MORNING-REPORT.md](MORNING-REPORT.md). Prior final handoff published
 **e78e0d4fd7abb323755a3046922792e00f78e228**, matching coordinator ack
-r5-final-audited-handoff-20261019T030500Z. Current report correction awaits publication.
+r5-final-audited-handoff-20261019T030500Z. Round 6 reporting correction published **c9dee3a05**, matching request
+`r6-report-review-20261019T030859090633Z` (ok at03:09:00UTC).
+Final handoff publication follows; read its matching acknowledgement on resume.
 
 Round 6 is reporting-only: corrected stale README target/decoder wording, refreshed
 supervisor usage through completed round 5, verified 9 launcher hashes and 12 retained

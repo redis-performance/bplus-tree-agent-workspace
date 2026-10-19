@@ -67,7 +67,8 @@ full local build artifacts remain in ignored scratch with recorded checksums.
 
 Cached M1 branch revision `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9` is context only.
 No fresh remote refresh was attempted after the recorded DNS failure. Exact M1
-replication of these M6 patch/harness pairs is **NOT RUN**; no rows are pooled.
+replication of these M6 patch/harness pairs is **NOT RUN in that cached revision**;
+current remote state is **UNKNOWN**. No rows are pooled.
 M1 Clang 17 versus M6 Clang 21 is an additional cross-host confounder. M1 should
 skip the rejected exact policies for their original objectives; any distinct
 follow-up requires its own preregistration and guards.
@@ -92,7 +93,8 @@ unknown. Token fields retain their original meanings and are not double-counted.
 Core queue's last experimental child ended 03:00:37.811992 UTC. Round 6 launched no
 build, test, profile or timing child. Prior final handoff was acknowledged/published
 as `e78e0d4fd7abb323755a3046922792e00f78e228` on
-`exploration/apple-m6-mini-20261019T013000Z`; this report update awaits its own ack.
+`exploration/apple-m6-mini-20261019T013000Z`; round 6 reporting update was acknowledged as **c9dee3a05** at03:09:00UTC
+for `r6-report-review-20261019T030859090633Z`. Final handoff publication follows.
 The coordinator alone commits/pushes. Baseline src remains unchanged.
 
 Recorded branch totals remain 11 completed populations (9 sequential + 2 historical

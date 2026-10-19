@@ -167,7 +167,7 @@ more time. Bars show the observed range across measurement blocks.
 
 The separate [M6 count-one policy trial](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md)
 tested scalar fallback **only for a single score** and rejected all three universal
-policies on larger-range guards. Exact M1 replication of those policies is NOT RUN.
+policies on larger-range guards. Exact M1 replication of those policies is not recorded in the cached M1 status.
 The complete [experiment log](experiments/EXPERIMENTS.md)
 retains earlier attempts and their evidence.
 

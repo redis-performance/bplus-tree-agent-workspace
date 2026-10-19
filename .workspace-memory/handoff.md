@@ -1,7 +1,8 @@
 # Handoff
 
-M6 round 6 reporting checkpoint: prior final handoff published `e78e0d4fd` with
-matching coordinator ack. Core queue complete / source NONE; counts unchanged.
+M6 round 6 reporting update published `c9dee3a05` with matching ok coordinator
+ack at03:09:00UTC; final handoff publication follows. Prior handoff `e78e0d4fd`.
+Core queue complete / source NONE; counts unchanged.
 [Morning report](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
 now links exact comparison identities; README stale next-target/count-one wording
 corrected; supervisor usage through completed round 5 saved. Bounded review verifies

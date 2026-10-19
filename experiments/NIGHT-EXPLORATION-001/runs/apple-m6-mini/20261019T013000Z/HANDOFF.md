@@ -22,7 +22,7 @@ Next concrete action: read matching publish-request/publish-ack, then inspect
 interactive root owns that follow-up. At this checkpoint three actual proposal
 agents are recorded, implementation population NOT STARTED, selected hypothesis
 null. Do not infer a completed population, eligibility or authorization for a
-worker-owned trial. Do not read proposals to impersonate the chair or overwrite
+worker-owned trial. Leave the chair decision to the recorded operator and do not overwrite
 that directory. While the operator review is active, report/audit only; no duplicate
 agents or timings. Leave the supervisor/deadlines/STOP unchanged and do not create
 a BLOCKED.md that would stop the operator's work. If no new worker task is available,
@@ -45,4 +45,7 @@ source/evidence stable and do no builds/tests/profiles/timings during its barrie
 Poll every five seconds, max120s; record a matching ack. No Git writes, denied
 worktree/sysctl/profiler retries, permission/credential changes, upstream actions,
 main push or supervisor edits. Cached M1 4c48fa7e remains context only; no network
-retry or cross-host sample pooling. Current round publication follows.
+retry or cross-host sample pooling. Round 6 reporting publication **c9dee3a05** acknowledged ok at03:09:00UTC
+for `r6-report-review-20261019T030859090633Z`; see ROUND-006-PUBLICATION.json.
+This final handoff publication follows. On resume read its matching ack; do not
+repeat reporting updates or inventories without new findings.
