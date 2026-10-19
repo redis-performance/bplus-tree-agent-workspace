@@ -24,3 +24,5 @@
 - 2026-10-19T02:58Z: Root assigned supported Intel iterator A/B architecture replication. Exactpatches frozen from58ee8315e, rootreview434e39ef5. Fresh ARM baseline build/validation/profile first; waiting additive direction-toggle/mutate-reinit oracle beforeheavy timing. Separate ARM qualification, A+8/liveiteratorcost declared,B16bytes; noC rerun/no new3variantpopulation.
 
 - 2026-10-19T03:04Z: Fresh ARM iterator baseline8profiles supportexactA/Breplication: offsetgeometry0xb7d0–0xb7ec local11.08%/14.46%, explicitrecordheader hotspotexcluded. Baseline1920fixturecells,43originaltests/mode,89428additivechecks/mode pass. Exactcandidatevalidation running; no timing.
+
+- 2026-10-19T03:05:55.180279+00:00: Exactbase/A/B native+sanitizer validationpasses:1920fixtures/source,43originaltests/build,89428additivestatechecks/build. Measuredsizeofbase16,A24,B16. Baselinecalibrationstarted; allbinary/refereehashesfrozen in005-iterator/comparison-hashes.json.
