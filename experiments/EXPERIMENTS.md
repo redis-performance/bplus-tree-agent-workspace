@@ -1,5 +1,7 @@
 # Experiment log
 
+New authorized follow-up — EXP-009 guarded M6 physical-slot lookup is PREPARING, owned by interactive M6 root. All new evidence/checkpoints publish to main. No source selected or native work launched. Read experiments/EXP-009/STATUS.md before overlapping M6 work. Overnight campaign below remains closed; counts unchanged.
+
 ## 19 October: focused decoder diagnostic
 
 [EXP-004 decoder microbenchmark](EXP-004/decoder-microbench-2026-10-19/README.md)

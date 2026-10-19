@@ -69,6 +69,10 @@ Separate corrected-adapter baselines are complete on all three AWS hosts:
 stages pass on each host. [New four-host chart](#corrected-adapter-baselines-m6-and-three-aws-architectures).
 Earlier baselines and experiment decisions retain their original adapter identity.
 
+## Active follow-up — guarded M6 lookup
+
+[EXP-009 plan and live ownership](experiments/EXP-009/STATUS.md): a new, user-authorized follow-up investigates the scoped 100K lookup lead using the current corrected baseline and a semantic dispatch condition. PREPARING; no accepted optimization. All checkpoints and evidence publish on main for cross-session coordination.
+
 ## Build and test
 
 Requires a C11 compiler (Clang or GCC), Make, and Python 3. Supports macOS and Linux.

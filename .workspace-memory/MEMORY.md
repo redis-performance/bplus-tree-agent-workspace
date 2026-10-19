@@ -12,6 +12,9 @@ independent held-out confirmation. Root handles lease and explicit execution gat
 <!-- ARM-MASK-FOLLOWUP-CURRENT-END -->
 
 <!-- AWS-CURRENT-START -->
+
+New authorized follow-up — EXP-009 guarded M6 physical-slot lookup is PREPARING, owned by interactive M6 root. All new evidence/checkpoints publish to main. No source selected or native work launched. Read experiments/EXP-009/STATUS.md before overlapping M6 work. Overnight campaign below remains closed; counts unchanged.
+
 ## AWS overnight campaign complete — 19 October 08:01 UTC
 
 All three requested AWS hosts were reached by SSH, their OSS coordinators stopped
