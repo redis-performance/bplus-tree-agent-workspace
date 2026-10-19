@@ -35,3 +35,19 @@ token and currency costs unknown. No tree speedup or acceptance can result here.
 
 Budget: one offline pass per reviewer plus bounded corrections for analysis errors;
 no native workload and no measurement lease. Finish with explicit decision/limits.
+
+## Intermediate reconstruction
+
+Root verifies all96 raw streams, all48 rows, all12 blocks and both old frozen seals
+(69 input pins and297 timing pins). Thread diagnostics also qualify100K6/6 and1M3/6.
+The same failed1M blocks have thread effects−1.401384%,+1.008640%,+2.542454%.
+Three independent reviews remain pending; see [analysis](analysis.json),
+[reproducer](analyze.py) and [actual MCP consultation](cpu-perf/README.md).
+
+![All original M6 ABBA contrasts on both clocks](wall-thread.png)
+
+Clock caveat discovered during review: thread_start precedes wall_start and thread_end
+follows wall_end. There is no measured wrapper/accounting-error bound. The initial
+wording “falsifies” above is too strong for a causal descheduling conclusion: the
+recorded contrast diagnostic fails, but precise off-CPU attribution is unestablished.
+This correction preserves the original scope/history and changes no old timing gate.

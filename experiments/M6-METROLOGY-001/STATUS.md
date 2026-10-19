@@ -1,1 +1,1 @@
-ACTIVE: offline analysis only; no native workload/lease. Inputs pinned in inputs.json. Three independent reviews pending. Source NONE; prior PARK unchanged.
+ACTIVE, offline review pending. Root reconstructed all48 raw rows/12blocks and verified96streams plus69/297frozenpins. All3 failed1M wall contrasts also fail threadCPUdiagnostic. Native cause/accounting bounds remain unresolved; no clock substitution. Chart and CPU-perf calls published. No native workload/lease; source NONE and prior PARK unchanged.
