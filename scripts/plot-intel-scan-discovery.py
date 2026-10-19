@@ -8,6 +8,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+matplotlib.rcParams["svg.hashsalt"] = "intel-scan-discovery"
+
 ROOT = Path(__file__).resolve().parents[1]
 NIGHT = ROOT / "experiments/NIGHT-EXPLORATION-001"
 OUT = NIGHT / "latest-charts"
@@ -64,5 +66,9 @@ fig.text(0.5, 0.025, "Dots: individual blocks · diamonds: medians · lines: obs
 fig.subplots_adjust(left=0.10, right=0.98, top=0.78, bottom=0.23, wspace=0.29)
 OUT.mkdir(exist_ok=True)
 for ext in ["png", "svg"]:
-    fig.savefig(OUT / f"intel-scan-discovery.{ext}", dpi=170, facecolor="white")
+    destination = OUT / f"intel-scan-discovery.{ext}"
+    options = {"metadata": {"Date": None}} if ext == "svg" else {}
+    fig.savefig(destination, dpi=170, facecolor="white", **options)
+    if ext == "svg":
+        destination.write_text("\n".join(line.rstrip() for line in destination.read_text().splitlines()) + "\n")
 (OUT / "intel-scan-discovery.json").write_text(json.dumps(chart, indent=2) + "\n")
