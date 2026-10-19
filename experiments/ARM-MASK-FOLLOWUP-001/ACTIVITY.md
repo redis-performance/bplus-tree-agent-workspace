@@ -11,3 +11,5 @@
 - 2026-10-19T08:26:30.497821+00:00: Root grants exactly one600s correctness-preparation job against immutableca16799da, operationalbindinge78e79196 and independentAMDd17da59d9. All lease/helper/launcher/config hashes independently match. No timing authorized; failure stops candidate advancement and retains partials, with separate postidentity/idle proof.
 
 - 2026-10-19T08:31:38.918158+00:00: Operator reports exact correctness-job start08:27:44.840542UTC. Read-only progress2081/2124 commands, no error; final fault checks and protected .text/identity comparisons remain. Performance timing still ungranted.
+
+- 2026-10-19T08:39:59.330687+00:00: Immutable preparation8cdebdcba FAILED at command2118/2124: deliberate fabs fault aborted on the earlier copied-next exact score assertion, while registration expected the later current-score assertion. Root audit4243sealed hashes and independentAMD7cf304361 verify2117 registered checks,2048normal modes, six unstarted suffix commands and matching four reconstructed .text sections. Original failure preserved. Separate continuation proposal only; full copied snapshot pre/post identity required. No performance run.
