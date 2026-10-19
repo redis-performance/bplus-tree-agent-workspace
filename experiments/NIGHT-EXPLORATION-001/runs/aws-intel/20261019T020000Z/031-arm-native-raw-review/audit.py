@@ -85,7 +85,7 @@ def check_row(data,c,seed):
 
 def audit(rev,phase,earlier=None):
     load_phase(rev,phase);cells,schedule=contract(phase)
-    seal=js(rev,phase+'-evidence-seal.json')
+    seal=js(rev,phase+'-evidence-seal.json')['files']
     for name,h in seal.items():need(sha(raw(rev,name))==h,'evidence seal '+name)
     publication=js(rev,phase+'/PUBLICATION.json')
     for name,v in publication.items():need(sha(raw(rev,phase+'/'+name))==v['public_sha256'],'publication '+name)
@@ -97,6 +97,20 @@ def audit(rev,phase,earlier=None):
     identity(s['identities_before']);identity(s['identities_after'])
     start=date(s['started_utc']);end=date(s['finished_utc'])
     need(0<(end-start).total_seconds()<=600 and 0<s['elapsed_seconds']<=600 and (DEADLINE-start).total_seconds()>=620 and end<=DEADLINE,'phase cap/margin/deadline')
+    pre=js(rev,phase+'-preflight.json');post=js(rev,phase+'-postcheck.json')
+    for label,record in [('preflight',pre),('postcheck',post)]:
+        identity(record['identities'])
+        need(record['lease_scope']==scope and record['lease_sha256']==s['lease_sha256'],'recorded lease join '+label)
+        need(record['frozen_inputs']==js(CONTRACT,'native-execution-freeze.json')['files'] and record['native_freeze_sha256']==s['freeze_sha256'],'recorded freeze join '+label)
+        need(record['owned_units']==[] and record['owned_cgroup_pids']==[],'recorded owned idle '+label)
+    need(date(pre['checked_utc'])<=start<end<=date(post['checked_utc']),'recorded pre/post chronology')
+    need(pre['remaining_seconds']>=620 and pre['release_timer_active']=='active','preflight margin/timer')
+    need(pre['coordinator_status']['returncode']==3 and 'STOPPED' in pre['coordinator_status']['stdout'] and pre['coordinator_pid']['stdout'].strip()=='0','preflight coordinator stopped')
+    for key in ['helper_sha256','release_script_sha256']:need(pre[key]==post[key],'pre/post '+key)
+    job=js(rev,phase+'-job-output.txt')
+    need(job['returncode']==0 and job['cpu']==2 and job['limit_seconds']==600 and job['unit']=='bplus-frontjob-20261019-arm030-'+phase.lower(),'owned helper receipt')
+    need(date(pre['checked_utc'])<=date(job['started_utc'])<=start<end<=date(job['finished_utc'])<=date(post['checked_utc']),'helper/pre/post chronology')
+    need(0<(date(job['finished_utc'])-date(job['started_utc'])).total_seconds()<=600,'whole wrapper cap')
     refs={};blocks={};last=start;raw_hashes={}
     if earlier:
         need(date(earlier['finished_utc'])<start and earlier['lease_sha256']==s['lease_sha256'],'AA lease/serial join')
