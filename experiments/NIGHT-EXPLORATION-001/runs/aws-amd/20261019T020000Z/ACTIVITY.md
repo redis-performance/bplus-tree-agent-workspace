@@ -13,3 +13,5 @@
 - 2026-10-19T02:39:28.158993+00:00: BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+1.362%, B +1.250%/+1.745%, C +5.777%/+2.766% median elapsed at 100K/1M; no guards or confirmation. All patches/raw rows retained. AMD totals: 2 populations, 0 accepted, 2 rejected, 0 parked. Baseline source unchanged. Next: inspect distinct full-chunk packed moves before proposing.
 
 - 2026-10-19T02:42:20.352478+00:00: full-chunk census7runs complete incldisabledzero/semanticmatch; proposal and exact1M-op primaries frozen before implementation, fresh AA next.
+
+- 2026-10-19T02:44:19.745299+00:00: full-chunk fresh A/A48processes qualifies bothsizes (maxabs0.557%/0.386%); sequential proposal/implementation artifacts frozen; serial59-command correctness phase started.

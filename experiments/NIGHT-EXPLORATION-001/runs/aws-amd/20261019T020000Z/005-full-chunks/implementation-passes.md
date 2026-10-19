@@ -1,0 +1,5 @@
+# Three isolated sequential implementation passes
+
+All variants start at unchanged 8fab511e source, no stacking. One agent, sequential passes; not independent agents. A: remaining-count peeled loops, generic partial tails. B: precomputed full-chunk count and indexed loops, generic tails. C: private fixed64 copy helper with remaining-count peeled loops, generic tails. No variant changes the generic bit reader/writer, final inserted-field write, deleted-tail zero, metadata, assertions, ownership or allocator. All keep overlap-safe ordering.
+
+Static adversarial pass: remaining/full/tail fit leaf maximum; decrement only when >=64; backward source starts at old packed end minus64, so non64 remainder is leftmost; forward tail uses moved=full*64. Generic helpers still conditionally load only ninth byte and guard shifts64. Partial tails never width0. Zero score width returns before arithmetic. Signed-zero behavior depends only exact preserved bits, not decoded scores. Compiler could generate equivalent A/C code; retain both patches and determine binary/assembly identity before interpreting population diversity.

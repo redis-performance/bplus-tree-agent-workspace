@@ -1,0 +1,61 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -429,6 +429,14 @@
+     }
+ }
+ 
++/* Copy one full word-sized field, preserving surrounding packed bits. */
++static inline void zbtMoveScore64(unsigned char *data, size_t source,
++                                  size_t destination)
++{
++    uint64_t part = zbtReadBits(data, source, 64);
++    zbtWriteBits(data, destination, 64, part);
++}
++
+ /* Insert one field in the packed score stream. Copy backwards because source
+  * and destination overlap. leaf->n.count is still the old count. */
+ static void zbtInsertScoreBits(zbtScoreLeaf *leaf, unsigned int pos,
+@@ -439,12 +447,14 @@
+ 
+     size_t insert_at = (size_t)pos * bits;
+     size_t remaining = (size_t)(leaf->n.count - pos) * bits;
+-    while (remaining) {
+-        unsigned int chunk = remaining > 64 ? 64 : remaining;
+-        size_t source = insert_at + remaining - chunk;
+-        uint64_t part = zbtReadBits(leaf->data, source, chunk);
+-        zbtWriteBits(leaf->data, source + bits, chunk, part);
+-        remaining -= chunk;
++    while (remaining >= 64) {
++        remaining -= 64;
++        size_t source = insert_at + remaining;
++        zbtMoveScore64(leaf->data, source, source + bits);
++    }
++    if (remaining) {
++        uint64_t part = zbtReadBits(leaf->data, insert_at, remaining);
++        zbtWriteBits(leaf->data, insert_at + bits, remaining, part);
+     }
+     zbtWriteBits(leaf->data, insert_at, bits, value);
+ }
+@@ -459,13 +469,16 @@
+     size_t destination = (size_t)pos * bits;
+     size_t remaining = (size_t)(leaf->n.count - pos - 1) * bits;
+     size_t moved = 0;
+-    while (moved < remaining) {
+-        unsigned int chunk = remaining - moved > 64 ?
+-                             64 : remaining - moved;
++    while (remaining - moved >= 64) {
++        zbtMoveScore64(leaf->data, destination + bits + moved,
++                        destination + moved);
++        moved += 64;
++    }
++    if (moved < remaining) {
++        unsigned int tail = remaining - moved;
+         uint64_t part = zbtReadBits(leaf->data,
+-                                    destination + bits + moved, chunk);
+-        zbtWriteBits(leaf->data, destination + moved, chunk, part);
+-        moved += chunk;
++                                    destination + bits + moved, tail);
++        zbtWriteBits(leaf->data, destination + moved, tail, part);
+     }
+     zbtWriteBits(leaf->data, (size_t)(leaf->n.count - 1) * bits,
+                  bits, 0);
