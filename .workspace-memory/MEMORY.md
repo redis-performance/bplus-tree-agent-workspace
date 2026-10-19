@@ -1,5 +1,5 @@
 <!-- M6-BRACKET-CURRENT -->
-M6-CLOCK-BRACKET-001 NATIVE_RESERVED: correctness and independent actualcodegen PASS;72treefunctions16025instructions match recognizedrelocations,6clockreads enclosework. Root reserves localM6 for fixed72controlrows then48A/Aprocesses, serial, hardstop2026-10-19T15:41:10.756095+00:00. All workersidle; known targetprocesscheckempty. No sourcecandidate; olddecisions frozen.
+M6-CLOCK-BRACKET-001 MEASUREMENTS_COMPLETE/PARK:72empiricalcontrolrows PASS sensitivity;3empty model intervals INCONCLUSIVE. Fresh48AArows qualify100K6/6,1M2/6;4failed1Mwallblocks+3.418%,+1.014%,-1.573%,+1.254%. Nativelease released, processesreaped/groupsempty, no ownedlock/queuedwork.80inputpins intact. Independentrawaudit pending; source NONE and olddecisions unchanged.
 <!-- M6-BRACKET-CURRENT-END -->
 
 <!-- M6-METROLOGY-CURRENT -->
