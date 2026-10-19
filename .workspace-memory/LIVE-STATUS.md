@@ -364,4 +364,3 @@ independent raw audit PASS. No proposal, candidate timing or source edit;
 historical M1 population counts unchanged. See
 experiments/EXP-009-M1-AA-001/RESULTS.md.
 <!-- M1-LOOKUP-AA-CURRENT-END -->
-
