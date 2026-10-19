@@ -31,12 +31,14 @@ def main():
     cfg = json.loads(args.config.read_text())
     if cfg['owned_slice'] != 'bplus-front-20261019.slice' or cfg['unit_prefix'] != 'bplus-frontjob-20261019-':
         parser.error('unexpected lease namespace')
+    if cfg['release_unit'] not in ('bplus-front-release-20261019', 'bplus-front-release-20261019-attempt2'):
+        parser.error('unexpected release unit')
     remote = runpy.run_path(str(Path(__file__).with_name('audit-aws-release.py')))['REMOTE']
     remote = remote.replace('/bplus.slice/bplus-night.slice/bplus-night-20261019.slice',
                             '/bplus.slice/bplus-front.slice/bplus-front-20261019.slice')
     remote = remote.replace('bplus-night-20261019.slice', cfg['owned_slice'])
     remote = remote.replace("'bplus-job-20261019-*', 'bplus-baseline-*'", "'bplus-frontjob-20261019-*'")
-    remote = remote.replace('bplus-release-20261019.timer', 'bplus-front-release-20261019.timer')
+    remote = remote.replace('bplus-release-20261019.timer', cfg['release_unit'] + '.timer')
     assert 'bplus-night' not in remote and 'bplus-baseline' not in remote
     report = {'checked_at': datetime.now(timezone.utc).isoformat(), 'host': 'AWS ARM Neoverse V2'}
     try:

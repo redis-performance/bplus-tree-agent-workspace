@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "scope": "Local stub execution of exact prepared query/state checks; no SSH, service mutation or scientific data.",
+  "acquisition_script_sha256": "3f0ee194a0ba87fc981304266b8ab51d3311b322f0415565c7a23790255dc07d",
+  "cases": [
+    {
+      "case": "docker-empty-success",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "docker-nonempty-success",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "docker-empty-query-failure",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "systemctl-empty-success",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "systemctl-nonempty-success",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "systemctl-empty-query-failure",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-inactive",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "release-stop-error-inactive-confirmed",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "release-active",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-state-query-error",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-stop-and-state-errors",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-expected",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "stopped-status-wrong-code",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-status-running",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-status-query-error",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-pid-wrong-code",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-pid-positive",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-pid-empty",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "stopped-pid-query-error",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    }
+  ]
+}

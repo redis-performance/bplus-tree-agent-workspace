@@ -1,5 +1,5 @@
 """Exercise the exact prepared query/release checks with local command stubs only."""
-import argparse,json,pathlib,subprocess,hashlib
+import argparse,json,pathlib,subprocess,hashlib,re,shlex
 p=argparse.ArgumentParser();p.add_argument('acquisition_script',type=pathlib.Path);p.add_argument('--out',required=True,type=pathlib.Path);a=p.parse_args();s=a.acquisition_script.read_text();cases=[]
 def run(name,commands,stubs,should_pass):
  q=subprocess.run(['bash','-eu','-o','pipefail','-c',stubs+'\n'+commands+'\necho REACHED_END'],capture_output=True,text=True,timeout=3)
@@ -15,4 +15,19 @@ release_check='stop_rc=0\n'+stop+'\n'+query+'\ntest "$state" = inactive\necho WO
 for name,stop_rc,state_rc,state,allowed in [('inactive',0,0,'inactive',True),('stop-error-inactive-confirmed',5,0,'inactive',True),('active',0,0,'active',False),('state-query-error',0,7,'',False),('stop-and-state-errors',5,7,'',False)]:
  stubs='systemctl(){ if test "$1" = stop; then return '+str(stop_rc)+'; else echo '+repr(state)+'; return '+str(state_rc)+'; fi; }'
  run('release-'+name,release_check,stubs,allowed)
+if 'status_rc=0' in s:
+ stopped=s.split('status_rc=0',1)[1].split('containers=$(',1)[0]
+ stopped='status_rc=0'+stopped
+ stopped=re.sub(r' > [^\n]+/coordinator-stopped.txt',' > /dev/null',stopped)
+ for name,status_rc,status,pid_rc,pid,allowed in [
+  ('expected',3,'redis-benchmarks-spec-sc-coordinator   STOPPED',7,'0',True),
+  ('status-wrong-code',0,'redis-benchmarks-spec-sc-coordinator   STOPPED',7,'0',False),
+  ('status-running',3,'redis-benchmarks-spec-sc-coordinator   RUNNING pid123',7,'0',False),
+  ('status-query-error',7,'',7,'0',False),
+  ('pid-wrong-code',3,'redis-benchmarks-spec-sc-coordinator   STOPPED',0,'0',False),
+  ('pid-positive',3,'redis-benchmarks-spec-sc-coordinator   STOPPED',7,'123',False),
+  ('pid-empty',3,'redis-benchmarks-spec-sc-coordinator   STOPPED',7,'',False),
+  ('pid-query-error',3,'redis-benchmarks-spec-sc-coordinator   STOPPED',4,'0',False)]:
+  stubs='sudo(){ shift; "$@"; }; supervisorctl(){ if test "$1" = status; then echo '+shlex.quote(status)+'; return '+str(status_rc)+'; else echo '+shlex.quote(pid)+'; return '+str(pid_rc)+'; fi; }'
+  run('stopped-'+name,stopped,stubs,allowed)
 a.out.write_text(json.dumps({'status':'PASS','scope':'Local stub execution of exact prepared query/state checks; no SSH, service mutation or scientific data.','acquisition_script_sha256':hashlib.sha256(s.encode()).hexdigest(),'cases':cases},indent=2)+'\n');print(json.dumps({'status':'PASS','cases':len(cases)}))
