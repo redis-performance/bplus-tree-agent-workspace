@@ -1,0 +1,265 @@
+{
+  "status": "THREE CAPTURE AUDITS PASS; DESCRIPTIVE SOFTWARE LOCATIONS ONLY",
+  "captures": [
+    {
+      "experiment": "EXP-007",
+      "variant": "base",
+      "sampler_returncode": 0,
+      "child_returncode": 0,
+      "binary_sha256": "7894823c670c69e83e01033e6e7638bac9e39cdb02d1da1b31ed1f99319e7413",
+      "binary_matches_sampling_and_build_manifest": true,
+      "canonical_source_referee_freeze_verified": true,
+      "raw_files_sha256": {
+        "base-sampling.json": "4e19dcde800a8855df205e1fb7b5fd6cfb3179ccda119f79bf32f00363c5cd7d",
+        "base-profile.stderr": "6cb69c822ec307b84c47ed789d8b32ce92a6c1e1cd299b0ea5204dfaeafea9a6",
+        "base-sample.txt": "9e6ecc020acefe29f96e3a0fa8d0c23d638be2803e06b66ac39a0b59d2a176fa",
+        "base-profile.csv": "ed6bbb3b2263b140e082cddd08b3e97d4bb11be05c575a80fb2b4104a1c0d9a8"
+      },
+      "build_manifest_sha256": "bb5fe6ee0dbea7722ecded4d25bb555a3bee5364f7a04f5b596dbdf52b2b9c65",
+      "source_referee_freeze_evidence_sha256": "e66828021c5e1dc06a472b90e28136276296bf9a8fc087a9e0a9f1d615a9e111",
+      "source_referee_freeze_evidence": "canonical EXP-007/freeze.json",
+      "profile_driver_sha256": "58599110d4727256860ffa2afb0f16041902e8d76f2c254127403936ca5679a0",
+      "canonical_profile_invocation": [
+        "python3",
+        "experiments/EXP-007/profile.py",
+        "base",
+        "--out-dir",
+        "build/m6-replications/EXP007/profiles"
+      ],
+      "target_command": [
+        "build/exp007/base/decoder-bench",
+        "--width",
+        "60",
+        "--count",
+        "96",
+        "--leaves",
+        "8",
+        "--rounds",
+        "65536",
+        "--samples",
+        "64",
+        "--warmup",
+        "16",
+        "--seed",
+        "81031"
+      ],
+      "generic_sampler_command": [
+        "/usr/bin/sample",
+        "<owned-pid>",
+        "1",
+        "1",
+        "-file",
+        "<private-profile>/base-sample.txt"
+      ],
+      "sample_scope": "Whole process, including construction/setup, warmup, measured work and output; not time-scoped to the decoder",
+      "retained_csv_rows": 64,
+      "csv_fixture_metadata": {
+        "width": "60",
+        "score_shift": "0",
+        "reversed": "0",
+        "count": "96",
+        "leaves": "8",
+        "rounds": "65536",
+        "seed": "81031",
+        "operations": "50331648",
+        "leaf_bytes": "6272",
+        "offset_mask": "17",
+        "crossings_per_round": "0",
+        "fixture_hash": "2718616082163229984",
+        "checksum": "3049778286552088576"
+      },
+      "csv_timing_rows_excluded_from_comparisons": true,
+      "stack_root_observations": 777,
+      "exclusive_leaf_observations": {
+        "decoder_batch": 777
+      },
+      "target_leaf_observations": 777,
+      "exclusive_collapsed_leaf_records": 13,
+      "sufficiency": "Sufficient descriptive support that this fixed capture reached the decoder region; not a precision/cycle/instruction-cost qualification",
+      "method": "Leaf counts reconstruct call-graph prefix depth; inclusive parents are never added. A collapsed record can combine several PC offsets; these are not counts of distinct instructions.",
+      "source_regions": [
+        "EXP-007/referee/kernel.c decoder_batch: round/leaf loop, materialization, unsigned checksum consumption",
+        "EXP-007/referee/control.inc scalar range decode inlined into decoder_batch"
+      ],
+      "exact_source_line_attribution": "Unavailable from collapsed symbol+offset sample report; no invented per-line instruction/cycle cost",
+      "counters_requested": false
+    },
+    {
+      "experiment": "EXP-007",
+      "variant": "B",
+      "sampler_returncode": 0,
+      "child_returncode": 0,
+      "binary_sha256": "9ec011e84a8e8fa5d33eb36daab9f6673f9d29803cb9a8251b7d16cd2acdb6fb",
+      "binary_matches_sampling_and_build_manifest": true,
+      "canonical_source_referee_freeze_verified": true,
+      "raw_files_sha256": {
+        "B-profile.stderr": "6cb69c822ec307b84c47ed789d8b32ce92a6c1e1cd299b0ea5204dfaeafea9a6",
+        "B-sample.txt": "d35e88337415fb50154dcae1570975e7286180cb551d06bf552721bb70577ff8",
+        "B-profile.csv": "d27a8361aa6cbb90ca90030f3a05e926f8f3eca80678950515bc51816f67c772",
+        "B-sampling.json": "450d0cdd8e30a6c9650493ae52cca94cf50140f0e6676d8fbc2d921605f52646"
+      },
+      "build_manifest_sha256": "bb5fe6ee0dbea7722ecded4d25bb555a3bee5364f7a04f5b596dbdf52b2b9c65",
+      "source_referee_freeze_evidence_sha256": "e66828021c5e1dc06a472b90e28136276296bf9a8fc087a9e0a9f1d615a9e111",
+      "source_referee_freeze_evidence": "canonical EXP-007/freeze.json",
+      "profile_driver_sha256": "58599110d4727256860ffa2afb0f16041902e8d76f2c254127403936ca5679a0",
+      "canonical_profile_invocation": [
+        "python3",
+        "experiments/EXP-007/profile.py",
+        "B",
+        "--out-dir",
+        "build/m6-replications/EXP007/profiles"
+      ],
+      "target_command": [
+        "build/exp007/B/decoder-bench",
+        "--width",
+        "60",
+        "--count",
+        "96",
+        "--leaves",
+        "8",
+        "--rounds",
+        "65536",
+        "--samples",
+        "64",
+        "--warmup",
+        "16",
+        "--seed",
+        "81031"
+      ],
+      "generic_sampler_command": [
+        "/usr/bin/sample",
+        "<owned-pid>",
+        "1",
+        "1",
+        "-file",
+        "<private-profile>/B-sample.txt"
+      ],
+      "sample_scope": "Whole process, including construction/setup, warmup, measured work and output; not time-scoped to the decoder",
+      "retained_csv_rows": 64,
+      "csv_fixture_metadata": {
+        "width": "60",
+        "score_shift": "0",
+        "reversed": "0",
+        "count": "96",
+        "leaves": "8",
+        "rounds": "65536",
+        "seed": "81031",
+        "operations": "50331648",
+        "leaf_bytes": "6272",
+        "offset_mask": "17",
+        "crossings_per_round": "0",
+        "fixture_hash": "2718616082163229984",
+        "checksum": "3049778286552088576"
+      },
+      "csv_timing_rows_excluded_from_comparisons": true,
+      "stack_root_observations": 777,
+      "exclusive_leaf_observations": {
+        "zbtScoreLeafDecodeRange": 651,
+        "decoder_batch": 126
+      },
+      "target_leaf_observations": 777,
+      "exclusive_collapsed_leaf_records": 26,
+      "sufficiency": "Sufficient descriptive support that this fixed capture reached the decoder region; not a precision/cycle/instruction-cost qualification",
+      "method": "Leaf counts reconstruct call-graph prefix depth; inclusive parents are never added. A collapsed record can combine several PC offsets; these are not counts of distinct instructions.",
+      "source_regions": [
+        "EXP-007/variants/B/decoder.inc zbtScoreLeafDecodeRange: geometry-specialized decode/output stores",
+        "EXP-007/referee/kernel.c decoder_batch: caller/round/leaf/checksum work"
+      ],
+      "exact_source_line_attribution": "Unavailable from collapsed symbol+offset sample report; no invented per-line instruction/cycle cost",
+      "counters_requested": false
+    },
+    {
+      "experiment": "EXP-008",
+      "variant": "base",
+      "sampler_returncode": 0,
+      "child_returncode": 0,
+      "binary_sha256": "e8426fd9f250b1189b870b229c88e6d05dda25b28c8a77d2bda4e69d37cf1cd5",
+      "binary_matches_sampling_and_build_manifest": true,
+      "canonical_source_referee_freeze_verified": true,
+      "raw_files_sha256": {
+        "base-sampling.json": "9674d8abba793dde441f22fbccab8be5a0fb91901569d07c2c270201a354f872",
+        "base-profile.stderr": "6cb69c822ec307b84c47ed789d8b32ce92a6c1e1cd299b0ea5204dfaeafea9a6",
+        "base-sample.txt": "a43cfd5da602b168a9cfe8a07bd7c8954e2749da246001e54080528b9621ce7a",
+        "base-profile.csv": "54257908fc3d1be6efc9878d3c157ae638cd4be6fe5aacd7e2fc5a9f9cbc2da8"
+      },
+      "build_manifest_sha256": "afab9b3c9b7fb8a1cc80b0b4a602b53aa1a19dfdc9b9c9ea8253944cb0fe23ef",
+      "source_referee_freeze_evidence_sha256": "53afcb92c2652c33587d1ae660d97d7ef4261149deacb862c1d3476b79ab15e3",
+      "source_referee_freeze_evidence": "018/EXP-008/PREPARATION.json",
+      "profile_driver_sha256": "0a3589b7b025c8ed522587ea41989fd908af2c7ab532a8b5257dc65466a03ee1",
+      "canonical_profile_invocation": [
+        "python3",
+        "experiments/EXP-008/profile.py",
+        "base",
+        "--out-dir",
+        "build/m6-replications/EXP008/profiles"
+      ],
+      "target_command": [
+        "build/exp008/base/decoder-bench",
+        "--width",
+        "60",
+        "--count",
+        "16",
+        "--leaves",
+        "8",
+        "--rounds",
+        "65536",
+        "--samples",
+        "64",
+        "--warmup",
+        "16",
+        "--seed",
+        "81031"
+      ],
+      "generic_sampler_command": [
+        "/usr/bin/sample",
+        "<owned-pid>",
+        "1",
+        "1",
+        "-file",
+        "<private-profile>/base-sample.txt"
+      ],
+      "sample_scope": "Whole process, including construction/setup, warmup, measured work and output; not time-scoped to the decoder",
+      "retained_csv_rows": 64,
+      "csv_fixture_metadata": {
+        "width": "60",
+        "score_shift": "0",
+        "reversed": "0",
+        "count": "16",
+        "leaves": "8",
+        "rounds": "65536",
+        "seed": "81031",
+        "operations": "8388608",
+        "leaf_bytes": "1472",
+        "offset_mask": "17",
+        "crossings_per_round": "0",
+        "fixture_hash": "10325058371814972045",
+        "checksum": "15839646042016186368"
+      },
+      "csv_timing_rows_excluded_from_comparisons": true,
+      "stack_root_observations": 172,
+      "exclusive_leaf_observations": {
+        "zbtScoreLeafDecodePolicy": 148,
+        "decoder_batch": 23,
+        "non-decoder/printing": 1
+      },
+      "target_leaf_observations": 171,
+      "exclusive_collapsed_leaf_records": 7,
+      "sufficiency": "Sufficient descriptive support that this fixed capture reached the decoder region; not a precision/cycle/instruction-cost qualification",
+      "method": "Leaf counts reconstruct call-graph prefix depth; inclusive parents are never added. A collapsed record can combine several PC offsets; these are not counts of distinct instructions.",
+      "source_regions": [
+        "EXP-008/referee/kernel.c decoder_batch: caller/round/leaf/checksum work",
+        "EXP-008/referee/policy-control.inc zbtScoreLeafDecodePolicy: baseline bulk policy decode/output stores"
+      ],
+      "exact_source_line_attribution": "Unavailable from collapsed symbol+offset sample report; no invented per-line instruction/cycle cost",
+      "counters_requested": false
+    }
+  ],
+  "capture_count": 3,
+  "profile_capture_manifest_sha256": "d4f07d9e3328175bbb036a2bf973068424a447e7efa8b1e1655a3e39aa56ad56",
+  "audit_script_sha256": "a4053e86bc426b1adc252a00e95874ad8fb0f13aa8afd4ff19a4779c2332de2b",
+  "no_rerun_build_test_profile_or_timing": true,
+  "raw_path_bearing_files_remain_private": true,
+  "analysis_preparation_note": "Initial read requested nonexistent EXP-008/freeze.json; corrected to its published PREPARATION.json frozen-file map. No captured data changed or experiment rerun.",
+  "interpretation": "No pooling of experiments/hosts or inference of relative speed, cycles, CPI/IPC, stalls, latency, setup cost or source-optimization acceptance. Counts describe captured locations; timer-based sample can alias.",
+  "participant": "/root/followup_proposal_b; inherited Codex/GPT-6 family; exact serving model/token/cost unknown"
+}

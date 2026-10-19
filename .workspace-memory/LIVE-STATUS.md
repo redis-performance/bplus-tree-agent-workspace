@@ -1,5 +1,11 @@
 # Live status — M6 driver campaign, 2026-10-19 UTC
 
+M6 decoder discovery audits PASS: all19,200 processes/2,476,800 batches reconstructed with exact schedules, hashes, statistics, fixtures/checksums and serial UTC; complete raw evidence copied byte-identically. Every individual timer window is below10ms, so full precision qualification is0/210 cells. EXP007 conditional primary medians A−34.272446%, B−20.477069%, C−24.790811%; original diagnostic shortlistA triggers exactly one fresh confirmation (not adoption). EXP008 count16 gains fail for all, NONE/no confirmation. Original legacy adapter retained; corrected baseline separate. Source NONE and optimization counts unchanged. All three agents idle; publish exact follow-up plan before exclusive launch.
+
+
+M6 05:19 UTC checkpoint: exact EXP-004/007/008 new-host discovery complete, 19,200 serial processes and 2,476,800 measured batches. All canonical runners returned zero; all owned process groups are empty. Post-measurement verification passes all 207 frozen identities. Analysis, independent schedule/raw audits and profile summaries are in progress; no new selection or optimization-count change. These are original legacy-adapter experiments, separate from the corrected-adapter baseline. The three-proposal metrology review selected NONE; no timing-method implementation.
+
+
 Operator 017 metrology review complete: three actual independent proposals; chair selects NONE. Resident-process proposal retained as conditional dissent; full guard transfer and remaining-budget feasibility unproven. No timing or implementation from this review. Operator 018 now prepares the three exact decoder replications in REPLICATE-LATEST.md using isolated legacy-adapter checkouts, preserving original M1 experiment definitions. EXP-007 discovery is 2880 processes; its historical 4320 total includes conditional 1440-process confirmation. Source NONE; optimization counts unchanged. Root continues through 08:00 UTC, experimental cutoff 07:15 UTC.
 
 

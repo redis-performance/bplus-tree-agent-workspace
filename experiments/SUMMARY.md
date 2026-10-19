@@ -1,5 +1,10 @@
 # Experiment summary
 
+M6 decoder discovery audits PASS: all19,200 processes/2,476,800 batches reconstructed with exact schedules, hashes, statistics, fixtures/checksums and serial UTC; complete raw evidence copied byte-identically. Every individual timer window is below10ms, so full precision qualification is0/210 cells. EXP007 conditional primary medians A−34.272446%, B−20.477069%, C−24.790811%; original diagnostic shortlistA triggers exactly one fresh confirmation (not adoption). EXP008 count16 gains fail for all, NONE/no confirmation. Original legacy adapter retained; corrected baseline separate. Source NONE and optimization counts unchanged. All three agents idle; publish exact follow-up plan before exclusive launch.
+
+[Replica results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md).
+
+
 M6 checkpoint: the [metrology review](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/017-metrology-review/selection.md) selected NONE after three independent proposals. No new timing protocol was implemented. [Exact decoder replications](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/PLAN.json) now have passing native/sanitizer preparations in isolated legacy-adapter checkouts. EXP-004 discovery has 960 processes, EXP-007 2,880, and EXP-008 15,360. Profiling and timing await published freeze and exclusive runner release. No tree source selection or optimization-count change.
 
 

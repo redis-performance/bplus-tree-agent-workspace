@@ -90,7 +90,7 @@ new and original adapter measurements must stay separate. No tree optimization i
 
 ## Latest results — Apple M1, M6 and three AWS architectures
 
-M6 driver checkpoint: three exact decoder replications are prepared with passing native/sanitizer checks; new measurements are pending. The separate timing-method review selected NONE. [Live evidence](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/PLAN.json). Tree source and optimization counts are unchanged.
+M6 driver checkpoint: three exact decoder replications completed 19,200 serial processes; analysis and independent audits are in progress. The separate timing-method review selected NONE. [Live evidence](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/EXECUTION-SUMMARY.json). Tree source and optimization counts are unchanged.
 
 ### Whole-tree baseline: 100 / 1K / 10K / 100K / 1M members
 

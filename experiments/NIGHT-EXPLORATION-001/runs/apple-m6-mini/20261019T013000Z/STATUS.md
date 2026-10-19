@@ -1,5 +1,11 @@
 # M6 live scoreboard
 
+M6 decoder discovery audits PASS: all19,200 processes/2,476,800 batches reconstructed with exact schedules, hashes, statistics, fixtures/checksums and serial UTC; complete raw evidence copied byte-identically. Every individual timer window is below10ms, so full precision qualification is0/210 cells. EXP007 conditional primary medians A−34.272446%, B−20.477069%, C−24.790811%; original diagnostic shortlistA triggers exactly one fresh confirmation (not adoption). EXP008 count16 gains fail for all, NONE/no confirmation. Original legacy adapter retained; corrected baseline separate. Source NONE and optimization counts unchanged. All three agents idle; publish exact follow-up plan before exclusive launch.
+
+
+M6 05:19 UTC checkpoint: exact EXP-004/007/008 new-host discovery complete, 19,200 serial processes and 2,476,800 measured batches. All canonical runners returned zero; all owned process groups are empty. Post-measurement verification passes all 207 frozen identities. Analysis, independent schedule/raw audits and profile summaries are in progress; no new selection or optimization-count change. These are original legacy-adapter experiments, separate from the corrected-adapter baseline. The three-proposal metrology review selected NONE; no timing-method implementation.
+
+
 Operator016CPUProfilerBLOCKEDbyOSKPCconfigurationdenial(Operationnotpermitted),
 recordrc2/probeexactchecksum+signpostpass/recorderreaped/targetexitobserved/release-safe,
 979546bytefailedtracepreserved.NoTOCexport/retry/permissionchanges.Hardwareweights
