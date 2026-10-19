@@ -45,3 +45,7 @@ Prepared root raw auditor initially assumed public bytes equal raw hashes, then 
 ## 2026-10-19T11:29:05.964472+00:00 — Final independent decision
 
 Intel16118f441 and AMDf1ffd7e17 independently reconstruct scope/counters/strict mapping. All18 instrumented instruction reductions are retained, including one adverse cycle pair;152 entry samples fail the unchanged centered-window mapping rule despite identical isolated words. Only2/12 transfer cells and zero complete source pairs qualify. Final native explanationINCONCLUSIVE, prior candidateREJECT/sourceNONE. No new population; README/experiment counts/sharedmemory updated. Rule and actual MCP consultations remain inGit for bothproviders. No queued workload or lease.
+
+## 2026-10-19T14:59:23.614822+00:00 — MCP improvement review
+
+User asked how to improve the MCP itself. Read current upstream code and ran actual library_status/ask plus three synthetic check_evidence cases on the controller. Confirmed unknown clock/SMT states can be marked present and lead to quotable; Six runs versus6runs changes method recognition. Documented setup contribution to empty coverage, existing capabilities, typed metadata and resolver recommendations in ../MCP-TOOLING-REVIEW-001/. No AWS measurements, source changes, gate changes or upstream publication.
