@@ -36,3 +36,8 @@ read matching ack on resume. Coordinator alone commits/pushes. Request exact pat
 atomically; no builds/tests/profiles/timings during barrier, poll5s at most120s.
 All prior denial records stand; never retry denied Git/sysctl/profiler/network actions
 or alter permissions. Cached M1 4c48fa7e context only; remote current state UNKNOWN.
+
+Round8 reporting checkpoint acknowledged **c0fb84636**, request
+`r8-reporting-handoff-20261019T031349149187Z`, ok03:13:50UTC. See
+[acknowledgement](ROUND-008-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.

@@ -124,3 +124,8 @@ operator population still explicitly records implementation preparation; no work
 experimental children or new decisions. [Round8 observation](ROUND-008-HANDOFF.json)
 records this status and unchanged baseline-summary qualification. Worker hands off
 early; operator trial remains active. Round8 publication follows.
+
+Round8 reporting checkpoint acknowledged **c0fb84636**, request
+`r8-reporting-handoff-20261019T031349149187Z`, ok03:13:50UTC. See
+[acknowledgement](ROUND-008-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.

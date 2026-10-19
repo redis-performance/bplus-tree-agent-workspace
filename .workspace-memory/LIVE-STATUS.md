@@ -1,7 +1,8 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
 M6 round8 reporting checkpoint: core queue complete / source NONE, counts unchanged.
-Round7 final handoff acknowledged `fa62b37cd`; round8 publication follows.
+Round8 checkpoint acknowledged `c0fb84636` (ok03:13:50UTC); final handoff publication follows.
+Prior round7 final handoff `fa62b37cd`.
 Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, three independent proposals
 complete/B selected; latest explicit implementation status PREPARING three isolated
 implementations, deadline04:40:20.349829UTC. No candidate performance/eligibility claim.

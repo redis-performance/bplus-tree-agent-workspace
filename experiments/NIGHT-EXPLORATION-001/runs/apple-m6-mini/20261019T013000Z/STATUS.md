@@ -40,3 +40,8 @@ Operator trial and concurrent M1 night excluded from these completed counts.
 [Morning report](MORNING-REPORT.md) remains interim. [Usage](USAGE.json) records actual
 supervisor counters through completed round7; round8/exact backend/currency cost unknown.
 Cached M1 `4c48fa7e` is context only; current remote state UNKNOWN. No sample pooling.
+
+Round8 reporting checkpoint acknowledged **c0fb84636**, request
+`r8-reporting-handoff-20261019T031349149187Z`, ok03:13:50UTC. See
+[acknowledgement](ROUND-008-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.
