@@ -13,7 +13,7 @@ for v in ['base','B']:
  if v=='B':run(['patch','-d',str(dest),'-p1','-i',str(p.parent/'007-scan-replication/variants/B/candidate.patch')],v+'-patch')
  for mode in ['native','san']:
   out=dest/'build'/('focused' if mode=='native' else 'focused-san');run(['python3',str(p/'referee/build.py'),'--source',str(dest),'--out',str(out)]+(['--sanitize'] if mode=='san' else []),v+'-'+mode+'-build');run([str(out/'upstream-test')],v+'-'+mode+'-original-tests');(logs/(v+'-'+mode+'-build-manifest.json')).write_bytes((out/'build-manifest.json').read_bytes())
- builds[v]={f:sha(dest/f) for f in ['src/zset_btree.c','src/zset_btree.h','compat/standalone.c','vendor/redis/siphash.c','tests/upstream.c','build/focused/scan-guard','build/focused/scan-census','build/focused-san/scan-guard']}
+ builds[v]={f:sha(dest/f) for f in ['src/zset_btree.c','src/zset_btree.h','compat/standalone.c','vendor/redis/siphash.c','tests/upstream.c','build/focused/scan-guard','build/focused/scan-census','build/focused-san/scan-guard','build/focused/inputs/scan-guard.c','build/focused/inputs/tree-census.c','build/focused-san/inputs/scan-guard.c','build/focused-san/inputs/tree-census.c']}
  cells[v]={}
  for f in fixtures:
   filename=p/'fixtures'/(f['name']+'.bin');assert sha(filename)==f['sha256']
