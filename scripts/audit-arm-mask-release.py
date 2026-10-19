@@ -57,7 +57,7 @@ def main():
                 record['saved_pid_matches_live'] and record['slice_state'] == 'inactive' and
                 record['units_query_ok'] and not record['active_owned_units'] and
                 record['owned_cgroup_process_count'] == 0 and not record['inspection_errors'])
-    except (OSError, ValueError, KeyError, subprocess.TimeoutExpired):
+    except (OSError, ValueError, TypeError, KeyError, subprocess.TimeoutExpired):
         record = {'verified_released': False, 'error': 'query timeout or invalid response'}
     report['state'] = record
     report['finished_at'] = datetime.now(timezone.utc).isoformat()
