@@ -1,5 +1,20 @@
 # Experiment summary
 
+## 2026-10-19 — M6 LOOKUP-CALLER-001 REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/006-followup/RESULTS.md).
+Three actual independent proposals and three isolated implementations complete. A
+clears100K with median−2.712%(all blocks−3.127..−2.378), but1M fails the2% every-block
+gate; B/C also fail dual primary. Same normalized read-only instructions, larger caller
+frame/code. Full baseline A/A2424rows/101cells:39 qualify,62 noisy,0 short;100Kprimary
+qualifies,1M fails. Screens144rows, no full candidate guards/fresh/profile eligible.
+All native/sanitizer original tests, exact-score oracles and312 common checks pass;
+independent arithmetic audit pending. Source unchanged, all three patches retained.
+Totals12 populations(9 sequential+3 actual multi-agent),0 accepted/7 rejected/5 parked,
+36 patches/15 harnesses; M1 night separate. No repeated schedules. Root owns next
+baseline-only geometry diagnosis; no new hypothesis selected.
+
+
 ## 2026-10-19 — M6 DECODE-001 universal policy REJECT / NONE
 
 [Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md).

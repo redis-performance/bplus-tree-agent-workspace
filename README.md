@@ -104,7 +104,7 @@ Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing upd
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
-| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank/update/lookup/decoder rejected; source NONE; follow-up review active](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five M6 trials rejected; source NONE; geometry diagnosis active](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
@@ -142,8 +142,10 @@ sequential passes, with all patches preserved.
 
 [M6 count-one decoder policies](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md) retain a roughly30% private count-one lead, but repeated qualified guard losses reject all three universal policies. Baseline source stays unchanged.
 
-Recorded on this branch: **11 populations; 0 accepted / 6 rejected / 5 parked;
-33 retained patches; 14 validated harnesses**. Concurrent M1 night populations
+[Call-boundary lookup follow-up](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/006-followup/RESULTS.md) also rejects all three implementations: A's qualified100K lead is−2.71%, while no variant clears both100K/1M gates. Three actual independent agents completed both population stages. Baseline source stays unchanged.
+
+Recorded on this branch: **12 populations; 0 accepted / 7 rejected / 5 parked;
+36 retained patches; 15 validated harnesses**. Concurrent M1 night populations
 remain separate pending log reconciliation.
 
 ### Decoder experiments

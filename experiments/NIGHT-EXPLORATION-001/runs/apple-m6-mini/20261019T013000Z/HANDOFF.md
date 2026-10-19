@@ -1,3 +1,24 @@
+# Current operator handoff
+
+M6 operator checkpoint, 19 October: LOOKUP-CALLER-001 REJECT/NONE.
+Three actual independent proposal agents and three isolated implementations complete.
+A100K−2.712%everyblockpasses; no variant clears1M gate. BaselineAA39/101qualified,
+100K qualifies/1M fails, no short cells;144screens complete. Correctness passes;
+independent raw audit/chart pending. Baseline unchanged; fullcandidateguards/fresh/
+candidateprofile not eligible. Totals12populations(9sequential+3multi-agent),
+0accepted/7rejected/5parked,36patches/15harnesses; M1 night separate.
+Root owns new baseline-only007-profile geometry diagnosis; no new optimization
+hypothesis selected. Background reporting worker finishedround10 and existing
+BLOCKED ownership marker stopped its empty reporting loop; root remains active
+through08:00UTC/09:00Lisbon, experiments end07:15UTC. Same coordinator alone
+publishes each root milestone. Prior round10 path-publication failure resolved
+before harness freeze9d94c41fc; counts6e221106f,controls016f45136 published.
+Do not restart worker, repeat schedules, adopt source or change permissions.
+
+See [006 results](006-followup/RESULTS.md), [decision](006-followup/decision.json), [live scoreboard](STATUS.md).
+
+---
+
 # Round 10 handoff — operator retains caller-trial ownership
 
 Saved 2026-10-19T03:18:26.488560+00:00, before **03:45:10.435158 UTC** handoff cutoff.

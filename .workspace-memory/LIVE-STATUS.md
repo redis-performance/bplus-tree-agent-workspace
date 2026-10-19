@@ -1,5 +1,21 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+M6 operator checkpoint, 19 October: LOOKUP-CALLER-001 REJECT/NONE.
+Three actual independent proposal agents and three isolated implementations complete.
+A100K−2.712%everyblockpasses; no variant clears1M gate. BaselineAA39/101qualified,
+100K qualifies/1M fails, no short cells;144screens complete. Correctness passes;
+independent raw audit PASS/chart pending. Baseline unchanged; fullcandidateguards/fresh/
+candidateprofile not eligible. Totals12populations(9sequential+3multi-agent),
+0accepted/7rejected/5parked,36patches/15harnesses; M1 night separate.
+Root owns new baseline-only007-profile geometry diagnosis; no new optimization
+hypothesis selected. Background reporting worker finishedround10 and existing
+BLOCKED ownership marker stopped its empty reporting loop; root remains active
+through08:00UTC/09:00Lisbon, experiments end07:15UTC. Same coordinator alone
+publishes each root milestone. Prior round10 path-publication failure resolved
+before harness freeze9d94c41fc; counts6e221106f,controls016f45136 published.
+Do not restart worker, repeat schedules, adopt source or change permissions.
+
+
 M6 round 10 reporting handoff: core queue complete / source NONE, counts unchanged.
 Prior round 9 final handoff acknowledged `acfba0f86` (ok 03:16:18 UTC).
 Round10 publication failed03:18:50UTC: public-evidence review required for operator
