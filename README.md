@@ -132,7 +132,7 @@ The [earlier M1 preparation results](experiments/SIZE-MATRIX-001/apple-m1-five-s
 and [chart](experiments/SIZE-MATRIX-001/apple-m1-five-sizes/size-matrix.svg) remain
 separate from these overnight baselines. [Baseline plan and rerun commands](experiments/SIZE-MATRIX-001/README.md).
 
-### M6 rank decision
+### M6 campaign decisions
 
 [The first M6 rank population](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
 rejects all three shorter-side summation implementations: the 100K primary took
