@@ -1194,3 +1194,17 @@ after validation. B is predeclared source preference if both pass, not a speed
 superiority claim. ARM prepares missing focused guards; AMD profiles deletion only.
 No source adoption. Deadline/release08:00UTC unchanged. Dashboard push race repaired
 without dropping its pending commit; bounded rebase/push retries now installed.
+
+
+## 19 October03:45 UTC — Intel scan primary replication audited
+
+Exact A/B scan replication passes both qualified primary cases on Intel. Root audit
+reconstructs48 A/A +96 candidate rows,36 total blocks, frozen hashes, serial CPU2,
+callbacks/checksums and exact owned memory. A medians−6.666%/−3.847%; B−6.665%/−3.661%
+at100K/1M. B alone advances under the preregistered source preference, not a speed
+superiority claim. Full guards, fresh confirmation and matched profiles remain.
+Source NONE; AWS counts stay7 populations (0 accepted/4 rejected/3 parked), plus
+one parked ARM replication and the in-progress Intel replication. ARM prepares
+focused guard fixtures; AMD profiles a distinct deletion offset-adjust loop.
+See AWS-DECISIONS.md and reviews/aws-intel-scan-raw-audit.json under NIGHT-EXPLORATION-001.
+Lease release remains08:00UTC; live restoration verification is still required.

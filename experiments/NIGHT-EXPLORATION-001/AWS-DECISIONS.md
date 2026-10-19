@@ -17,8 +17,9 @@ These counts exclude unmeasured diagnoses and do not combine Apple results.
 The exact iterator A/B patches also completed a separate ARM replication: PARK
 because both primary controls failed; no qualified architecture confirmation.
 
-Active work: Intel is preparing exact scan A/B replication after its own controls
-qualified; ARM is preparing missing focused scan guards. AMD is profiling deletion.
+Active work: Intel completed qualified exact scan A/B primary replication; B advances
+to guards under the predeclared source preference. ARM is preparing focused scan
+guards. AMD is profiling deletion. Neither replication is an accepted optimization.
 The [scan chair decision](reviews/aws-amd-scan-population/selection.md) preserves the
 three separately authored proposals and implementation assignments.
 Failed controls cannot be overridden by favorable candidate timings. See the
@@ -198,3 +199,25 @@ AWS completed populations: **7 — 0 accepted / 4 rejected / 3 parked**, plus
 controls qualify and exact A/B replication is preparing; those measurements cannot
 repair AMD's failed control. Full guards, fresh confirmation, profile validation
 and final review remain mandatory before any acceptance recommendation.
+
+
+## 19 October03:45 UTC — Intel scan primary replication qualifies; B advances
+
+[Published discovery](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/5534ca6e7/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
+Root independently reconstructed48 baseline A/A rows and96 candidate rows /36 total
+ABBA blocks, including frozen driver/schedule hashes, serial process windows, CPU2,
+exact callback counts/checksums and tree-owned memory. Both baseline controls pass.
+A median elapsed changes are−6.666%/−3.847% at100K/1M; B−6.665%/−3.661%.
+Every candidate primary block improves by at least3.584%. B advances by the frozen
+maintenance-based preference; these results do not establish A-versus-B superiority.
+The driver completed in113.337s;133.451s includes bounded-helper cleanup overhead.
+
+This is architecture replication of the existing scan population, not a new population.
+**PARK pending full guards, fresh confirmation, matched profiles and final adversarial
+review; source NONE.** Original-operation guards cover five sizes and two member lengths;
+separate focused guards cover genuine dense/folded tags and naturally reversed leaves.
+Short or noisy guard cells remain unresolved rather than silently excluded.
+AWS counts remain7 populations (0 accepted/4 rejected/3 parked), one parked ARM
+replication and this Intel replication in progress.
+
+[Independent raw audit](reviews/aws-intel-scan-raw-audit.json).
