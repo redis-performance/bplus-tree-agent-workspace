@@ -84,3 +84,5 @@ source adoption. Host workers continue distinct profile-led directions until the
 - 2026-10-19T02:40:04.224630+00:00: aws-intel running at `41fbb315`: iterator referee1920checks pass; sampling controls66/66 known-work,0disabled;24scoped captures running; aws-amd running at `f3fcad10`: BUILDER-WRITE-001 rejected; full-chunk move assembly/census investigation; aws-arm running at `5f2f9e57`: duration-AA-failed; fixed-screen-ready.
 
 - 2026-10-19T02:42:16.063974+00:00: aws-intel running at `543e0af1`: iterator referee1920checks pass; sampling controls66/66 known-work,0disabled;24scoped captures running; aws-amd running at `f3fcad10`: BUILDER-WRITE-001 rejected; full-chunk move assembly/census investigation; aws-arm running at `5f2f9e57`: duration-AA-failed; fixed-screen-ready.
+
+- 2026-10-19T02:42:52.441837+00:00: aws-intel running at `543e0af1`: iterator referee1920checks pass; sampling controls66/66 known-work,0disabled;24scoped captures running; aws-amd running at `0f69ae28`: FULL-CHUNKS-001 census/profile/proposal frozen; fresh AA next; aws-arm running at `5f2f9e57`: duration-AA-failed; fixed-screen-ready.
