@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent ARM fold proposal028 recommends NONE: fresh controls qualify, but sampled predicate17% does not establish enough recovery from prior B+55–79% to beat unchanged baseline by2%. Deferred mask-hoist mechanism/risks/falsification recorded, no peer proposal reads or code/measurements. SourceNONE, AMDidle.
+Prepared corrected AMD iterator029 baseline-only plan for root review: public forward score-only iterate100K/1M,16bytes,50Mops fixed;6 scoped profiles with original/disabled/known controls then48 fresh AA rows701–703 twice. Actual015 binary unchanged. No runner work or candidate. Prior full-output iterator cache leads are a different output contract; old decisions unchanged.
 
-Prior published audits and all decisions unchanged. Deadline08:00UTC; no new experiments after07:15UTC.
+Own4population counts remain0accepted/3rejected/1parked. SourceNONE; awaiting root review. Deadline08:00UTC.
