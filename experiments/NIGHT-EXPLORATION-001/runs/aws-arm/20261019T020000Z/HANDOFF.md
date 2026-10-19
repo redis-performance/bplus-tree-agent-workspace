@@ -52,3 +52,7 @@ andGit. Exactservingmodel and token/monetarycost unknown; do not infer them.
 ## 2026-10-19T04:31:25.644129+00:00 — Supplemental SCAN referee
 
 011-scan-supplement frozen after378 baseline commands/90 models/180 census cells passed native and sanitizer. Natural active resize and small complete reversal at8/319/320/321/1024 boundaries;319 has no full16 chunk. No performance measurements, sourceNONE/counts unchanged. Pre-freeze failures retained. Exact selectedB native ARM correctness queued, then isolated corrected-adapter baseline requalification. Original007/8fab builds remain immutable.
+
+## 2026-10-19T04:33:41.519731+00:00 — Exact B correctness and distinct adapter baseline
+
+012 exact Intel-selectedB passed native ARM43 tests+V2 oracle in release and ASan/UBSan, no timing. 013 independent corrected-adapter baseline running under1800s lease after B job completion; detached13e459ff8, original1Mops/16bytes/5sizes×8ops/sixABBA,1200s timing budget. Original8fab builds unchanged. No optimization decision/count change.
