@@ -16,6 +16,7 @@ and separate from the preserved four-size data. The overnight campaign is still 
 - [Measurement and selection rules](MEASUREMENT.md)
 - [Worker instructions](WORKER.md)
 - [Morning report template](REPORT-TEMPLATE.md)
+- [M1 publication and M6 decision checks](COORDINATION.md)
 - [Lessons from Lemire's benchmark template](LEMIRE-NOTES.md)
 - [C blog benchmarks and cbitset: changes worth making](BENCHMARK-REVIEW.md)
 
