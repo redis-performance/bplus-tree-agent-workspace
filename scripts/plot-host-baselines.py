@@ -37,18 +37,22 @@ def main():
                          'svg.fonttype': 'none', 'svg.hashsalt': 'bplus-m1-m6-baselines'})
     limits = {case: max(cells[(case, size)]['max_ns_op']
                        for _, cells in hosts for size in SIZES)*1.12 for case in CASES}
-    for source, cells in hosts:
-        color = '#1d4ed8' if source['host'] == 'apple-m1' else '#b45309'
+    for group in [[host] for host in hosts] + [hosts]:
+        combined = len(group) > 1
         fig, axes = plt.subplots(2, 4, figsize=(14, 7.2))
         fig.patch.set_facecolor('white')
         for ax, case, title in zip(axes.flat, CASES, TITLES):
-            rows = [cells[(case, size)] for size in SIZES]
-            med = [r['median_ns_op'] for r in rows]
-            ax.errorbar(range(5), med,
-                yerr=[[v-r['min_ns_op'] for v, r in zip(med, rows)],
-                      [r['max_ns_op']-v for v, r in zip(med, rows)]],
-                marker='o', markersize=4.5, linewidth=2, elinewidth=1.2, capsize=3,
-                color=color, label='Median; whiskers: observed min–max', zorder=3)
+            for source, cells in group:
+                m1 = source['host'] == 'apple-m1'
+                color = '#1d4ed8' if m1 else '#b45309'
+                rows = [cells[(case, size)] for size in SIZES]
+                med = [r['median_ns_op'] for r in rows]
+                ax.errorbar(range(5), med,
+                    yerr=[[v-r['min_ns_op'] for v, r in zip(med, rows)],
+                          [r['max_ns_op']-v for v, r in zip(med, rows)]],
+                    marker='o' if m1 else 's', linestyle='-' if m1 else '--',
+                    markersize=4.5, linewidth=2, elinewidth=1.2, capsize=3,
+                    color=color, label=source['label'], zorder=3)
             ax.set_xticks(range(5), ['100', '1K', '10K', '100K', '1M'])
             ax.set_ylim(0, limits[case])
             ax.yaxis.set_major_locator(MaxNLocator(5))
@@ -57,22 +61,29 @@ def main():
             ax.set_xlabel('Members')
             ax.grid(axis='y', alpha=.2, zorder=0)
             ax.spines[['top', 'right']].set_visible(False)
-        fig.suptitle(f'{source["label"]} · whole-tree baseline',
+        label = 'Apple M1 + M6' if combined else group[0][0]['label']
+        compiler = ('M1: Apple Clang 17 · M6: Apple Clang 21' if combined
+                    else group[0][0]['compiler'])
+        fig.suptitle(f'{label} · whole-tree baseline',
                      fontsize=22, fontweight='bold', x=.07, ha='left', y=.98)
-        fig.text(.07, .91, f'{source["compiler"]} · -O3 · 16-byte members · 24 observations per cell',
+        fig.text(.07, .925, f'{compiler} · -O3 · 16-byte members · 24 observations per cell',
                  fontsize=11, color='#475569')
-        fig.subplots_adjust(left=.07, right=.98, bottom=.19, top=.82, wspace=.42, hspace=.65)
+        if combined:
+            handles, labels = axes.flat[0].get_legend_handles_labels()
+            fig.legend(handles, labels, loc='lower left', bbox_to_anchor=(.065, .855),
+                       ncol=2, frameon=False, fontsize=11)
+        fig.subplots_adjust(left=.07, right=.98, bottom=.19, top=.79, wspace=.42, hspace=.65)
         fig.text(.07, .035,
                  'Dots: median batch-average ns/op. Whiskers: observed min–max. Lower is less time.\n'
-                 'Each operation uses the same y-axis on both host charts. Host/compiler differences are not candidate gains.',
+                 'Host series remain separate. Each panel has its own y-axis. Host/compiler differences are not candidate gains.',
                  fontsize=10, color='#475569', linespacing=1.5)
-        stem = args.directory/(source['host']+'-baseline')
+        stem = args.directory/('m1-m6-baseline' if combined else group[0][0]['host']+'-baseline')
         fig.savefig(stem.with_suffix('.png'), dpi=150, facecolor='white', metadata={'Software': 'Matplotlib'})
         fig.savefig(stem.with_suffix('.svg'), facecolor='white', metadata={'Date': None})
         plt.close(fig)
         svg = stem.with_suffix('.svg')
         svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
-    print('Validated 80 host cells; wrote two PNG charts and two SVG exports.')
+    print('Validated 80 host cells; wrote combined and individual PNG/SVG charts.')
 
 
 if __name__ == '__main__':

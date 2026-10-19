@@ -86,12 +86,11 @@ Both overnight campaigns have completed all eight operations at all five sizes:
 16-byte members, three seeds, six same-binary ABBA blocks, 120 serial processes
 and 960 rows per host. Native and ASan/UBSan validations pass on both hosts.
 
-The charts show median batch-average **ns/op** and observed min–max ranges.
-Each operation uses the same y-axis on both hosts' charts. Lower is less time.
+The chart overlays **M1 (blue circles)** and **M6 (orange squares)** in each
+operation panel, with median batch-average **ns/op** and observed min–max ranges.
+Each panel has its own y-axis. Lower is less time.
 
-![Apple M6 latest baseline: all eight operations across five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/apple-m6-baseline.png)
-
-![Apple M1 latest baseline: all eight operations across five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/apple-m1-baseline.png)
+![Apple M1 and M6 latest baselines overlaid across all eight operations and five tree sizes](experiments/NIGHT-EXPLORATION-001/baseline-charts/m1-m6-baseline.png)
 
 [Chart data, pinned source revisions and reproduction](experiments/NIGHT-EXPLORATION-001/baseline-charts/README.md).
 

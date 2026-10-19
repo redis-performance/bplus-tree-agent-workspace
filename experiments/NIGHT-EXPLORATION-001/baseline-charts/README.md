@@ -3,12 +3,14 @@
 These figures use the two overnight baselines linked from the root README, not the
 earlier M1 preparation run. Each host has 40 cells: eight operations, five sizes,
 24 observations per cell. Dots show median batch-average ns/op; whiskers show the
-full observed min–max. Each operation has the same axis limits in both host charts.
+full observed min–max. The combined chart overlays both hosts in each operation panel,
+with blue circles for M1 and orange squares for M6. Each panel has its own y-axis.
 These are host baseline costs with different compilers, not candidate gains.
 
-![Apple M6 baseline](apple-m6-baseline.png)
+![Apple M1 and M6 baselines overlaid](m1-m6-baseline.png)
 
-![Apple M1 baseline](apple-m1-baseline.png)
+[Combined SVG](m1-m6-baseline.svg) · [Individual M6 chart](apple-m6-baseline.png) ·
+[Individual M1 chart](apple-m1-baseline.png)
 
 [sources.json](sources.json) pins the exact published Git revisions, source paths
 and SHA256 of both summary snapshots. The original host reports retain raw rows,
