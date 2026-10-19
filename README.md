@@ -4,9 +4,9 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
-**Current state:** the benchmarks work. Bulk score decoding shows a promising local
-speedup, but short-range regressions still prevent adoption. No optimization has
-been merged into `src/`; experimental implementations and results live in `experiments/`.
+**Current state:** all five machines have completed the baseline matrix. Optimization
+experiments continue with correctness, precision and regression checks. No optimization
+has been merged into `src/`; candidate patches and measured decisions live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
 is running on separate M1 and M6 host branches: rank, update paths, single-query

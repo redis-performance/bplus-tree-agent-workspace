@@ -201,7 +201,7 @@ repair AMD's failed control. Full guards, fresh confirmation, profile validation
 and final review remain mandatory before any acceptance recommendation.
 
 
-## 19 October03:45 UTC — Intel scan primary replication qualifies; B advances
+## 19 October03:42 UTC — Intel scan primary replication qualifies; B advances
 
 [Published discovery](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/5534ca6e7/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
 Root independently reconstructed48 baseline A/A rows and96 candidate rows /36 total

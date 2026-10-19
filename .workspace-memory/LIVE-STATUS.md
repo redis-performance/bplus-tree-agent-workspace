@@ -178,7 +178,7 @@ No source adoption. Deadline/release08:00UTC unchanged. Dashboard push race repa
 without dropping its pending commit; bounded rebase/push retries now installed.
 
 
-## 19 October03:45 UTC — Intel scan primary replication audited
+## 19 October03:42 UTC — Intel scan primary replication audited
 
 Exact A/B scan replication passes both qualified primary cases on Intel. Root audit
 reconstructs48 A/A +96 candidate rows,36 total blocks, frozen hashes, serial CPU2,
