@@ -32,3 +32,5 @@
 03:41:35UTC: Discovery timing clarification:113.337s driver execution;133.451s bounded-helper lifetime includes cleanup. Full original5size×2keylength×8operation guard calibration preregistered,10 baseline processes only, before budget freeze and A/A.
 
 2026-10-19T03:44:31.800666+00:00 Full original guard calibration complete10 processes80rows; 12 short windows. Fixed A/A120processes/960rows budget1440s preregistered before launch, baseline only.
+
+2026-10-19T03:49:22.841950+00:00 Independent AMD deletion proposal555da4539 recommended NONE; root chair101895e82 agrees after failed1M control. Prepared separate matched scan baseline/B profile using301–303; no remote execution while full original A/A active. Fresh201–203 reserved for root-coordinated independent confirmation.
