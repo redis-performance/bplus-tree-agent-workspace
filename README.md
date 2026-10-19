@@ -5,7 +5,8 @@ member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
 **Current state:** all five machines have completed the baseline matrix. Overnight
-benchmark phases are closed and all three AWS OSS coordinators are restored. No optimization
+benchmark phases are closed, all three AWS OSS coordinators are restored, and M6's
+final evidence handoff is published. No optimization
 has been merged into `src/`; candidate patches and measured decisions live in `experiments/`.
 
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
@@ -313,8 +314,12 @@ change. The original three patches and authors remain unchanged.
 
 ![M6 fresh scan controls: all twelve blocks, two failed controls and no candidate comparison](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-neon-aa.png)
 
-The [consolidated M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a902bddefae8e3c6a6a165712d7e0037368b2c0e/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
-links the decisions, raw audits and limits. Final reporting continues to 09:00 Lisbon.
+The [final M6 evidence report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/85afa6c7b798130452ca9dbd63082337e8bd78b7/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
+links the decisions, raw audits and limits. Experiments stopped before the 08:15 Lisbon
+cutoff; final reporting closed at 09:01 Lisbon. The
+[final handoff receipt](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/85afa6c7b798130452ca9dbd63082337e8bd78b7/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/FINAL-HANDOFF.json)
+records source identities and M1's confirmed consumption of the M6 decisions.
+The later ARM packed-score-mask result remains an untested future M6 lead.
 
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
