@@ -1,11 +1,8 @@
 # Experiment summary
 
-M6 checkpoint — 06:11 UTC. Corrected-adapter member-index profiling is complete: 16 fixed captures, 2,469 observations, all sufficient and uncapped. Independent raw audit accounts for 1,422 program-text observations, 1,037 external-library observations and 10 import-stub observations whose targets remain unknown. No observation was dropped. These are locations, not cycle costs.
+M6 checkpoint — 06:17 UTC. Member-index profiling is complete and independently audited: 16 captures / 2,469 observations, all accounted for, with locations explicitly not treated as cycle costs. The chart is visible on main at fb629f497. Review 022 has three actual independent proposals: A/B recommend exact corrected NEON-family replication; C recommends NONE. The chair selects one bounded M6 new-host falsification and preserves C's dissent.
 
-Attempt 019 remains preserved as incomplete after three successful captures; separate continuation 020 captured only the 13 unstarted cases. Combined capture time was 18.689094 seconds, with the 931.704861-second metadata-repair pause recorded separately. All 53/86 frozen identities and owned-process cleanup pass. Scan has 184 observations within the inlined tag-matching ranges; rank already vectorizes its child-count reduction.
-
-The pinned cross-host inventory records rejection of all three corrected Graviton NEON scan variants and failed AMD SSE2 advancement gates. No cross-machine timing is pooled. Review 022 now freezes 39 inputs for three independent proposals and a chair decision; implementation remains NONE pending that decision. Source selection NONE; counts unchanged at 12 populations, 0 accepted / 7 rejected / 5 parked, 36 retained patches / 15 harnesses. Main decoder chart is visible at a9dedf618. Experiments stop 07:15 UTC; final reporting continues through 08:00 UTC / 09:00 Lisbon.
-
+023 is preparation only: four isolated corrected-source worktrees, unchanged original NEON patches/authors, common native/sanitizer correctness and Mac-specific owned-process drivers. Reviewed freezes and exclusive release precede fresh 48-process A/A; any failed control stops comparison. Conditional discovery is 144 processes; no repair, retry or count change. All required guards/fresh confirmation/profile/adversarial checks remain necessary, and full adoption feasibility is unproven. Source selection NONE; counts remain12 populations,0 accepted/7 rejected/5 parked,36 retained patches/15 harnesses. Experiments stop07:15UTC; final reporting continues08:00UTC/09:00Lisbon.
 
 M6 checkpoint — 05:55 UTC. The decoder replications are complete and audited; the combined chart is on main at a9dedf618. Source selection remains NONE and the 12-population counts are unchanged.
 
