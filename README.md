@@ -248,6 +248,16 @@ raw audit passes; this harness diagnostic accepts no tree optimization.
 
 ![M6 matched panic compiler contract: all six blocks and failed controls](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-adapter-diagnostic.png)
 
+The [exact M6 decoder replications](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md) completed
+**20,640 serial processes and 2,662,560 measured batches**, with independent raw
+audits. EXP-007 A's private full-leaf median repeats at−34.34% on fresh seeds, but
+failed controls and guard losses keep it PARK. EXP-008 fails its count16 gain gates.
+**Every individual window is below10ms**: full qualification is0/210 discovery
+cells and0/30 fresh cells. No tree optimization is adopted. The original expanded
+EXP-008 correctness matrix also passes16,512 native/sanitizer cells.
+
+![M6 exact decoder replications: all blocks, controls and short-window limits](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-decoder-replications.png)
+
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
 
@@ -255,7 +265,8 @@ M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 acc
 
 The decoder results below were measured on **Apple M1**, using Apple Clang 17,
 `-O3`, and one unpinned thread. They isolate packed-score decoding; their gains
-are not whole-tree speedups. M6 decoder replication is pending.
+are not whole-tree speedups. The completed M6 replications are shown above and
+retain separate rows, compiler identity and controls.
 
 | Experiment | What we learned | Outcome |
 |---|---|---|

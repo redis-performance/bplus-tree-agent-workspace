@@ -24,3 +24,20 @@ is a discovery checkpoint, not a portable or whole-operation-suite performance c
 ## M6 adapter/compiler-contract diagnostic
 
 Pinned source: [7c8f5c0bd results](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/RESULTS.md), [raw independent audit](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/INDEPENDENT-AUDIT.md), [reproduction and exact data](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/7c8f5c0bd/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/012-contract-diagnostic/CHART.md). Copied PNG/SVG/data are byte-identical to that commit. All eight effects conditional (zero ofeight workloads qualify controls onbothadapters); no tree acceptance or candidate population. The source tree and exact owned memory are unchanged. Six points and observed ranges are not confidence intervals.
+
+## M6 exact decoder replications
+
+The combined four-panel chart shows EXP-004 focused scalar decoding, EXP-007
+private bulk variants, EXP-008 cutoffs and EXP-007 A fresh same-M6 confirmation.
+All six paired block effects, observed ranges, medians and relative A/A controls
+are retained. All individual windows are below10ms; full qualification is0/210
+discovery cells and0/30 fresh cells. No tree adoption or independent-machine
+confirmation is claimed. The original legacy adapter remains part of this frozen
+replication identity; the corrected baseline stays separate.
+
+Pinned source: `a9df242d4c0b68c4c1bc6482a155f7d16c199a7f`. [Report](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/RESULTS.md),
+[data](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/decoder-replications.json),
+[plot script](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/plot.py),
+[raw and audits](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/a9df242d4c0b68c4c1bc6482a155f7d16c199a7f/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications).
+From that checkout, run `python3 experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/018-decoder-replications/plot.py` with Matplotlib.
+The main copies are byte-identical PNG/SVG/JSON artifacts.
