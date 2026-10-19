@@ -1,0 +1,146 @@
+#define _GNU_SOURCE 1
+#define _DARWIN_C_SOURCE 1
+#define _POSIX_C_SOURCE 200809L
+#include "server.h"
+#include "zset_btree.h"
+#include <inttypes.h>
+#include <string.h>
+#include <time.h>
+#include <errno.h>
+#if defined(__APPLE__)
+#include <pthread.h>
+#include <pthread/qos.h>
+#elif defined(__linux__)
+#include <sched.h>
+#endif
+
+static volatile uint64_t sink;
+static uint64_t random64(uint64_t *state) {
+    uint64_t z = (*state += UINT64_C(0x9e3779b97f4a7c15));
+    z = (z ^ (z >> 30)) * UINT64_C(0xbf58476d1ce4e5b9);
+    z = (z ^ (z >> 27)) * UINT64_C(0x94d049bb133111eb);
+    return z ^ (z >> 31);
+}
+static uint64_t now_ns(void) {
+    struct timespec ts;
+    serverAssert(clock_gettime(CLOCK_MONOTONIC, &ts) == 0);
+    return (uint64_t)ts.tv_sec * UINT64_C(1000000000) + ts.tv_nsec;
+}
+/* Observations, not affinity or frequency controls. -1 means unavailable. */
+static int64_t thread_ns(void) {
+#if defined(CLOCK_THREAD_CPUTIME_ID)
+    struct timespec ts;
+    if (clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts) == 0)
+        return (int64_t)ts.tv_sec * INT64_C(1000000000) + ts.tv_nsec;
+#endif
+    return -1;
+}
+static int cpu_id(void) {
+#if defined(__APPLE__)
+    size_t cpu;
+    if (__builtin_available(macOS 11.0, *))
+        return pthread_cpu_number_np(&cpu) == 0 ? (int)cpu : -1;
+    return -1;
+#elif defined(__linux__)
+    return sched_getcpu();
+#else
+    return -1;
+#endif
+}
+/* The public API reports requested QoS, not effective overrides/clamps. */
+static const char *qos_reported(int *relative_priority) {
+    *relative_priority = 0;
+#if defined(__APPLE__)
+    qos_class_t qos;
+    if (pthread_get_qos_class_np(pthread_self(), &qos, relative_priority)) return "unknown";
+    switch (qos) {
+    case QOS_CLASS_USER_INTERACTIVE: return "user-interactive";
+    case QOS_CLASS_USER_INITIATED: return "user-initiated";
+    case QOS_CLASS_DEFAULT: return "default";
+    case QOS_CLASS_UTILITY: return "utility";
+    case QOS_CLASS_BACKGROUND: return "background";
+    case QOS_CLASS_UNSPECIFIED: return "unspecified";
+    default: return "unknown";
+    }
+#else
+    return "unavailable";
+#endif
+}
+static size_t number(const char *s) {
+    char *end;
+    errno = 0;
+    unsigned long long v = strtoull(s, &end, 10);
+    if (errno || s[0] == '-' || *end || !*s || !v || v > 100000000) {
+        fprintf(stderr, "Expected integer in [1, 100000000]: %s\n", s);
+        exit(2);
+    }
+    return (size_t)v;
+}
+static void insert(zbtreeSet *tree, sds key, double score) {
+    zbtreeInsertPosition pos;
+    double old;
+    serverAssert(!zbtreeFindForAdd(tree, key, &old, &pos));
+    zbtreeInsertNew(tree, score, key, &pos);
+}
+typedef struct { uint64_t checksum,hits,calls; } result;
+static result work(zbtreeSet *tree,sds *keys,size_t *query,size_t n,size_t ops,unsigned batch,unsigned mode,int verify){
+ result r={0,0,0};
+ for(size_t offset=0;offset<ops;){
+  unsigned count=ops-offset<batch?(unsigned)(ops-offset):batch,expected=0;
+  sds members[16];double out[20];const double guard=-7654321.25;
+  if(verify)for(unsigned j=0;j<20;j++)out[j]=guard;
+  for(unsigned j=0;j<count;j++){
+   int hit=mode==0 || (mode==2 && (offset+j)%2==0);
+   members[j]=keys[query[(offset+j)%n]+(hit?0:n)];if(hit)expected|=1U<<j;
+  }
+  unsigned found=zbtreeScores(tree,members,count,out+2);serverAssert(found==expected);
+  for(unsigned j=0;j<count;j++)if(found&(1U<<j)){
+   if(verify)serverAssert(out[j+2]==(double)query[(offset+j)%n]);
+   r.checksum+=(uint64_t)out[j+2]+1;r.hits++;
+  }
+  if(verify)for(unsigned j=0;j<20;j++)if(j<2||j>=count+2)serverAssert(out[j]==guard);
+  r.calls++;offset+=count;
+ }
+ return r;
+}
+int main(int argc,char **argv){
+ size_t n=10000,ops=1000000,bytes=16,warmups=3,batch=16;uint64_t seed=1,query_seed=2;const char *layout="hit";
+ for(int i=1;i<argc;i++){
+  if(!strcmp(argv[i],"--help")){puts("batch-lookup --size N --ops N --member-bytes 8..65536 --seed N --query-seed N --batch-size 1|16 --case lookup-hit|lookup-miss|lookup-mixed [--layout hit|miss|mixed] --warmup-passes N");return 0;}
+  if(i+1==argc)return 2;const char *arg=argv[i++],*v=argv[i];
+  if(!strcmp(arg,"--size"))n=number(v);else if(!strcmp(arg,"--ops"))ops=number(v);
+  else if(!strcmp(arg,"--member-bytes"))bytes=number(v);else if(!strcmp(arg,"--seed"))seed=number(v);
+  else if(!strcmp(arg,"--query-seed"))query_seed=number(v);else if(!strcmp(arg,"--batch-size"))batch=number(v);
+  else if(!strcmp(arg,"--case")){if(!strncmp(v,"lookup-",7))layout=v+7;else return 2;}
+  else if(!strcmp(arg,"--warmup-passes"))warmups=number(v);else if(!strcmp(arg,"--layout"))layout=v;else return 2;
+ }
+ if(bytes<8||bytes>65536||n>1000000||(batch!=1&&batch!=16))return 2;
+ unsigned mode;if(!strcmp(layout,"hit"))mode=0;else if(!strcmp(layout,"miss"))mode=1;else if(!strcmp(layout,"mixed"))mode=2;else return 2;
+ uint64_t rng=seed;uint8_t hs[16];for(unsigned j=0;j<16;j++)hs[j]=(uint8_t)random64(&rng);dictSetHashFunctionSeed(hs);
+ sds *keys=zmalloc(2*n*sizeof(*keys));size_t *order=zmalloc(n*sizeof(*order)),*query=zmalloc(n*sizeof(*query));char *buf=zmalloc(bytes);
+ for(size_t i=0;i<2*n;i++){
+  memset(buf,'x',bytes);for(unsigned j=0;j<8;j++)buf[j]=(char)((uint64_t)i>>(j*8));keys[i]=sdsnewlen(buf,bytes);
+  if(i<n)order[i]=query[i]=i;
+ }zfree(buf);
+ for(size_t i=n;i>1;i--){size_t j=random64(&rng)%i,tmp=order[i-1];order[i-1]=order[j];order[j]=tmp;}
+ uint64_t qr=query_seed;for(size_t i=n;i>1;i--){size_t j=random64(&qr)%i,tmp=query[i-1];query[i-1]=query[j];query[j]=tmp;}
+ uint64_t cfp=UINT64_C(14695981039346656037),qfp=cfp;
+ for(size_t i=0;i<n;i++){cfp=(cfp^order[i])*UINT64_C(1099511628211);qfp=(qfp^query[i])*UINT64_C(1099511628211);}
+ zbtreeSet *tree=zbtreeCreate();for(size_t i=0;i<n;i++)insert(tree,keys[order[i]],(double)order[i]);
+ for(size_t i=0;i<n;i++){double score;serverAssert(zbtreeScore(tree,keys[i],&score)&&score==(double)i);}
+ /* Successful complete lookup validation settles incremental migration before timing. */
+ size_t owned=zbtreeAllocSize(tree);uint64_t expected=0,expected_hits=0;
+ for(size_t i=0;i<ops;i++)if(mode==0||(mode==2&&i%2==0)){expected+=query[i%n]+1;expected_hits++;}
+ uint64_t ws=now_ns();for(size_t p=0;p<warmups;p++){result r=work(tree,keys,query,n,n,(unsigned)batch,mode,1);sink^=r.checksum;}
+ uint64_t we=now_ns()-ws;serverAssert(zbtreeAllocSize(tree)==owned);
+ int rp0,rp1;const char *q0=qos_reported(&rp0);int cpu0=cpu_id();int64_t ts=thread_ns();uint64_t start=now_ns();
+ result r=work(tree,keys,query,n,ops,(unsigned)batch,mode,0);
+ uint64_t elapsed=now_ns()-start;int64_t te=thread_ns();int cpu1=cpu_id();const char *q1=qos_reported(&rp1);
+ serverAssert(r.checksum==expected && r.hits==expected_hits && r.calls==1+(ops-1)/batch);
+ serverAssert(zbtreeLength(tree)==n && zbtreeAllocSize(tree)==owned);
+ for(size_t i=0;i<n;i++){double score;serverAssert(zbtreeScore(tree,keys[i],&score)&&score==(double)i);serverAssert(!zbtreeScore(tree,keys[n+i],&score));}
+ serverAssert(zbtreeAllocSize(tree)==owned);sink^=r.checksum;
+ puts("case,size,requested_ops,member_bytes,seed,query_seed,batch_size,operations,api_calls,hits,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,warmup_passes,warmup_elapsed_ns,construction_fingerprint,query_fingerprint,elapsed_zero");
+ printf("lookup-%s,%zu,%zu,%zu,%"PRIu64",%"PRIu64",%zu,%zu,%"PRIu64",%"PRIu64",%"PRIu64",%.3f,%.3f,%zu,%"PRIu64",%"PRId64",%d,%d,%s,%s,%d,%d,unknown,%zu,%"PRIu64",%"PRIu64",%"PRIu64",%d\n",layout,n,ops,bytes,seed,query_seed,batch,ops,r.calls,r.hits,elapsed,(double)elapsed/ops,elapsed?(double)ops*1e9/elapsed:0.0,owned,r.checksum,ts>=0&&te>=ts?te-ts:-1,cpu0,cpu1,q0,q1,rp0,rp1,warmups,we,cfp,qfp,elapsed==0);
+ zbtreeFree(tree);for(size_t i=0;i<2*n;i++)sdsfree(keys[i]);zfree(keys);zfree(order);zfree(query);return 0;
+}

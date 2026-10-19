@@ -41,3 +41,8 @@ Operator trial and concurrent M1 night excluded from completed counts.
 [Morning report](MORNING-REPORT.md) remains interim. [Usage](USAGE.json) now records
 supervisor counters through completed round 8; round 9 usage, exact backend and
 currency cost unknown. Worker hands off early while the operator trial continues.
+
+Round 9 reporting checkpoint acknowledged **a4df5a725**, request
+`r9-reporting-handoff-20261019T031546233097Z`, ok 03:15:50 UTC. See
+[acknowledgement](ROUND-009-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.

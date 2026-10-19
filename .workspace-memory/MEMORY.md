@@ -1,7 +1,8 @@
 # Shared memory
 
 M6 round 9 reporting handoff: core queue complete / source NONE, counts unchanged.
-Round 8 final handoff acknowledged `19d1a8f87` (ok 03:14:14 UTC); round 9 publication follows.
+Round 9 reporting checkpoint acknowledged `a4df5a725` (ok 03:15:50 UTC); final handoff publication follows.
+Round 8 final handoff acknowledged `19d1a8f87`.
 Operator owns `006-followup` **M6-LOOKUP-CALLER-001**, three independent proposals
 complete/B selected; latest explicit implementation status PREPARING three isolated
 implementations, deadline 04:40:20.349829 UTC. No candidate performance/eligibility claim.

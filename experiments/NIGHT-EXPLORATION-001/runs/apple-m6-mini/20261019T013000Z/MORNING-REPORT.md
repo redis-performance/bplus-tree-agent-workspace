@@ -112,3 +112,8 @@ freezes or completed validations. M1 should await published exact patches, froze
 referee and completed outcome. No speed or eligibility claim exists. Worker resumes
 the host HANDOFF and operator status without duplicating or taking over the trial;
 reporting finishes early when no worker task exists.
+
+Round 9 reporting checkpoint acknowledged **a4df5a725**, request
+`r9-reporting-handoff-20261019T031546233097Z`, ok 03:15:50 UTC. See
+[acknowledgement](ROUND-009-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.

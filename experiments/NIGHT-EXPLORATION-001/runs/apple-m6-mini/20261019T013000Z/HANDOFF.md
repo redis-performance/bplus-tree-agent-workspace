@@ -35,3 +35,8 @@ read matching acknowledgement on resume. Coordinator alone commits/pushes. Atomi
 request exact paths []; keep evidence stable during barrier, poll 5s at most 120s.
 All prior Git/sysctl/profiler/network denial records stand; never retry denied actions
 or alter permissions. Cached M1 `4c48fa7e` context only; current remote UNKNOWN.
+
+Round 9 reporting checkpoint acknowledged **a4df5a725**, request
+`r9-reporting-handoff-20261019T031546233097Z`, ok 03:15:50 UTC. See
+[acknowledgement](ROUND-009-PUBLICATION.json). Final handoff publication follows;
+read matching acknowledgement on resume. No worker experimental children.
