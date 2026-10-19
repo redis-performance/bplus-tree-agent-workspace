@@ -1,0 +1,121 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 20  of event 'cycles:u'
+# Event count (approx.): 98514450
+#
+# Overhead  Symbol                      IPC   [IPC Coverage]
+# ........  ..........................  ....................
+#
+    56.21%  [.] zbtScoreDeleteInPlace   -      -
+            |
+            |--26.11%--zbtWriteBits (inlined)
+            |          zbtDeleteScoreBits (inlined)
+            |          zbtScoreDeleteInPlace
+            |          zbtScoreDeleteAt
+            |          zbtreeDelete
+            |          main
+            |          0x73d35182a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--22.30%--zbtScoreDeleteInPlace
+            |          zbtScoreDeleteAt
+            |          zbtreeDelete
+            |          main
+            |          0x73d35182a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --7.81%--zbtDeleteScoreBits (inlined)
+                       zbtScoreDeleteInPlace
+                       zbtScoreDeleteAt
+                       zbtreeDelete
+                       main
+                       0x73d35182a1ca
+                       __libc_start_main
+                       _start
+
+     8.26%  [.] zbtScoreUpdatePath      -      -
+            |
+            ---zbtScoreNodeMaxScore (inlined)
+               zbtScoreUpdatePath
+               zbtScoreDeleteInPlace
+               zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     6.73%  [.] zbtScoreDeleteAt        -      -
+            |
+            ---zbtScoreLeafRecordBytes (inlined)
+               zbtScoreLeafLiveBytes (inlined)
+               zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     6.50%  [.] main                    -      -
+            |
+            ---0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     5.97%  [.] malloc                  -      -
+            |
+            ---zmalloc (inlined)
+               zmalloc_usable
+               zbtAlloc (inlined)
+               zbtScoreLeafBuild
+               zbtScoreCompactLeaf
+               zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     5.59%  [.] zbtIndexShrinkIfNeeded  -      -
+            |
+            ---zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     5.33%  [.] zbtIndexTableInsertRaw  -      -
+            |
+            ---zbtIndexCopyLeaf
+               zbtIndexRehashStep
+               zbtIndexFind (inlined)
+               zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     5.14%  [.] zbtScoreCompactLeaf     -      -
+            |
+            ---zbtScoreCompactLeaf
+               zbtreeDelete
+               main
+               0x73d35182a1ca
+               __libc_start_main
+               _start
+
+     0.26%  [.] 0x00000000001a190d      -      -
+     0.00%  [.] 0x0000000000015361      -      -
+     0.00%  [k] 0xffffffff88c000b0      -      -
+     0.00%  [.] read                    -      -
+     0.00%  [k] 0xffffffff893b4006      -      -
+     0.00%  [k] 0xffffffff893b4100      -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

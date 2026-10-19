@@ -1,0 +1,509 @@
+ Percent |	Source code & Disassembly of base-fifo2-profile for cycles:u (87 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------
+         : 0     0xf880 <zbtScoreDeleteInPlace>:
+    0.00 :    f880:        pushq   %rbp
+    0.00 :    f881:        movq    %rsp, %rbp
+    0.00 :    f884:        pushq   %r15
+    0.00 :    f886:        pushq   %r14
+    1.14 :    f888:        pushq   %r13
+    0.00 :    f88a:        pushq   %r12
+    0.00 :    f88c:        pushq   %rbx
+    0.00 :    f88d:        subq    $0xb8, %rsp
+    0.00 :    f894:        movl    %ecx, -0x40(%rbp)
+    0.00 :    f897:        movl    %edx, %ebx
+    0.00 :    f899:        movq    %rsi, %r15
+    0.00 :    f89c:        movq    %rdi, -0x38(%rbp)
+    0.00 :    f8a0:        movzbl  0x11(%rsi), %r14d
+    0.00 :    f8a5:        leal    -0x1(%r14), %r12d
+    0.00 :    f8a9:        cmpl    %edx, %r14d
+    0.00 :    f8ac:        jbe     0xf8b3 <zbtScoreDeleteInPlace+0x33>
+    0.00 :    f8ae:        testl   %r12d, %r12d
+    0.00 :    f8b1:        jne     0xf8cb <zbtScoreDeleteInPlace+0x4b>
+    0.00 :    f8b3:        leaq    0x3e27(%rip), %rdi  # 0x136e1
+    0.00 :    f8ba:        leaq    0x421f(%rip), %rdx  # 0x13ae0
+    0.00 :    f8c1:        movl    $0x9fb, %esi
+    0.00 :    f8c6:        callq   0x11880 <standalone_panic>
+    0.00 :    f8cb:        cmpb    $0x0, 0x35(%r15)
+    0.00 :    f8d0:        je      0xf8db <zbtScoreDeleteInPlace+0x5b>
+    0.00 :    f8d2:        movzbl  0x11(%r15), %eax
+    0.00 :    f8d7:        notl    %ebx
+    0.00 :    f8d9:        addl    %eax, %ebx
+    0.00 :    f8db:        movzbl  0x34(%r15), %eax
+    0.00 :    f8e0:        testq   %rax, %rax
+    2.28 :    f8e3:        movl    %r12d, -0x2c(%rbp)
+    0.00 :    f8e7:        je      0xf907 <zbtScoreDeleteInPlace+0x87>
+    0.00 :    f8e9:        movzbl  0x11(%r15), %ecx
+    0.00 :    f8ee:        imull   %ecx, %eax
+    0.00 :    f8f1:        addl    $0x7, %eax
+    0.00 :    f8f4:        shrl    $0x3, %eax
+    0.00 :    f8f7:        addl    $0x9, %eax
+    0.00 :    f8fa:        andl    $-0x2, %eax
+    0.00 :    f8fd:        leaq    (%r15,%rax), %r12
+    0.00 :    f901:        addq    $0x38, %r12
+    0.00 :    f905:        jmp     0xf912 <zbtScoreDeleteInPlace+0x92>
+    0.00 :    f907:        leaq    0x38(%r15), %r12
+    0.00 :    f90b:        movzbl  0x11(%r15), %ecx
+    0.00 :    f910:        xorl    %eax, %eax
+    0.00 :    f912:        addq    %r15, %rax
+    0.00 :    f915:        addq    $0x38, %rax
+    0.00 :    f919:        leaq    (%rax,%rcx,2), %rsi
+    0.00 :    f91d:        leaq    -0xe0(%rbp), %rdi
+    0.00 :    f924:        movq    %r14, %rdx
+    0.00 :    f927:        callq   0x1160 <_init+0x160>
+    0.00 :    f92c:        movl    %ebx, %eax
+    0.00 :    f92e:        movq    %rax, -0x58(%rbp)
+    0.00 :    f932:        movzwl  (%r12,%rax,2), %esi
+    0.00 :    f937:        movzwl  %si, %r13d
+    0.00 :    f93b:        movzbl  (%r15,%r13), %eax
+    0.00 :    f940:        cmpl    $0xfe, %eax
+    0.00 :    f945:        movq    %r12, %rdi
+    0.00 :    f948:        movl    %esi, -0x68(%rbp)
+    0.00 :    f94b:        movl    %ebx, -0x30(%rbp)
+    0.00 :    f94e:        movq    %r12, -0x50(%rbp)
+    0.00 :    f952:        je      0xf974 <zbtScoreDeleteInPlace+0xf4>
+    0.00 :    f954:        cmpl    $0xff, %eax
+    0.00 :    f959:        jne     0xf97a <zbtScoreDeleteInPlace+0xfa>
+    0.00 :    f95b:        cmpl    $0x0, -0x40(%rbp)
+    0.00 :    f95f:        je      0xf9a5 <zbtScoreDeleteInPlace+0x125>
+    0.00 :    f961:        movl    %esi, %r12d
+    0.00 :    f964:        movq    0xd(%r15,%r13), %rdi
+    0.00 :    f969:        testq   %rdi, %rdi
+    0.00 :    f96c:        je      0xf9ac <zbtScoreDeleteInPlace+0x12c>
+    0.00 :    f96e:        leaq    -0x60(%rbp), %rsi
+    0.00 :    f972:        jmp     0xf9ca <zbtScoreDeleteInPlace+0x14a>
+    0.00 :    f974:        movzwl  0x1(%r15,%r13), %eax
+    0.00 :    f97a:        xorl    %ecx, %ecx
+    0.00 :    f97c:        cmpq    $0xfe, %rax
+    0.00 :    f982:        setae   %cl
+    0.00 :    f985:        leaq    (%rax,%rcx,2), %rbx
+    0.00 :    f989:        incq    %rbx
+    0.00 :    f98c:        cmpl    $0x0, -0x40(%rbp)
+    0.00 :    f990:        je      0xfa17 <zbtScoreDeleteInPlace+0x197>
+    0.00 :    f996:        movzwl  0x36(%r15), %eax
+    0.00 :    f99b:        cmpw    %ax, %si
+    0.00 :    f99e:        jne     0xf9f1 <zbtScoreDeleteInPlace+0x171>
+    0.00 :    f9a0:        jmp     0xfa2d <zbtScoreDeleteInPlace+0x1ad>
+    0.00 :    f9a5:        movl    $0x15, %ebx
+    0.00 :    f9aa:        jmp     0xfa17 <zbtScoreDeleteInPlace+0x197>
+    0.00 :    f9ac:        leaq    0x3d2e(%rip), %rdi  # 0x136e1
+    0.00 :    f9b3:        leaq    0x4143(%rip), %rdx  # 0x13afd
+    0.00 :    f9ba:        movl    $0xa07, %esi
+    0.00 :    f9bf:        callq   0x11880 <standalone_panic>
+    0.00 :    f9c4:        leaq    -0x60(%rbp), %rsi
+    0.00 :    f9c8:        xorl    %edi, %edi
+    0.00 :    f9ca:        callq   0x11a80 <zfree_usable>
+    0.00 :    f9cf:        movq    -0x60(%rbp), %rax
+    0.00 :    f9d3:        movq    -0x38(%rbp), %rcx
+    0.00 :    f9d7:        subq    %rax, 0x68(%rcx)
+    0.00 :    f9db:        movl    $0x15, %ebx
+    0.00 :    f9e0:        movl    %r12d, %esi
+    0.00 :    f9e3:        movq    -0x50(%rbp), %rdi
+    0.00 :    f9e7:        movzwl  0x36(%r15), %eax
+    0.00 :    f9ec:        cmpw    %ax, %si
+    0.00 :    f9ef:        je      0xfa2d <zbtScoreDeleteInPlace+0x1ad>
+    0.00 :    f9f1:        testq   %r14, %r14
+    0.00 :    f9f4:        je      0xfa17 <zbtScoreDeleteInPlace+0x197>
+    0.00 :    f9f6:        movl    $0x1, %ecx
+    0.00 :    f9fb:        nopl    (%rax,%rax)
+    0.00 :    fa00:        movzwl  -0x2(%rdi,%rcx,2), %edx
+    0.00 :    fa05:        cmpq    %r14, %rcx
+    0.00 :    fa08:        jae     0xfa12 <zbtScoreDeleteInPlace+0x192>
+    0.00 :    fa0a:        incq    %rcx
+    0.00 :    fa0d:        cmpw    %si, %dx
+    0.00 :    fa10:        jbe     0xfa00 <zbtScoreDeleteInPlace+0x180>
+    0.00 :    fa12:        cmpw    %si, %dx
+    0.00 :    fa15:        ja      0xfa2d <zbtScoreDeleteInPlace+0x1ad>
+    0.00 :    fa17:        movl    $0x0, -0x44(%rbp)
+    0.00 :    fa1e:        cmpw    0x36(%r15), %si
+    0.00 :    fa23:        jne     0xfa60 <zbtScoreDeleteInPlace+0x1e0>
+    0.00 :    fa25:        leaq    0x36(%r15), %r14
+    0.00 :    fa29:        movl    %esi, %eax
+    0.00 :    fa2b:        jmp     0xfa54 <zbtScoreDeleteInPlace+0x1d4>
+    0.00 :    fa2d:        leaq    0x36(%r15), %r14
+    0.00 :    fa31:        leaq    (%r15,%rax), %rsi
+    0.00 :    fa35:        movq    %rdi, %r12
+    0.00 :    fa38:        leaq    (%rsi,%rbx), %rdi
+    0.00 :    fa3c:        subq    %rax, %r13
+    0.00 :    fa3f:        movq    %r13, %rdx
+    0.00 :    fa42:        callq   0x11a0 <_init+0x1a0>
+    0.00 :    fa47:        movq    %r12, %rdi
+    0.00 :    fa4a:        movzwl  0x36(%r15), %eax
+    0.00 :    fa4f:        movb    $0x1, %cl
+    0.00 :    fa51:        movl    %ecx, -0x44(%rbp)
+    0.00 :    fa54:        movl    -0x2c(%rbp), %r12d
+    0.00 :    fa58:        addl    %ebx, %eax
+    0.00 :    fa5a:        movw    %ax, (%r14)
+    9.09 :    fa5e:        jmp     0xfa64 <zbtScoreDeleteInPlace+0x1e4>
+    0.00 :    fa60:        movl    -0x2c(%rbp), %r12d
+    0.00 :    fa64:        leaq    0x38(%r15), %r14
+    0.00 :    fa68:        movq    -0x58(%rbp), %rax
+    0.00 :    fa6c:        leaq    (%rdi,%rax,2), %rdi
+    0.00 :    fa70:        movzbl  0x34(%r15), %eax
+    0.00 :    fa75:        testl   %eax, %eax
+    0.00 :    fa77:        movq    %r15, -0x38(%rbp)
+    0.00 :    fa7b:        je      0xfc49 <zbtScoreDeleteInPlace+0x3c9>
+    0.00 :    fa81:        movq    %rdi, -0x80(%rbp)
+    0.00 :    fa85:        movl    %eax, -0x64(%rbp)
+    0.00 :    fa88:        movl    %eax, %eax
+    0.00 :    fa8a:        movq    %rax, -0x70(%rbp)
+    0.00 :    fa8e:        movzbl  0x11(%r15), %ecx
+    0.00 :    fa93:        movl    -0x30(%rbp), %eax
+    0.00 :    fa96:        movl    %eax, %r11d
+    0.00 :    fa99:        notl    %r11d
+    0.00 :    fa9c:        movq    %rcx, -0x78(%rbp)
+    0.00 :    faa0:        addl    %ecx, %r11d
+    0.00 :    faa3:        je      0xfbcd <zbtScoreDeleteInPlace+0x34d>
+    0.00 :    faa9:        movq    -0x70(%rbp), %rax
+    0.00 :    faad:        movq    %rax, %r12
+    0.00 :    fab0:        imulq   -0x58(%rbp), %r12
+    0.00 :    fab5:        imulq   %rax, %r11
+    0.00 :    fab9:        addq    %r12, %rax
+    0.00 :    fabc:        movq    %rax, -0x40(%rbp)
+    0.00 :    fac0:        xorl    %r10d, %r10d
+    0.00 :    fac3:        jmp     0xfadc <zbtScoreDeleteInPlace+0x25c>
+    0.00 :    fac5:        nopw    %cs:(%rax,%rax)
+    0.00 :    fad0:        addq    %rdx, %r10
+    0.00 :    fad3:        cmpq    %r11, %r10
+    0.00 :    fad6:        jae     0xfbcd <zbtScoreDeleteInPlace+0x34d>
+    0.00 :    fadc:        movq    %r11, %rdx
+    0.00 :    fadf:        subq    %r10, %rdx
+    0.00 :    fae2:        cmpq    $0x40, %rdx
+    0.00 :    fae6:        movl    $0x40, %eax
+    0.00 :    faeb:        cmovaeq %rax, %rdx
+    0.00 :    faef:        movq    -0x40(%rbp), %rax
+    0.00 :    faf3:        leaq    (%rax,%r10), %rcx
+    0.00 :    faf7:        movq    %rcx, %r8
+    1.14 :    fafa:        shrq    $0x3, %r8
+    0.00 :    fafe:        movl    %ecx, %eax
+    0.00 :    fb00:        andl    $0x7, %eax
+    0.00 :    fb03:        movl    $0x40, %esi
+    0.00 :    fb08:        subl    %eax, %esi
+    0.00 :    fb0a:        movq    (%r14,%r8), %rax
+    0.00 :    fb0e:        andb    $0x7, %cl
+    0.00 :    fb11:        shrq    %cl, %rax
+    0.00 :    fb14:        cmpl    %edx, %esi
+    0.00 :    fb16:        jae     0xfb26 <zbtScoreDeleteInPlace+0x2a6>
+    0.00 :    fb18:        movzbl  0x8(%r14,%r8), %r8d
+    0.00 :    fb1e:        movl    %esi, %ecx
+    0.00 :    fb20:        shlq    %cl, %r8
+    0.00 :    fb23:        orq     %r8, %rax
+    0.00 :    fb26:        movq    $-0x1, %rdi
+    1.14 :    fb2d:        movl    %edx, %ecx
+    0.00 :    fb2f:        shlq    %cl, %rdi
+    0.00 :    fb32:        cmpl    $0x40, %edx
+    0.00 :    fb35:        notq    %rdi
+    0.00 :    fb38:        movq    $-0x1, %r15
+    0.00 :    fb3f:        cmovaeq %r15, %rdi
+    0.00 :    fb43:        andq    %rax, %rdi
+    0.00 :    fb46:        leaq    (%r10,%r12), %r8
+    0.00 :    fb4a:        movq    %r8, %rax
+    0.00 :    fb4d:        shrq    $0x3, %rax
+    0.00 :    fb51:        andl    $0x7, %r8d
+    0.00 :    fb55:        movl    $0x40, %r9d
+    0.00 :    fb5b:        subl    %r8d, %r9d
+    0.00 :    fb5e:        cmpl    %edx, %r9d
+    0.00 :    fb61:        movl    %edx, %esi
+    0.00 :    fb63:        cmovbl  %r9d, %esi
+    0.00 :    fb67:        movq    $-0x1, %r13
+    0.00 :    fb6e:        movl    %esi, %ecx
+    0.00 :    fb70:        shlq    %cl, %r13
+    0.00 :    fb73:        cmpl    $0x40, %esi
+    0.00 :    fb76:        notq    %r13
+    0.00 :    fb79:        cmoveq  %r15, %r13
+    0.00 :    fb7d:        movq    %rdi, %r15
+    0.00 :    fb80:        andq    %r13, %r15
+    0.00 :    fb83:        movl    %r8d, %ecx
+    0.00 :    fb86:        shlq    %cl, %r13
+    0.00 :    fb89:        notq    %r13
+    1.14 :    fb8c:        andq    (%r14,%rax), %r13
+   19.35 :    fb90:        shlq    %cl, %r15
+    0.00 :    fb93:        orq     %r13, %r15
+    1.14 :    fb96:        movq    %r15, (%r14,%rax)
+    1.14 :    fb9a:        cmpl    %edx, %r9d
+    0.00 :    fb9d:        jae     0xfad0 <zbtScoreDeleteInPlace+0x250>
+    0.00 :    fba3:        movl    %edx, %r8d
+    0.00 :    fba6:        subl    %esi, %r8d
+    0.00 :    fba9:        movzbl  0x8(%r14,%rax), %r9d
+    0.00 :    fbaf:        movl    %esi, %ecx
+    0.00 :    fbb1:        shrq    %cl, %rdi
+    0.00 :    fbb4:        xorl    %edi, %r9d
+    0.00 :    fbb7:        movl    %r8d, %ecx
+    0.00 :    fbba:        shrl    %cl, %r9d
+    0.00 :    fbbd:        shll    %cl, %r9d
+    0.00 :    fbc0:        xorl    %edi, %r9d
+    0.00 :    fbc3:        movb    %r9b, 0x8(%r14,%rax)
+    0.00 :    fbc8:        jmp     0xfad0 <zbtScoreDeleteInPlace+0x250>
+    0.00 :    fbcd:        movq    -0x78(%rbp), %rax
+    0.00 :    fbd1:        leaq    -0x1(%rax), %rdx
+    0.00 :    fbd5:        imulq   -0x70(%rbp), %rdx
+    0.00 :    fbda:        movq    %rdx, %rax
+    0.00 :    fbdd:        shrq    $0x3, %rax
+    0.00 :    fbe1:        movl    %edx, %ecx
+    0.00 :    fbe3:        andl    $0x7, %ecx
+    0.00 :    fbe6:        movl    $0x40, %edi
+    0.00 :    fbeb:        subl    %ecx, %edi
+    0.00 :    fbed:        movl    -0x64(%rbp), %r9d
+    0.00 :    fbf1:        cmpl    %r9d, %edi
+    0.00 :    fbf4:        movl    %r9d, %esi
+    0.00 :    fbf7:        cmovbl  %edi, %esi
+    0.00 :    fbfa:        movq    $-0x1, %r8
+    0.00 :    fc01:        movl    %esi, %ecx
+    0.00 :    fc03:        shlq    %cl, %r8
+    0.00 :    fc06:        movq    $-0x1, %rcx
+    0.00 :    fc0d:        cmpl    $0x40, %esi
+    0.00 :    fc10:        notq    %r8
+    0.00 :    fc13:        cmoveq  %rcx, %r8
+    0.00 :    fc17:        andb    $0x7, %dl
+    0.00 :    fc1a:        movl    %edx, %ecx
+    0.00 :    fc1c:        shlq    %cl, %r8
+    0.00 :    fc1f:        notq    %r8
+    0.00 :    fc22:        andq    %r8, (%r14,%rax)
+    9.21 :    fc26:        cmpl    %r9d, %edi
+    0.00 :    fc29:        movq    -0x38(%rbp), %r15
+    0.00 :    fc2d:        movl    -0x2c(%rbp), %r12d
+    0.00 :    fc31:        movq    -0x80(%rbp), %rdi
+    0.00 :    fc35:        jae     0xfc49 <zbtScoreDeleteInPlace+0x3c9>
+    0.00 :    fc37:        subl    %esi, %r9d
+    0.00 :    fc3a:        movl    $0xffffffff, %edx
+    0.00 :    fc3f:        movl    %r9d, %ecx
+    0.00 :    fc42:        shll    %cl, %edx
+    0.00 :    fc44:        andb    %dl, 0x8(%r14,%rax)
+    0.00 :    fc49:        leaq    0x2(%rdi), %rsi
+    0.00 :    fc4d:        movl    %r12d, %eax
+    0.00 :    fc50:        subl    -0x30(%rbp), %eax
+    0.00 :    fc53:        movq    %rax, -0x40(%rbp)
+    0.00 :    fc57:        leaq    (%rax,%rax), %rdx
+    0.00 :    fc5b:        callq   0x11a0 <_init+0x1a0>
+    0.00 :    fc60:        movzbl  0x34(%r15), %eax
+    0.00 :    fc65:        movl    %r12d, %ecx
+    0.00 :    fc68:        movl    %r12d, %r13d
+    0.00 :    fc6b:        testq   %rax, %rax
+    0.00 :    fc6e:        je      0xfc86 <zbtScoreDeleteInPlace+0x406>
+    0.00 :    fc70:        imulq   %r13, %rax
+    0.00 :    fc74:        addq    $0x7, %rax
+    0.00 :    fc78:        shrq    $0x3, %rax
+    0.00 :    fc7c:        addq    $0x9, %rax
+    0.00 :    fc80:        andq    $-0x2, %rax
+    0.00 :    fc84:        jmp     0xfc88 <zbtScoreDeleteInPlace+0x408>
+    0.00 :    fc86:        xorl    %eax, %eax
+    0.00 :    fc88:        testl   %ecx, %ecx
+    0.00 :    fc8a:        sete    -0x30(%rbp)
+    0.00 :    fc8e:        addq    %rax, %r14
+    0.00 :    fc91:        leaq    (,%r13,2), %rdx
+    0.00 :    fc99:        movq    %r14, %rdi
+    1.14 :    fc9c:        movq    -0x50(%rbp), %rsi
+    0.00 :    fca0:        callq   0x11a0 <_init+0x1a0>
+    0.00 :    fca5:        leaq    (%r14,%r13,2), %r15
+    0.00 :    fca9:        leaq    -0xe0(%rbp), %rsi
+    0.00 :    fcb0:        movq    %r15, %rdi
+    0.00 :    fcb3:        movq    -0x58(%rbp), %r12
+    0.00 :    fcb7:        movq    %r12, %rdx
+    0.00 :    fcba:        callq   0x1160 <_init+0x160>
+    0.00 :    fcbf:        addq    %r12, %r15
+    0.00 :    fcc2:        leaq    (%r12,%rbp), %rsi
+    0.00 :    fcc6:        addq    $-0xdf, %rsi
+    0.00 :    fccd:        movq    %r15, %rdi
+    0.00 :    fcd0:        movq    -0x40(%rbp), %rdx
+    0.00 :    fcd4:        callq   0x1160 <_init+0x160>
+    0.00 :    fcd9:        movl    -0x2c(%rbp), %ecx
+    0.00 :    fcdc:        movq    -0x38(%rbp), %rax
+    0.00 :    fce0:        movb    %cl, 0x11(%rax)
+    1.22 :    fce3:        movq    %r13, 0x8(%rax)
+    0.00 :    fce7:        movl    -0x44(%rbp), %eax
+    0.00 :    fcea:        xorb    $0x1, %al
+    0.00 :    fcec:        orb     -0x30(%rbp), %al
+    0.00 :    fcef:        movl    -0x68(%rbp), %edi
+    0.00 :    fcf2:        jne     0xfff1 <zbtScoreDeleteInPlace+0x771>
+    0.00 :    fcf8:        cmpl    $0x10, %ecx
+    0.00 :    fcfb:        jae     0xfd04 <zbtScoreDeleteInPlace+0x484>
+    0.00 :    fcfd:        xorl    %eax, %eax
+    0.00 :    fcff:        jmp     0x10028 <zbtScoreDeleteInPlace+0x7a8>
+    0.00 :    fd04:        movl    %r13d, %eax
+    0.00 :    fd07:        andl    $-0x10, %eax
+    0.00 :    fd0a:        movd    %edi, %xmm0
+    1.14 :    fd0e:        pshuflw $0x0, %xmm0, %xmm0
+    0.00 :    fd13:        pshufd  $0x0, %xmm0, %xmm0
+    0.00 :    fd18:        xorl    %ecx, %ecx
+    0.00 :    fd1a:        movdqa  0x332e(%rip), %xmm1  # 0x13050
+    0.00 :    fd22:        pxor    %xmm1, %xmm0
+    0.00 :    fd26:        jmp     0xfd3d <zbtScoreDeleteInPlace+0x4bd>
+    0.00 :    fd28:        nopl    (%rax,%rax)
+    0.00 :    fd30:        addq    $0x10, %rcx
+    0.00 :    fd34:        cmpq    %rcx, %rax
+    0.00 :    fd37:        je      0xffec <zbtScoreDeleteInPlace+0x76c>
+    0.00 :    fd3d:        movdqu  (%r14,%rcx,2), %xmm2
+    6.84 :    fd43:        movdqa  %xmm2, %xmm4
+    0.00 :    fd47:        pxor    %xmm1, %xmm4
+    0.00 :    fd4b:        movdqa  %xmm0, %xmm3
+    0.00 :    fd4f:        pcmpgtw %xmm4, %xmm3
+    0.00 :    fd53:        movd    %xmm3, %edx
+    0.00 :    fd57:        testb   $0x1, %dl
+    1.14 :    fd5a:        jne     0xfe60 <zbtScoreDeleteInPlace+0x5e0>
+    0.00 :    fd60:        shrl    $0x10, %edx
+    0.00 :    fd63:        testb   $0x1, %dl
+    0.00 :    fd66:        jne     0xfe77 <zbtScoreDeleteInPlace+0x5f7>
+    0.00 :    fd6c:        pextrw  $0x2, %xmm3, %edx
+    0.00 :    fd71:        testb   $0x1, %dl
+    0.00 :    fd74:        jne     0xfe92 <zbtScoreDeleteInPlace+0x612>
+    0.00 :    fd7a:        pextrw  $0x3, %xmm3, %edx
+    0.00 :    fd7f:        testb   $0x1, %dl
+    1.14 :    fd82:        jne     0xfead <zbtScoreDeleteInPlace+0x62d>
+    0.00 :    fd88:        pextrw  $0x4, %xmm3, %edx
+    0.00 :    fd8d:        testb   $0x1, %dl
+    0.00 :    fd90:        jne     0xfec8 <zbtScoreDeleteInPlace+0x648>
+    0.00 :    fd96:        pextrw  $0x5, %xmm3, %edx
+    0.00 :    fd9b:        testb   $0x1, %dl
+    0.00 :    fd9e:        jne     0xfee3 <zbtScoreDeleteInPlace+0x663>
+    0.00 :    fda4:        pextrw  $0x6, %xmm3, %edx
+    0.00 :    fda9:        testb   $0x1, %dl
+    0.00 :    fdac:        jne     0xfefe <zbtScoreDeleteInPlace+0x67e>
+    0.00 :    fdb2:        pextrw  $0x7, %xmm3, %edx
+    0.00 :    fdb7:        testb   $0x1, %dl
+    0.00 :    fdba:        je      0xfdc9 <zbtScoreDeleteInPlace+0x549>
+    0.00 :    fdbc:        pextrw  $0x7, %xmm2, %edx
+    0.00 :    fdc1:        addl    %ebx, %edx
+    0.00 :    fdc3:        movw    %dx, 0xe(%r14,%rcx,2)
+    1.12 :    fdc9:        movdqu  0x10(%r14,%rcx,2), %xmm2
+    4.60 :    fdd0:        movdqa  %xmm2, %xmm4
+    0.00 :    fdd4:        pxor    %xmm1, %xmm4
+    0.00 :    fdd8:        movdqa  %xmm0, %xmm3
+    0.00 :    fddc:        pcmpgtw %xmm4, %xmm3
+    0.00 :    fde0:        movd    %xmm3, %edx
+    0.00 :    fde4:        testb   $0x1, %dl
+    1.14 :    fde7:        jne     0xff20 <zbtScoreDeleteInPlace+0x6a0>
+    0.00 :    fded:        shrl    $0x10, %edx
+    0.00 :    fdf0:        testb   $0x1, %dl
+    0.00 :    fdf3:        jne     0xff38 <zbtScoreDeleteInPlace+0x6b8>
+    0.00 :    fdf9:        pextrw  $0x2, %xmm3, %edx
+    0.00 :    fdfe:        testb   $0x1, %dl
+    1.14 :    fe01:        jne     0xff53 <zbtScoreDeleteInPlace+0x6d3>
+    0.00 :    fe07:        pextrw  $0x3, %xmm3, %edx
+    0.00 :    fe0c:        testb   $0x1, %dl
+    0.00 :    fe0f:        jne     0xff6e <zbtScoreDeleteInPlace+0x6ee>
+    0.00 :    fe15:        pextrw  $0x4, %xmm3, %edx
+    0.00 :    fe1a:        testb   $0x1, %dl
+    0.00 :    fe1d:        jne     0xff89 <zbtScoreDeleteInPlace+0x709>
+    0.00 :    fe23:        pextrw  $0x5, %xmm3, %edx
+    0.00 :    fe28:        testb   $0x1, %dl
+    0.00 :    fe2b:        jne     0xffa4 <zbtScoreDeleteInPlace+0x724>
+    0.00 :    fe31:        pextrw  $0x6, %xmm3, %edx
+    0.00 :    fe36:        testb   $0x1, %dl
+    0.00 :    fe39:        jne     0xffbf <zbtScoreDeleteInPlace+0x73f>
+    0.00 :    fe3f:        pextrw  $0x7, %xmm3, %edx
+    0.00 :    fe44:        testb   $0x1, %dl
+    0.00 :    fe47:        je      0xfd30 <zbtScoreDeleteInPlace+0x4b0>
+    0.00 :    fe4d:        jmp     0xffda <zbtScoreDeleteInPlace+0x75a>
+    0.00 :    fe52:        nopw    %cs:(%rax,%rax)
+    0.00 :    fe60:        movd    %xmm2, %esi
+    1.89 :    fe64:        addl    %ebx, %esi
+    0.00 :    fe66:        movw    %si, (%r14,%rcx,2)
+    0.00 :    fe6b:        shrl    $0x10, %edx
+    0.00 :    fe6e:        testb   $0x1, %dl
+    0.00 :    fe71:        je      0xfd6c <zbtScoreDeleteInPlace+0x4ec>
+    0.00 :    fe77:        pextrw  $0x1, %xmm2, %edx
+    0.00 :    fe7c:        addl    %ebx, %edx
+    0.00 :    fe7e:        movw    %dx, 0x2(%r14,%rcx,2)
+    0.00 :    fe84:        pextrw  $0x2, %xmm3, %edx
+    0.00 :    fe89:        testb   $0x1, %dl
+    0.00 :    fe8c:        je      0xfd7a <zbtScoreDeleteInPlace+0x4fa>
+    0.00 :    fe92:        pextrw  $0x2, %xmm2, %edx
+    0.00 :    fe97:        addl    %ebx, %edx
+    0.00 :    fe99:        movw    %dx, 0x4(%r14,%rcx,2)
+    0.00 :    fe9f:        pextrw  $0x3, %xmm3, %edx
+    1.14 :    fea4:        testb   $0x1, %dl
+    0.00 :    fea7:        je      0xfd88 <zbtScoreDeleteInPlace+0x508>
+    0.00 :    fead:        pextrw  $0x3, %xmm2, %edx
+    1.14 :    feb2:        addl    %ebx, %edx
+    0.00 :    feb4:        movw    %dx, 0x6(%r14,%rcx,2)
+    1.12 :    feba:        pextrw  $0x4, %xmm3, %edx
+    0.00 :    febf:        testb   $0x1, %dl
+    0.00 :    fec2:        je      0xfd96 <zbtScoreDeleteInPlace+0x516>
+    0.00 :    fec8:        pextrw  $0x4, %xmm2, %edx
+    0.00 :    fecd:        addl    %ebx, %edx
+    1.14 :    fecf:        movw    %dx, 0x8(%r14,%rcx,2)
+    0.00 :    fed5:        pextrw  $0x5, %xmm3, %edx
+    0.00 :    feda:        testb   $0x1, %dl
+    0.00 :    fedd:        je      0xfda4 <zbtScoreDeleteInPlace+0x524>
+    0.00 :    fee3:        pextrw  $0x5, %xmm2, %edx
+    0.00 :    fee8:        addl    %ebx, %edx
+    0.00 :    feea:        movw    %dx, 0xa(%r14,%rcx,2)
+    0.00 :    fef0:        pextrw  $0x6, %xmm3, %edx
+    0.00 :    fef5:        testb   $0x1, %dl
+    0.00 :    fef8:        je      0xfdb2 <zbtScoreDeleteInPlace+0x532>
+    0.00 :    fefe:        pextrw  $0x6, %xmm2, %edx
+    1.14 :    ff03:        addl    %ebx, %edx
+    0.00 :    ff05:        movw    %dx, 0xc(%r14,%rcx,2)
+    0.00 :    ff0b:        pextrw  $0x7, %xmm3, %edx
+    0.00 :    ff10:        testb   $0x1, %dl
+    0.00 :    ff13:        jne     0xfdbc <zbtScoreDeleteInPlace+0x53c>
+    0.00 :    ff19:        jmp     0xfdc9 <zbtScoreDeleteInPlace+0x549>
+    0.00 :    ff1e:        nop
+    0.00 :    ff20:        movd    %xmm2, %esi
+    0.00 :    ff24:        addl    %ebx, %esi
+    0.00 :    ff26:        movw    %si, 0x10(%r14,%rcx,2)
+    0.00 :    ff2c:        shrl    $0x10, %edx
+    0.00 :    ff2f:        testb   $0x1, %dl
+    0.00 :    ff32:        je      0xfdf9 <zbtScoreDeleteInPlace+0x579>
+    0.00 :    ff38:        pextrw  $0x1, %xmm2, %edx
+    0.00 :    ff3d:        addl    %ebx, %edx
+    0.00 :    ff3f:        movw    %dx, 0x12(%r14,%rcx,2)
+    0.00 :    ff45:        pextrw  $0x2, %xmm3, %edx
+    0.00 :    ff4a:        testb   $0x1, %dl
+    0.00 :    ff4d:        je      0xfe07 <zbtScoreDeleteInPlace+0x587>
+    0.00 :    ff53:        pextrw  $0x2, %xmm2, %edx
+    0.00 :    ff58:        addl    %ebx, %edx
+    0.00 :    ff5a:        movw    %dx, 0x14(%r14,%rcx,2)
+    0.00 :    ff60:        pextrw  $0x3, %xmm3, %edx
+    1.13 :    ff65:        testb   $0x1, %dl
+    0.00 :    ff68:        je      0xfe15 <zbtScoreDeleteInPlace+0x595>
+    0.00 :    ff6e:        pextrw  $0x3, %xmm2, %edx
+    3.42 :    ff73:        addl    %ebx, %edx
+    0.00 :    ff75:        movw    %dx, 0x16(%r14,%rcx,2)
+    0.00 :    ff7b:        pextrw  $0x4, %xmm3, %edx
+    1.14 :    ff80:        testb   $0x1, %dl
+    0.00 :    ff83:        je      0xfe23 <zbtScoreDeleteInPlace+0x5a3>
+    0.00 :    ff89:        pextrw  $0x4, %xmm2, %edx
+    1.14 :    ff8e:        addl    %ebx, %edx
+    0.00 :    ff90:        movw    %dx, 0x18(%r14,%rcx,2)
+    0.00 :    ff96:        pextrw  $0x5, %xmm3, %edx
+    0.00 :    ff9b:        testb   $0x1, %dl
+    0.00 :    ff9e:        je      0xfe31 <zbtScoreDeleteInPlace+0x5b1>
+    0.00 :    ffa4:        pextrw  $0x5, %xmm2, %edx
+    1.14 :    ffa9:        addl    %ebx, %edx
+    0.00 :    ffab:        movw    %dx, 0x1a(%r14,%rcx,2)
+    0.00 :    ffb1:        pextrw  $0x6, %xmm3, %edx
+    1.14 :    ffb6:        testb   $0x1, %dl
+    0.00 :    ffb9:        je      0xfe3f <zbtScoreDeleteInPlace+0x5bf>
+    0.00 :    ffbf:        pextrw  $0x6, %xmm2, %edx
+    0.00 :    ffc4:        addl    %ebx, %edx
+    0.00 :    ffc6:        movw    %dx, 0x1c(%r14,%rcx,2)
+    1.13 :    ffcc:        pextrw  $0x7, %xmm3, %edx
+    0.00 :    ffd1:        testb   $0x1, %dl
+    0.00 :    ffd4:        je      0xfd30 <zbtScoreDeleteInPlace+0x4b0>
+    0.00 :    ffda:        pextrw  $0x7, %xmm2, %edx
+    1.14 :    ffdf:        addl    %ebx, %edx
+    0.00 :    ffe1:        movw    %dx, 0x1e(%r14,%rcx,2)
+    0.00 :    ffe7:        jmp     0xfd30 <zbtScoreDeleteInPlace+0x4b0>
+    0.00 :    ffec:        cmpq    %r13, %rax
+    1.14 :    ffef:        jne     0x10028 <zbtScoreDeleteInPlace+0x7a8>
+    0.00 :    fff1:        movq    -0x38(%rbp), %rdi
+    4.53 :    fff5:        movq    $-0x1, %rsi
+    0.00 :    fffc:        callq   0xf150 <zbtScoreUpdatePath>
+    0.00 :   10001:        addq    $0xb8, %rsp
+    0.00 :   10008:        popq    %rbx
+    0.00 :   10009:        popq    %r12
+    0.00 :   1000b:        popq    %r13
+    0.00 :   1000d:        popq    %r14
+    0.00 :   1000f:        popq    %r15
+    0.00 :   10011:        popq    %rbp
+    0.00 :   10012:        retq
+    0.00 :   10013:        nopw    %cs:(%rax,%rax)
+    0.00 :   10020:        incq    %rax
+    0.00 :   10023:        cmpq    %rax, %r13
+    0.00 :   10026:        je      0xfff1 <zbtScoreDeleteInPlace+0x771>
+    0.00 :   10028:        movzwl  (%r14,%rax,2), %ecx
+    5.71 :   1002d:        cmpw    %di, %cx
+    0.00 :   10030:        jae     0x10020 <zbtScoreDeleteInPlace+0x7a0>
+    0.00 :   10032:        addl    %ebx, %ecx
+    0.00 :   10034:        movw    %cx, (%r14,%rax,2)
+    2.28 :   10039:        jmp     0x10020 <zbtScoreDeleteInPlace+0x7a0>

@@ -1,0 +1,275 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 614  of event 'cycles:u'
+# Event count (approx.): 2792084438
+#
+# Overhead  Symbol                          IPC   [IPC Coverage]
+# ........  ..............................  ....................
+#
+    41.73%  [.] zbtreeDelete                -      -
+            |
+            |--17.91%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--13.10%--sdsType (inlined)
+            |          sdslen (inlined)
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--9.58%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.15%--zbtIndexGetId (inlined)
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+    14.74%  [.] zbtScoreDeleteInPlace       -      -
+            |
+            |--7.99%--zbtScoreDeleteInPlace
+            |          zbtScoreDeleteAt
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --6.11%--zbtWriteBits (inlined)
+                       zbtDeleteScoreBits (inlined)
+                       zbtScoreDeleteInPlace
+                       zbtScoreDeleteAt
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     5.51%  [.] zbtScoreLeafFindMember      -      -
+            |
+            |--4.21%--zbtScoreLeafFindMember
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.14%--zbtScoreLeafOffsets (inlined)
+                       zbtScoreLeafFindMember
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     5.29%  [.] zbtIndexMove                -      -
+            |
+            ---zbtIndexMove
+               zbtScoreMergePair
+               zbtScoreMerge (inlined)
+               zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     4.27%  [.] zbtIndexDeleteAt            -      -
+            |
+             --4.11%--zbtIndexDeleteAt
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     2.92%  [.] 0x0000000000198427          -      -
+            |
+            ---zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     2.60%  [.] zbtScoreUpdatePath          -      -
+            |
+            |--0.97%--zbtScoreUpdatePath
+            |          zbtScoreDeleteInPlace
+            |          zbtScoreDeleteAt
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --0.97%--zbtScoreLeafScore (inlined)
+                       zbtScoreNodeMaxScore (inlined)
+                       zbtScoreUpdatePath
+                       zbtScoreDeleteInPlace
+                       zbtScoreDeleteAt
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     2.59%  [.] main                        -      -
+            |
+            ---0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     2.44%  [.] zbtScoreLeafBuild           -      -
+            |
+            |--1.47%--zbtScoreLeafWriteScore (inlined)
+            |          zbtScoreLeafBuild
+            |          zbtScoreReplaceLeaf (inlined)
+            |          zbtScoreMergePair
+            |          zbtScoreMerge (inlined)
+            |          zbtScoreDeleteAt
+            |          zbtreeDelete
+            |          main
+            |          0x734bed62a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --0.98%--zbtScoreEncoding (inlined)
+                       |
+                        --0.65%--zbtScoreLeafBuild
+
+     2.38%  [.] 0x00000000001a190d          -      -
+            |
+            ---zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     1.95%  [.] zbtScoreMergePair           -      -
+     1.95%  [.] zbtIndexTableFindReference  -      -
+            |
+             --1.79%--zbtIndexHomeMayContain (inlined)
+                       zbtIndexTableFindReference
+                       zbtIndexMove
+                       zbtScoreMergePair
+                       zbtScoreMerge (inlined)
+                       zbtScoreDeleteAt
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     1.46%  [.] 0x00000000001a179a          -      -
+            |
+            ---zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     0.98%  [.] zbtScoreRefreshNode         -      -
+            |
+             --0.81%--zbtScoreRefreshNode
+                       zbtScoreRefreshParents (inlined)
+                       zbtScoreDetachNode
+                       zbtScoreRemoveLeaf (inlined)
+                       zbtScoreMergePair
+                       zbtScoreMerge (inlined)
+                       zbtScoreDeleteAt
+                       zbtreeDelete
+                       main
+                       0x734bed62a1ca
+                       __libc_start_main
+                       _start
+
+     0.96%  [.] zbtIndexTableInsertRaw      -      -
+     0.65%  [.] 0x00000000001a1653          -      -
+            |
+            ---zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     0.64%  [.] 0x00000000001a1719          -      -
+            |
+            ---zbtScoreDeleteAt
+               zbtreeDelete
+               main
+               0x734bed62a1ca
+               __libc_start_main
+               _start
+
+     0.64%  [.] siphash                     -      -
+     0.49%  [.] 0x00000000001986a5          -      -
+     0.49%  [.] 0x00000000000a9beb          -      -
+     0.32%  [.] 0x00000000001a170b          -      -
+     0.32%  [.] zbtScoreDeleteAt            -      -
+     0.32%  [.] 0x0000000000198404          -      -
+     0.32%  [.] 0x00000000001a1668          -      -
+     0.16%  [.] 0x00000000001a1941          -      -
+     0.16%  [.] 0x0000000000198400          -      -
+     0.16%  [.] 0x000000000019848c          -      -
+     0.16%  [.] 0x00000000000ac333          -      -
+     0.16%  [.] zbtIndexRehashStep          -      -
+     0.16%  [.] 0x00000000001a18f2          -      -
+     0.16%  [.] 0x00000000001a166e          -      -
+     0.16%  [.] zbtIndexShrinkIfNeeded      -      -
+     0.16%  [.] 0x00000000001a191b          -      -
+     0.16%  [.] 0x0000000000198688          -      -
+     0.16%  [.] 0x00000000000ac178          -      -
+     0.16%  [.] 0x0000000000198483          -      -
+     0.16%  [.] memmove@plt                 -      -
+     0.16%  [.] 0x0000000000198453          -      -
+     0.16%  [.] 0x00000000000ac201          -      -
+     0.16%  [.] 0x00000000000ab164          -      -
+     0.16%  [.] 0x00000000001a16e9          -      -
+     0.16%  [.] zbtScoreCompactLeaf         -      -
+     0.16%  [.] 0x00000000000ab144          -      -
+     0.16%  [.] 0x00000000000a9bdb          -      -
+     0.16%  [.] 0x00000000001a16db          -      -
+     0.16%  [.] 0x00000000000abcef          -      -
+     0.16%  [.] 0x000000000019846c          -      -
+     0.15%  [.] 0x00000000001a1933          -      -
+     0.15%  [.] zbtIndexCopyLeaf            -      -
+     0.00%  [.] 0x0000000000012c25          -      -
+     0.00%  [.] 0x0000000000015303          -      -
+     0.00%  [k] 0xffffffff88c000a9          -      -
+     0.00%  [.] read                        -      -
+     0.00%  [k] 0xffffffff893b4010          -      -
+     0.00%  [k] 0xffffffff893e4606          -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
