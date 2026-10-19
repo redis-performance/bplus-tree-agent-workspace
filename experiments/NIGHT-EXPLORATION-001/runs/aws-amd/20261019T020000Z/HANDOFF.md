@@ -90,3 +90,5 @@ ARM validation/freeze independent review2eb1418b4 found no timing blocker (145 c
 - 2026-10-19T10:41:35.665053+00:00: New frontend lease initial static review requires fail-closed container/unit query handling and exact inactive release-state verification. Timer-before-stop/ERR restore and recursive fresh-PID auditor inspected; no scripts or host actions executed. Generic input hashes retained; acquisition not cleared.
 
 - 2026-10-19T10:45:54.875592+00:00: Corrected frontend lease operations static review resolves both initial blockers: checked query assignments and exact successful inactive state before restore.11 stub cases bound to exact generated script inspected, not rerun. Lease NOT_ACQUIRED; no SSH/execution. Await concrete diagnostic freeze.
+
+- 2026-10-19T10:47:18.171927+00:00: Operations helper identity-only delta passes: actual88b is publicaf4 plus terminal LF; generatedscript changes only expectedhash, regenerated11checks bind00fa. No execution; lease NOT_ACQUIRED. ARM030 native freeze720b received for independent review.
