@@ -95,3 +95,7 @@
 - 2026-10-19T05:51:38.197380+00:00: Prepared corrected AMD iterator029 baseline-only plan for root review: public forward score-only iterate100K/1M,16bytes,50Mops fixed;6 scoped profiles with original/disabled/known controls then48 fresh AA rows701–703 twice. Actual015 binary unchanged. No runner work or candidate. Prior full-output iterator cache leads are a different output contract; old decisions unchanged.
 
 - 2026-10-19T05:58:12.962950+00:00: Iterator029 execution drivers sealed for root/ARM code review: exact51 profile commands, validated scope/known-control gates, six50M scientific captures, fixed48 AA rows, actual015 preserved. Local synthetic/static checks pass; no runner access or measurement. Await explicit launch grant; sourceNONE.
+
+- 2026-10-19T06:05:08.397157+00:00: Iterator029 baseline profile running under reviewed234f70f44 and ARM3adfc0c42/root grant: frozen600s lease, CPU2, no candidate. AA gated on full profile controls/audit/mapping.
+
+- 2026-10-19T06:06:08.263744+00:00: Iterator029 profile complete: 51 commands pass, 1218 scientific samples, known scope/disabled controls pass, sampled tree bytes map exactly to actual015. Caller differences retained. Fixed48 AA next under original grant; no candidate/sourceNONE.

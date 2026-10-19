@@ -1,0 +1,463 @@
+
+build/known-control:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+_init():
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 c1 2f 00 00 	mov    0x2fc1(%rip),%rax        # 3fd0 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <getenv@plt-0x10>:
+    1020:	ff 35 ca 2f 00 00    	push   0x2fca(%rip)        # 3ff0 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 cc 2f 00 00    	jmp    *0x2fcc(%rip)        # 3ff8 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000001030 <getenv@plt>:
+    1030:	ff 25 ca 2f 00 00    	jmp    *0x2fca(%rip)        # 4000 <getenv@GLIBC_2.2.5>
+    1036:	68 00 00 00 00       	push   $0x0
+    103b:	e9 e0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001040 <write@plt>:
+    1040:	ff 25 c2 2f 00 00    	jmp    *0x2fc2(%rip)        # 4008 <write@GLIBC_2.2.5>
+    1046:	68 01 00 00 00       	push   $0x1
+    104b:	e9 d0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001050 <strlen@plt>:
+    1050:	ff 25 ba 2f 00 00    	jmp    *0x2fba(%rip)        # 4010 <strlen@GLIBC_2.2.5>
+    1056:	68 02 00 00 00       	push   $0x2
+    105b:	e9 c0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001060 <printf@plt>:
+    1060:	ff 25 b2 2f 00 00    	jmp    *0x2fb2(%rip)        # 4018 <printf@GLIBC_2.2.5>
+    1066:	68 03 00 00 00       	push   $0x3
+    106b:	e9 b0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001070 <__assert_fail@plt>:
+    1070:	ff 25 aa 2f 00 00    	jmp    *0x2faa(%rip)        # 4020 <__assert_fail@GLIBC_2.2.5>
+    1076:	68 04 00 00 00       	push   $0x4
+    107b:	e9 a0 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001080 <close@plt>:
+    1080:	ff 25 a2 2f 00 00    	jmp    *0x2fa2(%rip)        # 4028 <close@GLIBC_2.2.5>
+    1086:	68 05 00 00 00       	push   $0x5
+    108b:	e9 90 ff ff ff       	jmp    1020 <_init+0x20>
+
+0000000000001090 <read@plt>:
+    1090:	ff 25 9a 2f 00 00    	jmp    *0x2f9a(%rip)        # 4030 <read@GLIBC_2.2.5>
+    1096:	68 06 00 00 00       	push   $0x6
+    109b:	e9 80 ff ff ff       	jmp    1020 <_init+0x20>
+
+00000000000010a0 <open@plt>:
+    10a0:	ff 25 92 2f 00 00    	jmp    *0x2f92(%rip)        # 4038 <open@GLIBC_2.2.5>
+    10a6:	68 07 00 00 00       	push   $0x7
+    10ab:	e9 70 ff ff ff       	jmp    1020 <_init+0x20>
+
+Disassembly of section .plt.got:
+
+00000000000010b0 <__cxa_finalize@plt>:
+    10b0:	ff 25 2a 2f 00 00    	jmp    *0x2f2a(%rip)        # 3fe0 <__cxa_finalize@GLIBC_2.2.5>
+    10b6:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .text:
+
+00000000000010c0 <_start>:
+_start():
+    10c0:	f3 0f 1e fa          	endbr64
+    10c4:	31 ed                	xor    %ebp,%ebp
+    10c6:	49 89 d1             	mov    %rdx,%r9
+    10c9:	5e                   	pop    %rsi
+    10ca:	48 89 e2             	mov    %rsp,%rdx
+    10cd:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    10d1:	50                   	push   %rax
+    10d2:	54                   	push   %rsp
+    10d3:	45 31 c0             	xor    %r8d,%r8d
+    10d6:	31 c9                	xor    %ecx,%ecx
+    10d8:	48 8d 3d d1 00 00 00 	lea    0xd1(%rip),%rdi        # 11b0 <main>
+    10df:	ff 15 db 2e 00 00    	call   *0x2edb(%rip)        # 3fc0 <__libc_start_main@GLIBC_2.34>
+    10e5:	f4                   	hlt
+    10e6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    10ed:	00 00 00
+
+00000000000010f0 <deregister_tm_clones>:
+deregister_tm_clones():
+    10f0:	48 8d 3d 59 2f 00 00 	lea    0x2f59(%rip),%rdi        # 4050 <__TMC_END__>
+    10f7:	48 8d 05 52 2f 00 00 	lea    0x2f52(%rip),%rax        # 4050 <__TMC_END__>
+    10fe:	48 39 f8             	cmp    %rdi,%rax
+    1101:	74 15                	je     1118 <deregister_tm_clones+0x28>
+    1103:	48 8b 05 be 2e 00 00 	mov    0x2ebe(%rip),%rax        # 3fc8 <_ITM_deregisterTMCloneTable@Base>
+    110a:	48 85 c0             	test   %rax,%rax
+    110d:	74 09                	je     1118 <deregister_tm_clones+0x28>
+    110f:	ff e0                	jmp    *%rax
+    1111:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1118:	c3                   	ret
+    1119:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001120 <register_tm_clones>:
+register_tm_clones():
+    1120:	48 8d 3d 29 2f 00 00 	lea    0x2f29(%rip),%rdi        # 4050 <__TMC_END__>
+    1127:	48 8d 35 22 2f 00 00 	lea    0x2f22(%rip),%rsi        # 4050 <__TMC_END__>
+    112e:	48 29 fe             	sub    %rdi,%rsi
+    1131:	48 89 f0             	mov    %rsi,%rax
+    1134:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    1138:	48 c1 f8 03          	sar    $0x3,%rax
+    113c:	48 01 c6             	add    %rax,%rsi
+    113f:	48 d1 fe             	sar    $1,%rsi
+    1142:	74 14                	je     1158 <register_tm_clones+0x38>
+    1144:	48 8b 05 8d 2e 00 00 	mov    0x2e8d(%rip),%rax        # 3fd8 <_ITM_registerTMCloneTable@Base>
+    114b:	48 85 c0             	test   %rax,%rax
+    114e:	74 08                	je     1158 <register_tm_clones+0x38>
+    1150:	ff e0                	jmp    *%rax
+    1152:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1158:	c3                   	ret
+    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001160 <__do_global_dtors_aux>:
+__do_global_dtors_aux():
+    1160:	f3 0f 1e fa          	endbr64
+    1164:	80 3d e5 2e 00 00 00 	cmpb   $0x0,0x2ee5(%rip)        # 4050 <__TMC_END__>
+    116b:	75 2b                	jne    1198 <__do_global_dtors_aux+0x38>
+    116d:	55                   	push   %rbp
+    116e:	48 83 3d 6a 2e 00 00 	cmpq   $0x0,0x2e6a(%rip)        # 3fe0 <__cxa_finalize@GLIBC_2.2.5>
+    1175:	00
+    1176:	48 89 e5             	mov    %rsp,%rbp
+    1179:	74 0c                	je     1187 <__do_global_dtors_aux+0x27>
+    117b:	48 8b 3d c6 2e 00 00 	mov    0x2ec6(%rip),%rdi        # 4048 <__dso_handle>
+    1182:	e8 29 ff ff ff       	call   10b0 <__cxa_finalize@plt>
+    1187:	e8 64 ff ff ff       	call   10f0 <deregister_tm_clones>
+    118c:	c6 05 bd 2e 00 00 01 	movb   $0x1,0x2ebd(%rip)        # 4050 <__TMC_END__>
+    1193:	5d                   	pop    %rbp
+    1194:	c3                   	ret
+    1195:	0f 1f 00             	nopl   (%rax)
+    1198:	c3                   	ret
+    1199:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011a0 <frame_dummy>:
+frame_dummy():
+    11a0:	f3 0f 1e fa          	endbr64
+    11a4:	e9 77 ff ff ff       	jmp    1120 <register_tm_clones>
+    11a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+00000000000011b0 <main>:
+main():
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:43
+    volatile uint64_t value = initial;
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+        value = value * UINT64_C(6364136223846793005) + UINT64_C(1442695040888963407);
+    return value;
+}
+int main(void) {
+    11b0:	55                   	push   %rbp
+    11b1:	48 89 e5             	mov    %rsp,%rbp
+    11b4:	41 56                	push   %r14
+    11b6:	53                   	push   %rbx
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:44
+    uint64_t before = outside_work(1);
+    11b7:	bf 01 00 00 00       	mov    $0x1,%edi
+    11bc:	e8 6f 00 00 00       	call   1230 <outside_work>
+    11c1:	48 89 c3             	mov    %rax,%rbx
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:45
+    int enabled = getenv("PROFILE_DISABLE") == NULL;
+    11c4:	48 8d 3d 39 0e 00 00 	lea    0xe39(%rip),%rdi        # 2004 <_IO_stdin_used+0x4>
+    11cb:	e8 60 fe ff ff       	call   1030 <getenv@plt>
+    11d0:	48 85 c0             	test   %rax,%rax
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:46
+    if (enabled) profile_control("enable\n");
+    11d3:	74 0a                	je     11df <main+0x2f>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:47
+    uint64_t inside = known_work(3);
+    11d5:	e8 86 02 00 00       	call   1460 <known_work>
+    11da:	49 89 c6             	mov    %rax,%r14
+    11dd:	eb 20                	jmp    11ff <main+0x4f>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:46
+    if (enabled) profile_control("enable\n");
+    11df:	48 8d 3d 2e 0e 00 00 	lea    0xe2e(%rip),%rdi        # 2014 <_IO_stdin_used+0x14>
+    11e6:	e8 d5 00 00 00       	call   12c0 <profile_control>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:47
+    uint64_t inside = known_work(3);
+    11eb:	e8 70 02 00 00       	call   1460 <known_work>
+    11f0:	49 89 c6             	mov    %rax,%r14
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:48
+    if (enabled) profile_control("disable\n");
+    11f3:	48 8d 3d 22 0e 00 00 	lea    0xe22(%rip),%rdi        # 201c <_IO_stdin_used+0x1c>
+    11fa:	e8 c1 00 00 00       	call   12c0 <profile_control>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:49
+    uint64_t after = outside_work(7);
+    11ff:	bf 07 00 00 00       	mov    $0x7,%edi
+    1204:	e8 27 00 00 00       	call   1230 <outside_work>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:50
+    printf("{\"rounds\":100000000,\"before\":\"%016" PRIx64
+    1209:	48 8d 3d 15 0e 00 00 	lea    0xe15(%rip),%rdi        # 2025 <_IO_stdin_used+0x25>
+    1210:	48 89 de             	mov    %rbx,%rsi
+    1213:	4c 89 f2             	mov    %r14,%rdx
+    1216:	48 89 c1             	mov    %rax,%rcx
+    1219:	31 c0                	xor    %eax,%eax
+    121b:	e8 40 fe ff ff       	call   1060 <printf@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:53
+           "\",\"inside\":\"%016" PRIx64 "\",\"after\":\"%016" PRIx64 "\"}\n",
+           before, inside, after);
+    return 0;
+    1220:	31 c0                	xor    %eax,%eax
+    1222:	5b                   	pop    %rbx
+    1223:	41 5e                	pop    %r14
+    1225:	5d                   	pop    %rbp
+    1226:	c3                   	ret
+    1227:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    122e:	00 00
+
+0000000000001230 <outside_work>:
+outside_work():
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:37
+__attribute__((noinline)) static uint64_t outside_work(uint64_t initial) {
+    1230:	55                   	push   %rbp
+    1231:	48 89 e5             	mov    %rsp,%rbp
+    1234:	48 b8 2d 7f 95 4c 2d 	movabs $0x5851f42d4c957f2d,%rax
+    123b:	f4 51 58
+    123e:	48 b9 4f 81 67 f7 7e 	movabs $0x14057b7ef767814f,%rcx
+    1245:	7b 05 14
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:38
+    volatile uint64_t value = initial;
+    1248:	48 89 7d f8          	mov    %rdi,-0x8(%rbp)
+    124c:	ba 00 e1 f5 05       	mov    $0x5f5e100,%edx
+    1251:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+    1258:	0f 1f 84 00 00 00 00
+    125f:	00
+    1260:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:40
+        value = value * UINT64_C(6364136223846793005) + UINT64_C(1442695040888963407);
+    1264:	48 0f af f0          	imul   %rax,%rsi
+    1268:	48 01 ce             	add    %rcx,%rsi
+    126b:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    126f:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    1273:	48 0f af f0          	imul   %rax,%rsi
+    1277:	48 01 ce             	add    %rcx,%rsi
+    127a:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    127e:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    1282:	48 0f af f0          	imul   %rax,%rsi
+    1286:	48 01 ce             	add    %rcx,%rsi
+    1289:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    128d:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    1291:	48 0f af f0          	imul   %rax,%rsi
+    1295:	48 01 ce             	add    %rcx,%rsi
+    1298:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    129c:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    12a0:	48 0f af f0          	imul   %rax,%rsi
+    12a4:	48 01 ce             	add    %rcx,%rsi
+    12a7:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:39
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+    12ab:	48 83 c2 fb          	add    $0xfffffffffffffffb,%rdx
+    12af:	75 af                	jne    1260 <outside_work+0x30>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:41
+    return value;
+    12b1:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    12b5:	5d                   	pop    %rbp
+    12b6:	c3                   	ret
+    12b7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    12be:	00 00
+
+00000000000012c0 <profile_control>:
+profile_control():
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:12
+static void profile_control(const char *cmd) {
+    12c0:	55                   	push   %rbp
+    12c1:	48 89 e5             	mov    %rsp,%rbp
+    12c4:	41 57                	push   %r15
+    12c6:	41 56                	push   %r14
+    12c8:	41 54                	push   %r12
+    12ca:	53                   	push   %rbx
+    12cb:	48 83 ec 10          	sub    $0x10,%rsp
+    12cf:	49 89 ff             	mov    %rdi,%r15
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:13
+    const char *ctl_path = getenv("BPLUS_PERF_CTL");
+    12d2:	48 8d 3d 97 0d 00 00 	lea    0xd97(%rip),%rdi        # 2070 <_IO_stdin_used+0x70>
+    12d9:	e8 52 fd ff ff       	call   1030 <getenv@plt>
+    12de:	48 89 c3             	mov    %rax,%rbx
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:14
+    const char *ack_path = getenv("BPLUS_PERF_ACK");
+    12e1:	48 8d 3d 97 0d 00 00 	lea    0xd97(%rip),%rdi        # 207f <_IO_stdin_used+0x7f>
+    12e8:	e8 43 fd ff ff       	call   1030 <getenv@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:15
+    assert(ctl_path && ack_path);
+    12ed:	48 85 db             	test   %rbx,%rbx
+    12f0:	0f 84 eb 00 00 00    	je     13e1 <profile_control+0x121>
+    12f6:	49 89 c6             	mov    %rax,%r14
+    12f9:	48 85 c0             	test   %rax,%rax
+    12fc:	0f 84 df 00 00 00    	je     13e1 <profile_control+0x121>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:16
+    int ctl = open(ctl_path, O_WRONLY), ack = open(ack_path, O_RDONLY);
+    1302:	48 89 df             	mov    %rbx,%rdi
+    1305:	be 01 00 00 00       	mov    $0x1,%esi
+    130a:	31 c0                	xor    %eax,%eax
+    130c:	e8 8f fd ff ff       	call   10a0 <open@plt>
+    1311:	89 c3                	mov    %eax,%ebx
+    1313:	4c 89 f7             	mov    %r14,%rdi
+    1316:	31 f6                	xor    %esi,%esi
+    1318:	31 c0                	xor    %eax,%eax
+    131a:	e8 81 fd ff ff       	call   10a0 <open@plt>
+    131f:	41 89 c6             	mov    %eax,%r14d
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:17
+    assert(ctl >= 0 && ack >= 0);
+    1322:	09 d8                	or     %ebx,%eax
+    1324:	0f 88 d6 00 00 00    	js     1400 <profile_control+0x140>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:18
+    assert(write(ctl, cmd, strlen(cmd)) == (ssize_t)strlen(cmd));
+    132a:	4c 89 ff             	mov    %r15,%rdi
+    132d:	e8 1e fd ff ff       	call   1050 <strlen@plt>
+    1332:	89 df                	mov    %ebx,%edi
+    1334:	4c 89 fe             	mov    %r15,%rsi
+    1337:	48 89 c2             	mov    %rax,%rdx
+    133a:	e8 01 fd ff ff       	call   1040 <write@plt>
+    133f:	49 89 c4             	mov    %rax,%r12
+    1342:	4c 89 ff             	mov    %r15,%rdi
+    1345:	e8 06 fd ff ff       	call   1050 <strlen@plt>
+    134a:	49 39 c4             	cmp    %rax,%r12
+    134d:	0f 85 cc 00 00 00    	jne    141f <profile_control+0x15f>
+    1353:	45 31 e4             	xor    %r12d,%r12d
+    1356:	4c 8d 7d df          	lea    -0x21(%rbp),%r15
+    135a:	eb 12                	jmp    136e <profile_control+0xae>
+    135c:	0f 1f 40 00          	nopl   0x0(%rax)
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:23
+        reply[used++] = byte;
+    1360:	42 88 44 25 db       	mov    %al,-0x25(%rbp,%r12,1)
+    1365:	49 ff c4             	inc    %r12
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:20
+    while (used < sizeof(reply)) {
+    1368:	49 83 fc 04          	cmp    $0x4,%r12
+    136c:	73 2c                	jae    139a <profile_control+0xda>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:21
+        char byte; ssize_t n = read(ack, &byte, 1); assert(n == 1);
+    136e:	ba 01 00 00 00       	mov    $0x1,%edx
+    1373:	44 89 f7             	mov    %r14d,%edi
+    1376:	4c 89 fe             	mov    %r15,%rsi
+    1379:	e8 12 fd ff ff       	call   1090 <read@plt>
+    137e:	48 83 f8 01          	cmp    $0x1,%rax
+    1382:	75 3e                	jne    13c2 <profile_control+0x102>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:22
+        if (byte == '\0' && used == 0) continue;
+    1384:	0f b6 45 df          	movzbl -0x21(%rbp),%eax
+    1388:	4d 85 e4             	test   %r12,%r12
+    138b:	75 d3                	jne    1360 <profile_control+0xa0>
+    138d:	84 c0                	test   %al,%al
+    138f:	75 cf                	jne    1360 <profile_control+0xa0>
+    1391:	45 31 e4             	xor    %r12d,%r12d
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:20
+    while (used < sizeof(reply)) {
+    1394:	49 83 fc 04          	cmp    $0x4,%r12
+    1398:	72 d4                	jb     136e <profile_control+0xae>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:25
+    assert(!memcmp(reply, "ack\n", 4));
+    139a:	81 7d db 61 63 6b 0a 	cmpl   $0xa6b6361,-0x25(%rbp)
+    13a1:	0f 85 97 00 00 00    	jne    143e <profile_control+0x17e>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:26
+    close(ctl); close(ack);
+    13a7:	89 df                	mov    %ebx,%edi
+    13a9:	e8 d2 fc ff ff       	call   1080 <close@plt>
+    13ae:	44 89 f7             	mov    %r14d,%edi
+    13b1:	48 83 c4 10          	add    $0x10,%rsp
+    13b5:	5b                   	pop    %rbx
+    13b6:	41 5c                	pop    %r12
+    13b8:	41 5e                	pop    %r14
+    13ba:	41 5f                	pop    %r15
+    13bc:	5d                   	pop    %rbp
+    13bd:	e9 be fc ff ff       	jmp    1080 <close@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:21
+        char byte; ssize_t n = read(ack, &byte, 1); assert(n == 1);
+    13c2:	48 8d 3d 5d 0d 00 00 	lea    0xd5d(%rip),%rdi        # 2126 <_IO_stdin_used+0x126>
+    13c9:	48 8d 35 d3 0c 00 00 	lea    0xcd3(%rip),%rsi        # 20a3 <_IO_stdin_used+0xa3>
+    13d0:	48 8d 0d e2 0c 00 00 	lea    0xce2(%rip),%rcx        # 20b9 <_IO_stdin_used+0xb9>
+    13d7:	ba 15 00 00 00       	mov    $0x15,%edx
+    13dc:	e8 8f fc ff ff       	call   1070 <__assert_fail@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:15
+    assert(ctl_path && ack_path);
+    13e1:	48 8d 3d a6 0c 00 00 	lea    0xca6(%rip),%rdi        # 208e <_IO_stdin_used+0x8e>
+    13e8:	48 8d 35 b4 0c 00 00 	lea    0xcb4(%rip),%rsi        # 20a3 <_IO_stdin_used+0xa3>
+    13ef:	48 8d 0d c3 0c 00 00 	lea    0xcc3(%rip),%rcx        # 20b9 <_IO_stdin_used+0xb9>
+    13f6:	ba 0f 00 00 00       	mov    $0xf,%edx
+    13fb:	e8 70 fc ff ff       	call   1070 <__assert_fail@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:17
+    assert(ctl >= 0 && ack >= 0);
+    1400:	48 8d 3d d5 0c 00 00 	lea    0xcd5(%rip),%rdi        # 20dc <_IO_stdin_used+0xdc>
+    1407:	48 8d 35 95 0c 00 00 	lea    0xc95(%rip),%rsi        # 20a3 <_IO_stdin_used+0xa3>
+    140e:	48 8d 0d a4 0c 00 00 	lea    0xca4(%rip),%rcx        # 20b9 <_IO_stdin_used+0xb9>
+    1415:	ba 11 00 00 00       	mov    $0x11,%edx
+    141a:	e8 51 fc ff ff       	call   1070 <__assert_fail@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:18
+    assert(write(ctl, cmd, strlen(cmd)) == (ssize_t)strlen(cmd));
+    141f:	48 8d 3d cb 0c 00 00 	lea    0xccb(%rip),%rdi        # 20f1 <_IO_stdin_used+0xf1>
+    1426:	48 8d 35 76 0c 00 00 	lea    0xc76(%rip),%rsi        # 20a3 <_IO_stdin_used+0xa3>
+    142d:	48 8d 0d 85 0c 00 00 	lea    0xc85(%rip),%rcx        # 20b9 <_IO_stdin_used+0xb9>
+    1434:	ba 12 00 00 00       	mov    $0x12,%edx
+    1439:	e8 32 fc ff ff       	call   1070 <__assert_fail@plt>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:25
+    assert(!memcmp(reply, "ack\n", 4));
+    143e:	48 8d 3d ed 0c 00 00 	lea    0xced(%rip),%rdi        # 2132 <_IO_stdin_used+0x132>
+    1445:	48 8d 35 57 0c 00 00 	lea    0xc57(%rip),%rsi        # 20a3 <_IO_stdin_used+0xa3>
+    144c:	48 8d 0d 66 0c 00 00 	lea    0xc66(%rip),%rcx        # 20b9 <_IO_stdin_used+0xb9>
+    1453:	ba 19 00 00 00       	mov    $0x19,%edx
+    1458:	e8 13 fc ff ff       	call   1070 <__assert_fail@plt>
+    145d:	0f 1f 00             	nopl   (%rax)
+
+0000000000001460 <known_work>:
+known_work():
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:31
+__attribute__((noinline)) static uint64_t known_work(uint64_t initial) {
+    1460:	55                   	push   %rbp
+    1461:	48 89 e5             	mov    %rsp,%rbp
+    1464:	48 b8 fd b0 b0 87 e6 	movabs $0x27bb2ee687b0b0fd,%rax
+    146b:	2e bb 27
+    146e:	b9 2d f3 04 b5       	mov    $0xb504f32d,%ecx
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:32
+    volatile uint64_t value = initial;
+    1473:	48 c7 45 f8 03 00 00 	movq   $0x3,-0x8(%rbp)
+    147a:	00
+    147b:	ba 00 e1 f5 05       	mov    $0x5f5e100,%edx
+    1480:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:34
+        value = value * UINT64_C(2862933555777941757) + UINT64_C(3037000493);
+    1484:	48 0f af f0          	imul   %rax,%rsi
+    1488:	48 01 ce             	add    %rcx,%rsi
+    148b:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    148f:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    1493:	48 0f af f0          	imul   %rax,%rsi
+    1497:	48 01 ce             	add    %rcx,%rsi
+    149a:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    149e:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    14a2:	48 0f af f0          	imul   %rax,%rsi
+    14a6:	48 01 ce             	add    %rcx,%rsi
+    14a9:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    14ad:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    14b1:	48 0f af f0          	imul   %rax,%rsi
+    14b5:	48 01 ce             	add    %rcx,%rsi
+    14b8:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+    14bc:	48 8b 75 f8          	mov    -0x8(%rbp),%rsi
+    14c0:	48 0f af f0          	imul   %rax,%rsi
+    14c4:	48 01 ce             	add    %rcx,%rsi
+    14c7:	48 89 75 f8          	mov    %rsi,-0x8(%rbp)
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:33
+    for (uint64_t i = 0; i < UINT64_C(100000000); i++)
+    14cb:	48 83 c2 fb          	add    $0xfffffffffffffffb,%rdx
+    14cf:	75 af                	jne    1480 <known_work+0x20>
+<remote_repo>/scratch/amd-corrected-iterator-13e459ff8/source/bench/known-control.c:35
+    return value;
+    14d1:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    14d5:	5d                   	pop    %rbp
+    14d6:	c3                   	ret
+
+Disassembly of section .fini:
+
+00000000000014d8 <_fini>:
+_fini():
+    14d8:	f3 0f 1e fa          	endbr64
+    14dc:	48 83 ec 08          	sub    $0x8,%rsp
+    14e0:	48 83 c4 08          	add    $0x8,%rsp
+    14e4:	c3                   	ret

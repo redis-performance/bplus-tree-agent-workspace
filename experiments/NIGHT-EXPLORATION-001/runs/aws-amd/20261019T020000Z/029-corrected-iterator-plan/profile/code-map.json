@@ -1,0 +1,1333 @@
+{
+  "status": "mapped",
+  "raw_assembly_sha256": {
+    "profile": "04f4116c5974c887899671cb847761cf23a3060e6198584e7065c18f5637657a",
+    "original": "9f4b6f8642e27192b85c6e60f36b93347e0ef67121707377576b1de829367708",
+    "timing": "24033e5cd8fab498d7fd454406b498e925da182d0a135a68ec53195b16e40931"
+  },
+  "actual_timing_binary_sha256": "1ecbe6a426bd3a593a9fce6b8e8c6796c8c2287706fdd7eafdba595df9bad9ed",
+  "groups": {
+    "iterate/100000": {
+      "total_period": 2727650764,
+      "events": 594,
+      "mapped_equal_period": 1521224112,
+      "mapped_equal_events": 324,
+      "mapped_different_period": 403866477,
+      "mapped_different_events": 86,
+      "missing_period": 802560175,
+      "missing_events": 184,
+      "tree_equal_period": 1521224112,
+      "tree_equal_events": 324,
+      "tree_different_period": 0,
+      "tree_different_events": 0,
+      "mapped_equal_period_pct": 55.77048689947318,
+      "mapped_different_period_pct": 14.806385125628935,
+      "missing_period_pct": 29.423127974897888,
+      "tree_equal_period_pct": 55.77048689947318,
+      "tree_different_period_pct": 0.0
+    },
+    "iterate/1000000": {
+      "total_period": 2841281249,
+      "events": 624,
+      "mapped_equal_period": 1688605759,
+      "mapped_equal_events": 358,
+      "mapped_different_period": 462546039,
+      "mapped_different_events": 97,
+      "missing_period": 690129451,
+      "missing_events": 169,
+      "tree_equal_period": 1688605759,
+      "tree_equal_events": 358,
+      "tree_different_period": 0,
+      "tree_different_events": 0,
+      "mapped_equal_period_pct": 59.431137258738865,
+      "mapped_different_period_pct": 16.279487965606886,
+      "missing_period_pct": 24.28937477565425,
+      "tree_equal_period_pct": 59.431137258738865,
+      "tree_different_period_pct": 0.0
+    }
+  },
+  "hot_physical_tree_functions": [
+    [
+      "zbtreeIteratorNext",
+      3209829871
+    ]
+  ],
+  "sampled_instruction_map": {
+    "zbtreeIteratorNext+0x1ba": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1ba",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4055",
+        "original": "zset_btree.c:4055",
+        "timing": "zset_btree.c:4055"
+      },
+      "addresses": {
+        "profile": "0xbb6a",
+        "original": "0xb99a",
+        "timing": "0xb99a"
+      },
+      "bytes": {
+        "profile": "5b",
+        "original": "5b",
+        "timing": "5b"
+      },
+      "assembly": {
+        "profile": "pop    %rbx",
+        "original": "pop    %rbx",
+        "timing": "pop    %rbx"
+      },
+      "events": 55,
+      "period": 274004975
+    },
+    "main+0x145d": {
+      "symbol": "main",
+      "relative_offset": "0x145d",
+      "all_three_encoded_bytes_equal": false,
+      "source_lines": {
+        "profile": "profile-scoped-fifo2.c:205",
+        "original": "microbench.c:187",
+        "timing": "microbench.c:187"
+      },
+      "addresses": {
+        "profile": "0x274d",
+        "original": "0x26fd",
+        "timing": "0x26fd"
+      },
+      "bytes": {
+        "profile": "48 89 c1",
+        "original": "e8 de 90 00 00",
+        "timing": "e8 de 90 00 00"
+      },
+      "assembly": {
+        "profile": "mov    %rax,%rcx",
+        "original": "call   b7e0 <zbtreeIteratorNext>",
+        "timing": "call   b7e0 <zbtreeIteratorNext>"
+      },
+      "events": 174,
+      "period": 825524029
+    },
+    "zbtreeIteratorNext+0x178": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x178",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4035",
+        "original": "zset_btree.c:4035",
+        "timing": "zset_btree.c:4035"
+      },
+      "addresses": {
+        "profile": "0xbb28",
+        "original": "0xb958",
+        "timing": "0xb958"
+      },
+      "bytes": {
+        "profile": "49 89 00",
+        "original": "49 89 00",
+        "timing": "49 89 00"
+      },
+      "assembly": {
+        "profile": "mov    %rax,(%r8)",
+        "original": "mov    %rax,(%r8)",
+        "timing": "mov    %rax,(%r8)"
+      },
+      "events": 17,
+      "period": 99090901
+    },
+    "zbtreeIteratorNext+0x103": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x103",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbab3",
+        "original": "0xb8e3",
+        "timing": "0xb8e3"
+      },
+      "bytes": {
+        "profile": "48 d3 e3",
+        "original": "48 d3 e3",
+        "timing": "48 d3 e3"
+      },
+      "assembly": {
+        "profile": "shl    %cl,%rbx",
+        "original": "shl    %cl,%rbx",
+        "timing": "shl    %cl,%rbx"
+      },
+      "events": 5,
+      "period": 24091780
+    },
+    "zbtreeIteratorNext+0x10d": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x10d",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbabd",
+        "original": "0xb8ed",
+        "timing": "0xb8ed"
+      },
+      "bytes": {
+        "profile": "3c 40",
+        "original": "3c 40",
+        "timing": "3c 40"
+      },
+      "assembly": {
+        "profile": "cmp    $0x40,%al",
+        "original": "cmp    $0x40,%al",
+        "timing": "cmp    $0x40,%al"
+      },
+      "events": 40,
+      "period": 178384817
+    },
+    "zbtreeIteratorNext+0x17": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x17",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4028",
+        "original": "zset_btree.c:4028",
+        "timing": "zset_btree.c:4028"
+      },
+      "addresses": {
+        "profile": "0xb9c7",
+        "original": "0xb7f7",
+        "timing": "0xb7f7"
+      },
+      "bytes": {
+        "profile": "48 89 d0",
+        "original": "48 89 d0",
+        "timing": "48 89 d0"
+      },
+      "assembly": {
+        "profile": "mov    %rdx,%rax",
+        "original": "mov    %rdx,%rax",
+        "timing": "mov    %rdx,%rax"
+      },
+      "events": 30,
+      "period": 141642987
+    },
+    "zbtreeIteratorNext+0x101": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x101",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbab1",
+        "original": "0xb8e1",
+        "timing": "0xb8e1"
+      },
+      "bytes": {
+        "profile": "89 c1",
+        "original": "89 c1",
+        "timing": "89 c1"
+      },
+      "assembly": {
+        "profile": "mov    %eax,%ecx",
+        "original": "mov    %eax,%ecx",
+        "timing": "mov    %eax,%ecx"
+      },
+      "events": 37,
+      "period": 178494502
+    },
+    "zbtreeIteratorNext+0x0": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x0",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4023",
+        "original": "zset_btree.c:4023",
+        "timing": "zset_btree.c:4023"
+      },
+      "addresses": {
+        "profile": "0xb9b0",
+        "original": "0xb7e0",
+        "timing": "0xb7e0"
+      },
+      "bytes": {
+        "profile": "55",
+        "original": "55",
+        "timing": "55"
+      },
+      "assembly": {
+        "profile": "push   %rbp",
+        "original": "push   %rbp",
+        "timing": "push   %rbp"
+      },
+      "events": 19,
+      "period": 86285645
+    },
+    "zbtreeIteratorNext+0x154": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x154",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:515",
+        "original": "zset_btree.c:515",
+        "timing": "zset_btree.c:515"
+      },
+      "addresses": {
+        "profile": "0xbb04",
+        "original": "0xb934",
+        "timing": "0xb934"
+      },
+      "bytes": {
+        "profile": "48 f7 d8",
+        "original": "48 f7 d8",
+        "timing": "48 f7 d8"
+      },
+      "assembly": {
+        "profile": "neg    %rax",
+        "original": "neg    %rax",
+        "timing": "neg    %rax"
+      },
+      "events": 44,
+      "period": 199872527
+    },
+    "zbtreeIteratorNext+0x174": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x174",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:331",
+        "original": "zset_btree.c:331",
+        "timing": "zset_btree.c:331"
+      },
+      "addresses": {
+        "profile": "0xbb24",
+        "original": "0xb954",
+        "timing": "0xb954"
+      },
+      "bytes": {
+        "profile": "48 0f 48 c1",
+        "original": "48 0f 48 c1",
+        "timing": "48 0f 48 c1"
+      },
+      "assembly": {
+        "profile": "cmovs  %rcx,%rax",
+        "original": "cmovs  %rcx,%rax",
+        "timing": "cmovs  %rcx,%rax"
+      },
+      "events": 28,
+      "period": 140260952
+    },
+    "zbtreeIteratorNext+0x10f": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x10f",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbabf",
+        "original": "0xb8ef",
+        "timing": "0xb8ef"
+      },
+      "bytes": {
+        "profile": "48 f7 d3",
+        "original": "48 f7 d3",
+        "timing": "48 f7 d3"
+      },
+      "assembly": {
+        "profile": "not    %rbx",
+        "original": "not    %rbx",
+        "timing": "not    %rbx"
+      },
+      "events": 12,
+      "period": 55737917
+    },
+    "zbtreeIteratorNext+0x1be": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1be",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4055",
+        "original": "zset_btree.c:4055",
+        "timing": "zset_btree.c:4055"
+      },
+      "addresses": {
+        "profile": "0xbb6e",
+        "original": "0xb99e",
+        "timing": "0xb99e"
+      },
+      "bytes": {
+        "profile": "c3",
+        "original": "c3",
+        "timing": "c3"
+      },
+      "assembly": {
+        "profile": "ret",
+        "original": "ret",
+        "timing": "ret"
+      },
+      "events": 6,
+      "period": 27247182
+    },
+    "zbtreeIteratorNext+0xe0": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xe0",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:509",
+        "original": "zset_btree.c:509",
+        "timing": "zset_btree.c:509"
+      },
+      "addresses": {
+        "profile": "0xba90",
+        "original": "0xb8c0",
+        "timing": "0xb8c0"
+      },
+      "bytes": {
+        "profile": "74 18",
+        "original": "74 18",
+        "timing": "74 18"
+      },
+      "assembly": {
+        "profile": "je     baaa <zbtreeIteratorNext+0xfa>",
+        "original": "je     b8da <zbtreeIteratorNext+0xfa>",
+        "timing": "je     b8da <zbtreeIteratorNext+0xfa>"
+      },
+      "events": 14,
+      "period": 65998971
+    },
+    "zbtreeIteratorNext+0xdc": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xdc",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:509",
+        "original": "zset_btree.c:509",
+        "timing": "zset_btree.c:509"
+      },
+      "addresses": {
+        "profile": "0xba8c",
+        "original": "0xb8bc",
+        "timing": "0xb8bc"
+      },
+      "bytes": {
+        "profile": "41 83 e6 07",
+        "original": "41 83 e6 07",
+        "timing": "41 83 e6 07"
+      },
+      "assembly": {
+        "profile": "and    $0x7,%r14d",
+        "original": "and    $0x7,%r14d",
+        "timing": "and    $0x7,%r14d"
+      },
+      "events": 55,
+      "period": 253009514
+    },
+    "zbtreeIteratorNext+0x1bb": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1bb",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4055",
+        "original": "zset_btree.c:4055",
+        "timing": "zset_btree.c:4055"
+      },
+      "addresses": {
+        "profile": "0xbb6b",
+        "original": "0xb99b",
+        "timing": "0xb99b"
+      },
+      "bytes": {
+        "profile": "41 5e",
+        "original": "41 5e",
+        "timing": "41 5e"
+      },
+      "assembly": {
+        "profile": "pop    %r14",
+        "original": "pop    %r14",
+        "timing": "pop    %r14"
+      },
+      "events": 49,
+      "period": 236857385
+    },
+    "zbtreeIteratorNext+0x4": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x4",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4023",
+        "original": "zset_btree.c:4023",
+        "timing": "zset_btree.c:4023"
+      },
+      "addresses": {
+        "profile": "0xb9b4",
+        "original": "0xb7e4",
+        "timing": "0xb7e4"
+      },
+      "bytes": {
+        "profile": "41 56",
+        "original": "41 56",
+        "timing": "41 56"
+      },
+      "assembly": {
+        "profile": "push   %r14",
+        "original": "push   %r14",
+        "timing": "push   %r14"
+      },
+      "events": 12,
+      "period": 54517369
+    },
+    "zbtreeIteratorNext+0x11e": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x11e",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:513",
+        "original": "zset_btree.c:513",
+        "timing": "zset_btree.c:513"
+      },
+      "addresses": {
+        "profile": "0xbace",
+        "original": "0xb8fe",
+        "timing": "0xb8fe"
+      },
+      "bytes": {
+        "profile": "48 d3 e3",
+        "original": "48 d3 e3",
+        "timing": "48 d3 e3"
+      },
+      "assembly": {
+        "profile": "shl    %cl,%rbx",
+        "original": "shl    %cl,%rbx",
+        "timing": "shl    %cl,%rbx"
+      },
+      "events": 51,
+      "period": 249359218
+    },
+    "zbtreeIteratorNext+0x112": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x112",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbac2",
+        "original": "0xb8f2",
+        "timing": "0xb8f2"
+      },
+      "bytes": {
+        "profile": "48 0f 43 d9",
+        "original": "48 0f 43 d9",
+        "timing": "48 0f 43 d9"
+      },
+      "assembly": {
+        "profile": "cmovae %rcx,%rbx",
+        "original": "cmovae %rcx,%rbx",
+        "timing": "cmovae %rcx,%rbx"
+      },
+      "events": 5,
+      "period": 23405581
+    },
+    "main+0x1480": {
+      "symbol": "main",
+      "relative_offset": "0x1480",
+      "all_three_encoded_bytes_equal": false,
+      "source_lines": {
+        "profile": "profile-scoped-fifo2.c:205",
+        "original": "microbench.c:182",
+        "timing": "microbench.c:182"
+      },
+      "addresses": {
+        "profile": "0x2770",
+        "original": "0x2720",
+        "timing": "0x2720"
+      },
+      "bytes": {
+        "profile": "31 f6",
+        "original": "0f 85 5a ff ff ff",
+        "timing": "0f 85 5a ff ff ff"
+      },
+      "assembly": {
+        "profile": "xor    %esi,%esi",
+        "original": "jne    2680 <main+0x13e0>",
+        "timing": "jne    2680 <main+0x13e0>"
+      },
+      "events": 8,
+      "period": 36344150
+    },
+    "zbtreeIteratorNext+0xd6": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xd6",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:508",
+        "original": "zset_btree.c:508",
+        "timing": "zset_btree.c:508"
+      },
+      "addresses": {
+        "profile": "0xba86",
+        "original": "0xb8b6",
+        "timing": "0xb8b6"
+      },
+      "bytes": {
+        "profile": "80 e1 07",
+        "original": "80 e1 07",
+        "timing": "80 e1 07"
+      },
+      "assembly": {
+        "profile": "and    $0x7,%cl",
+        "original": "and    $0x7,%cl",
+        "timing": "and    $0x7,%cl"
+      },
+      "events": 7,
+      "period": 31684049
+    },
+    "zbtreeIteratorNext+0xb1": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xb1",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:372",
+        "original": "zset_btree.c:372",
+        "timing": "zset_btree.c:372"
+      },
+      "addresses": {
+        "profile": "0xba61",
+        "original": "0xb891",
+        "timing": "0xb891"
+      },
+      "bytes": {
+        "profile": "74 0d",
+        "original": "74 0d",
+        "timing": "74 0d"
+      },
+      "assembly": {
+        "profile": "je     ba70 <zbtreeIteratorNext+0xc0>",
+        "original": "je     b8a0 <zbtreeIteratorNext+0xc0>",
+        "timing": "je     b8a0 <zbtreeIteratorNext+0xc0>"
+      },
+      "events": 28,
+      "period": 127268418
+    },
+    "zbtreeIteratorNext+0x17b": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x17b",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4037",
+        "original": "zset_btree.c:4037",
+        "timing": "zset_btree.c:4037"
+      },
+      "addresses": {
+        "profile": "0xbb2b",
+        "original": "0xb95b",
+        "timing": "0xb95b"
+      },
+      "bytes": {
+        "profile": "85 f6",
+        "original": "85 f6",
+        "timing": "85 f6"
+      },
+      "assembly": {
+        "profile": "test   %esi,%esi",
+        "original": "test   %esi,%esi",
+        "timing": "test   %esi,%esi"
+      },
+      "events": 14,
+      "period": 59134934
+    },
+    "zbtreeIteratorNext+0xca": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xca",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:505",
+        "original": "zset_btree.c:505",
+        "timing": "zset_btree.c:505"
+      },
+      "addresses": {
+        "profile": "0xba7a",
+        "original": "0xb8aa",
+        "timing": "0xb8aa"
+      },
+      "bytes": {
+        "profile": "48 c1 eb 03",
+        "original": "48 c1 eb 03",
+        "timing": "48 c1 eb 03"
+      },
+      "assembly": {
+        "profile": "shr    $0x3,%rbx",
+        "original": "shr    $0x3,%rbx",
+        "timing": "shr    $0x3,%rbx"
+      },
+      "events": 12,
+      "period": 54502698
+    },
+    "zbtreeIteratorNext+0x157": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x157",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:515",
+        "original": "zset_btree.c:515",
+        "timing": "zset_btree.c:515"
+      },
+      "addresses": {
+        "profile": "0xbb07",
+        "original": "0xb937",
+        "timing": "0xb937"
+      },
+      "bytes": {
+        "profile": "84 d2",
+        "original": "84 d2",
+        "timing": "84 d2"
+      },
+      "assembly": {
+        "profile": "test   %dl,%dl",
+        "original": "test   %dl,%dl",
+        "timing": "test   %dl,%dl"
+      },
+      "events": 12,
+      "period": 54690207
+    },
+    "zbtreeIteratorNext+0x151": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x151",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:515",
+        "original": "zset_btree.c:515",
+        "timing": "zset_btree.c:515"
+      },
+      "addresses": {
+        "profile": "0xbb01",
+        "original": "0xb931",
+        "timing": "0xb931"
+      },
+      "bytes": {
+        "profile": "48 89 d8",
+        "original": "48 89 d8",
+        "timing": "48 89 d8"
+      },
+      "assembly": {
+        "profile": "mov    %rbx,%rax",
+        "original": "mov    %rbx,%rax",
+        "timing": "mov    %rbx,%rax"
+      },
+      "events": 3,
+      "period": 13981031
+    },
+    "zbtreeIteratorNext+0x121": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x121",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:513",
+        "original": "zset_btree.c:513",
+        "timing": "zset_btree.c:513"
+      },
+      "addresses": {
+        "profile": "0xbad1",
+        "original": "0xb901",
+        "timing": "0xb901"
+      },
+      "bytes": {
+        "profile": "eb 2e",
+        "original": "eb 2e",
+        "timing": "eb 2e"
+      },
+      "assembly": {
+        "profile": "jmp    bb01 <zbtreeIteratorNext+0x151>",
+        "original": "jmp    b931 <zbtreeIteratorNext+0x151>",
+        "timing": "jmp    b931 <zbtreeIteratorNext+0x151>"
+      },
+      "events": 2,
+      "period": 9086374
+    },
+    "zbtreeIteratorNext+0x94": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x94",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4035",
+        "original": "zset_btree.c:4035",
+        "timing": "zset_btree.c:4035"
+      },
+      "addresses": {
+        "profile": "0xba44",
+        "original": "0xb874",
+        "timing": "0xb874"
+      },
+      "bytes": {
+        "profile": "0f 84 e1 00 00 00",
+        "original": "0f 84 e1 00 00 00",
+        "timing": "0f 84 e1 00 00 00"
+      },
+      "assembly": {
+        "profile": "je     bb2b <zbtreeIteratorNext+0x17b>",
+        "original": "je     b95b <zbtreeIteratorNext+0x17b>",
+        "timing": "je     b95b <zbtreeIteratorNext+0x17b>"
+      },
+      "events": 14,
+      "period": 64459243
+    },
+    "zbtreeIteratorNext+0xaf": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xaf",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:372",
+        "original": "zset_btree.c:372",
+        "timing": "zset_btree.c:372"
+      },
+      "addresses": {
+        "profile": "0xba5f",
+        "original": "0xb88f",
+        "timing": "0xb88f"
+      },
+      "bytes": {
+        "profile": "84 d2",
+        "original": "84 d2",
+        "timing": "84 d2"
+      },
+      "assembly": {
+        "profile": "test   %dl,%dl",
+        "original": "test   %dl,%dl",
+        "timing": "test   %dl,%dl"
+      },
+      "events": 16,
+      "period": 74349633
+    },
+    "zbtreeIteratorNext+0xea": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xea",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:509",
+        "original": "zset_btree.c:509",
+        "timing": "zset_btree.c:509"
+      },
+      "addresses": {
+        "profile": "0xba9a",
+        "original": "0xb8ca",
+        "timing": "0xb8ca"
+      },
+      "bytes": {
+        "profile": "39 c1",
+        "original": "39 c1",
+        "timing": "39 c1"
+      },
+      "assembly": {
+        "profile": "cmp    %eax,%ecx",
+        "original": "cmp    %eax,%ecx",
+        "timing": "cmp    %eax,%ecx"
+      },
+      "events": 2,
+      "period": 9088588
+    },
+    "zbtreeIteratorNext+0x16b": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x16b",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:331",
+        "original": "zset_btree.c:331",
+        "timing": "zset_btree.c:331"
+      },
+      "addresses": {
+        "profile": "0xbb1b",
+        "original": "0xb94b",
+        "timing": "0xb94b"
+      },
+      "bytes": {
+        "profile": "48 21 c1",
+        "original": "48 21 c1",
+        "timing": "48 21 c1"
+      },
+      "assembly": {
+        "profile": "and    %rax,%rcx",
+        "original": "and    %rax,%rcx",
+        "timing": "and    %rax,%rcx"
+      },
+      "events": 12,
+      "period": 54529919
+    },
+    "zbtreeIteratorNext+0x9f": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x9f",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:500",
+        "original": "zset_btree.c:500",
+        "timing": "zset_btree.c:500"
+      },
+      "addresses": {
+        "profile": "0xba4f",
+        "original": "0xb87f",
+        "timing": "0xb87f"
+      },
+      "bytes": {
+        "profile": "41 0f b6 52 35",
+        "original": "41 0f b6 52 35",
+        "timing": "41 0f b6 52 35"
+      },
+      "assembly": {
+        "profile": "movzbl 0x35(%r10),%edx",
+        "original": "movzbl 0x35(%r10),%edx",
+        "timing": "movzbl 0x35(%r10),%edx"
+      },
+      "events": 14,
+      "period": 63550600
+    },
+    "zbtreeIteratorNext+0xd": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xd",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4025",
+        "original": "zset_btree.c:4025",
+        "timing": "zset_btree.c:4025"
+      },
+      "addresses": {
+        "profile": "0xb9bd",
+        "original": "0xb7ed",
+        "timing": "0xb7ed"
+      },
+      "bytes": {
+        "profile": "0f 84 10 01 00 00",
+        "original": "0f 84 10 01 00 00",
+        "timing": "0f 84 10 01 00 00"
+      },
+      "assembly": {
+        "profile": "je     bad3 <zbtreeIteratorNext+0x123>",
+        "original": "je     b903 <zbtreeIteratorNext+0x123>",
+        "timing": "je     b903 <zbtreeIteratorNext+0x123>"
+      },
+      "events": 21,
+      "period": 91148439
+    },
+    "zbtreeIteratorNext+0x1bd": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1bd",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4055",
+        "original": "zset_btree.c:4055",
+        "timing": "zset_btree.c:4055"
+      },
+      "addresses": {
+        "profile": "0xbb6d",
+        "original": "0xb99d",
+        "timing": "0xb99d"
+      },
+      "bytes": {
+        "profile": "5d",
+        "original": "5d",
+        "timing": "5d"
+      },
+      "assembly": {
+        "profile": "pop    %rbp",
+        "original": "pop    %rbp",
+        "timing": "pop    %rbp"
+      },
+      "events": 10,
+      "period": 45580337
+    },
+    "zbtreeIteratorNext+0xd3": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xd3",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:508",
+        "original": "zset_btree.c:508",
+        "timing": "zset_btree.c:508"
+      },
+      "addresses": {
+        "profile": "0xba83",
+        "original": "0xb8b3",
+        "timing": "0xb8b3"
+      },
+      "bytes": {
+        "profile": "44 89 f1",
+        "original": "44 89 f1",
+        "timing": "44 89 f1"
+      },
+      "assembly": {
+        "profile": "mov    %r14d,%ecx",
+        "original": "mov    %r14d,%ecx",
+        "timing": "mov    %r14d,%ecx"
+      },
+      "events": 4,
+      "period": 23311754
+    },
+    "zbtreeIteratorNext+0x1ab": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1ab",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4050",
+        "original": "zset_btree.c:4050",
+        "timing": "zset_btree.c:4050"
+      },
+      "addresses": {
+        "profile": "0xbb5b",
+        "original": "0xb98b",
+        "timing": "0xb98b"
+      },
+      "bytes": {
+        "profile": "48 89 07",
+        "original": "48 89 07",
+        "timing": "48 89 07"
+      },
+      "assembly": {
+        "profile": "mov    %rax,(%rdi)",
+        "original": "mov    %rax,(%rdi)",
+        "timing": "mov    %rax,(%rdi)"
+      },
+      "events": 4,
+      "period": 18146759
+    },
+    "zbtreeIteratorNext+0x1a5": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1a5",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4046",
+        "original": "zset_btree.c:4046",
+        "timing": "zset_btree.c:4046"
+      },
+      "addresses": {
+        "profile": "0xbb55",
+        "original": "0xb985",
+        "timing": "0xb985"
+      },
+      "bytes": {
+        "profile": "72 0a",
+        "original": "72 0a",
+        "timing": "72 0a"
+      },
+      "assembly": {
+        "profile": "jb     bb61 <zbtreeIteratorNext+0x1b1>",
+        "original": "jb     b991 <zbtreeIteratorNext+0x1b1>",
+        "timing": "jb     b991 <zbtreeIteratorNext+0x1b1>"
+      },
+      "events": 4,
+      "period": 18161836
+    },
+    "zbtreeIteratorNext+0xa4": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0xa4",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:500",
+        "original": "zset_btree.c:500",
+        "timing": "zset_btree.c:500"
+      },
+      "addresses": {
+        "profile": "0xba54",
+        "original": "0xb884",
+        "timing": "0xb884"
+      },
+      "bytes": {
+        "profile": "85 c0",
+        "original": "85 c0",
+        "timing": "85 c0"
+      },
+      "assembly": {
+        "profile": "test   %eax,%eax",
+        "original": "test   %eax,%eax",
+        "timing": "test   %eax,%eax"
+      },
+      "events": 3,
+      "period": 13609481
+    },
+    "zbtreeIteratorNext+0x16e": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x16e",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:331",
+        "original": "zset_btree.c:331",
+        "timing": "zset_btree.c:331"
+      },
+      "addresses": {
+        "profile": "0xbb1e",
+        "original": "0xb94e",
+        "timing": "0xb94e"
+      },
+      "bytes": {
+        "profile": "48 85 c0",
+        "original": "48 85 c0",
+        "timing": "48 85 c0"
+      },
+      "assembly": {
+        "profile": "test   %rax,%rax",
+        "original": "test   %rax,%rax",
+        "timing": "test   %rax,%rax"
+      },
+      "events": 4,
+      "period": 18168129
+    },
+    "zbtreeIteratorNext+0x17d": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x17d",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4037",
+        "original": "zset_btree.c:4037",
+        "timing": "zset_btree.c:4037"
+      },
+      "addresses": {
+        "profile": "0xbb2d",
+        "original": "0xb95d",
+        "timing": "0xb95d"
+      },
+      "bytes": {
+        "profile": "74 1b",
+        "original": "74 1b",
+        "timing": "74 1b"
+      },
+      "assembly": {
+        "profile": "je     bb4a <zbtreeIteratorNext+0x19a>",
+        "original": "je     b97a <zbtreeIteratorNext+0x19a>",
+        "timing": "je     b97a <zbtreeIteratorNext+0x19a>"
+      },
+      "events": 4,
+      "period": 18092638
+    },
+    "zbtreeIteratorNext+0x7": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x7",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4024",
+        "original": "zset_btree.c:4024",
+        "timing": "zset_btree.c:4024"
+      },
+      "addresses": {
+        "profile": "0xb9b7",
+        "original": "0xb7e7",
+        "timing": "0xb7e7"
+      },
+      "bytes": {
+        "profile": "4c 8b 17",
+        "original": "4c 8b 17",
+        "timing": "4c 8b 17"
+      },
+      "assembly": {
+        "profile": "mov    (%rdi),%r10",
+        "original": "mov    (%rdi),%r10",
+        "timing": "mov    (%rdi),%r10"
+      },
+      "events": 3,
+      "period": 13628568
+    },
+    "main+0x1494": {
+      "symbol": "main",
+      "relative_offset": "0x1494",
+      "all_three_encoded_bytes_equal": false,
+      "source_lines": {
+        "profile": "profile-scoped-fifo2.c:205",
+        "original": "microbench.c:191",
+        "timing": "microbench.c:191"
+      },
+      "addresses": {
+        "profile": "0x2784",
+        "original": "0x2734",
+        "timing": "0x2734"
+      },
+      "bytes": {
+        "profile": "75 ba",
+        "original": "4c 8d 2d 65 03 00 00",
+        "timing": "4c 8d 2d 65 03 00 00"
+      },
+      "assembly": {
+        "profile": "jne    2740 <main+0x1450>",
+        "original": "lea    0x365(%rip),%r13        # 2aa0 <scan_count>",
+        "timing": "lea    0x365(%rip),%r13        # 2aa0 <scan_count>"
+      },
+      "events": 1,
+      "period": 4544337
+    },
+    "zbtreeIteratorNext+0x106": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x106",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbab6",
+        "original": "0xb8e6",
+        "timing": "0xb8e6"
+      },
+      "bytes": {
+        "profile": "48 c7 c1 ff ff ff ff",
+        "original": "48 c7 c1 ff ff ff ff",
+        "timing": "48 c7 c1 ff ff ff ff"
+      },
+      "assembly": {
+        "profile": "mov    $0xffffffffffffffff,%rcx",
+        "original": "mov    $0xffffffffffffffff,%rcx",
+        "timing": "mov    $0xffffffffffffffff,%rcx"
+      },
+      "events": 3,
+      "period": 13632895
+    },
+    "zbtreeIteratorNext+0x159": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x159",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:515",
+        "original": "zset_btree.c:515",
+        "timing": "zset_btree.c:515"
+      },
+      "addresses": {
+        "profile": "0xbb09",
+        "original": "0xb939",
+        "timing": "0xb939"
+      },
+      "bytes": {
+        "profile": "48 0f 44 c3",
+        "original": "48 0f 44 c3",
+        "timing": "48 0f 44 c3"
+      },
+      "assembly": {
+        "profile": "cmove  %rbx,%rax",
+        "original": "cmove  %rbx,%rax",
+        "timing": "cmove  %rbx,%rax"
+      },
+      "events": 1,
+      "period": 4543649
+    },
+    "zbtreeIteratorNext+0x1b5": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1b5",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4050",
+        "original": "zset_btree.c:4050",
+        "timing": "zset_btree.c:4050"
+      },
+      "addresses": {
+        "profile": "0xbb65",
+        "original": "0xb995",
+        "timing": "0xb995"
+      },
+      "bytes": {
+        "profile": "b8 01 00 00 00",
+        "original": "b8 01 00 00 00",
+        "timing": "b8 01 00 00 00"
+      },
+      "assembly": {
+        "profile": "mov    $0x1,%eax",
+        "original": "mov    $0x1,%eax",
+        "timing": "mov    $0x1,%eax"
+      },
+      "events": 1,
+      "period": 4544233
+    },
+    "zbtreeIteratorNext+0x1": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x1",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:4023",
+        "original": "zset_btree.c:4023",
+        "timing": "zset_btree.c:4023"
+      },
+      "addresses": {
+        "profile": "0xb9b1",
+        "original": "0xb7e1",
+        "timing": "0xb7e1"
+      },
+      "bytes": {
+        "profile": "48 89 e5",
+        "original": "48 89 e5",
+        "timing": "48 89 e5"
+      },
+      "assembly": {
+        "profile": "mov    %rsp,%rbp",
+        "original": "mov    %rsp,%rbp",
+        "timing": "mov    %rsp,%rbp"
+      },
+      "events": 1,
+      "period": 4547693
+    },
+    "zbtreeIteratorNext+0x15d": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x15d",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:515",
+        "original": "zset_btree.c:515",
+        "timing": "zset_btree.c:515"
+      },
+      "addresses": {
+        "profile": "0xbb0d",
+        "original": "0xb93d",
+        "timing": "0xb93d"
+      },
+      "bytes": {
+        "profile": "49 03 42 28",
+        "original": "49 03 42 28",
+        "timing": "49 03 42 28"
+      },
+      "assembly": {
+        "profile": "add    0x28(%r10),%rax",
+        "original": "add    0x28(%r10),%rax",
+        "timing": "add    0x28(%r10),%rax"
+      },
+      "events": 2,
+      "period": 9068973
+    },
+    "zbtreeIteratorNext+0x116": {
+      "symbol": "zbtreeIteratorNext",
+      "relative_offset": "0x116",
+      "all_three_encoded_bytes_equal": true,
+      "source_lines": {
+        "profile": "zset_btree.c:511",
+        "original": "zset_btree.c:511",
+        "timing": "zset_btree.c:511"
+      },
+      "addresses": {
+        "profile": "0xbac6",
+        "original": "0xb8f6",
+        "timing": "0xb8f6"
+      },
+      "bytes": {
+        "profile": "4c 21 db",
+        "original": "4c 21 db",
+        "timing": "4c 21 db"
+      },
+      "assembly": {
+        "profile": "and    %r11,%rbx",
+        "original": "and    %r11,%rbx",
+        "timing": "and    %r11,%rbx"
+      },
+      "events": 2,
+      "period": 9056570
+    }
+  },
+  "limits": [
+    "Maps sampled physical instruction offsets, not full-callchain cost",
+    "Encoded differences include relocation and actual driver/body differences; none silently normalized",
+    "Unmapped/library/unknown samples remain in denominators",
+    "Same source function offset alone does not prove code equivalence; only exact-byte rows count as matched",
+    "Code equality does not establish equal runtime/cache layout or removable cycles"
+  ]
+}

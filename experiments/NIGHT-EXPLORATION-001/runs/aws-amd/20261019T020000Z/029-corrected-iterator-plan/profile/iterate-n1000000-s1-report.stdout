@@ -1,0 +1,62 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 208  of event 'cycles:u'
+# Event count (approx.): 949363832
+#
+# Overhead  Symbol                  IPC   [IPC Coverage]
+# ........  ......................  ....................
+#
+    58.99%  [.] zbtreeIteratorNext  -      -
+            |
+            |--28.41%--zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x7e39b062a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--24.80%--zbtreeIteratorNext
+            |          |
+            |          |--23.84%--main
+            |          |          0x7e39b062a1ca
+            |          |          __libc_start_main
+            |          |          _start
+            |          |
+            |           --0.96%--0x7e39b062a1ca
+            |                     __libc_start_main
+            |                     _start
+            |
+            |--3.87%--zbtScoreLeafPhysicalPos (inlined)
+            |          zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x7e39b062a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --1.91%--zbtOrderedToScore (inlined)
+                       zbtScoreLeafScore (inlined)
+                       zbtreeIteratorNext
+                       main
+                       0x7e39b062a1ca
+                       __libc_start_main
+                       _start
+
+    41.01%  [.] main                -      -
+            |
+            ---0x7e39b062a1ca
+               __libc_start_main
+               _start
+
+     0.00%  [.] .plt                -      -
+     0.00%  [k] 0xffffffff8a0d40a1  -      -
+     0.00%  [.] read                -      -
+     0.00%  [.] profile_control     -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

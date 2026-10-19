@@ -1,0 +1,63 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 198  of event 'cycles:u'
+# Event count (approx.): 910555940
+#
+# Overhead  Symbol                  IPC   [IPC Coverage]
+# ........  ......................  ....................
+#
+    55.04%  [.] zbtreeIteratorNext  -      -
+            |
+            |--26.91%--zbtreeIteratorNext
+            |          |
+            |          |--25.91%--main
+            |          |          0x76fac3a2a1ca
+            |          |          __libc_start_main
+            |          |          _start
+            |          |
+            |           --1.00%--0x76fac3a2a1ca
+            |                     __libc_start_main
+            |                     _start
+            |
+            |--22.81%--zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x76fac3a2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+            |--3.33%--zbtOrderedToScore (inlined)
+            |          zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          main
+            |          0x76fac3a2a1ca
+            |          __libc_start_main
+            |          _start
+            |
+             --2.00%--zbtScoreLeafPhysicalPos (inlined)
+                       zbtScoreLeafScore (inlined)
+                       zbtreeIteratorNext
+                       main
+                       0x76fac3a2a1ca
+                       __libc_start_main
+                       _start
+
+    44.96%  [.] main                -      -
+            |
+            ---0x76fac3a2a1ca
+               __libc_start_main
+               _start
+
+     0.00%  [.] 0x0000000000015361  -      -
+     0.00%  [k] 0xffffffff88c000a9  -      -
+     0.00%  [.] profile_control     -      -
+     0.00%  [.] read                -      -
+     0.00%  [k] 0xffffffff8a0d40a1  -      -
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
