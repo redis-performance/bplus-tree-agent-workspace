@@ -14,7 +14,7 @@ binary hashes and disassembly is allowed to complete the evidence inventory.
 Does the exact mask rewrite reduce scoped retired instructions in both benchmark
 programs, despite their opposite elapsed-time outcomes? The hypothesis is that the
 instruction reduction repeats across the two programs, both sizes, and both guard
-directions. Any paired instruction increase falsifies that universal direction
+directions. Any paired instruction non-decrease falsifies that universal direction
 claim. Counter validity, exact source/code identity and scope controls must pass
 before interpreting it. Instruction counts alone cannot explain cycle differences.
 
@@ -73,3 +73,18 @@ population stages in `docs/POPULATION.md` after fresh baseline/profile prerequis
 
 [Activity](ACTIVITY.md) · [Status](STATUS.md) ·
 [Previous rejection](../ARM-MASK-FOLLOWUP-001/RESULTS.md).
+
+## Independent preparation reviews
+
+[Intel comparability review](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/e345fa9b6/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/030-arm-frontend-comparability/REVIEW.md)
+and [AMD attribution requirements](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/d5fc035e0/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/035-arm-dual-frontend-diagnostic-review/REQUIREMENTS.md)
+independently confirm the distinct fixtures and missing guard/candidate profiling.
+Neither finds a defect invalidating the earlier rejection. The profile's validity
+gates must be separate from hypothesis direction: a counter-direction mismatch is
+evidence to retain, not a reason to filter or rerun a capture. Untimed leaf-layout
+census and source-linked caller maps are required for stronger attribution.
+
+The new release auditor uses a distinct `bplus-front-20261019` namespace. It checks
+fresh release markers, matching saved/live coordinator PIDs, inactive owned slice,
+zero recursive owned processes and inspection errors. It is prepared locally only;
+a timer and scheduled local audit will be armed only with the new reviewed lease.

@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "scope": "Local stub execution of exact prepared query/state checks; no SSH, service mutation or scientific data.",
+  "acquisition_script_sha256": "00fa5a97243755585987ecc093e92866b40864e71a54c11d33ea14d7b388b650",
+  "cases": [
+    {
+      "case": "docker-empty-success",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "docker-nonempty-success",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "docker-empty-query-failure",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "systemctl-empty-success",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "systemctl-nonempty-success",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "systemctl-empty-query-failure",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-inactive",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "release-stop-error-inactive-confirmed",
+      "exit_code": 0,
+      "reached_end": true,
+      "expected_pass": true
+    },
+    {
+      "case": "release-active",
+      "exit_code": 1,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-state-query-error",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    },
+    {
+      "case": "release-stop-and-state-errors",
+      "exit_code": 7,
+      "reached_end": false,
+      "expected_pass": false
+    }
+  ]
+}
