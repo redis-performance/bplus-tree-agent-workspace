@@ -20,3 +20,7 @@
 - Publication whitespace check stopped on perf-generated trailing spaces and job stdout final blank lines. Tool output is preserved unchanged; authored source/docs whitespace check is separate. No experiment rerun or raw-row edit.
 
 - 2026-10-19T02:56:29.539054+00:00: Fresh unchanged ARM update diagnosis complete40 validation cells/eight profiles. Three sequential proposals and chair selectNONE: exact no-op has uncertain small opportunity and changed-score costs; prefetch/equality lack precise mechanisms. No implementations or new measured population. Awaiting supported cross-host contender; baseline remains unchanged.
+
+- 2026-10-19T02:58Z: Root assigned supported Intel iterator A/B architecture replication. Exactpatches frozen from58ee8315e, rootreview434e39ef5. Fresh ARM baseline build/validation/profile first; waiting additive direction-toggle/mutate-reinit oracle beforeheavy timing. Separate ARM qualification, A+8/liveiteratorcost declared,B16bytes; noC rerun/no new3variantpopulation.
+
+- 2026-10-19T03:04Z: Fresh ARM iterator baseline8profiles supportexactA/Breplication: offsetgeometry0xb7d0–0xb7ec local11.08%/14.46%, explicitrecordheader hotspotexcluded. Baseline1920fixturecells,43originaltests/mode,89428additivechecks/mode pass. Exactcandidatevalidation running; no timing.

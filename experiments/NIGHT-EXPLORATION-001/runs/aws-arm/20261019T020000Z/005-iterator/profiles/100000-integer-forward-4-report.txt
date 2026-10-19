@@ -1,0 +1,186 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 288  of event 'armv8_pmuv3_0/cycles/P'
+# Event count (approx.): 847216812
+#
+# Overhead  Command  Shared Object     Symbol                    
+# ........  .......  ................  ..........................
+#
+    42.97%  base     base              [.] zbtreeIteratorNext
+            |          
+            |--23.14%--zbtreeIteratorNext
+            |          traverse
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--17.19%--zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          |          
+            |           --16.86%--traverse
+            |                     main
+            |                     0xe72d61b384c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--1.65%--zbtOrderedToScore (inlined)
+            |          zbtScoreLeafScore (inlined)
+            |          zbtreeIteratorNext
+            |          traverse
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.66%--zbtScoreLeafScoreBytes (inlined)
+                       zbtScoreLeafOffsets (inlined)
+                       zbtScoreLeafOffset (inlined)
+                       zbtScoreLeafRecord (inlined)
+                       zbtScoreLeafElement (inlined)
+                       zbtreeIteratorNext
+                       verify
+
+    36.36%  base     base              [.] traverse
+            |
+            ---traverse
+               main
+               0xe72d61b384c4
+               __libc_start_main
+               _start
+
+     5.69%  base     base              [.] zbtScoreInsertAt
+            |          
+            |--1.87%--zbtPackedData (inlined)
+            |          zbtBuildElementFromLeaf (inlined)
+            |          zbtScoreInsertAt
+            |          zbtreeInsertNewRaw (inlined)
+            |          zbtreeInsertNew
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--1.47%--zbtBuildElementIsExternal (inlined)
+            |          zbtElementStorageBytes (inlined)
+            |          |          
+            |           --1.14%--zbtScoreChooseSplit (inlined)
+            |                     zbtScoreInsertAt
+            |                     zbtreeInsertNewRaw (inlined)
+            |                     zbtreeInsertNew
+            |                     main
+            |                     0xe72d61b384c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--0.70%--zbtScoreEncoding (inlined)
+            |          zbtScoreLeafRequestBytes (inlined)
+            |          zbtScoreInsertAt
+            |          zbtreeInsertNewRaw (inlined)
+            |          zbtreeInsertNew
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.66%--zbtScoreLeafScore (inlined)
+                       zbtScoreInsertAt
+                       zbtreeInsertNewRaw (inlined)
+                       zbtreeInsertNew
+                       main
+                       0xe72d61b384c4
+                       __libc_start_main
+                       _start
+
+     4.62%  base     base              [.] zbtScoreLeafBuild
+            |          
+            |--3.21%--zbtBuildElementIsExternal (inlined)
+            |          zbtElementStorageBytes (inlined)
+            |          zbtScoreLeafRequestBytes (inlined)
+            |          zbtScoreLeafBuild
+            |          zbtScoreInsertAt
+            |          zbtreeInsertNewRaw (inlined)
+            |          zbtreeInsertNew
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--0.80%--zbtScoreEncoding (inlined)
+            |          
+             --0.61%--zbtScoreLeafBuild
+                       zbtScoreInsertAt
+                       zbtreeInsertNewRaw (inlined)
+                       zbtreeInsertNew
+                       main
+                       0xe72d61b384c4
+                       __libc_start_main
+                       _start
+
+     3.79%  base     base              [.] zbtreeFindForAdd
+            |          
+            |--2.99%--zbtreeFindForAdd
+            |          insert (inlined)
+            |          main
+            |          0xe72d61b384c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.80%--zbtIndexTagMask (inlined)
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeFindForAdd
+                       insert (inlined)
+                       main
+                       0xe72d61b384c4
+                       __libc_start_main
+                       _start
+
+     1.50%  base     base              [.] zbtScoreFindLeaf
+            |          
+             --1.07%--zbtScoreChild (inlined)
+                       zbtScoreFindLeaf
+                       zbtScoreInsert
+                       zbtreeInsertNewRaw (inlined)
+                       zbtreeInsertNew
+                       main
+                       0xe72d61b384c4
+                       __libc_start_main
+                       _start
+
+     1.34%  base     base              [.] zbtScoreLeafLowerBound
+            |          
+             --1.00%--zbtPackedData (inlined)
+                       zbtScoreLeafElement (inlined)
+                       zbtScoreLeafLowerBound
+                       zbtScoreInsert
+                       zbtreeInsertNewRaw (inlined)
+                       zbtreeInsertNew
+                       main
+                       0xe72d61b384c4
+                       __libc_start_main
+                       _start
+
+     0.99%  base     base              [.] verify
+            |          
+             --0.66%--model_score (inlined)
+                       verify
+
+     0.66%  base     base              [.] siphash
+            |
+            ---siphash
+               zbtreeFindForAdd
+               insert (inlined)
+               main
+               0xe72d61b384c4
+               __libc_start_main
+               _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
