@@ -1,0 +1,349 @@
+ Percent |	Source code & Disassembly of base for armv8_pmuv3_0/cycles/P (1052 samples, percent: local period)
+------------------------------------------------------------------------------------------------------------------
+         : 0    0x3500 <zbtreeScoreRaw>:
+    0.00 :   3500:        sub     sp, sp, #0xa0
+    0.00 :   3504:        stp     x29, x30, [sp, #0x40]
+    0.10 :   3508:        stp     x28, x27, [sp, #0x50]
+    0.10 :   350c:        stp     x26, x25, [sp, #0x60]
+    0.10 :   3510:        stp     x24, x23, [sp, #0x70]
+    0.19 :   3514:        stp     x22, x21, [sp, #0x80]
+    0.10 :   3518:        stp     x20, x19, [sp, #0x90]
+    0.10 :   351c:        add     x29, sp, #0x40
+    0.10 :   3520:        mov     x22, x0
+    0.00 :   3524:        str     x1, [sp, #0x20]
+    0.10 :   3528:        mov     x0, x1
+    0.00 :   352c:        mov     x1, x2
+    0.10 :   3530:        stp     x2, x3, [x29, #-0x18]
+    0.00 :   3534:        bl      0x10c80 <dictGenHashFunction>
+    8.75 :   3538:        ldr     x8, [x22, #0x40]
+    0.00 :   353c:        stur    x0, [x29, #-0x8]
+    0.29 :   3540:        cbz     x8, 0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   3544:        mov     x0, x22
+    0.00 :   3548:        mov     w1, #0x1
+    0.00 :   354c:        bl      0x71a8 <zbtIndexRehashStep>
+    0.00 :   3550:        ldr     x28, [x22, #0x40]
+    0.00 :   3554:        cbz     x28, 0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   3558:        ldr     x8, [x28, #0x8]
+    0.00 :   355c:        cbz     x8, 0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   3560:        ldur    x12, [x29, #-0x8]
+    0.00 :   3564:        sub     x15, x8, #0x1
+    0.00 :   3568:        mov     x8, #0x101010101010101
+    0.00 :   356c:        mov     x25, xzr
+    0.00 :   3570:        add     x26, x22, #0x18
+    0.00 :   3574:        mov     w24, #0xffff
+    0.00 :   3578:        lsr     w9, w12, #24
+    0.00 :   357c:        lsr     x10, x12, #24
+    0.00 :   3580:        and     x16, x12, #0xffffffff
+    0.00 :   3584:        mov     w12, #0x1
+    0.00 :   3588:        and     x19, x15, x16
+    0.00 :   358c:        cmp     w9, #0x0
+    0.00 :   3590:        csinc   w9, w10, wzr, ne
+    0.00 :   3594:        mov     x10, #0x7c15
+    0.00 :   3598:        movk    x10, #0x7f4a, lsl #16
+    0.00 :   359c:        and     x11, x9, #0xff
+    0.00 :   35a0:        lsl     x14, x12, x9
+    0.00 :   35a4:        movk    x10, #0x79b9, lsl #32
+    0.00 :   35a8:        mul     x8, x11, x8
+    0.00 :   35ac:        and     w20, w9, #0xff
+    0.00 :   35b0:        movk    x10, #0x9e37, lsl #48
+    0.00 :   35b4:        mul     x10, x11, x10
+    0.00 :   35b8:        stp     x15, x8, [sp, #0x10]
+    0.00 :   35bc:        lsr     x13, x10, #58
+    0.00 :   35c0:        lsr     x10, x10, #36
+    0.00 :   35c4:        lsl     x8, x12, x13
+    0.00 :   35c8:        lsl     x10, x12, x10
+    0.00 :   35cc:        orr     x8, x8, x14
+    0.00 :   35d0:        orr     x8, x8, x10
+    0.00 :   35d4:        stp     x8, x16, [sp]
+    0.00 :   35d8:        ldr     w8, [x28, #0x20]
+    0.00 :   35dc:        mov     w9, #0x20
+    0.00 :   35e0:        cmp     w8, #0x0
+    0.00 :   35e4:        mov     w8, #0x30
+    0.00 :   35e8:        csel    x8, x9, x8, eq
+    0.00 :   35ec:        ldr     x9, [x28]
+    0.00 :   35f0:        madd    x21, x8, x19, x9
+    0.00 :   35f4:        ldr     x9, [sp, #0x18]
+    0.00 :   35f8:        ldr     x8, [x21]
+    0.00 :   35fc:        eor     x8, x8, x9
+    0.00 :   3600:        mov     x9, #-0x101010101010102
+    0.00 :   3604:        movk    x9, #0xfeff
+    0.00 :   3608:        add     x9, x8, x9
+    0.00 :   360c:        bic     x8, x9, x8
+    0.00 :   3610:        ands    x23, x8, #0x8080808080808080
+    0.00 :   3614:        b.ne    0x36e4 <zbtreeScoreRaw+0x1e4>
+    0.00 :   3618:        cbnz    x25, 0x3658 <zbtreeScoreRaw+0x158>
+    0.00 :   361c:        ldr     w9, [x28, #0x20]
+    0.00 :   3620:        ldr     w8, [x28, #0x8]
+    0.00 :   3624:        mov     w10, #0x20
+    0.00 :   3628:        cmp     w9, #0x0
+    0.00 :   362c:        ldr     x9, [sp, #0x8]
+    0.00 :   3630:        sub     w8, w8, #0x1
+    0.00 :   3634:        and     x8, x8, x9
+    0.00 :   3638:        mov     w9, #0x30
+    0.00 :   363c:        csel    x9, x10, x9, eq
+    0.00 :   3640:        ldr     x10, [x28]
+    0.00 :   3644:        umaddl  x8, w9, w8, x10
+    0.00 :   3648:        ldr     x9, [sp]
+    0.00 :   364c:        ldr     x8, [x8, #0x8]
+    0.00 :   3650:        bics    xzr, x9, x8
+    0.00 :   3654:        b.ne    0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   3658:        ldr     x8, [x21]
+    0.00 :   365c:        and     x9, x8, #0xff
+    0.00 :   3660:        and     x10, x8, #0xff00
+    0.00 :   3664:        cmp     x9, #0x0
+    0.00 :   3668:        and     x9, x8, #0xff0000
+    0.00 :   366c:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   3670:        and     x10, x8, #0xff000000
+    0.00 :   3674:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   3678:        and     x9, x8, #0xff00000000
+    0.00 :   367c:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   3680:        and     x10, x8, #0xff0000000000
+    0.00 :   3684:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   3688:        and     x9, x8, #0xff000000000000
+    0.00 :   368c:        lsr     x8, x8, #56
+    0.00 :   3690:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   3694:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   3698:        ccmp    x8, #0x0, #0x4, ne
+    0.00 :   369c:        b.eq    0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   36a0:        ldr     x8, [x28, #0x8]
+    0.00 :   36a4:        add     x25, x25, #0x1
+    0.00 :   36a8:        add     x9, x19, #0x1
+    0.00 :   36ac:        cmp     x25, x8
+    0.00 :   36b0:        ldr     x8, [sp, #0x10]
+    0.00 :   36b4:        and     x19, x9, x8
+    0.00 :   36b8:        b.lo    0x35d8 <zbtreeScoreRaw+0xd8>
+    0.00 :   36bc:        b       0x37cc <zbtreeScoreRaw+0x2cc>
+    0.00 :   36c0:        adrp    x0, 14 // 0x11000
+    0.00 :   36c4:        add     x0, x0, #0x991
+    0.00 :   36c8:        mov     w1, #0x7a1
+    0.00 :   36cc:        adrp    x2, 14 // 0x11000
+    0.00 :   36d0:        add     x2, x2, #0xb09
+    0.00 :   36d4:        bl      0x10a20 <standalone_panic>
+    0.00 :   36d8:        sub     x8, x23, #0x1
+    0.00 :   36dc:        ands    x23, x8, x23
+    0.00 :   36e0:        b.eq    0x3618 <zbtreeScoreRaw+0x118>
+    0.00 :   36e4:        rbit    x8, x23
+    0.00 :   36e8:        ldr     x9, [x21]
+    0.00 :   36ec:        clz     x8, x8
+    0.00 :   36f0:        and     x10, x8, #0x38
+    0.00 :   36f4:        lsr     x9, x9, x10
+    0.00 :   36f8:        cmp     w20, w9, uxtb
+    0.00 :   36fc:        b.ne    0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   3700:        ldr     w9, [x28, #0x20]
+    0.00 :   3704:        lsr     x8, x8, #3
+    0.00 :   3708:        cbz     w9, 0x3720 <zbtreeScoreRaw+0x220>
+    0.00 :   370c:        add     x8, x21, x8, lsl #2
+    0.00 :   3710:        ldr     w8, [x8, #0x10]
+    0.00 :   3714:        cmn     w8, #0x1
+    0.00 :   3718:        b.ne    0x3730 <zbtreeScoreRaw+0x230>
+    0.00 :   371c:        b       0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   3720:        add     x8, x21, x8, lsl #1
+    0.00 :   3724:        ldrh    w8, [x8, #0x10]
+    0.00 :   3728:        cmp     w8, w24
+    0.00 :   372c:        b.eq    0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   3730:        ldr     w9, [x22, #0x54]
+    0.00 :   3734:        cmp     w8, w9
+    0.00 :   3738:        b.hs    0x37b8 <zbtreeScoreRaw+0x2b8>
+    0.00 :   373c:        ldr     x9, [x22, #0x48]
+    0.00 :   3740:        ldr     x27, [x9, w8, uxtw #3]
+    0.00 :   3744:        cbz     x27, 0x37b8 <zbtreeScoreRaw+0x2b8>
+    0.00 :   3748:        tbnz    w27, #0x0, 0x37b8 <zbtreeScoreRaw+0x2b8>
+    0.00 :   374c:        ldr     w9, [x27, #0x30]
+    0.00 :   3750:        cmp     w9, w8
+    0.00 :   3754:        b.eq    0x3770 <zbtreeScoreRaw+0x270>
+    0.00 :   3758:        adrp    x0, 14 // 0x11000
+    0.00 :   375c:        add     x0, x0, #0x991
+    0.00 :   3760:        mov     w1, #0x7a5
+    0.00 :   3764:        adrp    x2, 14 // 0x11000
+    0.00 :   3768:        add     x2, x2, #0xaea
+    0.00 :   376c:        bl      0x10a20 <standalone_panic>
+    0.00 :   3770:        ldr     x8, [x22, #0x40]
+    0.00 :   3774:        cbz     x8, 0x3798 <zbtreeScoreRaw+0x298>
+    0.00 :   3778:        ldrh    w9, [x27, #0x16]
+    0.00 :   377c:        ldrh    w10, [x8, #0x2c]
+    0.00 :   3780:        cmp     x8, x28
+    0.00 :   3784:        cset    w8, eq
+    0.00 :   3788:        cmp     w9, w10
+    0.00 :   378c:        cset    w9, ne
+    0.00 :   3790:        cmp     w8, w9
+    0.00 :   3794:        b.eq    0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   3798:        ldp     x4, x1, [x29, #-0x10]
+    0.00 :   379c:        mov     x0, x27
+    0.00 :   37a0:        ldr     x2, [sp, #0x20]
+    0.00 :   37a4:        ldur    x3, [x29, #-0x18]
+    0.00 :   37a8:        mov     x5, xzr
+    0.00 :   37ac:        bl      0xaea8 <zbtScoreLeafFindMember>
+    0.00 :   37b0:        cbz     w0, 0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   37b4:        b       0x3a44 <zbtreeScoreRaw+0x544>
+    0.00 :   37b8:        ldr     x8, [x22, #0x40]
+    0.00 :   37bc:        cbz     x8, 0x36c0 <zbtreeScoreRaw+0x1c0>
+    0.00 :   37c0:        cmp     x26, x28
+    0.00 :   37c4:        b.eq    0x36d8 <zbtreeScoreRaw+0x1d8>
+    0.00 :   37c8:        b       0x36c0 <zbtreeScoreRaw+0x1c0>
+    0.19 :   37cc:        ldr     x8, [x22, #0x20]
+    0.10 :   37d0:        cbz     x8, 0x3a3c <zbtreeScoreRaw+0x53c>
+    0.10 :   37d4:        ldur    x12, [x29, #-0x8]
+    0.19 :   37d8:        add     x13, x22, #0x18
+    4.47 :   37dc:        sub     x15, x8, #0x1
+    0.00 :   37e0:        str     x13, [sp, #0x18]
+    0.10 :   37e4:        mov     x8, #0x101010101010101
+    0.00 :   37e8:        mov     x28, xzr
+    0.00 :   37ec:        lsr     w9, w12, #24
+    0.00 :   37f0:        lsr     x10, x12, #24
+    0.10 :   37f4:        and     x16, x12, #0xffffffff
+    0.00 :   37f8:        mov     w12, #0x1
+    0.00 :   37fc:        adrp    x24, 14 // 0x11000
+    0.10 :   3800:        add     x24, x24, #0x991
+    0.00 :   3804:        cmp     w9, #0x0
+    0.09 :   3808:        and     x23, x15, x16
+    0.09 :   380c:        mov     w25, #0xffff
+    0.00 :   3810:        csinc   w9, w10, wzr, ne
+    0.00 :   3814:        mov     x10, #0x7c15
+    0.00 :   3818:        stp     x16, x15, [sp, #0x8]
+    0.00 :   381c:        movk    x10, #0x7f4a, lsl #16
+    0.10 :   3820:        and     x11, x9, #0xff
+    0.00 :   3824:        lsl     x14, x12, x9
+    0.00 :   3828:        movk    x10, #0x79b9, lsl #32
+    0.00 :   382c:        mul     x20, x11, x8
+    0.00 :   3830:        and     w21, w9, #0xff
+    0.10 :   3834:        movk    x10, #0x9e37, lsl #48
+    0.00 :   3838:        mul     x10, x11, x10
+    0.10 :   383c:        lsr     x13, x10, #58
+    0.19 :   3840:        lsr     x10, x10, #36
+    0.10 :   3844:        lsl     x8, x12, x13
+    0.00 :   3848:        lsl     x10, x12, x10
+    0.00 :   384c:        orr     x8, x8, x14
+    0.00 :   3850:        orr     x8, x8, x10
+    0.10 :   3854:        str     x8, [sp]
+    0.10 :   3858:        ldr     w8, [x22, #0x38]
+    0.00 :   385c:        mov     w9, #0x20
+    0.00 :   3860:        cmp     w8, #0x0
+    0.00 :   3864:        mov     w8, #0x30
+    0.00 :   3868:        csel    x8, x9, x8, eq
+    0.19 :   386c:        ldr     x9, [x22, #0x18]
+    0.00 :   3870:        madd    x26, x8, x23, x9
+    0.76 :   3874:        mov     x9, #-0x101010101010102
+    0.00 :   3878:        movk    x9, #0xfeff
+    0.19 :   387c:        ldr     x8, [x26]
+   38.50 :   3880:        eor     x8, x8, x20
+    0.19 :   3884:        add     x9, x8, x9
+    0.00 :   3888:        bic     x8, x9, x8
+    0.19 :   388c:        ands    x19, x8, #0x8080808080808080
+    0.00 :   3890:        b.ne    0x3950 <zbtreeScoreRaw+0x450>
+    0.19 :   3894:        cbnz    x28, 0x38d4 <zbtreeScoreRaw+0x3d4>
+    0.86 :   3898:        ldr     w9, [x22, #0x38]
+    0.00 :   389c:        ldr     w8, [x22, #0x20]
+    0.00 :   38a0:        mov     w10, #0x20
+    0.00 :   38a4:        cmp     w9, #0x0
+    0.00 :   38a8:        ldr     x9, [sp, #0x8]
+    0.00 :   38ac:        sub     w8, w8, #0x1
+    0.00 :   38b0:        and     x8, x8, x9
+    0.00 :   38b4:        mov     w9, #0x30
+    0.00 :   38b8:        csel    x9, x10, x9, eq
+    0.00 :   38bc:        ldr     x10, [x22, #0x18]
+    0.00 :   38c0:        umaddl  x8, w9, w8, x10
+    0.00 :   38c4:        ldr     x9, [sp]
+    0.00 :   38c8:        ldr     x8, [x8, #0x8]
+    0.19 :   38cc:        bics    xzr, x9, x8
+    0.00 :   38d0:        b.ne    0x3a3c <zbtreeScoreRaw+0x53c>
+    0.28 :   38d4:        ldr     x8, [x26]
+    0.00 :   38d8:        and     x9, x8, #0xff
+    0.00 :   38dc:        and     x10, x8, #0xff00
+    0.00 :   38e0:        cmp     x9, #0x0
+    0.00 :   38e4:        and     x9, x8, #0xff0000
+    0.00 :   38e8:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   38ec:        and     x10, x8, #0xff000000
+    0.00 :   38f0:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   38f4:        and     x9, x8, #0xff00000000
+    0.00 :   38f8:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   38fc:        and     x10, x8, #0xff0000000000
+    0.00 :   3900:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   3904:        and     x9, x8, #0xff000000000000
+    0.00 :   3908:        lsr     x8, x8, #56
+    0.00 :   390c:        ccmp    x10, #0x0, #0x4, ne
+    0.00 :   3910:        ccmp    x9, #0x0, #0x4, ne
+    0.00 :   3914:        ccmp    x8, #0x0, #0x4, ne
+    0.00 :   3918:        b.eq    0x3a3c <zbtreeScoreRaw+0x53c>
+    0.19 :   391c:        ldr     x8, [x22, #0x20]
+    0.00 :   3920:        add     x28, x28, #0x1
+    0.00 :   3924:        add     x9, x23, #0x1
+    0.00 :   3928:        cmp     x28, x8
+    0.00 :   392c:        ldr     x8, [sp, #0x10]
+    0.00 :   3930:        and     x23, x9, x8
+    0.00 :   3934:        b.lo    0x3858 <zbtreeScoreRaw+0x358>
+    0.00 :   3938:        b       0x3a3c <zbtreeScoreRaw+0x53c>
+    0.00 :   393c:        ldr     x8, [x22, #0x40]
+    0.00 :   3940:        cbz     x8, 0x3a24 <zbtreeScoreRaw+0x524>
+    0.00 :   3944:        sub     x8, x19, #0x1
+    0.00 :   3948:        ands    x19, x8, x19
+    0.00 :   394c:        b.eq    0x3894 <zbtreeScoreRaw+0x394>
+    3.23 :   3950:        rbit    x8, x19
+    0.29 :   3954:        ldr     x9, [x26]
+    0.10 :   3958:        clz     x8, x8
+    0.19 :   395c:        and     x10, x8, #0x38
+    0.00 :   3960:        lsr     x9, x9, x10
+    0.00 :   3964:        cmp     w21, w9, uxtb
+    0.19 :   3968:        b.ne    0x3944 <zbtreeScoreRaw+0x444>
+    3.80 :   396c:        ldr     w9, [x22, #0x38]
+    0.00 :   3970:        lsr     x8, x8, #3
+    0.00 :   3974:        cbz     w9, 0x398c <zbtreeScoreRaw+0x48c>
+    0.00 :   3978:        add     x8, x26, x8, lsl #2
+    0.00 :   397c:        ldr     w8, [x8, #0x10]
+    0.00 :   3980:        cmn     w8, #0x1
+    0.00 :   3984:        b.ne    0x399c <zbtreeScoreRaw+0x49c>
+    0.00 :   3988:        b       0x3944 <zbtreeScoreRaw+0x444>
+    0.10 :   398c:        add     x8, x26, x8, lsl #1
+    0.10 :   3990:        ldrh    w8, [x8, #0x10]
+    6.94 :   3994:        cmp     w8, w25
+    0.00 :   3998:        b.eq    0x3944 <zbtreeScoreRaw+0x444>
+    0.85 :   399c:        ldr     w9, [x22, #0x54]
+    0.19 :   39a0:        cmp     w8, w9
+    0.00 :   39a4:        b.hs    0x393c <zbtreeScoreRaw+0x43c>
+    0.00 :   39a8:        ldr     x9, [x22, #0x48]
+    0.00 :   39ac:        ldr     x27, [x9, w8, uxtw #3]
+    3.71 :   39b0:        cbz     x27, 0x393c <zbtreeScoreRaw+0x43c>
+    0.38 :   39b4:        tbnz    w27, #0x0, 0x393c <zbtreeScoreRaw+0x43c>
+    0.00 :   39b8:        ldr     w9, [x27, #0x30]
+   19.49 :   39bc:        cmp     w9, w8
+    0.00 :   39c0:        b.eq    0x39d8 <zbtreeScoreRaw+0x4d8>
+    0.00 :   39c4:        mov     x0, x24
+    0.00 :   39c8:        mov     w1, #0x7a5
+    0.00 :   39cc:        adrp    x2, 14 // 0x11000
+    0.00 :   39d0:        add     x2, x2, #0xaea
+    0.00 :   39d4:        bl      0x10a20 <standalone_panic>
+    0.86 :   39d8:        ldr     x8, [x22, #0x40]
+    0.09 :   39dc:        cbz     x8, 0x3a04 <zbtreeScoreRaw+0x504>
+    0.00 :   39e0:        ldr     x11, [sp, #0x18]
+    0.00 :   39e4:        ldrh    w9, [x27, #0x16]
+    0.00 :   39e8:        ldrh    w10, [x8, #0x2c]
+    0.00 :   39ec:        cmp     x8, x11
+    0.00 :   39f0:        cset    w8, eq
+    0.00 :   39f4:        cmp     w9, w10
+    0.00 :   39f8:        cset    w9, ne
+    0.00 :   39fc:        cmp     w8, w9
+    0.00 :   3a00:        b.eq    0x3944 <zbtreeScoreRaw+0x444>
+    0.00 :   3a04:        ldp     x4, x1, [x29, #-0x10]
+    0.19 :   3a08:        mov     x0, x27
+    0.00 :   3a0c:        ldr     x2, [sp, #0x20]
+    0.10 :   3a10:        ldur    x3, [x29, #-0x18]
+    0.00 :   3a14:        mov     x5, xzr
+    0.19 :   3a18:        bl      0xaea8 <zbtScoreLeafFindMember>
+    0.00 :   3a1c:        cbz     w0, 0x3944 <zbtreeScoreRaw+0x444>
+    0.19 :   3a20:        b       0x3a44 <zbtreeScoreRaw+0x544>
+    0.00 :   3a24:        mov     x0, x24
+    0.00 :   3a28:        mov     w1, #0x7a1
+    0.00 :   3a2c:        adrp    x2, 14 // 0x11000
+    0.00 :   3a30:        add     x2, x2, #0xb09
+    0.00 :   3a34:        bl      0x10a20 <standalone_panic>
+    0.00 :   3a38:        b       0x3944 <zbtreeScoreRaw+0x444>
+    0.00 :   3a3c:        mov     w0, wzr
+    0.00 :   3a40:        b       0x3a48 <zbtreeScoreRaw+0x548>
+    0.10 :   3a44:        mov     w0, #0x1
+    0.00 :   3a48:        ldp     x20, x19, [sp, #0x90]
+    0.28 :   3a4c:        ldp     x22, x21, [sp, #0x80]
+    0.10 :   3a50:        ldp     x24, x23, [sp, #0x70]
+    0.00 :   3a54:        ldp     x26, x25, [sp, #0x60]
+    0.00 :   3a58:        ldp     x28, x27, [sp, #0x50]
+    0.19 :   3a5c:        ldp     x29, x30, [sp, #0x40]
+    0.19 :   3a60:        add     sp, sp, #0xa0
+    0.00 :   3a64:        ret
