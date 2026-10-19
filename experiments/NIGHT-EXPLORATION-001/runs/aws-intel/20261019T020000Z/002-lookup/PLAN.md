@@ -1,0 +1,5 @@
+# Intel lookup referee and profile
+
+Source8fab511e; tree source unchanged. Referee is current microbench plus exact retained HARNESS-002 independent-query and HARNESS-003 miss-warmup patches, stored separately as lookup.c. Compilation: Clang18 C11 -O3 -g -fno-omit-frame-pointer, libc allocator; sanitizers use-O1 and ASan/UBSan. Native/assertion policy identical across eventual candidates. CPU2; SMT sibling50 observed separately.
+
+Validate native/sanitizer against known permutations/checksums and root tests before profiles. Baseline profiles: successful/missing single queries at10K/100K/1M,16bytes, seed1/query-seed101. Perf stat and sampled profiles include setup/warmup/destruction; explicitly not timed-loop shares. Baseline-only calibration three observations per cell, fixed operation count targets50ms; six-block A/A seeds1/2/3. Primary100K successful; second primary1M. Guards per campaign LOOKUP-001 remain mandatory before adoption. No hypothesis selected before profile. No target-source change overnight.
