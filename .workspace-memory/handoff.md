@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:45 UTC
+## Current AWS overnight checkpoint — 19 October 05:49 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected
@@ -15,8 +15,9 @@ controls qualify. Corrected exactB plan preparing with known failing guard first
 no execution grant. Metadata failure preserved, read-only completion only, no reruns.
 ARM existing-binary12-capture profile independently audited: exact predicate17.67%/
 16.87% of timed sampled period, not causal or recoverable cost. Fresh02048 AA rows
-qualify both sizes. Three independent proposal passes now running fromc3323969a;
-NONE permitted, no implementation yet. Previous017 rejection remains final.
+qualify both sizes. Three actual proposals reviewed: ARM conditional dispatch, Intel/AMD
+NONE. Root chair selects NONE; no implementation. Previous017 rejection remains final.
+AMD prepares corrected baseline-only iterator profile/AA; no execution grant yet.
 Corrected AMD exact B replication rejected: only 2/6 blocks per primary meet 2%.
 AMD rank/update profile and index-reference diagnosis select no new hypothesis.
 

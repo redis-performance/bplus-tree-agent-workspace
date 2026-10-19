@@ -1326,3 +1326,20 @@ NONE is permitted. Proposals must address the severe prior55–79% B slowdown,
 not merely assume removal of a17% sampled region would beat the baseline.
 No new implementation, measured population or adoption yet. Counts remain8:
 0 accepted /5 rejected /3 parked. [Fresh controls](NIGHT-EXPLORATION-001/reviews/aws-arm-fold-predicate-aa-audit.json).
+
+
+## 19 October 05:49 UTC — ARM fold-predicate chair selects NONE
+
+Three actual independent proposals from commonc3323969a are sealed: ARM790b93446
+proposes conditional invariant dispatch; Intelbde3caf03 and AMD0efaf90a8 recommend
+NONE. Root chair selects **NONE before implementation**, preserving ARM's dissent.
+The~17% sampled predicate share establishes materiality but does not establish
+sufficient recovery from the prior55–79% loss; the proposed static instruction gate
+is not end-to-end speed evidence. No new implementation or measured population.
+[Full ranking, rationale and verbatim proposals](NIGHT-EXPLORATION-001/reviews/aws-arm-fold-predicate-population/selection.md).
+
+Counts remain8 (0 accepted /5 rejected /3 parked), source NONE. ARM performs only
+read-only attribution of existing baseline samples. AMD prepares a distinct corrected
+iterator baseline profile/control plan; Intel prepares corrected exactB replication
+with the known guard first. Neither new execution plan is granted yet. Deadline and
+actual OSS release verification remain08:00UTC /09:00Lisbon.
