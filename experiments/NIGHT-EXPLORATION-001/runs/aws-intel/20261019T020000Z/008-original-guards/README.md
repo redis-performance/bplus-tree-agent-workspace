@@ -1,26 +1,26 @@
-# Full original-operation guard A/A —57/80 cells qualify
+# Full original-operation guards — PARK / source NONE
 
-Completed all120 serial processes /960 operation rows /240 ABBA blocks in1115.53s under the preregistered1440-second cap. Five sizes,16/128-byte members,all8 original operations,5M requested operations,seeds151–153. Exact original baseline binary/referee unchanged. **57 of80 cells qualify;23 remain unresolved. Overall scan candidate remains PARK/source NONE.** No B guard timing has run.
+The complete B comparison finished120 serial processes,960 operation rows and240 ABBA blocks in1111.54s under the frozen1440s cap. **56 of57 baseline-qualified cells pass;24 of80 cells remain unresolved.** The original23 baseline failures remain explicit, and100-member/16-byte iteration adds one mixed guard failure: block effects +0.304%,−0.825%,+1.329%. No cell meets the preregistered demonstrated-regression criterion of all three qualified blocks above+1%. This is PARK, not acceptance or proof of no regression.
 
-| Size | Key bytes | Qualified /8 | Sub10ms cells |
-|---|---:|---:|---:|
-| 100 | 16 | 6 | 2 |
-| 100 | 128 | 5 | 2 |
-| 1000 | 16 | 4 | 2 |
-| 1000 | 128 | 5 | 2 |
-| 10000 | 16 | 5 | 2 |
-| 10000 | 128 | 5 | 2 |
-| 100000 | 16 | 7 | 0 |
-| 100000 | 128 | 7 | 0 |
-| 1000000 | 16 | 6 | 0 |
-| 1000000 | 128 | 7 | 0 |
+The matrix preserves all five sizes,16/128-byte members,eight original operations,5M requested operations and seeds151–153. Twelve short insert/delete cells and eleven other A/A failures were not retried, dropped or relabeled. Source B was fixed before timing; there is no switch to A. All240 raw blocks preserve actual operation/callback counts, checksums and tree-owned bytes; CPU2 endpoints and serial schedule are verified.
 
-Twelve short insert/delete cells at100/1K/10K were anticipated from calibration: these original operations always perform exactly n actions, regardless of requested ops. Eleven additional cells fail the±1% block-precision gate despite sufficient window duration. All failed/short cells remain in the raw matrix. No retry, duration adaptation, dropped seed, excluded operation or referee change.
+| Size | Key bytes | SCAN median elapsed change | Baseline qualified |
+|---|---:|---:|---|
+| 100 | 16 | -21.064% | yes |
+| 100 | 128 | -9.410% | yes |
+| 1000 | 16 | -34.388% | yes |
+| 1000 | 128 | -13.296% | no |
+| 10000 | 16 | -5.695% | yes |
+| 10000 | 128 | -13.361% | yes |
+| 100000 | 16 | -6.772% | yes |
+| 100000 | 128 | -9.819% | yes |
+| 1000000 | 16 | -3.594% | yes |
+| 1000000 | 128 | -9.355% | no |
 
-Every cell requires all3 same-binaryABBA block effects within±1% and all windows>=10ms. Raw reconstruction passes exact120-process schedule,960 CSV rows,240 effects, serial boundaries, observed CPU2 start/end, equal checksums/actual operations/tree-owned bytes within blocks. Effects use unrounded elapsed_ns/actual operations; callbacks remain duplicate-emitting original SCAN semantics. Qualification remains per case/size/key cell, not host-wide. The original1M/128-byte SCAN guard is unqualified despite qualified discovery16-byte primaries.
+The two unqualified SCAN rows are descriptive only. Earlier independent fresh201–203 confirmation by AMD agent27fed33a7 passes both16-byte primaries; it does not close these guard gaps. Original callback semantics include repeated emitted members. No pooling with AMD/ARM or the separately prepared focused callback.
 
-The full B comparison was preregistered before these outcomes in B-PLAN.md: preserve all120processes/960rows and every control label,1440s cap; unresolved controls keep overall PARK. No source substitution after a demonstrated guard rejection. It has not started. Root explicitly requested an idle handoff first for independently authored fresh201–203 primary controls/confirmation. This worker has never used those seeds.
+After the helper ended04:28:45UTC, a read-only check verified22 frozen baseline/B source, referee and binary artifacts, including the original timing executables. No rebuild or workload occurred between completion and this check. Source baseline remains8fab511e; exactB patch89dc8721f. The corrected panic adapter is a separate future harness baseline, not part of these observations.
 
-Prepared next phases remain unlaunched: full B original guards;010 matched baseline/B profiles301–303;011 reviewed focused validation/calibration/AA/B. Focused321-byte coverage does not fill8/319/320/1024 boundaries, broad reversal, wide IDs or active-resize performance. Root review239ac9730 applies to imported referee2ab283daa. No new optimization population or source adoption: Intel earlier counts2 measured sequential populations,0accepted/1rejected/1parked,6 retained patches; scan is architecture replication of the existing independent population.
+Next: reviewed matched-profilev2 (120 captures/600s, seeds301–303), then independently reviewed focused validation/guards serially. Missing active-resize performance, broad reversal, wide IDs and key boundaries remain explicit. This architecture replication adds no optimization population. Intel local counts remain2 measured sequential populations,0 accepted/1 rejected/1 parked,6 retained patches; scan source adoption NONE.
 
-Evidence: [A/A plan](AA-PLAN.md), [calibration](calibration-audit.json), [raw processes](aa.json), [full per-cell effects](aa-audit.json), [driver/source freeze](aa-freeze.json), [B preregistration](B-PLAN.md). Native helper ended04:03:26UTC with returncode0; explicit subsequent process check found no btree-bench process. Root must return runner ownership before this worker starts another job.
+Evidence: [original A/A result](AA-RESULT.md), [B plan](B-PLAN.md), [freeze](b-freeze.json), [raw processes](b-comparison.json), [all80 cells and240 effects](b-audit.json), [post-phase hashes](post-b-hashes.json). Exact backend/model and token costs unknown; this worker authored the comparison, root/AMD audit separately.

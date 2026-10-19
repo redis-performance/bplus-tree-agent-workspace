@@ -46,3 +46,5 @@
 2026-10-19T04:20:28.941717+00:00 Full B guard progress47/120processes,376/960rows at04:19:37UTC. Still sole Intel workload; no schedule changes. Root reviewed profilev2 0f39b54f1 and approved120captures/600s after guards. ARM prepares a separate supplemental baseline-only guard family; current immutable focused matrix unchanged.
 
 2026-10-19T04:21:29.778890+00:00 Independent auditor requested explicit post-phase artifact identity. Added read-only hash utility to compare baseline/B against existing freezes after each phase, before next workload; no current B driver/schedule mutation or rebuild. Focused unexecuted validation freeze expanded to copied native/san referee inputs.
+
+2026-10-19T04:29:52.551472+00:00 Full original B guards COMPLETE120processes/960rows/240blocks in1111.54s:56/57 qualified guards pass,23 baseline-control gaps plus one mixed100/16 iteration block(+1.329%) keep24/80 unresolved. No demonstrated all-block regression; PARK/source NONE. Raw auditPASS and22 post-phase source/referee/binary hashes unchanged. Matched profilev2 next; no concurrent job.
