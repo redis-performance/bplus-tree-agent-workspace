@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Independent original-guard auditor ready: baseline57of80qualified,23failures retained; awaiting complete immutable Intel B matrix. Separate release-auditor static review confirms main507de297e exactly matches reviewed nested-cgroup fix. No runner access; sourceNONE.
+Independent Intel original-guard audit complete da9b83734:240totalprocesses/1920rows,56qualifiedBguardpasses,one mixed100/16iterate boundfailure,23unqualified controls; no qualified all3 regression. Final22artifacthashes/job provenance pass; PARK/NONE. Separate corrected-adapter AMD baseline now running under1800s lease cap from60afe849b, no original-source changes.
 
-AMD counts4populations:0accepted,3rejected,1parked; independent Intel primary confirmation already complete.
+AMD optimization counts unchanged4populations:0accepted,3rejected,1parked.

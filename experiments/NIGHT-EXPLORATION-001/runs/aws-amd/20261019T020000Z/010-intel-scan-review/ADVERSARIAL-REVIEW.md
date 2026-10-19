@@ -63,3 +63,7 @@ The 300/900/900-second phase caps, 200 ms calibration target and 100 ms qualific
 ## Independent confirmation follow-up
 
 The fixed independent held-out protocol5c29cb07f subsequently qualified both Intel A/A primaries and confirmed B in all12 blocks, with medians−6.783%/−3.656%. All96 raw processes and independent reconstruction are preserved in [012 result](../012-intel-confirmation/RESULT.md). This closes the narrow independent primary confirmation gate; guard/profile gaps above remain. No adoption.
+
+## Original-guard follow-up
+
+Independent full raw audit of da9b83734 verifies56 qualified guardpasses, one mixed100/16iterate exceedance and23 unqualified control cells. No qualified all-three-block regression, but24 original cells remain unresolved. See [013 audit result](../013-intel-original-guard-audit/RESULT.md). Source NONE/PARK remains.
