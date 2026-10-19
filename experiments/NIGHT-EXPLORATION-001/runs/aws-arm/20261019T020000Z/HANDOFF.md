@@ -17,3 +17,5 @@ Final iterator root audit b0c5a43e2 complete; sealed original result unchanged, 
 2026-10-19T03:50:01.603564+00:00:007 focused SCAN referee validated108 baseline cells/368commands,8faults,43originaltests perbuild; no timing. Naturalreverse64members, no active-rehash/wideID fixture.2100s fixed guard budget pending immutable root review.008delete independentproposalNONE; rootchair101895e82 agrees. Counts unchanged.
 
 2026-10-19T03:55:12.399065+00:00:009 originalARM SCAN6scopedprofiles complete. Exact all-match ranges34.459%/26.769%period at100K/1M,84/85events;202opcodes match originaldiagnostic,noSIMD. Zero-disabled and18outputparity checks pass. Supported investigation, no candidate/AA/population. Root review pending.
+
+2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.

@@ -17,3 +17,5 @@ Independent AMD all-match proposal and implementationC are published under006-am
 2026-10-19T03:55:12.399065+00:00:009 originalARM SCAN6scopedprofiles complete. Exact all-match ranges34.459%/26.769%period at100K/1M,84/85events;202opcodes match originaldiagnostic,noSIMD. Zero-disabled and18outputparity checks pass. Supported investigation, no candidate/AA/population. Root review pending.
 
 2026-10-19T03:57:10.995164+00:00:010 fresh nativeARM SCAN control freeze ready:48serialprocesses,5Mrequestedops,100K/1M,heldout101–103twice,300scap. Count choice beforeAA forlongerwindows/Intelprotocolconsistency; no candidate. Actualthreeproposals assigned, pending.
+
+2026-10-19T03:59:19.203829+00:00:010 freshARM SCAN48rowAA complete:100K all6blocks qualify[-0.6555,+0.5620]%;1M firstblock+1.8893% fails,other5within1%. No retries/candidates; dualprimaryacceptanceblocked. Actual3proposalchairpending;1newparkedpopulation+1parkedreplication unchanged.
