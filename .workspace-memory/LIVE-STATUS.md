@@ -1,5 +1,13 @@
 # Live status — M6 driver campaign, 2026-10-19 UTC
 
+Operator016CPUProfilercapabilitypreparationroot+independentCPASS,11frozeninputs,
+exactreused014probe.No recordingyet. Finalfreeze19a49f9a9df3b2ae5dd7d11f86a88ba8cdd296a26adaf8d3828aefcb87cdc7e0.
+DistincttemplateCPUProfiler,onefixedown-launch/TOCstop;exactknownwork+signposts
+mustpassbeforeTOC. No customcounterguess/retry/privilegechanges.014summaryreview
+remainsUNKNOWN,soexecutionconditionmet. Publishfreeze thenexclusiveACK/onecapture.
+SourceNONE/countsunchanged;rootactiveuntil08UTC,experimentalcutoff07:15.
+
+
 Operator014finalauditPASS buthardwaremetricsUNKNOWN/UNQUALIFIED. Installedcounter
 schemasabsentfromretainedTOC/registry;SummaryMetricscontainsonlyUIselectionmetadata.
 GuidedCountersroutestopped,no retry. Rootselectsdistinct016CPUProfilercapability

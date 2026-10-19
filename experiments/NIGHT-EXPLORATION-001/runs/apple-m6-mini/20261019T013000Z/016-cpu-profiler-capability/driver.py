@@ -201,6 +201,10 @@ def availability(ack_path):
         outcome["status"] = "INCOMPLETE: owned target exit unobserved; do not release exclusive runner"
         save(state_path, outcome)
         return
+    if not outcome.get("probe_completed", False) or not outcome.get("signposts_enabled", False):
+        outcome["status"] = "INCOMPLETE: invalid known-work checksum/completion or signposted interval"
+        save(state_path, outcome)
+        return
     left = deadline - time.time()
     if left <= 9:
         outcome["status"] = "INCOMPLETE: deadline before private TOC"

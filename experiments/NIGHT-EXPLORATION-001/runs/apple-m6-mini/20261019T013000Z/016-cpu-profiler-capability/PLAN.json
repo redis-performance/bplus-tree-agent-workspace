@@ -1,0 +1,64 @@
+{
+  "identity": "M6-CPU-PROFILER-CAPABILITY-001",
+  "status": "PREPARATION ONLY; NO RECORDING OR PROBE EXECUTION AUTHORIZED",
+  "created_utc": "2026-10-19T04:52:35.628586+00:00",
+  "hypothesis": "The separately advertised CPU Profiler template exposes a cpu-profile record family for the selected own target, potentially with cycle/sample weights; guided CPU Counters014 exposed no obvious hardware-event schema. Actual weights/units/partitioning are unqualified until private schema evidence.",
+  "distinction_from014": "Different advertised instrument/configuration and expected record family, not retry of the guided CPU Counters template; no custom PMC/event guesses.",
+  "execution_condition": "Root existing-trace Summary discriminator must first fail to resolve usable counter capability; otherwise keep016 prepared and do not execute.",
+  "absolute_campaign_stop_utc": "2026-10-19T07:15:00+00:00",
+  "bootstrap": {
+    "template": "CPU Profiler",
+    "launch_target": "scratch/m6-counter-capability/counter-probe (exact reused014 binary)",
+    "items": 268435456,
+    "seed": 1,
+    "expected_checksum": 9087321014236724183,
+    "case": "alu",
+    "startup_sleep_ms": 250,
+    "time_limit_seconds": 4,
+    "process_wall_limit_seconds": 60,
+    "collection_wait_limit_seconds": 51,
+    "output_drain_limit_seconds": 8,
+    "recorder_reap_limit_seconds": 1,
+    "own_probe_alarm_seconds": 6,
+    "own_target_exit_observation_seconds": 8,
+    "private_trace_watchdog_bytes": 268435456,
+    "trace_limit_kind": "Polling soft stop, not filesystem quota; overshoot possible",
+    "stop_after": "One owned record + private TOC only; bounded public schema names; no table-row export",
+    "expected_schema_name": "cpu-profile",
+    "schema_name_observation_not_qualification": true
+  },
+  "options": {
+    "source": "../014-counter-capability/metadata/cpu-profiler-options.json",
+    "change": "Points of Interest.excludeOSLogs=true only",
+    "CPU Profiler": {
+      "highFrequency": false,
+      "recordKernelCallstacks": false
+    },
+    "Hangs": {
+      "detectPriorityInversions": false,
+      "hangsThreshold": 250
+    },
+    "Hangs_note": "Advertised defaults unchanged; no inferred units or scope claims"
+  },
+  "success_and_failure": {
+    "record_success": "Owned exact probe checksum, signposts and exit; recorder/export exit0 and reaped within budgets, no cap/timeout/interruption; TOC retained",
+    "schema_screen": "Observe whether cpu-profile named schema exists; if absent do not retry, retune or claim unavailable hardware merely from absence",
+    "qualification": "Never automatic: need exact native units/weight period, owned PID/thread/signpost interval scope, loss/multiplexing and separate reviewed controls. A schema name or CLI exit0 alone is insufficient.",
+    "failure": "Denial, missing/incorrect marker/checksum, target exit unobserved, timeout/cap/drain/export/deadline failure stays unavailable/incomplete, all evidence retained; no retry or permission workaround"
+  },
+  "authorization": "Root plus independent reviewer distinct from root/author PASS; published exact freeze/driver/plan; exclusive runner; declared own-target/scope review; soft-cap acceptance; TOC-only; prior counter discriminator unresolved; absolute ACK deadline20..600s ahead and no later07:15UTC",
+  "prohibited": [
+    "probe execution during preparation",
+    "binary rebuild",
+    "metadata CLI",
+    "permission/settings/elevation/signing changes",
+    "attach/all-process/remote targets",
+    "custom PMC event guesses",
+    "table-row export",
+    "fallback instrument or automatic qualification matrix",
+    "retry/overwrite",
+    "tree/referee/source changes"
+  ],
+  "participant": "/root/followup_proposal_a",
+  "backend": "Inherited GPT-6/Codex family; exact serving model/token/currency cost unknown"
+}
