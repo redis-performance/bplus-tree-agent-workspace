@@ -1,5 +1,7 @@
-# AMD status
+# AWS AMD status
 
-2026-10-19T02:11:38.270264+00:00 — LOWERBOUND-001 REJECT/NONE; all3lazy-member variants fail2%bothprimaries,144rows retained. One explicitly sequential population,0accepted/1rejected/0parked. Source unchanged. Root pre-screen semantic review passed; outcome audit requested.
+2026-10-19T02:26:03.886999+00:00 — one measured population completed: LOWERBOUND-001 REJECT/NONE. All three implementations failed both primary gates; the root independently audited results. Source remains unchanged.
 
-Scoped profile diagnostic pending, then next distinct profile-led target. Deadline08:00UTC; no new experiments after07:15UTC. Exact backend/model/token/USD costs unavailable.
+Packed-move census and scoped insertion/deletion profiles are complete. Byte-aligned moves have limited expected headroom. A distinct new-leaf score-writing hypothesis is under preparation: fresh scoped profiles show generic score writes at 10.16%/3.31% for 100K/1M trees during one million updates. Assembly confirms per-item metadata reloads. Full-pass A/A controls are running before proposal selection.
+
+AMD totals: one population, zero accepted, one rejected, zero parked. Deadline 08:00 UTC; stop new experiments at 07:15 UTC. Exact backend/model and token/USD costs are unavailable.

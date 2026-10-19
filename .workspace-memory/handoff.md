@@ -1111,3 +1111,8 @@ passed SSH preflight; OSS coordinators stopped, five-size baselines running from
 8fab511e with Clang18/CPU2. Independent release timers restore OSS at08:00UTC /
 09:00Lisbon. [Live status](../experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md). Public Git/README/chart updates requested after
 completed evidence. No new optimization decision; population counts unchanged.
+
+
+## AWS AMD native checkpoint — 19 October 2026
+
+[LOWERBOUND-001](../experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/002-lowerbound/implementation-selection.md) is REJECT/NONE: three sequential proposals and three isolated implementations, 144 comparison rows. All three fail both 2% primary gates. Root independent review/audit supports the decision. All patches and raw rows retained; baseline source unchanged. AMD totals: one completed population, zero accepted, one rejected, zero parked. Scoped perf control failures and corrected FIFO controls retained. Packed-score census complete; new builder-write preparation has fresh profiles and full-pass A/A running. Deadline08:00UTC, no new experiments after07:15UTC.
