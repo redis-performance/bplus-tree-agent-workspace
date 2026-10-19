@@ -1,0 +1,1780 @@
+ Percent |	Source code & Disassembly of update-native for armv8_pmuv3_0/cycles/P (118 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------------------
+         : 0    0xb1ec <zbtScoreInsertAt>:
+    0.00 :   b1ec:        str     d8, [sp, #-0x70]!
+    0.00 :   b1f0:        stp     x29, x30, [sp, #0x10]
+    0.00 :   b1f4:        stp     x28, x27, [sp, #0x20]
+    0.00 :   b1f8:        stp     x26, x25, [sp, #0x30]
+    0.00 :   b1fc:        stp     x24, x23, [sp, #0x40]
+    0.00 :   b200:        stp     x22, x21, [sp, #0x50]
+    0.00 :   b204:        stp     x20, x19, [sp, #0x60]
+    0.00 :   b208:        add     x29, sp, #0x10
+    0.00 :   b20c:        sub     sp, sp, #0x1, lsl #12
+    0.00 :   b210:        sub     sp, sp, #0x3b0
+    0.00 :   b214:        fmov    d8, d0
+    0.00 :   b218:        ldr     w27, [x5, #0x10]
+    0.00 :   b21c:        ldrb    w26, [x1, #0x11]
+    0.00 :   b220:        mov     w12, w3
+    0.00 :   b224:        orr     w13, w4, w3
+    0.00 :   b228:        cbz     w13, 0xb26c <zbtScoreInsertAt+0x80>
+    0.00 :   b22c:        cmp     w26, #0x60
+    0.00 :   b230:        b.ne    0xb26c <zbtScoreInsertAt+0x80>
+    0.00 :   b234:        lsr     w3, w27, #24
+    0.00 :   b238:        fmov    d0, d8
+    0.00 :   b23c:        mov     x2, x5
+    0.00 :   b240:        mov     w4, w12
+    0.00 :   b244:        add     sp, sp, #0x1, lsl #12
+    0.00 :   b248:        add     sp, sp, #0x3b0
+    0.00 :   b24c:        ldp     x20, x19, [sp, #0x60]
+    0.00 :   b250:        ldp     x22, x21, [sp, #0x50]
+    0.00 :   b254:        ldp     x24, x23, [sp, #0x40]
+    0.00 :   b258:        ldp     x26, x25, [sp, #0x30]
+    0.00 :   b25c:        ldp     x28, x27, [sp, #0x20]
+    0.00 :   b260:        ldp     x29, x30, [sp, #0x10]
+    0.00 :   b264:        ldr     d8, [sp], #0x70
+    0.00 :   b268:        b       0xcdb0 <zbtScoreInsertEdgeLeaf>
+    0.00 :   b26c:        cmp     w26, #0x5f
+    0.00 :   b270:        mov     w16, #0x7
+    0.00 :   b274:        str     x1, [sp, #0x48]
+    0.00 :   b278:        str     x5, [sp, #0x20]
+    0.00 :   b27c:        str     x0, [sp, #0x30]
+    0.00 :   b280:        b.hi    0xb2cc <zbtScoreInsertAt+0xe0>
+    0.00 :   b284:        fmov    x10, d8
+    0.00 :   b288:        ldrb    w8, [x1, #0x35]
+    0.00 :   b28c:        ldr     x9, [x1, #0x28]
+    0.00 :   b290:        orr     x11, x10, #0x8000000000000000
+    0.85 :   b294:        cmp     x10, #0x0
+    0.00 :   b298:        csinv   x10, x11, x10, ge
+    0.00 :   b29c:        cbz     w8, 0xb2b0 <zbtScoreInsertAt+0xc4>
+    0.00 :   b2a0:        cmp     x10, x9
+    0.00 :   b2a4:        b.hi    0xb2cc <zbtScoreInsertAt+0xe0>
+    0.00 :   b2a8:        sub     x9, x9, x10
+    0.00 :   b2ac:        b       0xb2b8 <zbtScoreInsertAt+0xcc>
+    0.00 :   b2b0:        subs    x9, x10, x9
+    0.00 :   b2b4:        b.lo    0xb2cc <zbtScoreInsertAt+0xe0>
+    0.85 :   b2b8:        ldrb    w10, [x1, #0x13]
+    0.00 :   b2bc:        mov     x11, #-0x1
+    0.00 :   b2c0:        lsl     x11, x11, x10
+    0.00 :   b2c4:        bics    xzr, x9, x11
+    0.00 :   b2c8:        b.eq    0xb9a4 <zbtScoreInsertAt+0x7b8>
+    0.00 :   b2cc:        mov     w18, w2
+    0.00 :   b2d0:        mov     x11, x26
+    0.00 :   b2d4:        mov     w8, #0x28
+    0.00 :   b2d8:        add     x9, x18, w2, uxtw #2
+    0.00 :   b2dc:        umull   x8, w11, w8
+    0.00 :   b2e0:        str     w2, [sp, #0x4]
+    0.00 :   b2e4:        add     x17, sp, #0x178
+    0.00 :   b2e8:        lsr     w3, w27, #24
+    0.00 :   b2ec:        add     x2, sp, #0x1, lsl #12
+    0.00 :   b2f0:        lsl     x28, x9, #3
+    0.00 :   b2f4:        mov     x20, xzr
+    0.00 :   b2f8:        mov     x24, xzr
+    0.00 :   b2fc:        mov     w26, wzr
+    0.00 :   b300:        add     x0, x1, #0x38
+    0.00 :   b304:        add     x10, x11, #0x1
+    0.00 :   b308:        add     x2, x2, #0xa0
+    0.00 :   b30c:        add     x4, sp, #0x117
+    0.00 :   b310:        add     x19, x8, #0x28
+    0.00 :   b314:        add     x22, x17, x28
+    0.00 :   b318:        add     x6, sp, #0x54
+    0.00 :   b31c:        mov     x7, #-0x1
+    0.00 :   b320:        mov     w30, #0x40
+    0.00 :   b324:        mov     w8, w11
+    0.00 :   b328:        stp     w12, w13, [sp, #0x8]
+    0.00 :   b32c:        stp     x11, x10, [sp, #0x10]
+    0.00 :   b330:        str     w16, [sp, #0x38]
+    0.00 :   b334:        str     x0, [sp, #0x40]
+    0.00 :   b338:        str     x18, [sp, #0x28]
+    0.00 :   b33c:        b       0xb36c <zbtScoreInsertAt+0x180>
+    0.00 :   b340:        ldp     q0, q1, [x5]
+    0.00 :   b344:        ldr     x9, [x5, #0x20]
+    0.00 :   b348:        str     d8, [x2, x18, lsl #3]
+    0.00 :   b34c:        str     x9, [x22, #0x20]
+    0.00 :   b350:        stp     q0, q1, [x22]
+    0.00 :   b354:        strb    w3, [x4, x18]
+    0.84 :   b358:        strh    wzr, [x6, x18, lsl #1]
+    0.00 :   b35c:        add     x20, x20, #0x28
+    0.00 :   b360:        add     x24, x24, #0x1
+    0.00 :   b364:        cmp     x19, x20
+    0.00 :   b368:        b.eq    0xb600 <zbtScoreInsertAt+0x414>
+    0.00 :   b36c:        cmp     x28, x20
+    0.00 :   b370:        b.eq    0xb340 <zbtScoreInsertAt+0x154>
+    0.00 :   b374:        ldrb    w10, [x1, #0x34]
+    0.00 :   b378:        ldrb    w9, [x1, #0x35]
+    0.00 :   b37c:        cbz     w10, 0xb3e4 <zbtScoreInsertAt+0x1f8>
+    0.00 :   b380:        mvn     w11, w26
+    0.85 :   b384:        cmp     w9, #0x0
+    0.00 :   b388:        add     w11, w8, w11
+    0.00 :   b38c:        csel    w11, w26, w11, eq
+    0.00 :   b390:        umull   x11, w10, w11
+    0.00 :   b394:        lsr     x12, x11, #3
+    0.00 :   b398:        and     x15, x11, #0x7
+    0.00 :   b39c:        ands    w13, w11, #0x7
+    0.00 :   b3a0:        ldr     x14, [x0, x12]
+    0.00 :   b3a4:        lsr     x11, x14, x15
+    2.55 :   b3a8:        b.eq    0xb3c8 <zbtScoreInsertAt+0x1dc>
+    0.00 :   b3ac:        sub     w13, w30, w13
+    0.00 :   b3b0:        cmp     w13, w10
+    0.00 :   b3b4:        b.hs    0xb3c8 <zbtScoreInsertAt+0x1dc>
+    0.00 :   b3b8:        add     x12, x12, x1
+    0.00 :   b3bc:        ldrb    w12, [x12, #0x40]
+    0.00 :   b3c0:        lsl     x12, x12, x13
+    0.00 :   b3c4:        orr     x11, x12, x11
+    0.85 :   b3c8:        lsl     x12, x7, x10
+    0.00 :   b3cc:        cmp     w10, #0x40
+    0.85 :   b3d0:        ldrb    w13, [x1, #0x13]
+    0.00 :   b3d4:        csinv   x12, x7, x12, hs
+    0.00 :   b3d8:        and     x11, x11, x12
+    0.00 :   b3dc:        lsl     x11, x11, x13
+    0.85 :   b3e0:        b       0xb3e8 <zbtScoreInsertAt+0x1fc>
+    0.00 :   b3e4:        mov     x11, xzr
+    0.85 :   b3e8:        ldr     x12, [x1, #0x28]
+    0.00 :   b3ec:        cmp     w9, #0x0
+    0.85 :   b3f0:        cneg    x11, x11, ne
+    0.85 :   b3f4:        add     x11, x12, x11
+    0.00 :   b3f8:        and     x12, x11, #0x7fffffffffffffff
+    0.85 :   b3fc:        cmp     x11, #0x0
+    0.85 :   b400:        csinv   x11, x12, x11, lt
+    0.85 :   b404:        str     x11, [x2, x24, lsl #3]
+    0.85 :   b408:        cbz     w10, 0xb420 <zbtScoreInsertAt+0x234>
+    0.00 :   b40c:        madd    w10, w8, w10, w16
+    0.00 :   b410:        lsr     w10, w10, #3
+    0.85 :   b414:        add     w10, w10, #0x9
+    0.00 :   b418:        and     x10, x10, #0x7ffe
+    0.00 :   b41c:        b       0xb424 <zbtScoreInsertAt+0x238>
+    0.00 :   b420:        mov     x10, xzr
+    0.00 :   b424:        mvn     w11, w26
+    0.00 :   b428:        cmp     w9, #0x0
+    3.39 :   b42c:        add     x9, x0, x10
+    0.85 :   b430:        add     w8, w8, w11
+    1.65 :   b434:        add     x25, x17, x20
+    0.00 :   b438:        csel    w8, w26, w8, eq
+    0.00 :   b43c:        ldrh    w8, [x9, w8, uxtw #1]
+    0.00 :   b440:        add     x21, x1, x8
+    0.00 :   b444:        ldrb    w9, [x21]
+   11.02 :   b448:        cmp     w9, #0xfd
+    0.00 :   b44c:        b.hi    0xb458 <zbtScoreInsertAt+0x26c>
+    5.09 :   b450:        mov     w10, #0x1
+    0.00 :   b454:        b       0xb468 <zbtScoreInsertAt+0x27c>
+    0.00 :   b458:        cmp     w9, #0xfe
+    0.00 :   b45c:        b.ne    0xb4ac <zbtScoreInsertAt+0x2c0>
+    0.00 :   b460:        ldurh   w9, [x21, #0x1]
+    0.00 :   b464:        mov     w10, #0x3
+    0.00 :   b468:        mov     w8, wzr
+    0.00 :   b46c:        mov     x27, xzr
+    0.00 :   b470:        str     x9, [x25, #0x8]
+    0.00 :   b474:        add     x9, x21, x10
+    0.00 :   b478:        str     x9, [x17, x20]
+    0.85 :   b47c:        mov     x21, xzr
+    0.85 :   b480:        add     x10, x17, x20
+    0.00 :   b484:        ldrb    w9, [x1, #0x34]
+    0.85 :   b488:        str     w8, [x10, #0x10]
+    0.85 :   b48c:        ldrb    w8, [x1, #0x11]
+    0.00 :   b490:        stp     x27, xzr, [x10, #0x18]
+    0.00 :   b494:        cbz     x9, 0xb4dc <zbtScoreInsertAt+0x2f0>
+    0.85 :   b498:        madd    w10, w8, w9, w16
+    0.85 :   b49c:        lsr     w10, w10, #3
+    0.00 :   b4a0:        add     w10, w10, #0x9
+    0.00 :   b4a4:        and     x10, x10, #0x7ffe
+    0.00 :   b4a8:        b       0xb4e0 <zbtScoreInsertAt+0x2f4>
+    0.00 :   b4ac:        ldur    x27, [x21, #0xd]
+    0.00 :   b4b0:        cbz     x27, 0xb544 <zbtScoreInsertAt+0x358>
+    0.00 :   b4b4:        ldur    x8, [x21, #0x5]
+    0.00 :   b4b8:        str     x27, [x17, x20]
+    0.00 :   b4bc:        str     x8, [x25, #0x8]
+    0.00 :   b4c0:        ldur    w8, [x21, #0x1]
+    0.00 :   b4c4:        add     x10, x17, x20
+    0.00 :   b4c8:        ldrb    w9, [x1, #0x34]
+    0.00 :   b4cc:        str     w8, [x10, #0x10]
+    0.00 :   b4d0:        ldrb    w8, [x1, #0x11]
+    0.00 :   b4d4:        stp     x27, x21, [x10, #0x18]
+    0.00 :   b4d8:        cbnz    x9, 0xb498 <zbtScoreInsertAt+0x2ac>
+    0.00 :   b4dc:        mov     x10, xzr
+    0.00 :   b4e0:        ldrb    w11, [x1, #0x35]
+    0.00 :   b4e4:        add     x10, x0, x10
+    0.85 :   b4e8:        mvn     w12, w26
+    0.00 :   b4ec:        add     x13, x10, x8, lsl #1
+    0.00 :   b4f0:        add     w10, w8, w12
+    0.85 :   b4f4:        cmp     w11, #0x0
+    0.00 :   b4f8:        csel    w10, w26, w10, eq
+    0.85 :   b4fc:        ldrb    w11, [x13, w10, uxtw]
+    0.85 :   b500:        strb    w11, [x4, x24]
+    0.00 :   b504:        cbz     w9, 0xb51c <zbtScoreInsertAt+0x330>
+    0.85 :   b508:        madd    w9, w8, w9, w16
+    0.00 :   b50c:        lsr     w9, w9, #3
+    0.00 :   b510:        add     w9, w9, #0x9
+    0.00 :   b514:        and     x9, x9, #0x7ffe
+    0.85 :   b518:        b       0xb520 <zbtScoreInsertAt+0x334>
+    0.00 :   b51c:        mov     x9, xzr
+    0.00 :   b520:        add     x9, x0, x9
+    0.00 :   b524:        add     w26, w26, #0x1
+    0.85 :   b528:        ldrh    w9, [x9, w10, uxtw #1]
+    0.84 :   b52c:        strh    w9, [x6, x24, lsl #1]
+    1.70 :   b530:        add     x20, x20, #0x28
+    0.00 :   b534:        add     x24, x24, #0x1
+    0.00 :   b538:        cmp     x19, x20
+    0.00 :   b53c:        b.ne    0xb36c <zbtScoreInsertAt+0x180>
+    0.00 :   b540:        b       0xb600 <zbtScoreInsertAt+0x414>
+    0.00 :   b544:        adrp    x0, 5 // 0x10000
+    0.00 :   b548:        add     x0, x0, #0xf9f
+    0.00 :   b54c:        mov     w1, #0x257
+    0.00 :   b550:        adrp    x2, 6 // 0x11000
+    0.00 :   b554:        add     x2, x2, #0xcb
+    0.00 :   b558:        mov     w23, w3
+    0.00 :   b55c:        bl      0x1027c <standalone_panic>
+    0.00 :   b560:        ldp     x5, x18, [sp, #0x20]
+    0.00 :   b564:        add     x2, sp, #0x1, lsl #12
+    0.00 :   b568:        ldp     x0, x1, [sp, #0x40]
+    0.00 :   b56c:        mov     w30, #0x40
+    0.00 :   b570:        ldrb    w8, [x21]
+    0.00 :   b574:        ldr     w16, [sp, #0x38]
+    0.00 :   b578:        mov     x7, #-0x1
+    0.00 :   b57c:        add     x6, sp, #0x54
+    0.00 :   b580:        add     x4, sp, #0x117
+    0.00 :   b584:        add     x2, x2, #0xa0
+    0.00 :   b588:        add     x17, sp, #0x178
+    0.00 :   b58c:        mov     w3, w23
+    0.00 :   b590:        cmp     w8, #0xff
+    0.00 :   b594:        b.eq    0xb4b4 <zbtScoreInsertAt+0x2c8>
+    0.00 :   b598:        adrp    x0, 5 // 0x10000
+    0.00 :   b59c:        add     x0, x0, #0xf9f
+    0.00 :   b5a0:        mov     w1, #0x237
+    0.00 :   b5a4:        adrp    x2, 6 // 0x11000
+    0.00 :   b5a8:        add     x2, x2, #0xd7
+    0.00 :   b5ac:        bl      0x1027c <standalone_panic>
+    0.00 :   b5b0:        ldp     x5, x18, [sp, #0x20]
+    0.00 :   b5b4:        add     x2, sp, #0x1, lsl #12
+    0.00 :   b5b8:        ldp     x0, x1, [sp, #0x40]
+    0.00 :   b5bc:        mov     w30, #0x40
+    0.00 :   b5c0:        ldrb    w8, [x21]
+    0.00 :   b5c4:        ldr     w16, [sp, #0x38]
+    0.00 :   b5c8:        mov     x7, #-0x1
+    0.00 :   b5cc:        ldur    x9, [x21, #0x5]
+    0.00 :   b5d0:        add     x6, sp, #0x54
+    0.00 :   b5d4:        add     x4, sp, #0x117
+    0.00 :   b5d8:        add     x2, x2, #0xa0
+    0.00 :   b5dc:        add     x17, sp, #0x178
+    0.00 :   b5e0:        mov     w3, w23
+    0.00 :   b5e4:        cmp     w8, #0xff
+    0.00 :   b5e8:        str     x9, [x25, #0x8]
+    0.00 :   b5ec:        str     x27, [x17, x20]
+    0.00 :   b5f0:        b.eq    0xb4c0 <zbtScoreInsertAt+0x2d4>
+    0.00 :   b5f4:        mov     w8, wzr
+    0.00 :   b5f8:        mov     x27, xzr
+    0.00 :   b5fc:        b       0xb47c <zbtScoreInsertAt+0x290>
+    0.85 :   b600:        ldr     x10, [sp, #0x10a0]
+    0.00 :   b604:        ldr     x26, [sp, #0x10]
+    0.00 :   b608:        orr     x12, x10, #0x8000000000000000
+    0.00 :   b60c:        cmp     x10, #0x0
+    0.00 :   b610:        mvn     x11, x10
+    0.00 :   b614:        csinv   x20, x12, x10, ge
+    0.00 :   b618:        cbz     w26, 0xb640 <zbtScoreInsertAt+0x454>
+    0.00 :   b61c:        ldr     x28, [sp, #0x30]
+    0.00 :   b620:        ldr     x27, [sp, #0x18]
+    0.00 :   b624:        cmp     w26, #0x4
+    0.00 :   b628:        b.hs    0xb64c <zbtScoreInsertAt+0x460>
+    0.00 :   b62c:        mov     x9, xzr
+    0.00 :   b630:        mov     w8, #0x1
+    0.00 :   b634:        mov     x13, x20
+    0.00 :   b638:        mov     x14, x20
+    0.00 :   b63c:        b       0xb738 <zbtScoreInsertAt+0x54c>
+    0.00 :   b640:        ldr     x28, [sp, #0x30]
+    0.00 :   b644:        ldr     x27, [sp, #0x18]
+    0.00 :   b648:        b       0xb7bc <zbtScoreInsertAt+0x5d0>
+    0.00 :   b64c:        dup     v5.2d, x20
+    0.00 :   b650:        movi    v0.2d, #0000000000000000
+    0.00 :   b654:        add     x13, sp, #0x1, lsl #12
+    0.00 :   b658:        movi    v1.2d, #0000000000000000
+    0.00 :   b65c:        and     x9, x26, #0xfc
+    0.00 :   b660:        add     x13, x13, #0xa0
+    0.00 :   b664:        orr     x8, x9, #0x1
+    0.00 :   b668:        add     x13, x13, #0x18
+    0.00 :   b66c:        mov     x14, x9
+    0.00 :   b670:        mov     v2.16b, v5.16b
+    0.00 :   b674:        mov     v3.16b, v5.16b
+    0.00 :   b678:        mov     v4.16b, v5.16b
+    0.00 :   b67c:        mov     v6.16b, v5.16b
+    0.00 :   b680:        ldp     q7, q16, [x13, #-0x10]
+    1.70 :   b684:        subs    x14, x14, #0x4
+    0.00 :   b688:        add     x13, x13, #0x20
+    0.00 :   b68c:        fabs    v17.2d, v7.2d
+    0.00 :   b690:        fabs    v18.2d, v16.2d
+    0.00 :   b694:        mvn     v19.16b, v7.16b
+    0.85 :   b698:        cmlt    v7.2d, v7.2d, #0
+    0.00 :   b69c:        mvn     v20.16b, v16.16b
+    0.00 :   b6a0:        cmlt    v16.2d, v16.2d, #0
+    0.00 :   b6a4:        fneg    v17.2d, v17.2d
+    0.00 :   b6a8:        fneg    v18.2d, v18.2d
+    0.85 :   b6ac:        bsl     v7.16b, v19.16b, v17.16b
+    0.85 :   b6b0:        bsl     v16.16b, v20.16b, v18.16b
+    0.00 :   b6b4:        cmhi    v17.2d, v2.2d, v7.2d
+    0.00 :   b6b8:        cmhi    v18.2d, v3.2d, v16.2d
+    0.00 :   b6bc:        cmhi    v19.2d, v7.2d, v4.2d
+    1.70 :   b6c0:        cmhi    v20.2d, v16.2d, v6.2d
+    0.00 :   b6c4:        eor     v21.16b, v7.16b, v5.16b
+    0.00 :   b6c8:        eor     v22.16b, v16.16b, v5.16b
+    0.00 :   b6cc:        bit     v2.16b, v7.16b, v17.16b
+    0.00 :   b6d0:        bit     v3.16b, v16.16b, v18.16b
+    0.00 :   b6d4:        bit     v4.16b, v7.16b, v19.16b
+    0.00 :   b6d8:        bit     v6.16b, v16.16b, v20.16b
+    0.00 :   b6dc:        orr     v0.16b, v21.16b, v0.16b
+    0.00 :   b6e0:        orr     v1.16b, v22.16b, v1.16b
+    0.00 :   b6e4:        b.ne    0xb680 <zbtScoreInsertAt+0x494>
+    0.00 :   b6e8:        cmhi    v5.2d, v3.2d, v2.2d
+    0.00 :   b6ec:        cmhi    v7.2d, v4.2d, v6.2d
+    0.00 :   b6f0:        cmp     x9, x26
+    0.00 :   b6f4:        orr     v0.16b, v1.16b, v0.16b
+    0.00 :   b6f8:        bif     v2.16b, v3.16b, v5.16b
+    0.00 :   b6fc:        mov     v3.16b, v7.16b
+    0.00 :   b700:        bsl     v3.16b, v4.16b, v6.16b
+    0.00 :   b704:        ext     v6.16b, v0.16b, v0.16b, #0x8
+    0.00 :   b708:        ext     v4.16b, v2.16b, v2.16b, #0x8
+    0.00 :   b70c:        ext     v5.16b, v3.16b, v3.16b, #0x8
+    0.00 :   b710:        orr     v0.8b, v0.8b, v6.8b
+    0.00 :   b714:        cmhi    d1, d4, d2
+    0.00 :   b718:        fmov    x9, d0
+    0.00 :   b71c:        cmhi    d7, d3, d5
+    0.00 :   b720:        bsl     v1.8b, v2.8b, v4.8b
+    0.00 :   b724:        mov     v2.8b, v7.8b
+    0.00 :   b728:        fmov    x13, d1
+    0.00 :   b72c:        bsl     v2.8b, v3.8b, v5.8b
+    0.00 :   b730:        fmov    x14, d2
+    0.00 :   b734:        b.eq    0xb77c <zbtScoreInsertAt+0x590>
+    0.85 :   b738:        add     x15, sp, #0x1, lsl #12
+    0.00 :   b73c:        sub     x16, x26, x8
+    0.00 :   b740:        add     x15, x15, #0xa0
+    0.00 :   b744:        add     x8, x15, x8, lsl #3
+    0.00 :   b748:        add     x15, x16, #0x1
+    0.00 :   b74c:        ldr     x16, [x8], #0x8
+    0.00 :   b750:        orr     x17, x16, #0x8000000000000000
+    0.00 :   b754:        cmp     x16, #0x0
+    0.00 :   b758:        csinv   x16, x17, x16, ge
+    0.00 :   b75c:        cmp     x16, x13
+    0.00 :   b760:        eor     x17, x16, x20
+    0.00 :   b764:        csel    x13, x16, x13, lo
+    0.00 :   b768:        cmp     x16, x14
+    0.00 :   b76c:        orr     x9, x17, x9
+    0.00 :   b770:        csel    x14, x16, x14, hi
+    0.00 :   b774:        subs    x15, x15, #0x1
+    0.00 :   b778:        b.ne    0xb74c <zbtScoreInsertAt+0x560>
+    0.00 :   b77c:        cbz     x9, 0xb7bc <zbtScoreInsertAt+0x5d0>
+    0.00 :   b780:        rbit    x8, x9
+    0.00 :   b784:        sub     x9, x14, x13
+    0.00 :   b788:        clz     x8, x8
+    0.00 :   b78c:        lsr     x8, x9, x8
+    0.00 :   b790:        cbz     x8, 0xb7bc <zbtScoreInsertAt+0x5d0>
+    0.00 :   b794:        clz     x8, x8
+    0.00 :   b798:        mov     w9, #0x40
+    0.00 :   b79c:        sub     x8, x9, x8
+    0.00 :   b7a0:        smull   x8, w8, w27
+    0.00 :   b7a4:        add     x8, x8, #0x7
+    0.00 :   b7a8:        lsr     x8, x8, #3
+    0.00 :   b7ac:        add     x8, x8, #0x9
+    0.00 :   b7b0:        and     x8, x8, #0x1ffffffffffffffe
+    0.00 :   b7b4:        add     x13, x8, #0x38
+    0.00 :   b7b8:        b       0xb7c0 <zbtScoreInsertAt+0x5d4>
+    0.00 :   b7bc:        mov     w13, #0x38
+    0.00 :   b7c0:        mov     w8, #0x28
+    0.00 :   b7c4:        mov     x9, xzr
+    0.00 :   b7c8:        add     x15, sp, #0x178
+    0.00 :   b7cc:        umull   x14, w26, w8
+    0.00 :   b7d0:        add     x8, x27, x27, lsl #1
+    0.00 :   b7d4:        add     x13, x13, x8
+    0.00 :   b7d8:        add     x14, x14, #0x28
+    0.00 :   b7dc:        b       0xb7f4 <zbtScoreInsertAt+0x608>
+    0.00 :   b7e0:        mov     w16, #0x15
+    0.00 :   b7e4:        add     x9, x9, #0x28
+    0.00 :   b7e8:        add     x13, x16, x13
+    0.00 :   b7ec:        cmp     x14, x9
+    0.00 :   b7f0:        b.eq    0xb828 <zbtScoreInsertAt+0x63c>
+    0.85 :   b7f4:        add     x16, x15, x9
+    0.00 :   b7f8:        ldr     x17, [x16, #0x18]
+    0.00 :   b7fc:        cbnz    x17, 0xb7e0 <zbtScoreInsertAt+0x5f4>
+    1.70 :   b800:        ldr     x16, [x16, #0x8]
+    0.85 :   b804:        cmp     x16, #0x13f
+    0.00 :   b808:        b.hi    0xb7e0 <zbtScoreInsertAt+0x5f4>
+    0.00 :   b80c:        cmp     x16, #0xfe
+    0.00 :   b810:        add     x17, x16, #0x3
+    0.85 :   b814:        csinc   x16, x17, x16, hs
+    0.00 :   b818:        add     x9, x9, #0x28
+    0.00 :   b81c:        add     x13, x16, x13
+    0.85 :   b820:        cmp     x14, x9
+    0.00 :   b824:        b.ne    0xb7f4 <zbtScoreInsertAt+0x608>
+    0.00 :   b828:        ldr     w9, [sp, #0xc]
+    0.00 :   b82c:        cbz     w9, 0xb850 <zbtScoreInsertAt+0x664>
+    0.00 :   b830:        cmp     x13, #0x1, lsl #12
+    0.00 :   b834:        b.lo    0xb850 <zbtScoreInsertAt+0x664>
+    0.00 :   b838:        fmov    d0, d8
+    0.00 :   b83c:        ldr     w4, [sp, #0x8]
+    0.00 :   b840:        mov     x0, x28
+    0.00 :   b844:        mov     x2, x5
+    0.00 :   b848:        bl      0xcdb0 <zbtScoreInsertEdgeLeaf>
+    0.00 :   b84c:        b       0xcd68 <zbtScoreInsertAt+0x1b7c>
+    0.00 :   b850:        cmp     w26, #0x5f
+    0.00 :   b854:        b.hi    0xb884 <zbtScoreInsertAt+0x698>
+    0.85 :   b858:        cmp     x13, #0x1, lsl #12
+    0.00 :   b85c:        b.hs    0xb884 <zbtScoreInsertAt+0x698>
+    0.00 :   b860:        cbz     w26, 0xbb1c <zbtScoreInsertAt+0x930>
+    0.00 :   b864:        ldrb    w9, [x1, #0x35]
+    0.00 :   b868:        cmp     w26, #0x1
+    0.00 :   b86c:        b.ne    0xb9fc <zbtScoreInsertAt+0x810>
+    0.00 :   b870:        mov     x11, xzr
+    0.00 :   b874:        mov     w10, #0x1
+    0.00 :   b878:        mov     x12, x20
+    0.00 :   b87c:        mov     x13, x20
+    0.00 :   b880:        b       0xba90 <zbtScoreInsertAt+0x8a4>
+    0.00 :   b884:        mov     w13, #0x28
+    0.00 :   b888:        mov     x8, xzr
+    0.00 :   b88c:        mov     x9, xzr
+    0.00 :   b890:        umull   x13, w26, w13
+    0.00 :   b894:        add     x14, sp, #0x178
+    0.00 :   b898:        add     x13, x13, #0x28
+    0.00 :   b89c:        b       0xb8b8 <zbtScoreInsertAt+0x6cc>
+    0.00 :   b8a0:        mov     w15, #0x15
+    0.00 :   b8a4:        add     x8, x8, #0x28
+    0.00 :   b8a8:        add     x9, x9, x15
+    0.00 :   b8ac:        cmp     x13, x8
+    0.00 :   b8b0:        add     x9, x9, #0xb
+    0.00 :   b8b4:        b.eq    0xb8f0 <zbtScoreInsertAt+0x704>
+    0.85 :   b8b8:        add     x15, x14, x8
+    0.00 :   b8bc:        ldr     x16, [x15, #0x18]
+    0.00 :   b8c0:        cbnz    x16, 0xb8a0 <zbtScoreInsertAt+0x6b4>
+    0.00 :   b8c4:        ldr     x15, [x15, #0x8]
+    0.00 :   b8c8:        cmp     x15, #0x13f
+    0.00 :   b8cc:        b.hi    0xb8a0 <zbtScoreInsertAt+0x6b4>
+    0.00 :   b8d0:        cmp     x15, #0xfe
+    0.00 :   b8d4:        add     x16, x15, #0x3
+    0.00 :   b8d8:        csinc   x15, x16, x15, hs
+    0.00 :   b8dc:        add     x8, x8, #0x28
+    0.00 :   b8e0:        add     x9, x9, x15
+    0.00 :   b8e4:        cmp     x13, x8
+    0.00 :   b8e8:        add     x9, x9, #0xb
+    0.00 :   b8ec:        b.ne    0xb8b8 <zbtScoreInsertAt+0x6cc>
+    0.00 :   b8f0:        mov     x8, #0x7
+    0.00 :   b8f4:        cbz     w26, 0xb9dc <zbtScoreInsertAt+0x7f0>
+    0.00 :   b8f8:        lsr     w23, w27, #1
+    0.00 :   b8fc:        add     x12, sp, #0x178
+    0.00 :   b900:        mov     x10, xzr
+    0.00 :   b904:        mov     x11, xzr
+    0.00 :   b908:        add     x12, x12, #0x18
+    0.00 :   b90c:        mov     w13, #0x15
+    0.00 :   b910:        b       0xb94c <zbtScoreInsertAt+0x760>
+    0.00 :   b914:        ldur    x14, [x12, #-0x10]
+    0.00 :   b918:        cmp     x14, #0xfe
+    0.00 :   b91c:        add     x15, x14, #0x3
+    0.00 :   b920:        csinc   x15, x15, x14, hs
+    0.00 :   b924:        cmp     x14, #0x13f
+    0.00 :   b928:        csel    x14, x13, x15, hi
+    0.00 :   b92c:        add     x11, x11, x14
+    0.00 :   b930:        add     x11, x11, #0xb
+    0.00 :   b934:        cmp     x9, x11, lsl #1
+    0.00 :   b938:        b.ls    0xb968 <zbtScoreInsertAt+0x77c>
+    0.84 :   b93c:        add     x10, x10, #0x1
+    0.00 :   b940:        add     x12, x12, #0x28
+    0.00 :   b944:        cmp     x26, x10
+    0.85 :   b948:        b.eq    0xb97c <zbtScoreInsertAt+0x790>
+    0.85 :   b94c:        ldr     x14, [x12]
+    0.00 :   b950:        cbz     x14, 0xb914 <zbtScoreInsertAt+0x728>
+    0.00 :   b954:        mov     w14, #0x15
+    0.00 :   b958:        add     x11, x11, x14
+    0.00 :   b95c:        add     x11, x11, #0xb
+    0.00 :   b960:        cmp     x9, x11, lsl #1
+    0.00 :   b964:        b.hi    0xb93c <zbtScoreInsertAt+0x750>
+    0.00 :   b968:        add     w23, w10, #0x1
+    0.00 :   b96c:        cmp     w23, #0x2
+    0.00 :   b970:        mov     w9, w23
+    0.00 :   b974:        b.hs    0xb988 <zbtScoreInsertAt+0x79c>
+    0.00 :   b978:        b       0xbd78 <zbtScoreInsertAt+0xb8c>
+    0.00 :   b97c:        cmp     w23, #0x2
+    0.00 :   b980:        mov     w9, w23
+    0.00 :   b984:        b.lo    0xbd78 <zbtScoreInsertAt+0xb8c>
+    0.00 :   b988:        cmp     w23, #0x5
+    0.00 :   b98c:        b.hs    0xbc0c <zbtScoreInsertAt+0xa20>
+    0.00 :   b990:        mov     x11, xzr
+    0.00 :   b994:        mov     w10, #0x1
+    0.00 :   b998:        mov     x12, x20
+    0.00 :   b99c:        mov     x13, x20
+    0.00 :   b9a0:        b       0xbcfc <zbtScoreInsertAt+0xb10>
+    0.00 :   b9a4:        ldrb    w24, [x1, #0x34]
+    0.00 :   b9a8:        lsr     x23, x9, x10
+    0.00 :   b9ac:        cbz     w24, 0xc7a0 <zbtScoreInsertAt+0x15b4>
+    0.85 :   b9b0:        cmp     w24, #0x3f
+    0.00 :   b9b4:        b.hi    0xb9c0 <zbtScoreInsertAt+0x7d4>
+    0.00 :   b9b8:        lsr     x9, x23, x24
+    0.00 :   b9bc:        cbnz    x9, 0xb2cc <zbtScoreInsertAt+0xe0>
+    0.85 :   b9c0:        add     w28, w26, #0x1
+    0.00 :   b9c4:        mov     w25, w24
+    0.00 :   b9c8:        madd    w9, w24, w28, w16
+    0.00 :   b9cc:        lsr     w9, w9, #3
+    0.00 :   b9d0:        add     w9, w9, #0x9
+    0.00 :   b9d4:        and     x22, x9, #0xfffe
+    0.00 :   b9d8:        b       0xc7b0 <zbtScoreInsertAt+0x15c4>
+    0.00 :   b9dc:        mov     x9, xzr
+    0.00 :   b9e0:        mov     w23, wzr
+    0.00 :   b9e4:        sub     w13, w27, wzr
+    0.00 :   b9e8:        cmp     x10, #0x0
+    0.00 :   b9ec:        csel    x10, x11, x12, lt
+    0.00 :   b9f0:        cmp     w13, #0x2
+    0.00 :   b9f4:        b.lo    0xbfb4 <zbtScoreInsertAt+0xdc8>
+    0.00 :   b9f8:        b       0xbe20 <zbtScoreInsertAt+0xc34>
+    0.00 :   b9fc:        dup     v3.2d, x20
+    0.00 :   ba00:        movi    v0.2d, #0000000000000000
+    0.00 :   ba04:        add     x12, sp, #0x1, lsl #12
+    0.00 :   ba08:        add     x12, x12, #0xa0
+    0.00 :   ba0c:        and     x11, x26, #0xfe
+    0.00 :   ba10:        orr     x10, x26, #0x1
+    0.00 :   ba14:        add     x12, x12, #0x8
+    0.00 :   ba18:        mov     x13, x11
+    0.00 :   ba1c:        mov     v1.16b, v3.16b
+    0.00 :   ba20:        mov     v2.16b, v3.16b
+    0.00 :   ba24:        ldr     q4, [x12], #0x10
+    3.39 :   ba28:        subs    x13, x13, #0x2
+    0.00 :   ba2c:        fabs    v5.2d, v4.2d
+    0.00 :   ba30:        mvn     v6.16b, v4.16b
+    0.00 :   ba34:        cmlt    v4.2d, v4.2d, #0
+    0.00 :   ba38:        fneg    v5.2d, v5.2d
+    0.00 :   ba3c:        bsl     v4.16b, v6.16b, v5.16b
+    0.00 :   ba40:        cmhi    v5.2d, v1.2d, v4.2d
+    0.00 :   ba44:        cmhi    v6.2d, v4.2d, v2.2d
+    0.00 :   ba48:        eor     v7.16b, v4.16b, v3.16b
+    0.00 :   ba4c:        bit     v1.16b, v4.16b, v5.16b
+    0.00 :   ba50:        bit     v2.16b, v4.16b, v6.16b
+    0.00 :   ba54:        orr     v0.16b, v7.16b, v0.16b
+    0.00 :   ba58:        b.ne    0xba24 <zbtScoreInsertAt+0x838>
+    0.00 :   ba5c:        ext     v3.16b, v1.16b, v1.16b, #0x8
+    0.00 :   ba60:        ext     v4.16b, v2.16b, v2.16b, #0x8
+    0.00 :   ba64:        cmp     x11, x26
+    0.00 :   ba68:        ext     v6.16b, v0.16b, v0.16b, #0x8
+    0.00 :   ba6c:        cmhi    d5, d3, d1
+    0.00 :   ba70:        cmhi    d7, d2, d4
+    0.00 :   ba74:        orr     v0.8b, v0.8b, v6.8b
+    0.00 :   ba78:        bif     v1.8b, v3.8b, v5.8b
+    0.00 :   ba7c:        bif     v2.8b, v4.8b, v7.8b
+    0.00 :   ba80:        fmov    x11, d0
+    0.00 :   ba84:        fmov    x12, d1
+    0.00 :   ba88:        fmov    x13, d2
+    0.00 :   ba8c:        b.eq    0xbad4 <zbtScoreInsertAt+0x8e8>
+    0.00 :   ba90:        add     x14, sp, #0x1, lsl #12
+    0.00 :   ba94:        sub     x15, x26, x10
+    0.00 :   ba98:        add     x14, x14, #0xa0
+    0.00 :   ba9c:        add     x10, x14, x10, lsl #3
+    0.00 :   baa0:        add     x14, x15, #0x1
+    0.00 :   baa4:        ldr     x15, [x10], #0x8
+    0.00 :   baa8:        orr     x16, x15, #0x8000000000000000
+    0.00 :   baac:        cmp     x15, #0x0
+    0.00 :   bab0:        csinv   x15, x16, x15, ge
+    0.00 :   bab4:        cmp     x15, x12
+    0.00 :   bab8:        eor     x16, x15, x20
+    0.00 :   babc:        csel    x12, x15, x12, lo
+    0.00 :   bac0:        cmp     x15, x13
+    0.00 :   bac4:        orr     x11, x16, x11
+    0.00 :   bac8:        csel    x13, x15, x13, hi
+    0.00 :   bacc:        subs    x14, x14, #0x1
+    0.00 :   bad0:        b.ne    0xbaa4 <zbtScoreInsertAt+0x8b8>
+    0.00 :   bad4:        cmp     w9, #0x0
+    0.00 :   bad8:        csel    x20, x12, x13, eq
+    0.00 :   badc:        cbz     x11, 0xbb18 <zbtScoreInsertAt+0x92c>
+    1.70 :   bae0:        rbit    x9, x11
+    0.00 :   bae4:        clz     x21, x9
+    0.00 :   bae8:        sub     x9, x13, x12
+    0.00 :   baec:        lsr     x9, x9, x21
+    0.00 :   baf0:        cbz     x9, 0xc798 <zbtScoreInsertAt+0x15ac>
+    0.00 :   baf4:        clz     x9, x9
+    0.00 :   baf8:        mov     w10, #0x40
+    0.00 :   bafc:        sub     w26, w10, w9
+    0.00 :   bb00:        umull   x9, w27, w26
+    0.00 :   bb04:        add     x9, x9, #0x7
+    0.00 :   bb08:        lsr     x9, x9, #3
+    0.00 :   bb0c:        add     x9, x9, #0x9
+    0.00 :   bb10:        and     x25, x9, #0x1ffffffffe
+    0.00 :   bb14:        b       0xbb24 <zbtScoreInsertAt+0x938>
+    0.00 :   bb18:        mov     w26, wzr
+    0.00 :   bb1c:        mov     w21, wzr
+    0.00 :   bb20:        mov     x25, xzr
+    0.00 :   bb24:        mov     w10, #0x28
+    0.00 :   bb28:        add     x9, sp, #0x178
+    0.00 :   bb2c:        add     x8, x8, x25
+    0.00 :   bb30:        umaddl  x27, w18, w10, x9
+    0.00 :   bb34:        add     x8, x8, #0x38
+    0.00 :   bb38:        ldr     x24, [x27, #0x18]
+    0.00 :   bb3c:        cbz     x24, 0xbb6c <zbtScoreInsertAt+0x980>
+    0.00 :   bb40:        ldrh    w9, [x1, #0x36]
+    0.00 :   bb44:        add     x8, x8, #0x15
+    0.00 :   bb48:        cmp     x8, x9
+    0.00 :   bb4c:        b.hi    0xbba0 <zbtScoreInsertAt+0x9b4>
+    0.00 :   bb50:        mov     w8, #0x28
+    0.00 :   bb54:        add     x10, sp, #0x178
+    0.00 :   bb58:        sub     w19, w9, #0x15
+    0.00 :   bb5c:        umaddl  x8, w18, w8, x10
+    0.00 :   bb60:        add     x22, x1, w19, uxth
+    0.00 :   bb64:        ldr     x23, [x8, #0x8]
+    0.00 :   bb68:        b       0xc90c <zbtScoreInsertAt+0x1720>
+    0.00 :   bb6c:        mov     w10, #0x28
+    0.00 :   bb70:        umaddl  x9, w18, w10, x9
+    0.00 :   bb74:        mov     w10, #0x15
+    0.00 :   bb78:        ldr     x23, [x9, #0x8]
+    0.00 :   bb7c:        cmp     x23, #0xfe
+    0.00 :   bb80:        add     x9, x23, #0x3
+    0.00 :   bb84:        csinc   x9, x9, x23, hs
+    0.00 :   bb88:        cmp     x23, #0x140
+    0.00 :   bb8c:        csel    x9, x9, x10, lo
+    0.00 :   bb90:        ldrh    w10, [x1, #0x36]
+    0.00 :   bb94:        add     x8, x9, x8
+    0.00 :   bb98:        cmp     x8, x10
+    0.00 :   bb9c:        b.ls    0xbbe4 <zbtScoreInsertAt+0x9f8>
+    0.85 :   bba0:        ldr     w5, [x1, #0x30]
+    0.00 :   bba4:        add     x2, sp, #0x1, lsl #12
+    0.00 :   bba8:        add     x3, sp, #0x178
+    0.00 :   bbac:        add     x2, x2, #0xa0
+    0.00 :   bbb0:        add     x4, sp, #0x117
+    0.00 :   bbb4:        mov     x0, x28
+    0.00 :   bbb8:        mov     x19, x1
+    0.00 :   bbbc:        ldr     x1, [sp, #0x18]
+    0.00 :   bbc0:        mov     w6, wzr
+    0.00 :   bbc4:        bl      0xa980 <zbtScoreLeafBuild>
+    0.00 :   bbc8:        mov     x20, x0
+    0.00 :   bbcc:        mov     x0, x28
+    0.00 :   bbd0:        mov     x1, x19
+    0.00 :   bbd4:        mov     x2, x20
+    0.00 :   bbd8:        bl      0xd45c <zbtScoreReplaceLeaf>
+    0.00 :   bbdc:        mov     x0, x20
+    0.00 :   bbe0:        b       0xcd68 <zbtScoreInsertAt+0x1b7c>
+    0.00 :   bbe4:        sub     w19, w10, w9
+    0.00 :   bbe8:        cmp     x23, #0x13f
+    0.00 :   bbec:        add     x22, x1, w19, uxth
+    0.00 :   bbf0:        b.hi    0xc8d8 <zbtScoreInsertAt+0x16ec>
+    0.00 :   bbf4:        ldr     x1, [x27]
+    0.00 :   bbf8:        cmp     x23, #0xfd
+    0.00 :   bbfc:        b.hi    0xcaec <zbtScoreInsertAt+0x1900>
+    0.00 :   bc00:        mov     w8, #0x1
+    0.00 :   bc04:        mov     w9, w23
+    0.00 :   bc08:        b       0xcaf8 <zbtScoreInsertAt+0x190c>
+    0.00 :   bc0c:        dup     v6.2d, x20
+    0.00 :   bc10:        movi    v0.2d, #0000000000000000
+    0.00 :   bc14:        sub     x11, x9, #0x1
+    0.00 :   bc18:        movi    v1.2d, #0000000000000000
+    0.00 :   bc1c:        add     x10, sp, #0x1, lsl #12
+    0.00 :   bc20:        and     x12, x11, #0xfffffffffffffffc
+    0.00 :   bc24:        add     x10, x10, #0xa0
+    0.00 :   bc28:        mov     x14, x12
+    0.00 :   bc2c:        mov     v2.16b, v6.16b
+    0.00 :   bc30:        mov     v3.16b, v6.16b
+    0.00 :   bc34:        mov     v4.16b, v6.16b
+    0.00 :   bc38:        mov     v5.16b, v6.16b
+    0.00 :   bc3c:        add     x13, x10, #0x18
+    0.00 :   bc40:        orr     x10, x12, #0x1
+    0.00 :   bc44:        ldp     q7, q16, [x13, #-0x10]
+    0.00 :   bc48:        subs    x14, x14, #0x4
+    0.00 :   bc4c:        add     x13, x13, #0x20
+    0.00 :   bc50:        fabs    v17.2d, v7.2d
+    0.00 :   bc54:        fabs    v18.2d, v16.2d
+    0.00 :   bc58:        mvn     v19.16b, v7.16b
+    0.00 :   bc5c:        cmlt    v7.2d, v7.2d, #0
+    0.00 :   bc60:        mvn     v20.16b, v16.16b
+    0.00 :   bc64:        cmlt    v16.2d, v16.2d, #0
+    0.00 :   bc68:        fneg    v17.2d, v17.2d
+    0.00 :   bc6c:        fneg    v18.2d, v18.2d
+    0.00 :   bc70:        bsl     v7.16b, v19.16b, v17.16b
+    0.00 :   bc74:        bsl     v16.16b, v20.16b, v18.16b
+    0.00 :   bc78:        cmhi    v17.2d, v2.2d, v7.2d
+    0.00 :   bc7c:        cmhi    v18.2d, v3.2d, v16.2d
+    0.00 :   bc80:        cmhi    v19.2d, v7.2d, v4.2d
+    0.00 :   bc84:        cmhi    v20.2d, v16.2d, v5.2d
+    0.00 :   bc88:        eor     v21.16b, v7.16b, v6.16b
+    0.00 :   bc8c:        eor     v22.16b, v16.16b, v6.16b
+    0.00 :   bc90:        bit     v2.16b, v7.16b, v17.16b
+    0.00 :   bc94:        bit     v3.16b, v16.16b, v18.16b
+    0.00 :   bc98:        bit     v4.16b, v7.16b, v19.16b
+    0.00 :   bc9c:        bit     v5.16b, v16.16b, v20.16b
+    0.00 :   bca0:        orr     v0.16b, v21.16b, v0.16b
+    0.00 :   bca4:        orr     v1.16b, v22.16b, v1.16b
+    0.00 :   bca8:        b.ne    0xbc44 <zbtScoreInsertAt+0xa58>
+    0.00 :   bcac:        cmhi    v6.2d, v3.2d, v2.2d
+    0.00 :   bcb0:        cmhi    v7.2d, v4.2d, v5.2d
+    0.00 :   bcb4:        cmp     x11, x12
+    0.00 :   bcb8:        orr     v0.16b, v1.16b, v0.16b
+    0.00 :   bcbc:        bif     v2.16b, v3.16b, v6.16b
+    0.00 :   bcc0:        mov     v3.16b, v7.16b
+    0.00 :   bcc4:        ext     v6.16b, v0.16b, v0.16b, #0x8
+    0.00 :   bcc8:        bsl     v3.16b, v4.16b, v5.16b
+    0.00 :   bccc:        ext     v4.16b, v2.16b, v2.16b, #0x8
+    0.00 :   bcd0:        orr     v0.8b, v0.8b, v6.8b
+    0.00 :   bcd4:        ext     v5.16b, v3.16b, v3.16b, #0x8
+    0.00 :   bcd8:        cmhi    d1, d4, d2
+    0.00 :   bcdc:        fmov    x11, d0
+    0.00 :   bce0:        cmhi    d7, d3, d5
+    0.00 :   bce4:        bsl     v1.8b, v2.8b, v4.8b
+    0.00 :   bce8:        mov     v2.8b, v7.8b
+    0.00 :   bcec:        fmov    x12, d1
+    0.00 :   bcf0:        bsl     v2.8b, v3.8b, v5.8b
+    0.00 :   bcf4:        fmov    x13, d2
+    0.00 :   bcf8:        b.eq    0xbd3c <zbtScoreInsertAt+0xb50>
+    0.00 :   bcfc:        add     x14, sp, #0x1, lsl #12
+    0.00 :   bd00:        add     x14, x14, #0xa0
+    0.00 :   bd04:        add     x14, x14, x10, lsl #3
+    0.00 :   bd08:        sub     x10, x9, x10
+    0.00 :   bd0c:        ldr     x15, [x14], #0x8
+    0.00 :   bd10:        orr     x16, x15, #0x8000000000000000
+    0.00 :   bd14:        cmp     x15, #0x0
+    0.00 :   bd18:        csinv   x15, x16, x15, ge
+    0.00 :   bd1c:        cmp     x15, x12
+    0.00 :   bd20:        eor     x16, x15, x20
+    0.00 :   bd24:        csel    x12, x15, x12, lo
+    0.00 :   bd28:        cmp     x15, x13
+    0.00 :   bd2c:        orr     x11, x16, x11
+    0.00 :   bd30:        csel    x13, x15, x13, hi
+    0.00 :   bd34:        subs    x10, x10, #0x1
+    0.00 :   bd38:        b.ne    0xbd0c <zbtScoreInsertAt+0xb20>
+    0.00 :   bd3c:        cbz     x11, 0xbd78 <zbtScoreInsertAt+0xb8c>
+    0.00 :   bd40:        rbit    x10, x11
+    0.00 :   bd44:        sub     x11, x13, x12
+    0.00 :   bd48:        clz     x10, x10
+    0.00 :   bd4c:        lsr     x10, x11, x10
+    0.00 :   bd50:        cbz     x10, 0xbd78 <zbtScoreInsertAt+0xb8c>
+    0.00 :   bd54:        clz     x10, x10
+    0.00 :   bd58:        mov     w11, #0x40
+    0.00 :   bd5c:        sub     x10, x11, x10
+    0.00 :   bd60:        madd    x10, x10, x9, x8
+    0.00 :   bd64:        lsr     x10, x10, #3
+    0.00 :   bd68:        add     x10, x10, #0x9
+    0.00 :   bd6c:        and     x10, x10, #0x1ffffffffffffffe
+    0.00 :   bd70:        add     x10, x10, #0x38
+    0.00 :   bd74:        b       0xbd7c <zbtScoreInsertAt+0xb90>
+    0.00 :   bd78:        mov     w10, #0x38
+    0.00 :   bd7c:        add     x11, x9, x9, lsl #1
+    0.00 :   bd80:        add     x10, x10, x11
+    0.00 :   bd84:        cbz     w23, 0xbdec <zbtScoreInsertAt+0xc00>
+    0.00 :   bd88:        add     x11, sp, #0x178
+    0.00 :   bd8c:        mov     w12, #0x15
+    0.00 :   bd90:        mov     x13, x9
+    0.00 :   bd94:        add     x11, x11, #0x18
+    0.00 :   bd98:        b       0xbdc4 <zbtScoreInsertAt+0xbd8>
+    0.00 :   bd9c:        ldur    x14, [x11, #-0x10]
+    0.00 :   bda0:        cmp     x14, #0xfe
+    0.00 :   bda4:        add     x15, x14, #0x3
+    0.00 :   bda8:        csinc   x15, x15, x14, hs
+    0.00 :   bdac:        cmp     x14, #0x13f
+    0.00 :   bdb0:        csel    x14, x12, x15, hi
+    0.00 :   bdb4:        subs    x13, x13, #0x1
+    0.00 :   bdb8:        add     x10, x14, x10
+    0.00 :   bdbc:        add     x11, x11, #0x28
+    0.00 :   bdc0:        b.eq    0xbde0 <zbtScoreInsertAt+0xbf4>
+    0.00 :   bdc4:        ldr     x14, [x11]
+    0.00 :   bdc8:        cbz     x14, 0xbd9c <zbtScoreInsertAt+0xbb0>
+    0.00 :   bdcc:        mov     w14, #0x15
+    0.00 :   bdd0:        subs    x13, x13, #0x1
+    0.00 :   bdd4:        add     x10, x14, x10
+    0.00 :   bdd8:        add     x11, x11, #0x28
+    0.00 :   bddc:        b.ne    0xbdc4 <zbtScoreInsertAt+0xbd8>
+    0.00 :   bde0:        cmp     x10, #0xfff
+    0.00 :   bde4:        b.ls    0xbdf8 <zbtScoreInsertAt+0xc0c>
+    0.00 :   bde8:        b       0xc030 <zbtScoreInsertAt+0xe44>
+    0.00 :   bdec:        mov     x9, xzr
+    0.00 :   bdf0:        cmp     x10, #0xfff
+    0.00 :   bdf4:        b.hi    0xc030 <zbtScoreInsertAt+0xe44>
+    0.00 :   bdf8:        add     x10, sp, #0x1, lsl #12
+    0.00 :   bdfc:        add     x10, x10, #0xa0
+    0.00 :   be00:        ldr     x10, [x10, x9, lsl #3]
+    0.00 :   be04:        mvn     x11, x10
+    0.00 :   be08:        orr     x12, x10, #0x8000000000000000
+    0.00 :   be0c:        sub     w13, w27, w23
+    0.00 :   be10:        cmp     x10, #0x0
+    0.00 :   be14:        csel    x10, x11, x12, lt
+    0.00 :   be18:        cmp     w13, #0x2
+    0.00 :   be1c:        b.lo    0xbfb4 <zbtScoreInsertAt+0xdc8>
+    0.00 :   be20:        cmp     w13, #0x5
+    0.00 :   be24:        b.hs    0xbe3c <zbtScoreInsertAt+0xc50>
+    0.00 :   be28:        mov     x12, xzr
+    0.00 :   be2c:        mov     w11, #0x1
+    0.00 :   be30:        mov     x14, x10
+    0.00 :   be34:        mov     x15, x10
+    0.00 :   be38:        b       0xbf30 <zbtScoreInsertAt+0xd44>
+    0.00 :   be3c:        dup     v3.2d, x10
+    0.00 :   be40:        add     x11, sp, #0x1, lsl #12
+    0.00 :   be44:        movi    v0.2d, #0000000000000000
+    0.00 :   be48:        add     x11, x11, #0xa0
+    0.00 :   be4c:        movi    v1.2d, #0000000000000000
+    0.00 :   be50:        sub     x12, x13, #0x1
+    0.00 :   be54:        add     x16, x11, x9, lsl #3
+    0.00 :   be58:        and     x14, x12, #0xfffffffffffffffc
+    0.00 :   be5c:        mov     v2.16b, v3.16b
+    0.00 :   be60:        mov     v4.16b, v3.16b
+    0.00 :   be64:        mov     v5.16b, v3.16b
+    0.00 :   be68:        mov     v6.16b, v3.16b
+    0.00 :   be6c:        orr     x11, x14, #0x1
+    0.00 :   be70:        mov     x15, x14
+    0.00 :   be74:        add     x16, x16, #0x18
+    0.00 :   be78:        ldp     q7, q16, [x16, #-0x10]
+    0.00 :   be7c:        subs    x15, x15, #0x4
+    0.00 :   be80:        add     x16, x16, #0x20
+    0.00 :   be84:        fabs    v17.2d, v7.2d
+    0.00 :   be88:        fabs    v18.2d, v16.2d
+    0.00 :   be8c:        mvn     v19.16b, v7.16b
+    0.00 :   be90:        cmlt    v7.2d, v7.2d, #0
+    0.00 :   be94:        mvn     v20.16b, v16.16b
+    0.00 :   be98:        cmlt    v16.2d, v16.2d, #0
+    0.00 :   be9c:        fneg    v17.2d, v17.2d
+    0.00 :   bea0:        fneg    v18.2d, v18.2d
+    0.00 :   bea4:        bsl     v7.16b, v19.16b, v17.16b
+    0.00 :   bea8:        bsl     v16.16b, v20.16b, v18.16b
+    0.00 :   beac:        cmhi    v17.2d, v2.2d, v7.2d
+    0.00 :   beb0:        cmhi    v18.2d, v4.2d, v16.2d
+    0.00 :   beb4:        cmhi    v19.2d, v7.2d, v5.2d
+    0.00 :   beb8:        cmhi    v20.2d, v16.2d, v6.2d
+    0.00 :   bebc:        eor     v21.16b, v7.16b, v3.16b
+    0.00 :   bec0:        eor     v22.16b, v16.16b, v3.16b
+    0.00 :   bec4:        bit     v2.16b, v7.16b, v17.16b
+    0.00 :   bec8:        bit     v4.16b, v16.16b, v18.16b
+    0.00 :   becc:        bit     v5.16b, v7.16b, v19.16b
+    0.00 :   bed0:        bit     v6.16b, v16.16b, v20.16b
+    0.00 :   bed4:        orr     v0.16b, v21.16b, v0.16b
+    0.00 :   bed8:        orr     v1.16b, v22.16b, v1.16b
+    0.00 :   bedc:        b.ne    0xbe78 <zbtScoreInsertAt+0xc8c>
+    0.00 :   bee0:        cmhi    v3.2d, v4.2d, v2.2d
+    0.00 :   bee4:        cmhi    v7.2d, v5.2d, v6.2d
+    0.00 :   bee8:        cmp     x12, x14
+    0.00 :   beec:        orr     v0.16b, v1.16b, v0.16b
+    0.00 :   bef0:        bif     v2.16b, v4.16b, v3.16b
+    0.00 :   bef4:        mov     v3.16b, v7.16b
+    0.00 :   bef8:        bsl     v3.16b, v5.16b, v6.16b
+    0.00 :   befc:        ext     v6.16b, v0.16b, v0.16b, #0x8
+    0.00 :   bf00:        ext     v4.16b, v2.16b, v2.16b, #0x8
+    0.00 :   bf04:        ext     v5.16b, v3.16b, v3.16b, #0x8
+    0.00 :   bf08:        orr     v0.8b, v0.8b, v6.8b
+    0.00 :   bf0c:        cmhi    d1, d4, d2
+    0.00 :   bf10:        fmov    x12, d0
+    0.00 :   bf14:        cmhi    d7, d3, d5
+    0.00 :   bf18:        bsl     v1.8b, v2.8b, v4.8b
+    0.00 :   bf1c:        mov     v2.8b, v7.8b
+    0.00 :   bf20:        fmov    x14, d1
+    0.00 :   bf24:        bsl     v2.8b, v3.8b, v5.8b
+    0.00 :   bf28:        fmov    x15, d2
+    0.00 :   bf2c:        b.eq    0xbf78 <zbtScoreInsertAt+0xd8c>
+    0.00 :   bf30:        lsl     x16, x9, #3
+    0.00 :   bf34:        add     x17, sp, #0x1, lsl #12
+    0.00 :   bf38:        add     x17, x17, #0xa0
+    0.00 :   bf3c:        add     x16, x16, x11, lsl #3
+    0.00 :   bf40:        sub     x11, x13, x11
+    0.00 :   bf44:        add     x16, x17, x16
+    0.00 :   bf48:        ldr     x17, [x16], #0x8
+    0.00 :   bf4c:        orr     x18, x17, #0x8000000000000000
+    0.00 :   bf50:        cmp     x17, #0x0
+    0.00 :   bf54:        csinv   x17, x18, x17, ge
+    0.00 :   bf58:        cmp     x17, x14
+    0.00 :   bf5c:        eor     x18, x17, x10
+    0.00 :   bf60:        csel    x14, x17, x14, lo
+    0.00 :   bf64:        cmp     x17, x15
+    0.00 :   bf68:        orr     x12, x18, x12
+    0.00 :   bf6c:        csel    x15, x17, x15, hi
+    0.00 :   bf70:        subs    x11, x11, #0x1
+    0.00 :   bf74:        b.ne    0xbf48 <zbtScoreInsertAt+0xd5c>
+    0.00 :   bf78:        cbz     x12, 0xbfb4 <zbtScoreInsertAt+0xdc8>
+    0.00 :   bf7c:        rbit    x10, x12
+    0.00 :   bf80:        sub     x11, x15, x14
+    0.00 :   bf84:        clz     x10, x10
+    0.00 :   bf88:        lsr     x10, x11, x10
+    0.00 :   bf8c:        cbz     x10, 0xbfb4 <zbtScoreInsertAt+0xdc8>
+    0.00 :   bf90:        clz     x10, x10
+    0.00 :   bf94:        mov     w11, #0x40
+    0.00 :   bf98:        sub     x10, x11, x10
+    0.00 :   bf9c:        madd    x10, x10, x13, x8
+    0.00 :   bfa0:        lsr     x10, x10, #3
+    0.00 :   bfa4:        add     x10, x10, #0x9
+    0.00 :   bfa8:        and     x10, x10, #0x1ffffffffffffffe
+    0.00 :   bfac:        add     x10, x10, #0x38
+    0.00 :   bfb0:        b       0xbfb8 <zbtScoreInsertAt+0xdcc>
+    0.00 :   bfb4:        mov     w10, #0x38
+    0.00 :   bfb8:        add     x11, x13, x13, lsl #1
+    0.00 :   bfbc:        cmp     w27, w23
+    0.00 :   bfc0:        add     x10, x10, x11
+    0.00 :   bfc4:        b.eq    0xc024 <zbtScoreInsertAt+0xe38>
+    0.00 :   bfc8:        mov     w11, #0x28
+    0.00 :   bfcc:        add     x12, sp, #0x178
+    0.00 :   bfd0:        umaddl  x9, w9, w11, x12
+    0.00 :   bfd4:        mov     w11, #0x15
+    0.00 :   bfd8:        add     x9, x9, #0x18
+    0.00 :   bfdc:        b       0xc008 <zbtScoreInsertAt+0xe1c>
+    0.00 :   bfe0:        ldur    x12, [x9, #-0x10]
+    0.00 :   bfe4:        cmp     x12, #0xfe
+    0.85 :   bfe8:        add     x14, x12, #0x3
+    0.00 :   bfec:        csinc   x14, x14, x12, hs
+    0.00 :   bff0:        cmp     x12, #0x13f
+    0.00 :   bff4:        csel    x12, x11, x14, hi
+    0.00 :   bff8:        subs    x13, x13, #0x1
+    0.00 :   bffc:        add     x10, x12, x10
+    0.00 :   c000:        add     x9, x9, #0x28
+    0.00 :   c004:        b.eq    0xc024 <zbtScoreInsertAt+0xe38>
+    0.00 :   c008:        ldr     x12, [x9]
+    0.00 :   c00c:        cbz     x12, 0xbfe0 <zbtScoreInsertAt+0xdf4>
+    0.00 :   c010:        mov     w12, #0x15
+    0.00 :   c014:        subs    x13, x13, #0x1
+    0.00 :   c018:        add     x10, x12, x10
+    0.00 :   c01c:        add     x9, x9, #0x28
+    0.00 :   c020:        b.ne    0xc008 <zbtScoreInsertAt+0xe1c>
+    0.00 :   c024:        cmp     x10, #0x1, lsl #12
+    0.00 :   c028:        b.lo    0xc4ac <zbtScoreInsertAt+0x12c0>
+    0.00 :   c02c:        cbz     w26, 0xc48c <zbtScoreInsertAt+0x12a0>
+    0.00 :   c030:        add     x10, sp, #0x1, lsl #12
+    0.00 :   c034:        dup     v0.2d, x20
+    0.00 :   c038:        add     x15, sp, #0x178
+    0.00 :   c03c:        add     x10, x10, #0xa0
+    0.00 :   c040:        mov     x25, x1
+    0.00 :   c044:        mov     x9, xzr
+    0.00 :   c048:        mov     w23, wzr
+    0.00 :   c04c:        add     x11, x10, #0x18
+    0.00 :   c050:        add     x12, x15, #0x18
+    0.00 :   c054:        add     x13, x10, #0x20
+    0.00 :   c058:        add     x14, x10, #0x8
+    0.00 :   c05c:        add     x15, x15, #0x40
+    0.00 :   c060:        mov     x16, #-0x1
+    0.00 :   c064:        mov     w17, #0x1
+    0.00 :   c068:        mov     w18, #0x40
+    0.00 :   c06c:        mov     w0, #0x15
+    0.00 :   c070:        mov     w1, w26
+    0.00 :   c074:        b       0xc098 <zbtScoreInsertAt+0xeac>
+    0.00 :   c078:        add     x17, x17, #0x1
+    0.00 :   c07c:        add     x9, x9, #0x1
+    0.00 :   c080:        add     x13, x13, #0x8
+    0.00 :   c084:        cmp     x17, x27
+    0.00 :   c088:        sub     w1, w1, #0x1
+    0.00 :   c08c:        add     x14, x14, #0x8
+    0.00 :   c090:        add     x15, x15, #0x28
+    0.00 :   c094:        b.eq    0xc484 <zbtScoreInsertAt+0x1298>
+    0.00 :   c098:        cmp     x17, #0x2
+    0.00 :   c09c:        b.lo    0xc208 <zbtScoreInsertAt+0x101c>
+    0.00 :   c0a0:        cmp     x9, #0x4
+    0.00 :   c0a4:        b.hs    0xc0bc <zbtScoreInsertAt+0xed0>
+    0.00 :   c0a8:        mov     x3, xzr
+    0.00 :   c0ac:        mov     w2, #0x1
+    0.00 :   c0b0:        mov     x4, x20
+    0.00 :   c0b4:        mov     x5, x20
+    0.00 :   c0b8:        b       0xc19c <zbtScoreInsertAt+0xfb0>
+    0.00 :   c0bc:        movi    v1.2d, #0000000000000000
+    0.00 :   c0c0:        movi    v2.2d, #0000000000000000
+    0.00 :   c0c4:        and     x3, x9, #0xfffffffffffffffc
+    0.00 :   c0c8:        mov     v3.16b, v0.16b
+    0.00 :   c0cc:        mov     v4.16b, v0.16b
+    0.00 :   c0d0:        and     x4, x9, #0xfffffffffffffffc
+    0.00 :   c0d4:        mov     v5.16b, v0.16b
+    0.00 :   c0d8:        mov     v6.16b, v0.16b
+    0.00 :   c0dc:        orr     x2, x3, #0x1
+    0.00 :   c0e0:        mov     x5, x11
+    0.00 :   c0e4:        ldp     q7, q16, [x5, #-0x10]
+    0.00 :   c0e8:        subs    x4, x4, #0x4
+    0.00 :   c0ec:        add     x5, x5, #0x20
+    0.00 :   c0f0:        fabs    v17.2d, v7.2d
+    0.00 :   c0f4:        fabs    v18.2d, v16.2d
+    0.00 :   c0f8:        mvn     v19.16b, v7.16b
+    0.00 :   c0fc:        cmlt    v7.2d, v7.2d, #0
+    0.00 :   c100:        mvn     v20.16b, v16.16b
+    0.00 :   c104:        cmlt    v16.2d, v16.2d, #0
+    0.00 :   c108:        fneg    v17.2d, v17.2d
+    0.00 :   c10c:        fneg    v18.2d, v18.2d
+    0.00 :   c110:        bsl     v7.16b, v19.16b, v17.16b
+    0.00 :   c114:        bsl     v16.16b, v20.16b, v18.16b
+    0.00 :   c118:        cmhi    v17.2d, v3.2d, v7.2d
+    0.00 :   c11c:        cmhi    v18.2d, v4.2d, v16.2d
+    0.00 :   c120:        cmhi    v19.2d, v7.2d, v5.2d
+    0.00 :   c124:        cmhi    v20.2d, v16.2d, v6.2d
+    0.00 :   c128:        eor     v21.16b, v7.16b, v0.16b
+    0.00 :   c12c:        eor     v22.16b, v16.16b, v0.16b
+    0.00 :   c130:        bit     v3.16b, v7.16b, v17.16b
+    0.00 :   c134:        bit     v4.16b, v16.16b, v18.16b
+    0.00 :   c138:        bit     v5.16b, v7.16b, v19.16b
+    0.00 :   c13c:        bit     v6.16b, v16.16b, v20.16b
+    0.00 :   c140:        orr     v1.16b, v21.16b, v1.16b
+    0.00 :   c144:        orr     v2.16b, v22.16b, v2.16b
+    0.00 :   c148:        b.ne    0xc0e4 <zbtScoreInsertAt+0xef8>
+    0.00 :   c14c:        cmhi    v7.2d, v4.2d, v3.2d
+    0.00 :   c150:        cmhi    v16.2d, v5.2d, v6.2d
+    0.00 :   c154:        cmp     x9, x3
+    0.00 :   c158:        orr     v1.16b, v2.16b, v1.16b
+    0.00 :   c15c:        bif     v3.16b, v4.16b, v7.16b
+    0.00 :   c160:        mov     v4.16b, v16.16b
+    0.00 :   c164:        ext     v7.16b, v1.16b, v1.16b, #0x8
+    0.00 :   c168:        bsl     v4.16b, v5.16b, v6.16b
+    0.00 :   c16c:        ext     v5.16b, v3.16b, v3.16b, #0x8
+    0.00 :   c170:        orr     v1.8b, v1.8b, v7.8b
+    0.00 :   c174:        ext     v6.16b, v4.16b, v4.16b, #0x8
+    0.00 :   c178:        cmhi    d2, d5, d3
+    0.00 :   c17c:        fmov    x3, d1
+    0.00 :   c180:        cmhi    d16, d4, d6
+    0.00 :   c184:        bsl     v2.8b, v3.8b, v5.8b
+    0.00 :   c188:        mov     v3.8b, v16.8b
+    0.00 :   c18c:        fmov    x4, d2
+    0.00 :   c190:        bsl     v3.8b, v4.8b, v6.8b
+    0.00 :   c194:        fmov    x5, d3
+    0.00 :   c198:        b.eq    0xc1d0 <zbtScoreInsertAt+0xfe4>
+    0.00 :   c19c:        ldr     x6, [x10, x2, lsl #3]
+    0.00 :   c1a0:        add     x2, x2, #0x1
+    0.00 :   c1a4:        orr     x7, x6, #0x8000000000000000
+    0.00 :   c1a8:        cmp     x6, #0x0
+    0.00 :   c1ac:        csinv   x6, x7, x6, ge
+    0.00 :   c1b0:        cmp     x6, x4
+    0.00 :   c1b4:        eor     x7, x6, x20
+    0.00 :   c1b8:        csel    x4, x6, x4, lo
+    0.00 :   c1bc:        cmp     x6, x5
+    0.00 :   c1c0:        orr     x3, x7, x3
+    0.00 :   c1c4:        csel    x5, x6, x5, hi
+    0.00 :   c1c8:        cmp     x17, x2
+    0.00 :   c1cc:        b.ne    0xc19c <zbtScoreInsertAt+0xfb0>
+    0.00 :   c1d0:        cbz     x3, 0xc208 <zbtScoreInsertAt+0x101c>
+    0.00 :   c1d4:        rbit    x2, x3
+    0.00 :   c1d8:        sub     x3, x5, x4
+    0.00 :   c1dc:        clz     x2, x2
+    0.00 :   c1e0:        lsr     x2, x3, x2
+    0.00 :   c1e4:        cbz     x2, 0xc208 <zbtScoreInsertAt+0x101c>
+    0.00 :   c1e8:        clz     x2, x2
+    0.00 :   c1ec:        sub     x2, x18, x2
+    0.00 :   c1f0:        madd    x2, x2, x17, x8
+    0.00 :   c1f4:        lsr     x2, x2, #3
+    0.00 :   c1f8:        add     x2, x2, #0x9
+    0.00 :   c1fc:        and     x2, x2, #0x1ffffffffffffffe
+    0.00 :   c200:        add     x2, x2, #0x38
+    0.00 :   c204:        b       0xc20c <zbtScoreInsertAt+0x1020>
+    0.00 :   c208:        mov     w2, #0x38
+    0.00 :   c20c:        mov     w1, w1
+    0.00 :   c210:        add     x4, x17, x17, lsl #1
+    0.00 :   c214:        sub     w3, w26, w9
+    0.00 :   c218:        sub     x6, x1, #0x1
+    0.00 :   c21c:        sub     x5, x3, #0x1
+    0.00 :   c220:        mov     x3, x17
+    0.00 :   c224:        and     x6, x6, #0xfffffffffffffffc
+    0.00 :   c228:        add     x2, x2, x4
+    0.00 :   c22c:        mov     x4, x12
+    0.00 :   c230:        b       0xc25c <zbtScoreInsertAt+0x1070>
+    0.00 :   c234:        ldur    x7, [x4, #-0x10]
+    0.00 :   c238:        cmp     x7, #0xfe
+    0.00 :   c23c:        add     x19, x7, #0x3
+    0.00 :   c240:        csinc   x19, x19, x7, hs
+    0.00 :   c244:        cmp     x7, #0x13f
+    0.00 :   c248:        csel    x7, x0, x19, hi
+    0.00 :   c24c:        subs    x3, x3, #0x1
+    0.00 :   c250:        add     x2, x7, x2
+    0.00 :   c254:        add     x4, x4, #0x28
+    0.00 :   c258:        b.eq    0xc278 <zbtScoreInsertAt+0x108c>
+    0.00 :   c25c:        ldr     x7, [x4]
+    0.00 :   c260:        cbz     x7, 0xc234 <zbtScoreInsertAt+0x1048>
+    0.00 :   c264:        mov     w7, #0x15
+    0.00 :   c268:        subs    x3, x3, #0x1
+    0.00 :   c26c:        add     x2, x7, x2
+    0.00 :   c270:        add     x4, x4, #0x28
+    0.00 :   c274:        b.ne    0xc25c <zbtScoreInsertAt+0x1070>
+    0.00 :   c278:        ldr     x4, [x10, x17, lsl #3]
+    0.00 :   c27c:        sub     w3, w27, w17
+    0.00 :   c280:        orr     x7, x4, #0x8000000000000000
+    0.00 :   c284:        cmp     x4, #0x0
+    0.00 :   c288:        csinv   x4, x7, x4, ge
+    0.00 :   c28c:        cmp     w3, #0x2
+    0.00 :   c290:        b.lo    0xc400 <zbtScoreInsertAt+0x1214>
+    0.00 :   c294:        cmp     x5, #0x4
+    0.00 :   c298:        b.hs    0xc2b0 <zbtScoreInsertAt+0x10c4>
+    0.00 :   c29c:        mov     x5, xzr
+    0.00 :   c2a0:        mov     w7, #0x1
+    0.00 :   c2a4:        mov     x6, x4
+    0.00 :   c2a8:        mov     x19, x4
+    0.00 :   c2ac:        b       0xc390 <zbtScoreInsertAt+0x11a4>
+    0.00 :   c2b0:        dup     v7.2d, x4
+    0.00 :   c2b4:        movi    v1.2d, #0000000000000000
+    0.00 :   c2b8:        and     x19, x5, #0xfffffffffffffffc
+    0.00 :   c2bc:        movi    v2.2d, #0000000000000000
+    0.00 :   c2c0:        mov     x21, x13
+    0.00 :   c2c4:        orr     x7, x19, #0x1
+    0.00 :   c2c8:        mov     v3.16b, v7.16b
+    0.00 :   c2cc:        mov     v4.16b, v7.16b
+    0.00 :   c2d0:        mov     v5.16b, v7.16b
+    0.00 :   c2d4:        mov     v6.16b, v7.16b
+    0.00 :   c2d8:        ldp     q16, q17, [x21, #-0x10]
+    0.00 :   c2dc:        subs    x6, x6, #0x4
+    0.00 :   c2e0:        add     x21, x21, #0x20
+    0.00 :   c2e4:        fabs    v18.2d, v16.2d
+    0.00 :   c2e8:        fabs    v19.2d, v17.2d
+    0.00 :   c2ec:        mvn     v20.16b, v16.16b
+    0.00 :   c2f0:        cmlt    v16.2d, v16.2d, #0
+    0.00 :   c2f4:        mvn     v21.16b, v17.16b
+    0.00 :   c2f8:        cmlt    v17.2d, v17.2d, #0
+    0.00 :   c2fc:        fneg    v18.2d, v18.2d
+    0.00 :   c300:        fneg    v19.2d, v19.2d
+    0.00 :   c304:        bsl     v16.16b, v20.16b, v18.16b
+    0.00 :   c308:        bsl     v17.16b, v21.16b, v19.16b
+    0.00 :   c30c:        cmhi    v18.2d, v3.2d, v16.2d
+    0.00 :   c310:        cmhi    v19.2d, v4.2d, v17.2d
+    0.00 :   c314:        cmhi    v20.2d, v16.2d, v5.2d
+    0.00 :   c318:        cmhi    v21.2d, v17.2d, v6.2d
+    0.00 :   c31c:        eor     v22.16b, v16.16b, v7.16b
+    0.00 :   c320:        eor     v23.16b, v17.16b, v7.16b
+    0.00 :   c324:        bit     v3.16b, v16.16b, v18.16b
+    0.00 :   c328:        bit     v4.16b, v17.16b, v19.16b
+    0.00 :   c32c:        bit     v5.16b, v16.16b, v20.16b
+    0.00 :   c330:        bit     v6.16b, v17.16b, v21.16b
+    0.00 :   c334:        orr     v1.16b, v22.16b, v1.16b
+    0.00 :   c338:        orr     v2.16b, v23.16b, v2.16b
+    0.00 :   c33c:        b.ne    0xc2d8 <zbtScoreInsertAt+0x10ec>
+    0.00 :   c340:        cmhi    v7.2d, v4.2d, v3.2d
+    0.00 :   c344:        cmhi    v16.2d, v5.2d, v6.2d
+    0.00 :   c348:        cmp     x5, x19
+    0.00 :   c34c:        orr     v1.16b, v2.16b, v1.16b
+    0.00 :   c350:        bif     v3.16b, v4.16b, v7.16b
+    0.00 :   c354:        mov     v4.16b, v16.16b
+    0.00 :   c358:        ext     v7.16b, v1.16b, v1.16b, #0x8
+    0.00 :   c35c:        bsl     v4.16b, v5.16b, v6.16b
+    0.00 :   c360:        ext     v5.16b, v3.16b, v3.16b, #0x8
+    0.00 :   c364:        orr     v1.8b, v1.8b, v7.8b
+    0.00 :   c368:        ext     v6.16b, v4.16b, v4.16b, #0x8
+    0.00 :   c36c:        cmhi    d2, d5, d3
+    0.00 :   c370:        fmov    x5, d1
+    0.00 :   c374:        cmhi    d16, d4, d6
+    0.00 :   c378:        bsl     v2.8b, v3.8b, v5.8b
+    0.00 :   c37c:        mov     v3.8b, v16.8b
+    0.00 :   c380:        fmov    x6, d2
+    0.00 :   c384:        bsl     v3.8b, v4.8b, v6.8b
+    0.00 :   c388:        fmov    x19, d3
+    0.00 :   c38c:        b.eq    0xc3c8 <zbtScoreInsertAt+0x11dc>
+    0.00 :   c390:        add     x21, x14, x7, lsl #3
+    0.00 :   c394:        sub     x7, x1, x7
+    0.00 :   c398:        ldr     x22, [x21], #0x8
+    0.00 :   c39c:        orr     x24, x22, #0x8000000000000000
+    0.00 :   c3a0:        cmp     x22, #0x0
+    0.00 :   c3a4:        csinv   x22, x24, x22, ge
+    0.00 :   c3a8:        cmp     x22, x6
+    0.00 :   c3ac:        eor     x24, x22, x4
+    0.00 :   c3b0:        csel    x6, x22, x6, lo
+    0.00 :   c3b4:        cmp     x22, x19
+    0.00 :   c3b8:        orr     x5, x24, x5
+    0.00 :   c3bc:        csel    x19, x22, x19, hi
+    0.00 :   c3c0:        subs    x7, x7, #0x1
+    0.00 :   c3c4:        b.ne    0xc398 <zbtScoreInsertAt+0x11ac>
+    0.00 :   c3c8:        cbz     x5, 0xc400 <zbtScoreInsertAt+0x1214>
+    0.00 :   c3cc:        rbit    x4, x5
+    0.00 :   c3d0:        sub     x5, x19, x6
+    0.00 :   c3d4:        clz     x4, x4
+    0.00 :   c3d8:        lsr     x4, x5, x4
+    0.00 :   c3dc:        cbz     x4, 0xc400 <zbtScoreInsertAt+0x1214>
+    0.00 :   c3e0:        clz     x4, x4
+    0.00 :   c3e4:        sub     x4, x18, x4
+    0.00 :   c3e8:        madd    x4, x4, x3, x8
+    0.00 :   c3ec:        lsr     x4, x4, #3
+    0.00 :   c3f0:        add     x4, x4, #0x9
+    0.00 :   c3f4:        and     x4, x4, #0x1ffffffffffffffe
+    0.00 :   c3f8:        add     x4, x4, #0x38
+    0.00 :   c3fc:        b       0xc404 <zbtScoreInsertAt+0x1218>
+    0.00 :   c400:        mov     w4, #0x38
+    0.00 :   c404:        add     x3, x3, x3, lsl #1
+    0.00 :   c408:        mov     x5, x15
+    0.00 :   c40c:        add     x3, x4, x3
+    0.00 :   c410:        mov     x4, x1
+    0.00 :   c414:        b       0xc440 <zbtScoreInsertAt+0x1254>
+    0.00 :   c418:        ldur    x6, [x5, #-0x10]
+    0.00 :   c41c:        cmp     x6, #0xfe
+    0.00 :   c420:        add     x7, x6, #0x3
+    0.00 :   c424:        csinc   x7, x7, x6, hs
+    0.00 :   c428:        cmp     x6, #0x13f
+    0.00 :   c42c:        csel    x6, x0, x7, hi
+    0.00 :   c430:        subs    x4, x4, #0x1
+    0.00 :   c434:        add     x3, x6, x3
+    0.00 :   c438:        add     x5, x5, #0x28
+    0.00 :   c43c:        b.eq    0xc45c <zbtScoreInsertAt+0x1270>
+    0.00 :   c440:        ldr     x6, [x5]
+    0.00 :   c444:        cbz     x6, 0xc418 <zbtScoreInsertAt+0x122c>
+    0.00 :   c448:        mov     w6, #0x15
+    0.00 :   c44c:        subs    x4, x4, #0x1
+    0.00 :   c450:        add     x3, x6, x3
+    0.00 :   c454:        add     x5, x5, #0x28
+    0.00 :   c458:        b.ne    0xc440 <zbtScoreInsertAt+0x1254>
+    0.00 :   c45c:        cmp     x2, #0xfff
+    0.00 :   c460:        b.hi    0xc078 <zbtScoreInsertAt+0xe8c>
+    0.00 :   c464:        cmp     x3, #0xfff
+    0.00 :   c468:        b.hi    0xc078 <zbtScoreInsertAt+0xe8c>
+    0.00 :   c46c:        cmp     x2, x3
+    0.00 :   c470:        csel    x2, x2, x3, hi
+    0.00 :   c474:        cmp     x2, x16
+    0.00 :   c478:        csel    w23, w17, w23, lo
+    0.00 :   c47c:        csel    x16, x2, x16, lo
+    0.00 :   c480:        b       0xc078 <zbtScoreInsertAt+0xe8c>
+    0.00 :   c484:        mov     x1, x25
+    0.00 :   c488:        cbnz    w23, 0xc4ac <zbtScoreInsertAt+0x12c0>
+    0.00 :   c48c:        adrp    x0, 4 // 0x10000
+    0.00 :   c490:        add     x0, x0, #0xf9f
+    0.00 :   c494:        adrp    x2, 5 // 0x11000
+    0.00 :   c498:        add     x2, x2, #0x250
+    0.00 :   c49c:        mov     w1, #0x552
+    0.00 :   c4a0:        bl      0x1027c <standalone_panic>
+    0.00 :   c4a4:        ldr     x1, [sp, #0x48]
+    0.00 :   c4a8:        mov     w23, wzr
+    0.00 :   c4ac:        ldr     w5, [x1, #0x30]
+    0.00 :   c4b0:        add     x2, sp, #0x1, lsl #12
+    0.00 :   c4b4:        mov     w6, wzr
+    0.00 :   c4b8:        add     x2, x2, #0xa0
+    0.00 :   c4bc:        add     x3, sp, #0x178
+    0.00 :   c4c0:        add     x4, sp, #0x117
+    0.00 :   c4c4:        mov     x0, x28
+    0.00 :   c4c8:        mov     w1, w23
+    0.00 :   c4cc:        add     x19, sp, #0x1, lsl #12
+    0.00 :   c4d0:        sub     w20, w27, w23
+    0.00 :   c4d4:        add     x19, x19, #0xa0
+    0.00 :   c4d8:        add     x21, sp, #0x178
+    0.00 :   c4dc:        add     x22, sp, #0x117
+    0.00 :   c4e0:        bl      0xa980 <zbtScoreLeafBuild>
+    0.00 :   c4e4:        mov     w8, #0x28
+    0.00 :   c4e8:        add     x2, x19, w23, uxtw #3
+    0.00 :   c4ec:        add     x4, x22, w23, uxtw
+    0.00 :   c4f0:        umaddl  x3, w23, w8, x21
+    0.00 :   c4f4:        mov     x22, x0
+    0.00 :   c4f8:        mov     x0, x28
+    0.00 :   c4fc:        mov     w1, w20
+    0.00 :   c500:        mov     w5, #-0x1
+    0.00 :   c504:        mov     w6, wzr
+    0.00 :   c508:        bl      0xa980 <zbtScoreLeafBuild>
+    0.00 :   c50c:        ldp     x14, x12, [sp, #0x40]
+    0.00 :   c510:        add     x10, x28, #0x8
+    0.00 :   c514:        mov     x13, x26
+    0.00 :   c518:        mov     x26, x0
+    0.00 :   c51c:        str     wzr, [sp, #0x50]
+    0.00 :   c520:        ldrh    w8, [x12, #0x16]
+    0.00 :   c524:        strh    w8, [x0, #0x16]
+    0.00 :   c528:        strh    w8, [x22, #0x16]
+    0.00 :   c52c:        ldr     x8, [x12]
+    0.00 :   c530:        str     x8, [x22]
+    0.00 :   c534:        ldrb    w8, [x12, #0x10]
+    0.00 :   c538:        strb    w8, [x22, #0x10]
+    0.00 :   c53c:        ldr     x9, [x12, #0x18]
+    0.00 :   c540:        stp     x9, x0, [x22, #0x18]
+    0.00 :   c544:        str     x22, [x0, #0x18]
+    0.00 :   c548:        ldr     x9, [x12, #0x20]
+    0.00 :   c54c:        str     x9, [x0, #0x20]
+    0.00 :   c550:        ldr     x9, [x22, #0x18]
+    0.00 :   c554:        add     x11, x9, #0x20
+    0.00 :   c558:        cmp     x9, #0x0
+    0.00 :   c55c:        csel    x9, x10, x11, eq
+    0.00 :   c560:        add     x10, x28, #0x10
+    0.00 :   c564:        str     x22, [x9]
+    0.00 :   c568:        ldr     x9, [x0, #0x20]
+    0.00 :   c56c:        add     x11, x9, #0x18
+    0.00 :   c570:        cmp     x9, #0x0
+    0.00 :   c574:        csel    x9, x10, x11, eq
+    0.00 :   c578:        str     x0, [x9]
+    0.00 :   c57c:        ldr     x9, [x12]
+    0.00 :   c580:        add     x8, x9, x8, lsl #3
+    0.00 :   c584:        cmp     x9, #0x0
+    0.00 :   c588:        add     x8, x8, #0x18
+    0.00 :   c58c:        csel    x8, x28, x8, eq
+    0.00 :   c590:        cmp     w23, w13
+    0.00 :   c594:        str     x22, [x8]
+    0.00 :   c598:        b.ls    0xc694 <zbtScoreInsertAt+0x14a8>
+    0.00 :   c59c:        ldrb    w8, [x12, #0x14]
+    0.00 :   c5a0:        ldr     x21, [sp, #0x30]
+    0.00 :   c5a4:        ldr     w13, [sp, #0x38]
+    0.00 :   c5a8:        ldr     w24, [sp, #0x4]
+    0.00 :   c5ac:        cbz     w8, 0xc644 <zbtScoreInsertAt+0x1458>
+    0.00 :   c5b0:        ldrb    w8, [x12, #0x11]
+    0.00 :   c5b4:        cbz     w8, 0xc644 <zbtScoreInsertAt+0x1458>
+    0.00 :   c5b8:        mov     w19, wzr
+    0.00 :   c5bc:        mov     w20, #-0x1
+    0.00 :   c5c0:        b       0xc5d4 <zbtScoreInsertAt+0x13e8>
+    0.00 :   c5c4:        add     w19, w19, #0x1
+    0.00 :   c5c8:        sub     w20, w20, #0x1
+    0.00 :   c5cc:        cmp     w19, w8
+    0.00 :   c5d0:        b.hs    0xc644 <zbtScoreInsertAt+0x1458>
+    0.00 :   c5d4:        ldrb    w9, [x12, #0x34]
+    0.00 :   c5d8:        cbz     x9, 0xc5ec <zbtScoreInsertAt+0x1400>
+    0.00 :   c5dc:        madd    w9, w9, w8, w13
+    0.00 :   c5e0:        lsr     w9, w9, #3
+    0.00 :   c5e4:        add     w9, w9, #0x9
+    0.00 :   c5e8:        and     x9, x9, #0x7ffe
+    0.00 :   c5ec:        ldrb    w10, [x12, #0x35]
+    0.00 :   c5f0:        add     w11, w8, w20
+    0.00 :   c5f4:        add     x9, x14, x9
+    0.00 :   c5f8:        cmp     w10, #0x0
+    0.00 :   c5fc:        csel    w10, w19, w11, eq
+    0.00 :   c600:        ldrh    w9, [x9, w10, uxtw #1]
+    0.00 :   c604:        add     x9, x12, x9
+    0.00 :   c608:        ldrb    w10, [x9]
+    0.00 :   c60c:        cmp     w10, #0xff
+    0.00 :   c610:        b.ne    0xc5c4 <zbtScoreInsertAt+0x13d8>
+    0.00 :   c614:        ldur    x0, [x9, #0xd]
+    0.00 :   c618:        cbz     x0, 0xc5c4 <zbtScoreInsertAt+0x13d8>
+    0.00 :   c61c:        sub     x1, x29, #0x8
+    0.00 :   c620:        bl      0x10484 <zfree_usable>
+    0.00 :   c624:        ldur    x8, [x29, #-0x8]
+    0.00 :   c628:        ldr     x9, [x21, #0x68]
+    0.00 :   c62c:        ldr     w13, [sp, #0x38]
+    0.00 :   c630:        ldp     x14, x12, [sp, #0x40]
+    0.00 :   c634:        sub     x8, x9, x8
+    0.00 :   c638:        str     x8, [x21, #0x68]
+    0.00 :   c63c:        ldrb    w8, [x12, #0x11]
+    0.00 :   c640:        b       0xc5c4 <zbtScoreInsertAt+0x13d8>
+    0.00 :   c644:        sub     x1, x29, #0x8
+    0.00 :   c648:        mov     x0, x12
+    0.00 :   c64c:        bl      0x10484 <zfree_usable>
+    0.00 :   c650:        ldur    x8, [x29, #-0x8]
+    0.00 :   c654:        ldr     x9, [x21, #0x68]
+    0.00 :   c658:        mov     x0, x21
+    0.00 :   c65c:        mov     x1, x22
+    0.00 :   c660:        mov     x2, x26
+    0.00 :   c664:        sub     x8, x9, x8
+    0.00 :   c668:        str     x8, [x21, #0x68]
+    0.00 :   c66c:        bl      0xd5cc <zbtScoreInsertSibling>
+    0.00 :   c670:        ldr     x19, [x22]
+    0.00 :   c674:        cbz     x19, 0xc688 <zbtScoreInsertAt+0x149c>
+    0.00 :   c678:        mov     x0, x19
+    0.00 :   c67c:        bl      0xd990 <zbtScoreRefreshNode>
+    0.00 :   c680:        ldr     x19, [x19]
+    0.00 :   c684:        cbnz    x19, 0xc678 <zbtScoreInsertAt+0x148c>
+    0.00 :   c688:        cmp     w24, w23
+    0.00 :   c68c:        csel    x0, x22, x26, lo
+    0.00 :   c690:        b       0xcd68 <zbtScoreInsertAt+0x1b7c>
+    0.00 :   c694:        ldr     w8, [sp, #0x4]
+    0.00 :   c698:        mov     w19, wzr
+    0.00 :   c69c:        add     x27, x26, #0x38
+    0.00 :   c6a0:        adrp    x24, 5 // 0x11000
+    0.00 :   c6a4:        add     x24, x24, #0x1f5
+    0.00 :   c6a8:        mov     w25, w23
+    0.00 :   c6ac:        subs    w21, w8, w23
+    0.00 :   c6b0:        sub     w8, w13, w23
+    0.00 :   c6b4:        cset    w20, hs
+    0.00 :   c6b8:        add     w28, w8, #0x1
+    0.00 :   c6bc:        b       0xc6d0 <zbtScoreInsertAt+0x14e4>
+    0.00 :   c6c0:        add     w19, w19, #0x1
+    0.00 :   c6c4:        add     w25, w25, #0x1
+    0.00 :   c6c8:        cmp     w28, w19
+    0.00 :   c6cc:        b.eq    0xc59c <zbtScoreInsertAt+0x13b0>
+    0.00 :   c6d0:        cmp     w21, w19
+    0.00 :   c6d4:        b.eq    0xc6c0 <zbtScoreInsertAt+0x14d4>
+    0.00 :   c6d8:        ldrb    w8, [x26, #0x34]
+    0.00 :   c6dc:        cbz     x8, 0xc6f8 <zbtScoreInsertAt+0x150c>
+    0.00 :   c6e0:        ldrb    w9, [x26, #0x11]
+    0.00 :   c6e4:        ldr     w10, [sp, #0x38]
+    0.00 :   c6e8:        madd    w8, w9, w8, w10
+    0.00 :   c6ec:        lsr     w8, w8, #3
+    0.00 :   c6f0:        add     w8, w8, #0x9
+    0.00 :   c6f4:        and     x8, x8, #0x7ffe
+    0.00 :   c6f8:        ldrb    w10, [x26, #0x35]
+    0.00 :   c6fc:        mov     w9, w19
+    0.00 :   c700:        cbz     w10, 0xc714 <zbtScoreInsertAt+0x1528>
+    0.00 :   c704:        sub     w9, w25, w23
+    0.00 :   c708:        ldrb    w10, [x26, #0x11]
+    0.00 :   c70c:        mvn     w9, w9
+    0.00 :   c710:        add     w9, w10, w9
+    0.00 :   c714:        add     x8, x27, x8
+    0.00 :   c718:        ldrh    w8, [x8, w9, uxtw #1]
+    0.00 :   c71c:        add     x8, x26, x8
+    0.00 :   c720:        ldrb    w1, [x8]
+    0.00 :   c724:        cmp     w1, #0xfe
+    0.00 :   c728:        b.eq    0xc73c <zbtScoreInsertAt+0x1550>
+    0.00 :   c72c:        cmp     w1, #0xff
+    0.00 :   c730:        b.ne    0xc748 <zbtScoreInsertAt+0x155c>
+    0.00 :   c734:        ldur    w1, [x8, #0x1]
+    0.00 :   c738:        b       0xc75c <zbtScoreInsertAt+0x1570>
+    0.00 :   c73c:        ldurh   w1, [x8, #0x1]
+    0.00 :   c740:        mov     w9, #0x3
+    0.00 :   c744:        b       0xc74c <zbtScoreInsertAt+0x1560>
+    0.00 :   c748:        mov     w9, #0x1
+    0.00 :   c74c:        add     x0, x8, x9
+    0.00 :   c750:        bl      0x104dc <dictGenHashFunction>
+    0.00 :   c754:        ldr     x12, [sp, #0x48]
+    0.00 :   c758:        mov     x1, x0
+    0.85 :   c75c:        ldr     w2, [x12, #0x30]
+    0.00 :   c760:        ldr     w3, [x26, #0x30]
+    0.00 :   c764:        add     x5, sp, #0x50
+    0.00 :   c768:        ldr     x0, [sp, #0x30]
+    0.00 :   c76c:        mov     w4, w20
+    0.00 :   c770:        bl      0x7e58 <zbtIndexMove>
+    0.00 :   c774:        ldp     x14, x12, [sp, #0x40]
+    0.00 :   c778:        cbnz    w0, 0xc6c0 <zbtScoreInsertAt+0x14d4>
+    0.00 :   c77c:        adrp    x0, 4 // 0x10000
+    0.00 :   c780:        add     x0, x0, #0xf9f
+    0.00 :   c784:        mov     w1, #0x67c
+    0.00 :   c788:        mov     x2, x24
+    0.00 :   c78c:        bl      0x1027c <standalone_panic>
+    0.00 :   c790:        ldp     x14, x12, [sp, #0x40]
+    0.00 :   c794:        b       0xc6c0 <zbtScoreInsertAt+0x14d4>
+    0.00 :   c798:        mov     w26, wzr
+    0.00 :   c79c:        b       0xbb20 <zbtScoreInsertAt+0x934>
+    0.00 :   c7a0:        cbnz    x23, 0xb2cc <zbtScoreInsertAt+0xe0>
+    0.00 :   c7a4:        mov     w25, wzr
+    0.00 :   c7a8:        mov     x22, xzr
+    0.00 :   c7ac:        add     w28, w26, #0x1
+    0.85 :   c7b0:        mov     x10, x5
+    0.00 :   c7b4:        ldr     x9, [x10, #0x18]!
+    0.00 :   c7b8:        str     x10, [sp, #0x38]
+    0.00 :   c7bc:        cbnz    x9, 0xc7dc <zbtScoreInsertAt+0x15f0>
+    0.00 :   c7c0:        ldr     x9, [x5, #0x8]
+    0.00 :   c7c4:        cmp     x9, #0x13f
+    0.00 :   c7c8:        b.hi    0xc7dc <zbtScoreInsertAt+0x15f0>
+    0.00 :   c7cc:        cmp     x9, #0xfe
+    0.00 :   c7d0:        add     x10, x9, #0x3
+    0.00 :   c7d4:        csinc   x19, x10, x9, hs
+    0.00 :   c7d8:        b       0xc7e0 <zbtScoreInsertAt+0x15f4>
+    0.00 :   c7dc:        mov     w19, #0x15
+    0.00 :   c7e0:        mov     w9, w28
+    0.00 :   c7e4:        add     x10, x22, x19
+    0.00 :   c7e8:        str     x9, [sp, #0x40]
+    0.00 :   c7ec:        add     x9, x9, w28, uxtw #1
+    0.00 :   c7f0:        add     x9, x10, x9
+    0.00 :   c7f4:        ldrh    w10, [x1, #0x36]
+    0.83 :   c7f8:        add     x9, x9, #0x38
+    0.00 :   c7fc:        cmp     x9, x10
+    0.00 :   c800:        b.hi    0xb2cc <zbtScoreInsertAt+0xe0>
+    0.00 :   c804:        sub     w9, w26, w2
+    0.00 :   c808:        cmp     w8, #0x0
+    0.00 :   c80c:        csel    w20, w2, w9, eq
+    0.00 :   c810:        cbz     w24, 0xcb14 <zbtScoreInsertAt+0x1928>
+    0.00 :   c814:        madd    w8, w24, w26, w16
+    0.00 :   c818:        str     w28, [sp, #0x28]
+    0.00 :   c81c:        mov     x28, x26
+    0.00 :   c820:        add     x26, x1, #0x38
+    0.00 :   c824:        add     x0, sp, #0x178
+    0.00 :   c828:        mov     x2, x28
+    0.00 :   c82c:        lsr     w8, w8, #3
+    0.00 :   c830:        add     w8, w8, #0x9
+    0.00 :   c834:        and     x8, x8, #0x3ffe
+    0.00 :   c838:        add     x21, x26, x8
+    0.85 :   c83c:        add     x1, x21, x28, lsl #1
+    0.00 :   c840:        bl      0xac0 <_init+0x38>
+    0.00 :   c844:        umull   x8, w24, w20
+    0.85 :   c848:        mov     x3, x28
+    0.00 :   c84c:        subs    w9, w28, w20
+    0.00 :   c850:        b.ne    0xcbd4 <zbtScoreInsertAt+0x19e8>
+    0.00 :   c854:        and     w9, w8, #0x7
+    0.00 :   c858:        mov     w10, #0x40
+    0.00 :   c85c:        mov     x12, #-0x1
+    0.00 :   c860:        sub     w11, w10, w9
+    0.00 :   c864:        add     x10, x26, x8, lsr #3
+    0.00 :   c868:        and     x8, x8, #0x7
+    0.00 :   c86c:        cmp     w11, w25
+    0.00 :   c870:        csel    w9, w11, w25, lo
+    0.00 :   c874:        lsl     x13, x12, x9
+    0.00 :   c878:        cmp     w9, #0x40
+    0.00 :   c87c:        csinv   x12, x12, x13, eq
+    0.00 :   c880:        ldr     x13, [x10]
+    1.70 :   c884:        cmp     w11, w25
+    0.00 :   c888:        lsl     x14, x12, x8
+    0.00 :   c88c:        and     x12, x12, x23
+    0.00 :   c890:        lsl     x8, x12, x8
+    0.00 :   c894:        bic     x12, x13, x14
+    0.00 :   c898:        orr     x8, x12, x8
+    0.00 :   c89c:        str     x8, [x10]
+    0.00 :   c8a0:        b.hs    0xc8c8 <zbtScoreInsertAt+0x16dc>
+    0.00 :   c8a4:        sub     w8, w25, w9
+    0.00 :   c8a8:        mov     w11, #-0x1
+    0.00 :   c8ac:        lsr     x9, x23, x9
+    0.00 :   c8b0:        lsl     w8, w11, w8
+    0.00 :   c8b4:        ldrb    w11, [x10, #0x8]
+    0.00 :   c8b8:        and     w11, w11, w8
+    0.00 :   c8bc:        bic     w8, w9, w8
+    0.00 :   c8c0:        orr     w8, w11, w8
+    0.00 :   c8c4:        strb    w8, [x10, #0x8]
+    0.00 :   c8c8:        ldr     x8, [sp, #0x48]
+    0.00 :   c8cc:        ldr     w28, [sp, #0x28]
+    0.85 :   c8d0:        mov     x26, x3
+    0.00 :   c8d4:        b       0xcb2c <zbtScoreInsertAt+0x1940>
+    0.00 :   c8d8:        sub     x1, x29, #0x8
+    0.00 :   c8dc:        mov     x0, x23
+    0.00 :   c8e0:        bl      0x10364 <zmalloc_usable>
+    0.00 :   c8e4:        ldur    x8, [x29, #-0x8]
+    0.00 :   c8e8:        ldr     x9, [x28, #0x68]
+    0.00 :   c8ec:        mov     x2, x23
+    0.00 :   c8f0:        ldr     x1, [x27]
+    0.00 :   c8f4:        mov     x24, x0
+    0.00 :   c8f8:        add     x8, x9, x8
+    0.00 :   c8fc:        str     x8, [x28, #0x68]
+    0.00 :   c900:        bl      0xac0 <_init+0x38>
+    0.00 :   c904:        ldp     x0, x1, [sp, #0x40]
+    0.00 :   c908:        ldr     x18, [sp, #0x28]
+    0.00 :   c90c:        mov     w8, #0x28
+    0.00 :   c910:        add     x9, sp, #0x178
+    0.00 :   c914:        stur    x23, [x22, #0x5]
+    0.00 :   c918:        umaddl  x8, w18, w8, x9
+    0.00 :   c91c:        stur    x24, [x22, #0xd]
+    0.00 :   c920:        ldr     x24, [sp, #0x18]
+    0.00 :   c924:        mov     w9, #0xff
+    0.00 :   c928:        strb    w9, [x22]
+    0.00 :   c92c:        ldr     w10, [x8, #0x10]
+    0.00 :   c930:        ldr     x23, [x8, #0x20]
+    0.00 :   c934:        stur    w10, [x22, #0x1]
+    0.00 :   c938:        cbz     x23, 0xc968 <zbtScoreInsertAt+0x177c>
+    0.00 :   c93c:        ldrb    w8, [x23]
+    0.00 :   c940:        cmp     w8, #0xff
+    0.00 :   c944:        b.eq    0xc964 <zbtScoreInsertAt+0x1778>
+    0.00 :   c948:        adrp    x0, 4 // 0x10000
+    0.00 :   c94c:        add     x0, x0, #0xf9f
+    0.00 :   c950:        adrp    x2, 5 // 0x11000
+    0.00 :   c954:        add     x2, x2, #0xd7
+    0.00 :   c958:        mov     w1, #0x245
+    0.00 :   c95c:        bl      0x1027c <standalone_panic>
+    0.00 :   c960:        ldp     x0, x1, [sp, #0x40]
+    0.00 :   c964:        stur    xzr, [x23, #0xd]
+    0.00 :   c968:        mov     w8, #0x1
+    0.00 :   c96c:        strb    w8, [x1, #0x14]
+    0.00 :   c970:        strb    w24, [x1, #0x11]
+    0.00 :   c974:        mov     x22, x1
+    0.00 :   c978:        mov     x2, x25
+    0.00 :   c97c:        str     x24, [x1, #0x8]
+    0.00 :   c980:        mov     x23, x0
+    0.00 :   c984:        strb    w21, [x1, #0x13]
+    0.00 :   c988:        str     x20, [x1, #0x28]
+    0.00 :   c98c:        strb    w26, [x1, #0x34]
+    0.00 :   c990:        strh    w19, [x1, #0x36]
+    0.00 :   c994:        mov     w1, wzr
+    0.00 :   c998:        bl      0xb50 <_init+0xc8>
+    0.00 :   c99c:        and     w14, w24, #0xff
+    0.00 :   c9a0:        mov     x8, xzr
+    0.00 :   c9a4:        cbz     w26, 0xca94 <zbtScoreInsertAt+0x18a8>
+    0.00 :   c9a8:        ldr     w9, [sp, #0x38]
+    0.00 :   c9ac:        mov     w11, w21
+    0.00 :   c9b0:        ldrb    w13, [x22, #0x35]
+    0.00 :   c9b4:        madd    w9, w26, w14, w9
+    0.00 :   c9b8:        add     x15, sp, #0x1, lsl #12
+    0.00 :   c9bc:        ldr     x21, [sp, #0x28]
+    0.00 :   c9c0:        mov     w10, w26
+    0.00 :   c9c4:        add     x15, x15, #0xa0
+    0.00 :   c9c8:        add     x16, sp, #0x117
+    0.00 :   c9cc:        add     x17, sp, #0x54
+    0.00 :   c9d0:        mov     w18, #0x40
+    0.00 :   c9d4:        mov     x0, x22
+    0.00 :   c9d8:        lsr     w9, w9, #3
+    0.00 :   c9dc:        mov     x7, x23
+    0.00 :   c9e0:        add     w9, w9, #0x9
+    0.00 :   c9e4:        and     x9, x9, #0x7ffe
+    0.00 :   c9e8:        add     x9, x23, x9
+    0.00 :   c9ec:        add     x12, x9, x14, lsl #1
+    0.00 :   c9f0:        sub     w14, w14, #0x1
+    0.00 :   c9f4:        b       0xca14 <zbtScoreInsertAt+0x1828>
+    0.00 :   c9f8:        ldrb    w2, [x16, x8]
+    0.00 :   c9fc:        add     x8, x8, #0x1
+    0.00 :   ca00:        sub     w14, w14, #0x1
+    0.00 :   ca04:        cmp     x24, x8
+    0.00 :   ca08:        strh    w1, [x9, w6, uxtw #1]
+    0.00 :   ca0c:        strb    w2, [x12, w6, uxtw]
+    0.00 :   ca10:        b.eq    0xcd5c <zbtScoreInsertAt+0x1b70>
+    0.00 :   ca14:        ldr     x2, [x15, x8, lsl #3]
+    0.00 :   ca18:        orr     x1, x2, #0x8000000000000000
+    0.00 :   ca1c:        cmp     x2, #0x0
+    0.00 :   ca20:        csinv   x1, x1, x2, ge
+    0.00 :   ca24:        cmp     w13, #0x0
+    0.00 :   ca28:        csel    w6, w8, w14, eq
+    0.00 :   ca2c:        sub     x2, x20, x1
+    0.00 :   ca30:        sub     x1, x1, x20
+    0.00 :   ca34:        umull   x3, w10, w6
+    0.00 :   ca38:        csel    x1, x1, x2, eq
+    0.00 :   ca3c:        lsr     x1, x1, x11
+    0.00 :   ca40:        lsr     x2, x3, #3
+    0.00 :   ca44:        and     x4, x3, #0x7
+    0.00 :   ca48:        ands    w3, w3, #0x7
+    0.00 :   ca4c:        lsl     x4, x1, x4
+    0.00 :   ca50:        ldr     x5, [x7, x2]
+    0.85 :   ca54:        orr     x4, x4, x5
+    1.70 :   ca58:        str     x4, [x7, x2]
+    0.00 :   ca5c:        b.eq    0xca80 <zbtScoreInsertAt+0x1894>
+    0.00 :   ca60:        sub     w3, w18, w3
+    0.00 :   ca64:        cmp     w3, w26
+    0.00 :   ca68:        b.hs    0xca80 <zbtScoreInsertAt+0x1894>
+    0.00 :   ca6c:        add     x2, x2, x0
+    0.00 :   ca70:        lsr     x1, x1, x3
+    0.00 :   ca74:        ldrb    w3, [x2, #0x40]
+    0.00 :   ca78:        orr     w1, w3, w1
+    0.00 :   ca7c:        strb    w1, [x2, #0x40]
+    0.00 :   ca80:        cmp     x21, x8
+    0.00 :   ca84:        mov     w1, w19
+    0.00 :   ca88:        b.eq    0xc9f8 <zbtScoreInsertAt+0x180c>
+    0.00 :   ca8c:        ldrh    w1, [x17, x8, lsl #1]
+    0.00 :   ca90:        b       0xc9f8 <zbtScoreInsertAt+0x180c>
+    0.00 :   ca94:        add     x9, x23, x14, lsl #1
+    0.00 :   ca98:        ldrb    w10, [x22, #0x35]
+    0.00 :   ca9c:        ldr     x17, [sp, #0x28]
+    0.00 :   caa0:        sub     w11, w14, #0x1
+    0.00 :   caa4:        add     x12, sp, #0x117
+    0.00 :   caa8:        add     x13, sp, #0x54
+    0.00 :   caac:        mov     x0, x22
+    0.00 :   cab0:        b       0xcad8 <zbtScoreInsertAt+0x18ec>
+    0.00 :   cab4:        cmp     w10, #0x0
+    0.00 :   cab8:        ldrb    w16, [x12, x8]
+    0.00 :   cabc:        csel    w15, w8, w11, eq
+    0.00 :   cac0:        add     x8, x8, #0x1
+    0.00 :   cac4:        sub     w11, w11, #0x1
+    0.00 :   cac8:        cmp     x24, x8
+    0.00 :   cacc:        strh    w14, [x23, w15, uxtw #1]
+    0.00 :   cad0:        strb    w16, [x9, w15, uxtw]
+    0.00 :   cad4:        b.eq    0xcd5c <zbtScoreInsertAt+0x1b70>
+    0.00 :   cad8:        cmp     x17, x8
+    0.00 :   cadc:        mov     w14, w19
+    0.00 :   cae0:        b.eq    0xcab4 <zbtScoreInsertAt+0x18c8>
+    0.00 :   cae4:        ldrh    w14, [x13, x8, lsl #1]
+    0.00 :   cae8:        b       0xcab4 <zbtScoreInsertAt+0x18c8>
+    0.00 :   caec:        mov     w9, #0xfe
+    0.00 :   caf0:        mov     w8, #0x3
+    0.00 :   caf4:        sturh   w23, [x22, #0x1]
+    0.00 :   caf8:        ldr     x24, [sp, #0x18]
+    0.00 :   cafc:        add     x0, x22, x8
+    0.00 :   cb00:        mov     x2, x23
+    0.00 :   cb04:        strb    w9, [x22]
+    0.00 :   cb08:        bl      0xac0 <_init+0x38>
+    0.00 :   cb0c:        ldp     x0, x1, [sp, #0x40]
+    0.00 :   cb10:        b       0xc970 <zbtScoreInsertAt+0x1784>
+    0.00 :   cb14:        add     x21, x1, #0x38
+    0.00 :   cb18:        add     x0, sp, #0x178
+    0.00 :   cb1c:        mov     x2, x26
+    0.00 :   cb20:        add     x1, x21, x26, lsl #1
+    0.00 :   cb24:        bl      0xac0 <_init+0x38>
+    0.00 :   cb28:        ldr     x8, [sp, #0x48]
+    0.00 :   cb2c:        add     x8, x8, x22
+    0.00 :   cb30:        lsl     x2, x26, #1
+    0.00 :   cb34:        mov     x1, x21
+    0.00 :   cb38:        add     x22, x8, #0x38
+    0.00 :   cb3c:        lsr     w24, w27, #24
+    0.00 :   cb40:        mov     x0, x22
+    0.00 :   cb44:        bl      0xad0 <_init+0x48>
+    0.00 :   cb48:        sub     w23, w26, w20
+    0.00 :   cb4c:        add     x21, x22, x20, lsl #1
+    0.00 :   cb50:        ubfiz   x2, x23, #1, #32
+    0.00 :   cb54:        add     x0, x21, #0x2
+    0.00 :   cb58:        mov     x1, x21
+    0.00 :   cb5c:        bl      0xad0 <_init+0x48>
+    0.00 :   cb60:        ldr     x26, [sp, #0x40]
+    0.00 :   cb64:        add     x1, sp, #0x178
+    0.00 :   cb68:        mov     x2, x20
+    0.00 :   cb6c:        add     x25, sp, #0x178
+    0.00 :   cb70:        add     x22, x22, x26, lsl #1
+    0.00 :   cb74:        mov     x0, x22
+    0.00 :   cb78:        bl      0xac0 <_init+0x38>
+    0.00 :   cb7c:        add     x0, x22, x20
+    0.00 :   cb80:        add     x1, x25, x20
+    0.00 :   cb84:        mov     x2, x23
+    0.00 :   cb88:        strb    w24, [x0], #0x1
+    0.00 :   cb8c:        bl      0xac0 <_init+0x38>
+    0.00 :   cb90:        ldr     x0, [sp, #0x48]
+    0.00 :   cb94:        ldr     x23, [sp, #0x38]
+    0.00 :   cb98:        ldrh    w8, [x0, #0x36]
+    0.00 :   cb9c:        ldr     x20, [x23]
+    0.85 :   cba0:        sub     w19, w8, w19
+    0.00 :   cba4:        add     x22, x0, w19, uxth
+    0.00 :   cba8:        cbnz    x20, 0xccec <zbtScoreInsertAt+0x1b00>
+    0.00 :   cbac:        ldr     x8, [sp, #0x20]
+    0.00 :   cbb0:        ldr     x2, [x8, #0x8]
+    0.00 :   cbb4:        cmp     x2, #0x13f
+    0.00 :   cbb8:        b.hi    0xccac <zbtScoreInsertAt+0x1ac0>
+    0.00 :   cbbc:        ldr     x1, [x8]
+    0.00 :   cbc0:        cmp     x2, #0xfd
+    0.00 :   cbc4:        b.hi    0xcd90 <zbtScoreInsertAt+0x1ba4>
+    0.00 :   cbc8:        mov     w8, #0x1
+    0.00 :   cbcc:        mov     w9, w2
+    0.00 :   cbd0:        b       0xcd9c <zbtScoreInsertAt+0x1bb0>
+    0.00 :   cbd4:        umull   x9, w24, w9
+    0.00 :   cbd8:        mov     w10, #0x40
+    0.00 :   cbdc:        mov     x11, #-0x1
+    0.00 :   cbe0:        mov     w12, #-0x1
+    0.00 :   cbe4:        b       0xcbf0 <zbtScoreInsertAt+0x1a04>
+    0.00 :   cbe8:        subs    x9, x9, x13
+    0.00 :   cbec:        b.eq    0xc854 <zbtScoreInsertAt+0x1668>
+    0.85 :   cbf0:        cmp     x9, #0x40
+    0.00 :   cbf4:        add     x14, x9, x8
+    0.00 :   cbf8:        csel    x13, x9, x10, lo
+    0.00 :   cbfc:        sub     x15, x14, x13
+    0.00 :   cc00:        add     x16, x26, x15, lsr #3
+    0.00 :   cc04:        and     w14, w15, #0x7
+    0.00 :   cc08:        sub     w17, w10, w14
+    0.00 :   cc0c:        and     x14, x15, #0x7
+    0.00 :   cc10:        ldr     x18, [x16]
+    0.85 :   cc14:        cmp     w17, w13
+    3.39 :   cc18:        lsr     x14, x18, x14
+    0.00 :   cc1c:        b.hs    0xcc2c <zbtScoreInsertAt+0x1a40>
+    0.00 :   cc20:        ldrb    w16, [x16, #0x8]
+    0.00 :   cc24:        lsl     x16, x16, x17
+    0.00 :   cc28:        orr     x14, x16, x14
+    0.00 :   cc2c:        add     x17, x15, x24
+    0.00 :   cc30:        lsl     x15, x11, x13
+    0.85 :   cc34:        cmp     w13, #0x40
+    0.85 :   cc38:        and     w16, w17, #0x7
+    0.00 :   cc3c:        sub     w18, w10, w16
+    0.00 :   cc40:        csinv   x0, x11, x15, hs
+    0.85 :   cc44:        add     x16, x26, x17, lsr #3
+    0.00 :   cc48:        cmp     w18, w13
+    0.00 :   cc4c:        and     x14, x14, x0
+    0.00 :   cc50:        and     x17, x17, #0x7
+    0.00 :   cc54:        csel    w15, w18, w13, lo
+    0.00 :   cc58:        ldr     x0, [x16]
+    0.84 :   cc5c:        lsl     x1, x11, x15
+    0.00 :   cc60:        cmp     w15, #0x40
+    0.00 :   cc64:        csinv   x1, x11, x1, eq
+    0.00 :   cc68:        cmp     w18, w13
+    0.00 :   cc6c:        lsl     x2, x1, x17
+    0.00 :   cc70:        and     x1, x14, x1
+    0.85 :   cc74:        lsl     x17, x1, x17
+    0.85 :   cc78:        bic     x0, x0, x2
+    0.00 :   cc7c:        orr     x17, x17, x0
+    0.00 :   cc80:        str     x17, [x16]
+    0.85 :   cc84:        b.hs    0xcbe8 <zbtScoreInsertAt+0x19fc>
+    0.00 :   cc88:        sub     w17, w13, w15
+    0.00 :   cc8c:        ldrb    w18, [x16, #0x8]
+    0.00 :   cc90:        lsr     x14, x14, x15
+    0.00 :   cc94:        lsl     w17, w12, w17
+    0.00 :   cc98:        and     w15, w18, w17
+    0.00 :   cc9c:        bic     w14, w14, w17
+    0.00 :   cca0:        orr     w14, w15, w14
+    0.00 :   cca4:        strb    w14, [x16, #0x8]
+    0.00 :   cca8:        b       0xcbe8 <zbtScoreInsertAt+0x19fc>
+    0.00 :   ccac:        add     x1, sp, #0x1, lsl #12
+    0.00 :   ccb0:        mov     x0, x2
+    0.00 :   ccb4:        mov     x20, x8
+    0.00 :   ccb8:        add     x1, x1, #0xa0
+    0.00 :   ccbc:        bl      0x10364 <zmalloc_usable>
+    0.00 :   ccc0:        mov     w10, w28
+    0.00 :   ccc4:        ldr     x28, [sp, #0x30]
+    0.00 :   ccc8:        ldr     x8, [sp, #0x10a0]
+    0.00 :   cccc:        ldr     x9, [x28, #0x68]
+    0.00 :   ccd0:        add     x8, x9, x8
+    0.00 :   ccd4:        str     x8, [x28, #0x68]
+    0.00 :   ccd8:        mov     w28, w10
+    0.00 :   ccdc:        ldp     x1, x2, [x20]
+    0.00 :   cce0:        mov     x20, x0
+    0.00 :   cce4:        bl      0xac0 <_init+0x38>
+    0.00 :   cce8:        ldr     x0, [sp, #0x48]
+    0.00 :   ccec:        ldr     x10, [sp, #0x20]
+    0.00 :   ccf0:        mov     w8, #0xff
+    0.00 :   ccf4:        ldr     x9, [x10, #0x8]
+    0.00 :   ccf8:        strb    w8, [x22]
+    0.00 :   ccfc:        ldr     w8, [x10, #0x10]
+    0.00 :   cd00:        stur    x20, [x22, #0xd]
+    0.00 :   cd04:        stur    x9, [x22, #0x5]
+    0.00 :   cd08:        stur    w8, [x22, #0x1]
+    0.00 :   cd0c:        ldr     x20, [x10, #0x20]
+    0.00 :   cd10:        cbz     x20, 0xcd40 <zbtScoreInsertAt+0x1b54>
+    0.00 :   cd14:        ldrb    w8, [x20]
+    0.00 :   cd18:        cmp     w8, #0xff
+    0.00 :   cd1c:        b.eq    0xcd3c <zbtScoreInsertAt+0x1b50>
+    0.00 :   cd20:        adrp    x0, 4 // 0x10000
+    0.00 :   cd24:        add     x0, x0, #0xf9f
+    0.00 :   cd28:        adrp    x2, 5 // 0x11000
+    0.00 :   cd2c:        add     x2, x2, #0xd7
+    0.00 :   cd30:        mov     w1, #0x245
+    0.00 :   cd34:        bl      0x1027c <standalone_panic>
+    0.00 :   cd38:        ldr     x0, [sp, #0x48]
+    0.00 :   cd3c:        stur    xzr, [x20, #0xd]
+    0.00 :   cd40:        mov     w8, #0x1
+    0.00 :   cd44:        stp     xzr, xzr, [x23]
+    0.00 :   cd48:        strb    w8, [x0, #0x14]
+    0.00 :   cd4c:        strb    w28, [x0, #0x11]
+    0.00 :   cd50:        str     x26, [x0, #0x8]
+    0.00 :   cd54:        strh    w19, [x0, #0x36]
+    0.00 :   cd58:        strh    w19, [x21]
+    0.85 :   cd5c:        mov     w1, #0x1
+    0.00 :   cd60:        bl      0xe044 <zbtScoreUpdatePath>
+    0.00 :   cd64:        ldr     x0, [sp, #0x48]
+    0.00 :   cd68:        add     sp, sp, #0x1, lsl #12
+    0.00 :   cd6c:        add     sp, sp, #0x3b0
+    0.00 :   cd70:        ldp     x20, x19, [sp, #0x60]
+    0.00 :   cd74:        ldp     x22, x21, [sp, #0x50]
+    0.00 :   cd78:        ldp     x24, x23, [sp, #0x40]
+    0.85 :   cd7c:        ldp     x26, x25, [sp, #0x30]
+    0.00 :   cd80:        ldp     x28, x27, [sp, #0x20]
+    0.00 :   cd84:        ldp     x29, x30, [sp, #0x10]
+    0.00 :   cd88:        ldr     d8, [sp], #0x70
+    0.00 :   cd8c:        ret
+    0.00 :   cd90:        mov     w9, #0xfe
+    0.00 :   cd94:        mov     w8, #0x3
+    0.00 :   cd98:        sturh   w2, [x22, #0x1]
+    0.00 :   cd9c:        add     x0, x22, x8
+    0.00 :   cda0:        strb    w9, [x22]
+    0.85 :   cda4:        bl      0xac0 <_init+0x38>
+    0.00 :   cda8:        ldr     x0, [sp, #0x48]
+    0.00 :   cdac:        b       0xcd4c <zbtScoreInsertAt+0x1b60>

@@ -1,0 +1,155 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 9K of event 'armv8_pmuv3_0/cycles/P'
+# Event count (approx.): 27252065565
+#
+# Overhead  Command        Shared Object     Symbol                        
+# ........  .............  ................  ..............................
+#
+    50.82%  update-native  update-native     [.] zbtreeFindForAdd
+            |          
+            |--26.28%--zbtreeFindForAdd
+            |          |          
+            |           --26.27%--main
+            |                     0xfc14a82e84c4
+            |                     __libc_start_main
+            |                     _start
+            |          
+            |--11.19%--zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeFindForAdd
+            |          main
+            |          0xfc14a82e84c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--9.87%--zbtIndexTagMask (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeFindForAdd
+            |          main
+            |          0xfc14a82e84c4
+            |          __libc_start_main
+            |          _start
+            |          
+            |--1.91%--zbtIndexGetId (inlined)
+            |          zbtIndexTableFind (inlined)
+            |          zbtIndexFind (inlined)
+            |          zbtreeFindForAdd
+            |          main
+            |          0xfc14a82e84c4
+            |          __libc_start_main
+            |          _start
+            |          
+             --0.91%--sdslen (inlined)
+                       zbtreeFindForAdd
+                       main
+                       0xfc14a82e84c4
+                       __libc_start_main
+                       _start
+
+    18.94%  update-native  update-native     [.] main
+            |          
+             --18.74%--main
+                       0xfc14a82e84c4
+                       __libc_start_main
+                       _start
+
+    13.80%  update-native  update-native     [.] zbtScoreLeafFindMember
+            |          
+             --12.95%--zbtScoreLeafFindMember
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       |          
+                        --12.69%--zbtreeFindForAdd
+                                  main
+                                  0xfc14a82e84c4
+                                  __libc_start_main
+                                  _start
+
+     1.72%  update-native  libc.so.6         [.] memcmp
+            |
+            ---memcmp
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               zbtreeFindForAdd
+               main
+               0xfc14a82e84c4
+               __libc_start_main
+               _start
+
+     1.52%  update-native  update-native     [.] siphash
+            |
+            ---siphash
+               |          
+                --1.39%--zbtreeFindForAdd
+                          main
+                          0xfc14a82e84c4
+                          __libc_start_main
+                          _start
+
+     1.21%  update-native  update-native     [.] zbtScoreInsertAt
+     1.20%  update-native  libc.so.6         [.] 0x00000000000a13d4
+            |
+            ---0xfc14a83613d4
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               |          
+                --1.19%--zbtreeFindForAdd
+                          main
+                          0xfc14a82e84c4
+                          __libc_start_main
+                          _start
+
+     1.11%  update-native  update-native     [.] zbtScoreUpdateInPlace
+     1.02%  update-native  update-native     [.] zbtreeScoreRaw
+            |          
+             --0.54%--zbtIndexTagMask (inlined)
+                       zbtIndexTableFind (inlined)
+                       zbtIndexFind (inlined)
+                       zbtreeScoreRaw
+                       main
+                       0xfc14a82e84c4
+                       __libc_start_main
+                       _start
+
+     0.91%  update-native  libc.so.6         [.] 0x00000000000a1408
+            |
+            ---0xfc14a8361408
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               |          
+                --0.87%--zbtreeFindForAdd
+                          main
+                          0xfc14a82e84c4
+                          __libc_start_main
+                          _start
+
+     0.84%  update-native  update-native     [.] zbtScoreLeafBuild
+     0.82%  update-native  update-native     [.] zbtIndexTableInsertRaw
+     0.80%  update-native  update-native     [.] zbtScoreLeafLowerBound
+     0.65%  update-native  update-native     [.] zbtScoreFindLeaf
+     0.60%  update-native  libc.so.6         [.] 0x00000000000a13cc
+            |
+            ---0xfc14a83613cc
+               zbtScoreLeafFindMember
+               zbtIndexTableFind (inlined)
+               zbtIndexFind (inlined)
+               |          
+                --0.53%--zbtreeFindForAdd
+                          main
+                          0xfc14a82e84c4
+                          __libc_start_main
+                          _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
