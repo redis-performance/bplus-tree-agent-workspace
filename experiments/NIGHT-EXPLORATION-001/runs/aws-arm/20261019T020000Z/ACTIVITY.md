@@ -91,3 +91,5 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 - 2026-10-19T05:34:51.485021+00:00: Root approved d8b21e3c6 exact-binary baseline/B matched profile: fixed12 full-process captures,16 semantic/disabled controls,600-second owned cap, CPU2. Analysis post-filtered by exact timed main return PC, not physically scoped PMU. No source change or candidate work; prior REJECT remains final.
 
 - 2026-10-19T05:37:37.354691+00:00: Completed fixed019 exact-binary matched profile:12 captures/28 executions/52 commands, all controls/identity/serial checks pass. Predicate sampled period17.67%/16.87% (400/421 events), all preregistered material-support gates pass. Full-process PMU with explicit timed-call-site post-filter;17482 total samples include70 incomplete, all retained; reported loss0. No recovered gain or source adoption;017 REJECT remains final. Runner idle pending root review.
+
+- 2026-10-19T05:40:46.335192+00:00: Root approved7cdb019e1 exact48 fresh baseline controls,300s/seeds701–703/8694 unchanged. Launched serialCPU2; no proposals or candidate work before published review.
