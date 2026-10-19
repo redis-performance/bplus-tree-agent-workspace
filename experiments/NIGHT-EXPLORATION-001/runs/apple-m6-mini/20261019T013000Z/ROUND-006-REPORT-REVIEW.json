@@ -1,0 +1,94 @@
+{
+  "reviewed_utc": "2026-10-19T03:07:25.891710+00:00",
+  "round": 6,
+  "scope": "Bounded reporting review only; no builds, tests, profiles, benchmarks, new populations or acceptance decisions. Sequential worker review, not independent review.",
+  "observed_head": "e78e0d4fd7abb323755a3046922792e00f78e228",
+  "prior_publication_ack": {
+    "checked_utc": "2026-10-19T03:05:13.635861+00:00",
+    "supervisor_status": "running",
+    "through_round": 4,
+    "branch": "exploration/apple-m6-mini-20261019T013000Z",
+    "request_id": "r5-final-audited-handoff-20261019T030500Z",
+    "publication": "Published e78e0d4fd",
+    "status": "ok"
+  },
+  "launcher_hashes_verified": {
+    "src/zset_btree.c": true,
+    "src/zset_btree.h": true,
+    "Makefile": true,
+    "bench/microbench.c": true,
+    "compat/standalone.c": true,
+    "compat/server.h": true,
+    "vendor/redis/siphash.c": true,
+    "tests/upstream.c": true,
+    "source-manifest.json": true
+  },
+  "baseline": {
+    "selected_path": "baseline-attempt002",
+    "manifest_status": "complete",
+    "summary_sha256": "68c05e940461be69fe042e682a88e420159b33a56610834edbe6dc2057daf3ed",
+    "cells": 40,
+    "qualified_cells": [
+      {
+        "size": 1000,
+        "case": "scan"
+      },
+      {
+        "size": 10000,
+        "case": "update"
+      },
+      {
+        "size": 100000,
+        "case": "lookup-hit"
+      },
+      {
+        "size": 100000,
+        "case": "update"
+      }
+    ],
+    "short_window_cells": 14,
+    "rerun": false
+  },
+  "comparisons": [
+    {
+      "experiment": "002-rank",
+      "comparison_freeze": "002-rank/comparison-freeze.json",
+      "comparison_freeze_sha256": "3cac1615f37ea605a89586c971b8daf65d300995378231301c9fb790a564ef27",
+      "retained_patch_hashes_verified": 3,
+      "prior_raw_audit": "002-rank/final-audit.json",
+      "prior_raw_audit_status": "pass",
+      "raw_audit_rerun": false
+    },
+    {
+      "experiment": "003-update",
+      "comparison_freeze": "003-update/comparison-freeze.json",
+      "comparison_freeze_sha256": "cbc83a5be8e0d868ce6bd0d3533618f7b22272c75f7adca18e2d47ef4360e226",
+      "retained_patch_hashes_verified": 3,
+      "prior_raw_audit": "003-update/final-audit.json",
+      "prior_raw_audit_status": "PASS",
+      "raw_audit_rerun": false
+    },
+    {
+      "experiment": "004-lookup",
+      "comparison_freeze": "004-lookup/comparison-freeze.json",
+      "comparison_freeze_sha256": "c398b3ec58d191e87f1cc469c6d14a4e0d5346052e85f5d1a6b357577d4ff9ea",
+      "retained_patch_hashes_verified": 3,
+      "prior_raw_audit": "004-lookup/final-audit.json",
+      "prior_raw_audit_status": "pass",
+      "raw_audit_rerun": false
+    },
+    {
+      "experiment": "005-decode",
+      "comparison_freeze": "005-decode/comparison-freeze.json",
+      "comparison_freeze_sha256": "2cd7ef640f040e3001b71c198754f32197449ac1aa9bfc008a96e212654e31e3",
+      "retained_patch_hashes_verified": 3,
+      "prior_raw_audit": "005-decode/audit.json",
+      "prior_raw_audit_status": "pass_with_recorded_precomparison_document_change",
+      "raw_audit_rerun": false
+    }
+  ],
+  "cached_m1_revision": "4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9",
+  "remote_refresh": "NOT RUN; earlier DNS failure retained, cached context only",
+  "followup_owner": "external operator root; 006-followup/population.json, proposal review only as observed; no worker mutation of that directory",
+  "changes": "Correct stale README optional-target and untested-count-one wording; improve morning report identity/reproduction links; update usage with completed round5."
+}

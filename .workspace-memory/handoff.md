@@ -1,5 +1,15 @@
 # Handoff
 
+M6 round 6 reporting checkpoint: prior final handoff published `e78e0d4fd` with
+matching coordinator ack. Core queue complete / source NONE; counts unchanged.
+[Morning report](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md)
+now links exact comparison identities; README stale next-target/count-one wording
+corrected; supervisor usage through completed round 5 saved. Bounded review verifies
+9 launcher hashes / 12 campaign patch hashes; no builds/tests/profiles/timings or new
+population/acceptance. External interactive root owns `006-followup` proposal review;
+worker stays on report/audit work and does not take over or stop it. Resume host
+HANDOFF and matching publication ack. Campaign08:00UTC; round6 cutoff03:34:01UTC.
+
 M6 round5 decision/audit/report publishedc2b5d7105; seal34988 files verifies,9 launch hashes unchanged. Final handoff publication follows.
 
 Latest M6 round5: [DECODE-001](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md)

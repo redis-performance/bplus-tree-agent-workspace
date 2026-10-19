@@ -1,56 +1,103 @@
-# M6 morning report — interim, all queued comparisons complete
+# M6 morning report — interim, core queue complete
 
-Updated 2026-10-19T03:04:04.162366+00:00; campaign still authorized through08:00UTC/09:00Lisbon.
-No new experiments after07:15UTC. Source selection **NONE**.
+Updated 19 October 2026, round 6. Campaign authorization ends 08:00 UTC / 09:00
+Lisbon; no experiments after 07:15 UTC. Source selection **NONE**. The core queue
+has no contender eligible for confirmation. A separate operator-owned proposal
+review is recorded in [006-followup](006-followup/population.json); its outcome is
+pending and does not change these completed decisions.
 
-The measured five-size baseline was reused from the launcher-selected
-baseline-attempt002:120 serial processes/960 rows,162.423s. Earlier failed attempt
-preserved. 4/40 baseline cells meet the numerical fine-precision rule.
-No baseline or completed target was rerun. Launcher verified Apple M6; direct
-sysctl denied previously, not retried. Frequency/residency/DVFS/PMU unknown.
+The launcher-selected [baseline-attempt002](baseline-attempt002/SUMMARY.md) is
+complete: 120 serial processes, 960 rows, 40 cells and 162.423 seconds of timed work.
+Native/sanitizer validation passed before those measurements. Four cells satisfy
+both strict A/A and minimum-duration rules; 14 have a window below 10 ms. The
+launcher-selected baseline and earlier failed attempt are preserved without reruns.
 
-| Target | Finding | Decision / M1 action |
+| Target | Observed finding | Decision and M1 action |
 |---|---|---|
-| Rank | All100K candidate blocks regress | REJECT/NONE; skip exact patches |
-| Updates | Repacking fails100K;1M-only lead | REJECT/NONE; no relabeled primary |
-| Lookup | B improves100K4.80% but fails1M | REJECT dual primary; exploratory100K only |
-| Count-one decoder | B/C improve primary≈30%; repeated larger-range guard losses | REJECT universal policies; private lead only |
-| Iterator | Not selected for optional slot | SKIPPED |
-| Fresh confirmation | No candidate passes discovery gates | NOT ELIGIBLE |
+| [Rank](002-rank/RESULTS.md) | All six 100K blocks regress for A/B/C; median +3.81/+3.42/+3.87%. 1M signals lie within failed controls. | REJECT / NONE; skip exact shorter-side policies. |
+| [Update](003-update/RESULTS.md) | 100K medians +0.08/+1.69/+1.99%; 1M medians −7.70/−8.76/−9.27%. Both controls fail. | REJECT dual primary / NONE; 1M transient-packing lead only. |
+| [Lookup](004-lookup/RESULTS.md) | B at 100K −4.80% median, blocks −6.24..−3.48%, qualified control. At 1M −3.93..+5.68%, failed control. | REJECT dual primary / NONE; 100K lead only. |
+| [Decoder](005-decode/RESULTS.md) | B/C count-one median approximately −30%; every policy repeatedly loses on required uncapped, qualified larger-range guards. | REJECT universal policies / NONE; helper mechanism lead only. |
+| Iterator | Optional slot used by decoder. | SKIPPED; do not add a second optional target. |
+| Fresh confirmation | No discovery survivor. | NOT ELIGIBLE. |
 
-[Rank](002-rank/RESULTS.md), [update](003-update/RESULTS.md),
-[lookup](004-lookup/RESULTS.md), [decoder](005-decode/RESULTS.md) retain exact pins,
-patches, commands and raw evidence. Decoder source/referee freeze6e9e4ec8; no
-private-helper gain is a public iterator or whole-tree improvement.
+Effects are elapsed batch-average candidate/control differences; negative means less
+time. Ranges describe observed blocks, not confidence intervals or individual-query
+latencies. Leads are scoped observations, not accepted improvements. The decoder
+compares a count-one scalar policy against frozen EXP-007 B bulk decoding; it is
+not a public iterator or whole-tree speedup. Count-one inputs are seed-invariant.
 
-What changed understanding: rank accumulation and update repacking did not clear
-the declared public dual primaries; physical score decoding is a100K lookup lead;
-count1 benefits from scalar caller dispatch but changes hurt larger-range guards
-even with unchanged bulk helper source. Required guards cannot be replaced by
-stronger-looking primary numbers. No changes merged into baseline src/.
+Rank summation visits fewer logical terms but grows code and loses at 100K. Update
+packing failures identify a transient path whose 1M reduction does not transfer to
+100K. Lookup assembly exposes a physical/logical slot round trip; B's 100K timing
+has no candidate profile establishing causality. Decoder caller dispatch improves
+count one while changing larger-range generated code and timing. These findings
+retain useful mechanisms without weakening their preregistered objectives or guards.
 
-M6/M1 are separate: cached M1 branch4c48fa7e contains no exact M6 candidate result.
-M1 compiler17-series versus M6 Clang21 is a confounder. No cross-host replication or
-pooled data. M1 should skip the rejected exact universal/dual-primary candidates.
+## Identity and reproduction
 
-Limitations: failed controls, capped decoder cells, insufficient profiles, no
-selected-candidate profile/fresh independent confirmation or independent review.
-All populations this M6 campaign were sequential fallback. Decoder phases were
-successive A/B/C rather than rotated candidate order; no qualified variant ranking.
-The document-only selection filename collision and first failed audit remain
-recorded; executable freezes match. All three losing patches/target are retained.
-Actual supervisor usage is inUSAGE.json; exact backend/model/currency cost unknown.
+Host: launcher-verified **Apple M6**, arm64, macOS 27, 12 physical/logical cores,
+Apple Clang 21.0.0. [Launch manifest](launch-manifest.json) records metadata provenance
+and nine source/referee hashes. Direct sysctl was denied previously and not retried.
+Frequency, DVFS, performance-core residency, migration and PMU observations remain
+unknown. Each comparison keeps its allocator, hashing, assertions and flags identical;
+release timing uses C11/O3 without LTO, never sanitizer binaries.
 
-Last experimental child2026-10-19T03:00:37.811992+00:00; none active.
-Next is final reporting/publication review, with no eligible new timing schedule.
-Branch totals11 populations(9 sequential+2 multi-agent),0 accepted/6 rejected/5 parked,
-33 patches/14 harnesses. M1 night counts separate pending reconciliation. Coordinator
-alone publishes; final audited decision/handoff acknowledgement follows.
+The source bytes remain the extraction pinned by `e52c26c4`; the launcher baseline
+manifest records Git revision `f7a8446d`. Later referee/publication revisions retain
+those source bytes. Per-target identities below include exact source, patch, referee
+and binary hashes; all three losing patches for each target remain available.
 
-Final round5 verification 2026-10-19T03:05:11.524964+00:00: decision/audit/report publication
-acknowledged **c2b5d710547612028e1406b789a4377492f9bdf7**. Evidence seal34988 files
-verifies; all9 launcher source/referee hashes unchanged; committed whitespace check
-passes. No active experimental child; last remains03:00:37.811992UTC.
-This final handoff is saved more than90s before03:08:25UTC. Final handoff publication
-requested next; read its matching acknowledgement on resume. All queued comparisons
-complete, no eligible confirmation, next work is reporting review only.
+| Hypothesis | Acknowledged comparison publication | Exact identity and commands |
+|---|---|---|
+| M6-RANK-SHORTER-001 | `3102530f` | [freeze](002-rank/comparison-freeze.json), [implementations](002-rank/implementation-manifest.json), [commands and limitations](002-rank/RESULTS.md) |
+| M6-UPDATE-REPACK-001 | `a9e16781` | [freeze](003-update/comparison-freeze.json), [implementations](003-update/implementation-manifest.json), [commands and limitations](003-update/RESULTS.md) |
+| M6-LOOKUP-PHYSICAL-001 | `94e4e897` | [freeze](004-lookup/comparison-freeze.json), [implementations](004-lookup/implementation-manifest.json), [commands and limitations](004-lookup/RESULTS.md) |
+| M6-DECODE-COUNT1-001 | `6e9e4ec8` | [freeze](005-decode/comparison-freeze.json), [commands and limitations](005-decode/RESULTS.md) |
+
+Raw rows, calibrated fixed operation counts, checksums, six-block ABBA effects,
+owned-memory observations, profile diagnoses and audits are linked from each result.
+For a new host reproduction, use the acknowledged revision plus exact hashes, fresh
+isolated source/build/output directories and a separately frozen deadline. Archived
+drivers contain write-once guards and expired deadlines; the historical commands
+are not instructions to rerun into these evidence paths. Large raw profiles and
+full local build artifacts remain in ignored scratch with recorded checksums.
+
+## Other host and remaining limits
+
+Cached M1 branch revision `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9` is context only.
+No fresh remote refresh was attempted after the recorded DNS failure. Exact M1
+replication of these M6 patch/harness pairs is **NOT RUN**; no rows are pooled.
+M1 Clang 17 versus M6 Clang 21 is an additional cross-host confounder. M1 should
+skip the rejected exact policies for their original objectives; any distinct
+follow-up requires its own preregistration and guards.
+
+All four completed M6 populations used sequential passes. Fresh independent timing
+confirmation, independent adversarial review, full candidate performance guards and
+selected-candidate profile validation remain absent. Lookup has two insufficient
+baseline miss captures; decoder has three insufficient guard captures and 41 capped
+cells. Decoder A/B/C phases were successive, not rotated across phases, so their
+small differences cannot support a qualified variant ranking. No noisy or failed
+rows were removed. The decoder selection-note filename collision and first failed
+audit are retained; executable source/referee freezes match.
+
+[Round 6 reporting review](ROUND-006-REPORT-REVIEW.json) checks all nine launcher
+hashes and all 12 retained campaign patch hashes, and reads the previous raw audits
+without repeating experiments or whole-evidence inventories. It corrects stale
+README next-target wording. This is sequential reporting review, not independent
+validation. [USAGE.json](USAGE.json) records supervisor-reported tokens through
+completed round 5; current-round usage, exact serving model and currency cost remain
+unknown. Token fields retain their original meanings and are not double-counted.
+
+Core queue's last experimental child ended 03:00:37.811992 UTC. Round 6 launched no
+build, test, profile or timing child. Prior final handoff was acknowledged/published
+as `e78e0d4fd7abb323755a3046922792e00f78e228` on
+`exploration/apple-m6-mini-20261019T013000Z`; this report update awaits its own ack.
+The coordinator alone commits/pushes. Baseline src remains unchanged.
+
+Recorded branch totals remain 11 completed populations (9 sequential + 2 historical
+multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches and 14 harnesses. The
+operator-owned proposal review is pending and not added to these completed counts;
+concurrent M1 night counts remain separate. Next worker action: resume the host
+HANDOFF and operator review status, without restarting any completed schedule or
+taking over the operator's follow-up.

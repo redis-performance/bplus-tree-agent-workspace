@@ -104,7 +104,7 @@ Status snapshot: **19 October 2026, 01:41 UTC**. The host links show ongoing upd
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
 | Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
-| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank/update/lookup rejected; optional target next through 09:00 Lisbon](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
+| Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Rank/update/lookup/decoder rejected; source NONE; follow-up review active](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AMD (x86-64) | Pending | **NOT RUN** | — | Placeholder; CPU model and runner not selected |
 | AWS Graviton (arm64) | Pending | **NOT RUN** | — | Placeholder; generation and runner not selected |
@@ -150,7 +150,8 @@ remain separate pending log reconciliation.
 
 The decoder results below were measured on **Apple M1**, using Apple Clang 17,
 `-O3`, and one unpinned thread. They isolate packed-score decoding; their gains
-are not whole-tree speedups. M6 decoder replication is pending.
+are not whole-tree speedups. Exact M6 replication of those historical experiments
+remains pending; the separate M6 count-one policy trial is linked above.
 
 | Experiment | What we learned | Outcome |
 |---|---|---|
@@ -164,8 +165,10 @@ more time. Bars show the observed range across measurement blocks.
 
 ![Apple M1: scalar fallback cutoffs versus the bulk decoder](experiments/EXP-008/discovery/threshold-effects.svg)
 
-The next hypothesis is a scalar fallback **only for a single score**. That policy
-has not been tested yet. The complete [experiment log](experiments/EXPERIMENTS.md)
+The separate [M6 count-one policy trial](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/005-decode/RESULTS.md)
+tested scalar fallback **only for a single score** and rejected all three universal
+policies on larger-range guards. Exact M1 replication of those policies is NOT RUN.
+The complete [experiment log](experiments/EXPERIMENTS.md)
 retains earlier attempts and their evidence.
 
 For **Apple M6 decoder** reruns, follow the
