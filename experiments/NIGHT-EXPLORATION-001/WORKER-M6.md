@@ -89,9 +89,10 @@ and public profiler availability rather than fabricate profile validation.
 ## First concrete action
 
 Check the saved preflight/host metadata and launch status. The launcher runs the
-shared five-size matrix into `$CAMPAIGN_DIR/baseline` before worker startup because
+shared five-size matrix before worker startup because
 that runner captures sysctl metadata. If its manifest says complete, reuse the
-measured baseline without rerunning it. Read its analyzer summary and publish the
+measured baseline without rerunning it. Read `LAUNCH-STATUS.json` for the exact
+selected `baseline_path`; preserve earlier failed attempts. Read its analyzer summary and publish the
 measured baseline status. If incomplete, preserve it and record the exact blocker;
 never silently overwrite it. Continue with public rank
 profiling and one frozen calibrated rank harness. Use serial timings with no

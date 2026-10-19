@@ -1,0 +1,251 @@
+{
+  "status": "failed",
+  "started_utc": "2026-10-19T01:32:00.843944+00:00",
+  "commit": "ccb424e8dda13d6f4edcf0c0f38a8d49b373f1c8",
+  "arguments": {
+    "out": "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline",
+    "ops": 1000000,
+    "member_bytes": 16,
+    "budget_seconds": 600
+  },
+  "sizes": [
+    100,
+    1000,
+    10000,
+    100000,
+    1000000
+  ],
+  "source_hashes": {
+    "Makefile": "1a17cbc867957aaa4a01bffa5721de7ae5f74d184b27c2affd1acb8461bc5f79",
+    "bench/microbench.c": "b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/standalone.c": "adf0f87cd7cd7bc043eeb1743b47f90e4484459c090024ffa837cfd34d9b3d63",
+    "compat/server.h": "79b3c9cfa8aec6e003dcf10e6d1c3af71799e357db7d0a0526dca0fd575af0be",
+    "vendor/redis/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "vendor/redis/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4",
+    "vendor/redis/testhelp.h": "b8c5243aac89758f44db1578735d6e3afc8e975dc1daa976ad4160ce55cbe9bd",
+    "scripts/run-size-matrix.py": "e2c604f6591dd5eb0ef537890d1f5630f604cc53e0eccfc2acc97c947ebb7b91",
+    "scripts/analyse-size-matrix.py": "7b35a44fec52a22304391e19bebf559dc3f8de7a79dfa6e7c6a816f4e1fb76c9"
+  },
+  "machine": {
+    "os": "Darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "threads": 1,
+    "affinity": "unpinned",
+    "frequency": "unknown",
+    "core_residency": "unknown",
+    "machdep.cpu.brand_string": "Apple M6",
+    "hw.physicalcpu": "12",
+    "hw.logicalcpu": "12",
+    "macos": "27.0"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "validation": [
+    {
+      "name": "release-build-check",
+      "command": [
+        "make",
+        "-B",
+        "CC=clang",
+        "CPPFLAGS=-Isrc -Icompat -Ivendor/redis",
+        "LDLIBS=-lm",
+        "BUILD=build/size-matrix",
+        "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+        "LDFLAGS=",
+        "all",
+        "check"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-build-check",
+      "command": [
+        "make",
+        "-B",
+        "CC=clang",
+        "CPPFLAGS=-Isrc -Icompat -Ivendor/redis",
+        "LDLIBS=-lm",
+        "BUILD=build/size-matrix/sanitize",
+        "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O1 -fsanitize=address,undefined -fno-sanitize-recover=all",
+        "LDFLAGS=-fsanitize=address,undefined",
+        "all",
+        "check"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-size-100",
+      "command": [
+        "build/size-matrix/sanitize/btree-bench",
+        "--size",
+        "100",
+        "--ops",
+        "201",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "101"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-size-1000",
+      "command": [
+        "build/size-matrix/sanitize/btree-bench",
+        "--size",
+        "1000",
+        "--ops",
+        "2001",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "101"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-size-10000",
+      "command": [
+        "build/size-matrix/sanitize/btree-bench",
+        "--size",
+        "10000",
+        "--ops",
+        "20001",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "101"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-size-100000",
+      "command": [
+        "build/size-matrix/sanitize/btree-bench",
+        "--size",
+        "100000",
+        "--ops",
+        "200001",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "101"
+      ],
+      "returncode": 0
+    },
+    {
+      "name": "sanitize-size-1000000",
+      "command": [
+        "build/size-matrix/sanitize/btree-bench",
+        "--size",
+        "1000000",
+        "--ops",
+        "2000001",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "101"
+      ],
+      "returncode": 0
+    }
+  ],
+  "runs": [
+    {
+      "block": 0,
+      "seed": 1,
+      "size": 100,
+      "step": 0,
+      "label": "A",
+      "command": [
+        "build/size-matrix/btree-bench",
+        "--size",
+        "100",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "returncode": 0,
+      "csv": "raw/b0-n100-s0-A.csv",
+      "stderr": "raw/b0-n100-s0-A.stderr",
+      "csv_sha256": "9937e42793797f44b24ec7aadec6333e9029c7e98a5275e88b26d3f27db1f197",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "block": 0,
+      "seed": 1,
+      "size": 100,
+      "step": 1,
+      "label": "B",
+      "command": [
+        "build/size-matrix/btree-bench",
+        "--size",
+        "100",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "returncode": 0,
+      "csv": "raw/b0-n100-s1-B.csv",
+      "stderr": "raw/b0-n100-s1-B.stderr",
+      "csv_sha256": "a182e41e7cbb19d7971ac835f69965d886cf6bd1fd6b0d775d3a651b8cf9d9fc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "block": 0,
+      "seed": 1,
+      "size": 100,
+      "step": 2,
+      "label": "B",
+      "command": [
+        "build/size-matrix/btree-bench",
+        "--size",
+        "100",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "returncode": 0,
+      "csv": "raw/b0-n100-s2-B.csv",
+      "stderr": "raw/b0-n100-s2-B.stderr",
+      "csv_sha256": "c0044a51f3cbacf40f9015e7e4d4e17d8c544cd7d2b3a031c9b7f07ef0241c83",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "block": 0,
+      "seed": 1,
+      "size": 100,
+      "step": 3,
+      "label": "A",
+      "command": [
+        "build/size-matrix/btree-bench",
+        "--size",
+        "100",
+        "--ops",
+        "1000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "returncode": 0,
+      "csv": "raw/b0-n100-s3-A.csv",
+      "stderr": "raw/b0-n100-s3-A.stderr",
+      "csv_sha256": "ee70f261feb583d1e81f591ef54209937a25e183530a7c1dc40294964ed1af87",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "binary_sha256": "8b4b3d4bdac079b52b7bcdf27772159a6b0ef7a4e88a379f27503855687bb0a7",
+  "error": "[Errno 32] Broken pipe",
+  "finished_utc": "2026-10-19T01:32:23.699440+00:00"
+}
