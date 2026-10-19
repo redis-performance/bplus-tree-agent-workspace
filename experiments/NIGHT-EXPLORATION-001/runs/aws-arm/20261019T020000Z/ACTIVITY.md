@@ -87,3 +87,5 @@ Dashboard clarification: inherited unscoped AA/timing fields moved into explicit
 - 2026-10-19T05:24:53.398519+00:00: Corrected ARM NEON discovery complete, 144 rows/36 blocks. Primary survivors []; fixed maintenance selection NONE for further gates only. Runner idle pending root audit/explicit handoff. Source adoption NONE. Two measured ARM populations: decoder PARK plus corrected NEON REJECT; one separate iterator replication PARK. Old 8fab control failure remains final.
 
 - 2026-10-19T05:28:41.697882+00:00: Read-only 018 diagnosis of existing NEON assembly: all three rebuild a 35-instruction fold predicate per 16-byte chunk; A/C also generate forward population-count iteration. Static evidence and exact opcodes retained, no dynamic attribution or new measurement. REJECT/NONE unchanged; runner idle.
+
+- 2026-10-19T05:34:51.485021+00:00: Root approved d8b21e3c6 exact-binary baseline/B matched profile: fixed12 full-process captures,16 semantic/disabled controls,600-second owned cap, CPU2. Analysis post-filtered by exact timed main return PC, not physically scoped PMU. No source change or candidate work; prior REJECT remains final.
