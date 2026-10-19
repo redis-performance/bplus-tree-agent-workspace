@@ -171,3 +171,5 @@
 - 2026-10-19T11:12:40.213781+00:00: Corrected profile2d4e reviewed:36input hashes and642commands verified, native/sanitizer parity separated retaining exact within-mode bytes;42stats add no-scale only. Initial70179 clearance superseded after Intel finding. No remaining static blocker subject to root grant; no workload.
 
 - 2026-10-19T11:13:19.652940+00:00: Consumed shared actual root cpu-perf consultation dfff5540f (4 calls); no own endpoint/invocation.0/287 indexed and empty Arm source mean no causal support; unknown clock/SMT metadata retained, no frozen experiment changes.
+
+- 2026-10-19T11:27:25.376006+00:00: Final ARM030 adversarial/raw profile review266360:642 commands/1335 seals/3395 samples/zero loss/all18 instruction decreases verified; strict tree map1685/1837 passes,152entry-window failures retained.2/12 individual transfers,zero complete baseline/A pairs. Native timing cause unresolved; priorREJECT/NONE. No runner work.
