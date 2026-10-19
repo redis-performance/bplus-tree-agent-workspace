@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3548,6 +3548,8 @@
+                                  double score, const unsigned char *ele,
+                                  size_t elelen)
+ {
++    if (zbtScoreLeafScore(leaf, pos) == score) return 1;
++
+     zbtScoreLeaf *neighbor = pos ? leaf : leaf->prev;
+     unsigned int neighbor_pos = pos ? pos - 1 :
+         (neighbor ? (unsigned int)neighbor->n.count - 1 : 0);

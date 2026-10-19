@@ -1,0 +1,11 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4030,7 +4030,7 @@
+         const unsigned char *element =
+             zbtScoreLeafElement(leaf, pos, &elelen);
+         if (ele) *ele = element;
+-        if (len) *len = elelen;
++        if (len) *len = elelen + 1;
+     }
+     if (score) *score = zbtScoreLeafScore(leaf, pos);
+ 

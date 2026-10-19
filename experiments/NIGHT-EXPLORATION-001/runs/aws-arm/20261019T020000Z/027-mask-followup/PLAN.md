@@ -69,8 +69,9 @@ large required insert/delete and all-size required update/query guards cover the
 score-decoder mutation/query semantics, while exact packed-width/count1..96 and mutation
 oracles cover small-state correctness. This is a scoped coverage judgment for independent
 review, not proof that tiny-tree performance cannot differ. All40 cells are measured and
-reported; even a qualified adverse diagnostic is disclosed and requires adversarial
-resolution before acceptance. It is never silently removed or counted as a pass.
+reported; any QUALIFIED diagnostic with all six blocks>+1% means REJECT; a mixed exceedance means PARK.
+Only unresolved precision is exempt for these diagnostic cells. Demonstrated loss is
+never waived, silently removed or counted as a pass.
 
 No new repeating-mutation harness is introduced to force qualification. Active-resize
 SCAN performance and every possible score/member-layout combination are not exhaustively
@@ -90,7 +91,7 @@ remaining lease, and no deadline extension or cap increase follows observed data
  apply exact patch, build both unchanged mode referees with identical relative frontend/
  output paths/options, run native+ASan/UBSan checks, freeze all resulting binaries.
  Repeat unchanged original43 and the026 packed/mutation/zero suites plus four retained
- fault families perbuild. HARNESS-004 repeats its128mode cells/source/build; HARNESS-005
+ fault families perbuild, plus all three retained HARNESS-005 length/zero-sign/state fault transformations under native and sanitizer builds (14 detections total). HARNESS-004 repeats its128mode cells/source/build; HARNESS-005
  validates n32/129 ×bytes16/320 ×integer/alternating-zero ×three construction orders
  ×both directions ×all8masks/source/build, fixed correctness seeds1501/1502. The new
  execution manifest must enumerate all commands and exact negative diagnostic criteria.
@@ -160,3 +161,7 @@ Portability remains scoped to this native ARM/compiler; no other-host timings tr
 
 Actual author/root/aws_arm, native Codex. Exact model, token usage and costs unknown.
 Root chairs; AMD independently reviews; Intel independently confirms after handoff.
+
+## Pre-execution clarification (no measurements)
+
+For any QUALIFIED original diagnostic cell, all six blocks>+1% means REJECT; a mixed exceedance means PARK. The diagnostic exemption is only from unresolved precision, never from an observed qualified loss. This governs PLAN, budgets, runner and auditor. HARNESS-005 has no uniform identical-bit multi-member score mode: alternating +/-0 ties are distinct bit patterns. Uniform width0 full-leaf performance remains an explicit coverage gap for final adversarial review, despite exact width0 correctness coverage.
