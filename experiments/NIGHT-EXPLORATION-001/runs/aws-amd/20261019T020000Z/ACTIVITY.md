@@ -93,3 +93,5 @@
 - 2026-10-19T05:45:07.889153+00:00: Independent ARM fold proposal028 recommends NONE: fresh controls qualify, but sampled predicate17% does not establish enough recovery from prior B+55–79% to beat unchanged baseline by2%. Deferred mask-hoist mechanism/risks/falsification recorded, no peer proposal reads or code/measurements. SourceNONE, AMDidle.
 
 - 2026-10-19T05:51:38.197380+00:00: Prepared corrected AMD iterator029 baseline-only plan for root review: public forward score-only iterate100K/1M,16bytes,50Mops fixed;6 scoped profiles with original/disabled/known controls then48 fresh AA rows701–703 twice. Actual015 binary unchanged. No runner work or candidate. Prior full-output iterator cache leads are a different output contract; old decisions unchanged.
+
+- 2026-10-19T05:58:12.962950+00:00: Iterator029 execution drivers sealed for root/ARM code review: exact51 profile commands, validated scope/known-control gates, six50M scientific captures, fixed48 AA rows, actual015 preserved. Local synthetic/static checks pass; no runner access or measurement. Await explicit launch grant; sourceNONE.

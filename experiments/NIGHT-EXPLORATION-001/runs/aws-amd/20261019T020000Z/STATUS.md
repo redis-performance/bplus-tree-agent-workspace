@@ -1,5 +1,5 @@
 # AMD checkpoint
 
-Prepared corrected AMD iterator029 baseline-only plan for root review: public forward score-only iterate100K/1M,16bytes,50Mops fixed;6 scoped profiles with original/disabled/known controls then48 fresh AA rows701–703 twice. Actual015 binary unchanged. No runner work or candidate. Prior full-output iterator cache leads are a different output contract; old decisions unchanged.
+Iterator029 execution drivers sealed for root/ARM code review: exact51 profile commands, validated scope/known-control gates, six50M scientific captures, fixed48 AA rows, actual015 preserved. Local synthetic/static checks pass; no runner access or measurement. Await explicit launch grant; sourceNONE.
 
-Own4population counts remain0accepted/3rejected/1parked. SourceNONE; awaiting root review. Deadline08:00UTC.
+Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. Deadline08:00UTC.
