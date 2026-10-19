@@ -9,3 +9,5 @@
 - 2026-10-19T08:24:37.624365+00:00: Root preparation audit verifies28 frozen inputs,10 source hashes, exactpatch application, paired build argv,2124 commands (2078 correctness/fault executions plus46 preparation/inspection), six protected binaries,82+29 required guard inventory and disjoint seeds. IndependentAMDd17da59d9 concurs; qualified diagnostic-loss ambiguity fixed beforedata. Root independently verifies newlease/helper/launcher/config hashes. Awaiting published operational binding, then600s correctness-only grant; timing remains ungranted.
 
 - 2026-10-19T08:26:30.497821+00:00: Root grants exactly one600s correctness-preparation job against immutableca16799da, operationalbindinge78e79196 and independentAMDd17da59d9. All lease/helper/launcher/config hashes independently match. No timing authorized; failure stops candidate advancement and retains partials, with separate postidentity/idle proof.
+
+- 2026-10-19T08:31:38.918158+00:00: Operator reports exact correctness-job start08:27:44.840542UTC. Read-only progress2081/2124 commands, no error; final fault checks and protected .text/identity comparisons remain. Performance timing still ungranted.

@@ -1,7 +1,8 @@
 # ARM mask follow-up status
 
-**ACTIVE lease; preparation only.** ARM OSS coordinator stopped and dedicated runner
-idle, with automatic restoration at 10:15 UTC / 11:15 Lisbon. No benchmark launched.
+**ACTIVE lease; correctness validation running.** Started 08:27:44 UTC under the
+reviewed 600s cap. ARM OSS coordinator remains stopped; automatic restoration is
+armed for 10:15 UTC / 11:15 Lisbon. No performance benchmark launched.
 New user authorization supersedes the completed overnight lease for this ARM-only
 follow-up. Intel and AMD hosts remain released.
 
