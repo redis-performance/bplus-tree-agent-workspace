@@ -1,5 +1,10 @@
 # Standalone B+ tree experiments
 
+**Performance histories consolidated:** published M1, M6, AWS ARM, Intel and AMD
+work is now integrated into main, including raw evidence and retained variants.
+[Integration record and validation](experiments/MAIN-CONSOLIDATION-20261019/README.md).
+Source adoption remains NONE; experiment decisions and counts are unchanged.
+
 Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.

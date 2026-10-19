@@ -1,0 +1,568 @@
+[
+  {
+    "name": "night_publication",
+    "command": [
+      "python3",
+      "tests/test_night_publication.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.917
+  },
+  {
+    "name": "aws_release",
+    "command": [
+      "python3",
+      "tests/test_aws_release.py"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115
+  },
+  {
+    "name": "overnight",
+    "command": [
+      "python3",
+      "tests/test_overnight.py"
+    ],
+    "exit_code": 0,
+    "seconds": 74.173
+  },
+  {
+    "name": "upstream-correctness",
+    "command": [
+      "make",
+      "check"
+    ],
+    "exit_code": 0,
+    "seconds": 12.563
+  },
+  {
+    "name": "rank-build-native",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "bench/night-rank.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-O3",
+      "-o",
+      "build/night-rank-native"
+    ],
+    "exit_code": 0,
+    "seconds": 8.175
+  },
+  {
+    "name": "rank-native-rank-integer",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.008
+  },
+  {
+    "name": "rank-native-rank-ties",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.005
+  },
+  {
+    "name": "rank-native-rank-finite",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.005
+  },
+  {
+    "name": "rank-native-reverse-integer",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.005
+  },
+  {
+    "name": "rank-native-reverse-ties",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.009
+  },
+  {
+    "name": "rank-native-reverse-finite",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.005
+  },
+  {
+    "name": "rank-native-score-integer",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.007
+  },
+  {
+    "name": "rank-native-score-ties",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.007
+  },
+  {
+    "name": "rank-native-score-finite",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.005
+  },
+  {
+    "name": "rank-native-miss-integer",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.003
+  },
+  {
+    "name": "rank-native-miss-ties",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.003
+  },
+  {
+    "name": "rank-native-miss-finite",
+    "command": [
+      "build/night-rank-native",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.004
+  },
+  {
+    "name": "rank-build-sanitize",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "bench/night-rank.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-o",
+      "build/night-rank-sanitize"
+    ],
+    "exit_code": 0,
+    "seconds": 5.144
+  },
+  {
+    "name": "rank-sanitize-rank-integer",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.074
+  },
+  {
+    "name": "rank-sanitize-rank-ties",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.117
+  },
+  {
+    "name": "rank-sanitize-rank-finite",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "rank",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.075
+  },
+  {
+    "name": "rank-sanitize-reverse-integer",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.073
+  },
+  {
+    "name": "rank-sanitize-reverse-ties",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.143
+  },
+  {
+    "name": "rank-sanitize-reverse-finite",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "reverse",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.071
+  },
+  {
+    "name": "rank-sanitize-score-integer",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.042
+  },
+  {
+    "name": "rank-sanitize-score-ties",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.073
+  },
+  {
+    "name": "rank-sanitize-score-finite",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "score",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.074
+  },
+  {
+    "name": "rank-sanitize-miss-integer",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "integer"
+    ],
+    "exit_code": 0,
+    "seconds": 0.071
+  },
+  {
+    "name": "rank-sanitize-miss-ties",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "ties"
+    ],
+    "exit_code": 0,
+    "seconds": 0.034
+  },
+  {
+    "name": "rank-sanitize-miss-finite",
+    "command": [
+      "build/night-rank-sanitize",
+      "--size",
+      "100",
+      "--ops",
+      "1000",
+      "--seed",
+      "1",
+      "--member-bytes",
+      "16",
+      "--mode",
+      "miss",
+      "--layout",
+      "finite"
+    ],
+    "exit_code": 0,
+    "seconds": 0.067
+  }
+]

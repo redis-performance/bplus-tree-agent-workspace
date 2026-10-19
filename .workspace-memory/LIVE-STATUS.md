@@ -1,3 +1,14 @@
+<!-- MAIN-CONSOLIDATION-20261019 -->
+Published performance history consolidated into main: M1 overnight + lookup A/A,
+M6 overnight, AWS ARM/Intel/AMD. All six pinned tips are ancestors; 154,955 evidence
+files match exact branch blobs/modes. Existing source/referee files unchanged.
+Current shared status retained; exact worker notes archived. Source NONE and all
+counts/decisions unchanged. Publisher combines AWS support/runtime summary with M6
+requests/isolation/acknowledgements. See experiments/MAIN-CONSOLIDATION-20261019/README.md
+and validation/checks.json. CPU MCP upstream PR #13 remains separate and open.
+No runner resumed and no new performance investigation conducted in this integration.
+<!-- MAIN-CONSOLIDATION-20261019-END -->
+
 <!-- MCP-PR-CURRENT -->
 CPU-perf upstream PR #13 opened with explicit user authorisation:
 https://github.com/usamahz/cpu-performance-engineering/pull/13

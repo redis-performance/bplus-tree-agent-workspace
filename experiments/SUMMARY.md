@@ -1,5 +1,12 @@
 # Experiment summary
 
+## 19 October: main history consolidation
+
+All six published performance branch tips (M1 overnight and lookup A/A, M6
+overnight, AWS ARM/Intel/AMD) are integrated. Exact raw evidence and archived worker
+notes are retained. [Integration and functional validation](MAIN-CONSOLIDATION-20261019/README.md).
+No new population, acceptance or source adoption; current decisions and counts unchanged.
+
 ## Apple M1 lookup precision, 19 October
 
 [EXP-009-M1-AA-001](EXP-009-M1-AA-001/RESULTS.md) is PARK before source work:
