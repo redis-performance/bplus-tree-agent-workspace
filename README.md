@@ -199,3 +199,5 @@ Intel baseline scan diagnosis:6 scoped captures show TagMatches27.48%/24.14% of 
 Intel scan baseline qualification:48 held-out-seed A/A rows complete, both100K/1M controls qualify within±1% with windows>=444ms. No candidate timing or population increment. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
 
 Intel scan architecture replication: exact A/B pass both discovery primaries; B advances under preregistered source preference, **PARK/source NONE** pending guards and fresh confirmation. No new population. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md).
+
+Intel full original guard A/A completes960rows;57/80 cells qualify,23 unresolved. Scan B remains **PARK/source NONE**; no new population. Runner handed idle for independent confirmation. [Evidence](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md).

@@ -805,3 +805,6 @@ completed evidence. No new optimization decision; population counts unchanged.
 
 2026-10-19T03:40:13.014702+00:00 Intel exact scan replication completes96 rows/24 blocks: A/B pass every primary gate, B selected for follow-up by frozen source-maintenance preference. B medians−6.665%100K/−3.661%1M; source NONE, PARK pending guards/fresh201–203/profile/review. No new population count.
 Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/README.md
+
+2026-10-19T04:04:33.171076+00:00 Full original A/A COMPLETE120processes/960rows/240blocks,57/80 cells qualify;12 short plus11 precision-failed cells unresolved. Raw/CPU2/serial/checksum/memory auditPASS. Overall scan PARK/source NONE. Intel runner IDLE: owned job ended04:03:26UTC rc0; no btree-bench process. Root reserves handoff to AMD independent201–203 confirmation; no next Intel job until explicit root return. Prepared008 B matrix/010 matched profiles/011 focused phases remain unlaunched. ARM chaird57515154 also selects NONE after failed1M controls; no native patch.
+Evidence: experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/008-original-guards/README.md
