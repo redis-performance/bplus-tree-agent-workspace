@@ -11,8 +11,9 @@ has been merged into `src/`; candidate patches and measured decisions live in `e
 The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
 tracks separate M1 and M6 host branches: rank, update paths, single-query lookup,
 and decoder experiments. Both hosts have completed the **100 / 1K / 10K / 100K / 1M**
-baseline. M6 continues publishing; M1's latest published checkpoint is 01:33 UTC
-and reports an unresolved DNS check, so its current runner state is unverified.
+baseline. M6 continues publishing; M1's newly observed round-three checkpoint is
+dated 01:46 UTC and records its first-pass queue as closed. Its M6 publication
+checks still report DNS failure, so consumption of later M6 evidence is unverified.
 See the latest results and live status links below.
 
 <!-- AWS-NIGHT-START -->
@@ -147,7 +148,7 @@ status labels and the linked host logs are updated separately.
 
 | Host | Compiler | Five-size baseline | Cells with >1% A/A variation | Optimization status / live updates |
 |---|---|---|---|---|
-| Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Rank trial rejected; update/lookup diagnosed; decoder next](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
+| Apple M1 | Apple Clang 17, `-O3` | [Complete; 388.7s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/001-baseline/matrix/SUMMARY.md) | 39/40 | [Count-one policies PARK; queue recorded closed; source NONE](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m1-20261019T005019Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md) |
 | Apple M6 | Apple Clang 21, `-O3` | [Complete; 162.42s timing](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/baseline-attempt002/SUMMARY.md) | 36/40 | [Five trials rejected; NEON blocked at controls; source NONE](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/apple-m6-mini-20261019T013000Z/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/STATUS.md) |
 | Intel Sapphire Rapids (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 338.54s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/001-baseline/SUMMARY.md) | 27/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-intel-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/STATUS.md) |
 | AMD Zen 5 (x86-64) | Clang18.1.3, `-O3`, CPU2 | [Complete; 325.44s timing](experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/001-baseline/SUMMARY.md) | 30/40 | [Native worker: profiling and optimization](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/exploration/aws-amd-20261019T020000Z/experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/STATUS.md) |
@@ -295,6 +296,13 @@ M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 acc
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
 
 ### Decoder experiments
+
+The [new M1 night checkpoint](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/de50258803062e4803f2a030effff1ce428d74ee/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/025-m1-receipt/README.md)
+adds 6,720 count-one trial processes and 866,880 sample rows, independently
+verified from its archived outputs. All 70 A/A cells miss the 10 ms gate;
+private leads and guard losses remain exploratory. M1 records **PARK / source
+NONE** and nine total populations with mixed inherited provenance. Its ledger
+is kept separate from M6; these totals are not summed.
 
 The decoder results below were measured on **Apple M1**, using Apple Clang 17,
 `-O3`, and one unpinned thread. They isolate packed-score decoding; their gains
