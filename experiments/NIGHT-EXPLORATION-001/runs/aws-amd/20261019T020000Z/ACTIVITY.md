@@ -23,3 +23,5 @@
 - 2026-10-19T02:51:26.101130+00:00: FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 2% improvement. A −0.609%/+0.380%, B +0.265%/+0.403%, C −0.824%/+0.854% median elapsed at 100K/1M. All patches/raw evidence retained. AMD totals: 3 populations, 0 accepted, 3 rejected, 0 parked. Baseline source unchanged.
 
 - 2026-10-19T02:55:19.091910+00:00: query-length annotation points to first header access, not redundant second decode; no population. New inner-child linear-search census and matched annotation preparation, no candidate.
+
+- 2026-10-19T03:00:54.075227+00:00: bounded12-capture matched inner-child profile confirms limited nominal1M loop headroom1.940%; chair NONE, no candidate population. Raw periods/census preserved. Distinct index-scan baseline investigation next, avoiding iterator duplication.
