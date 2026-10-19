@@ -1,0 +1,8 @@
+Working directory: isolated source archive of8fab511e with candidate.patch applied.
+clang -std=c11 -g -Wall -Wextra -Werror -fno-omit-frame-pointer FLAGS -Isrc -Icompat -Ivendor/redis tests/all_match_guard_oracle.c compat/standalone.c vendor/redis/siphash.c -lm -o build/oracle-MODE
+native FLAGS: -O3
+sanitize FLAGS: -O1 -fsanitize=address,undefined -fno-sanitize-recover=all
+fallback FLAGS: -O3 -DZBT_LEAF_TAG_MATCHES_SCALAR
+Each compile and executable bounded by timeout90.
+clang -std=c11 -g -Wall -Wextra -Werror -fno-omit-frame-pointer -O3 -DREDIS_TEST -DREDIS_DEBUG -Isrc -Icompat -Ivendor/redis tests/upstream.c src/zset_btree.c compat/standalone.c vendor/redis/siphash.c -lm -o build/upstream
+build/upstream (timeout90)
