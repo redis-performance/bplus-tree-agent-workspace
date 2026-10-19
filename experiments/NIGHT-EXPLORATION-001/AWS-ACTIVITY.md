@@ -25,3 +25,5 @@ This is operational preparation, not an optimization decision. Counts unchanged.
   validation stages. Evidence committed4e8edf65. Generated and visually inspected
   the five-host chart (200cells). Native workers independently verified SSH and
   published initial status; failed detached CLI evidence retained separately.
+
+- 2026-10-19T02:04:17.844635+00:00: aws-intel running, 2 rounds, publication native worker commits; aws-amd running, 2 rounds, publication native worker commits; aws-arm running, 1 rounds, publication native worker commits.

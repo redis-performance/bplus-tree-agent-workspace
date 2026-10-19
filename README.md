@@ -14,11 +14,11 @@ lookup, and an optional decoder experiment. Both hosts have completed the
 **100 / 1K / 10K / 100K / 1M** baseline. See the latest results and live status links below.
 
 <!-- AWS-NIGHT-START -->
-The **AWS Intel, AMD and Graviton overnight campaign** is now baselining all five
-sizes, with optimization work bounded to **19 October, 09:00 Lisbon / 08:00 UTC**.
-[Live AWS status and activity](experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md).
-Each completed host baseline will be added to the chart below; no AWS values are
-plotted until their raw results are verified. Source adoption remains NONE.
+The **AWS Intel, AMD and Graviton campaign** is bounded to **19 October,
+09:00 Lisbon / 08:00 UTC**. [Baselines and plan](experiments/NIGHT-EXPLORATION-001/AWS-STATUS.md),
+[live workers and activity](experiments/NIGHT-EXPLORATION-001/AWS-WORKERS.md).
+Each host publishes its completed decisions and evidence on a separate branch.
+Source adoption remains NONE.
 <!-- AWS-NIGHT-END -->
 
 ## Build and test
