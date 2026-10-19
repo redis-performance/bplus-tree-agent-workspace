@@ -75,3 +75,5 @@
 - 2026-10-19T04:59:55.456623+00:00: Corrected exactB validation PASS60serialcommands,4original43passes+30oracles,allsource/refereehashes match; candidate timing SHAde6ed897 frozen before fixed48row primary. Independent ARM C sealed3b137666b, no peer patch reads. SourceNONE.
 
 - 2026-10-19T05:02:53.205796+00:00: Corrected13e459ff8 exactB replication rejects advancement/NONE:48rows12blocks,100Kmedian−1.848% and1M−1.785%; only2/6blocks per size meet2%, so no guards/profile/confirmation/retry. All semantic/hash/CPU2 checks pass; AMD idle05:02:13UTC. Original8fabPARK unchanged. Independent ARM C sealed3b137666b; root/ARM review-validation pending.
+
+- 2026-10-19T05:05:22.716402+00:00: Corrected scanB replication sealeddb7fdb5b4 and stopped. New baseline-only rank/update profile survey021 frozen:12fixed5M-op fixtures,matched original/disabled controls,12scoped samples and source-linked actual015 code mapping,600s cap; no hypothesis/candidate. Awaiting independent Intel focusedB review inputs.
