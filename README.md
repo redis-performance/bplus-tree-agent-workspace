@@ -197,3 +197,8 @@ BUILDER-WRITE-001 REJECT/NONE: 144 processes, all 36 effects slower. A +1.039%/+
 ## AWS AMD FULL-CHUNKS-001 — 19 October 2026
 
 FULL-CHUNKS-001 REJECT/NONE: 144 serial processes, 36 effects, no block reaches 2% improvement. A −0.609%/+0.380%, B +0.265%/+0.403%, C −0.824%/+0.854% median elapsed at 100K/1M. All patches/raw evidence retained. AMD totals: 3 populations, 0 accepted, 3 rejected, 0 parked. Baseline source unchanged. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/005-full-chunks/implementation-selection.md`.
+
+
+## AWS AMD SCAN-TAGS-001 — 19 October 2026
+
+SCAN-TAGS-001 PARK/NONE:144processes/36effects. A−5.255%/−4.360% and B−4.279%/−4.297% median100K/1M elapsed changes meet every-block dual-primary gate; C−3.790%/−2.143% fails1M block gate. Failed1M A/A and missing guards prevent qualification. A receives one matched mechanism diagnostic by fixed alphabetical priority, not superiority. AMD totals4populations:0accepted,3rejected,1parked. Baseline source unchanged. Evidence: `experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/008-scan-tags/implementation-selection.md`.
