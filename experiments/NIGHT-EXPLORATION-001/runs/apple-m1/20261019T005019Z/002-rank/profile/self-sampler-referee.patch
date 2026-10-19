@@ -1,0 +1,34 @@
+--- a/bench/microbench.c
++++ b/bench/microbench.c
+@@ -100,6 +100,7 @@
+     check->seen[id] = 1;
+     scan_count(&check->result, key, len, score);
+ }
++#include "self_sampler.h"
+ int main(int argc, char **argv) {
+     size_t n = 100000, ops = 1000000, bytes = 16, warmup_passes = 1;
+     uint64_t seed = 1;
+@@ -123,6 +124,7 @@
+     int valid_case = !strcmp(selected, "all");
+     for (size_t c = 0; c < sizeof(cases)/sizeof(*cases); c++) valid_case |= !strcmp(selected, cases[c]);
+     if (!valid_case || bytes < 8 || bytes > 65536) { fputs("Invalid case or member size (8..65536)\n", stderr); return 2; }
++    sample_init();
+     uint64_t rng = seed;
+     uint8_t hash_seed[16];
+     for (size_t i = 0; i < sizeof(hash_seed); i++) hash_seed[i] = (uint8_t)random64(&rng);
+@@ -167,6 +169,7 @@
+         const char *qos_start = qos_reported(&relpri_start);
+         int cpu_start = cpu_id();
+         int64_t thread_start = thread_ns();
++        sample_start();
+         uint64_t start = now_ns();
+         if (c == 0) {
+             for (size_t i = 0; i < n; i++) insert(tree, keys[order[i]], (double)order[i]);
+@@ -207,6 +210,7 @@
+             for (size_t i = 0; i < n; i++) checksum += zbtreeDelete(tree, keys[order[i]]);
+         }
+         uint64_t elapsed = now_ns() - start;
++        sample_stop(cases[c]);
+         int64_t thread_end = thread_ns();
+         int cpu_end = cpu_id();
+         const char *qos_end = qos_reported(&relpri_end);

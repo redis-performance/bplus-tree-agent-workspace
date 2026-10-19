@@ -1,5 +1,19 @@
 # Experiment log
 
+## 2026-10-19 — shared-night Apple M1 round 1
+
+[Host evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
+five-size baseline complete, 120 serial processes / 960 rows / 40 cells,
+native and sanitizer checks pass. Targeted rank A/A fails strict precision
+at 10K/100K/1M. Public in-process PC samples, release assembly and a
+pre-resolved structural census support a shorter-side rank-sum exploration.
+Three proposal passes were sequential, not independent agents; the chair
+selected that single hypothesis for a later bounded trial. No variants,
+candidate timing, source adoption or new optimization population yet. M6
+publication state is UNKNOWN after DNS failure. Existing accepted/rejected/
+parked optimization counts are unchanged. Commit provenance is pending
+because git could not create its worktree index lock.
+
 ## 19 October: focused decoder diagnostic
 
 [EXP-004 decoder microbenchmark](EXP-004/decoder-microbench-2026-10-19/README.md)

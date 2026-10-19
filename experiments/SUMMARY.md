@@ -1,5 +1,16 @@
 # Experiment summary
 
+## Latest: shared-night Apple M1 round 1, 19 October
+
+[Host status](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
+the new five-size baseline passes native/sanitizer checks and reconstructs 120
+processes / 960 rows in 388.7 seconds. Rank-specific A/A fails strict precision
+at 10K, 100K and 1M. A public in-process profile and structural census support
+one bounded shorter-side rank hypothesis, selected after three **sequential**
+proposal passes; no candidate implementation, optimization population, source
+adoption or M6 result yet. Existing optimization counts below are unchanged.
+Git commit provenance is pending after an index-lock permission denial.
+
 ## Latest: EXP-008 short-range crossover, 19 October (Apple M1)
 
 [Raw-audited results](EXP-008/RESULTS.md): no cutoff qualifies; count16/count96 gains

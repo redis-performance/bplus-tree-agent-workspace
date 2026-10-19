@@ -8,10 +8,10 @@ The data structure runs as a standalone C program; no Redis server is needed.
 speedup, but short-range regressions still prevent adoption. No optimization has
 been merged into `src/`; experimental implementations and results live in `experiments/`.
 
-The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
-is prepared for M1 and M6: rank, update paths, single-query lookup, and a decoder
-fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
-The latest M1 results below include all five sizes; the original four-size data is preserved.
+The [shared overnight exploration](experiments/NIGHT-EXPLORATION-001/README.md)
+is running on M1; its [current result and handoff](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md)
+cover the five-size baseline and rank diagnosis. M6 results remain separate.
+The original four-size data is preserved.
 
 ## Build and test
 
