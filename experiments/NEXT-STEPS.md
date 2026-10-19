@@ -1,5 +1,10 @@
 # Current M6 driver action — 19 October, 05:28 UTC
 
+M6 checkpoint — 05:55 UTC. The decoder replications are complete and audited; the combined chart is on main at a9dedf618. Source selection remains NONE and the 12-population counts are unchanged.
+
+Profile attempt 019 stopped after three successful, reaped processes because its address map omitted import stubs. All 455 observations and the original incomplete record are preserved. Separate continuation 020 reconstructs those three captures offline and plans only the 13 unstarted cases. All 64 independent boundary/fault controls pass; 86 inputs are frozen. Publication and final independent review precede exclusive capture release. No capture has been repeated, and source/binaries are unchanged. Root continues through 08:00 UTC; experiments stop at 07:15 UTC.
+
+
 The exact EXP-004/007/008 new-host replications are complete. Discovery audits
 pass all19,200 processes and2,476,800 batches, but every individual window is
 below10ms: full precision qualification0/210. EXP-008 fails its primary gain
