@@ -4,6 +4,12 @@ Microbenchmarks and optimization experiments for the packed B+ tree and compact
 member index from [Redis PR #15635](https://github.com/redis/redis/pull/15635).
 The data structure runs as a standalone C program; no Redis server is needed.
 
+**Apple M1 overnight campaign:** the [five-size baseline and experiment report](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+cover 100, 1K, 10K, 100K, and 1M elements across the public operations.
+The M1 branch recorded 0 accepted / 3 rejected / 6 parked decisions across nine
+populations; source adoption remains NONE. These are M1-only results; M6 evidence
+is tracked separately.
+
 All Codex and Claude investigation sessions must use the
 [performance MCP workflow](docs/PERFORMANCE-MCP.md); consultation and limitations
 are recorded with the experiment evidence.

@@ -1,5 +1,14 @@
 # Experiment summary
 
+## Apple M1 overnight results, 19 October
+
+The [five-size report](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+records a validated descriptive baseline, 39/40 failed strict A/A cells, and
+0 accepted / 3 rejected / 6 parked M1 decisions across nine populations.
+Rank variants did not consistently improve both large sizes; update and lookup
+remained diagnostics; decoder gains failed guards and precision. Tree source NONE.
+These M1 totals are independent of the M6 and AWS totals below.
+
 EXP-009 guarded M6 lookup follow-up: PARK before proposal/implementation/candidate timing. Fresh native/sanitizer/oracle validation and profiles pass;48A/A runs qualify100K6/6 but1M3/6, with−1.414%,+1.036%,+2.567% failed controls despite586–630ms windows. Source NONE; local M6 native ownership released, no workloads queued. All new evidence publishes on main; read experiments/EXP-009/RESULTS.md and STATUS.md. Historical overnight counts unchanged; remote ARM follow-up remains separate.
 
 ## Latest: EXP-008 short-range crossover, 19 October (Apple M1)

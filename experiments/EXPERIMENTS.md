@@ -1,5 +1,14 @@
 # Experiment log
 
+## 19 October: Apple M1 overnight campaign
+
+[Full report and raw evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+cover the five-size public-operation baseline and rank, update, lookup, and
+private decoder investigations. The M1 outcome is 0 accepted / 3 rejected /
+6 parked across nine populations; source NONE. Strict A/A precision failed
+39/40 baseline cells. The later [M6 gate check](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+found no M1 source trial to queue. These host counts are separate from M6/AWS.
+
 EXP-009 guarded M6 lookup follow-up: PARK before proposal/implementation/candidate timing. Fresh native/sanitizer/oracle validation and profiles pass;48A/A runs qualify100K6/6 but1M3/6, with−1.414%,+1.036%,+2.567% failed controls despite586–630ms windows. Source NONE; local M6 native ownership released, no workloads queued. All new evidence publishes on main; read experiments/EXP-009/RESULTS.md and STATUS.md. Historical overnight counts unchanged; remote ARM follow-up remains separate.
 
 ## 19 October: focused decoder diagnostic

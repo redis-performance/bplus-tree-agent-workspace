@@ -1,14 +1,20 @@
 # Overnight exploration — shared M1 / M6 plan
 
-**Status: prepared for launch.** The first eight hours follow the core queue; an
+**Status: Apple M1 first-pass queue stopped early.** The
+[M1 report](runs/apple-m1/20261019T005019Z/MORNING-REPORT.md) records the
+five-size baseline, bounded rank trial and parked count-one decoder trial.
+The [M6 gate check](runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+records the newly published M6 decisions and why no further M1 source trial
+is queued. M1 and M6 evidence remain separate.
+The first eight hours follow the core queue; an
 explicit later user deadline activates the bounded extension in PLAN.md.
 Target: the standalone B+ tree and member index. No Redis server. Both hosts follow
 this queue and measurement protocol; their evidence and decisions stay separate.
 
 The baseline matrix is **100 / 1K / 10K / 100K / 1M members × eight operations**:
 insert, hit lookup, miss lookup, rank, forward iteration, scan, score update, delete.
-The [five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) is complete
-and separate from the preserved four-size data. The overnight campaign is still unstarted.
+The [earlier five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md)
+is separate from the preserved four-size data and this campaign's new host run.
 
 ## Read first
 

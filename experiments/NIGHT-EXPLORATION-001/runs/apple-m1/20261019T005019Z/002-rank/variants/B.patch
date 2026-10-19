@@ -1,0 +1,22 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -3250,8 +3250,17 @@
+     zbtScoreNode *node = &leaf->n;
+     while (node->parent) {
+         zbtScoreInner *parent = node->parent;
+-        for (unsigned int i = 0; i < node->parent_index; i++)
+-            rank += parent->child_count[i];
++        unsigned int idx = node->parent_index;
++        unsigned int count = parent->n.count;
++        if (idx < count / 2) {
++            for (unsigned int i = 0; i < idx; i++)
++                rank += parent->child_count[i];
++        } else {
++            uint64_t local = parent->n.subtree - node->subtree;
++            for (unsigned int i = idx + 1; i < count; i++)
++                local -= parent->child_count[i];
++            rank += local;
++        }
+         node = &parent->n;
+     }
+     return rank;

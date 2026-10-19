@@ -49,7 +49,8 @@ def main():
         validation=[], runs=[])
     if platform.system() == 'Darwin':
         for key in ('machdep.cpu.brand_string', 'hw.physicalcpu', 'hw.logicalcpu'):
-            manifest['machine'][key] = subprocess.check_output(['sysctl', '-n', key], text=True).strip()
+            result = subprocess.run(['sysctl', '-n', key], capture_output=True, text=True)
+            manifest['machine'][key] = result.stdout.strip() if result.returncode == 0 else 'unknown (sysctl unavailable)'
         manifest['machine']['macos'] = subprocess.check_output(['sw_vers', '-productVersion'], text=True).strip()
     else:
         manifest['machine']['cpu_info'] = Path('/proc/cpuinfo').read_text().split('\n\n')[0]

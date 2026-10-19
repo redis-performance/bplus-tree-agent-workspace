@@ -111,6 +111,53 @@ Native model/token/currency costs unknown. No upstream actions.
 
 # Handoff
 
+## Current handoff: M1 closed under M6 gate
+
+The [M1 final report](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md)
+and [cross-host gate](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/M6-GATE-20261019T0650Z.md)
+are published. M1's first-pass queue exhausted all four targets and stopped
+early with source NONE; M6 has no selected patch for exact M1 replication.
+The round-three M1 evidence was pushed at `9ce51754a9eebb0e53c65afe650c54a146515808`.
+Do not repeat the failed schedules or pool host timings. Resume only with a
+new, profile-supported hypothesis and freshly qualified controls. Historical
+UNKNOWN/pending-Git entries below reflect the earlier worker checkpoints.
+
+## Current handoff: Apple M1 night round 3
+
+[Host handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/HANDOFF.md)
+and [DECODE-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md)
+are the current sources. The optional private decoder slot is PARK/source
+NONE: 6,720 serial processes pass raw audit, but 0/70 A/A cells qualify and
+all three sequential variants have large guard losses. The first eight-hour
+queue is exhausted; no eligible candidate needs confirmation. M6 publication
+is UNKNOWN after DNS failures. Avoid repeating the decoder schedule or the
+earlier failed rank/update A/A schedules. The root tree remains at launch
+hash. Git commit provenance remains pending the earlier index-lock denial.
+
+## Current handoff: Apple M1 night round 2
+
+[Host handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/HANDOFF.md)
+has the exact resume action. Recheck published M6 decisions first; last
+checks failed DNS and outcome is UNKNOWN. RANK-001 shorter-side trial
+REJECT/source NONE after validated sequential variants and 144 serial
+measurements. UPDATE-001 and LOOKUP-001 diagnostics are complete with
+no candidates; both new referees need separate commit provenance and
+fresh A/A before any future candidate comparison. The optional slot
+chooses DECODE-001 count-one diagnostic; profile its exact output
+contract before proposals. Round 2 audit passes and no children remain.
+Keep the root tree and rank referee at launch hashes. Do not retry
+the already denied git index write in this round.
+
+## Current handoff: Apple M1 night round 1
+
+[Host handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/HANDOFF.md)
+gives the exact resume action. Baseline and rank profile/qualification are complete;
+rank adoption is PARK and source NONE. The chair selected one exploratory
+shorter-side hypothesis after three sequential proposal passes. Check M6
+publication before implementation/timing; current status UNKNOWN after DNS
+failure. Git index writes were denied once, with exact patch and hashes saved.
+No children remain. Use the injected campaign/round deadlines, not archived dates.
+
 ## Latest handoff: EXP-007 completed
 
 [Result](../experiments/EXP-007/RESULTS.md): source NONE / experiment PARK. B was

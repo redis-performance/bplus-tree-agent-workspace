@@ -348,3 +348,12 @@ This closes only the fresh independent primary-confirmation gate. Full original
 controls qualify57/80; diagnostic full B guards, focused guards and matched profiles
 remain. **PARK/source NONE**, not acceptance or a portable/full-suite speedup.
 Measured population counts remain7 (0 accepted/4 rejected/3 parked).
+<!-- M1-OVERNIGHT-CURRENT -->
+M1 overnight campaign PUBLISHED: five-size public-operation baseline and
+rank/update/lookup/decoder evidence at
+experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/MORNING-REPORT.md.
+M1 decisions 0 accepted / 3 rejected / 6 parked across nine populations;
+source NONE. Strict baseline A/A fails 39/40 cells; M6 published gate checked
+06:50 UTC and no further matching M1 source trial queued. Host totals separate.
+<!-- M1-OVERNIGHT-CURRENT-END -->
+

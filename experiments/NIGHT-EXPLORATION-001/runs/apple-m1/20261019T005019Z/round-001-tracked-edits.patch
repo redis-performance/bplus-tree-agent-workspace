@@ -1,0 +1,161 @@
+diff --git a/.workspace-memory/LIVE-STATUS.md b/.workspace-memory/LIVE-STATUS.md
+index a4e94d35..762377c6 100644
+--- a/.workspace-memory/LIVE-STATUS.md
++++ b/.workspace-memory/LIVE-STATUS.md
+@@ -1,4 +1,15 @@
+-# Live status — round20 final handoff, 2026-10-18 UTC
++# Live status — Apple M1 shared night, 2026-10-19 UTC
++
++## Current campaign: round 1 complete
++
++[Host status and handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
++five-size baseline passes native/sanitizer validation and reconstructs
++120 processes / 960 rows. Rank-only controls fail strict precision at all three
++targeted sizes; public sampled PCs and a structural census support a bounded
++shorter-side sum hypothesis. Three proposal passes were sequential, not agents.
++No candidate, source change or M6 result. Git writes denied once; patch/hashes
++retained. Next check M6 publication before isolated rank implementations;
++acceptance remains unavailable without qualified controls and full guards.
+ 
+ ## Latest completed task: EXP-007 bulk specialization
+ 
+diff --git a/.workspace-memory/MEMORY.md b/.workspace-memory/MEMORY.md
+index 40e6c21e..0db2aa57 100644
+--- a/.workspace-memory/MEMORY.md
++++ b/.workspace-memory/MEMORY.md
+@@ -1,5 +1,13 @@
+ # Shared memory
+ 
++Latest active run: [Apple M1 night round 1](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md).
++Five-size baseline complete; rank public profile and structural census support
++one shorter-side exploration, but strict A/A fails at 10K/100K/1M. Three
++proposal passes were sequential; no variant, adoption or M6 observation yet.
++Git writes denied at index lock; exact patch/hashes retained. Next: check M6
++publication, then isolated implementations under the frozen rank discovery plan.
++Existing optimization totals are unchanged.
++
+ Latest: [EXP-007 bulk decoder results](../experiments/EXP-007/RESULTS.md).
+ Completed both real three-agent population steps. B shortlist gives -33.14% primary
+ and about -43% aligned full-leaf elapsed time on fresh seeds, but three qualified
+diff --git a/.workspace-memory/handoff.md b/.workspace-memory/handoff.md
+index b5cc7926..00443ad5 100644
+--- a/.workspace-memory/handoff.md
++++ b/.workspace-memory/handoff.md
+@@ -1,5 +1,15 @@
+ # Handoff
+ 
++## Current handoff: Apple M1 night round 1
++
++[Host handoff](../experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/HANDOFF.md)
++gives the exact resume action. Baseline and rank profile/qualification are complete;
++rank adoption is PARK and source NONE. The chair selected one exploratory
++shorter-side hypothesis after three sequential proposal passes. Check M6
++publication before implementation/timing; current status UNKNOWN after DNS
++failure. Git index writes were denied once, with exact patch and hashes saved.
++No children remain. Use the injected campaign/round deadlines, not archived dates.
++
+ ## Latest handoff: EXP-007 completed
+ 
+ [Result](../experiments/EXP-007/RESULTS.md): source NONE / experiment PARK. B was
+diff --git a/README.md b/README.md
+index 279bf173..58837818 100644
+--- a/README.md
++++ b/README.md
+@@ -8,10 +8,10 @@ The data structure runs as a standalone C program; no Redis server is needed.
+ speedup, but short-range regressions still prevent adoption. No optimization has
+ been merged into `src/`; experimental implementations and results live in `experiments/`.
+ 
+-The [shared overnight exploration plan](experiments/NIGHT-EXPLORATION-001/README.md)
+-is prepared for M1 and M6: rank, update paths, single-query lookup, and a decoder
+-fallback. The baseline runner now covers **100 / 1K / 10K / 100K / 1M** members.
+-The latest M1 results below include all five sizes; the original four-size data is preserved.
++The [shared overnight exploration](experiments/NIGHT-EXPLORATION-001/README.md)
++is running on M1; its [current result and handoff](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md)
++cover the five-size baseline and rank diagnosis. M6 results remain separate.
++The original four-size data is preserved.
+ 
+ ## Build and test
+ 
+diff --git a/experiments/EXPERIMENTS.md b/experiments/EXPERIMENTS.md
+index 9e768c88..2a51c8d5 100644
+--- a/experiments/EXPERIMENTS.md
++++ b/experiments/EXPERIMENTS.md
+@@ -1,5 +1,19 @@
+ # Experiment log
+ 
++## 2026-10-19 — shared-night Apple M1 round 1
++
++[Host evidence](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
++five-size baseline complete, 120 serial processes / 960 rows / 40 cells,
++native and sanitizer checks pass. Targeted rank A/A fails strict precision
++at 10K/100K/1M. Public in-process PC samples, release assembly and a
++pre-resolved structural census support a shorter-side rank-sum exploration.
++Three proposal passes were sequential, not independent agents; the chair
++selected that single hypothesis for a later bounded trial. No variants,
++candidate timing, source adoption or new optimization population yet. M6
++publication state is UNKNOWN after DNS failure. Existing accepted/rejected/
++parked optimization counts are unchanged. Commit provenance is pending
++because git could not create its worktree index lock.
++
+ ## 19 October: focused decoder diagnostic
+ 
+ [EXP-004 decoder microbenchmark](EXP-004/decoder-microbench-2026-10-19/README.md)
+diff --git a/experiments/NIGHT-EXPLORATION-001/README.md b/experiments/NIGHT-EXPLORATION-001/README.md
+index 4cdb9146..1cf1d182 100644
+--- a/experiments/NIGHT-EXPLORATION-001/README.md
++++ b/experiments/NIGHT-EXPLORATION-001/README.md
+@@ -1,14 +1,16 @@
+ # Overnight exploration — shared M1 / M6 plan
+ 
+-**Status: prepared for launch.** The first eight hours follow the core queue; an
++**Status: Apple M1 run active.** [M1 status and handoff](runs/apple-m1/20261019T005019Z/STATUS.md)
++record the first baseline and rank decision; M6 has no observed published result.
++The first eight hours follow the core queue; an
+ explicit later user deadline activates the bounded extension in PLAN.md.
+ Target: the standalone B+ tree and member index. No Redis server. Both hosts follow
+ this queue and measurement protocol; their evidence and decisions stay separate.
+ 
+ The baseline matrix is **100 / 1K / 10K / 100K / 1M members × eight operations**:
+ insert, hit lookup, miss lookup, rank, forward iteration, scan, score update, delete.
+-The [five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md) is complete
+-and separate from the preserved four-size data. The overnight campaign is still unstarted.
++The [earlier five-size M1 baseline](../SIZE-MATRIX-001/apple-m1-five-sizes/SUMMARY.md)
++is separate from the preserved four-size data and this campaign's new host run.
+ 
+ ## Read first
+ 
+diff --git a/experiments/SUMMARY.md b/experiments/SUMMARY.md
+index 15349f65..3a4c43d6 100644
+--- a/experiments/SUMMARY.md
++++ b/experiments/SUMMARY.md
+@@ -1,5 +1,16 @@
+ # Experiment summary
+ 
++## Latest: shared-night Apple M1 round 1, 19 October
++
++[Host status](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md):
++the new five-size baseline passes native/sanitizer checks and reconstructs 120
++processes / 960 rows in 388.7 seconds. Rank-specific A/A fails strict precision
++at 10K, 100K and 1M. A public in-process profile and structural census support
++one bounded shorter-side rank hypothesis, selected after three **sequential**
++proposal passes; no candidate implementation, optimization population, source
++adoption or M6 result yet. Existing optimization counts below are unchanged.
++Git commit provenance is pending after an index-lock permission denial.
++
+ ## Latest: EXP-008 short-range crossover, 19 October (Apple M1)
+ 
+ [Raw-audited results](EXP-008/RESULTS.md): no cutoff qualifies; count16/count96 gains
+diff --git a/scripts/run-size-matrix.py b/scripts/run-size-matrix.py
+index c9eade5f..a4fbd7d9 100644
+--- a/scripts/run-size-matrix.py
++++ b/scripts/run-size-matrix.py
+@@ -48,7 +48,8 @@ def main():
+         validation=[], runs=[])
+     if platform.system() == 'Darwin':
+         for key in ('machdep.cpu.brand_string', 'hw.physicalcpu', 'hw.logicalcpu'):
+-            manifest['machine'][key] = subprocess.check_output(['sysctl', '-n', key], text=True).strip()
++            result = subprocess.run(['sysctl', '-n', key], capture_output=True, text=True)
++            manifest['machine'][key] = result.stdout.strip() if result.returncode == 0 else 'unknown (sysctl unavailable)'
+         manifest['machine']['macos'] = subprocess.check_output(['sw_vers', '-productVersion'], text=True).strip()
+     else:
+         manifest['machine']['cpu_info'] = Path('/proc/cpuinfo').read_text().split('\n\n')[0]

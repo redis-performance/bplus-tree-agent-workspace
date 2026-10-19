@@ -1,0 +1,286 @@
+[
+  {
+    "size": 10000,
+    "case": "lookup-hit",
+    "ops": 5000000,
+    "exit": 0,
+    "wall_s": 0.675,
+    "profile_count": 58,
+    "overflow": 0,
+    "symbols": [
+      [
+        "_platform_memchr",
+        30
+      ],
+      [
+        "zbtScoreLeafFindMember",
+        7
+      ],
+      [
+        "zbtreeScoreRaw",
+        7
+      ],
+      [
+        "siphash",
+        7
+      ],
+      [
+        "_platform_memcmp",
+        4
+      ],
+      [
+        "main",
+        2
+      ],
+      [
+        "zbtreeScore",
+        1
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-hit-n10000.stderr",
+    "raw_sha256": "6a65110754e261d8e21bd5a702d0483c9d3680324feed555e65f79d4eecf69f7",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "10000",
+      "--ops",
+      "5000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-hit,10000,5000000,16,1,5000000,350813000,70.163,14252607.515,310640,24997500000,350910833,4,4,user-interactive,user-interactive,0,0,unknown,0,1,1802000\n",
+    "stderr_tail": "bsystem_platform.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,lookup-profile,0x102ee9ce8,0x102ed8000,siphash,0x102ee9b4c\nPC,libsystem_platform.dylib,0x19eeeee34,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,libsystem_platform.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\n"
+  },
+  {
+    "size": 10000,
+    "case": "lookup-miss",
+    "ops": 5000000,
+    "exit": 0,
+    "wall_s": 0.106,
+    "profile_count": 23,
+    "overflow": 0,
+    "symbols": [
+      [
+        "siphash",
+        13
+      ],
+      [
+        "zbtreeScoreRaw",
+        7
+      ],
+      [
+        "main",
+        1
+      ],
+      [
+        "zbtreeScore",
+        1
+      ],
+      [
+        "zbtScoreLeafFindMember",
+        1
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-miss-n10000.stderr",
+    "raw_sha256": "809509757d524645ad46d78d53745379966061705e27b2482cab12e4edef19ad",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "10000",
+      "--ops",
+      "5000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-miss,10000,5000000,16,1,5000000,97166000,19.433,51458329.045,310640,0,97197000,4,4,user-interactive,user-interactive,0,0,unknown,0,1,622000\n",
+    "stderr_tail": "btreeScoreRaw,0x104247244\nPC,lookup-profile,0x104255ce8,0x104244000,siphash,0x104255b4c\nPC,lookup-profile,0x1042475e4,0x104244000,zbtreeScoreRaw,0x104247244\nPC,lookup-profile,0x1042477e0,0x104244000,zbtreeScore,0x1042477b8\nPC,lookup-profile,0x10424ef54,0x104244000,zbtScoreLeafFindMember,0x10424ee74\n"
+  },
+  {
+    "size": 100000,
+    "case": "lookup-hit",
+    "ops": 2000000,
+    "exit": 0,
+    "wall_s": 0.221,
+    "profile_count": 33,
+    "overflow": 0,
+    "symbols": [
+      [
+        "_platform_memchr",
+        18
+      ],
+      [
+        "zbtreeScoreRaw",
+        5
+      ],
+      [
+        "_platform_memcmp",
+        4
+      ],
+      [
+        "zbtScoreLeafFindMember",
+        3
+      ],
+      [
+        "siphash",
+        3
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-hit-n100000.stderr",
+    "raw_sha256": "692d1c39bd3f344368da9a2601036a314bac4cf8d2302477a428cb236ddd5576",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "100000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-hit,100000,2000000,16,1,2000000,160159000,80.079,12487590.457,2984176,99999000000,160065708,6,7,user-interactive,user-interactive,0,0,unknown,0,1,7383000\n",
+    "stderr_tail": "m.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,libsystem_platform.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,lookup-profile,0x1042130a4,0x104208000,zbtScoreLeafFindMember,0x104212e74\nPC,libsystem_platform.dylib,0x19eeeef58,0x19eeee000,_platform_memcmp,0x19eeeeef0\n"
+  },
+  {
+    "size": 100000,
+    "case": "lookup-miss",
+    "ops": 2000000,
+    "exit": 0,
+    "wall_s": 0.107,
+    "profile_count": 10,
+    "overflow": 0,
+    "symbols": [
+      [
+        "siphash",
+        4
+      ],
+      [
+        "main",
+        3
+      ],
+      [
+        "zbtreeScore",
+        1
+      ],
+      [
+        "_platform_memchr",
+        1
+      ],
+      [
+        "zbtreeScoreRaw",
+        1
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-miss-n100000.stderr",
+    "raw_sha256": "5fe3aa9533e41f23ab6337e51cc0a2d92a46050afa0643ec98f23d49f6cd6065",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "100000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-miss,100000,2000000,16,1,2000000,48234000,24.117,41464527.097,2984176,0,48268250,4,6,user-interactive,user-interactive,0,0,unknown,0,1,7529000\n",
+    "stderr_tail": "b8000,siphash,0x100bc9b4c\nPC,libsystem_platform.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,lookup-profile,0x100bc9ce8,0x100bb8000,siphash,0x100bc9b4c\nPC,lookup-profile,0x100bc9ce8,0x100bb8000,siphash,0x100bc9b4c\nPC,lookup-profile,0x100bbb514,0x100bb8000,zbtreeScoreRaw,0x100bbb244\n"
+  },
+  {
+    "size": 1000000,
+    "case": "lookup-hit",
+    "ops": 500000,
+    "exit": 0,
+    "wall_s": 1.115,
+    "profile_count": 18,
+    "overflow": 0,
+    "symbols": [
+      [
+        "_platform_memchr",
+        12
+      ],
+      [
+        "_platform_memcmp",
+        2
+      ],
+      [
+        "siphash",
+        2
+      ],
+      [
+        "zbtreeScoreRaw",
+        1
+      ],
+      [
+        "zbtScoreLeafFindMember",
+        1
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-hit-n1000000.stderr",
+    "raw_sha256": "636f779c743e2369b7568acd3892f9e8ce5a601f2c39f47215c7b0b4fece3029",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-hit",
+      "--size",
+      "1000000",
+      "--ops",
+      "500000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-hit,1000000,500000,16,1,500000,120299000,240.598,4156310.526,32936048,249987479581,120360875,4,4,user-interactive,user-interactive,0,0,unknown,0,1,242251000\n",
+    "stderr_tail": "okup-profile,0x1023fdb90,0x1023ec000,siphash,0x1023fdb4c\nPC,libsystem_platform.dylib,0x19eeeee2c,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,libsystem_platform.dylib,0x19eeeee48,0x19eeee000,_platform_memchr,0x19eeeede0\nPC,libsystem_platform.dylib,0x19eeeee34,0x19eeee000,_platform_memchr,0x19eeeede0\n"
+  },
+  {
+    "size": 1000000,
+    "case": "lookup-miss",
+    "ops": 500000,
+    "exit": 0,
+    "wall_s": 1.042,
+    "profile_count": 50,
+    "overflow": 0,
+    "symbols": [
+      [
+        "main",
+        47
+      ],
+      [
+        "zbtreeScore",
+        3
+      ]
+    ],
+    "raw_local": "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/raw/lookup-miss-n1000000.stderr",
+    "raw_sha256": "c033a49864f83350a3fb6d6300a358f99ef31d3bfe6fac23c8a4ead2086b512d",
+    "command": [
+      "scratch/night-apple-m1-20261019T005019Z/round-002/lookup-profile/lookup-profile",
+      "--case",
+      "lookup-miss",
+      "--size",
+      "1000000",
+      "--ops",
+      "500000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "stdout": "case,size,requested_ops,member_bytes,seed,operations,elapsed_ns,ns_per_op,ops_per_sec,tree_bytes,checksum,thread_elapsed_ns,cpu_start,cpu_end,qos_reported_start,qos_reported_end,qos_relpri_start,qos_relpri_end,qos_effective,traversals,warmup_passes,warmup_elapsed_ns\nlookup-miss,1000000,500000,16,1,500000,52823000,105.646,9465573.708,32936048,0,52911666,7,7,user-interactive,user-interactive,0,0,unknown,0,1,241673000\n",
+    "stderr_tail": "45e8\nPC,lookup-profile,0x1044b56c8,0x1044b4000,main,0x1044b45e8\nPC,lookup-profile,0x1044b56c8,0x1044b4000,main,0x1044b45e8\nPC,lookup-profile,0x1044b56c8,0x1044b4000,main,0x1044b45e8\nPC,lookup-profile,0x1044b56c8,0x1044b4000,main,0x1044b45e8\nPC,lookup-profile,0x1044b56c8,0x1044b4000,main,0x1044b45e8\n"
+  }
+]
