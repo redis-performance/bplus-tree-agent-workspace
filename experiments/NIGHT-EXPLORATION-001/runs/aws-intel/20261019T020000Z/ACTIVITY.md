@@ -162,3 +162,5 @@
 2026-10-19T11:22:19.215701+00:00 Prepared independent ARM030 profile raw auditor033 before result publication:65 synthetic/contract checks, exact counters/census/fixtures/serial identities, full physical-PC/encoded-word mapping and known-negative scope checks. No producer imports or runner work. Shared root MCP consultation identified honestly; old REJECT unchanged.
 
 2026-10-19T11:24:38.361990+00:00 Corrected worker dashboard stale10:15 lease/phase labels: local ARM frontend raw review active, coordinator attempt2deadline11:45, Intel overnightreleased; no worker runnergrant. Historical release proof retained.
+
+2026-10-19T11:27:54.441615+00:00 Independent ARM030profile266360cfb auditPASS:642commands/1411inputs/3395samples,42stats/18instructionreductions,72instrumentblocks;scopevalid but strictcodeattributionFALSE152entryPCs uncredited and only2/12elapsedtransferqualified. Private-only publication metadata correction preserved; no threshold/measurementchanges. REJECT/NONE retained, no causal native explanation or runnerwork.

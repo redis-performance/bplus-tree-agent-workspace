@@ -126,13 +126,26 @@ def audit(rev):
     seal=js(rev,'profile-evidence-seal.json')['files']
     for path,h in seal.items():need(sha(raw(rev,path))==h,'publication seal '+path)
     pub=js(rev,'profile/PUBLICATION.json')
-    for path,v in pub.items():need(sha(raw(rev,'profile/'+path))==v['public_sha256'],'normalized public hash '+path)
+    for path,v in pub.items():
+        if 'public_sha256' in v:need(sha(raw(rev,'profile/'+path))==v['public_sha256'],'normalized public hash '+path)
+        else:need(path.endswith('.data') and v['publication'].startswith('Raw perf.data retained privately'),'explicit private-only publication')
     s=js(rev,'profile/result.json');need(s['status']=='complete' and s['cpu']==2 and len(s['commands'])==642,'complete profile phase')
     need(s['execution_freeze_sha256']==sha(raw(PIN,'profile-execution-freeze.json')),'result freeze binding')
     scope=dict(unit_prefix='bplus-frontjob-20261019-',slice='bplus-front-20261019.slice',cpu=2,deadline='2026-10-19T11:45:00Z')
     need({**s['lease_scope'],'deadline':date(s['lease_scope']['deadline']).isoformat()}=={**scope,'deadline':N.DEADLINE.isoformat()},'lease namespace/CPU/deadline')
     start=date(s['started_utc']);end=date(s['finished_utc']);need(0<(end-start).total_seconds()<=1200 and 0<s['elapsed_seconds']<=1200 and (N.DEADLINE-start).total_seconds()>=1220 and end<=N.DEADLINE,'phase cap/start margin')
     N.identity(s['identities_before']);N.identity(s['identities_after']);ids=js(PIN,'identities.json')
+    pre=js(rev,'profile-preflight.json');post=js(rev,'profile-postcheck.json');job=js(rev,'profile-job-output.txt')
+    for record in [pre,post]:
+        N.identity(record['identities']);need(record['lease_sha256']==s['lease_sha256'] and record['lease_scope']==s['lease_scope'],'pre/post lease identities')
+        need(record['frozen_inputs']==freeze['files'] and record['profile_freeze_sha256']==s['execution_freeze_sha256'],'pre/post execution freeze')
+        need(record['owned_units']==[] and record['owned_cgroup_pids']==[],'retained pre/post owned idle')
+    need(date(pre['checked_utc'])<=date(job['started_utc'])<=start<end<=date(job['finished_utc'])<=date(post['checked_utc']),'helper/pre/post chronological joins')
+    need(pre['remaining_seconds']>=1220 and pre['release_timer_active']=='active' and pre['containers_empty'],'preflight readiness')
+    need(pre['coordinator_status']['returncode']==3 and 'STOPPED' in pre['coordinator_status']['stdout'] and pre['coordinator_pid']['stdout'].strip()=='0','preflight OSS stopped')
+    need(all(pre[k]==post[k] for k in ['helper_sha256','release_script_sha256']),'helper/release identity unchanged')
+    need(job['unit']=='bplus-frontjob-20261019-arm030-profile' and job['cpu']==2 and job['limit_seconds']==1200 and job['returncode']==0 and 0<(date(job['finished_utc'])-date(job['started_utc'])).total_seconds()<=1200,'whole owned wrapper cap/receipt')
+
     need(s['sources_before']==s['sources_after'] and s['binaries_before']==s['binaries_after'],'diagnostic before/after parity')
     need(set(s['sources_before'])==set(s['binaries_before'])=={'control','A'},'diagnostic sources exact set')
     for v,got in s['sources_before'].items():
@@ -168,6 +181,7 @@ def audit(rev):
     fault=samples(raw(rev,'profile/known-missing-disable-samples.stdout').decode());fr=sample_report(raw(rev,'profile/known-missing-disable-report.stdout').decode(),fault)
     need(fr['lost']==0 and any(x['symbol']=='outside_work' for x in fault) and s['scope_fault_detected'],'missing disable negative gate')
     need(len(s['raw_data_sha256'])==38 and all(re.fullmatch('[0-9a-f]{64}',v) for v in s['raw_data_sha256'].values()),'38 retained binary profile identities')
+    need({name:v['raw_sha256'] for name,v in pub.items() if 'public_sha256' not in v}==s['raw_data_sha256'],'private perf data publication/result identity joins')
     maps={};body=[]
     for front in ['primary','h4']:
         for v in ['control','A']:
