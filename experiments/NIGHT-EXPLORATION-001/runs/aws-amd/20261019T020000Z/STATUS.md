@@ -67,3 +67,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T10:09:08.399751+00:00: Final ARM follow-up2a53fc3f3 adversarial closure supports REJECT/NONE:9qualified all-six iterator regressions,4272processes/5952rows. Profile/heldout unexecuted, source unchanged, historicalFAILED/PARK preserved. Fresh OSS restoration and empty owned work verified in immutable10:03:25–27 record; ARM continuation RELEASED.
 
 - 2026-10-19T10:36:32.802610+00:00: Independent035 two-frontend diagnostic requirements prepared from immutable sources/profile024/unexecuted029. Concrete checksum/score/warmup/allocation/caller differences identified; cause remains unmeasured. PriorREJECT/NONE preserved. No peer new analysis read, runner access, measurements or variants.
+
+- 2026-10-19T10:41:35.665053+00:00: New frontend lease initial static review requires fail-closed container/unit query handling and exact inactive release-state verification. Timer-before-stop/ERR restore and recursive fresh-PID auditor inspected; no scripts or host actions executed. Generic input hashes retained; acquisition not cleared.
