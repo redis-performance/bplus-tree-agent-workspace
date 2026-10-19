@@ -1,5 +1,16 @@
 # Live status — round20 final handoff, 2026-10-18 UTC
 
+Latest M6 round 2: [UPDATE-001 result](../experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md)
+REJECT / NONE. All three repacking variants fail 100K primary; 1M reductions are
+exploratory only. Both sequential population steps complete; all native/sanitizer
+checks, targeted faults and raw/patch audit pass. Failed A/A, no full candidate guards,
+confirmation, independent review or adoption profile. Source unchanged. Next resume
+host HANDOFF.md for LOOKUP-001. Coordinator alone publishes. Branch totals9 populations
+(7 sequential +2 multi-agent),0 accepted/4 rejected/5 parked,27 patches,12 harnesses;
+M1 night counts separate. Exact serving model/token cost unknown. Deadline08:00 UTC,
+reporting07:15 UTC. Never rerun completed update/rank schedules.
+
+
 ## Latest completed task: EXP-007 bulk specialization
 
 [Results](../experiments/EXP-007/RESULTS.md): B has fresh full-leaf gains (-33.14%

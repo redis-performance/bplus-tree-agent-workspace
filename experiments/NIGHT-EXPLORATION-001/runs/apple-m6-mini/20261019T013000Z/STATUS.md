@@ -1,67 +1,57 @@
-# M6 driver campaign — rank rejected; update paths next
+# M6 driver campaign — rank and update rejected; lookup next
 
-Updated 2026-10-19T01:55:31.258617+00:00. Campaign deadline **08:00 UTC / 09:00 Lisbon**; reporting starts07:15 UTC.
-Branch `exploration/apple-m6-mini-20261019T013000Z`. Launcher-verified Apple M6,
-arm64,12 cores, macOS 27, Apple Clang 21. Host/source hashes: launch-manifest.json.
-Worker sysctl unavailable in preflight, never retried. Frequency, DVFS, core residency,
-hardware counters unknown. Baseline src unchanged; selected source **NONE**.
+Updated 2026-10-19T02:19:16.817210+00:00. Campaign deadline **08:00 UTC / 09:00 Lisbon**;
+start no experiments after **07:15 UTC**. Round 2 ends 02:31:47 UTC.
+Branch `exploration/apple-m6-mini-20261019T013000Z`. Source selection **NONE**.
+Baseline src/header/referee/allocator/hash/upstream tests retain launcher hashes.
 
-| Target | Status | Evidence / M1 action |
+| Target | Status | M1 action / evidence |
 |---|---|---|
-| Five-size baseline | COMPLETE | Reused baseline-attempt002;120 processes / 960 rows, 162.42s. 36/40 cells fail A/A, 14 short. |
-| RANK-001 | REJECT / NONE | All 3 variants regress the 100K primary in every block. See [results](002-rank/RESULTS.md). Skip exact min-span policy/patches as contenders. |
-| UPDATE-001 | NOT STARTED | Next: profile and validate distinct update-path cases, then proposals only if evidence supports them. |
-| LOOKUP-001 | NOT STARTED | Rank profile also samples memchr; no lookup hypothesis chosen. |
-| Optional / confirmation | RESERVED | No eligible contender from rank. |
+| Five-size baseline | COMPLETE | Reused baseline-attempt002; 120 processes / 960 rows. Never rerun inventory. |
+| RANK-001 | REJECT / NONE | All candidates regress 100K. [Results](002-rank/RESULTS.md); skip exact candidates. |
+| UPDATE-001 | REJECT / NONE | No 100K winner. [Results](003-update/RESULTS.md); all patches retained. 1M is an exploratory lead only. |
+| LOOKUP-001 | NOT STARTED | Next: review EXP-006; profile independent public hit/miss paths and count tag/full comparisons. |
+| Optional / confirmation | RESERVED | No dual-primary eligible contender. |
 
-Hypothesis identity `M6-RANK-SHORTER-001`: unconditional smaller sibling span using
-existing subtree totals. Both population steps completed as three **sequential**
-passes each, not independent agents. All patches preserved in002-rank/variants.
+Update hypothesis **M6-UPDATE-REPACK-001**: after neighbor order checks pass but exact
+packing fails, re-encode score fields inside the existing allocation, retaining
+records and index. Both population steps were three sequential passes by one worker,
+not independent agents. [Exact source/patch/harness/binary identity](003-update/comparison-freeze.json)
+and [patch manifest](003-update/implementation-manifest.json).
 
-| Variant | 100K median effect | 100K block range | 1M median effect | Decision |
-|---|---:|---:|---:|---|
-| A | +3.808% | +2.733..+4.393% | -4.002% | REJECT |
-| B | +3.425% | +2.856..+10.610% | -2.551% | REJECT |
-| C | +3.871% | +2.829..+4.367% | -2.148% | REJECT |
+| Variant | 100K median / block range | 1M median / block range | Decision |
+|---|---:|---:|---|
+| A logical snapshots | +0.084% / −1.798..+1.817% | −7.705% / −8.951..−6.214% | REJECT dual primary |
+| B physical memmove | +1.694% / +0.140..+2.639% | −8.765% / −12.499..−5.353% | REJECT dual primary |
+| C base-preserving envelope | +1.992% / +0.191..+3.070% | −9.270% / −12.789..−6.940% | REJECT dual primary |
 
-A/A maxima 10K 8.840%,100K 1.886%, 1M 7.406%; all 3 fail±1%. No 1M gain claim or noisy
-winner. Tree-owned bytes match.216 processes / 648 candidate batches; 72 / 216 A/A. Native/
-sanitizer 43 upstream tests/build and 38 targeted checks/candidate pass. Public profile
-and term census support a real arithmetic change; all rank function bodies grow.
-Final raw/patch/source/referee audit PASS. No full candidate guards, fresh confirmation,
-independent review or adoption profile validation. No baseline source adoption.
+Update calibration 75 rows, controls 48 rows, discovery 144 rows; serial processes
+with one batch each. A/A maxima 1.1722% / 1.5527%, both fail ±1%. No primary relabeling,
+confirmation or universal gain. Primary memory decreases 0.31–0.50% in these fixtures.
+All original 43 tests per source/build and targeted native/ASan-UBSan checks pass.
+Private oracle: 74 repacks/candidate/build, six reversed, plus two faults detected.
+Audit PASS: 267 reconstructed rows, 36 effects, three patches, 878 serial windows.
+Full candidate guards, independent review and adoption profile validation NOT RUN.
 
-Public referee SHA256 `db2f2d0bb470d918935a4ffaebc25b9b76ee1709e260fc8308bc0f18846e1e90`. Exact patch/source/binary identities:
-002-rank/comparison-freeze.json and implementation-manifest.json. Published milestones:
-referee ca5cacfb; profile 210c06a2; controls b5ebd930; chair fedb7d41; comparison 3102530f;
-rejection 23df69a3. Latest final audit/publication pending coordinator acknowledgement.
+Host provenance: launcher verified Apple M6 / arm64 / 12 cores / macOS 27 / Apple
+Clang 21 in launch-manifest.json. Worker sysctl denied, not retried. Frequency, DVFS,
+performance-core residency, migration and PMU unknown. CPU Performance MCP absent.
+Public self-sampler controls pass; sampled PCs are diagnostic, not exact time shares.
+External profiler attachment failed round 1; no permissions changed or repeated attempt.
 
-Limitations: brief summary calculation during duration calibration is disclosed in
-CALIBRATION-LIMITATION.md; no recorded other work overlaps control/candidate phases.
-External sample attach failed (reason unknown), self-sampler used; helper missing
-include fixed with failed build retained. CPU Performance MCP absent. Exact serving
-model and measured token cost unknown; visible identity Codex / GPT-6 family. No agents used.
+Publication: update profile/referee 33bf7899, chair f8d2badf, candidate freeze a9e16781.
+Earlier round-1/referee requests timed out; coordinator resumed and published their
+retained evidence. Update comparison/decision and round handoff publication pending.
+Only coordinator commits/pushes. Git worktree creation denied once; isolated copies
+used. Oracle baseline pointer failure and metadata/classifier/audit errors retained.
 
-Cached M1 published branch revision `4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9`
-inspected at 01:37 UTC; later Git DNS refresh/public raw fetch failed. Current exact
-M1 patch/harness outcome UNKNOWN / NOT RUN. Hosts remain separate; no results inferred.
+Cached published M1 branch revision 4c48fa7e inspected for context; exact M6 update
+patch/harness on M1 NOT RUN. Its update referee uses different warmup, so no timing
+comparison/pooling. See HANDOFF.md for exact next action. Exact serving model/token
+cost unknown; visible identity Codex/GPT-6 family. No agents/independent review.
 
-Final round audit and self-review saved at 2026-10-19T01:58:06.384675+00:00. Shared logs/counts/memory updated; next action is UPDATE-001. See [round report](ROUND-001.md) and [handoff](HANDOFF.md). Final publication acknowledgement will be recorded in the next status update.
+Recorded branch totals: **9 populations** (7 sequential fallback + 2 multi-agent),
+**0 accepted / 4 rejected / 5 parked**, **27 patches / 12 validated harnesses**.
+Concurrent M1 night population counts remain separate pending reconciliation.
 
-2026-10-19T01:58:55.309396+00:00 — coordinator rejected final publication due to generated Python bytecode cache. Cache moved intact to ignored scratch; diagnostic loader cache creation disabled. PUBLICATION-NOTE.md records the failure once. Measurement/source evidence unchanged; corrected final publication pending.
-
-Publication update 2026-10-19T02:01:23.704328+00:00: corrected request r1-final-audit-handoff-cache-fixed-20261019T015855Z timed out after 120 seconds with no matching acknowledgement. Last ack is the earlier bytecode-cache rejection; see PUBLICATION-TIMEOUT.json. Final audited report/logs remain local and publication is unresolved. Last successful decision commit is23df69a3. The corrected request remains pending; check it before a new round publication. No Git writes or permission changes were attempted. Continue useful bounded UPDATE-001 preparation; do not claim unpublished provenance is acknowledged.
-
-Round2 resumed 2026-10-19T02:04:22.845384+00:00: launcher baseline-attempt002 and RANK-001 REJECT reused, no rerun. UPDATE-001 referee preparation RUNNING in003-update; cached M1 branch4c48fa7e inspected for context only. M1 pack failures are a lead, not M6 measurements. Final round1 corrected request still lacks matching acknowledgement. No worker Git writes.
-
-2026-10-19T02:04:36.729913+00:00: UPDATE-001 referee freeze ready:100 pattern/size/member-length checks plus2 finite/signed-zero/binary-tie/clone oracles passed. Source unchanged. freeze.json pins toolchain, source and binaries. Metadata-only dSYM hash failure retained in PREPARATION-NOTE.md; no experimental rerun. Publication barrier before census/profile/calibration.
-
-UPDATE referee publication timed out after120s without matching acknowledgement. Last successful published decision remains23df69a3. Exact local hashes retained; acknowledged harness provenance unresolved. Continue bounded local census/profile; no Git retries or settings changes.
-
-2026-10-19T02:08:04.899118+00:00: UPDATE baseline path census/profile COMPLETE. preserve packing failures1517/20000 at100K and11058/20000 at1M; no order failures. Longer captures show lookup dominates after amortization. See003-update/PROFILE.md; no hypothesis selected. Baseline calibration/A/A next. SourceNONE, prior rankREJECT unchanged. Publication requested for diagnosis.
-
-Coordinator acknowledged update diagnosis/referee at33bf7899 (request r2-update-profile-20261019T020804Z). This supersedes pending round1/referee publication; exact frozen source/referee hashes remain required. Beginning baseline-only serial calibration then fixed primary A/A; no concurrent work.
-
-UPDATE baseline calibration75rows and primary A/A48processes COMPLETE. Controls fail narrowly:100K max1.1722%,1M1.5527%, shortest47.336/47.182ms. Three sequential proposal passes/chair choose M6-UPDATE-REPACK-001 for one exploratory primary-only screen; adoption gates remain blocked. Exact candidate/patch identities pending implementation. No independent agents/review.
-
-UPDATE three sequential isolated implementations/native/sanitizer validation COMPLETE. All43 upstream tests per source/build and100 pattern/size/length checks + finite semantic/private repack oracles per source pass. Each candidate private oracle has74 repacks incl6 reversed; no record/ID/ownership/memory changes, headroom rejection leaves bytes intact. Two deliberate faults detected. Corrected baseline control instruction text exactly matches calibrated control. Preserve oracle failure and classifier errata. Chair acknowledgedf8d2badf; candidate freeze publication pending before primary-only exploratory screen.
+A separately supplied operator audit at02:18 UTC reconstructs all144 discovery rows/36 effects and agrees with NONE. See OPERATOR-UPDATE-DISCOVERY-AUDIT.json; raw-data scope only, not independent timing/semantic adversarial review or replication.

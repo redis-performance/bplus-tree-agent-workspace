@@ -883,3 +883,18 @@ raw effects, patches and hashes. Recorded branch totals: 8 populations (6 sequen
 M6 night adds 1 baseline inventory, 1 A/A campaign and 1 rank diagnosis. Concurrent
 M1 night populations are not yet reconciled into those branch totals. Next target
 UPDATE-001; no more rank timing. Exact serving model and measured token cost unknown.
+
+## 19 October — M6 UPDATE-001 dual-primary repack REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md):
+three sequential proposals/chair and three isolated implementations. At 100K none
+improves 2%; medians +0.084/+1.694/+1.992%. At 1M all blocks improve, medians
+−7.705/−8.765/−9.270%, retained as an exploratory transient-packing lead only.
+A/A fails both primaries; no primary relabeling, shortlist, full guards or independent
+review. Native/sanitizer upstream and targeted metadata/ownership checks pass; two
+faults detected. 75 calibration +48 A/A +144 discovery rows; audit reconstructs
+267 rows/36 effects/3 patches and 878 serial command windows. Source unchanged.
+Both population steps used sequential passes, not independent agents. Exact model/
+cost unknown. Branch totals 9 populations (7 sequential +2 multi-agent), 0 accepted /
+4 rejected /5 parked; 27 retained patches, 12 validated harnesses. M1 night counts
+remain separate pending reconciliation. Next LOOKUP-001. Coordinator alone publishes.

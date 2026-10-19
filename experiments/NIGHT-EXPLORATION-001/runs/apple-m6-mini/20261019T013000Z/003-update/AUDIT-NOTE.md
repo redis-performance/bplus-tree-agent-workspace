@@ -1,0 +1,1 @@
+Initial privacy scanner matched its own literal forbidden path prefix in audit.py. Constructed the two scan strings in pieces and reran only the audit. No raw profile, source patch, validation or timing rerun.

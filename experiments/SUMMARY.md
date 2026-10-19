@@ -1,5 +1,20 @@
 # Experiment summary
 
+## 19 October — M6 UPDATE-001 dual-primary repack REJECT / NONE
+
+[Results](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md):
+three sequential proposals/chair and three isolated implementations. At 100K none
+improves 2%; medians +0.084/+1.694/+1.992%. At 1M all blocks improve, medians
+−7.705/−8.765/−9.270%, retained as an exploratory transient-packing lead only.
+A/A fails both primaries; no primary relabeling, shortlist, full guards or independent
+review. Native/sanitizer upstream and targeted metadata/ownership checks pass; two
+faults detected. 75 calibration +48 A/A +144 discovery rows; audit reconstructs
+267 rows/36 effects/3 patches and 878 serial command windows. Source unchanged.
+Both population steps used sequential passes, not independent agents. Exact model/
+cost unknown. Branch totals 9 populations (7 sequential +2 multi-agent), 0 accepted /
+4 rejected /5 parked; 27 retained patches, 12 validated harnesses. M1 night counts
+remain separate pending reconciliation. Next LOOKUP-001. Coordinator alone publishes.
+
 ## Latest: M6 rank shorter-side population rejected, 19 October
 
 [Audited M6 result](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md):
@@ -49,12 +64,12 @@ were 0 accepted / 2 rejected / 3 parked. Overnight execution remains stopped.
 | Category | Count |
 |---|---:|
 | Preparation completed | 1 |
-| Harnesses locally validated (7 historical overnight + 3 decoder + 1 M6 rank) | 11 |
+| Harnesses locally validated (7 historical overnight + 3 decoder + 2 M6) | 12 |
 | Historical overnight baseline explorations | 13 |
 | Post-overnight focused A/A campaigns (decoder + two bulk campaigns) | 4 |
-| M6 night baseline inventories / rank A/A campaigns / rank diagnoses | 1 / 1 / 1 |
-| Optimisations accepted / rejected / parked on this branch | 0 / 3 / 5 |
-| Population rounds recorded on this branch | 8 (6 sequential fallback + 2 multi-agent) |
+| M6 night baseline inventories / rank+update A/A / diagnoses | 1 / 2 / 2 |
+| Optimisations accepted / rejected / parked on this branch | 0 / 4 / 5 |
+| Population rounds recorded on this branch | 9 (7 sequential fallback + 2 multi-agent) |
 | Historical overnight additional measurement diagnostics | 34 |
 | Post-overnight focused decoder investigations | 3 |
 | Additional boundary oracle suites validated | 26 |

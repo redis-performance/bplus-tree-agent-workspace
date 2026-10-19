@@ -137,11 +137,11 @@ separate from these overnight baselines. [Baseline plan and rerun commands](expe
 [The first M6 rank population](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/002-rank/RESULTS.md)
 rejects all three shorter-side summation implementations: the 100K primary took
 about 3.4–3.9% longer by median block effect. The 1M signals remain inside A/A noise.
-Source stays unchanged; update-path profiling is next. Both population steps were
+Source stays unchanged. [M6 update repacking](experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/003-update/RESULTS.md) also fails its 100K primary; its 1M reductions remain exploratory. Lookup profiling is next. Both population steps were
 sequential passes, with all patches preserved.
 
-Recorded on this branch: **8 populations; 0 accepted / 3 rejected / 5 parked;
-24 retained patches; 11 validated harnesses**. Concurrent M1 night populations
+Recorded on this branch: **9 populations; 0 accepted / 4 rejected / 5 parked;
+27 retained patches; 12 validated harnesses**. Concurrent M1 night populations
 remain separate pending log reconciliation.
 
 ### Decoder experiments
