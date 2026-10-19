@@ -90,3 +90,5 @@
 2026-10-19T05:45:34.579543+00:00 Independent corrected ARM fold-predicate proposal: NONE. The measured predicate share does not explain enough of rejected B’s 55–79% slowdown to predict a gain against unchanged8694; no peer proposals read, source edits or runner execution. Proposal and immutable evidence hashes retained under018.
 
 2026-10-19T05:49:58.837123+00:00 Prepared corrected-source exact B replication plan017 for root review only. Correctness precedes fresh trim319/signed-zero guard calibration and24-row AA/B gates; any failed/noisy guard blocks primary timing. No candidate source/build or runner workload created. Exact old B patch retained, no A fallback. ARM fold-predicate chair selected NONE; own independent proposal remains sealed.
+
+2026-10-19T05:56:30.481052+00:00 Corrected exact-B guard-first execution drivers and all source/referee/model bindings sealed locally for final root code review. Plan a8d051d0b, patch, seeds701–703 and600/60/120/120 budgets unchanged. No primary candidate runner supplied, no source snapshot/build/job created; runner remains idle.
