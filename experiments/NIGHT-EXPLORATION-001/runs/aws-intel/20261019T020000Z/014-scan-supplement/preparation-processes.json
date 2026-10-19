@@ -1,0 +1,110 @@
+[
+  {
+    "tag": "base-native-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-scan-supplement/base",
+      "--out",
+      "<workspace>/repo/scratch/intel-scan-supplement/base/build/supplement"
+    ],
+    "started_utc": "2026-10-19T05:20:05.597846+00:00",
+    "finished_utc": "2026-10-19T05:20:10.658696+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-san-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-scan-supplement/base",
+      "--out",
+      "<workspace>/repo/scratch/intel-scan-supplement/base/build/supplement-san",
+      "--sanitize"
+    ],
+    "started_utc": "2026-10-19T05:20:10.658873+00:00",
+    "finished_utc": "2026-10-19T05:20:17.760960+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "base-validate",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/validate.py",
+      "--native",
+      "<workspace>/repo/scratch/intel-scan-supplement/base/build/supplement",
+      "--sanitize",
+      "<workspace>/repo/scratch/intel-scan-supplement/base/build/supplement-san",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/validation-base",
+      "--seconds",
+      "587"
+    ],
+    "started_utc": "2026-10-19T05:20:17.761188+00:00",
+    "finished_utc": "2026-10-19T05:20:40.192811+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-patch",
+    "command": [
+      "patch",
+      "-d",
+      "<workspace>/repo/scratch/intel-scan-supplement/B",
+      "-p1",
+      "-i",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/007-scan-replication/variants/B/candidate.patch"
+    ],
+    "started_utc": "2026-10-19T05:20:40.284429+00:00",
+    "finished_utc": "2026-10-19T05:20:40.286837+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-native-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-scan-supplement/B",
+      "--out",
+      "<workspace>/repo/scratch/intel-scan-supplement/B/build/supplement"
+    ],
+    "started_utc": "2026-10-19T05:20:40.286966+00:00",
+    "finished_utc": "2026-10-19T05:20:45.466751+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-san-build",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/build.py",
+      "--source",
+      "<workspace>/repo/scratch/intel-scan-supplement/B",
+      "--out",
+      "<workspace>/repo/scratch/intel-scan-supplement/B/build/supplement-san",
+      "--sanitize"
+    ],
+    "started_utc": "2026-10-19T05:20:45.466993+00:00",
+    "finished_utc": "2026-10-19T05:20:52.678463+00:00",
+    "returncode": 0
+  },
+  {
+    "tag": "B-validate",
+    "command": [
+      "python3",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/referee/validate.py",
+      "--native",
+      "<workspace>/repo/scratch/intel-scan-supplement/B/build/supplement",
+      "--sanitize",
+      "<workspace>/repo/scratch/intel-scan-supplement/B/build/supplement-san",
+      "--out",
+      "<workspace>/repo/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/validation-B",
+      "--seconds",
+      "552"
+    ],
+    "started_utc": "2026-10-19T05:20:52.678715+00:00",
+    "finished_utc": "2026-10-19T05:21:15.044649+00:00",
+    "returncode": 0
+  }
+]
