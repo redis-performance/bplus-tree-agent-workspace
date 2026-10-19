@@ -1,7 +1,10 @@
-# M6 driver — lookup dual-primary REJECT; optional target next
+# M6 driver — DECODE-001 referee/profile ready
 
 Updated 2026-10-19T02:37:36.649047+00:00. Round 4 ends 02:55:27 UTC. Campaign ends **08:00 UTC / 09:00 Lisbon**;
-start no experiments after **07:15 UTC**. Source selection **NONE**; launcher hashes unchanged.
+
+Round5 resumed at 2026-10-19T02:41:29.094528+00:00; deadline03:08:25UTC; handoff by03:06:55UTC.
+Acknowledged prior final handoff publication: Published a8633cde.
+
 
 | Target | Status | M1 action / evidence |
 |---|---|---|
@@ -9,7 +12,7 @@ start no experiments after **07:15 UTC**. Source selection **NONE**; launcher ha
 | RANK-001 | REJECT / NONE | All 100K blocks regress; skip exact candidates. [Results](002-rank/RESULTS.md). |
 | UPDATE-001 | REJECT / NONE | No 100K winner; 1M repacking effects are exploratory. [Results](003-update/RESULTS.md). |
 | LOOKUP-001 | REJECT / NONE | No dual-primary winner; B at 100K is an exploratory lead. [Results](004-lookup/RESULTS.md). |
-| Optional / confirmation | NEXT | No eligible dual-primary contender; choose decoder OR iterator from profiles. |
+| DECODE-001 | RUNNING / referee ready | Count-one primary profile sufficient; three other captures insufficient. ITERATE-001 skipped. |
 
 Lookup hypothesis **M6-LOOKUP-PHYSICAL-001** decodes a known physical slot directly,
 retaining memchr. [Exact source/patch/referee/binary identity](004-lookup/comparison-freeze.json)
@@ -52,3 +55,8 @@ Concurrent M1 night counts remain separate pending reconciliation. Baseline src/
 Final checks: raw/source/referee/patch audit and whitespace checks pass. The lookup
 evidence seal covers 1098 files with a compact aggregate hash; no private paths or
 bytecode found. Last experimental child remains 02:33:28 UTC. No active experiment.
+
+DECODE-001: [plan](005-decode/PLAN.md), [diagnosis](005-decode/PROFILE.md).
+Native/sanitizer existing oracle and2080-cell extended control checks pass. Primary
+profile has28 PCs; three guard captures insufficient and preserved. Both population
+steps pending; no candidate timed. All176 materialized-output cells are frozen.
