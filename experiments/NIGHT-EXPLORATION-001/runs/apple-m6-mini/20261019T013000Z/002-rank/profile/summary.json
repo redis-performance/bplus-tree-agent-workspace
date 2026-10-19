@@ -1,0 +1,80 @@
+{
+  "scope": "diagnostic PCs in timed public rank loop, instrumented separate binary; not exact runtime fractions",
+  "requested_interval_us": 1000,
+  "accumulation_offsets_in_zbtreeRank": [
+    1564,
+    1752
+  ],
+  "already_vectorized": true,
+  "neon_add_2d_static_count": 7,
+  "calibrations": [
+    {
+      "file": "sampler-calibration-0.stderr",
+      "samples": 48,
+      "symbols": {
+        "sampler_probe": 48
+      },
+      "header": "PROFILE,sampler_probe,1000,48,0"
+    },
+    {
+      "file": "sampler-calibration-1.stderr",
+      "samples": 42,
+      "symbols": {
+        "sampler_probe": 42
+      },
+      "header": "PROFILE,sampler_probe,1000,42,0"
+    }
+  ],
+  "profiles": [
+    {
+      "size": 10000,
+      "samples": 44,
+      "symbols": {
+        "zbtreeRank": 20,
+        "_platform_memcmp": 1,
+        "sdsfree.cold.1": 2,
+        "_platform_memchr": 8,
+        "siphash": 11,
+        "zbtScoreLeafFindMember": 2
+      },
+      "accumulation_region_samples": 13,
+      "file": "public-n10000.stderr",
+      "sha256": "b2c5d5323dfe482ae85f790c4135792e5c4335bd2eb4d83ebc210b464d48d0ca"
+    },
+    {
+      "size": 100000,
+      "samples": 107,
+      "symbols": {
+        "_platform_memchr": 48,
+        "siphash": 9,
+        "zbtreeRank": 42,
+        "zbtScoreLeafFindMember": 3,
+        "_platform_memcmp": 4,
+        "sdsfree.cold.1": 1
+      },
+      "accumulation_region_samples": 35,
+      "file": "public-n100000.stderr",
+      "sha256": "cdf287782be9a55d766746733371b73c0c6e35d1d2ca64d7c9311484d2e513c2"
+    },
+    {
+      "size": 1000000,
+      "samples": 389,
+      "symbols": {
+        "_platform_memchr": 205,
+        "zbtreeRank": 119,
+        "_platform_memcmp": 12,
+        "zbtScoreLeafFindMember": 3,
+        "siphash": 6,
+        "main": 44
+      },
+      "accumulation_region_samples": 98,
+      "file": "public-n1000000.stderr",
+      "sha256": "a549f19c9595d3f726cc328df9a7e90a1a82f93083dde2edee9b0dce709444a4"
+    }
+  ],
+  "assembly_sha256": {
+    "night-rank-zbtreeRank.asm": "5a4c992fd6b13e0a040235edc0368e0f3b40ef87011d5c209e9f46bf280da36e",
+    "night-rank-profile-zbtreeRank.asm": "a52406215e024d768d6153284a9bef2edea83af91bffb245ed71d8eef268f8af",
+    "accumulation-zbtreeRank.asm": "2d0c858f1aade58664a71ff37885493d49a6488d37b12d951088892040b12390"
+  }
+}

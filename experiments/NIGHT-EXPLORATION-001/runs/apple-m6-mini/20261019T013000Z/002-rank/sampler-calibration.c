@@ -1,6 +1,7 @@
 #define _DARWIN_C_SOURCE 1
 #include "server.h"
 #include <inttypes.h>
+#include <string.h>
 #include "night-rank-sampler.h"
 __attribute__((noinline)) uint64_t sampler_probe(uint64_t n) {
     volatile uint64_t x = 1;

@@ -59,14 +59,15 @@ def prepare():
 def profile():
     p=OUT/'profile';p.mkdir(exist_ok=True)
     # One external attach attempt. Raw diagnostics may contain private process paths.
-    scratch=Path('scratch/m6-rank/external-sample');scratch.mkdir(exist_ok=True)
-    with (scratch/'bench.csv').open('w') as f:
-        child=subprocess.Popen([str(x) for x in args(BIN,n=100000,ops=30000000)],stdout=f,stderr=subprocess.PIPE,text=True)
-        result=subprocess.run(['/usr/bin/sample',str(child.pid),'1','1','-file',str(scratch/'sample.txt')],capture_output=True,text=True,timeout=15)
-        err=child.communicate(timeout=120)[1]
-        (scratch/'sample.stdout').write_text(result.stdout);(scratch/'sample.stderr').write_text(result.stderr);(scratch/'bench.stderr').write_text(err)
-        save(p/'external-profiler.json',dict(returncode=result.returncode,child_returncode=child.returncode,available=True,diagnostic_sha256=sha(scratch/'sample.stderr'),limitation='See ignored scratch/m6-rank/external-sample; external attach result recorded once. No permissions changed.'))
-    run(['clang','-std=c11','-g','-O3','-Isrc','-Icompat','-Ivendor/redis',str((OUT/'sampler-calibration.c').relative_to(ROOT)),'compat/standalone.c','vendor/redis/siphash.c','-lm','-o',BUILD/'sampler-calibration'],'build-sampler-calibration')
+    if not (p/'external-profiler.json').exists():
+        scratch=Path('scratch/m6-rank/external-sample');scratch.mkdir(exist_ok=True)
+        with (scratch/'bench.csv').open('w') as f:
+            child=subprocess.Popen([str(x) for x in args(BIN,n=100000,ops=30000000)],stdout=f,stderr=subprocess.PIPE,text=True)
+            result=subprocess.run(['/usr/bin/sample',str(child.pid),'1','1','-file',str(scratch/'sample.txt')],capture_output=True,text=True,timeout=15)
+            err=child.communicate(timeout=120)[1]
+            (scratch/'sample.stdout').write_text(result.stdout);(scratch/'sample.stderr').write_text(result.stderr);(scratch/'bench.stderr').write_text(err)
+            save(p/'external-profiler.json',dict(returncode=result.returncode,child_returncode=child.returncode,available=True,diagnostic_sha256=sha(scratch/'sample.stderr'),limitation='See ignored scratch/m6-rank/external-sample; external attach result recorded once. No permissions changed.'))
+    run(['clang','-std=c11','-g','-O3','-Isrc','-Icompat','-Ivendor/redis',str((OUT/'sampler-calibration.c').relative_to(ROOT)),'compat/standalone.c','vendor/redis/siphash.c','-lm','-o',BUILD/'sampler-calibration'],'build-sampler-calibration-attempt002')
     for i in range(2):run([BUILD/'sampler-calibration'],f'sampler-calibration-{i}','profile')
     for n in SIZES:
         run(args(BUILD/'night-rank-profile',n=n,ops=10000000),f'public-n{n}','profile')
