@@ -1,3 +1,11 @@
+# Latest diagnostic update — 2026-10-19T05:37:37.354691+00:00
+
+2026-10-19T05:37:37.354691+00:00: Completed fixed019 exact-binary matched profile:12 captures/28 executions/52 commands, all controls/identity/serial checks pass. Predicate sampled period17.67%/16.87% (400/421 events), all preregistered material-support gates pass. Full-process PMU with explicit timed-call-site post-filter;17482 total samples include70 incomplete, all retained; reported loss0. No recovered gain or source adoption;017 REJECT remains final. Runner idle pending root review.
+
+[Matched profile result](019-neon-matched-profile/RESULT.md). All earlier entries below are chronological history.
+
+---
+
 # Current ARM campaign status — 2026-10-19T05:24:53.398519+00:00
 
 2026-10-19T05:24:53.398519+00:00: Corrected ARM NEON discovery complete, 144 rows/36 blocks. Primary survivors []; fixed maintenance selection NONE for further gates only. Runner idle pending root audit/explicit handoff. Source adoption NONE. Two measured ARM populations: decoder PARK plus corrected NEON REJECT; one separate iterator replication PARK. Old 8fab control failure remains final.

@@ -1,0 +1,1202 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-19T05:34:43.297851+00:00",
+  "commands": [
+    {
+      "name": "base-n100000-s1-disabled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "stat",
+        "-D",
+        "-1",
+        "-x,",
+        "-e",
+        "cycles:u",
+        "-o",
+        "<remote_repo>/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/019-neon-matched-profile/profiles/base-n100000-s1-disabled.stat",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:43.299504+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:43.845979+00:00"
+    },
+    {
+      "name": "base-n1000000-s1-disabled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "stat",
+        "-D",
+        "-1",
+        "-x,",
+        "-e",
+        "cycles:u",
+        "-o",
+        "<remote_repo>/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/019-neon-matched-profile/profiles/base-n1000000-s1-disabled.stat",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:43.846163+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:45.919698+00:00"
+    },
+    {
+      "name": "B-n100000-s1-disabled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "stat",
+        "-D",
+        "-1",
+        "-x,",
+        "-e",
+        "cycles:u",
+        "-o",
+        "<remote_repo>/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/019-neon-matched-profile/profiles/B-n100000-s1-disabled.stat",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:45.919897+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:46.786691+00:00"
+    },
+    {
+      "name": "B-n1000000-s1-disabled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "stat",
+        "-D",
+        "-1",
+        "-x,",
+        "-e",
+        "cycles:u",
+        "-o",
+        "<remote_repo>/experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/019-neon-matched-profile/profiles/B-n1000000-s1-disabled.stat",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:46.786882+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:49.221789+00:00"
+    },
+    {
+      "name": "base-n100000-s1-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:49.222023+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:49.730410+00:00"
+    },
+    {
+      "name": "base-n100000-s1-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n100000-s1.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:49.730594+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:50.279842+00:00"
+    },
+    {
+      "name": "base-n100000-s1-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s1.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:34:50.280037+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:50.314217+00:00"
+    },
+    {
+      "name": "base-n100000-s1-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s1.data"
+      ],
+      "started_utc": "2026-10-19T05:34:50.314432+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:50.343362+00:00"
+    },
+    {
+      "name": "B-n100000-s1-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:50.344651+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:51.204301+00:00"
+    },
+    {
+      "name": "B-n100000-s1-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n100000-s1.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:51.204561+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:52.105448+00:00"
+    },
+    {
+      "name": "B-n100000-s1-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s1.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:34:52.105786+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:52.143524+00:00"
+    },
+    {
+      "name": "B-n100000-s1-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s1.data"
+      ],
+      "started_utc": "2026-10-19T05:34:52.143765+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:52.175745+00:00"
+    },
+    {
+      "name": "base-n1000000-s1-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:52.177001+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:54.220274+00:00"
+    },
+    {
+      "name": "base-n1000000-s1-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n1000000-s1.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:54.220564+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:56.334660+00:00"
+    },
+    {
+      "name": "base-n1000000-s1-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s1.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:34:56.334937+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:56.386715+00:00"
+    },
+    {
+      "name": "base-n1000000-s1-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s1.data"
+      ],
+      "started_utc": "2026-10-19T05:34:56.387039+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:56.426334+00:00"
+    },
+    {
+      "name": "B-n1000000-s1-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:56.427711+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:34:58.851838+00:00"
+    },
+    {
+      "name": "B-n1000000-s1-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n1000000-s1.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1"
+      ],
+      "started_utc": "2026-10-19T05:34:58.852162+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:01.363939+00:00"
+    },
+    {
+      "name": "B-n1000000-s1-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s1.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:01.364243+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:01.419344+00:00"
+    },
+    {
+      "name": "B-n1000000-s1-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s1.data"
+      ],
+      "started_utc": "2026-10-19T05:35:01.419717+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:01.461503+00:00"
+    },
+    {
+      "name": "B-n100000-s2-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:01.462927+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:02.329337+00:00"
+    },
+    {
+      "name": "B-n100000-s2-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n100000-s2.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:02.329686+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:03.234869+00:00"
+    },
+    {
+      "name": "B-n100000-s2-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s2.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:03.235208+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:03.272432+00:00"
+    },
+    {
+      "name": "B-n100000-s2-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s2.data"
+      ],
+      "started_utc": "2026-10-19T05:35:03.272775+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:03.304770+00:00"
+    },
+    {
+      "name": "base-n100000-s2-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:03.306197+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:03.828907+00:00"
+    },
+    {
+      "name": "base-n100000-s2-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n100000-s2.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:03.829275+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:04.389116+00:00"
+    },
+    {
+      "name": "base-n100000-s2-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s2.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:04.389493+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:04.423152+00:00"
+    },
+    {
+      "name": "base-n100000-s2-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s2.data"
+      ],
+      "started_utc": "2026-10-19T05:35:04.423514+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:04.451654+00:00"
+    },
+    {
+      "name": "B-n1000000-s2-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:04.453125+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:06.882875+00:00"
+    },
+    {
+      "name": "B-n1000000-s2-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n1000000-s2.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:06.883273+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:09.379009+00:00"
+    },
+    {
+      "name": "B-n1000000-s2-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s2.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:09.379419+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:09.435537+00:00"
+    },
+    {
+      "name": "B-n1000000-s2-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s2.data"
+      ],
+      "started_utc": "2026-10-19T05:35:09.436060+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:09.479065+00:00"
+    },
+    {
+      "name": "base-n1000000-s2-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:09.480629+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:11.531899+00:00"
+    },
+    {
+      "name": "base-n1000000-s2-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n1000000-s2.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "2"
+      ],
+      "started_utc": "2026-10-19T05:35:11.532347+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:13.657858+00:00"
+    },
+    {
+      "name": "base-n1000000-s2-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s2.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:13.658287+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:13.709773+00:00"
+    },
+    {
+      "name": "base-n1000000-s2-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s2.data"
+      ],
+      "started_utc": "2026-10-19T05:35:13.710216+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:13.750261+00:00"
+    },
+    {
+      "name": "base-n100000-s3-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:13.751854+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:14.271067+00:00"
+    },
+    {
+      "name": "base-n100000-s3-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n100000-s3.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:14.271520+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:14.825415+00:00"
+    },
+    {
+      "name": "base-n100000-s3-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s3.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:14.825883+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:14.859831+00:00"
+    },
+    {
+      "name": "base-n100000-s3-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n100000-s3.data"
+      ],
+      "started_utc": "2026-10-19T05:35:14.860300+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:14.889575+00:00"
+    },
+    {
+      "name": "B-n100000-s3-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:14.891196+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:15.742923+00:00"
+    },
+    {
+      "name": "B-n100000-s3-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n100000-s3.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:15.743421+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:16.635937+00:00"
+    },
+    {
+      "name": "B-n100000-s3-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s3.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:16.636443+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:16.674075+00:00"
+    },
+    {
+      "name": "B-n100000-s3-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n100000-s3.data"
+      ],
+      "started_utc": "2026-10-19T05:35:16.674575+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:16.706480+00:00"
+    },
+    {
+      "name": "base-n1000000-s3-plain",
+      "command": [
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:16.709447+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:18.764738+00:00"
+    },
+    {
+      "name": "base-n1000000-s3-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-base-n1000000-s3.data",
+        "--",
+        "scratch/arm-corrected-scan/base/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:18.765267+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:20.893335+00:00"
+    },
+    {
+      "name": "base-n1000000-s3-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s3.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:20.893859+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:20.945978+00:00"
+    },
+    {
+      "name": "base-n1000000-s3-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-base-n1000000-s3.data"
+      ],
+      "started_utc": "2026-10-19T05:35:20.946512+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:20.985839+00:00"
+    },
+    {
+      "name": "B-n1000000-s3-plain",
+      "command": [
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:20.988462+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:23.409450+00:00"
+    },
+    {
+      "name": "B-n1000000-s3-sampled",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "record",
+        "-q",
+        "-e",
+        "cycles:u",
+        "-F997",
+        "-g",
+        "--call-graph",
+        "fp",
+        "-o",
+        "scratch/arm-neon-matched-B-n1000000-s3.data",
+        "--",
+        "scratch/arm-corrected-neon/B/build/btree-bench",
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "5000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "3"
+      ],
+      "started_utc": "2026-10-19T05:35:23.410020+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:25.912309+00:00"
+    },
+    {
+      "name": "B-n1000000-s3-samples",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "script",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s3.data",
+        "-F",
+        "ip,sym,symoff,period"
+      ],
+      "started_utc": "2026-10-19T05:35:25.912888+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:25.969336+00:00"
+    },
+    {
+      "name": "B-n1000000-s3-report",
+      "command": [
+        "/usr/lib/linux-tools/7.0.0-1011-aws/perf",
+        "report",
+        "--stdio",
+        "--no-children",
+        "--sort",
+        "symbol",
+        "-i",
+        "scratch/arm-neon-matched-B-n1000000-s3.data"
+      ],
+      "started_utc": "2026-10-19T05:35:25.970030+00:00",
+      "returncode": 0,
+      "finished_utc": "2026-10-19T05:35:26.013288+00:00"
+    }
+  ],
+  "captures": [
+    {
+      "variant": "base",
+      "size": 100000,
+      "seed": 1,
+      "raw_perf_sha256": "88ce49aa91684f165f5bd8e96025107f248ca8a2b795f75b67213acc786a812e",
+      "raw_perf_bytes": 81632,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n100000-s1.data"
+    },
+    {
+      "variant": "B",
+      "size": 100000,
+      "seed": 1,
+      "raw_perf_sha256": "91984d064be864bf708d2211bf099119ac1ec99f22c01d0b0f45d968f9bbb1ac",
+      "raw_perf_bytes": 126976,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n100000-s1.data"
+    },
+    {
+      "variant": "base",
+      "size": 1000000,
+      "seed": 1,
+      "raw_perf_sha256": "720a3f06022b98f05df8f9410ad14d5fc04db3d510d45a95beb53b2aea2dc6c8",
+      "raw_perf_bytes": 267392,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n1000000-s1.data"
+    },
+    {
+      "variant": "B",
+      "size": 1000000,
+      "seed": 1,
+      "raw_perf_sha256": "218779ee5b3da367d9390386b72c4884c3b7e8e345cd89affde27a190d7338b0",
+      "raw_perf_bytes": 317960,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n1000000-s1.data"
+    },
+    {
+      "variant": "B",
+      "size": 100000,
+      "seed": 2,
+      "raw_perf_sha256": "aa173846a8c0044ce4d5879c6878aaeb7d67c576e10932fd8c5d5cf894f21a51",
+      "raw_perf_bytes": 127744,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n100000-s2.data"
+    },
+    {
+      "variant": "base",
+      "size": 100000,
+      "seed": 2,
+      "raw_perf_sha256": "9b3ab57b2d5a70a28fe356fdb5ff92d56b359e768f7f089bc5e56cecf5156c1f",
+      "raw_perf_bytes": 83040,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n100000-s2.data"
+    },
+    {
+      "variant": "B",
+      "size": 1000000,
+      "seed": 2,
+      "raw_perf_sha256": "8268440c556db1b53ab4b4f3eafd176dc68fcb9389781b4189c13053604171d2",
+      "raw_perf_bytes": 315416,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n1000000-s2.data"
+    },
+    {
+      "variant": "base",
+      "size": 1000000,
+      "seed": 2,
+      "raw_perf_sha256": "8565873c6fce491d9d3e791024d8d24e8d28d728e6a2426b6ea6456e36ca94fa",
+      "raw_perf_bytes": 268256,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n1000000-s2.data"
+    },
+    {
+      "variant": "base",
+      "size": 100000,
+      "seed": 3,
+      "raw_perf_sha256": "63a8afa96c30d713097f0ddb2626189546425696be707300c4ad91391c87cd89",
+      "raw_perf_bytes": 82544,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n100000-s3.data"
+    },
+    {
+      "variant": "B",
+      "size": 100000,
+      "seed": 3,
+      "raw_perf_sha256": "72a5ad99d2d3de431cf793a67fac97e91d861ded094f54c82cbe7d4f33db284a",
+      "raw_perf_bytes": 126064,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n100000-s3.data"
+    },
+    {
+      "variant": "base",
+      "size": 1000000,
+      "seed": 3,
+      "raw_perf_sha256": "f6c40386888bef0ca649182306e92066f1cab141f10ea87d0678f9e40baa6526",
+      "raw_perf_bytes": 267920,
+      "raw_perf_file": "scratch/arm-neon-matched-base-n1000000-s3.data"
+    },
+    {
+      "variant": "B",
+      "size": 1000000,
+      "seed": 3,
+      "raw_perf_sha256": "1ac36e887e002a8c585140375564ea87c795f8250e14902e5a65d95386001826",
+      "raw_perf_bytes": 316304,
+      "raw_perf_file": "scratch/arm-neon-matched-B-n1000000-s3.data"
+    }
+  ],
+  "identity_before": {
+    "base": {
+      "binary_sha256": "869425ed06643058e561df05177d1b85c42c9f662c5a80654c25caca02349055",
+      "source_referee_hashes_verified": 9
+    },
+    "B": {
+      "binary_sha256": "1e58419358c1187f3fdfe99ddce3d9fa6e857f3f52ae43f61efc1b515233af0d",
+      "source_referee_hashes_verified": 15
+    }
+  },
+  "identity_after": {
+    "base": {
+      "binary_sha256": "869425ed06643058e561df05177d1b85c42c9f662c5a80654c25caca02349055",
+      "source_referee_hashes_verified": 9
+    },
+    "B": {
+      "binary_sha256": "1e58419358c1187f3fdfe99ddce3d9fa6e857f3f52ae43f61efc1b515233af0d",
+      "source_referee_hashes_verified": 15
+    }
+  },
+  "finished_utc": "2026-10-19T05:35:26.016442+00:00",
+  "elapsed_seconds": 42.71890005655587
+}
