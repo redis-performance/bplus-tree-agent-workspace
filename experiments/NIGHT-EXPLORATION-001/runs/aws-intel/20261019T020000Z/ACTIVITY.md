@@ -154,3 +154,5 @@
 2026-10-19T11:03:27.038412+00:00 Independent70103fb6a nativeAA complete:144rows/36blocks,6of6qualified,maxabsolute0.844004%,min62.675807ms,314inputs/297sealsPASS. Metadata-onlyfiles-envelope correction preservedoriginal9ba; exactrows/semantics/identities/lease/caps andretainedidle checked. No remotework; priorREJECT/sourceNONE unchanged.
 
 2026-10-19T11:09:00.252244+00:00 Independent native comparison121e9643a:144comparison+144AA rows/72blocks,902inputs integrityPASS,6qualified. Primary medians−7.774723/−7.193561%; H4forward+2.902749/+2.953008%, reverse+8.430613/+3.140979%; everyH4block>1%. ExactAA/source/memory/lease/cap/helper/prepostjoinsPASS. No causalclaim or newdecision; originalREJECT unchanged. No runnerwork.
+
+2026-10-19T11:12:31.030461+00:00 Profilec370e444f staticreview:35inputs/642commands/24syntheticchecks verified; blocker native/sanitizer parity keys omitmode,3smallfixturegroups collide underusable-size allocator. Requested mode separation and explicit--no-scale/reportingprecision. CPU-perf MCP notcallable inworker; rootsharedconsultation pending evidence. No remote/build/profile work; oldREJECT remains.
