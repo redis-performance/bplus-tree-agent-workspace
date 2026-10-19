@@ -1,0 +1,45 @@
+# Dual-frontend ARM diagnosis — concrete preregistration preparation
+
+This is one diagnostic of exact corrected baseline13e459ff8 and already rejected historical EXP005A. It neither revives that candidate nor selects a new optimization. Original027 REJECT, the historical PARK decisions and all released leases remain final. Author /root/aws_arm, native Codex; exact model, measured tokens and monetary costs unknown. Peer requirements Intel e345fa9b6 and AMD d5fc035e0 informed this preparation after separately authored source reviews.
+
+## Falsifiable question and interpretation
+
+Does the candidate's reduction in scoped retired instructions per actual visited member repeat across the primary and H4 forward/reverse frontends, despite their conflicting historical elapsed effects? Preserve EVERY direction: valid observations supporting reduction in all18 matched fixture pairs support this narrow instruction-count hypothesis; any valid non-reduction falsifies the universal claim; missing/invalid counters make it inconclusive. Hypothesis outcome is separate from integrity, scope validity and code-attribution validity. No old029 instruction-decrease filter is reused as a validity gate. Cycles, branches, misses and exclusive source-linked samples are reported for all cells, including contradictions.
+
+Even a supported instruction reduction cannot explain elapsed gain/loss by itself. No causal claim isolates checksum, score distribution, warmup, heap placement, direction or code layout. Native timing replication qualifies only each exact frontend; no pooling or old A/A transfer. Failure of a new timing gate does not discard profiles with valid physical scope, but bars a calibrated elapsed attribution. Unknowns, incomplete stacks, nonmatching instruction bytes and losses remain visible.
+
+## Exact six cells and schedules
+
+`cells.json` and `schedules.json` enumerate all commands' fixture arguments and order before measurement. Three modes—primary forward, H4 integer mask4 forward, H4 integer mask4 reverse—at100K/1M,16-byte binary members. Preserve primary50M requested/actual visits and one shuffled lookup warmup versus H4 20M and three traversal warmups/full untimed oracles. Sources, hashing, allocator, assertions and compiler flags remain unchanged.
+
+1. Native A/A:144 serial CPU2 processes, six ABBA blocks percell, seeds1601/1602/1603 twice, baseline exact actual binary in both labels.600s hard phase cap including identity/audit overhead;60s perchild. Each cell requires every absolute paired effect<=1% and every window>=10ms.
+2. Native comparison:144 exact actual baseline/A processes, same fixed cells/seeds/blocks;600s hard cap/60s child. This is replication of a rejected source, not acceptance. All qualified gains/losses and unqualified observations reported; no threshold rescues prior rejection. Separate grant after complete AA, no adaptive omissions.
+3. Matched diagnostic:1200s hard cap including every build, census, correctness/scope qualification and scientific capture,120s perchild.36 scoped cycle captures and36 separate scoped PMU runs: three modes ×two sizes ×seeds1701–1703 ×two sources. Sources alternate by declared fixture parity. Counters cycles:u,instructions:u,branches:u,branch-misses:u; positive cycles/instructions/branches, nonnegative misses,100% event runtime. No scaled/multiplexed estimate.
+
+Only a NEW reviewed operational lease/deadline may run these phases. Old10:15 lease/config is forbidden. Intended hard deadline11:45UTC, not acquired by this plan. Full phase cap+20s must fit before each separately granted phase. No retries, altered counts, new seeds, partial-row exclusion, automatic phase progression or extension. A cap failure retains its exact partial suffix as unexecuted; do not improvise a smaller study.
+
+## New instrumentation and qualification
+
+`inputs/primary-scoped.c` and `inputs/h4-scoped.c` are separate copies: only the acknowledged FIFO helper and enable/disable calls around each ORIGINAL wall-clock interval are added. Target source and the original timing referees are untouched. Primary's timed loop remains in main; H4's original traverse remains unchanged. Compile each own control/A source in isolated directories with identical relative frontend paths per frontend. All four original actual binaries are protected and never rebuilt in place.
+
+The profile phase includes THREE fixed same-fixture ABBA blocks1701/1702/1703 for each12 source/mode/size cells:144 same-original-binary A/A processes, then144 original-versus-PROFILE_DISABLE comparison processes. Both own A/A and perturbation must have all3 absolute effects<=1% and windows>=10ms to permit timing-attribution transfer. These are diagnostic controls, not acceptance. No1601 or historical qualification transfers. If a cell fails, preserve its profile but label elapsed transfer PARK; do not retry or hide it.
+
+Before any scientific capture: native original-versus-disabled parity for each36 source/mode/size/seed fixture; native/sanitizer checks on129 members/259 requested visits for both sources and both frontends/directions; unchanged original43 tests for both sources. Compare actual operations,traversals,checksum/expected checksum,owned bytes,direction/mask/encoding,warmup and construction fingerprint where that frontend provides it. Primary and H4 expected checksums are computed independently, never equated across frontends. H4 bit arithmetic uses modulo2^64; never cast negative scores to unsigned numeric values.
+
+Re-run unchanged known-work arithmetic/scope controls through the same acknowledged FIFO transport: enabled samples confined to known_work, outside_work excluded, disabled counters zero, positive counters and100% runtime. Require disabled-zero controls for EACH of four frontend/source builds. Retain independent negative checks for wrong visits/checksum, missing disable/outside inclusion and lost/unknown counter-runtime/mapping metadata. Future executable freeze must list exact native/sanitizer control commands and deliberately faulty sources separately; no weakening of original checks.
+
+## Untimed packed-leaf census
+
+Separate `inputs/census.c` includes each own exact target source in an observation-only TU; `primary-census.c`/`h4-census.c` call it outside the clock. These binaries are NEVER timing or profile binaries.48 native cells:primary/H4 ×two sources ×two sizes ×six seeds1601–1603/1701–1703. H4 forward census covers the same immutable tree used by reverse; static entry totals do not measure direction-dependent cache/path timing. Fixed small native/sanitizer cells validate census semantics before scientific use.
+
+Record leaf width/shift/reversed joint histogram, leaf occupancy, entry-weighted widths/shifts, reversed members, width0/64, byte alignment and optional ninth-byte predicates, linked transitions per traversal, exact score digest and owned bytes. Read every leaf's member IDs/lengths/binary padding and exact model score bits; require full ordered count and stable allocation bytes. Pair baseline/A census fields exactly. Census is structural availability/expected once-per-visit predicates, not dynamic PMU attribution. Never fabricate private layouts or write private state. Preserve any failed census and mark missing scope rather than infer equal packing from equal total bytes.
+
+## Exact code mapping and validity
+
+Read-only artifact retrieval has four expected ELFs with pre/post SHA256, source-linked objdump and readelf, plus local binary copies. These are actual timing artifacts, not rebuild substitutes. Map each instrumented source/frontend to BOTH its independently rebuilt original and its own actual binary; record encoded-byte matches only and retain all different/missing entries. Compare complete IteratorNext/decoder bodies and timed caller/basic blocks. No symbol-offset equality across frontends or variants is an equivalence proof.
+
+Report exclusive physical-PC categories: decoder/IteratorNext ordinary path, leaf transition/start, primary numeric consumer, H4 bit consumer/traverse, other caller, library/scope boundary, unknown. Inline frames are annotations, not additional exclusive cost. Source-linked caller blocks must show branch targets/calls, moves/loads/conversion, checksum dependencies, spills and alignment; unmatched caller bytes remain unmatched. Preserve full sample/period denominators and lost-event warnings. Zero known/scientific losses and unambiguous scope are necessary for validated profile claims; any missing actual tree match or caller attribution limit is explicit. Scope transport near-boundary work stays visible.
+
+## Preparation versus execution
+
+This commit freezes the concrete plan, input copies, fixed fixture schedules and read-only static evidence for review. It is NOT an execution freeze or a request to run immediately. Exact command inventory, complete producer/independent auditors, fault sources, live build hashes and new operational lease binding remain required before explicit root phase grants. No new optimization proposal is authorized before relevant profile evidence.
