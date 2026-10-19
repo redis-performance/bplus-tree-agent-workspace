@@ -32,3 +32,7 @@
 - 2026-10-19T03:09:08.398837+00:00: Iterator A/A completes192 processes/48blocks; only1/8 cells qualifies. Both primaries fail (100K -2.523..+1.985%;1M -3.997..+0.735%). Fixed exploratoryA/B screens remain; no noise iteration or acceptance.
 
 - 2026-10-19T03:18:30.219112+00:00: Iterator A/B screens complete, 384 processes / 96 blocks; with A/A, 576 processes / 144 blocks. Both full-output primaries improve in every exploratory block, but required controls failed. PARK, no qualified winner or adoption. A iterator24bytes, B16. Result and raw evidence published for root audit. Independent AMD implementationC published d1921d793 with local bounded correctness; no additional ARM runner load.
+
+- 2026-10-19T03:20:44.583445+00:00: Native ARM C portable fallback passes297984 common-oracle checks and43 originaltests inbothnative/sanitizer builds. Exactimmutablepatch/source verified; noperformance run. ARM runner idle again.
+
+- 2026-10-19T03:21:52.808193+00:00: Independent root iterator audit b0c5a43e2 validates576 rows/144blocks,1164 sealedfiles andlivebinaryhashes. Original sealed RESULT unchanged; additive review note published. Corrected worker ledger entries into existingexperiments/EXPERIMENTS.md andexperiments/SUMMARY.md; removed only worker-created root-level duplicates, preserving all entries. Native ARM C fallback evidence added without changing immutablepatch/provenance.

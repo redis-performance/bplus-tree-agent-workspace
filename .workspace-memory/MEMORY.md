@@ -799,3 +799,5 @@ ARM native 2026-10-19T02:51:03.361612+00:00: Decoder population PARK/NONE;2784 s
 ARM 2026-10-19T02:56:29.539054+00:00:004-update fresh diagnosisNONE after8profiles/40checks and3sequential proposals. No new measured population/candidate. Monitoring for supported cross-host contender; stop new experiments07:15UTC,deadline08:00UTC.
 
 ARM 2026-10-19T03:18:30.219112+00:00: Iterator A/B replication PARK after576 processes/144 blocks; both primary controls fail, no winner/adoption. One separate replication, new-population count stays1. Independent AMD C published d1921d793. Root raw audit pending; no active ARM workload.
+
+ARM 2026-10-19T03:21:52.808193+00:00: Root iterator audit b0c5a43e2 completed;576 rows/144blocks/1164 sealedfiles andlivehashes pass. Original seal unchanged. C nativeARM fallback correctness passes; patch/provenance immutable. No active remote job.
