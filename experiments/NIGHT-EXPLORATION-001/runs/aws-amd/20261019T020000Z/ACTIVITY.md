@@ -161,3 +161,5 @@
 - 2026-10-19T10:45:54.875592+00:00: Corrected frontend lease operations static review resolves both initial blockers: checked query assignments and exact successful inactive state before restore.11 stub cases bound to exact generated script inspected, not rerun. Lease NOT_ACQUIRED; no SSH/execution. Await concrete diagnostic freeze.
 
 - 2026-10-19T10:47:18.171927+00:00: Operations helper identity-only delta passes: actual88b is publicaf4 plus terminal LF; generatedscript changes only expectedhash, regenerated11checks bind00fa. No execution; lease NOT_ACQUIRED. ARM030 native freeze720b received for independent review.
+
+- 2026-10-19T10:52:02.354264+00:00: ARM030 native fa190bd9b independently reviewed: all15 hashes, unchanged13 inputs, schedules/oracles verified; initial3 findings closed. Native phases only subject to root grants, profile unfrozen. PriorREJECT/NONE unchanged; no runner access.
