@@ -1,0 +1,10 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -4164,6 +4164,7 @@
+         }
+     }
+ #endif
++    if (first_word) return found; /* Deliberate omitted residual. */
+     for (unsigned int w = first_word; w < words; w++) {
+         uint64_t word = zbtLeafTagWord(tags + w * 8);
+         uint64_t mask = zbtIndexTagMask(word, tag);
