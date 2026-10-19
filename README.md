@@ -263,6 +263,14 @@ EXP-008 correctness matrix also passes16,512 native/sanitizer cells.
 
 ![M6 exact decoder replications: all blocks, controls and short-window limits](experiments/NIGHT-EXPLORATION-001/latest-charts/m6-decoder-replications.png)
 
+The [corrected-adapter member-index profile](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/366431702/experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/020-member-index-profile-continuation/RESULTS.md)
+now accounts for **16 captures and 2,469 observations**, with independent raw audit:
+1,422 in program text, 1,037 in external libraries and 10 import-stub targets kept
+unknown. Scan's inlined tag-matching ranges contain 184 observations; rank already
+vectorizes its child-count reduction. These are sampled locations, not cycle costs.
+The initial metadata failure and separate repair are preserved; no capture was
+repeated. Three independent proposals now review this evidence; source remains NONE.
+
 M6 branch totals (AWS and concurrent M1 night separate): **12 populations; 0 accepted / 7 rejected / 5 parked;
 36 retained patches; 15 validated harnesses**. [Chart data and pinned reproduction](experiments/NIGHT-EXPLORATION-001/latest-charts/README.md).
 
