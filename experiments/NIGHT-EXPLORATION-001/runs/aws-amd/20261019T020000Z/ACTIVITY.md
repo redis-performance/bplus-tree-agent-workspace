@@ -41,3 +41,5 @@
 - 2026-10-19T03:34:10.300398+00:00: one predeclared matched scan diagnostic complete24captures. Instructions/branches decrease~12%, misses increase~5%, cycles improve<1%; sampled helper attribution modest. Does not validate4–5% exploratory elapsed magnitude. Diagnostic scan-slot alignment differs from timing binary; no causal explanation claimed. PARK/NONE unchanged, no additional candidate timing.
 
 - 2026-10-19T03:42:56.863072+00:00: distinct original-delete scoped profile6captures plus offset census7runsPASS.1M final conditional offset-adjust loop5.496%/101events;100K17.116% but only7events. Census average67.6offsets,~49.5% adjusted,~98.6% mixed loops; scalar conditional-store codegen observed. Common packet published before proposals; fresh fixed A/A next. No candidate/population count increment.
+
+- 2026-10-19T03:45:34.509158+00:00: independent AMD proposalc4d69f7f7 submitted without peer reads. Fixed delete A/A48processes:100Kqualifies(maxabs0.742%),1Mfails(+4.682%,+3.035%,+1.087%blocks). No retries/ops changes. Noise approaches nominal5.496% loop share; root chair may chooseNONE. Every control row retained.
