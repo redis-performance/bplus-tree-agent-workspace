@@ -1,5 +1,11 @@
 # Handoff
 
+Operator012A/A complete:384processes,117.249697soperationtimers,199.857468sphasewall.
+3/16adaptercellsqualify;zeroofeightworkloadshavebothcontrolsqualified;none short.
+Allchecks pass/allchildrenreaped. Preregistered192old/newcomparison proceeds once,
+everyeffectconditional;no treeoptimizationacceptanceorcountchange. Freeze9e2657483.
+
+
 Operator matched-adapter diagnostic checkpoint:012 final driver root and independent
 reviews PASS;18inputs/fourbinaries frozen,16semantic and sixsynthetic controls pass.
 No measured phase yet. Publish exact freeze before exclusive-runner authorization.
