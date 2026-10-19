@@ -66,3 +66,5 @@ source adoption. Host workers continue distinct profile-led directions until the
 - 2026-10-19T02:21:22.221902+00:00: aws-intel running at `bc4de81c`: five-pattern update referee validated; scoped gprof running; aws-amd running at `0eb34bbf`: packed move census complete; scoped insert/delete profiles running; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
 
 - 2026-10-19T02:22:30.367113+00:00: aws-intel running at `bc4de81c`: five-pattern update referee validated; scoped gprof running; aws-amd running at `0eb34bbf`: packed move census complete; scoped insert/delete profiles running; aws-arm running at `0ce43c0e`: count-one-decoder-candidate-validation.
+
+- 2026-10-19T02:25:45.580985+00:00: aws-intel running at `bc4de81c`: five-pattern update referee validated; scoped gprof running; aws-amd running at `0eb34bbf`: packed move census complete; scoped insert/delete profiles running; aws-arm running at `00271fef`: count-one-decoder-candidate-validation.
