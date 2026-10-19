@@ -111,3 +111,5 @@ All673 validation commands,324 calibration rows,864 AA rows and864 B rows are re
 Coverage limits remain: descending fixtures contain only64 reversed members, no active resize or wideIDs, lengths16/321 and nonnegative scores. Supplemental referee014 is separate and cannot repair original or focused control failures. Corrected adapter013 also remains a separate source baseline; every comparison here uses original8fab511e and exactSSE2B204edc2c. This B differs from separately authored ARM NEON implementationB1788f2b5.
 
 [Raw B rows](b.json), [all effects](b-audit.json), [focused post-hashes](post-b-hashes.json), [original post-hashes](original-post-b-hashes.json). No source adoption or new optimization population.
+
+Independent AMD review223d6d7de reconstructed all2,052 calibration/AA/B processes and432 ABBA effects without using this worker’s audit code. It verified the22 qualified passes,14 retained noisy controls,36 actual fixture files and24 focused+22 original post-phase hashes. See AMD022 in the same campaign. PARK/source NONE remains unchanged.
