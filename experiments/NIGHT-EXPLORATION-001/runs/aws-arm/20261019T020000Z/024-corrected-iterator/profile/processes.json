@@ -1,0 +1,1303 @@
+[
+  {
+    "name": "source-archive",
+    "command": [
+      "git",
+      "archive",
+      "--format=tar",
+      "--output",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source.tar",
+      "13e459ff8800be3f02b6b45c87dd7b0c39453fa9",
+      "src",
+      "compat",
+      "vendor/redis",
+      "tests",
+      "bench",
+      "Makefile"
+    ],
+    "started_utc": "2026-10-19T06:26:48.194147+00:00",
+    "cwd": "<checkout>",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:48.295223+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "compiler-version",
+    "command": [
+      "clang",
+      "--version"
+    ],
+    "started_utc": "2026-10-19T06:26:48.304973+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:48.320544+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original"
+    ],
+    "started_utc": "2026-10-19T06:26:48.320809+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:49.825941+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile"
+    ],
+    "started_utc": "2026-10-19T06:26:49.826284+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:51.346626+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/microbench.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/original-san"
+    ],
+    "started_utc": "2026-10-19T06:26:51.346974+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:53.353345+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-san-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "bench/profile-scoped-fifo2.c",
+      "src/zset_btree.c",
+      "compat/standalone.c",
+      "vendor/redis/siphash.c",
+      "-lm",
+      "-o",
+      "build/profile-san"
+    ],
+    "started_utc": "2026-10-19T06:26:53.353721+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:55.362351+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-control-build",
+    "command": [
+      "clang",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-fno-omit-frame-pointer",
+      "-Isrc",
+      "-Icompat",
+      "-Ivendor/redis",
+      "-O3",
+      "bench/known-control.c",
+      "-o",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:26:55.362738+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:55.425359+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original43",
+    "command": [
+      "make",
+      "CC=clang",
+      "BUILD=build/original-check",
+      "CFLAGS=-std=c11 -g -Wall -Wextra -fno-omit-frame-pointer -O3",
+      "check"
+    ],
+    "started_utc": "2026-10-19T06:26:55.425712+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:58.896207+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:26:58.902915+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:59.144563+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:26:59.144941+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:26:59.375206+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:26:59.375584+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:00.776136+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:27:00.776652+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:02.167778+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:02.168297+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:02.411573+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:02.412071+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:02.642610+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:02.643017+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:04.042648+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:04.043168+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:05.438293+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:05.438863+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:05.681766+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:05.682226+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:05.913122+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-original",
+    "command": [
+      "build/original",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:05.913579+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:07.316225+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-disabled",
+    "command": [
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:07.316800+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:08.715843+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-san-original",
+    "command": [
+      "build/original-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "started_utc": "2026-10-19T06:27:08.716435+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:08.729294+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-san-disabled",
+    "command": [
+      "build/profile-san",
+      "--case",
+      "iterate",
+      "--size",
+      "1000",
+      "--ops",
+      "2001",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "101"
+    ],
+    "started_utc": "2026-10-19T06:27:08.729779+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:08.741238+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-disabled-zero",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-disabled.stat",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:27:08.741795+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:09.003505+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-plain",
+    "command": [
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:27:09.004194+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:09.731180+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-disabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/known-disabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:27:09.731743+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": "1",
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:10.475058+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-enabled-stat",
+    "command": [
+      "<perf>",
+      "stat",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-x,",
+      "-e",
+      "cycles:u,instructions:u,branches:u,branch-misses:u",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/known-enabled.stat",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:27:10.475746+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:11.218995+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/known.data",
+      "--",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:27:11.219603+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:11.994360+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/known.data"
+    ],
+    "started_utc": "2026-10-19T06:27:11.994945+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.019797+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/known.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:12.020357+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.046719+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "known-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/known-control"
+    ],
+    "started_utc": "2026-10-19T06:27:12.051872+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.055704+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "original-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/original"
+    ],
+    "started_utc": "2026-10-19T06:27:12.056211+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.096888+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "profile-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "build/profile"
+    ],
+    "started_utc": "2026-10-19T06:27:12.098206+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.137718+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "timing-full-asm",
+    "command": [
+      "objdump",
+      "-dSl",
+      "<checkout>/scratch/adapter-worktree-13e459ff8/build/adapter-requalification/btree-bench"
+    ],
+    "started_utc": "2026-10-19T06:27:12.139025+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.178291+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:27:12.179549+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:12.463031+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data"
+    ],
+    "started_utc": "2026-10-19T06:27:12.463710+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.491490+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:12.492117+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:12.523324+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "1"
+    ],
+    "started_utc": "2026-10-19T06:27:12.523991+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:14.000385+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data"
+    ],
+    "started_utc": "2026-10-19T06:27:14.001101+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:14.029755+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s1-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s1.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:14.030403+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:14.062611+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:14.063281+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:14.346797+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data"
+    ],
+    "started_utc": "2026-10-19T06:27:14.347667+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:14.377097+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:14.377809+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:14.407369+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "2"
+    ],
+    "started_utc": "2026-10-19T06:27:14.408114+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:15.853392+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data"
+    ],
+    "started_utc": "2026-10-19T06:27:15.854200+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:15.882959+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s2-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s2.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:15.883693+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:15.914586+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "100000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:15.915349+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:16.204192+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data"
+    ],
+    "started_utc": "2026-10-19T06:27:16.205030+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:16.233242+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n100000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n100000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:16.233990+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:16.266370+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-record",
+    "command": [
+      "<perf>",
+      "record",
+      "-q",
+      "-D",
+      "-1",
+      "--control=fifo:<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo,<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo",
+      "-e",
+      "cycles:u",
+      "-F997",
+      "-g",
+      "--call-graph",
+      "fp",
+      "-o",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "--",
+      "build/profile",
+      "--case",
+      "iterate",
+      "--size",
+      "1000000",
+      "--ops",
+      "50000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "3"
+    ],
+    "started_utc": "2026-10-19T06:27:16.267154+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/control.fifo",
+      "BPLUS_PERF_ACK": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/ack.fifo"
+    },
+    "finished_utc": "2026-10-19T06:27:17.747292+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-report",
+    "command": [
+      "<perf>",
+      "report",
+      "--stdio",
+      "--no-children",
+      "--sort",
+      "symbol",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data"
+    ],
+    "started_utc": "2026-10-19T06:27:17.748186+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:17.777171+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "iterate-n1000000-s3-samples",
+    "command": [
+      "<perf>",
+      "script",
+      "-i",
+      "<checkout>/scratch/arm-corrected-iterator-13e459ff8/profile/iterate-n1000000-s3.data",
+      "-F",
+      "ip,sym,symoff,period"
+    ],
+    "started_utc": "2026-10-19T06:27:17.777958+00:00",
+    "cwd": "<checkout>/scratch/arm-corrected-iterator-13e459ff8/source",
+    "profile_env": {
+      "PROFILE_DISABLE": null,
+      "BPLUS_PERF_CTL": null,
+      "BPLUS_PERF_ACK": null
+    },
+    "finished_utc": "2026-10-19T06:27:17.809503+00:00",
+    "returncode": 0
+  }
+]
