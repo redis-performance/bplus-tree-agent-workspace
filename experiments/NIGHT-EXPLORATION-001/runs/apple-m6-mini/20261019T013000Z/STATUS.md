@@ -82,3 +82,10 @@ DECODE A/A complete:4224 serial processes,176 cells,6 ABBA blocks;
 41 cap-limited cells cannot reach50ms target; CAP-LIMIT.md records them.
 No adoption qualification from noisy/cap-limited guards. Proceed only with the
 predeclared fixed exploratory A/B/C comparisons; no noise retries or sample removal.
+
+DECODE A comparison complete:4224 rows,6 blocks×176 cells in220.80s.
+Primary median-16.914%, range-20.263..-0.192%;
+all-block2% gate=False. Guard cells with any >1% block under
+numerically qualified controls:28;21 are uncapped. Primary
+control failed; no adoption. Exact data:005-decode/comparison-A.json and phase-A-summary.json.
+Cached M1 4c48fa7e checked again; no fresh network fetch or cross-host pooling.
