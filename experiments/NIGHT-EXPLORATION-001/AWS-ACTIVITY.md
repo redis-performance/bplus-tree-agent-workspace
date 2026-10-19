@@ -51,3 +51,12 @@ This is operational preparation, not an optimization decision. Counts unchanged.
 - 2026-10-19T02:15:50.935137+00:00: aws-intel running at `b8945b4d`: lookup REJECT/NONE; preparing update-path profile; aws-amd running at `865beadd`: LOWERBOUND-001 REJECT/NONE; one scoped diagnostic pending; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
 
 - 2026-10-19T02:19:37.691308+00:00: aws-intel running at `b8945b4d`: lookup REJECT/NONE; preparing update-path profile; aws-amd running at `a97f04c0`: LOWERBOUND-001 complete; packed-score move census next; aws-arm running at `f41ae0ba`: exact-mask-selection-superseded-none; miss-profile-next.
+
+## 19 October 02:20 UTC — two independently audited AWS rejections
+
+AMD lazy lower-bound metadata decoding and Intel bounded SSE2 lookup scanners both
+failed the preregistered speed gate. Root independently audited all 144 AMD and 432
+Intel raw processes. AWS count: 2 measured populations, 0 accepted / 2 rejected /
+0 parked; ARM's corrected-profile withdrawal was unmeasured and is excluded. No
+source adoption. Host workers continue distinct profile-led directions until the
+08:00 UTC deadline. See the central AWS-DECISIONS.md ledger and retained host patches.

@@ -1122,3 +1122,13 @@ committed4e8edf65; five-host README chart now measured. Source adoption NONE and
 optimization counts unchanged. Detached CLI workers failed bwrap uid-map setup;
 original reports preserved, supervisors stopped. Native agents independently
 verified SSH and continue on host branches, no permission changes. Deadline08:00UTC.
+
+
+## 19 October 02:20 UTC — two independently audited AWS rejections
+
+AMD lazy lower-bound metadata decoding and Intel bounded SSE2 lookup scanners both
+failed the preregistered speed gate. Root independently audited all 144 AMD and 432
+Intel raw processes. AWS count: 2 measured populations, 0 accepted / 2 rejected /
+0 parked; ARM's corrected-profile withdrawal was unmeasured and is excluded. No
+source adoption. Host workers continue distinct profile-led directions until the
+08:00 UTC deadline. See the central AWS-DECISIONS.md ledger and retained host patches.

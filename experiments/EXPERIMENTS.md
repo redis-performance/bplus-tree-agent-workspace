@@ -879,3 +879,22 @@ AWS measured optimization populations: **1**; **0 accepted / 1 rejected / 0 park
 ARM withdrew one unmeasured index-mask proposal after correcting profile attribution;
 it is not counted as a completed measured population. Intel's screen is in progress.
 Historical Apple counts remain separately scoped, not silently combined with these.
+
+
+## 19 October — AWS Intel SIMD-LOOKUP-001: REJECT / NONE
+
+[Published decision](https://github.com/redis-performance/bplus-tree-agent-workspace/blob/b8945b4d/experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/002-lookup/implementation-selection.md).
+Three sequential proposal passes and three isolated bounded SSE2 tag scanners were
+measured against the frozen baseline. All three slow successful lookup in every
+primary block: median A/B/C effects are +11.870/+9.236/+10.614% at 100K and
++9.654/+8.994/+3.891% at 1M (positive means slower). Source selection **NONE**.
+
+Root independently audited 432 raw processes and 108 paired blocks, serial windows,
+CPU2 boundaries, operation counts, seeds, checksums, fixture fingerprints and owned
+memory. Native/sanitizer correctness and targeted first-match bounds checks passed.
+The 1M A/A control remains unqualified; no fresh confirmation or full adoption guards
+were needed after rejection. Instrumented whole-process gprof is not a scoped PMU
+measurement. All three losing patches remain available on the host branch.
+
+AWS completed measured populations: **2 — 0 accepted / 2 rejected / 0 parked**.
+ARM's withdrawn, unmeasured index-mask proposal is excluded from this count.
