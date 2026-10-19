@@ -53,3 +53,5 @@ Original027 preparationFAILED is preserved. Separately reviewed six-command028
 suffix plus immutable composite receipt380ef3109 closes correctness eligibility,
 without relabeling that failure or transferring night026 performance. New ARM-only
 lease remains ACTIVE until10:15UTC; original08UTC fleet release remains final.
+
+Fresh original comparison4c7668661 completes all120processes/960rows:17qualifiedguards pass; qualified100-member SCAN has a mixed+1.477795% block and remainsPARK. Eleven required controls plus11diagnostic controls remainunqualified. No all-six qualifiedguard regression found; no acceptance. Both full matrices and idleidentity proofs retained.
