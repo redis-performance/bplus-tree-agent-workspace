@@ -65,3 +65,5 @@ Prior decisions/audits unchanged; own4populations0accepted/3rejected/1parked. De
 - 2026-10-19T09:39:21.994346+00:00: Independent raw matched-profile auditor prepared for exact0a1040780 freeze, unexecuted on scientific data. Local AST/arithmetic/synthetic-parser metadata only; all104commands/scope/PMU/loss/map/final validity reconstruction ready if immutable results arrive. No profiling grant or runner access.
 
 - 2026-10-19T10:09:08.399751+00:00: Final ARM follow-up2a53fc3f3 adversarial closure supports REJECT/NONE:9qualified all-six iterator regressions,4272processes/5952rows. Profile/heldout unexecuted, source unchanged, historicalFAILED/PARK preserved. Fresh OSS restoration and empty owned work verified in immutable10:03:25–27 record; ARM continuation RELEASED.
+
+- 2026-10-19T10:36:32.802610+00:00: Independent035 two-frontend diagnostic requirements prepared from immutable sources/profile024/unexecuted029. Concrete checksum/score/warmup/allocation/caller differences identified; cause remains unmeasured. PriorREJECT/NONE preserved. No peer new analysis read, runner access, measurements or variants.
