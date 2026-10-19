@@ -1,5 +1,5 @@
 <!-- AWS-CURRENT-START -->
-## Current AWS overnight checkpoint — 19 October 05:39 UTC
+## Current AWS overnight checkpoint — 19 October 05:30 UTC
 
 Campaign active until 09:00 Lisbon / 08:00 UTC; no new experiments after 07:15 UTC.
 Main tree source remains unchanged; source adoption NONE. Eight audited measured populations: 0 accepted / 5 rejected / 3 parked. Corrected

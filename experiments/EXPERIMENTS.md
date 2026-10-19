@@ -1222,7 +1222,7 @@ errors. This is not release proof; the final live auditor remains scheduled08:00
 [Sanitized preflight](NIGHT-EXPLORATION-001/reviews/aws-release-preflight-0508.json).
 
 
-## 19 October 05:29 UTC — corrected four-host baseline charts published
+## 19 October 05:27 UTC — corrected four-host baseline charts published
 
 The corrected-adapter Intel baseline01a7b464d completes seven validation stages,
 120 processes and 960 rows. Root independently reconstructs all raw hashes, 240
@@ -1238,7 +1238,7 @@ source parity, reproduction commands and checksums are retained; the combined PN
 was visually inspected. All source adoption remains NONE.
 
 
-## 19 October 05:39 UTC — corrected ARM NEON discovery rejected
+## 19 October 05:30 UTC — corrected ARM NEON discovery rejected
 
 The actual three-proposal / three-implementation population completes all 144
 serial CPU2 rows and 36 ABBA blocks against qualified corrected-source controls.
