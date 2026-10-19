@@ -1,0 +1,12 @@
+--- a/src/zset_btree.c
++++ b/src/zset_btree.c
+@@ -1272,7 +1272,8 @@
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+-static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++static inline __attribute__((always_inline))
++int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+                                   const unsigned char *ele, size_t elelen,
+                                   double *score,
+                                   unsigned int *position)

@@ -42,3 +42,8 @@ commits/pushes; request paths[] atomically, preserve worker evidence during barr
 poll every5s at most120s, no builds/tests/profiles/timings. Read matching ack on resume.
 Keep all prior denials recorded; no Git/sysctl/profiler/network-denial retries or
 sandbox changes. Cached M1 4c48fa7e read only as context, remote current state UNKNOWN.
+
+Round 7 checkpoint publication acknowledged **f204e2fbf**, request
+`r7-operator-checkpoint-20261019T031149769253Z`, ok at03:11:54.700802UTC.
+See [acknowledgement](ROUND-007-PUBLICATION.json). Final handoff publication follows;
+read its matching acknowledgement on resume. No worker experimental children.

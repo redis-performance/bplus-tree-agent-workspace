@@ -113,3 +113,8 @@ files or running experimental children. [Checkpoint](ROUND-007-HANDOFF.json) pin
 the documents as observed; these are not frozen timing source/harness identities.
 M1 action for this new hypothesis: await published exact patches, frozen referee
 and a completed result before replication. No speed or eligibility claim exists.
+
+Round 7 checkpoint publication acknowledged **f204e2fbf**, request
+`r7-operator-checkpoint-20261019T031149769253Z`, ok at03:11:54.700802UTC.
+See [acknowledgement](ROUND-007-PUBLICATION.json). Final handoff publication follows;
+read its matching acknowledgement on resume. No worker experimental children.

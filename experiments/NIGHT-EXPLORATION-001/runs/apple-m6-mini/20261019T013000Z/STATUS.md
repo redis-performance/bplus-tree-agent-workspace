@@ -44,3 +44,8 @@ Completed branch totals unchanged: 11 populations (9 sequential + 2 historical
 multi-agent), 0 accepted / 6 rejected / 5 parked, 33 patches / 14 harnesses. In-flight
 operator implementation population and concurrent M1 night excluded. [Usage](USAGE.json)
 now records completed round 6; round 7/exact backend/currency cost remain unknown.
+
+Round 7 checkpoint publication acknowledged **f204e2fbf**, request
+`r7-operator-checkpoint-20261019T031149769253Z`, ok at03:11:54.700802UTC.
+See [acknowledgement](ROUND-007-PUBLICATION.json). Final handoff publication follows;
+read its matching acknowledgement on resume. No worker experimental children.
