@@ -1,5 +1,12 @@
 # M6 live scoreboard
 
+Operator014finalauditPASS buthardwaremetricsUNKNOWN/UNQUALIFIED. Installedcounter
+schemasabsentfromretainedTOC/registry;SummaryMetricscontainsonlyUIselectionmetadata.
+GuidedCountersroutestopped,no retry. Rootselectsdistinct016CPUProfilercapability
+hypothesis(single-targetcycle-weightrecords),samefrozenknownworkprobe;preparingonly.
+No treeoptimizationselected/sourceNONE/countsunchanged. Rootactive08UTCdeadline.
+
+
 Operator014bootstrap recordSUCCESS/metricsUNQUALIFIED:CLI0,exactknownworkchecksum,
 signpostenabled,8564574bytetrace,noprompt/authoritychange;recorderreaped/ownedtargetexit
 observed/exclusivereleasesafe. PrivateTOCexports;noobvioushardwarecountertable.

@@ -1001,3 +1001,13 @@ uses retained012old/new disassembly: Next155→114instructionlines,ScoreRaw345�
 Rank443→596. Static sizes do not establish performance. No newexperimentalchild.
 Completedcandidatecounts unchanged; stronger countercapability is preparing in014
 without record/attachments/privilegechanges.
+
+## 2026-10-19 — CPU counter capability unresolved
+
+[014 capability](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/RESULTS.md)
+records one validated own-target probe, exact checksum/signposts,8564574bytetrace,
+allcleanup/bounds and independent auditPASS. Actualhardwaremetrics remainunknown:
+installedcounter schemas are absent fromTOC/registry and existingSummaryMetrics
+hold onlyUIselectionmetadata. No new recording under this method orcountervalues
+qualified. DistinctCPUProfilercycle-weightcapability prepares in016 withsameprobe;
+not a treecandidate/population/performance result. SourceNONE/countsunchanged.

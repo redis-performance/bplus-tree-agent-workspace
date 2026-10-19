@@ -1,5 +1,16 @@
 # Experiment summary
 
+## 2026-10-19 — CPU counter capability unresolved
+
+[014 capability](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/014-counter-capability/RESULTS.md)
+records one validated own-target probe, exact checksum/signposts,8564574bytetrace,
+allcleanup/bounds and independent auditPASS. Actualhardwaremetrics remainunknown:
+installedcounter schemas are absent fromTOC/registry and existingSummaryMetrics
+hold onlyUIselectionmetadata. No new recording under this method orcountervalues
+qualified. DistinctCPUProfilercycle-weightcapability prepares in016 withsameprobe;
+not a treecandidate/population/performance result. SourceNONE/countsunchanged.
+
+
 ## 2026-10-19 — Corrected-adapter profile and static inventory
 
 [013 corrected iterator profile](NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/013-corrected-iterator-profile/RESULTS.md)

@@ -16,8 +16,7 @@ signpost-scoped aggregation remain UNQUALIFIED. No counter rows have been export
 One ALL-target State Reporting heartbeat schema also appears alongside SINGLE-target
 schemas; the declared self-launch is distinct from proof of actual data scope.
 
-Root stops here for independent result audit and structural metadata/tool-document
-interpretation. No repeated capture or additional instrument is authorized. Future
+Independent [result audit](AVAILABILITY-AUDIT.md) PASS verifies exact published/frozen identities,22commands and44rawlog hashes, seriality/bounds/cleanup, and279trace files/8564574bytes. [Structural interpretation](CAPABILITY-INTERPRETATION.md) identifies the installed Apple counters-profile/cpu-pmc-value schemas; neither is present in this trace TOC, and no PMC/cycle-weight type is exposed. [Summary discriminator](SUMMARY-DISCRIMINATOR.md) finds only UI selection metadata, not persisted metrics. Hardware availability remains UNKNOWN. Root stops this method here. No repeated capture or additional instrument is authorized. Future
 qualification needs an exact scope/unit decision and fixed controls; this single
 trace cannot qualify benchmark precision or establish a tree bottleneck/speedup.
 All original frozen inputs, reviewed revisions, launches, ACK and command/log hashes

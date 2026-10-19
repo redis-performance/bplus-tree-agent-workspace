@@ -1,4 +1,11 @@
-# Live status — round20 final handoff, 2026-10-18 UTC
+# Live status — M6 driver campaign, 2026-10-19 UTC
+
+Operator014finalauditPASS buthardwaremetricsUNKNOWN/UNQUALIFIED. Installedcounter
+schemasabsentfromretainedTOC/registry;SummaryMetricscontainsonlyUIselectionmetadata.
+GuidedCountersroutestopped,no retry. Rootselectsdistinct016CPUProfilercapability
+hypothesis(single-targetcycle-weightrecords),samefrozenknownworkprobe;preparingonly.
+No treeoptimizationselected/sourceNONE/countsunchanged. Rootactive08UTCdeadline.
+
 
 Operator014bootstrap recordSUCCESS/metricsUNQUALIFIED:CLI0,exactknownworkchecksum,
 signpostenabled,8564574bytetrace,noprompt/authoritychange;recorderreaped/ownedtargetexit
