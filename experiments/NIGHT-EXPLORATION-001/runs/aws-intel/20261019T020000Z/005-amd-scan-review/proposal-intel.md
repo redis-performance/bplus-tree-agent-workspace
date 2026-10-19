@@ -1,6 +1,6 @@
 # Independent Intel proposal: exact 16-byte all-match masks
 
-Participant: `/root/aws_intel`, native session. Exact serving backend/model and measured token/USD cost are unknown. This is one independently authored proposal, not a chair decision or candidate implementation. I read only the common packet and its linked baseline profile/census evidence, baseline source and previously known experiment decisions; I did not read AMD/ARM proposals or a chair decision.
+Participant: `/root/aws_intel`, native session. Exact serving backend/model and measured token/USD cost are unknown. This is one independently authored proposal, not a chair decision or candidate implementation. I read the common packet and its linked baseline profile/census evidence, baseline source and previously known experiment decisions; I did not read AMD/ARM proposals or a chair decision. Before the packet, root relayed AMD's tentative repeated-memchr direction and preliminary scan-profile observations. This proposal is separately authored, not blind to that prior operational context. The submitted exact-mask hypothesis is unchanged by this provenance clarification.
 
 Evidence pin: common packet commit `b1b670c0a`, AMD `008-scan-tags/COMMON-PACKET.md`; target source `8fab511e0e6ec7d4808546cd50064c6bf299e695`, `src/zset_btree.c` SHA256 `d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2`. Referee remains the original frozen `bench/microbench.c`. Measurements below belong to AMD Zen5, not Intel.
 
