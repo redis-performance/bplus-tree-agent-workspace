@@ -48,3 +48,5 @@
 2026-10-19T04:21:29.778890+00:00 Independent auditor requested explicit post-phase artifact identity. Added read-only hash utility to compare baseline/B against existing freezes after each phase, before next workload; no current B driver/schedule mutation or rebuild. Focused unexecuted validation freeze expanded to copied native/san referee inputs.
 
 2026-10-19T04:29:52.551472+00:00 Full original B guards COMPLETE120processes/960rows/240blocks in1111.54s:56/57 qualified guards pass,23 baseline-control gaps plus one mixed100/16 iteration block(+1.329%) keep24/80 unresolved. No demonstrated all-block regression; PARK/source NONE. Raw auditPASS and22 post-phase source/referee/binary hashes unchanged. Matched profilev2 next; no concurrent job.
+
+2026-10-19T04:31:43.197428+00:00 Matched profilev2 running serially after22 post-B hashes pass. Prepared separate corrected-adapter baseline13e459ff8,actual detached worktree scratch/intel-corrected-adapter and new build/corrected-adapter-intel;1M ops,1200s timing/1800s helper, queued after focused guards. Original8fab binaries/source untouched.
