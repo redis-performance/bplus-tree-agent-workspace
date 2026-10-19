@@ -1,0 +1,55 @@
+{
+  "id": "EXP-009",
+  "source_commit": "d13b3598f6e859969c764daf9982998f87233f73",
+  "scope": "fresh corrected-adapter guarded physical-slot lookup prerequisites",
+  "created_utc": "2026-10-19T08:14:00.664180+00:00",
+  "overall_stop_utc": "2026-10-19T09:44:00.664180+00:00",
+  "qualification_phase_wall_limit_seconds": 600,
+  "target_elapsed_ns": 600000000,
+  "minimum_elapsed_ns": 10000000,
+  "maximum_operations": 100000000,
+  "calibration_operations": 200000,
+  "calibration_replicates": 3,
+  "primary_sizes": [
+    100000,
+    1000000
+  ],
+  "case": "lookup-hit",
+  "member_bytes": 16,
+  "discovery_seeds": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+  ],
+  "confirmation_seeds": [
+    501,
+    502,
+    503,
+    501,
+    502,
+    503
+  ],
+  "ABBA": "ABBA",
+  "profile_operations": 10000000,
+  "profile_seeds": [
+    1
+  ],
+  "profile_minimum_samples": 25,
+  "sampler_control_replicates": 2,
+  "aa_rule": "abs(B-A)*100 <= A using integer elapsed-ns sums; identical operation counts",
+  "primary_rule": "B*100 <= A*98 in every block at both sizes, with qualified A/A",
+  "guard_rule": "B*100 <= A*101 and same memory limit, all required cases qualified",
+  "qualification_failure": "PARK; no proposals/source implementation/candidate timing; preserve entire schedule, no retry/count change",
+  "backend": "Codex/GPT-6 family; exact model/token/currency unknown",
+  "profile_usec_requested": 1000,
+  "profile_sample_cap": 65536,
+  "sampler_control_operations": 200000000,
+  "sampler_control_expected_result": 1128443088728658433,
+  "sampler_control_minimum_samples": 25,
+  "sampler_control_attribution": "All retained PCs must report sampler_probe; no filtering or retry",
+  "calibration_seed": 1,
+  "calibration_estimator": "minimum of three ns/query observations; integer ceil target_ns * operations / min(elapsed_ns)"
+}

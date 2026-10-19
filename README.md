@@ -71,7 +71,7 @@ Earlier baselines and experiment decisions retain their original adapter identit
 
 ## Active follow-up — guarded M6 lookup
 
-[EXP-009 plan and live ownership](experiments/EXP-009/STATUS.md): a new, user-authorized follow-up investigates the scoped 100K lookup lead using the current corrected baseline and a semantic dispatch condition. PREPARING; no accepted optimization. All checkpoints and evidence publish on main for cross-session coordination.
+[Shared session index](experiments/ACTIVE-SESSIONS.md) · [EXP-009 plan and live ownership](experiments/EXP-009/STATUS.md): a new, user-authorized follow-up investigates the scoped 100K lookup lead using the current corrected baseline and a semantic dispatch condition. PREPARING; no accepted optimization. All checkpoints and evidence publish on main for cross-session coordination.
 
 ## Build and test
 
