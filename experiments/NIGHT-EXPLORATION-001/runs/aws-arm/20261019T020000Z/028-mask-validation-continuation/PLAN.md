@@ -15,9 +15,10 @@ fault is invented. This does not change original027 status or mark it retrospect
 Proposed new phase: one ownedCPU2 job<=180seconds, ONLY the six never-started original
 commands2119–2124, exactargv/cwd/flags/order. remaining-commands.json carries original
 indices. It builds/runs zero-sign sanitizer, then state native and state sanitizer.
-Zero-sign expected-diagnostic metadata adds the exact copied-next assertion alongside
-the original current-item assertion; both require the intended nonzero fault exit,
-not timeout. State expectations remain identical. No build/run from1–2118 is repeated.
+Only the new zero-sign sanitizer registration recognizes the exact copied-next
+assertion, requiring the intended nonzero fault exit and not timeout. It does not
+accept the current-item assertion or an arbitrary abort. The original native
+registration and failure remain unchanged. State expectations remain identical. No build/run from1–2118 is repeated.
 
 The command cwd is the prior isolated fault snapshot, with identical relative compiler
 frontend/output paths. Only formerly nonexistent build/san/modes5 forzero-sign and
@@ -45,3 +46,7 @@ is accepted or transferred by this metadata repair. Root alone may grant this ne
 following independentfailure/continuationreview; this document grants nothing.
 
 Author/root/aws_arm, nativeCodex; exact model/token/cost unknown. StatusPROPOSED_ONLY.
+
+Independent failure review: AMD7cf304361. This revision narrows proposal7622dc4dd
+to its exact copied-next assertion; all original snapshot files, including copied
+oracles and fault C sources, remain mandatory pre/post identity checks.
