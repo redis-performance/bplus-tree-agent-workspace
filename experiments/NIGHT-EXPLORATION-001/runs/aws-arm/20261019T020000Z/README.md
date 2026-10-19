@@ -26,3 +26,5 @@ Root requested a separate [corrected ARM score-only iterator diagnosis](024-corr
 Profile-only024 completed: [immutable result](024-corrected-iterator/PROFILE-RESULT.md),51 commands/6 captures/970 samples, controls pass. No A/A/candidate yet; runner idle for independent raw review and root phase grant.
 
 024 baseline now complete: [result](024-corrected-iterator/RESULT.md),48 A/A rows/12 blocks; bothsizes qualify. SourceNONE/counts unchanged, no candidate/proposal authorized. Runner idle awaiting independent raw review/root decision.
+
+2026-10-19 07:18 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).

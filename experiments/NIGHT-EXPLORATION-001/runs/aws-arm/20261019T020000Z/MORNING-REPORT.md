@@ -139,3 +139,5 @@ controls and actual013 code mapping. Fixed50M-op A/A completes48 rows/12 blocks:
 166.240/186.780ms. No priming/calibration/retry or candidate measurement. SourceNONE,
 population counts and all prior decisions remain unchanged. Raw A/A review/root next
 step remain pending; runner is idle. LeaseACTIVE/restorationPENDING still applies.
+
+2026-10-19 07:18 UTC: exact historical EXP-005 A native replication completed48 rows/12blocks, all primaries pass (100K elapsed−7.86..−7.74%,1M−7.39..−6.96%). PARK/sourceNONE because broad guards, fresh confirmation and matched profile remain missing. Correctness570 commands and independent native static reviews pass; independent raw review pending. New-population counts unchanged2 (0accepted/1rejected/1parked); separate architecture replications now2, bothPARK. No new experiments after cutoff; ARM idle, leaseACTIVE until08UTC, restoration pending. See [result](026-exp005A-replication/RESULT.md).
