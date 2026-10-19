@@ -145,3 +145,5 @@ The overnight lease/release proof above remains final. A separate user-authorize
 2026-10-19 09:10UTC: granted original-AA120process/960row fixedphase active under600s cap. Read-only checkpoint53checked/54recorded,135.65s elapsed; no partialqualification decision. Profilefreeze0a1040780 remains preparationonly under independent review.
 
 2026-10-19T09:13:57.030804+00:00: fixed027 original-AA complete; 120processes/960rows, PARK, requiredqualified=False. SourceNONE; no automatic next phase. See027-mask-followup/ORIGINAL-AA-RESULT.md.
+
+Fresh originalcomparison granted78071092f and launching fixed120process600s.18qualified guardcells meaningful;22unqualifiedcellsdiagnostic. Requiredcontrolnoise blocks acceptance; qualifieddemonstratedloss canREJECT. NATIVE status now scopes historical08UTC proof underovernight_release_history and marks fresh10:15UTC release pending explicitly.
