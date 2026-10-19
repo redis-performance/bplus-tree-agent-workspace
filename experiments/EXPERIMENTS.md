@@ -889,3 +889,16 @@ These are exploratory baseline costs; no candidate or source adoption. Original
 four-size data preserved. README now shows the five-size chart. Shared overnight
 plan and [C benchmark review](NIGHT-EXPLORATION-001/BENCHMARK-REVIEW.md) are published;
 night campaigns remain unstarted. M6 rerun instructions preserve per-host results.
+
+
+## 2026-10-19 — M1 shared night DECODE-001 optional slot
+
+[DECODE-001](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md)
+tested three sequential isolated count-one policies under the frozen private
+score-array contract. Eight release/sanitizer self-tests and 1,040 focused
+cells pass; 6,720 serial processes / 866,880 raw rows pass independent
+archive audit. All 70 A/A cells miss the 10 ms window gate and the three
+policies have large repeated guard losses despite width-60 count-one gains.
+PARK/source NONE; no fresh confirmation or public iterator integration.
+M6 status UNKNOWN after DNS failures. Totals: nine optimization populations,
+0 accepted / 3 rejected / 6 parked; root tree unchanged.

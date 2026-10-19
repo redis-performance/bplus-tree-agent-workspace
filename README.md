@@ -8,12 +8,13 @@ The data structure runs as a standalone C program; no Redis server is needed.
 speedup, but short-range regressions still prevent adoption. No optimization has
 been merged into `src/`; experimental implementations and results live in `experiments/`.
 
-Current optimization decisions: **0 accepted / 3 rejected / 5 parked across
-8 populations**.
+Current optimization decisions: **0 accepted / 3 rejected / 6 parked across
+9 populations**.
 
 The [shared overnight exploration](experiments/NIGHT-EXPLORATION-001/README.md)
 is running on M1; its [current result and handoff](experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/STATUS.md)
-cover the five-size baseline and rejected bounded rank trial. M6 results remain separate.
+cover the five-size baseline, rank trial and parked private decoder policy trial.
+M6 results remain separate.
 The original four-size data is preserved.
 
 ## Build and test

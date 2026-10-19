@@ -1,4 +1,52 @@
-# Round 2 handoff — 2026-10-19
+# Round 3 early-stop handoff — 2026-10-19
+
+The injected round ends 02:02:30 UTC; this handoff was prepared about
+01:45 UTC, more than 90 seconds before cutoff. Runtime started 00:50:42
+UTC; injected campaign deadline remains 20:00 UTC. The first-pass queue is
+complete and no eligible candidate remains. [Early final report](MORNING-REPORT.md),
+[blocked note](BLOCKED.md), [host status](STATUS.md), and
+[DECODE-001 result](005-decode/RESULT.md) are the current documents. Do not
+restart the expired October 17 campaign.
+
+**First next action if external state changes:** check published
+`exploration/apple-m6-mini-*` branches and main, read the exact M6 status,
+decision, patch and harness hashes, then compare only matching source/patch
+locally. The last remote check at 01:43:12 UTC failed DNS resolution for
+`github.com`; M6 branch, commit and outcome are UNKNOWN. An explicit M6
+discard of a matching candidate vetoes M1 timing. No M6 numbers were pooled.
+
+DECODE-001 built isolated scratch snapshots from the launch source and frozen
+EXP-008 referee. Eight release/sanitizer self-tests, 1,040 focused cells and
+the four serial phases pass. `005-decode/AUDIT.json` reconstructs all 6,720
+processes / 866,880 rows. A/A qualifies 0/70 cells; all three variants have
+large repeated guard losses despite width-60 count-one gains. Decision
+PARK/source NONE; no fresh confirmation or public iterator work. Three
+proposal and implementation passes were sequential by one GPT-6 worker,
+not independent agents. Exact backend variant and round-3 measured token
+usage remain unknown. Prior EXP-008 whole-process samples and current
+assembly are the only decoder mechanism evidence; fresh macOS sampling was
+denied once and not retried. All three losing patches are retained.
+
+Optimization totals are now 0 accepted / 3 rejected / 6 parked across
+9 populations. The tree and header SHA256 remain
+`d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2`
+and `496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83`.
+Frozen `bench/microbench.c` remains
+`b84d81d0e39b4c7405da0bc12e4f1a14b7fd1f83a38fec595fea87ad3d9effde`.
+Current host branch HEAD at reporting is
+`4c48fa7ed2d8cf4f1144626276bfb2a602c63bf9`, published through round 2;
+round-3 evidence is uncommitted after the recorded index-lock denial. Do
+not retry denied Git writes or change permissions. The coordinator can
+verify publication when a writable Git context exists. No timing children
+remain. No source candidate was adopted.
+
+Do not repeat failed rank, update or decoder A/A schedules unchanged. A
+separate, committed and qualified precision-referee revision or a newly
+published M6 patch is needed before another useful comparison. The bounded
+extension applies only when such evidence arrives; the early stop follows
+PLAN.md's stop-early rule. No upstream PR/issue/merge action is authorized.
+
+## Prior round 2 handoff
 
 Campaign runtime started 2026-10-19 00:50:42 UTC and ends at the injected
 2026-10-19 20:00:00 UTC deadline. Round 2 ends 01:42:43 UTC; use the

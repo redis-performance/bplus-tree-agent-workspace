@@ -556,3 +556,13 @@ These are exploratory baseline costs; no candidate or source adoption. Original
 four-size data preserved. README now shows the five-size chart. Shared overnight
 plan and [C benchmark review](NIGHT-EXPLORATION-001/BENCHMARK-REVIEW.md) are published;
 night campaigns remain unstarted. M6 rerun instructions preserve per-host results.
+
+
+## 2026-10-19 — M1 shared night optional decoder decision
+
+[DECODE-001](NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md)
+PARK/source NONE after three sequential isolated implementations. All
+correctness checks and 6,720-process raw audit pass; 0/70 A/A cells qualify
+and each variant has large guard losses. No confirmation or integration.
+Current optimization totals: 0 accepted / 3 rejected / 6 parked across
+9 populations; M6 remains UNKNOWN and main tree source unchanged.

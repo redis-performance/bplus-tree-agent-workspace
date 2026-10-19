@@ -1,4 +1,29 @@
-# Apple M1 night exploration — status during round 2
+# Apple M1 night exploration — status during round 3
+
+Round 3 optional DECODE-001 is [complete](005-decode/RESULT.md): three
+sequential isolated count-one policies pass release/sanitizer self-tests and
+1,040 focused cells. Four phases ran 6,720 serial processes / 866,880 sample
+rows; the independent raw archive audit passes. All 70 same-binary A/A cells
+miss the 10 ms window gate, while each candidate has large repeated guard
+losses despite scoped width-60 count-one gains. Decision PARK, source NONE,
+no fresh confirmation or public iterator integration. Existing EXP-008
+whole-process samples and current release assembly support only a narrow
+mechanism lead; fresh macOS sampling was denied. M6 remains UNKNOWN after
+DNS failures through 01:39:28 UTC. Totals: **0 accepted / 3 rejected /
+6 parked across 9 optimization populations**. Launch tree source unchanged.
+
+The first-pass queue is closed early under the [blocked note](BLOCKED.md)
+and [early final report](MORNING-REPORT.md), written before the round cutoff.
+
+The first eight-hour queue is exhausted. No eligible contender remains for
+confirmation. Git commit provenance is pending the recorded index-lock denial;
+do not retry that denied write in this worker. Next action, if work resumes:
+read a newly published M6 decision and exact patch/harness hashes, then use
+the bounded extension only for a new profile-supported contender or a
+separately frozen precision referee. Do not rerun the failed DECODE-001
+schedule. Campaign deadline is still the injected 20:00 UTC.
+
+## Prior round 2 status
 
 Started 2026-10-19 00:50:42 UTC; campaign deadline 2026-10-19 20:00:00 UTC. Round 2 ends 01:42:43 UTC. Actual host: Apple M1 MacBook Air, eight cores (four performance/four efficiency), macOS 26.3, Apple Clang 17. Launch HEAD `77d32df82cd5da02b95c6afb6193fcf83f67223f`; full sanitized host/toolchain and source/referee hashes: `HOST-MANIFEST.json`.
 
