@@ -1,0 +1,51 @@
+{
+  "reviewer": "/root/intel_b_review",
+  "backend": "Codex",
+  "model": "unknown",
+  "token_cost": "unknown",
+  "calls": [
+    {
+      "called_at": "2026-10-20T14:05:45.218772+00:00",
+      "transport": "local stdio MCP client via isolated uv environment",
+      "tool": "library_status",
+      "arguments": {},
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "# Source library\n\nList: checkout (/home/fco/redislabs/bplus-tree-agent-workspace/scratch/cpu-performance-engineering-review, commit a5a05e6bf7c9)\n\nDaily list update: off (checkout copy)\n\n0/287 linked sources indexed; 0 passages; 0 vectors; embedder off (keyword search only).\n\nBy status: empty 1, pending 286\n\nData: /home/fco/.local/share/cpu-perf (0.3 MB); auto-index off; live reads off.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      }
+    },
+    {
+      "called_at": "2026-10-20T14:05:45.226429+00:00",
+      "transport": "local stdio MCP client via isolated uv environment",
+      "tool": "ask",
+      "arguments": {
+        "question": "For requested profile-only sweep of all pending Intel work, assess coverage of iterator baseline/exactA/B on primary and failedguards, corrected-scan baseline/exactB on100K/1M plus seven-member319byte signedzero guard, and update baseline-only same/position/nearby/distant/original paths. What prevents TMA percentages or CPU-wide sample shares from being mistaken for candidate throughput gains? Keep rejected variants rejected, no timing gate bypass, no new implementations without profile-led population. Which raw quality, workload normalization and source boundaries must be reported?",
+        "context": "Fresh Intel iterator baseline on secondary Xeon:100K L2 Frontend1.10%,BadSpec3.20%,Backend12.09%,Retiring83.61%,Memory7.80%,Core4.29%;1M Frontend.7533,Bad2.8,Backend22.3733,Retiring74.0733,Memory16.5,Core5.8733. Six10s captures,100percent scheduling and CPU2 workload accounting within.2percent, sibling under.1percent.192AA rows,46of48blocks pass;100K reverse integer guard fails-1.63percent and fraction forward-1.16percent. No candidate timings. Historical Intel iterator A/B parked,C rejected. Corrected-source scanB guard-first parked before candidate because trim7members319bytes signedzero precision failed; original-source scanB rejected qualified guard+4.93percent. Intel update NONE had25patternsizes23noisy,position1M qualifies but UpdateInPlace selfsample2percent,lookup dominates; three proposals no implementation."
+      },
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "# Evidence for: For requested profile-only sweep of all pending Intel work, assess coverage of iterator baseline/exactA/B on primary and failedguards, corrected-scan baseline/exactB on100K/1M plus seven-member319byte signedzero guard, and update baseline-only same/position/nearby/distant/original paths. What prevents TMA percentages or CPU-wide sample shares from being mistaken for candidate throughput gains? Keep rejected variants rejected, no timing gate bypass, no new implementations without profile-led population. Which raw quality, workload normalization and source boundaries must be reported?\n\nLibrary: 0/287 linked sources indexed; 0 passages; keyword only\n\n**Sources:** Not read on this machine: 12.3.3, 16.2.2, 7.2.1, 6.2.4 (why, under each entry); none of them can carry a claim in the answer.\n\nMatching parts of the list: 6.2 Top-down analysis; 12.3 Load generation and production workloads; 16.2 Parts without a public measurement\n\n\n## Your pasted output (unrecognised)\n\n- No tool output was recognised; the text was used as extra search words.\n\nSearched for: Fresh, Intel, iterator, baseline, secondary, Xeon, Frontend1.10, BadSpec3.20, Backend12.09, Retiring83.61, Memory7.80, Core4.29\n\n\n## The list's entries on this\n\n- **12.3.3** [Reconciling High Server Utilization and Sub-millisecond Quality-of-Service](https://csl.stanford.edu/~christos/publications/2014.mutilate.eurosys.pdf): Shows the tail, not throughput, caps a latency-critical server's utilisation, and how far co-located work lowers it.\n  Source text: not read yet: the library has not fetched it.\n\n- **16.2.2** [Intel Xeon 6+ Processors](https://www.intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html): The E-core-only sockets after Sierra Forest, shipped with vendor multiples footnoted off the page, pending a public run. _(promotion: a public run)_\n  Source text: not read yet: the library has not fetched it.\n\n- **7.2.1** [Intel Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html): Maps each intrinsic to its instruction and CPUID flag, with the vendor's latency and throughput per microarchitecture.\n  Source text: not read yet: the library has not fetched it.\n\n- **6.2.4** [pipeline.json (perf pmu-events, amdzen4)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/perf/pmu-events/arch/x86/amdzen4/pipeline.json): States the AMD top-down formulas in events for both levels, the metric groups perf stat runs on Zen with no vendor tool.\n  Source text: not read yet: the library has not fetched it.\n\n\n## Benchmark to reproduce\n**08-autovectorization-aliasing: Auto-vectorisation and aliasing** (machine: Apple M4 Pro) <https://github.com/usamahz/cpu-performance-engineering/tree/main/misc/benchmarks/08-autovectorization-aliasing>\nClang 17 does not give up on `a[i] = b[i] * s + c[i]` when it cannot prove the three pointers distinct: it vectorises the loop behind a runtime alias check, so `restrict` removes only the check and changes nothing the table can see (restrict / plain is 0.99 to 1.00 at every level and size), and the cost is paid when the check fails at run time, where the in-place call `a == c` runs the scalar fallback the compiler kept behind the check, 5.29 times slower in L1 and 2.64 times slower from memory at `-O2` (3.94 in L1, the vector width, with unrolling off), which `#pragma clang loop vectorize(assume_safety)` keeps on the vector loop.\n\n\n## Editorial record\n\n- **c15.1** [claim, verdict watchlist] nearly 30% of cycles: \"nearly 30% of cycles\" for the datacenter tax and \"15-30% of all pipeline slots\" for front-end stalls from https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44271.pdf: fields present: 1 CPU Intel Ivy Bridge (model not named); 2 cores about twenty thousand machines sampled per collection, whole machines; 3 SMT enabled, frequency and turbo state not stated; 5 workload live production jobs across the fleet; 6 baseline the fleet itself, no external baseline; 7 method random sampling of machines and time through Google-Wide Profiling, performance counters reduced with the top-down method. Missing: 4 compiler and flags, CPU model, frequency and turbo state. Verdict: watchlist; the entry stays for the shape of the profile, the percentages are not quoted. <https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44271.pdf>\n\n- **r16.14** [rejected, rule (rule 3)] Intel Xeon 6 Performance Index: Rule 3: the vendor's own disclosures behind its generation-on-generation percentages give CPU, cores, SMT and turbo state, workload and baseline, but not compiler flags, run count or the statistic reported, so no percentage from it can be quoted. The most complete vendor claims page found, and still short of seven. <https://edc.intel.com/content/www/us/en/products/performance/benchmarks/intel-xeon-6/>\n\n- **c16.4** [claim, verdict watchlist] up to 4x increase in throughput and 70% reduction in energy consumption compared to llama.cpp: \"up to 4x increase in throughput and 70% reduction in energy consumption compared to llama.cpp\" and \"30 tokens/s with a single core and 71 tokens/s with eight cores on M2-Ultra\" from https://arxiv.org/abs/2407.00088, repeated at https://github.com/microsoft/T-MAC: fields present: 1 CPU (Apple M2 Ultra; Cortex-A76 in a Raspberry Pi 5; Cortex-A78AE in a Jetson AGX Orin; Intel Core i5-1035G7, Ice Lake), 2 cores (one and eight for the headline, per-device counts in a table), 5 workload (BitNet-3B and low-bit Llama, sixty-four tokens generated over twenty iterations), 6 baseline (llama.cpp b2794), 7 method (ten warm-up iterations then a hundred runs, mean; energy sampled with powermetrics on the Mac). Missing: 3 frequency, turbo and SMT state, 4 compiler, flags and TVM version. Verdict: watchlist; the closest of the inference candidates to seven. <https://arxiv.org/abs/2407.00088>\n\n\n## How to answer\n\n- Attribute a claim to a source only through a passage above: cite it as [n] with its URL (and page for a PDF), and quote the words that carry the claim.\n\n- If the passages do not cover the question, say so plainly; mark what you add from your own knowledge as not from these sources, and anything from outside the list as not vetted by it.\n\n- Quote a performance number only with all seven fields (CPU model and microarchitecture, core count, frequency with turbo and SMT state, compiler and flags, workload, baseline, method).\n\n- The repository's benchmark numbers come from one Apple M4 Pro (macOS, Apple clang), not from a server part.\n\n- No source passages matched yet: 0/287 linked sources indexed; 0 passages; keyword only. Use read_source on a listed entry to read it now.\n\n- An entry marked not read has no text on this machine: offer it as further reading, but do not say what it shows or quote it.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false,
+        "resultType": "complete"
+      }
+    }
+  ]
+}

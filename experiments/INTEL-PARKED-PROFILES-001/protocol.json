@@ -1,0 +1,506 @@
+{
+  "id": "INTEL-PARKED-PROFILES-001",
+  "source_commit": "37efd287f",
+  "purpose": "Diagnostic coverage of all Intel parked families and update NONE. No timing qualification or adoption.",
+  "runner": "Intel Sapphire Rapids profiler, CPU2/NUMA0, sibling50 online; freshly checked idle",
+  "cells": [
+    {
+      "id": "iterator-100000-forward-integer-7",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "7"
+      ]
+    },
+    {
+      "id": "iterator-100000-forward-integer-4",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "4"
+      ]
+    },
+    {
+      "id": "iterator-1000000-forward-integer-7",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "7"
+      ]
+    },
+    {
+      "id": "iterator-1000000-forward-integer-4",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "4"
+      ]
+    },
+    {
+      "id": "iterator-100000-reverse-integer-7",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1",
+        "--direction",
+        "reverse",
+        "--encoding",
+        "integer",
+        "--mask",
+        "7"
+      ]
+    },
+    {
+      "id": "iterator-100000-forward-fraction-7",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "1",
+        "--direction",
+        "forward",
+        "--encoding",
+        "fraction",
+        "--mask",
+        "7"
+      ]
+    },
+    {
+      "id": "scan-100000",
+      "family": "scan",
+      "driver": "scan",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "--case",
+        "scan",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103"
+      ]
+    },
+    {
+      "id": "scan-1000000",
+      "family": "scan",
+      "driver": "scan",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103"
+      ]
+    },
+    {
+      "id": "scan-trim-319-zero",
+      "family": "scan",
+      "driver": "guard",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "run",
+        "trim",
+        "319",
+        "701",
+        "2",
+        "20000000000",
+        "0"
+      ]
+    },
+    {
+      "id": "scan-resize-319-zero",
+      "family": "scan",
+      "driver": "guard",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "run",
+        "resize",
+        "319",
+        "701",
+        "2",
+        "20000000000",
+        "0"
+      ]
+    },
+    {
+      "id": "update-100000-same",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "same"
+      ]
+    },
+    {
+      "id": "update-100000-position",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "position"
+      ]
+    },
+    {
+      "id": "update-100000-nearby",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "nearby"
+      ]
+    },
+    {
+      "id": "update-100000-distant",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "distant"
+      ]
+    },
+    {
+      "id": "update-100000-original",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "original"
+      ]
+    },
+    {
+      "id": "update-1000000-same",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "same"
+      ]
+    },
+    {
+      "id": "update-1000000-position",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "position"
+      ]
+    },
+    {
+      "id": "update-1000000-nearby",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "nearby"
+      ]
+    },
+    {
+      "id": "update-1000000-distant",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "distant"
+      ]
+    },
+    {
+      "id": "update-1000000-original",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "original"
+      ]
+    }
+  ],
+  "configurations": 36,
+  "tma": {
+    "level": 2,
+    "windows": 3,
+    "seconds": 5,
+    "interval_ms": 1000,
+    "quality": "Each window exactly5 sets of four finite slot roots in0..100, sum100+/-0.3pp, every scheduling value100percent; affinity2/alive; sibling<=1percent and CPU/workload accounting discrepancy<=1percent."
+  },
+  "l3": {
+    "windows": 1,
+    "seconds": 5,
+    "role": "Exploratory only; preserve units and scheduling; no low-coverage or mixed-denominator slot claims."
+  },
+  "counter": {
+    "seconds": 3,
+    "events": [
+      "cycles",
+      "instructions",
+      "ref-cycles",
+      "branches",
+      "branch-misses"
+    ],
+    "scope": "CPU2; do not claim per-operation values without observed completed work"
+  },
+  "sample": {
+    "seconds": 3,
+    "event": "cycles:u",
+    "frequency": 199,
+    "scope": "workload PID only; preserve lost samples, raw checksum and symbol/DSO report"
+  },
+  "ordering": "Per cell alternate base/candidate starting order by cell index; no overlap. Within config L2x3,L3,counters,samples. No statistical speed comparison.",
+  "readiness": "SIGSTOP after construction/oracle/warmup and before work. Resume immediately before capture. Long workload terminated afterward; end-oracle uncollected. Completed native/sanitizer checks separately.",
+  "failure_policy": "Retain every failure. Invalid profile quality means unavailable for that capture, not rerun. Process/semantic/affinity failure aborts remaining captures for config; continue others. Stop entire job if isolation fails.",
+  "runtime_seconds": 2400,
+  "recovery_seconds": 2700,
+  "adoption": "NONE",
+  "known_limits": [
+    "CPU-wide TMA scope; coarse jiffy accounting",
+    "Different profiler host cannot explain prior secondary-host noise causally",
+    "Update state evolves during long windows; report phase/window order, no per-op or steady-state assumption",
+    "Diagnostic driver/hook may alter code layout; no timing transfer claim",
+    "Original rejected lookup/C/old scan remain rejected; corrected scan B is separate context"
+  ],
+  "fixture_note": "Iterator failed guards use original failing seed1; primaries/score-only seed7103. Scan trim guard uses historical701. Same source, fixture, flags per matched variant set."
+}
