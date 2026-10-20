@@ -3,7 +3,7 @@
 Use scratch/topdown-profiler-assessment/.venv/bin/python after harvest.
 No capture is dropped from coverage; qualified comparisons require all3 L2 windows.
 """
-import asyncio,collections,csv,hashlib,json,os,statistics,uuid
+import asyncio,collections,csv,hashlib,json,math,os,statistics,uuid
 from pathlib import Path
 from mcp import ClientSession,StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -25,7 +25,7 @@ def counters(tag):
  result={'metrics':metrics,'returncode':json.loads((D/(tag+'-counters.command.json')).read_text())['returncode'],'scope':json.loads((D/(tag+'-counters.scope.json')).read_text())}
  def ratio(a,b):return metrics[a]['value']/metrics[b]['value'] if a in metrics and b in metrics and metrics[b]['value'] else None
  result.update(ipc=ratio('instructions','cycles'),cycles_per_reference_cycle=ratio('cycles','ref-cycles'),branch_miss_fraction=ratio('branch-misses','branches'))
- result['qualified']=result['returncode']==0 and result['scope']['pass'] and len(metrics)==5 and all(m['scheduling_percent']==100 for m in metrics.values())
+ result['qualified']=result['returncode']==0 and result['scope']['pass'] and set(metrics)=={'cycles','instructions','ref-cycles','branches','branch-misses'} and all(math.isfinite(m['value']) and m['value']>=0 and m['scheduling_percent']==100 for m in metrics.values())
  return result
 async def main():
  source=json.loads((D/'summary.json').read_text());db=R/'scratch/intel-parked-slots.db'
@@ -50,24 +50,28 @@ async def main():
   item={'cell':record['cell'],'variant':record['variant'],'status':record['status'],'binary_sha256':record['binary_sha256'],'l2_qualified_windows':sum(c['qualified'] for c in captures),'captures':captures,'slot_metrics_all_retained_windows':metrics,'interpretation_qualified':len([c for c in captures if c['level']==2])==3 and sum(c['qualified'] for c in captures)==3}
   if (D/(tag+'-counters.scope.json')).exists():item['counters']=counters(tag)
   item['samples']={'record_returncode':record.get('sample_returncode'),'report_returncodes':record.get('sample_report_returncodes'),'raw_sha256':record.get('raw_perf_sha256'),'raw_bytes':record.get('raw_perf_bytes'),'symbols':str(Path('results')/(tag+'-symbols.stdout'))}
+  sample_scope=json.loads((D/(tag+'-samples.scope.json')).read_text())
+  item['samples']['scope']=sample_scope
+  item['samples']['qualified']=record.get('sample_returncode')==0 and record.get('sample_report_returncodes')==[0,0] and sample_scope['pass']
   configurations.append(item)
  backend.close()
- summary={'source_commit':'37efd287f','freeze_commit':'ffac784d1','collector':'topdown71dea5e;pmu-tools2026.4.7.0','classification':'diagnostic only; each mean includes all retained L2 windows; interpretation requires all3 qualify','configurations':configurations,'imports':imports}
+ summary={'source_commit':'37efd287f','freeze_commit':'ffac784d1','launcher_correction_commit':'a05b6900d','collector':'topdown71dea5e;pmu-tools2026.4.7.0','classification':'diagnostic only; each mean includes all retained L2 windows; interpretation requires all3 qualify','configurations':configurations,'imports':imports}
  (H/'analysis.json').write_text(json.dumps(summary,indent=2)+'\n')
  env=dict(os.environ,TOPDOWN_BACKEND='sqlite',TOPDOWN_DB_PATH=str(db));env.pop('TOPDOWN_DSN',None)
  command=str(R/'scratch/topdown-profiler-assessment/.venv/bin/topdown')
  async with stdio_client(StdioServerParameters(command=command,args=['mcp-serve'],env=env)) as (read,write):
   async with ClientSession(read,write) as session:
    await session.initialize();schemas={t.name:t.inputSchema for t in (await session.list_tools()).tools};calls=[]
+   qualified={(c['cell'],c['variant']) for c in configurations if c['interpretation_qualified']}
    for run in imports:
     # Every imported window is available. Query one funnel per config and matched
     # first-window pairs; report means still use all3 windows, never only this one.
-    if run['rep']!=1:continue
+    if run['rep']!=1 or (run['cell'],run['variant']) not in qualified:continue
     args={'run_id':run['run_id'],'level':2};assert 'get_funnel' in schemas
     res=await session.call_tool('get_funnel',args);calls.append({'tool':'get_funnel','arguments':args,'cell':run['cell'],'variant':run['variant'],'result':res.model_dump(mode='json',by_alias=True)})
     if run['variant']!='base':
      base=next((b for b in imports if b['cell']==run['cell'] and b['variant']=='base' and b['rep']==1),None)
-     if base:
+     if base and (base['cell'],'base') in qualified:
       args={'run_id_a':base['run_id'],'run_id_b':run['run_id']};assert 'compare_runs' in schemas
       res=await session.call_tool('compare_runs',args);calls.append({'tool':'compare_runs','arguments':args,'cell':run['cell'],'variant':run['variant'],'result':res.model_dump(mode='json',by_alias=True)})
    (H/'topdown-mcp-calls.json').write_text(json.dumps({'transport':'actual local stdio, isolated slot-only DB','tools':schemas,'calls':calls},indent=2)+'\n')

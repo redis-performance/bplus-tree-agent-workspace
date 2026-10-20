@@ -1,0 +1,175 @@
+
+Sorted summary for file /tmp/bplus-intel-parked-001/build/itA/iterator
+----------------------------------------------
+
+   15.02 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:589
+   12.11 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:358
+   10.83 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:0
+    6.86 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:509
+    6.68 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4037
+    6.51 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4032
+    6.18 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4050
+    5.78 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:331
+    5.11 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4043
+    5.06 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4048
+    4.14 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:511
+    3.74 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4070
+    3.56 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:504
+    2.24 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:515
+    0.75 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4060
+    0.57 /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4064
+ Percent |	Source code & Disassembly of /tmp/bplus-intel-parked-001/build/itA/iterator for cycles:u (538 samples, percent: global period)
+----------------------------------------------------------------------------------------------------------------------------------------------
+         : 0    0xd980 <zbtreeIteratorNext>:
+    6.51 :   d980:        pushq   %rbp // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4032
+    0.00 :   d981:        movq    %rsp, %rbp
+    0.00 :   d984:        pushq   %r14
+    0.38 :   d986:        pushq   %rbx
+    0.00 :   d987:        movq    (%rdi), %r10
+    0.00 :   d98a:        testq   %r10, %r10
+    0.00 :   d98d:        je      0xd9c9 <zbtreeIteratorNext+0x49>
+    0.00 :   d98f:        movl    0x8(%rdi), %r9d
+    0.00 :   d993:        movq    %rdx, %rax
+    6.68 :   d996:        orq     %rcx, %rax // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4037
+    0.00 :   d999:        je      0xda28 <zbtreeIteratorNext+0xa8>
+    0.00 :   d99f:        movq    0x10(%rdi), %rax
+    0.00 :   d9a3:        testq   %rax, %rax
+    0.00 :   d9a6:        jne     0xd9dd <zbtreeIteratorNext+0x5d>
+    0.00 :   d9a8:        movzbl  0x34(%r10), %eax
+   12.11 :   d9ad:        testq   %rax, %rax // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:358
+    0.00 :   d9b0:        je      0xd9d0 <zbtreeIteratorNext+0x50>
+    0.00 :   d9b2:        movzbl  0x11(%r10), %r11d
+    0.19 :   d9b7:        imull   %r11d, %eax
+    0.00 :   d9bb:        addl    $0x7, %eax
+    0.19 :   d9be:        shrl    $0x3, %eax
+    0.19 :   d9c1:        addl    $0x9, %eax
+    0.00 :   d9c4:        andl    $-0x2, %eax
+    0.00 :   d9c7:        jmp     0xd9d2 <zbtreeIteratorNext+0x52>
+    0.00 :   d9c9:        xorl    %eax, %eax
+    0.00 :   d9cb:        popq    %rbx
+    0.00 :   d9cc:        popq    %r14
+    0.00 :   d9ce:        popq    %rbp
+    0.00 :   d9cf:        retq
+    0.00 :   d9d0:        xorl    %eax, %eax
+    0.00 :   d9d2:        addq    %r10, %rax
+    0.19 :   d9d5:        addq    $0x38, %rax
+    0.19 :   d9d9:        movq    %rax, 0x10(%rdi)
+    0.19 :   d9dd:        cmpb    $0x0, 0x35(%r10)
+    0.00 :   d9e2:        movl    %r9d, %r11d
+    0.00 :   d9e5:        je      0xd9f5 <zbtreeIteratorNext+0x75>
+    0.00 :   d9e7:        movzbl  0x11(%r10), %ebx
+    0.00 :   d9ec:        movl    %r9d, %r11d
+    0.00 :   d9ef:        notl    %r11d
+    0.00 :   d9f2:        addl    %ebx, %r11d
+    0.00 :   d9f5:        movl    %r11d, %r11d
+    4.17 :   d9f8:        movzwl  (%rax,%r11,2), %eax // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4043
+    0.94 :   d9fd:        leaq    (%r10,%rax), %r11
+    0.00 :   da01:        movzbl  (%r10,%rax), %eax
+   15.02 :   da06:        cmpq    $0xfd, %rax // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:589
+    0.00 :   da0c:        ja      0xdaba <zbtreeIteratorNext+0x13a>
+    0.00 :   da12:        incq    %r11
+    0.00 :   da15:        movq    %r11, %rbx
+    0.00 :   da18:        testq   %rdx, %rdx
+    0.00 :   da1b:        je      0xda20 <zbtreeIteratorNext+0xa0>
+    0.00 :   da1d:        movq    %rbx, (%rdx)
+    5.60 :   da20:        testq   %rcx, %rcx // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:0
+    0.00 :   da23:        je      0xda28 <zbtreeIteratorNext+0xa8>
+    0.00 :   da25:        movq    %rax, (%rcx)
+    0.57 :   da28:        testq   %r8, %r8 // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4048
+    0.00 :   da2b:        je      0xdb0b <zbtreeIteratorNext+0x18b>
+    0.38 :   da31:        movzbl  0x34(%r10), %eax
+    0.00 :   da36:        movzbl  0x35(%r10), %edx
+    0.00 :   da3b:        testl   %eax, %eax
+    0.00 :   da3d:        je      0xdadf <zbtreeIteratorNext+0x15f>
+    0.00 :   da43:        movl    %r9d, %ecx
+    0.00 :   da46:        testb   %dl, %dl
+    0.00 :   da48:        je      0xda57 <zbtreeIteratorNext+0xd7>
+    0.00 :   da4a:        movzbl  0x11(%r10), %r11d
+    0.00 :   da4f:        movl    %r9d, %ecx
+    0.00 :   da52:        notl    %ecx
+    0.00 :   da54:        addl    %r11d, %ecx
+    3.56 :   da57:        movl    %ecx, %r14d // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:504
+    0.00 :   da5a:        imulq   %rax, %r14
+    0.18 :   da5e:        movq    %r14, %rbx
+    0.38 :   da61:        shrq    $0x3, %rbx
+    0.00 :   da65:        movq    0x38(%r10,%rbx), %r11
+    0.38 :   da6a:        movl    %r14d, %ecx
+    0.00 :   da6d:        andb    $0x7, %cl
+    0.00 :   da70:        shrq    %cl, %r11
+    6.86 :   da73:        andl    $0x7, %r14d // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:509
+    0.00 :   da77:        je      0xda91 <zbtreeIteratorNext+0x111>
+    0.00 :   da79:        movl    $0x40, %ecx
+    0.19 :   da7e:        subl    %r14d, %ecx
+    0.00 :   da81:        cmpl    %eax, %ecx
+    0.00 :   da83:        jae     0xda91 <zbtreeIteratorNext+0x111>
+    0.00 :   da85:        movzbl  0x40(%rbx,%r10), %ebx
+    0.00 :   da8b:        shlq    %cl, %rbx
+    0.00 :   da8e:        orq     %rbx, %r11
+    0.19 :   da91:        movq    $-0x1, %rbx
+    0.00 :   da98:        movl    %eax, %ecx
+    0.00 :   da9a:        shlq    %cl, %rbx
+    3.19 :   da9d:        movq    $-0x1, %rcx // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:511
+    0.18 :   daa4:        cmpb    $0x40, %al
+    0.95 :   daa6:        notq    %rbx
+    0.00 :   daa9:        cmovaeq %rcx, %rbx
+    0.36 :   daad:        andq    %r11, %rbx
+    0.00 :   dab0:        movzbl  0x13(%r10), %ecx
+    0.00 :   dab5:        shlq    %cl, %rbx
+    4.29 :   dab8:        jmp     0xdae1 <zbtreeIteratorNext+0x161> // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:0
+    0.00 :   daba:        cmpl    $0xfe, %eax
+    0.00 :   dabf:        jne     0xdb5f <zbtreeIteratorNext+0x1df>
+    0.00 :   dac5:        movzwl  0x1(%r11), %eax
+    0.00 :   daca:        addq    $0x3, %r11
+    0.00 :   dace:        movq    %r11, %rbx
+    0.00 :   dad1:        testq   %rdx, %rdx
+    0.00 :   dad4:        jne     0xda1d <zbtreeIteratorNext+0x9d>
+    0.00 :   dada:        jmp     0xda20 <zbtreeIteratorNext+0xa0>
+    0.00 :   dadf:        xorl    %ebx, %ebx
+    0.00 :   dae1:        movq    %rbx, %rax
+    0.93 :   dae4:        negq    %rax // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:515
+    0.00 :   dae7:        testb   %dl, %dl
+    0.00 :   dae9:        cmoveq  %rbx, %rax
+    1.32 :   daed:        addq    0x28(%r10), %rax
+    0.94 :   daf1:        movabsq $0x7fffffffffffffff, %rcx // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:0
+    2.98 :   dafb:        andq    %rax, %rcx // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:331
+    1.85 :   dafe:        testq   %rax, %rax
+    0.38 :   db01:        notq    %rax
+    0.94 :   db04:        cmovsq  %rcx, %rax
+    4.49 :   db08:        movq    %rax, (%r8) // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4048
+    6.18 :   db0b:        testl   %esi, %esi // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4050
+    0.00 :   db0d:        je      0xdb32 <zbtreeIteratorNext+0x1b2>
+    0.00 :   db0f:        testl   %r9d, %r9d
+    0.00 :   db12:        jne     0xdb2d <zbtreeIteratorNext+0x1ad>
+    0.00 :   db14:        movq    0x18(%r10), %rax
+    0.00 :   db18:        movq    %rax, (%rdi)
+    0.00 :   db1b:        movq    $0x0, 0x10(%rdi)
+    0.00 :   db23:        testq   %rax, %rax
+    0.00 :   db26:        je      0xdb55 <zbtreeIteratorNext+0x1d5>
+    0.00 :   db28:        movzbl  0x11(%rax), %r9d
+    0.00 :   db2d:        decl    %r9d
+    0.00 :   db30:        jmp     0xdb51 <zbtreeIteratorNext+0x1d1>
+    0.00 :   db32:        incl    %r9d
+    0.00 :   db35:        movzbl  0x11(%r10), %eax
+    0.75 :   db3a:        cmpl    %eax, %r9d // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4060
+    0.00 :   db3d:        jb      0xdb51 <zbtreeIteratorNext+0x1d1>
+    0.00 :   db3f:        movq    0x20(%r10), %rax
+    0.57 :   db43:        movq    %rax, (%rdi) // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4064
+    0.18 :   db46:        movq    $0x0, 0x10(%rdi)
+    0.00 :   db4e:        xorl    %r9d, %r9d
+    0.00 :   db51:        movl    %r9d, 0x8(%rdi)
+    0.19 :   db55:        movl    $0x1, %eax
+    0.38 :   db5a:        popq    %rbx
+    0.00 :   db5b:        popq    %r14
+    3.74 :   db5d:        popq    %rbp // /tmp/bplus-intel-parked-001/variants/itA/src/zset_btree.c:4070
+    0.00 :   db5e:        retq
+    0.00 :   db5f:        movq    0xd(%r11), %rbx
+    0.00 :   db63:        testq   %rbx, %rbx
+    0.00 :   db66:        je      0xdb7a <zbtreeIteratorNext+0x1fa>
+    0.00 :   db68:        movq    0x5(%r11), %rax
+    0.00 :   db6c:        testq   %rdx, %rdx
+    0.00 :   db6f:        jne     0xda1d <zbtreeIteratorNext+0x9d>
+    0.00 :   db75:        jmp     0xda20 <zbtreeIteratorNext+0xa0>
+    0.00 :   db7a:        leaq    0x8028(%rip), %rdi  # 0x15ba9
+    0.00 :   db81:        leaq    0x815a(%rip), %rdx  # 0x15ce2
+    0.00 :   db88:        movl    $0x257, %esi
+    0.00 :   db8d:        callq   0x14130 <standalone_panic>

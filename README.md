@@ -11,7 +11,7 @@ ARM 24 · Intel 5 · AMD 5. Includes 22 new populations, 5 replications and 7 qu
 
 ## What matters
 
-**Latest Intel iterator B:** 46/48 baseline controls pass; two guard failures keep it parked. Fresh TMA Memory Bound **7.8% → 16.5%** at100K→1M. [Results and pipeline trees](experiments/INTEL-ITERATOR-TMA-001/README.md) · [All TMA coverage](experiments/TMA-COVERAGE.md).
+**Latest Intel sweep:**36 configurations,32 fully qualified TMA profiles. Update lookup is the strongest new lead (**68% Memory Bound**); iterator cache retains a≈16% Memory Bound share. [Findings and next experiments](experiments/INTEL-PARKED-PROFILES-001/README.md) · [All TMA coverage](experiments/TMA-COVERAGE.md).
 
 - **ARM mask:** primary gains survived, but qualified guards regressed. [Rejected](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 - **Intel scan:** primary gains and confirmation passed; a qualified guard regressed. [Rejected replication](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).

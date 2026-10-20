@@ -1,0 +1,41 @@
+{
+  "checked_utc": "2026-10-20T14:43:00.277418+00:00",
+  "checks": {
+    "coordinator": {
+      "command": [
+        "supervisorctl",
+        "status",
+        "redis-benchmarks-spec-sc-coordinator"
+      ],
+      "returncode": 0,
+      "stdout": "redis-benchmarks-spec-sc-coordinator   RUNNING   pid 161060, uptime 0:00:34\n",
+      "stderr": ""
+    },
+    "unit": {
+      "command": [
+        "systemctl",
+        "is-active",
+        "bplus-intel-parked-003.service"
+      ],
+      "returncode": 4,
+      "stdout": "inactive\n",
+      "stderr": ""
+    },
+    "recovery_timer": {
+      "command": [
+        "systemctl",
+        "is-active",
+        "bplus-intel-parked-recovery-v2.timer"
+      ],
+      "returncode": 4,
+      "stdout": "inactive\n",
+      "stderr": ""
+    }
+  },
+  "owned_workloads": [],
+  "marker": {
+    "owner": "bplus-intel-parked-profiles",
+    "state": "RELEASED"
+  },
+  "pass": true
+}

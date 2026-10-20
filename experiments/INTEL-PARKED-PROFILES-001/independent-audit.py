@@ -1,10 +1,11 @@
 """Reconstruct profile-only evidence without modifying frozen input/results.
 
 Usage: python3 independent-audit.py RESULTS [RAW_PERF_DIRECTORY]
-Prints a JSON review. Optional raw data are read with perf script -D to inspect
+Prints a JSON review. PERF may select the exact runner-compatible decoder.
+Optional raw data are read with perf script -D to inspect
 recorded losses; missing raw data/loss information remain explicitly unknown.
 """
-import collections,csv,hashlib,json,math,re,shutil,subprocess,sys
+import collections,csv,hashlib,json,math,os,re,shutil,subprocess,sys
 from pathlib import Path
 H=Path(__file__).resolve().parent; D=Path(sys.argv[1]); RAW=Path(sys.argv[2]) if len(sys.argv)>2 else D.parent/'raw'
 V2=(D/'resume-provenance.json').exists()
@@ -57,8 +58,9 @@ def counter(tag):
    name=r[2].strip();assert name not in events,(tag,'duplicate event')
    events[name]={'value':float(r[0]) if finite(r[0]) else None,'raw_value':r[0],'runtime':r[3],'scheduling_percent':float(r[4].strip().rstrip('%')) if finite(r[4].strip().rstrip('%')) else None}
   elif r:other.append(r)
- s=scope(D/(tag+'.scope.json'));supported=set(events)==set(P['counter']['events']) and all(v['value'] is not None for v in events.values())
- return {'available':command['returncode']==0 and supported and s['pass'],'returncode':command['returncode'],'events':events,'other_rows':other,'scope':s,'all_event_scheduling_100':supported and all(v['scheduling_percent']==100 for v in events.values()),'raw_sha256':digest(path)}
+ s=scope(D/(tag+'.scope.json'));supported=set(events)==set(P['counter']['events']) and all(v['value'] is not None and v['value']>=0 for v in events.values())
+ scheduled=supported and all(v['scheduling_percent']==100 for v in events.values())
+ return {'available':command['returncode']==0 and supported and scheduled and s['pass'],'returncode':command['returncode'],'events':events,'other_rows':other,'scope':s,'all_event_scheduling_100':scheduled,'raw_sha256':digest(path)}
 def sample(tag,record):
  cmd=D/(tag+'-samples.command.json');stderr=D/(tag+'-samples.stderr');eventfile=D/(tag+'-sample-events.stdout')
  info={'command_available':cmd.exists(),'scope':scope(D/(tag+'-samples.scope.json')),'raw_perf_available':False,'recorded_losses':'unknown'}
@@ -68,7 +70,14 @@ def sample(tag,record):
    sampled=load(D/(tag+'-samples.scope.json'))['before']['proc'].split()[0]
    assert command['args'][command['args'].index('-p')+1]==sampled
  if stderr.exists():info['record_stderr']=stderr.read_text();info['record_stderr_sha256']=digest(stderr)
- if eventfile.exists():info['exported_event_lines']=sum(bool(x.strip()) for x in eventfile.read_text().splitlines());info['exported_event_sha256']=digest(eventfile)
+ if eventfile.exists():
+  lines=eventfile.read_text().splitlines();info['exported_event_lines']=sum(bool(x.strip()) for x in lines);info['exported_cycles_samples']=sum(l.lstrip().startswith('cycles:u:') for l in lines);info['exported_event_sha256']=digest(eventfile)
+ reportpath=D/(tag+'-symbols.stdout')
+ if reportpath.exists():
+  report=reportpath.read_text();lost=re.search(r'Total Lost Samples:\s*(\d+)',report);count=re.search(r'# Samples:\s*(\d+)\s+of event',report)
+  info['runner_report_lost_samples']=int(lost.group(1)) if lost else None
+  info['runner_report_sample_count']=int(count.group(1)) if count else None
+  if count and 'exported_cycles_samples' in info:info['sample_export_count_agrees']=int(count.group(1))==info['exported_cycles_samples']
  for suffix in ['symbols','sample-events']:
   path=D/(tag+'-'+suffix+'.command.json')
   if path.exists():info[suffix+'_returncode']=load(path)['returncode']
@@ -76,8 +85,10 @@ def sample(tag,record):
  if raw.exists():
   info.update(raw_perf_available=True,raw_sha256=digest(raw),raw_bytes=raw.stat().st_size)
   assert info['raw_sha256']==record['raw_perf_sha256'] and info['raw_bytes']==record['raw_perf_bytes']
-  perf=shutil.which('perf')
+  perf=os.environ.get('PERF') or shutil.which('perf')
   if perf:
+   info['decoder_name']=Path(perf).name
+   if Path(perf).is_file():info['decoder_sha256']=digest(Path(perf))
    try:
     r=subprocess.run([perf,'script','-D','-i',str(raw)],capture_output=True,text=True,timeout=30)
     lost=[l for l in r.stdout.splitlines() if 'PERF_RECORD_LOST' in l]
@@ -154,6 +165,16 @@ window_serial=all(a[1]<=b[0] for a,b in zip(windows,windows[1:]))
 comparisons=[]
 for c in P['cells']:
  cs=[x for x in configs if x['cell']==c['id']]
- comparisons.append({'cell':c['id'],'variants':[x['variant'] for x in cs],'matched_l2_available':all(x['all_l2_qualified'] for x in cs),'stateful_update_windows':c['family']=='update','timing_qualified':False})
+ base=next(x for x in cs if x['variant']=='base')
+ comparisons.append({'cell':c['id'],'variants':[x['variant'] for x in cs],'matched_l2_available':all(x['all_l2_qualified'] for x in cs),'pairs':[{'baseline':'base','candidate':x['variant'],'matched_l2_available':base['all_l2_qualified'] and x['all_l2_qualified']} for x in cs if x['variant']!='base'],'stateful_update_windows':c['family']=='update','timing_qualified':False})
 result={'reviewer':'/root/intel_b_review','scope':'independent raw reconstruction, no runner commands or measurements','launcher_correction_v2':V2,'unchanged_preparation_files_verified':preparation_copy_count,'expected_configurations':36,'records':sum(x['status']!='UNATTEMPTED' for x in configs),'all_l2_qualified_configurations':sum(x['all_l2_qualified'] for x in configs),'qualified_l2_windows':sum(cap['qualified'] for x in configs for cap in x.get('captures',[]) if cap['level']==2),'raw_semantic_configurations':len(raw_semantics),'source_driver_hashes_checked':checked_hashes,'validation_commands':len(validation),'profile_windows_serial_by_recorded_wall_clock':window_serial,'comparisons':comparisons,'configurations':configs,'automated_result':load(D/'RESULT.json') if (D/'RESULT.json').exists() else None,'source_adoption':'NONE','timing_acceptance':False,'limits':['File hashes cross-check recorded build provenance; live binaries were not independently downloaded by reviewer.','Missing raw perf data leaves loss verification unknown.','Update windows evolve in state; counts are not per-operation costs.','Each candidate/baseline comparison requires all its captures valid; unavailable captures excluded from interpretation, not silently dropped.']}
+local_binaries=[]
+for relative,expected_hash in builds.items():
+ path=RAW.parent/relative
+ if path.is_file():
+  actual=digest(path);assert actual==expected_hash,(relative,actual,expected_hash)
+  local_binaries.append({'path':relative,'sha256':actual})
+result['copied_binaries_verified']=local_binaries
+result['all_profiled_binaries_copied_and_verified']=all(x['binary_sha256'] in {b['sha256'] for b in local_binaries} for x in configs)
+result['limits'][0]='Recorded provenance cross-checked; downloaded ELF bytes independently hashed where listed. No independent remote reads by reviewer.'
 print(json.dumps(result,indent=2))

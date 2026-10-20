@@ -1,5 +1,17 @@
 # Experiment log
 
+## 20 October: all pending Intel families profiled
+
+[Diagnostic sweep](INTEL-PARKED-PROFILES-001/README.md):36 configurations,104/108
+qualified L2 windows,32 fully qualified configurations; all36 counter/sample windows
+pass their own scope gates. Four sibling-activity failures retained without retry.
+Update1M same/position≈68% Memory Bound, lookup64–69% of user-cycle samples;
+iteratorA/B memory share≈16% unchanged, scan shows speculation/frontend pressure.
+[Concrete next hypotheses](INTEL-PARKED-PROFILES-001/ASSESSMENT.md), per-build TMA trees,
+exact-ELF annotation, actual CPU-perf/topdown MCP calls and independent raw review.
+No source/timing acceptance/new population;34attempts18PARK/16REJECT/0approved,
+ARM24/Intel5/AMD5;22populations unchanged. Profiler released, OSS restored14:43UTC.
+
 ## 20 October: Intel iterator B qualification — PARK
 
 [Fresh qualification](INTEL-ITERATOR-TMA-001/README.md):192 baseline rows,46/48

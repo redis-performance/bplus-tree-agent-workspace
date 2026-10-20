@@ -1,13 +1,16 @@
 # Next steps — 20 October 2026
 
-**Intel iterator B qualification completed: PARK.** [Fresh evidence](INTEL-ITERATOR-TMA-001/README.md)
-qualifies46/48 controls and six baseline TMA captures. Diagnose100K reverse/fraction
-precision failures before another comparison; do not repeat the unchanged schedule.
-Secondary Intel released, OSS restored; no candidate work queued.
+**Intel diagnostic sweep complete:**32/36 configurations fully qualify;
+[assessment](INTEL-PARKED-PROFILES-001/ASSESSMENT.md) ranks update lookup-load attribution
+as the strongest new lead and iteratorB as the best existing parked continuation.
+Resolve four isolated TMA gaps and original timing-guard failures before acceptance
+work. Profiler released, OSS restored; no workload queued.
 
 | Order | Work | Required next evidence |
 |---|---|---|
-| 1 | Intel iterator B | Preregister frequency/residency and CPU/wall diagnostic for failed guards; require all eight controls before B timing. |
+| 1a | Intel update lookup | 1M≈68% Memory Bound; attribute dependent loads with precise sampling and actual operation/phase counts before proposing code. |
+| 1b | Intel iterator B | Leaf-transition load versus arithmetic diagnostic; CPU/wall/frequency diagnosis of failed guards; all eight controls before timing. |
+| 1c | Corrected Intel scan B | Branch/layout attribution; resolve two unavailable guard TMA baselines with a changed isolation protocol. |
 | 2 | AMD scan A | Resolve timing/profile-binary transfer and 1M control failure. Corrected B stays rejected. |
 | 3 | M1 predicate / inline search | Qualify the original adverse guards before any further candidate comparison. |
 | 4 | Bulk decoder | Validated longer-window referee plus a demonstrated public consumer; existing cutoff/count-one trials already happened. |

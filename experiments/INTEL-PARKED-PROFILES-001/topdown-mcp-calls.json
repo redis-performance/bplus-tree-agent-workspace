@@ -1,0 +1,1380 @@
+{
+  "transport": "actual local stdio, isolated slot-only DB",
+  "tools": {
+    "collect_topdown": {
+      "properties": {
+        "process_name": {
+          "title": "Process Name",
+          "type": "string"
+        },
+        "level": {
+          "default": 2,
+          "title": "Level",
+          "type": "integer"
+        },
+        "duration_seconds": {
+          "default": 30,
+          "title": "Duration Seconds",
+          "type": "integer"
+        },
+        "system_wide": {
+          "default": false,
+          "title": "System Wide",
+          "type": "boolean"
+        },
+        "labels": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Labels"
+        }
+      },
+      "required": [
+        "process_name"
+      ],
+      "title": "collect_topdownArguments",
+      "type": "object"
+    },
+    "query_bottlenecks": {
+      "properties": {
+        "process_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Process Name"
+        },
+        "labels": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Labels"
+        },
+        "last_hours": {
+          "default": 24.0,
+          "title": "Last Hours",
+          "type": "number"
+        },
+        "min_percentage": {
+          "default": 5.0,
+          "title": "Min Percentage",
+          "type": "number"
+        },
+        "top_n": {
+          "default": 10,
+          "title": "Top N",
+          "type": "integer"
+        }
+      },
+      "title": "query_bottlenecksArguments",
+      "type": "object"
+    },
+    "query_by_bottleneck": {
+      "properties": {
+        "metric_name": {
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "min_pct": {
+          "default": 5.0,
+          "title": "Min Pct",
+          "type": "number"
+        },
+        "labels": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Labels"
+        },
+        "last_hours": {
+          "default": 24.0,
+          "title": "Last Hours",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric_name"
+      ],
+      "title": "query_by_bottleneckArguments",
+      "type": "object"
+    },
+    "get_funnel": {
+      "properties": {
+        "run_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run Id"
+        },
+        "process_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Process Name"
+        },
+        "labels": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Labels"
+        },
+        "level": {
+          "default": 3,
+          "title": "Level",
+          "type": "integer"
+        }
+      },
+      "title": "get_funnelArguments",
+      "type": "object"
+    },
+    "compare_funnel": {
+      "properties": {
+        "run_id_a": {
+          "title": "Run Id A",
+          "type": "string"
+        },
+        "run_id_b": {
+          "title": "Run Id B",
+          "type": "string"
+        },
+        "label_a": {
+          "default": "Baseline",
+          "title": "Label A",
+          "type": "string"
+        },
+        "label_b": {
+          "default": "Comparison",
+          "title": "Label B",
+          "type": "string"
+        },
+        "level": {
+          "default": 2,
+          "title": "Level",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "run_id_a",
+        "run_id_b"
+      ],
+      "title": "compare_funnelArguments",
+      "type": "object"
+    },
+    "compare_runs": {
+      "properties": {
+        "run_id_a": {
+          "title": "Run Id A",
+          "type": "string"
+        },
+        "run_id_b": {
+          "title": "Run Id B",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id_a",
+        "run_id_b"
+      ],
+      "title": "compare_runsArguments",
+      "type": "object"
+    },
+    "compare_by_labels": {
+      "properties": {
+        "label_a": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Label A",
+          "type": "object"
+        },
+        "label_b": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Label B",
+          "type": "object"
+        },
+        "process_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Process Name"
+        }
+      },
+      "required": [
+        "label_a",
+        "label_b"
+      ],
+      "title": "compare_by_labelsArguments",
+      "type": "object"
+    },
+    "explain_metric": {
+      "properties": {
+        "metric_name": {
+          "title": "Metric Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metric_name"
+      ],
+      "title": "explain_metricArguments",
+      "type": "object"
+    },
+    "list_profiling_runs": {
+      "properties": {
+        "process_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Process Name"
+        },
+        "labels": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Labels"
+        },
+        "last_hours": {
+          "default": 24.0,
+          "title": "Last Hours",
+          "type": "number"
+        }
+      },
+      "title": "list_profiling_runsArguments",
+      "type": "object"
+    }
+  },
+  "calls": [
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "79b7cbde-dd3e-55eb-95c1-3b130f4530f7",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-integer-7",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 79b7cbde-dd3 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         11.3%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.2%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.1%  \u2588\u2588 \u2717\n  Bad_Speculation                        3.2%  \u2588 \u2717\n    Branch_Mispredicts                     3.1%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.0%  \u2588 \u2717\n    Fetch_Bandwidth                        0.7%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 79b7cbde-dd3 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         11.3%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.2%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.1%  \u2588\u2588 \u2717\n  Bad_Speculation                        3.2%  \u2588 \u2717\n    Branch_Mispredicts                     3.1%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.0%  \u2588 \u2717\n    Fetch_Bandwidth                        0.7%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "dade77bb-80a6-51e5-b91e-85065f994a4b",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: dade77bb-80a | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.3%\n  Wasted:                 15.7%\n\n  Retiring                              84.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.1%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             3.9%  \u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.3%  \u2588 \u2717\n    Fetch_Bandwidth                        1.6%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: dade77bb-80a | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.3%\n  Wasted:                 15.7%\n\n  Retiring                              84.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.1%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             3.9%  \u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.3%  \u2588 \u2717\n    Fetch_Bandwidth                        1.6%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "79b7cbde-dd3e-55eb-95c1-3b130f4530f7",
+        "run_id_b": "dade77bb-80a6-51e5-b91e-85065f994a4b"
+      },
+      "cell": "iterator-100000-forward-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 79b7cbde-dd3 (baseline) vs dade77bb-80a\n\nRegressions (1):\n  \u2191 Frontend_Bound: 1.0% -> 2.3% (+1.3%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 79b7cbde-dd3 (baseline) vs dade77bb-80a\n\nRegressions (1):\n  \u2191 Frontend_Bound: 1.0% -> 2.3% (+1.3%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "88a9c1a8-7fcc-58a2-9cf2-02eedbd9437b",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 88a9c1a8-7fc | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 83.7%\n  Wasted:                 16.3%\n\n  Retiring                              83.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.9%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.8%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.1%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.3%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.8%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 88a9c1a8-7fc | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 83.7%\n  Wasted:                 16.3%\n\n  Retiring                              83.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.9%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.8%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.1%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.3%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.8%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "79b7cbde-dd3e-55eb-95c1-3b130f4530f7",
+        "run_id_b": "88a9c1a8-7fcc-58a2-9cf2-02eedbd9437b"
+      },
+      "cell": "iterator-100000-forward-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 79b7cbde-dd3 (baseline) vs 88a9c1a8-7fc\n\nRegressions (3):\n  \u2191 Retiring.Light_Operations: 81.4% -> 80.2% (-1.2%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.7% -> 1.8% (+1.0%)\n  \u2191 Frontend_Bound: 1.0% -> 2.1% (+1.0%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 79b7cbde-dd3 (baseline) vs 88a9c1a8-7fc\n\nRegressions (3):\n  \u2191 Retiring.Light_Operations: 81.4% -> 80.2% (-1.2%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.7% -> 1.8% (+1.0%)\n  \u2191 Frontend_Bound: 1.0% -> 2.1% (+1.0%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "3a6346e8-980b-5a6e-87bc-abfe1abb7002",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-integer-4",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 3a6346e8-980 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 90.3%\n  Wasted:                 9.7%\n\n  Retiring                              90.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      85.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.7%  \u2588\u2588 \u2713\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.4%  \u2588 \u2717\n    Fetch_Bandwidth                        3.0%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717\n  Backend_Bound                          1.2%  \u2588 \u2717\n    Core_Bound                             1.2%  \u2588 \u2717\n    Memory_Bound                           0.0%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 3a6346e8-980 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 90.3%\n  Wasted:                 9.7%\n\n  Retiring                              90.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      85.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.7%  \u2588\u2588 \u2713\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.4%  \u2588 \u2717\n    Fetch_Bandwidth                        3.0%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717\n  Backend_Bound                          1.2%  \u2588 \u2717\n    Core_Bound                             1.2%  \u2588 \u2717\n    Memory_Bound                           0.0%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "4b600758-c6dc-5a38-8134-ba0cce713e64",
+        "run_id_b": "3a6346e8-980b-5a6e-87bc-abfe1abb7002"
+      },
+      "cell": "iterator-100000-forward-integer-4",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 4b600758-c6d (baseline) vs 3a6346e8-980\n\nRegressions (3):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 1.4% -> 3.0% (+1.6%)\n  \u2191 Retiring: 91.6% -> 90.3% (-1.3%)\n  \u2191 Frontend_Bound: 2.1% -> 3.4% (+1.2%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 4b600758-c6d (baseline) vs 3a6346e8-980\n\nRegressions (3):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 1.4% -> 3.0% (+1.6%)\n  \u2191 Retiring: 91.6% -> 90.3% (-1.3%)\n  \u2191 Frontend_Bound: 2.1% -> 3.4% (+1.2%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "4b600758-c6dc-5a38-8134-ba0cce713e64",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-integer-4",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 4b600758-c6d | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 91.6%\n  Wasted:                 8.4%\n\n  Retiring                              91.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      86.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       5.1%  \u2588\u2588 \u2713\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717\n  Backend_Bound                          1.2%  \u2588 \u2717\n    Core_Bound                             1.2%  \u2588 \u2717\n    Memory_Bound                           0.0%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 4b600758-c6d | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 91.6%\n  Wasted:                 8.4%\n\n  Retiring                              91.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      86.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       5.1%  \u2588\u2588 \u2713\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717\n  Backend_Bound                          1.2%  \u2588 \u2717\n    Core_Bound                             1.2%  \u2588 \u2717\n    Memory_Bound                           0.0%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "aad1a3b4-c4ba-5145-aea9-006facd4b6a0",
+        "level": 2
+      },
+      "cell": "iterator-1000000-forward-integer-7",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: aad1a3b4-c4b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 75.2%\n  Wasted:                 24.8%\n\n  Retiring                              75.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      72.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.7%  \u2588 \u2713\n  Backend_Bound                         21.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          15.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.3%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.8%  \u2588 \u2717\n    Branch_Mispredicts                     2.7%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         0.7%  \u2588 \u2717\n    Fetch_Bandwidth                        0.4%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: aad1a3b4-c4b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 75.2%\n  Wasted:                 24.8%\n\n  Retiring                              75.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      72.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.7%  \u2588 \u2713\n  Backend_Bound                         21.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          15.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.3%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.8%  \u2588 \u2717\n    Branch_Mispredicts                     2.7%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         0.7%  \u2588 \u2717\n    Fetch_Bandwidth                        0.4%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "cf525da9-d27b-5dd4-b16a-f64c7cb91106",
+        "level": 2
+      },
+      "cell": "iterator-1000000-forward-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: cf525da9-d27 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 74.0%\n  Wasted:                 26.0%\n\n  Retiring                              74.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      70.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         22.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          16.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.8%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.0%  \u2588 \u2717\n    Branch_Mispredicts                     2.0%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.8%  \u2588 \u2717\n    Fetch_Bandwidth                        1.5%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: cf525da9-d27 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 74.0%\n  Wasted:                 26.0%\n\n  Retiring                              74.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      70.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         22.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          16.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.8%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.0%  \u2588 \u2717\n    Branch_Mispredicts                     2.0%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.8%  \u2588 \u2717\n    Fetch_Bandwidth                        1.5%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "aad1a3b4-c4ba-5145-aea9-006facd4b6a0",
+        "run_id_b": "cf525da9-d27b-5dd4-b16a-f64c7cb91106"
+      },
+      "cell": "iterator-1000000-forward-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing aad1a3b4-c4b (baseline) vs cf525da9-d27\n\nRegressions (4):\n  \u2191 Retiring.Light_Operations: 72.4% -> 70.9% (-1.5%)\n  \u2191 Retiring: 75.2% -> 74.0% (-1.2%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.4% -> 1.5% (+1.1%)\n  \u2191 Frontend_Bound: 0.7% -> 1.8% (+1.1%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing aad1a3b4-c4b (baseline) vs cf525da9-d27\n\nRegressions (4):\n  \u2191 Retiring.Light_Operations: 72.4% -> 70.9% (-1.5%)\n  \u2191 Retiring: 75.2% -> 74.0% (-1.2%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.4% -> 1.5% (+1.1%)\n  \u2191 Frontend_Bound: 0.7% -> 1.8% (+1.1%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "f11ce30c-71ef-5779-9cac-898fcb3d8c09",
+        "level": 2
+      },
+      "cell": "iterator-1000000-forward-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: f11ce30c-71e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 74.0%\n  Wasted:                 26.0%\n\n  Retiring                              74.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      70.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         21.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          16.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.3%  \u2588\u2588 \u2717\n  Frontend_Bound                         2.4%  \u2588 \u2717\n    Fetch_Bandwidth                        2.1%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717\n  Bad_Speculation                        2.0%  \u2588 \u2717\n    Branch_Mispredicts                     2.0%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: f11ce30c-71e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 74.0%\n  Wasted:                 26.0%\n\n  Retiring                              74.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      70.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         21.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          16.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             5.3%  \u2588\u2588 \u2717\n  Frontend_Bound                         2.4%  \u2588 \u2717\n    Fetch_Bandwidth                        2.1%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717\n  Bad_Speculation                        2.0%  \u2588 \u2717\n    Branch_Mispredicts                     2.0%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "aad1a3b4-c4ba-5145-aea9-006facd4b6a0",
+        "run_id_b": "f11ce30c-71ef-5779-9cac-898fcb3d8c09"
+      },
+      "cell": "iterator-1000000-forward-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing aad1a3b4-c4b (baseline) vs f11ce30c-71e\n\nRegressions (4):\n  \u2191 Frontend_Bound: 0.7% -> 2.4% (+1.7%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.4% -> 2.1% (+1.7%)\n  \u2191 Retiring.Light_Operations: 72.4% -> 70.9% (-1.5%)\n  \u2191 Retiring: 75.2% -> 74.0% (-1.2%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing aad1a3b4-c4b (baseline) vs f11ce30c-71e\n\nRegressions (4):\n  \u2191 Frontend_Bound: 0.7% -> 2.4% (+1.7%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.4% -> 2.1% (+1.7%)\n  \u2191 Retiring.Light_Operations: 72.4% -> 70.9% (-1.5%)\n  \u2191 Retiring: 75.2% -> 74.0% (-1.2%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "bbdad8d1-ecd5-50d1-9dc8-422af8791439",
+        "level": 2
+      },
+      "cell": "iterator-1000000-forward-integer-4",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: bbdad8d1-ecd | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 79.3%\n  Wasted:                 20.7%\n\n  Retiring                              79.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      75.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Backend_Bound                         13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             2.7%  \u2588 \u2717\n  Bad_Speculation                        4.7%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.3%  \u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Frontend_Bound                         2.8%  \u2588 \u2717\n    Fetch_Bandwidth                        2.4%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: bbdad8d1-ecd | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 79.3%\n  Wasted:                 20.7%\n\n  Retiring                              79.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      75.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Backend_Bound                         13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             2.7%  \u2588 \u2717\n  Bad_Speculation                        4.7%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.3%  \u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Frontend_Bound                         2.8%  \u2588 \u2717\n    Fetch_Bandwidth                        2.4%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "17bbe336-8026-53a6-b05e-b7e3bf33412d",
+        "run_id_b": "bbdad8d1-ecd5-50d1-9dc8-422af8791439"
+      },
+      "cell": "iterator-1000000-forward-integer-4",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 17bbe336-802 (baseline) vs bbdad8d1-ecd\n\nRegressions (1):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 1.4% -> 2.4% (+1.1%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 17bbe336-802 (baseline) vs bbdad8d1-ecd\n\nRegressions (1):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 1.4% -> 2.4% (+1.1%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "17bbe336-8026-53a6-b05e-b7e3bf33412d",
+        "level": 2
+      },
+      "cell": "iterator-1000000-forward-integer-4",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 17bbe336-802 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 80.0%\n  Wasted:                 20.0%\n\n  Retiring                              80.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      75.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Backend_Bound                         13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             2.6%  \u2588 \u2717\n  Bad_Speculation                        4.7%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.7%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 17bbe336-802 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 80.0%\n  Wasted:                 20.0%\n\n  Retiring                              80.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      75.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Backend_Bound                         13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                             2.6%  \u2588 \u2717\n  Bad_Speculation                        4.7%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.7%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "73dcf7b9-3f6a-5749-9ff9-8f40c0f0f543",
+        "level": 2
+      },
+      "cell": "iterator-100000-reverse-integer-7",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 73dcf7b9-3f6 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.4%\n  Wasted:                 15.6%\n\n  Retiring                              84.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                          8.6%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.5%  \u2588\u2588 \u2717\n    Core_Bound                             3.1%  \u2588 \u2717\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Latency                          1.1%  \u2588 \u2717\n    Fetch_Bandwidth                        0.8%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 73dcf7b9-3f6 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.4%\n  Wasted:                 15.6%\n\n  Retiring                              84.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                          8.6%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.5%  \u2588\u2588 \u2717\n    Core_Bound                             3.1%  \u2588 \u2717\n  Bad_Speculation                        5.1%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     5.1%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Latency                          1.1%  \u2588 \u2717\n    Fetch_Bandwidth                        0.8%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "862a268a-6645-506e-821c-f65f859c061e",
+        "level": 2
+      },
+      "cell": "iterator-100000-reverse-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 862a268a-664 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                          9.1%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.8%  \u2588\u2588 \u2717\n    Core_Bound                             3.3%  \u2588 \u2717\n  Bad_Speculation                        4.4%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.3%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 862a268a-664 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                          9.1%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.8%  \u2588\u2588 \u2717\n    Core_Bound                             3.3%  \u2588 \u2717\n  Bad_Speculation                        4.4%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     4.3%  \u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         2.1%  \u2588 \u2717\n    Fetch_Bandwidth                        1.4%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "73dcf7b9-3f6a-5749-9ff9-8f40c0f0f543",
+        "run_id_b": "862a268a-6645-506e-821c-f65f859c061e"
+      },
+      "cell": "iterator-100000-reverse-integer-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "No significant differences found.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "No significant differences found."
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "04bec1f1-4176-52bb-8be2-f2e480452a84",
+        "level": 2
+      },
+      "cell": "iterator-100000-reverse-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 04bec1f1-417 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.1%\n  Wasted:                 15.9%\n\n  Retiring                              84.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                          8.3%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.3%  \u2588\u2588 \u2717\n    Core_Bound                             3.0%  \u2588 \u2717\n  Bad_Speculation                        4.0%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     3.9%  \u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.7%  \u2588 \u2717\n    Fetch_Bandwidth                        2.9%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 04bec1f1-417 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.1%\n  Wasted:                 15.9%\n\n  Retiring                              84.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                          8.3%  \u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.3%  \u2588\u2588 \u2717\n    Core_Bound                             3.0%  \u2588 \u2717\n  Bad_Speculation                        4.0%  \u2588\u2588 \u2717\n    Branch_Mispredicts                     3.9%  \u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.7%  \u2588 \u2717\n    Fetch_Bandwidth                        2.9%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "73dcf7b9-3f6a-5749-9ff9-8f40c0f0f543",
+        "run_id_b": "04bec1f1-4176-52bb-8be2-f2e480452a84"
+      },
+      "cell": "iterator-100000-reverse-integer-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 73dcf7b9-3f6 (baseline) vs 04bec1f1-417\n\nRegressions (2):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.8% -> 2.9% (+2.1%)\n  \u2191 Frontend_Bound: 1.9% -> 3.7% (+1.8%)\nImprovements (2):\n  \u2193 Bad_Speculation.Branch_Mispredicts: 5.1% -> 3.9% (-1.2%)\n  \u2193 Bad_Speculation: 5.1% -> 4.0% (-1.1%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 73dcf7b9-3f6 (baseline) vs 04bec1f1-417\n\nRegressions (2):\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 0.8% -> 2.9% (+2.1%)\n  \u2191 Frontend_Bound: 1.9% -> 3.7% (+1.8%)\nImprovements (2):\n  \u2193 Bad_Speculation.Branch_Mispredicts: 5.1% -> 3.9% (-1.2%)\n  \u2193 Bad_Speculation: 5.1% -> 4.0% (-1.1%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "2f17b625-9eaf-50e6-b7ea-c8c81658b79b",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-fraction-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 2f17b625-9ea | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.3%\n  Wasted:                 15.7%\n\n  Retiring                              84.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.4%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.5%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             3.9%  \u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Bandwidth                        1.6%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 2f17b625-9ea | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.3%\n  Wasted:                 15.7%\n\n  Retiring                              84.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.4%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.5%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             3.9%  \u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Bandwidth                        1.6%  \u2588 \u2717\n    Fetch_Latency                          0.4%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "c843e3e0-36ef-51d6-acbd-b5b3e94428cf",
+        "run_id_b": "2f17b625-9eaf-50e6-b7ea-c8c81658b79b"
+      },
+      "cell": "iterator-100000-forward-fraction-7",
+      "variant": "itB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "No significant differences found.",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "No significant differences found."
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "636f04f3-cb3b-5144-8fe0-c76a3182c4ba",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-fraction-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 636f04f3-cb3 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 83.7%\n  Wasted:                 16.3%\n\n  Retiring                              83.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.9%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.6%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.3%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.0%  \u2588 \u2717\n    Fetch_Bandwidth                        1.3%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 636f04f3-cb3 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 83.7%\n  Wasted:                 16.3%\n\n  Retiring                              83.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.5%  \u2588 \u2713\n  Backend_Bound                         11.9%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.6%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.3%  \u2588\u2588 \u2717\n  Bad_Speculation                        2.4%  \u2588 \u2717\n    Branch_Mispredicts                     2.4%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         2.0%  \u2588 \u2717\n    Fetch_Bandwidth                        1.3%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "c843e3e0-36ef-51d6-acbd-b5b3e94428cf",
+        "run_id_b": "636f04f3-cb3b-5144-8fe0-c76a3182c4ba"
+      },
+      "cell": "iterator-100000-forward-fraction-7",
+      "variant": "itA",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing c843e3e0-36e (baseline) vs 636f04f3-cb3\n\nRegressions (1):\n  \u2191 Retiring.Light_Operations: 81.5% -> 80.2% (-1.3%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing c843e3e0-36e (baseline) vs 636f04f3-cb3\n\nRegressions (1):\n  \u2191 Retiring.Light_Operations: 81.5% -> 80.2% (-1.3%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "c843e3e0-36ef-51d6-acbd-b5b3e94428cf",
+        "level": 2
+      },
+      "cell": "iterator-100000-forward-fraction-7",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: c843e3e0-36e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.6%\n  Wasted:                 15.4%\n\n  Retiring                              84.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.2%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.0%  \u2588 \u2717\n  Bad_Speculation                        3.2%  \u2588 \u2717\n    Branch_Mispredicts                     3.1%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.0%  \u2588 \u2717\n    Fetch_Bandwidth                        0.7%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: c843e3e0-36e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.6%\n  Wasted:                 15.4%\n\n  Retiring                              84.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      81.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       3.1%  \u2588 \u2713\n  Backend_Bound                         11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           7.2%  \u2588\u2588\u2588 \u2717\n    Core_Bound                             4.0%  \u2588 \u2717\n  Bad_Speculation                        3.2%  \u2588 \u2717\n    Branch_Mispredicts                     3.1%  \u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.0%  \u2588 \u2717\n    Fetch_Bandwidth                        0.7%  \u2588 \u2717\n    Fetch_Latency                          0.3%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "50d7f299-42fc-5a1f-9446-a923983153e6",
+        "level": 2
+      },
+      "cell": "scan-100000",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 50d7f299-42f | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 27.5%\n  Wasted:                 72.5%\n\n  Bad_Speculation                       33.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    32.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Retiring                              27.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Backend_Bound                         19.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           9.3%  \u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        19.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          8.0%  \u2588\u2588\u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 50d7f299-42f | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 27.5%\n  Wasted:                 72.5%\n\n  Bad_Speculation                       33.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    32.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Retiring                              27.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Backend_Bound                         19.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           9.3%  \u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        19.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          8.0%  \u2588\u2588\u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "943f2f71-8222-5713-a9ce-262a48e63da7",
+        "level": 2
+      },
+      "cell": "scan-100000",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 943f2f71-822 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 25.2%\n  Wasted:                 74.8%\n\n  Bad_Speculation                       32.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    32.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.6%  \u2588 \u2717\n  Retiring                              25.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      24.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Frontend_Bound                        23.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       14.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          9.1%  \u2588\u2588\u2588\u2588 \u2717\n  Backend_Bound                         19.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           8.5%  \u2588\u2588\u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 943f2f71-822 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 25.2%\n  Wasted:                 74.8%\n\n  Bad_Speculation                       32.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    32.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.6%  \u2588 \u2717\n  Retiring                              25.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      24.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Frontend_Bound                        23.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       14.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          9.1%  \u2588\u2588\u2588\u2588 \u2717\n  Backend_Bound                         19.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           8.5%  \u2588\u2588\u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "50d7f299-42fc-5a1f-9446-a923983153e6",
+        "run_id_b": "943f2f71-8222-5713-a9ce-262a48e63da7"
+      },
+      "cell": "scan-100000",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 50d7f299-42f (baseline) vs 943f2f71-822\n\nRegressions (5):\n  \u2191 Frontend_Bound: 19.2% -> 23.2% (+4.0%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 11.2% -> 14.1% (+2.9%)\n  \u2191 Retiring.Light_Operations: 26.7% -> 24.4% (-2.3%)\n  \u2191 Retiring: 27.5% -> 25.2% (-2.3%)\n  \u2191 Frontend_Bound.Fetch_Latency: 8.0% -> 9.1% (+1.1%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 50d7f299-42f (baseline) vs 943f2f71-822\n\nRegressions (5):\n  \u2191 Frontend_Bound: 19.2% -> 23.2% (+4.0%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 11.2% -> 14.1% (+2.9%)\n  \u2191 Retiring.Light_Operations: 26.7% -> 24.4% (-2.3%)\n  \u2191 Retiring: 27.5% -> 25.2% (-2.3%)\n  \u2191 Frontend_Bound.Fetch_Latency: 8.0% -> 9.1% (+1.1%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "d31b2ebc-1098-50fa-be11-5138117b070c",
+        "level": 2
+      },
+      "cell": "scan-1000000",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: d31b2ebc-109 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.2%\n  Wasted:                 81.8%\n\n  Backend_Bound                         37.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          23.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            14.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Bad_Speculation                       25.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    24.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        19.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          8.1%  \u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      17.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: d31b2ebc-109 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.2%\n  Wasted:                 81.8%\n\n  Backend_Bound                         37.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          23.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            14.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Bad_Speculation                       25.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    24.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        19.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          8.1%  \u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      17.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "compare_runs",
+      "arguments": {
+        "run_id_a": "22e283f8-71d7-50ce-ac33-c1b16b42a68a",
+        "run_id_b": "d31b2ebc-1098-50fa-be11-5138117b070c"
+      },
+      "cell": "scan-1000000",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Comparing 22e283f8-71d (baseline) vs d31b2ebc-109\n\nRegressions (7):\n  \u2191 Frontend_Bound: 16.7% -> 19.0% (+2.3%)\n  \u2191 Retiring.Light_Operations: 19.4% -> 17.4% (-2.0%)\n  \u2191 Retiring: 20.2% -> 18.2% (-2.0%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 9.7% -> 11.0% (+1.3%)\n  \u2191 Bad_Speculation.Branch_Mispredicts: 23.5% -> 24.6% (+1.1%)\nImprovements (2):\n  \u2193 Backend_Bound: 39.1% -> 37.6% (-1.5%)\n  \u2193 Backend_Bound.Memory_Bound: 24.8% -> 23.6% (-1.2%)",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Comparing 22e283f8-71d (baseline) vs d31b2ebc-109\n\nRegressions (7):\n  \u2191 Frontend_Bound: 16.7% -> 19.0% (+2.3%)\n  \u2191 Retiring.Light_Operations: 19.4% -> 17.4% (-2.0%)\n  \u2191 Retiring: 20.2% -> 18.2% (-2.0%)\n  \u2191 Frontend_Bound.Fetch_Bandwidth: 9.7% -> 11.0% (+1.3%)\n  \u2191 Bad_Speculation.Branch_Mispredicts: 23.5% -> 24.6% (+1.1%)\nImprovements (2):\n  \u2193 Backend_Bound: 39.1% -> 37.6% (-1.5%)\n  \u2193 Backend_Bound.Memory_Bound: 24.8% -> 23.6% (-1.2%)"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "22e283f8-71d7-50ce-ac33-c1b16b42a68a",
+        "level": 2
+      },
+      "cell": "scan-1000000",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 22e283f8-71d | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 20.2%\n  Wasted:                 79.8%\n\n  Backend_Bound                         39.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          24.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            14.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Bad_Speculation                       23.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    23.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Retiring                              20.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      19.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Frontend_Bound                        16.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.7%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          7.0%  \u2588\u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 22e283f8-71d | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 20.2%\n  Wasted:                 79.8%\n\n  Backend_Bound                         39.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          24.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            14.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Bad_Speculation                       23.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    23.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Retiring                              20.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      19.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Frontend_Bound                        16.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.7%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          7.0%  \u2588\u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "540da30a-a624-5252-a384-95f4f3112a13",
+        "level": 2
+      },
+      "cell": "scan-trim-319-zero",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 540da30a-a62 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Frontend_Bound                        12.8%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       10.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          2.7%  \u2588 \u2717\n  Backend_Bound                          2.1%  \u2588 \u2717\n    Core_Bound                             1.8%  \u2588 \u2717\n    Memory_Bound                           0.4%  \u2588 \u2717\n  Bad_Speculation                        0.6%  \u2588 \u2717\n    Machine_Clears                         0.6%  \u2588 \u2717\n    Branch_Mispredicts                     0.0%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 540da30a-a62 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 84.5%\n  Wasted:                 15.5%\n\n  Retiring                              84.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      80.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       4.3%  \u2588\u2588 \u2713\n  Frontend_Bound                        12.8%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                       10.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          2.7%  \u2588 \u2717\n  Backend_Bound                          2.1%  \u2588 \u2717\n    Core_Bound                             1.8%  \u2588 \u2717\n    Memory_Bound                           0.4%  \u2588 \u2717\n  Bad_Speculation                        0.6%  \u2588 \u2717\n    Machine_Clears                         0.6%  \u2588 \u2717\n    Branch_Mispredicts                     0.0%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "79a31107-3ffe-5455-bc05-babcc7da2546",
+        "level": 2
+      },
+      "cell": "scan-resize-319-zero",
+      "variant": "scanB",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 79a31107-3ff | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 48.1%\n  Wasted:                 51.9%\n\n  Retiring                              48.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      46.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Backend_Bound                         25.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            19.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.9%  \u2588\u2588 \u2717\n  Bad_Speculation                       15.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        11.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        6.9%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.9%  \u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 79a31107-3ff | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 48.1%\n  Wasted:                 51.9%\n\n  Retiring                              48.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      46.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Backend_Bound                         25.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            19.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                           5.9%  \u2588\u2588 \u2717\n  Bad_Speculation                       15.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        11.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        6.9%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.9%  \u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "fa187044-90f2-536b-9b40-18b6dc831dd2",
+        "level": 2
+      },
+      "cell": "update-100000-same",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: fa187044-90f | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.8%\n  Wasted:                 81.2%\n\n  Backend_Bound                         65.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          47.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            18.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      18.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Bad_Speculation                       13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    13.0%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717\n  Frontend_Bound                         3.0%  \u2588 \u2717\n    Fetch_Bandwidth                        2.0%  \u2588 \u2717\n    Fetch_Latency                          1.1%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: fa187044-90f | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.8%\n  Wasted:                 81.2%\n\n  Backend_Bound                         65.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          47.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            18.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      18.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Bad_Speculation                       13.2%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    13.0%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717\n  Frontend_Bound                         3.0%  \u2588 \u2717\n    Fetch_Bandwidth                        2.0%  \u2588 \u2717\n    Fetch_Latency                          1.1%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "adf91cc5-c728-53f4-a070-64042167152d",
+        "level": 2
+      },
+      "cell": "update-100000-position",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: adf91cc5-c72 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.1%\n  Wasted:                 81.9%\n\n  Backend_Bound                         66.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          48.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            17.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      17.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Bad_Speculation                       12.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    12.5%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.3%  \u2588 \u2717\n    Fetch_Bandwidth                        2.1%  \u2588 \u2717\n    Fetch_Latency                          1.3%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: adf91cc5-c72 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 18.1%\n  Wasted:                 81.9%\n\n  Backend_Bound                         66.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          48.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            17.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              18.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      17.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.8%  \u2588 \u2713\n  Bad_Speculation                       12.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    12.5%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         3.3%  \u2588 \u2717\n    Fetch_Bandwidth                        2.1%  \u2588 \u2717\n    Fetch_Latency                          1.3%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "3d4c9451-cea1-53ae-9902-2df2d8b24b63",
+        "level": 2
+      },
+      "cell": "update-100000-nearby",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 3d4c9451-cea | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 33.3%\n  Wasted:                 66.7%\n\n  Backend_Bound                         37.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          26.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              33.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      31.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.0%  \u2588 \u2713\n  Bad_Speculation                       15.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    15.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.3%  \u2588 \u2717\n  Frontend_Bound                        13.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        8.1%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          5.4%  \u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 3d4c9451-cea | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 33.3%\n  Wasted:                 66.7%\n\n  Backend_Bound                         37.6%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          26.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              33.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      31.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.0%  \u2588 \u2713\n  Bad_Speculation                       15.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    15.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.3%  \u2588 \u2717\n  Frontend_Bound                        13.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        8.1%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          5.4%  \u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "98949a5d-28aa-5d44-b2ca-c74a8344a67e",
+        "level": 2
+      },
+      "cell": "update-100000-distant",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 98949a5d-28a | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 40.0%\n  Wasted:                 60.0%\n\n  Retiring                              40.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.3%  \u2588 \u2713\n  Backend_Bound                         29.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          18.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        15.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.8%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          6.1%  \u2588\u2588\u2588 \u2717\n  Bad_Speculation                       15.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 98949a5d-28a | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 40.0%\n  Wasted:                 60.0%\n\n  Retiring                              40.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.3%  \u2588 \u2713\n  Backend_Bound                         29.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          18.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        15.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.8%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          6.1%  \u2588\u2588\u2588 \u2717\n  Bad_Speculation                       15.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "25525f10-fd2a-56f0-853f-90c5d8aaba26",
+        "level": 2
+      },
+      "cell": "update-100000-original",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 25525f10-fd2 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 40.0%\n  Wasted:                 60.0%\n\n  Retiring                              40.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.3%  \u2588 \u2713\n  Backend_Bound                         29.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          18.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        15.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.8%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          6.1%  \u2588\u2588\u2588 \u2717\n  Bad_Speculation                       14.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 25525f10-fd2 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 40.0%\n  Wasted:                 60.0%\n\n  Retiring                              40.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       2.3%  \u2588 \u2713\n  Backend_Bound                         29.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          18.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Frontend_Bound                        15.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        9.8%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Latency                          6.1%  \u2588\u2588\u2588 \u2717\n  Bad_Speculation                       14.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    14.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "f7f4db9e-05e2-54a7-bdd0-bc116a96d61b",
+        "level": 2
+      },
+      "cell": "update-1000000-same",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: f7f4db9e-05e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 10.0%\n  Wasted:                 90.0%\n\n  Backend_Bound                         80.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          68.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            12.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              10.0%  \u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                       9.6%  \u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.4%  \u2588 \u2713\n  Bad_Speculation                        7.6%  \u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                     7.5%  \u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         1.7%  \u2588 \u2717\n    Fetch_Bandwidth                        1.0%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: f7f4db9e-05e | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 10.0%\n  Wasted:                 90.0%\n\n  Backend_Bound                         80.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          68.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            12.6%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              10.0%  \u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                       9.6%  \u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.4%  \u2588 \u2713\n  Bad_Speculation                        7.6%  \u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                     7.5%  \u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.1%  \u2588 \u2717\n  Frontend_Bound                         1.7%  \u2588 \u2717\n    Fetch_Bandwidth                        1.0%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "6d17cc7a-7483-5ef3-8cf8-cebadfbb3c87",
+        "level": 2
+      },
+      "cell": "update-1000000-position",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 6d17cc7a-748 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 9.7%\n  Wasted:                 90.3%\n\n  Backend_Bound                         81.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          68.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            12.8%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                               9.7%  \u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                       9.3%  \u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.4%  \u2588 \u2713\n  Bad_Speculation                        7.4%  \u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                     7.4%  \u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Bandwidth                        1.2%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 6d17cc7a-748 | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 9.7%\n  Wasted:                 90.3%\n\n  Backend_Bound                         81.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          68.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            12.8%  \u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                               9.7%  \u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                       9.3%  \u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       0.4%  \u2588 \u2713\n  Bad_Speculation                        7.4%  \u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                     7.4%  \u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.0%  \u2588 \u2717\n  Frontend_Bound                         1.9%  \u2588 \u2717\n    Fetch_Bandwidth                        1.2%  \u2588 \u2717\n    Fetch_Latency                          0.7%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "889e4e9c-99c4-51fa-b321-5df09b655b32",
+        "level": 2
+      },
+      "cell": "update-1000000-nearby",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 889e4e9c-99c | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 23.2%\n  Wasted:                 76.8%\n\n  Backend_Bound                         55.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          44.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              23.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      21.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.4%  \u2588 \u2713\n  Bad_Speculation                       11.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.6%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717\n  Frontend_Bound                         9.7%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        5.8%  \u2588\u2588 \u2717\n    Fetch_Latency                          4.0%  \u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 889e4e9c-99c | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 23.2%\n  Wasted:                 76.8%\n\n  Backend_Bound                         55.3%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          44.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            10.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              23.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      21.8%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.4%  \u2588 \u2713\n  Bad_Speculation                       11.8%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.6%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.2%  \u2588 \u2717\n  Frontend_Bound                         9.7%  \u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        5.8%  \u2588\u2588 \u2717\n    Fetch_Latency                          4.0%  \u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "4fe4e784-06ba-5856-a685-ec89e3da6ebe",
+        "level": 2
+      },
+      "cell": "update-1000000-distant",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 4fe4e784-06b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 28.0%\n  Wasted:                 72.0%\n\n  Backend_Bound                         48.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              28.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Bad_Speculation                       12.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        7.0%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.2%  \u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 4fe4e784-06b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 28.0%\n  Wasted:                 72.0%\n\n  Backend_Bound                         48.9%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          37.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              28.0%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.4%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Bad_Speculation                       12.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.5%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.4%  \u2588 \u2717\n  Frontend_Bound                        11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        7.0%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.2%  \u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_funnel",
+      "arguments": {
+        "run_id": "37615b0a-c3bc-5024-a9a5-a0f7c5e7cd7a",
+        "level": 2
+      },
+      "cell": "update-1000000-original",
+      "variant": "base",
+      "result": {
+        "_meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Run: 37615b0a-c3b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 27.7%\n  Wasted:                 72.3%\n\n  Backend_Bound                         49.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          38.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.4%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              27.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Bad_Speculation                       11.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Frontend_Bound                        11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        7.0%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.1%  \u2588\u2588 \u2717",
+            "annotations": null,
+            "_meta": null
+          }
+        ],
+        "structuredContent": {
+          "result": "Run: 37615b0a-c3b | bplus-intel-parked | L2\n\nPipeline Slots Funnel (100% total)\n  Useful work (Retiring): 27.7%\n  Wasted:                 72.3%\n\n  Backend_Bound                         49.5%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Memory_Bound                          38.1%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2717\n    Core_Bound                            11.4%  \u2588\u2588\u2588\u2588\u2588 \u2717\n  Retiring                              27.7%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Light_Operations                      26.2%  \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 \u2713\n    Heavy_Operations                       1.6%  \u2588 \u2713\n  Bad_Speculation                       11.7%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Branch_Mispredicts                    11.2%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Machine_Clears                         0.5%  \u2588 \u2717\n  Frontend_Bound                        11.0%  \u2588\u2588\u2588\u2588\u2588 \u2717\n    Fetch_Bandwidth                        7.0%  \u2588\u2588\u2588 \u2717\n    Fetch_Latency                          4.1%  \u2588\u2588 \u2717"
+        },
+        "isError": false
+      }
+    }
+  ]
+}

@@ -1,3 +1,20 @@
+<!-- INTEL-PARKED-PROFILES-CURRENT -->
+Intel all-pending profile sweep CLOSED, source NONE.36configs across iteratorbase/A/B,
+correctedscanbase/B and updateNONE:104/108L2 windows qualify;32/36wholeconfigs.
+FourSMT failures retained/no retry (twoiterator-scoreonly,two scanbaselineguards).
+All36counter/sample windows ownscopespass; L3minMUX8%/mixedunits unavailableforcauses.
+Update1M same/position Memory68.12/68.15%, lookup64–69% cyclesamples: strongestnewlead.
+Iterator1M memory≈16%unchanged; speculationdown/frontendup. ExactELFannotations
+support leaf-transition-load vs arithmetic question only. Scan branch/layout next.
+ActualCPU-perf reconsulted1/287sources,27passages;44topdownMCPqueries0errors.
+Root + independentintel_b_review; costsunknown. No timing/sourceadoption/newpopulation.
+Freshrelease14:43UTC OSSRUNNING,unit/timerinactive,noownedwork,markerRELEASED.
+34attempts18PARK/16REJECT/0approved;ARM24/Intel5/AMD5;22populationsunchanged.
+Read experiments/INTEL-PARKED-PROFILES-001/README.md and ASSESSMENT.md.
+No active lease or queued work. Preserve original failures; newisolation/preciseload
+protocol required before more measurements, plus original timingguardmetrology.
+<!-- INTEL-PARKED-PROFILES-CURRENT-END -->
+
 <!-- INTEL-ITERATOR-TMA-CURRENT -->
 Intel iterator B continuation CLOSED/PARK. Fresh secondary Intel qualification:
 192rows/48blocks,46pass;100K reverse−1.631% and fraction−1.160% fail±1%.

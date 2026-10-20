@@ -3,7 +3,14 @@
 All34 recorded attempts have a TMA classification below:33 historical supplements and one fresh measured baseline report.
 Historical counters are **unavailable**, not zero. Original reports and seals remain unchanged.
 
-**Latest:** [Secondary Intel qualification](INTEL-ITERATOR-TMA-001/README.md#tma-classification):six qualified captures; candidate uncollected after A/A failure.
+**Latest:** [All pending Intel families](INTEL-PARKED-PROFILES-001/README.md):36 configurations,
+104/108 qualified L2 windows,32 complete classifications; baseline and exact retained
+candidates separate. [Iterator](INTEL-PARKED-PROFILES-001/ITERATOR.md) ·
+[Corrected scan](INTEL-PARKED-PROFILES-001/SCAN.md) · [Update](INTEL-PARKED-PROFILES-001/UPDATE.md).
+Fresh source37efd287f diagnostic builds; these do not backfill historical profiles,
+qualify old timing or alter the34-attempt ledger.
+
+**Previous:** [Secondary Intel qualification](INTEL-ITERATOR-TMA-001/README.md#tma-classification):six qualified captures; candidate uncollected after A/A failure.
 
 **Earlier measured data:** [Intel iterator baseline, 100K and 1M](TOPDOWN-ASSESSMENT-20261020/README.md#tma-classification), 12 captures / 120 seconds; no candidate comparison.
 

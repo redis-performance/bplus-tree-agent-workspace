@@ -1,0 +1,28 @@
+{
+  "reviewer": "/root/intel_b_review",
+  "backend": "Codex",
+  "model": "unknown",
+  "token_cost": "unknown",
+  "calls": [
+    {
+      "called_at": "2026-10-20T14:33:00.457457+00:00",
+      "transport": "local stdio MCP client via isolated uv environment",
+      "tool": "library_status",
+      "arguments": {},
+      "response_sha256": "483fcc1a1a64a6560377b9daf2c6ab232ef968a2a1ab6ac1f391bbaeefd9bb00",
+      "response_summary": "Successful local MCP call. Library coverage 1/287 sources,27 passages."
+    },
+    {
+      "called_at": "2026-10-20T14:33:00.463640+00:00",
+      "transport": "local stdio MCP client via isolated uv environment",
+      "tool": "ask",
+      "arguments": {
+        "question": "Challenge interpretation of these profile-only data: does reduction of BadSpeculation but increased FrontendBound and unchanged/increased MemoryBound establish cachedoffset benefit or refute it? Without operation counts, what can IPC and branchmiss ratios support? What exact codegen/dependentload and branch-layout questions should be investigated after full failedguard profiles arrive? Do not turn slot percentages or sample shares into timing gains; retain failedqualityconfigs unavailable.",
+        "context": "Actual matched Intel SapphireRapids iterator profiles, same source/compiler/harness, CPU2,100percent L2 scheduling.100K fulloutputs mask7 baseline FE1.073 Bad3.2 Back11.32 Ret84.407 Mem7.18 Core4.14; pointercacheA FE2.167 Bad2.4 Back11.127 Ret84.3 Mem7.093 Core4.033; offsetcacheB FE2.007 Bad2.4 Back11.86 Ret83.733 Mem7.78 Core4.033.1M baseline FE.7 Bad2.8 Back21.28 Ret75.22 Mem15.94 Core5.313;A FE1.847 Bad2 Back22.113 Ret74.04 Mem16.267 Core5.847;B FE2.353 Bad2 Back21.6 Ret74.047 Mem16.26 Core5.34. All3x5s L2 captures per primary qualify. Separate3s grouped counters100percent scheduling; IPC baseline/A/B at1M4.8934/4.8481/4.8594. Branchmispredict percentages.14738/.11365/.11307. Workload remains running; no actual in-window completed operation count.1M B cycles sampling600samples,89.61percent IteratorNext,10.39percent traverse; report LostSamples0. Scoreonly100K B L2-3 sibling2.8517percent,1M A L2-1 sibling2.4668percent so fullconfig unavailable. Different host than failed earlier AA and no speedup claim."
+      },
+      "response_sha256": "b625e0ef0cd63e04ad58e824632fa3d640cb854f77909254adf732761cc0afc9",
+      "response_summary": "Successful local MCP call. No supporting source passages retrieved; unread source entries are leads only. No performance conclusion adopted from MCP."
+    }
+  ],
+  "raw_response_policy": "Original raw response retained locally in scratch; public file contains inputs, response hash and summary only."
+}

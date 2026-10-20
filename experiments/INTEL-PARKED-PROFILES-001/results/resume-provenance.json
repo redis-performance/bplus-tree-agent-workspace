@@ -1,0 +1,23 @@
+{
+  "time": 1792506341.285367,
+  "preparation_origin": "attempt1-results; exact raw copies, no rerun",
+  "unchanged_hashes_verified": 265,
+  "launcher_probe": {
+    "args": [
+      "numactl",
+      "--all",
+      "--physcpubind=2",
+      "--membind=0",
+      "python3",
+      "-c",
+      "import os; assert os.sched_getaffinity(0)=={2}; print(sorted(os.sched_getaffinity(0)))"
+    ],
+    "returncode": 0,
+    "stdout": "[2]\n",
+    "stderr": ""
+  },
+  "controller_affinity": [
+    0
+  ],
+  "frequency_path_readable": "3800038"
+}

@@ -43,3 +43,10 @@ diagnostic bypasses that path through `ToplevOptions(pids=None, extra_args=['-C'
 it measures CPU-wide activity and must be labelled accordingly. Preserve raw CSV:
 the current analysis filter drops toplev `% Slots` units and may rank `MUX` instead.
 See the [measured assessment](../experiments/TOPDOWN-ASSESSMENT-20261020/README.md).
+
+Before the first capture, run a zero-work probe through the **actual workload
+launcher** and assert its effective affinity. A controller pinned to CPU0 can make
+numactl reject an absolute CPU2 request under its default mask. Our reviewed launcher
+uses `numactl --all --physcpubind=2 --membind=0` and verifies `{2}` inside the child;
+this changes no kernel/cgroup permission. Preserve failed launch evidence separately
+from collected profiles. See [Intel launcher correction](../experiments/INTEL-PARKED-PROFILES-001/LAUNCHER-CORRECTION-REVIEW.md).

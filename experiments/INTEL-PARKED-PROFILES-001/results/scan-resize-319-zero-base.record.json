@@ -1,0 +1,128 @@
+{
+  "index": 25,
+  "cell": "scan-resize-319-zero",
+  "variant": "base",
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/base/guard",
+    "run",
+    "resize",
+    "319",
+    "701",
+    "2",
+    "20000000000",
+    "0"
+  ],
+  "binary_sha256": "c70ed280f59eb3527158764659671c3a13e59571f24058158737fb42c2aaae19",
+  "captures": [
+    {
+      "tag": "scan-resize-319-zero-base-L2-1",
+      "level": 2,
+      "rep": 1,
+      "command": [
+        "/tmp/bplus-intel-parked-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "raw_sha256": "c520d93e6cbe0ddaca2e618a2ffed886295f98e1cf2b78a3802fae13ce03de05",
+      "roots_pass": true,
+      "scope_pass": false,
+      "multiplex_min": 100.0,
+      "l2_qualified": false,
+      "preamble": []
+    },
+    {
+      "tag": "scan-resize-319-zero-base-L2-2",
+      "level": 2,
+      "rep": 2,
+      "command": [
+        "/tmp/bplus-intel-parked-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "raw_sha256": "35cbcd2537ec60edd3b324369fffbde518429e86bad4e7dfe61e11025280ada8",
+      "roots_pass": true,
+      "scope_pass": true,
+      "multiplex_min": 100.0,
+      "l2_qualified": true,
+      "preamble": []
+    },
+    {
+      "tag": "scan-resize-319-zero-base-L2-3",
+      "level": 2,
+      "rep": 3,
+      "command": [
+        "/tmp/bplus-intel-parked-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "raw_sha256": "2413e9a420f86a0859d2f4f7f7326710d8a1e8179efea79c51fe574f100f8e9a",
+      "roots_pass": true,
+      "scope_pass": true,
+      "multiplex_min": 100.0,
+      "l2_qualified": true,
+      "preamble": []
+    },
+    {
+      "tag": "scan-resize-319-zero-base-L3-1",
+      "level": 3,
+      "rep": 1,
+      "command": [
+        "/tmp/bplus-intel-parked-001/pmu/toplev.py",
+        "-l3",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "raw_sha256": "4debb1429178f84a027942ceca1a6602ae23d34274d0ea823d69de492390585d",
+      "roots_pass": true,
+      "scope_pass": false,
+      "multiplex_min": 8.0,
+      "l2_qualified": false,
+      "preamble": []
+    }
+  ],
+  "counter_returncode": 0,
+  "sample_returncode": 0,
+  "sample_report_returncodes": [
+    0,
+    0
+  ],
+  "raw_perf_sha256": "57ac6f60801072940000b277393228dfd689822276f80fed61b92abdbd768dd8",
+  "raw_perf_bytes": 123808,
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}
