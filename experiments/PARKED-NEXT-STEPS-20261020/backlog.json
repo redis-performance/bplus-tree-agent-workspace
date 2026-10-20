@@ -1,0 +1,172 @@
+[
+  {
+    "id": "INTEL-ITERATOR",
+    "architecture": "Intel",
+    "host": "AWS Intel",
+    "priority": "1",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/README.md",
+    "source_sha256": "1f9991d1f458efdcc7132e03d15cc970bc23bc64838261eb369a67b0d2fa221e",
+    "action": "Dedicated Intel corrected-baseline qualification, then separately reviewed exact-B comparison.",
+    "resume_gate": "All eight preflight controls qualify; fresh profile and source/referee identity are validated."
+  },
+  {
+    "id": "ARM-ITERATOR-REPLAY",
+    "architecture": "ARM",
+    "host": "AWS Graviton",
+    "priority": "later",
+    "source": "experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md",
+    "source_sha256": "38a10fdc53f83443e446eaac1f1d33dd22a64b6ccd293cbf5a73831b681487ab",
+    "action": "Keep ARM replay parked while qualifying the Intel lead.",
+    "resume_gate": "Independent ARM baseline qualification, native profile and complete guards; Intel timings cannot qualify ARM."
+  },
+  {
+    "id": "AMD-SCAN",
+    "architecture": "AMD",
+    "host": "AWS AMD",
+    "priority": "2",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/008-scan-tags/implementation-selection.md",
+    "source_sha256": "eedee374e80e403a59b7fdc66f74151f7a7b218a61d940f14ffe4cdd5913c460",
+    "action": "Resolve measurement/profile transfer and 1M precision for retained A.",
+    "resume_gate": "Same timing-binary profiling or independently qualified perturbation controls; scoped counters, guard qualification and fresh confirmation. Corrected B rejection stands."
+  },
+  {
+    "id": "EXP-004",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "3",
+    "source": "experiments/EXP-004/README.md",
+    "source_sha256": "948201d4e400730c3a3689a132e714a2ee829a3fcce585f5a07158179c790a51",
+    "action": "Original integer score-plus-length and compact guard qualification first.",
+    "resume_gate": "All original adverse guards qualify; fresh independent confirmation and matched candidate profile. No replacement with favorable guards."
+  },
+  {
+    "id": "EXP-006",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "4",
+    "source": "experiments/EXP-006/README.md",
+    "source_sha256": "1ce97c5f2767fcadf282460122d2293cbd8697d8f48787d75d921642a4e6fa2c",
+    "action": "Diagnose and qualify original long-key and single-lane guards.",
+    "resume_gate": "No demonstrated guard regression, qualified original masks/operations, independent confirmation and review."
+  },
+  {
+    "id": "EXP-007",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "5",
+    "source": "experiments/EXP-007/README.md",
+    "source_sha256": "168a8509dd3b9c612609d0cd37da70e9aa142759563b683002e14f981e73ccc2",
+    "action": "Validate a longer-window private referee and identify a real bulk consumer before new source work.",
+    "resume_gate": "Fresh duration/A-A controls, all short-count guards and profiling. Existing cutoffs/count-one policies are historical attempts, not novel proposals."
+  },
+  {
+    "id": "EXP-008",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "5",
+    "source": "experiments/EXP-008/README.md",
+    "source_sha256": "d7cd068f94fff00985bbdd0f2138e8a26d85a6e2005684021498bfbeac4ddc30",
+    "action": "Validate a longer-window private referee and identify a real bulk consumer before new source work.",
+    "resume_gate": "Fresh duration/A-A controls, all short-count guards and profiling. Existing cutoffs/count-one policies are historical attempts, not novel proposals."
+  },
+  {
+    "id": "M1-DECODE",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "5",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/apple-m1/20261019T005019Z/005-decode/RESULT.md",
+    "source_sha256": "38a76d02c0188c49d76e09f86e416410588faf9b3eb80c5e21bb474118c5fe3b",
+    "action": "Validate a longer-window private referee and identify a real bulk consumer before new source work.",
+    "resume_gate": "Fresh duration/A-A controls, all short-count guards and profiling. Existing cutoffs/count-one policies are historical attempts, not novel proposals."
+  },
+  {
+    "id": "ARM-COUNT1",
+    "architecture": "ARM",
+    "host": "AWS Graviton",
+    "priority": "5",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/aws-arm/20261019T020000Z/003-decode/RESULT.md",
+    "source_sha256": "4107e49754a08b5e55f4384f69bd382d0aeeb1f0fabff3b52ce9e7caac84e1b9",
+    "action": "Validate a longer-window private referee and identify a real bulk consumer before new source work.",
+    "resume_gate": "Fresh duration/A-A controls, all short-count guards and profiling. Existing cutoffs/count-one policies are historical attempts, not novel proposals."
+  },
+  {
+    "id": "M6-BULK-REPLAY",
+    "architecture": "ARM",
+    "host": "Apple M6",
+    "priority": "5",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/MORNING-REPORT.md",
+    "source_sha256": "4dd0a4e845da8de43d20a311542ca1070cf16c2cbaed9ce4e6edcc50a1cbf98f",
+    "action": "Validate a longer-window private referee and identify a real bulk consumer before new source work.",
+    "resume_gate": "Fresh duration/A-A controls, all short-count guards and profiling. Existing cutoffs/count-one policies are historical attempts, not novel proposals."
+  },
+  {
+    "id": "EXP-005",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "hold",
+    "source": "experiments/EXP-005/README.md",
+    "source_sha256": "76b24a2ba72605070720df268d9093eea0b2aebf13dd74d364bbbb9e1f4fdda8",
+    "action": "Do not resume unchanged mask comparisons.",
+    "resume_gate": "New profile-supported mechanism or independently controlled measurement condition. ARM mask rejection remains final for that replay."
+  },
+  {
+    "id": "M1-BASELINE",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "measurement-only",
+    "source": "experiments/EXP-001/README.md",
+    "source_sha256": "4210aee04a8a13ce872c2cc145970f0f39c12227274fe6f10507c708b2d68138",
+    "action": "Specify an observable baseline-only noise diagnostic, not another arbitrary duration or warmup retry.",
+    "resume_gate": "New preregistered causal contrast and qualified wall-time controls. Frequency, residency and accounting uncertainty recorded; no thread-clock gate substitution."
+  },
+  {
+    "id": "M1-LOOKUP-AA",
+    "architecture": "ARM",
+    "host": "Apple M1",
+    "priority": "measurement-only",
+    "source": "experiments/EXP-009-M1-AA-001/RESULTS.md",
+    "source_sha256": "c3d59944ad442be3a4b8452124e3b403f6fb0158b440d9b06bc4da771fb7c3cc",
+    "action": "Specify an observable baseline-only noise diagnostic, not another arbitrary duration or warmup retry.",
+    "resume_gate": "New preregistered causal contrast and qualified wall-time controls. Frequency, residency and accounting uncertainty recorded; no thread-clock gate substitution."
+  },
+  {
+    "id": "M6-LOOKUP-AA",
+    "architecture": "ARM",
+    "host": "Apple M6",
+    "priority": "measurement-only",
+    "source": "experiments/EXP-009/RESULTS.md",
+    "source_sha256": "a687e9fd2c1aa704a7038dce2069586505c899248d13f5c1cd4a2e606376572f",
+    "action": "Specify an observable baseline-only noise diagnostic, not another arbitrary duration or warmup retry.",
+    "resume_gate": "New preregistered causal contrast and qualified wall-time controls. Frequency, residency and accounting uncertainty recorded; no thread-clock gate substitution."
+  },
+  {
+    "id": "M6-CLOCK-AA",
+    "architecture": "ARM",
+    "host": "Apple M6",
+    "priority": "measurement-only",
+    "source": "experiments/M6-CLOCK-BRACKET-001/RESULTS.md",
+    "source_sha256": "888b0ad8214f7009dec6c56c833bb1b7f9b201b2fe737c6888ce79955bfca965",
+    "action": "Specify an observable baseline-only noise diagnostic, not another arbitrary duration or warmup retry.",
+    "resume_gate": "New preregistered causal contrast and qualified wall-time controls. Frequency, residency and accounting uncertainty recorded; no thread-clock gate substitution."
+  },
+  {
+    "id": "M6-NEON-REPLAY",
+    "architecture": "ARM",
+    "host": "Apple M6",
+    "priority": "hold",
+    "source": "experiments/NIGHT-EXPLORATION-001/runs/apple-m6-mini/20261019T013000Z/023-neon-replication/RESULTS.md",
+    "source_sha256": "d76c4ff16fb13cb3a10799087f35372d37372863756addb75683df789617db4f",
+    "action": "No priority for replaying an already rejected ARM family.",
+    "resume_gate": "A distinct M6-supported mechanism plus fresh controls before any candidate timing; no inherited ARM gain assumed."
+  },
+  {
+    "id": "INTEL-CORRECTED",
+    "architecture": "Intel",
+    "host": "AWS Intel",
+    "priority": "hold",
+    "source": "experiments/NIGHT-EXPLORATION-001/AWS-DECISIONS.md",
+    "source_sha256": "38a10fdc53f83443e446eaac1f1d33dd22a64b6ccd293cbf5a73831b681487ab",
+    "action": "Keep corrected-source scan at the known-small-leaf guard gate.",
+    "resume_gate": "Qualify that exact adverse guard first. Later pass cannot revise original-source rejection; all other gates remain required."
+  }
+]

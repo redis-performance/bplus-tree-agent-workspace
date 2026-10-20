@@ -7,3 +7,11 @@
 - Replaced the 433-line main README with a 38-line overview, current outcomes, quick start and evidence links. Historical reports and raw data retained; previous README remains in Git.
 - User preference: concise messages and README; prioritize results and links over repeated chronology.
 - Documentation/visualization only. No source, benchmark, runner or acceptance changes; no new population.
+
+## Main-chart scope corrected
+
+User requested all experiment attempts, so overview and architecture charts now include
+all 33 recorded decisions: 22 populations + 5 replications + 6 qualification attempts.
+Intel 4, AMD 5, ARM 24; 17 PARK / 16 REJECT / 0 approved. POP/REP/AA labels preserve
+the accounting distinction; historical experiment statuses and population counts are unchanged.
+Added all-attempts exports and a complete parked-work review/preflight package.

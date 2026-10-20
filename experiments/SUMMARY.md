@@ -1,5 +1,13 @@
 # Experiment summary
 
+## 20 October: all-attempt Sankey and parked-work priorities
+
+The [main Sankey](EXPERIMENT-FLOWS-20261020/README.md) now includes 33 attempts:
+ARM24 / Intel4 / AMD5; 17 parked / 16 rejected / 0 approved. Existing 22-population
+counts are unchanged. [Parked-work review](PARKED-NEXT-STEPS-20261020/README.md)
+maps all17 parks; Intel iterator-B baseline qualification is first. Draft8-cell/192-run
+preflight only; no candidate selected, new timing, runner lease or status change.
+
 ## 20 October: architecture Sankey
 
 [Decision flows and evidence](EXPERIMENT-FLOWS-20261020/README.md): 22 distinct populations

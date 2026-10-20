@@ -2,14 +2,16 @@
 
 Packed B+ tree and compact member-index benchmarks from [Redis PR #15635](https://github.com/redis/redis/pull/15635). Standalone C; no Redis server.
 
-**22 distinct candidate populations: 9 parked · 13 rejected · 0 approved.**
-Tree source remains unchanged. Shared Apple history is counted once; replications and qualification attempts are separate.
+**33 experiment attempts: 17 parked · 16 rejected · 0 approved.**
+ARM 24 · Intel 4 · AMD 5. Includes 22 new populations, 5 replications and 6 qualification attempts; shared Apple history counted once. Tree source unchanged.
 
 ![Experiment outcomes by architecture](experiments/EXPERIMENT-FLOWS-20261020/overview.png)
 
-**Experiment flows:** [All experiments](experiments/EXPERIMENT-FLOWS-20261020/all-populations.svg) · [ARM](experiments/EXPERIMENT-FLOWS-20261020/arm.svg) · [Intel](experiments/EXPERIMENT-FLOWS-20261020/intel.svg) · [AMD](experiments/EXPERIMENT-FLOWS-20261020/amd.svg) · [Follow-ups](experiments/EXPERIMENT-FLOWS-20261020/followups.svg) · [Evidence ledger](experiments/EXPERIMENT-FLOWS-20261020/README.md)
+**Experiment flows:** [All experiments](experiments/EXPERIMENT-FLOWS-20261020/all-attempts.svg) · [ARM](experiments/EXPERIMENT-FLOWS-20261020/arm.svg) · [Intel](experiments/EXPERIMENT-FLOWS-20261020/intel.svg) · [AMD](experiments/EXPERIMENT-FLOWS-20261020/amd.svg) · [Follow-ups](experiments/EXPERIMENT-FLOWS-20261020/followups.svg) · [Evidence ledger](experiments/EXPERIMENT-FLOWS-20261020/README.md)
 
 ## What matters
+
+**Next:** Intel iterator-cache B qualification first. [Ranked parked-work plan](experiments/PARKED-NEXT-STEPS-20261020/README.md).
 
 - **ARM mask:** primary gains survived, but qualified guards regressed. [Rejected](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 - **Intel scan:** primary gains and confirmation passed; a qualified guard regressed. [Rejected replication](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).

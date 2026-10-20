@@ -1,20 +1,28 @@
 # Experiment flows by architecture
 
-**22 distinct candidate populations: 9 parked, 13 rejected, 0 approved.**
+**33 experiment attempts: 17 parked, 16 rejected, 0 approved.**
+
+| Target | Attempts | Parked | Rejected | Approved |
+|---|---:|---:|---:|---:|
+| ARM (M1, M6, Graviton) | 24 | 14 | 10 | 0 |
+| Intel | 4 | 2 | 2 | 0 |
+| AMD | 5 | 1 | 4 | 0 |
 
 ![Architecture overview](overview.png)
 
-[Every population](all-populations.svg) · [ARM](arm.svg) · [Intel](intel.svg) · [AMD](amd.svg) · [Replications / preflights](followups.svg)
+[All attempts](all-attempts.svg) · [New populations only](all-populations.svg) · [ARM](arm.svg) · [Intel](intel.svg) · [AMD](amd.svg) · [Replications / preflights](followups.svg)
 
 ## Counting rules
 
-- One ribbon = one distinct candidate population; variants A/B/C stay within that population.
+- One main-chart ribbon = one recorded attempt: new population, exact-patch replication or qualification. Variants A/B/C remain within a population. Labels POP / REP / AA identify the kind.
 - ARM includes Apple M1, Apple M6 and AWS Graviton. Intel and AMD identify separate x86-64 targets.
 - M1’s 9 and M6’s 12 ledger totals share seven M1 experiments (EXP-002–008). Count those once: **9 + 12 − 7 + 8 AWS = 22**. M6 adds five new populations.
 - Approved means an adopted source optimization. Passed tests, accepted plans and merged harnesses do not qualify.
-- The separate 11-record follow-up chart contains **8 parked / 3 rejected** replications and qualification attempts. It does not add implementation populations. A failed preflight is parked, not a rejected candidate.
+- The 11 follow-ups (**8 parked / 3 rejected**) are now included in every main/architecture chart, and also have a detail chart. Thus Intel shows both original populations plus its scan replication and corrected-source preflight: **4 attempts**. Historical implementation-population totals stay **22 = 9 parked / 13 rejected / 0 approved**. A failed preflight is parked, not a rejected candidate.
 - Follow-ups retain their own source and host scope. The ARM mask and original Intel scan replays progressed from PARK to REJECT; their parent experiments retain their original decisions.
 - Baseline runs, profiles, oracle suites, offline diagnoses and proposal-only NONE reviews are supporting work, not additional three-way optimization decisions. See the [full log](../EXPERIMENTS.md). M6’s EXP-004 decoder replay is diagnostic only; EXP-008 replay selected NONE, so neither is relabelled as an accepted/rejected/parked population.
+
+[How to advance the parked work](../PARKED-NEXT-STEPS-20261020/README.md).
 
 ## Candidate populations
 

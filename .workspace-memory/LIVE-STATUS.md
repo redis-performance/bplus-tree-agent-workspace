@@ -1,8 +1,10 @@
 <!-- EXPERIMENT-FLOWS-20261020 -->
-Architecture Sankey and source-linked ledger: experiments/EXPERIMENT-FLOWS-20261020/README.md.
-22 unique populations = M1 9 + M6 12 − 7 shared inherited + AWS 8; 9 PARK / 13 REJECT / 0 approved.
-11 follow-ups shown separately; historical host counts and decisions unchanged.
-Main README pruned. User explicitly prefers concise messages and useful results over bloat.
+Sankey counts all33 attempts: ARM24 / Intel4 / AMD5; 17PARK / 16REJECT / 0approved.
+Includes22 populations +5replications +6qualification attempts; inherited Apple history counted once.
+Historical population counts/decisions unchanged. Charts: experiments/EXPERIMENT-FLOWS-20261020/README.md.
+All17 parks have next actions in experiments/PARKED-NEXT-STEPS-20261020/README.md.
+Prioritize Intel iterator-B baseline qualification; draft8cells/192AA, no candidate runs or runner lease.
+Source selection NONE. User prefers concise messages and a short README; use results and links.
 <!-- EXPERIMENT-FLOWS-20261020-END -->
 
 <!-- MAIN-CONSOLIDATION-20261019 -->

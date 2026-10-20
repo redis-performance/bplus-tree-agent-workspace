@@ -62,8 +62,9 @@ def save(fig,name):
 
 def overview(records):
     counts=collections.Counter(r['status'] for r in records)
-    fig,ax=canvas(850,'22 populations. Zero approved optimizations.',
-        'Architecture → measured host → recorded decision  ·  ribbon width = number of distinct populations',counts)
+    height=390+len(records)*17+26*(len({r['host'] for r in records})-1)
+    fig,ax=canvas(height,f'{len(records)} experiment attempts. Zero approved.',
+        'Architecture → measured host → decision  ·  includes populations, replications and qualification attempts',counts)
     for x,label in [(85,'ARCHITECTURE'),(590,'MEASURED HOST'),(1470,'OUTCOME')]:
         text(ax,x,246,label,10,color='#61738b',weight='bold')
     unit=17
@@ -75,7 +76,10 @@ def overview(records):
     for arch in ARCH_COLORS:
         rs=[r for r in records if r['architecture']==arch]
         arch_y[arch]=y;y+=len(rs)*unit+42
-    dest_y={'Parked':280,'Rejected':280+counts['Parked']*unit+52}
+    dest_y={};next_y=280
+    for status in COLORS:
+        if counts[status]:
+            dest_y[status]=next_y;next_y+=counts[status]*unit+52
     aoff=collections.Counter();doff=collections.Counter()
     for host,rs in groups.items():
         arch=rs[0]['architecture'];h=len(rs)*unit
@@ -96,17 +100,19 @@ def overview(records):
     for status,y in dest_y.items():
         node(ax,1480,y,counts[status]*unit,COLORS[status])
         text(ax,1520,y+counts[status]*unit/2,f'{status}  ·  {counts[status]}',18,color=COLORS[status],weight='bold')
-    text(ax,42,803,'Shared Apple history counted once. Intel and AMD are separate x86-64 targets. Follow-ups use a separate chart.',11,color='#61738b')
-    text(ax,42,829,'Source decisions through 19 Oct 2026  ·  Snapshot 20 Oct 2026  ·  Passed tests and merged harnesses are not approved optimizations.',10,color='#61738b')
+    text(ax,42,height-47,'22 new populations + 5 replications + 6 qualification attempts. Shared Apple history counted once.',11,color='#61738b')
+    text(ax,42,height-21,'Source decisions through 19 Oct 2026  ·  Snapshot 20 Oct 2026  ·  Passed tests and merged harnesses are not approved optimizations.',10,color='#61738b')
     save(fig,'overview')
 
 
 def detailed(records,name,title):
+    host_order=['Apple M1','Apple M6','AWS Graviton','AWS Intel','AWS AMD']
+    records=sorted(records,key=lambda r:host_order.index(r['host']))
     arches=[a for a in ARCH_COLORS if any(r['architecture']==a for r in records)]
     heights={a:max(210,48*sum(r['architecture']==a for r in records)+65) for a in arches}
     total=290+sum(heights.values())
     counts=collections.Counter(r['status'] for r in records)
-    fig,ax=canvas(total,title,'Architecture → host → experiment → latest recorded outcome  ·  one ribbon per record',counts)
+    fig,ax=canvas(total,title,'One ribbon per attempt  ·  POP = new population  ·  REP = replication  ·  AA = qualification  ·  P → R = parked then rejected',counts)
     for x,label in [(30,'ARCHITECTURE'),(320,'HOST'),(815,'EXPERIMENT'),(1630,'OUTCOME')]:
         text(ax,x,231,label,10,color='#61738b',weight='bold')
     top=260;unit=14
@@ -131,7 +137,8 @@ def detailed(records,name,title):
                 label=r['label']
                 if len(r['history'])>1:label+='  [P → R]'
                 text(ax,1150,ey+unit/2,label,12,ha='right',bbox=dict(facecolor='#fbfcfe',edgecolor='none',pad=2))
-                text(ax,580,ey+unit/2,r['id'],8,color='#61738b',bbox=dict(facecolor='#fbfcfe',edgecolor='none',pad=1))
+                tag={'population':'POP','replication':'REP','qualification':'AA'}[r['attempt_type']]
+                text(ax,560,ey+unit/2,tag+' · '+r['id'],7,color='#61738b',bbox=dict(facecolor='#fbfcfe',edgecolor='none',pad=1))
             node(ax,530,hy,len(items)*unit,ARCH_COLORS[arch])
             text(ax,510,hy+len(items)*unit/2,f'{host}\n{len(items)} records',12,ha='right',bbox=dict(facecolor='#fbfcfe',edgecolor='none',pad=3))
         node(ax,189,ay,len(rs)*unit,ARCH_COLORS[arch])
@@ -154,12 +161,17 @@ def main():
     followups=[r for r in records if r['kind']=='followup']
     assert collections.Counter(r['status'] for r in populations)=={'Rejected':13,'Parked':9}
     assert collections.Counter(r['architecture'] for r in populations)=={'ARM':16,'Intel':2,'AMD':4}
-    overview(populations)
+    assert collections.Counter(r['status'] for r in records)=={'Rejected':16,'Parked':17}
+    assert collections.Counter(r['architecture'] for r in records)=={'ARM':24,'Intel':4,'AMD':5}
+    overview(records)
+    detailed(records,'all-attempts','All 33 experiment attempts, by architecture')
     detailed(populations,'all-populations','All 22 candidate populations, by architecture')
     for arch in ARCH_COLORS:
-        detailed([r for r in populations if r['architecture']==arch],arch.lower(),f'{arch} · candidate populations')
+        detailed([r for r in records if r['architecture']==arch],arch.lower(),f'{arch} · all experiment attempts')
     detailed(followups,'followups','11 replications and qualification attempts · separate count')
-    audit={'source_commit':DATA['source_commit'],'population_count':len(populations),'population_statuses':dict(collections.Counter(r['status'] for r in populations)),
+    audit={'source_commit':DATA['source_commit'],'attempt_count':len(records),'attempt_statuses':dict(collections.Counter(r['status'] for r in records)),
+           'attempts_by_architecture':dict(collections.Counter(r['architecture'] for r in records)),
+           'attempt_types':dict(collections.Counter(r['attempt_type'] for r in records)),'population_count':len(populations),'population_statuses':dict(collections.Counter(r['status'] for r in populations)),
            'followup_count':len(followups),'followup_statuses':dict(collections.Counter(r['status'] for r in followups)),
            'verified_evidence_sha256':len(records),'unique_ids':True,'valid_parent_links':True,
            'flow_conservation':'Each record contributes one unit at every layer; grouped node widths are exact record sums.',

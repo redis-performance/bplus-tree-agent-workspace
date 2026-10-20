@@ -1,0 +1,120 @@
+{
+  "status": "DRAFT / NOT EXECUTED",
+  "source_commit": "430364100228964db9bf3467c5c09911e3d33be9",
+  "purpose": "Baseline-only qualification for a potential separately reviewed exact iterator-B replication.",
+  "runner": "Dedicated Intel Sapphire Rapids; no current lease",
+  "hypothesis": "A separately qualified, documented controlled environment and corrected-source build can resolve the original 1% guard threshold. This is unproven; no causal noise remedy is claimed.",
+  "cells": [
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": true
+    },
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "reverse",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 4,
+      "primary": false
+    },
+    {
+      "size": 100000,
+      "layout": "fraction",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": true
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "reverse",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 4,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "fraction",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": false
+    }
+  ],
+  "blocks_per_cell": 6,
+  "seed_order": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+  ],
+  "block_order": [
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "pairing": "First and fourth versus second and third; all are the SAME baseline binary.",
+  "aa_processes": 192,
+  "candidate_processes": 0,
+  "calibration": {
+    "observations_per_cell": 3,
+    "initial_visits": 1000000,
+    "target_seconds": 0.5,
+    "count_rule": "ceil(initial_visits * target_seconds / fastest_elapsed_seconds); freeze all counts before A/A; no cap clipping or recalibration"
+  },
+  "draft_aa_budget_seconds": 900,
+  "gate": {
+    "precision": "abs(inner_sum - outer_sum)*100 <= outer_sum in every block",
+    "minimum_each_window_ms": 10,
+    "outputs": "Exact fixture/checksum/operation and tree-owned memory equality",
+    "failure": "Complete and retain the fixed schedule within the cap. Any failure or timeout keeps PARK; no retry, extension, row deletion or candidate launch."
+  },
+  "phase_order": [
+    "Reserve and document a genuinely new controlled measurement condition; unchanged failed retries are ineligible.",
+    "Reconstruct exact baseline/retained candidate in separate builds. Run original and additive correctness/fault checks; refresh baseline codegen/profile. No candidate timings.",
+    "Seal compiler, flags, binary/referee/source hashes, cells/seeds, schedule, baseline-only calibration/counts and deadline; independent pre-execution review.",
+    "Run the fixed baseline-only qualification serially.",
+    "Only if all prerequisites pass, prepare and review a distinct exact-B comparison with complete guard, confirmation and matched-profile plans."
+  ],
+  "unresolved_before_execution": [
+    "Runner reservation and topology/frequency/SMT/placement record",
+    "Exact new condition that distinguishes this from an unchanged failed run",
+    "Compiler/flags, fresh binary/profile and correctness identities",
+    "Per-cell calibration counts and wall-clock deadline",
+    "Independent review"
+  ],
+  "frozen_inputs": {
+    "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/variants/B/candidate.patch": "8ec11ac9b68af3a4aa7d80b41545a3b6428915ad77722710cb4ac0ba69f7be2f",
+    "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/README.md": "1f9991d1f458efdcc7132e03d15cc970bc23bc64838261eb369a67b0d2fa221e",
+    "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/MATCHED-PROFILE.md": "227b0b46009f033dfb7c028d9dcfcb9e836b077d0b38986a9a6ba2b72ec4c685",
+    "experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/PLAN.md": "97850409972a41f9839f075127706a43a739678542d25121cc74bf14861b0c59",
+    "src/zset_btree.c": "d9123c8236ce48f6442dd9f9a60a0de38a012dd2d764240aba895a598bd9afe2",
+    "src/zset_btree.h": "496e72ff9dacb26793c64ba8794e2943dc9b678a8476cc1ae99d36d2b1d87a83",
+    "compat/server.h": "468a5811ad80fa4dc47196b90835586cbbbd8b7d235af225092637e930708fa7",
+    "compat/standalone.c": "c9237cd2e2fb08fff5c67431a9de5d6d1596d6211082a068116040c477689fb3"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "transport": "local stdio MCP after direct tool discovery did not expose cpu-perf",
+  "server_version": "0.1.1",
+  "repository_revision": "a5a05e6bf7c9",
+  "backend": "Codex / GPT-6; exact serving model and measured token/currency costs unknown",
+  "calls": [
+    {
+      "tool": "library_status",
+      "called_at": "2026-10-20T08:50:41.529570+00:00",
+      "arguments": {},
+      "is_error": false
+    },
+    {
+      "tool": "ask",
+      "called_at": "2026-10-20T08:50:41.536812+00:00",
+      "arguments": {
+        "question": "Prioritize falsifiable next diagnostic/qualification work for these parked B+ tree families. What evidence would distinguish layout/measurement noise from useful whole-tree gains? Challenge Intel fixed16-byte iterator B as first diagnostic, explain why short-range decoder losses and rejected scan/mask cannot be relabelled parked, and list controls required before a new campaign. Retrieve primary methodology sources; do not infer a causal bottleneck without evidence.",
+        "context": "Standalone B+ tree archived evidence only, no new timing. Intel Sapphire Rapids Clang18: iterator A pointer cache24B vs16B baseline; B32bit-offset cache stays16B; primary exploratory medians B -6.023/-4.643 percent, but100K A/A fails and schedule566/576 incomplete. Matched profile retained. C slower. AMD Zen5 SSE2 scan A reduces instructions12percent but scoped cycles below1percent vs unqualified elapsed4-5percent; instrumented binary differs in layout,1M A/A fails; corrected exactB misses2percent gate. Intel exact scan rejected on qualified319-byte small-leaf signed-zero guard, corrected guard preflight fails before candidate. Apple M1 bulk decoder EXP007 roughly33percent private full-leaf lead but qualified short-range regressions; broad scalar cutoffs EXP008 and count-one policies already tested, not a new hypothesis. M6 corrected lookup six-read wall/thread clocks:100K6/6 A/A,1M2/6 despite600ms windows; thread contrasts track wall failures; actual frequency/residency/accounting accuracy unmeasured. Source remains unchanged. We need next evidence, not acceptance or rerunning failed schedules."
+      },
+      "is_error": false
+    },
+    {
+      "tool": "read_source",
+      "called_at": "2026-10-20T08:53:32.711624+00:00",
+      "arguments": {
+        "ref": "1.9",
+        "query": "measurement noise code layout benchmarking",
+        "max_chars": 3000
+      },
+      "is_error": false
+    }
+  ],
+  "coverage": {
+    "indexed_sources": 0,
+    "total_sources": 287,
+    "passages": 0
+  },
+  "read_source_result": "Entry1.9 (perf-book): pending; no text available.",
+  "effect": "No source-backed causal explanation. Recommendations use archived profiles/decisions, not bundled benchmark rates.",
+  "fallback_primary_sources": [
+    {
+      "url": "https://llvm.org/docs/Benchmarking.html",
+      "accessed": "2026-10-20",
+      "use": "Noise versus bias; controlled environment and layout considerations."
+    },
+    {
+      "url": "https://google.github.io/benchmark/user_guide.html",
+      "accessed": "2026-10-20",
+      "use": "Duration, repetitions and interleaving methodology; no library substitution."
+    }
+  ],
+  "runner_work": false
+}
