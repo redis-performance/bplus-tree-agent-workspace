@@ -1,3 +1,16 @@
+<!-- TMA-CLASSIFICATION-20261020 -->
+User requires topdown-profiler assessment and a four-category TMA classification
+in every experiment Markdown report, both Codex and Claude. Read docs/TMA-REPORTING.md.
+Fresh Intel baseline:12captures/120seconds, L2 MemoryBound8.55%/16.47% at100K/1M,
+FrontendBound<1%,100% scheduling. L3 mixed denominators and8–16% scheduling stay
+separate. Source NONE; no candidate capture or adoption. Three glue defects reproduced:
+PID→CPU0, MUX-only ranking, mixed-unit funnel. See experiments/TOPDOWN-ASSESSMENT-20261020.
+33 historical attempts have31 adjacent TMA.md supplements; original report hashes intact.
+Fleet actually lives at ~/redislabs/redis-agent-workspace/.claude/fleet.md. SSH3hosts
+passed. Only Intel profiler used; bounded lease released, OSS coordinator restored,
+recovery timer inactive, no owned process. No current runner lease. All counts unchanged.
+<!-- TMA-CLASSIFICATION-20261020-END -->
+
 <!-- EXPERIMENT-FLOWS-20261020 -->
 Sankey counts all33 attempts: ARM24 / Intel4 / AMD5; 17PARK / 16REJECT / 0approved.
 Includes22 populations +5replications +6qualification attempts; inherited Apple history counted once.

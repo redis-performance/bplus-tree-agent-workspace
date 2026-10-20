@@ -1,5 +1,16 @@
 # Experiment summary
 
+## 20 October: measured TMA and required experiment classifications
+
+[Intel iterator TMA](TOPDOWN-ASSESSMENT-20261020/README.md):12captures/120seconds,
+L2 Memory Bound8.55%→16.47% at100K→1M, Frontend Bound<1%. L3 retained separately
+because scheduling is8–16% and deeper denominators differ. Three glue defects
+reproduced with actual MCP calls. Original43 tests and smoke pass; coordinator restored.
+[All33 attempts have TMA supplements](TMA-COVERAGE.md); historical missing counters
+are explicit. Codex/Claude must include TMA in every report. No candidate comparison,
+status change or adoption;17parked/16rejected/0approved remains.
+
+
 ## 20 October: all-attempt Sankey and parked-work priorities
 
 The [main Sankey](EXPERIMENT-FLOWS-20261020/README.md) now includes 33 attempts:

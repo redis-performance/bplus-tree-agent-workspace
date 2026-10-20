@@ -11,7 +11,7 @@ ARM 24 · Intel 4 · AMD 5. Includes 22 new populations, 5 replications and 6 qu
 
 ## What matters
 
-**Next:** Intel iterator-cache B qualification first. [Ranked parked-work plan](experiments/PARKED-NEXT-STEPS-20261020/README.md).
+**Measured TMA:** Intel iterator Memory Bound rises **8.5% → 16.5%** at 100K → 1M. [Pipeline trees and next test](experiments/TOPDOWN-ASSESSMENT-20261020/README.md) · [All experiment TMA coverage](experiments/TMA-COVERAGE.md).
 
 - **ARM mask:** primary gains survived, but qualified guards regressed. [Rejected](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 - **Intel scan:** primary gains and confirmation passed; a qualified guard regressed. [Rejected replication](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).

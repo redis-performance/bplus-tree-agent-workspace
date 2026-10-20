@@ -1,5 +1,7 @@
 # Experiment flows by architecture
 
+[TMA classification for every experiment](../TMA-COVERAGE.md) · [Fresh Intel pipeline trees](../TOPDOWN-ASSESSMENT-20261020/README.md)
+
 **33 experiment attempts: 17 parked, 16 rejected, 0 approved.**
 
 | Target | Attempts | Parked | Rejected | Approved |

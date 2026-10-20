@@ -1,10 +1,14 @@
 # Next steps — 20 October 2026
 
-**First: Intel iterator-cache B baseline qualification.** No source selected or runner started.
+**First: Intel iterator-cache B baseline qualification and matched TMA.**
+Fresh baseline [slot classifications](TOPDOWN-ASSESSMENT-20261020/README.md) show
+Memory Bound8.55%→16.47% at100K→1M, Frontend Bound<1%. Test work/dependent-load
+removal, not an assumed frontend bottleneck. No candidate captured or selected;
+the bounded Intel profiling lease is released.
 
 | Order | Work | Required next evidence |
 |---|---|---|
-| 1 | Intel iterator B | Corrected baseline, eight qualified control cells, fresh profile and complete guard plan. |
+| 1 | Intel iterator B | Corrected baseline, eight qualified controls, matched baseline/B TMA plus cycles/instructions per element, complete guards. |
 | 2 | AMD scan A | Resolve timing/profile-binary transfer and 1M control failure. Corrected B stays rejected. |
 | 3 | M1 predicate / inline search | Qualify the original adverse guards before any further candidate comparison. |
 | 4 | Bulk decoder | Validated longer-window referee plus a demonstrated public consumer; existing cutoff/count-one trials already happened. |
