@@ -1,3 +1,16 @@
+<!-- INTEL-ITERATOR-TMA-CURRENT -->
+Intel iterator B continuation CLOSED/PARK. Fresh secondary Intel qualification:
+192rows/48blocks,46pass;100K reverse−1.631% and fraction−1.160% fail±1%.
+Both primary cells6/6. Six baseline L2 TMA captures qualify after independently
+correcting CSV warning/header handling; unchanged raw false flags retained.
+Memory Bound7.80%→16.50%; no B timing/profile, no retry, source NONE.
+Original/native/sanitizer/oracle checks pass. Root + independent intel_b_review.
+Live release12:07:34UTC: OSS RUNNING, service/timer inactive, no owned workload.
+No lease or queued work. Read experiments/INTEL-ITERATOR-TMA-001/README.md.
+34attempts=18PARK/16REJECT/0approved; ARM24/Intel5/AMD5;22populations unchanged.
+Next: preregister diagnostic of the two failed guards; no unchanged retry.
+<!-- INTEL-ITERATOR-TMA-CURRENT-END -->
+
 <!-- TMA-CLASSIFICATION-20261020 -->
 User requires topdown-profiler assessment and a four-category TMA classification
 in every experiment Markdown report, both Codex and Claude. Read docs/TMA-REPORTING.md.

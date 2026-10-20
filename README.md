@@ -2,8 +2,8 @@
 
 Packed B+ tree and compact member-index benchmarks from [Redis PR #15635](https://github.com/redis/redis/pull/15635). Standalone C; no Redis server.
 
-**33 experiment attempts: 17 parked · 16 rejected · 0 approved.**
-ARM 24 · Intel 4 · AMD 5. Includes 22 new populations, 5 replications and 6 qualification attempts; shared Apple history counted once. Tree source unchanged.
+**34 experiment attempts: 18 parked · 16 rejected · 0 approved.**
+ARM 24 · Intel 5 · AMD 5. Includes 22 new populations, 5 replications and 7 qualification attempts; shared Apple history counted once. Tree source unchanged.
 
 ![Experiment outcomes by architecture](experiments/EXPERIMENT-FLOWS-20261020/overview.png)
 
@@ -11,7 +11,7 @@ ARM 24 · Intel 4 · AMD 5. Includes 22 new populations, 5 replications and 6 qu
 
 ## What matters
 
-**Measured TMA:** Intel iterator Memory Bound rises **8.5% → 16.5%** at 100K → 1M. [Pipeline trees and next test](experiments/TOPDOWN-ASSESSMENT-20261020/README.md) · [All experiment TMA coverage](experiments/TMA-COVERAGE.md).
+**Latest Intel iterator B:** 46/48 baseline controls pass; two guard failures keep it parked. Fresh TMA Memory Bound **7.8% → 16.5%** at100K→1M. [Results and pipeline trees](experiments/INTEL-ITERATOR-TMA-001/README.md) · [All TMA coverage](experiments/TMA-COVERAGE.md).
 
 - **ARM mask:** primary gains survived, but qualified guards regressed. [Rejected](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 - **Intel scan:** primary gains and confirmation passed; a qualified guard regressed. [Rejected replication](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).

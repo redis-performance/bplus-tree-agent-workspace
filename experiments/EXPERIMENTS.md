@@ -1,5 +1,15 @@
 # Experiment log
 
+## 20 October: Intel iterator B qualification — PARK
+
+[Fresh qualification](INTEL-ITERATOR-TMA-001/README.md):192 baseline rows,46/48
+blocks pass;100K reverse−1.631% and fraction−1.160% fail±1%. Six baseline TMA
+captures qualify: Memory Bound7.80%→16.50% at100K→1M. Original/native/sanitizer
+and cache-oracle checks pass for baseline/B. Independent raw audit confirms PARK;
+no candidate timing, retry or source adoption. Secondary Intel released, OSS restored.
+Adds one qualification attempt:34 total /18parked /16rejected /0approved;
+ARM24 /Intel5 /AMD5;22 implementation populations unchanged.
+
 ## 20 October: measured TMA and required experiment classifications
 
 [Intel iterator TMA](TOPDOWN-ASSESSMENT-20261020/README.md):12captures/120seconds,

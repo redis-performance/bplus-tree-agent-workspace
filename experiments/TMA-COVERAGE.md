@@ -1,9 +1,11 @@
 # TMA coverage by experiment
 
-Every one of the 33 recorded attempts has a TMA classification supplement below.
+All34 recorded attempts have a TMA classification below:33 historical supplements and one fresh measured baseline report.
 Historical counters are **unavailable**, not zero. Original reports and seals remain unchanged.
 
-**Fresh measured data:** [Intel iterator baseline, 100K and 1M](TOPDOWN-ASSESSMENT-20261020/README.md#tma-classification), 12 captures / 120 seconds; no candidate comparison.
+**Latest:** [Secondary Intel qualification](INTEL-ITERATOR-TMA-001/README.md#tma-classification):six qualified captures; candidate uncollected after A/A failure.
+
+**Earlier measured data:** [Intel iterator baseline, 100K and 1M](TOPDOWN-ASSESSMENT-20261020/README.md#tma-classification), 12 captures / 120 seconds; no candidate comparison.
 
 | Architecture | Experiment | Host | TMA classification |
 |---|---|---|---|
@@ -40,5 +42,6 @@ Historical counters are **unavailable**, not zero. Original reports and seals re
 | Intel | INTEL-ITERATOR | AWS Intel | [Unavailable — reason and collection needed](NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/004-iterator/TMA.md) |
 | Intel | INTEL-LOOKUP | AWS Intel | [Unavailable — reason and collection needed](NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/002-lookup/TMA.md) |
 | Intel | INTEL-SCAN-REPLAY | AWS Intel | [Unavailable — reason and collection needed](NIGHT-EXPLORATION-001/TMA.md) |
+| Intel | INTEL-ITERATOR-AA | AWS Intel secondary | [Measured baseline; B unavailable after qualification failure](INTEL-ITERATOR-TMA-001/README.md#tma-classification) |
 
 [Required report format](../docs/TMA-REPORTING.md). Future reports embed the tree directly.

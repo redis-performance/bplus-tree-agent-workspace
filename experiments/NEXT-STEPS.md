@@ -1,22 +1,21 @@
 # Next steps — 20 October 2026
 
-**First: Intel iterator-cache B baseline qualification and matched TMA.**
-Fresh baseline [slot classifications](TOPDOWN-ASSESSMENT-20261020/README.md) show
-Memory Bound8.55%→16.47% at100K→1M, Frontend Bound<1%. Test work/dependent-load
-removal, not an assumed frontend bottleneck. No candidate captured or selected;
-the bounded Intel profiling lease is released.
+**Intel iterator B qualification completed: PARK.** [Fresh evidence](INTEL-ITERATOR-TMA-001/README.md)
+qualifies46/48 controls and six baseline TMA captures. Diagnose100K reverse/fraction
+precision failures before another comparison; do not repeat the unchanged schedule.
+Secondary Intel released, OSS restored; no candidate work queued.
 
 | Order | Work | Required next evidence |
 |---|---|---|
-| 1 | Intel iterator B | Corrected baseline, eight qualified controls, matched baseline/B TMA plus cycles/instructions per element, complete guards. |
+| 1 | Intel iterator B | Preregister frequency/residency and CPU/wall diagnostic for failed guards; require all eight controls before B timing. |
 | 2 | AMD scan A | Resolve timing/profile-binary transfer and 1M control failure. Corrected B stays rejected. |
 | 3 | M1 predicate / inline search | Qualify the original adverse guards before any further candidate comparison. |
 | 4 | Bulk decoder | Validated longer-window referee plus a demonstrated public consumer; existing cutoff/count-one trials already happened. |
 | Hold | M6 lookup / mask / NEON | New diagnostic evidence; no unchanged retry or rescue of a rejected patch. |
 
 [Full review and all17 parked records](PARKED-NEXT-STEPS-20261020/README.md) ·
-[Intel draft preflight](PARKED-NEXT-STEPS-20261020/intel-iterator-preflight.json) ·
-[All33 experiment attempts](EXPERIMENT-FLOWS-20261020/README.md)
+[Executed Intel preflight](INTEL-ITERATOR-TMA-001/protocol.json) ·
+[All34 experiment attempts](EXPERIMENT-FLOWS-20261020/README.md)
 
 Exact runner ownership, new measurement condition, compiler/binary/fixture identities,
 calibrated counts and review remain prerequisites. No old control qualifies a new source

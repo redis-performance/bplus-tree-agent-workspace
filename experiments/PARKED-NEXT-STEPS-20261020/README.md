@@ -1,6 +1,9 @@
 # Advancing the parked work
 
-**Start with Intel iterator-cache B qualification. Source selection remains NONE.**
+**Intel iterator B qualification completed: PARK. Source selection remains NONE.**
+[Fresh192-run result](../INTEL-ITERATOR-TMA-001/README.md):46/48 controls pass; reverse/fraction guards fail. Six baseline TMA captures qualify. Diagnose these failures before comparison.
+
+The ranked review below is the earlier17-record snapshot; the new qualification adds an18th parked attempt.
 This is a ranked review of retained evidence, not a new performance result or a runner launch.
 
 | Priority | Work | Why revisit | Concrete next gate |

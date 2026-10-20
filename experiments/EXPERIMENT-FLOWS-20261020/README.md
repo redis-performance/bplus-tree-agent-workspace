@@ -2,17 +2,19 @@
 
 [TMA classification for every experiment](../TMA-COVERAGE.md) · [Fresh Intel pipeline trees](../TOPDOWN-ASSESSMENT-20261020/README.md)
 
-**33 experiment attempts: 17 parked, 16 rejected, 0 approved.**
+**34 experiment attempts: 18 parked, 16 rejected, 0 approved.**
 
 | Target | Attempts | Parked | Rejected | Approved |
 |---|---:|---:|---:|---:|
 | ARM (M1, M6, Graviton) | 24 | 14 | 10 | 0 |
-| Intel | 4 | 2 | 2 | 0 |
+| Intel | 5 | 3 | 2 | 0 |
 | AMD | 5 | 1 | 4 | 0 |
 
 ![Architecture overview](overview.png)
 
 [All attempts](all-attempts.svg) · [New populations only](all-populations.svg) · [ARM](arm.svg) · [Intel](intel.svg) · [AMD](amd.svg) · [Replications / preflights](followups.svg)
+
+Latest: [iterator TMA qualification](../INTEL-ITERATOR-TMA-001/README.md) parks after two guard-control failures; all six baseline TMA captures qualify.
 
 ## Counting rules
 
@@ -20,7 +22,7 @@
 - ARM includes Apple M1, Apple M6 and AWS Graviton. Intel and AMD identify separate x86-64 targets.
 - M1’s 9 and M6’s 12 ledger totals share seven M1 experiments (EXP-002–008). Count those once: **9 + 12 − 7 + 8 AWS = 22**. M6 adds five new populations.
 - Approved means an adopted source optimization. Passed tests, accepted plans and merged harnesses do not qualify.
-- The 11 follow-ups (**8 parked / 3 rejected**) are now included in every main/architecture chart, and also have a detail chart. Thus Intel shows both original populations plus its scan replication and corrected-source preflight: **4 attempts**. Historical implementation-population totals stay **22 = 9 parked / 13 rejected / 0 approved**. A failed preflight is parked, not a rejected candidate.
+- The 12 follow-ups (**9 parked / 3 rejected**) are now included in every main/architecture chart, and also have a detail chart. Intel includes two populations, scan replication, corrected-source preflight and iterator TMA qualification: **5 attempts**. Historical implementation-population totals stay **22 = 9 parked / 13 rejected / 0 approved**. A failed preflight is parked, not a rejected candidate.
 - Follow-ups retain their own source and host scope. The ARM mask and original Intel scan replays progressed from PARK to REJECT; their parent experiments retain their original decisions.
 - Baseline runs, profiles, oracle suites, offline diagnoses and proposal-only NONE reviews are supporting work, not additional three-way optimization decisions. See the [full log](../EXPERIMENTS.md). M6’s EXP-004 decoder replay is diagnostic only; EXP-008 replay selected NONE, so neither is relabelled as an accepted/rejected/parked population.
 
@@ -67,6 +69,7 @@
 | ARM / AWS Graviton | [EXP-005 mask follow-up](../ARM-MASK-FOLLOWUP-001/RESULTS.md) | Parked → Rejected | EXP-005: Nine qualified guard cases regress; later diagnostic leaves REJECT unchanged. |
 | Intel / AWS Intel | [SSE2 scan replay](../NIGHT-EXPLORATION-001/AWS-DECISIONS.md) | Parked → Rejected | AMD-SCAN: Qualified supplemental small-leaf guard regresses. |
 | Intel / AWS Intel | [Corrected scan preflight](../NIGHT-EXPLORATION-001/AWS-DECISIONS.md) | Parked | INTEL-SCAN-REPLAY: Known guard A/A fails before candidate timing. |
+| Intel / AWS Intel | [Iterator TMA qualification](../INTEL-ITERATOR-TMA-001/README.md) | Parked | INTEL-ITERATOR:46/48 controls;100K reverse/fraction precision fails. |
 | AMD / AWS AMD | [Corrected SSE2 replay](../NIGHT-EXPLORATION-001/runs/aws-amd/20261019T020000Z/019-corrected-B-replication/RESULT.md) | Rejected | AMD-SCAN: Only 2/6 blocks per size meet 2% gate. |
 
 ## Reproduce

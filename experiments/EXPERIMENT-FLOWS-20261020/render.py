@@ -100,8 +100,8 @@ def overview(records):
     for status,y in dest_y.items():
         node(ax,1480,y,counts[status]*unit,COLORS[status])
         text(ax,1520,y+counts[status]*unit/2,f'{status}  ·  {counts[status]}',18,color=COLORS[status],weight='bold')
-    text(ax,42,height-47,'22 new populations + 5 replications + 6 qualification attempts. Shared Apple history counted once.',11,color='#61738b')
-    text(ax,42,height-21,'Source decisions through 19 Oct 2026  ·  Snapshot 20 Oct 2026  ·  Passed tests and merged harnesses are not approved optimizations.',10,color='#61738b')
+    text(ax,42,height-47,'22 new populations + 5 replications + 7 qualification attempts. Shared Apple history counted once.',11,color='#61738b')
+    text(ax,42,height-21,'Source decisions through 20 Oct 2026  ·  Snapshot 20 Oct 2026  ·  Passed tests and merged harnesses are not approved optimizations.',10,color='#61738b')
     save(fig,'overview')
 
 
@@ -161,14 +161,14 @@ def main():
     followups=[r for r in records if r['kind']=='followup']
     assert collections.Counter(r['status'] for r in populations)=={'Rejected':13,'Parked':9}
     assert collections.Counter(r['architecture'] for r in populations)=={'ARM':16,'Intel':2,'AMD':4}
-    assert collections.Counter(r['status'] for r in records)=={'Rejected':16,'Parked':17}
-    assert collections.Counter(r['architecture'] for r in records)=={'ARM':24,'Intel':4,'AMD':5}
+    assert collections.Counter(r['status'] for r in records)=={'Rejected':16,'Parked':18}
+    assert collections.Counter(r['architecture'] for r in records)=={'ARM':24,'Intel':5,'AMD':5}
     overview(records)
-    detailed(records,'all-attempts','All 33 experiment attempts, by architecture')
+    detailed(records,'all-attempts','All 34 experiment attempts, by architecture')
     detailed(populations,'all-populations','All 22 candidate populations, by architecture')
     for arch in ARCH_COLORS:
         detailed([r for r in records if r['architecture']==arch],arch.lower(),f'{arch} · all experiment attempts')
-    detailed(followups,'followups','11 replications and qualification attempts · separate count')
+    detailed(followups,'followups','12 replications and qualification attempts · separate count')
     audit={'source_commit':DATA['source_commit'],'attempt_count':len(records),'attempt_statuses':dict(collections.Counter(r['status'] for r in records)),
            'attempts_by_architecture':dict(collections.Counter(r['architecture'] for r in records)),
            'attempt_types':dict(collections.Counter(r['attempt_type'] for r in records)),'population_count':len(populations),'population_statuses':dict(collections.Counter(r['status'] for r in populations)),
