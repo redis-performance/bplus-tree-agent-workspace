@@ -1,12 +1,16 @@
 # Experiment summary
 
-## 20 October: Intel follow-ups and evidence corrections
+## 20 October: Intel follow-ups —48/48 TMA windows qualify
 
-[Follow-up](INTEL-FOLLOWUP-001/README.md): exact libc/debug attribution and independent
-36-profile audit complete; fresh16-config secondary-host diagnostic prepared.
-[Corrections](INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md): earlier profiler
-exclusivity unproven; selected-symbol percentages corrected to workload denominator.
-Old raw evidence unchanged; earlier leads provisional. Source NONE; counts unchanged.
+[Fresh secondary-host sweep](INTEL-FOLLOWUP-001/README.md):16/16 configurations,
+all48 L2 windows qualify with sibling50 offline. IteratorB1M Memory34.07→28.15%,
+Retiring46.81→53.01%; best parked continuation, no speedup/per-operation claim.
+Update1M Memory68.73/68.63%. Scan B mixes lower memory with higher frontend/speculation.
+Both PEBS/LBR probes fail missing scheduling measurements; preserved, no retries.
+[Sampling configuration fix to validate](INTEL-FOLLOWUP-001/SCHEDULING-EVIDENCE.md).
+Fresh correctness passes;22 actual topdown MCP calls, CPU-perf consultation and
+independent review. Runner restored15:40UTC. Source NONE,34attempts/22populations
+unchanged. [Earlier evidence corrections](INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md).
 
 ## 20 October: all pending Intel families profiled
 

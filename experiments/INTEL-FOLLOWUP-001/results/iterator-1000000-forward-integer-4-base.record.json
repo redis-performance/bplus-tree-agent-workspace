@@ -1,0 +1,103 @@
+{
+  "cell": "iterator-1000000-forward-integer-4",
+  "variant": "base",
+  "binary_sha256": "bfc0c18ff5865cfdcf6b02b00c181240bc13007e50d9200aeffdcde54f81e903",
+  "captures": [
+    {
+      "tag": "iterator-1000000-forward-integer-4-base-L2-1",
+      "rep": 1,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "454d5c6cc9f4cfa95396d9433c54c41754806ff19d7a6c248ece1ab7bbc05058",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "iterator-1000000-forward-integer-4-base-L2-2",
+      "rep": 2,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "e5fe815f2baff0823ce6b0717068180e65b63865b0776e50d2b9664b6af52587",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "iterator-1000000-forward-integer-4-base-L2-3",
+      "rep": 3,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "0f18b96738417ae62eaa4ce3ca8ba50c0b342016b8a9bf724cc04bdb27088495",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    }
+  ],
+  "deep": [],
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/base/iterator",
+    "--size",
+    "1000000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103",
+    "--direction",
+    "forward",
+    "--encoding",
+    "integer",
+    "--mask",
+    "4"
+  ],
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}

@@ -1,0 +1,103 @@
+{
+  "cell": "iterator-100000-forward-integer-4",
+  "variant": "itB",
+  "binary_sha256": "7070ba68fd9b43a340562a8e11bf0b3bbf8d5f5a01535f592c32ddcda5d152b0",
+  "captures": [
+    {
+      "tag": "iterator-100000-forward-integer-4-itB-L2-1",
+      "rep": 1,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "f5baba39293a1ce1d1f9763a4bd7e4f6981942bc3e9760df6de269f8a73df8fb",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "iterator-100000-forward-integer-4-itB-L2-2",
+      "rep": 2,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "8deb5cc6e63e71a1036276bb045b1609e94391ebc3c932efacd91430761ec46d",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "iterator-100000-forward-integer-4-itB-L2-3",
+      "rep": 3,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "24ab6dc8d7f3b33792bb2f32ce6e8b72a10145831291abab5363a35c56873bad",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    }
+  ],
+  "deep": [],
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/itB/iterator",
+    "--size",
+    "100000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103",
+    "--direction",
+    "forward",
+    "--encoding",
+    "integer",
+    "--mask",
+    "4"
+  ],
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}

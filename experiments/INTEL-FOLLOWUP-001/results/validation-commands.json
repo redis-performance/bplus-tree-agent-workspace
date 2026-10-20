@@ -1,0 +1,1208 @@
+[
+  {
+    "tag": "lscpu",
+    "args": [
+      "lscpu"
+    ],
+    "start": 1792510386.3510938,
+    "end": 1792510386.3700716,
+    "returncode": 0
+  },
+  {
+    "tag": "compiler",
+    "args": [
+      "clang-18",
+      "--version"
+    ],
+    "start": 1792510386.370139,
+    "end": 1792510386.386823,
+    "returncode": 0
+  },
+  {
+    "tag": "kernel",
+    "args": [
+      "uname",
+      "-r"
+    ],
+    "start": 1792510386.3869321,
+    "end": 1792510386.388759,
+    "returncode": 0
+  },
+  {
+    "tag": "numa",
+    "args": [
+      "numactl",
+      "--hardware"
+    ],
+    "start": 1792510386.3888643,
+    "end": 1792510386.38969,
+    "returncode": 0
+  },
+  {
+    "tag": "launcher-probe",
+    "args": [
+      "numactl",
+      "--all",
+      "--physcpubind=2",
+      "--membind=0",
+      "python3",
+      "-c",
+      "import os; assert os.sched_getaffinity(0)=={2}; print(sorted(os.sched_getaffinity(0)))"
+    ],
+    "start": 1792510386.4347594,
+    "end": 1792510386.448379,
+    "returncode": 0
+  },
+  {
+    "tag": "base-tests-native",
+    "args": [
+      "build/base/tests-native"
+    ],
+    "start": 1792510386.4484892,
+    "end": 1792510387.7047222,
+    "returncode": 0
+  },
+  {
+    "tag": "base-cache-oracle-native",
+    "args": [
+      "build/base/cache-oracle-native"
+    ],
+    "start": 1792510387.7048361,
+    "end": 1792510387.7068253,
+    "returncode": 0
+  },
+  {
+    "tag": "base-cache-oracle-additive-native",
+    "args": [
+      "build/base/cache-oracle-additive-native"
+    ],
+    "start": 1792510387.7069404,
+    "end": 1792510387.7095613,
+    "returncode": 0
+  },
+  {
+    "tag": "base-tests-sanitize",
+    "args": [
+      "build/base/tests-sanitize"
+    ],
+    "start": 1792510387.709684,
+    "end": 1792510392.0785422,
+    "returncode": 0
+  },
+  {
+    "tag": "base-cache-oracle-sanitize",
+    "args": [
+      "build/base/cache-oracle-sanitize"
+    ],
+    "start": 1792510392.0787356,
+    "end": 1792510392.0924041,
+    "returncode": 0
+  },
+  {
+    "tag": "base-cache-oracle-additive-sanitize",
+    "args": [
+      "build/base/cache-oracle-additive-sanitize"
+    ],
+    "start": 1792510392.092579,
+    "end": 1792510392.1076424,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-tests-native",
+    "args": [
+      "build/itA/tests-native"
+    ],
+    "start": 1792510392.1077754,
+    "end": 1792510393.36585,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-cache-oracle-native",
+    "args": [
+      "build/itA/cache-oracle-native"
+    ],
+    "start": 1792510393.365991,
+    "end": 1792510393.3680356,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-cache-oracle-additive-native",
+    "args": [
+      "build/itA/cache-oracle-additive-native"
+    ],
+    "start": 1792510393.3681762,
+    "end": 1792510393.3708029,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-tests-sanitize",
+    "args": [
+      "build/itA/tests-sanitize"
+    ],
+    "start": 1792510393.370946,
+    "end": 1792510397.7440252,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-cache-oracle-sanitize",
+    "args": [
+      "build/itA/cache-oracle-sanitize"
+    ],
+    "start": 1792510397.7442536,
+    "end": 1792510397.7588685,
+    "returncode": 0
+  },
+  {
+    "tag": "itA-cache-oracle-additive-sanitize",
+    "args": [
+      "build/itA/cache-oracle-additive-sanitize"
+    ],
+    "start": 1792510397.7590537,
+    "end": 1792510397.7757683,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-tests-native",
+    "args": [
+      "build/itB/tests-native"
+    ],
+    "start": 1792510397.7759454,
+    "end": 1792510399.0369437,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-cache-oracle-native",
+    "args": [
+      "build/itB/cache-oracle-native"
+    ],
+    "start": 1792510399.037108,
+    "end": 1792510399.0391347,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-cache-oracle-additive-native",
+    "args": [
+      "build/itB/cache-oracle-additive-native"
+    ],
+    "start": 1792510399.0393019,
+    "end": 1792510399.0419686,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-tests-sanitize",
+    "args": [
+      "build/itB/tests-sanitize"
+    ],
+    "start": 1792510399.042139,
+    "end": 1792510403.4275293,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-cache-oracle-sanitize",
+    "args": [
+      "build/itB/cache-oracle-sanitize"
+    ],
+    "start": 1792510403.4277816,
+    "end": 1792510403.441826,
+    "returncode": 0
+  },
+  {
+    "tag": "itB-cache-oracle-additive-sanitize",
+    "args": [
+      "build/itB/cache-oracle-additive-sanitize"
+    ],
+    "start": 1792510403.442039,
+    "end": 1792510403.4569502,
+    "returncode": 0
+  },
+  {
+    "tag": "scanB-tests-native",
+    "args": [
+      "build/scanB/tests-native"
+    ],
+    "start": 1792510403.45714,
+    "end": 1792510404.7137582,
+    "returncode": 0
+  },
+  {
+    "tag": "scanB-tests-sanitize",
+    "args": [
+      "build/scanB/tests-sanitize"
+    ],
+    "start": 1792510404.7139628,
+    "end": 1792510409.0847723,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-same-base-original",
+    "args": [
+      "build/base/update-original",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510409.0850544,
+    "end": 1792510409.2357097,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-same-base-profile",
+    "args": [
+      "build/base/update",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510409.2360542,
+    "end": 1792510409.3740895,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-same-base-sanitize",
+    "args": [
+      "build/base/update-sanitize",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510409.3743563,
+    "end": 1792510409.730598,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-position-base-original",
+    "args": [
+      "build/base/update-original",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510409.7308996,
+    "end": 1792510409.8787596,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-position-base-profile",
+    "args": [
+      "build/base/update",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510409.8790634,
+    "end": 1792510410.0232887,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-100000-position-base-sanitize",
+    "args": [
+      "build/base/update-sanitize",
+      "--case",
+      "update",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510410.0235653,
+    "end": 1792510410.3835654,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-same-base-original",
+    "args": [
+      "build/base/update-original",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510410.383874,
+    "end": 1792510412.5465596,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-same-base-profile",
+    "args": [
+      "build/base/update",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510412.5469396,
+    "end": 1792510414.7079294,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-same-base-sanitize",
+    "args": [
+      "build/base/update-sanitize",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "same"
+    ],
+    "start": 1792510414.7083027,
+    "end": 1792510419.485198,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-position-base-original",
+    "args": [
+      "build/base/update-original",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510419.4856188,
+    "end": 1792510421.7297785,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-position-base-profile",
+    "args": [
+      "build/base/update",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510421.7301655,
+    "end": 1792510423.9447026,
+    "returncode": 0
+  },
+  {
+    "tag": "check-update-1000000-position-base-sanitize",
+    "args": [
+      "build/base/update-sanitize",
+      "--case",
+      "update",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--pattern",
+      "position"
+    ],
+    "start": 1792510423.945104,
+    "end": 1792510428.7605424,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-base-original",
+    "args": [
+      "build/base/iterator-original",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510428.7610202,
+    "end": 1792510429.7654955,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-base-profile",
+    "args": [
+      "build/base/iterator",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510429.7659163,
+    "end": 1792510430.6885087,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-base-sanitize",
+    "args": [
+      "build/base/iterator-sanitize",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510430.6889129,
+    "end": 1792510433.4238203,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-itB-original",
+    "args": [
+      "build/itB/iterator-original",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510433.4242713,
+    "end": 1792510434.4356506,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-itB-profile",
+    "args": [
+      "build/itB/iterator",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510434.4360683,
+    "end": 1792510435.366024,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-7-itB-sanitize",
+    "args": [
+      "build/itB/iterator-sanitize",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "7"
+    ],
+    "start": 1792510435.3664343,
+    "end": 1792510438.1176329,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-base-original",
+    "args": [
+      "build/base/iterator-original",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.1180933,
+    "end": 1792510438.1962013,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-base-profile",
+    "args": [
+      "build/base/iterator",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.196662,
+    "end": 1792510438.2728317,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-base-sanitize",
+    "args": [
+      "build/base/iterator-sanitize",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.2732694,
+    "end": 1792510438.5087676,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-itB-original",
+    "args": [
+      "build/itB/iterator-original",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.5091684,
+    "end": 1792510438.5835023,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-itB-profile",
+    "args": [
+      "build/itB/iterator",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.5838864,
+    "end": 1792510438.6608841,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-100000-forward-integer-4-itB-sanitize",
+    "args": [
+      "build/itB/iterator-sanitize",
+      "--size",
+      "100000",
+      "--ops",
+      "200000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.6612954,
+    "end": 1792510438.8897798,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-base-original",
+    "args": [
+      "build/base/iterator-original",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510438.8901792,
+    "end": 1792510439.816953,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-base-profile",
+    "args": [
+      "build/base/iterator",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510439.8173885,
+    "end": 1792510440.7202964,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-base-sanitize",
+    "args": [
+      "build/base/iterator-sanitize",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510440.7207608,
+    "end": 1792510443.3983161,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-itA-original",
+    "args": [
+      "build/itA/iterator-original",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510443.3988328,
+    "end": 1792510444.3675623,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-itA-profile",
+    "args": [
+      "build/itA/iterator",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510444.3680654,
+    "end": 1792510445.2858984,
+    "returncode": 0
+  },
+  {
+    "tag": "check-iterator-1000000-forward-integer-4-itA-sanitize",
+    "args": [
+      "build/itA/iterator-sanitize",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103",
+      "--direction",
+      "forward",
+      "--encoding",
+      "integer",
+      "--mask",
+      "4"
+    ],
+    "start": 1792510445.2863803,
+    "end": 1792510447.9607627,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-base-original",
+    "args": [
+      "build/base/scan-original",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510447.9612882,
+    "end": 1792510449.5381007,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-base-profile",
+    "args": [
+      "build/base/scan",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510449.5386178,
+    "end": 1792510451.0833917,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-base-sanitize",
+    "args": [
+      "build/base/scan-sanitize",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510451.0839257,
+    "end": 1792510455.0379403,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-scanB-original",
+    "args": [
+      "build/scanB/scan-original",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510455.0384903,
+    "end": 1792510456.5979187,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-scanB-profile",
+    "args": [
+      "build/scanB/scan",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510456.59844,
+    "end": 1792510458.1178133,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-1000000-scanB-sanitize",
+    "args": [
+      "build/scanB/scan-sanitize",
+      "--case",
+      "scan",
+      "--size",
+      "1000000",
+      "--ops",
+      "2000000",
+      "--member-bytes",
+      "16",
+      "--seed",
+      "7103"
+    ],
+    "start": 1792510458.118338,
+    "end": 1792510462.009519,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-base-original",
+    "args": [
+      "build/base/guard-original",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0100782,
+    "end": 1792510462.0120728,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-base-profile",
+    "args": [
+      "build/base/guard",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.01255,
+    "end": 1792510462.0143418,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-base-sanitize",
+    "args": [
+      "build/base/guard-sanitize",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0147936,
+    "end": 1792510462.0231135,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-scanB-original",
+    "args": [
+      "build/scanB/guard-original",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0236564,
+    "end": 1792510462.0245268,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-scanB-profile",
+    "args": [
+      "build/scanB/guard",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.025052,
+    "end": 1792510462.0258102,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-trim-319-zero-scanB-sanitize",
+    "args": [
+      "build/scanB/guard-sanitize",
+      "run",
+      "trim",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0263307,
+    "end": 1792510462.0339863,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-base-original",
+    "args": [
+      "build/base/guard-original",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0344627,
+    "end": 1792510462.0519466,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-base-profile",
+    "args": [
+      "build/base/guard",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.0524938,
+    "end": 1792510462.0696669,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-base-sanitize",
+    "args": [
+      "build/base/guard-sanitize",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.070156,
+    "end": 1792510462.1327844,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-scanB-original",
+    "args": [
+      "build/scanB/guard-original",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.1333745,
+    "end": 1792510462.1518557,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-scanB-profile",
+    "args": [
+      "build/scanB/guard",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.1524117,
+    "end": 1792510462.1691172,
+    "returncode": 0
+  },
+  {
+    "tag": "check-scan-resize-319-zero-scanB-sanitize",
+    "args": [
+      "build/scanB/guard-sanitize",
+      "run",
+      "resize",
+      "319",
+      "701",
+      "2",
+      "10",
+      "0"
+    ],
+    "start": 1792510462.169606,
+    "end": 1792510462.227122,
+    "returncode": 0
+  }
+]

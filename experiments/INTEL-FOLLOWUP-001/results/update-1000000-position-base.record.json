@@ -1,0 +1,102 @@
+{
+  "cell": "update-1000000-position",
+  "variant": "base",
+  "binary_sha256": "e4b440e4c71187973999ba6b9e360d201b7075f3df46be68b6e08dbcde49895e",
+  "captures": [
+    {
+      "tag": "update-1000000-position-base-L2-1",
+      "rep": 1,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "39eaedceac82b1646887886bdad1c90fdd24a2baec35bdf25fd3810d3cec05b3",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "update-1000000-position-base-L2-2",
+      "rep": 2,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "44a443cd071220f97a2002e6219c226bbea96c9a711ffdfa42fcd334e82cef89",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "update-1000000-position-base-L2-3",
+      "rep": 3,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "138771735bf3c8a7b168187075d609ef6271f51e5be7f9791e025e1c912ea6cc",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    }
+  ],
+  "deep": [],
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/base/update",
+    "--case",
+    "update",
+    "--size",
+    "1000000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103",
+    "--pattern",
+    "position"
+  ],
+  "deep_skipped": "unsupported or unqualified probe; original retained",
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}

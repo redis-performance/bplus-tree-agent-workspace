@@ -1,12 +1,17 @@
 <!-- INTEL-FOLLOWUP-CURRENT -->
-Intel follow-ups: offline attribution independently verified; 16-config secondary-host
-protocol prepared, no new capture yet. See experiments/INTEL-FOLLOWUP-001/README.md.
-IMPORTANT: earlier profiler exclusivity was unproven (another reservation predates
-sweep); selected-symbol annotation percentages were not workload percentages.
-Read experiments/INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md before older summaries.
-Original raw evidence sealed unchanged. New secondary run requires CPU50 offline,
-restoration and fresh correctness; independent preexecution review in progress.
-Source NONE; counts unchanged34/18PARK/16REJECT/0approved;22 populations.
+Intel follow-ups CLOSED:16/16 configs,48/48 L2 windows qualify on secondary Intel,
+CPU2/NUMA0 sibling50offline. IteratorB1M Memory34.07→28.15%,Retiring46.81→53.01%:
+best parked continuation, not speedup evidence. Update1M Memory68.73/68.63%.
+Both PEBS/LBR probes fail scheduling-evidence gate; raw preserved,no retry/deeprepeat.
+Concrete perf :S READ-sampling fix identified from primary source/CPU-perf read_source,
+but not yet validated. Next: separate capability protocol, then precise attribution
+and original timingguard metrology.22 actualtopdownMCP queries,correctness passes.
+OSS/CPU50 restored15:40UTC; fresh release proof; no active lease/queued work.
+Read experiments/INTEL-FOLLOWUP-001/{README,ASSESSMENT,SCHEDULING-EVIDENCE}.md.
+IMPORTANT prior sweep ownership/annotation correction remains: earlier profiler
+exclusivity unproven; selected-symbol percentages were not workload percentages.
+Old2121sealedfiles unchanged. Source NONE;34attempts18PARK/16REJECT/0approved,
+ARM24/Intel5/AMD5;22populations unchanged.
 <!-- INTEL-FOLLOWUP-CURRENT-END -->
 
 <!-- INTEL-PARKED-PROFILES-CURRENT -->

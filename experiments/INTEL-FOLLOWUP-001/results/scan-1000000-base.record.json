@@ -1,0 +1,100 @@
+{
+  "cell": "scan-1000000",
+  "variant": "base",
+  "binary_sha256": "1619684ab58a7f84467ded7698a52065a8c57baa6f3f44260924d2e04fdba3f1",
+  "captures": [
+    {
+      "tag": "scan-1000000-base-L2-1",
+      "rep": 1,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "47deeade9617b990530b84a518b29455fc761b7644e53d2f4cff08484993e959",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "scan-1000000-base-L2-2",
+      "rep": 2,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "5099b474a55d1f82b3cb48f1fd856edf2bd0975554664ecb4d2e65a4083c840f",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "scan-1000000-base-L2-3",
+      "rep": 3,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "6a9a4dc7356b8397c693d01e0365492b980271039b21bd12fb7ff00edb2873cf",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    }
+  ],
+  "deep": [],
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/base/scan",
+    "--case",
+    "scan",
+    "--size",
+    "1000000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103"
+  ],
+  "deep_skipped": "unsupported or unqualified probe; original retained",
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}

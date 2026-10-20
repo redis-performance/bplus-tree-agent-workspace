@@ -3,7 +3,14 @@
 All34 recorded attempts have a TMA classification below:33 historical supplements and one fresh measured baseline report.
 Historical counters are **unavailable**, not zero. Original reports and seals remain unchanged.
 
-**Latest:** [All pending Intel families](INTEL-PARKED-PROFILES-001/README.md):36 configurations,
+**Latest:** [Secondary Intel follow-ups](INTEL-FOLLOWUP-001/README.md):16 configurations,
+48/48 qualified L2 windows; baseline/candidate trees for [iterator](INTEL-FOLLOWUP-001/ITERATOR.md),
+[update](INTEL-FOLLOWUP-001/UPDATE.md), [scan](INTEL-FOLLOWUP-001/SCAN.md). New host/SMT
+offline condition. PEBS/LBR unavailable after scheduling-evidence failure. No acceptance.
+[Earlier sweep ownership and annotation corrections](INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md)
+apply to the previous32/36 capture-quality classifications; host exclusivity was unproven.
+
+**Earlier (ownership limitation below):** [All pending Intel families](INTEL-PARKED-PROFILES-001/README.md):36 configurations,
 104/108 qualified L2 windows,32 complete classifications; baseline and exact retained
 candidates separate. [Iterator](INTEL-PARKED-PROFILES-001/ITERATOR.md) ·
 [Corrected scan](INTEL-PARKED-PROFILES-001/SCAN.md) · [Update](INTEL-PARKED-PROFILES-001/UPDATE.md).

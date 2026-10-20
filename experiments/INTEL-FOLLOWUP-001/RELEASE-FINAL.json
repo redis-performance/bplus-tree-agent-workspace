@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-20T15:40:59.727966+00:00",
+  "checks": {
+    "coordinator": {
+      "command": [
+        "supervisorctl",
+        "status",
+        "redis-benchmarks-spec-sc-coordinator"
+      ],
+      "returncode": 0,
+      "stdout": "redis-benchmarks-spec-sc-coordinator   RUNNING   pid 2763508, uptime 0:00:35\n",
+      "stderr": ""
+    },
+    "unit": {
+      "command": [
+        "systemctl",
+        "is-active",
+        "bplus-intel-followup-001.service"
+      ],
+      "returncode": 4,
+      "stdout": "inactive\n",
+      "stderr": ""
+    },
+    "recovery_timer": {
+      "command": [
+        "systemctl",
+        "is-active",
+        "bplus-intel-followup-recovery.timer"
+      ],
+      "returncode": 4,
+      "stdout": "inactive\n",
+      "stderr": ""
+    }
+  },
+  "owned_workloads": [],
+  "sibling50_online": "1",
+  "cpu2_sibling_topology": "2,50",
+  "marker": {
+    "owner": "bplus-intel-followup-001",
+    "state": "RELEASED",
+    "original_sibling_topology": "2,50",
+    "original_sibling_online": "1",
+    "started_utc": "2026-10-20T15:33:05.975197+00:00",
+    "worker_pgid": 2761337,
+    "restored_utc": "2026-10-20T15:40:24.439667+00:00"
+  },
+  "pass": true
+}

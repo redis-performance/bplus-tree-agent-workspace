@@ -11,7 +11,7 @@ ARM 24 · Intel 5 · AMD 5. Includes 22 new populations, 5 replications and 7 qu
 
 ## What matters
 
-**Intel follow-ups:** exact libc hotspots resolved; fresh secondary-host diagnostics prepared. The earlier sweep has [ownership and annotation corrections](experiments/INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md). [Current work](experiments/INTEL-FOLLOWUP-001/README.md).
+**Intel follow-ups:**16 configurations /48 TMA windows pass. Iterator B: Memory Bound34.07→28.15% at1M; strongest parked lead, no speedup claim. [Results and next gates](experiments/INTEL-FOLLOWUP-001/README.md).
 
 - **ARM mask:** primary gains survived, but qualified guards regressed. [Rejected](experiments/ARM-MASK-FOLLOWUP-001/RESULTS.md).
 - **Intel scan:** primary gains and confirmation passed; a qualified guard regressed. [Rejected replication](experiments/NIGHT-EXPLORATION-001/runs/aws-intel/20261019T020000Z/014-scan-supplement/README.md).

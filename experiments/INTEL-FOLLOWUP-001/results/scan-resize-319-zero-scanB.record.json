@@ -1,0 +1,97 @@
+{
+  "cell": "scan-resize-319-zero",
+  "variant": "scanB",
+  "binary_sha256": "2bb79ea54c87a83fa6a95e72881f76def7cfbd826b19a1f5bed0a69333504e64",
+  "captures": [
+    {
+      "tag": "scan-resize-319-zero-scanB-L2-1",
+      "rep": 1,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "687b892ce5aa5c90cce0e0541a567edbf7c985995d33048e845581b6477cfa53",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "scan-resize-319-zero-scanB-L2-2",
+      "rep": 2,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "960c59588d4bccd7501ac2524a5a8402bd5972fc936ffad2aeb090b2762d481f",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    },
+    {
+      "tag": "scan-resize-319-zero-scanB-L2-3",
+      "rep": 3,
+      "level": 2,
+      "qualified": true,
+      "status": "COLLECTED",
+      "raw_sha256": "18b95526d37da1e1e06d76f8db70a8c50ce4e2685af287543efffb866e7796bc",
+      "command": [
+        "/tmp/bplus-intel-followup-001/pmu/toplev.py",
+        "-l2",
+        "-I1000",
+        "-x,",
+        "--no-desc",
+        "-v",
+        "-C",
+        "2",
+        "--",
+        "sleep",
+        "5"
+      ],
+      "roots_pass": true,
+      "scope_pass": true,
+      "mux_min": 100.0
+    }
+  ],
+  "deep": [],
+  "workload_command": [
+    "numactl",
+    "--all",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/scanB/guard",
+    "run",
+    "resize",
+    "319",
+    "701",
+    "2",
+    "20000000000",
+    "0"
+  ],
+  "deep_skipped": "unsupported or unqualified probe; original retained",
+  "status": "COLLECTED",
+  "workload_returncode": -15
+}
