@@ -17,4 +17,3 @@ Pipeline Slots (100%) — historical baseline / candidates
 ```
 
 No compatible slot-classification capture is retained for this Apple experiment. Linux Intel/Neoverse measurements cannot fill these values. Collect matched baseline/candidate counters on the stated architecture before assigning a TMA mechanism.
-

@@ -19,4 +19,3 @@ Pipeline Slots (100%) — historical baseline / candidates
 No matching TMA slot capture is retained for this historical experiment. Timing, instruction counts and sampled hotspot shares do not supply this classification. Collect matched baseline/candidate counters on the stated architecture before assigning a TMA mechanism.
 
 **New baseline diagnostic, 20 October:** [measured Intel L2 trees](../../../../../TOPDOWN-ASSESSMENT-20261020/README.md#tma-classification). Different profiling runner/build; these values do not retroactively classify the historical B candidate.
-

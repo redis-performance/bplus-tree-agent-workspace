@@ -27,7 +27,7 @@ for folder,rs in groups.items():
   coverage.append({'id':r['id'],'architecture':r['architecture'],'host':r['host'],'status':'historical TMA unavailable',
                    'report':r['source'],'supplement':str((folder/'TMA.md').relative_to(ROOT)),
                    'historical_sha256_verified':r['source_sha256']})
- (folder/'TMA.md').write_text(text)
+ (folder/'TMA.md').write_text(text.rstrip()+'\n')
 index='# TMA coverage by experiment\n\nEvery one of the 33 recorded attempts has a TMA classification supplement below.\nHistorical counters are **unavailable**, not zero. Original reports and seals remain unchanged.\n\n**Fresh measured data:** [Intel iterator baseline, 100K and 1M](TOPDOWN-ASSESSMENT-20261020/README.md#tma-classification), 12 captures / 120 seconds; no candidate comparison.\n\n| Architecture | Experiment | Host | TMA classification |\n|---|---|---|---|\n'
 for c in sorted(coverage,key=lambda x:(x['architecture'],x['id'])):
  index+=f"| {c['architecture']} | {c['id']} | {c['host']} | [Unavailable — reason and collection needed]({os.path.relpath(ROOT/c['supplement'],ROOT/'experiments')}) |\n"
