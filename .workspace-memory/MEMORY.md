@@ -1,3 +1,10 @@
+<!-- EXPERIMENT-FLOWS-20261020 -->
+Architecture Sankey and source-linked ledger: experiments/EXPERIMENT-FLOWS-20261020/README.md.
+22 unique populations = M1 9 + M6 12 − 7 shared inherited + AWS 8; 9 PARK / 13 REJECT / 0 approved.
+11 follow-ups shown separately; historical host counts and decisions unchanged.
+Main README pruned. User explicitly prefers concise messages and useful results over bloat.
+<!-- EXPERIMENT-FLOWS-20261020-END -->
+
 <!-- MAIN-CONSOLIDATION-20261019 -->
 Published performance history consolidated into main: M1 overnight + lookup A/A,
 M6 overnight, AWS ARM/Intel/AMD. All six pinned tips are ancestors; 154,955 evidence

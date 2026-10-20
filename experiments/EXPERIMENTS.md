@@ -1,5 +1,11 @@
 # Experiment log
 
+## 20 October: architecture Sankey
+
+[Decision flows and evidence](EXPERIMENT-FLOWS-20261020/README.md): 22 distinct populations
+(9 parked / 13 rejected / 0 approved), with seven inherited Apple populations counted
+once. Eleven replications/preflights remain separate. README shortened; no decisions changed.
+
 ## 19 October: main history consolidation
 
 All six published performance branch tips (M1 overnight and lookup A/A, M6
