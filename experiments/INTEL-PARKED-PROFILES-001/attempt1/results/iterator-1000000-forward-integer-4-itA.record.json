@@ -1,0 +1,31 @@
+{
+  "index": 10,
+  "cell": "iterator-1000000-forward-integer-4",
+  "variant": "itA",
+  "workload_command": [
+    "numactl",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/itA/iterator",
+    "--size",
+    "1000000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103",
+    "--direction",
+    "forward",
+    "--encoding",
+    "integer",
+    "--mask",
+    "4"
+  ],
+  "binary_sha256": "243b2d7b7f44f34aafd122255032a79a3d9b26c2bf043b236e7ad979fe832154",
+  "captures": [],
+  "status": "INCOMPLETE",
+  "error": "workload exited before readiness",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/bplus-intel-parked-001/collect.py\", line 49, in <module>\n    assert proc.poll() is None,'workload exited before readiness'\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: workload exited before readiness\n",
+  "workload_returncode": 1
+}

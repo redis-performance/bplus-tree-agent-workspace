@@ -1,6 +1,6 @@
 # Intel parked-work profile sweep
 
-**PREPARED — diagnostic only; source NONE.** Cover all Intel parked families and
+**Launcher correction prepared — diagnostic only; source NONE.** Cover all Intel parked families and
 unfinished update-path work before choosing another optimization. Historical decisions
 remain34 attempts:18parked /16rejected /0approved. This adds no implementation population.
 
@@ -13,6 +13,13 @@ remain34 attempts:18parked /16rejected /0approved. This adds no implementation p
 Independent [inventory](INDEPENDENT-INVENTORY.md) separates these from rejected lookup,
 iterator C and old-source scan. Corrected-adapter baseline precision debt remains;
 profiles do not qualify its30 noisy cells. Original failed schedules remain unchanged.
+
+Attempt1 passed177 build/validation commands and all36 completed semantic cases,
+then all36 launches failed before readiness: controller CPU0 affinity restricted
+numactl’s default CPU mask. No TMA/counter/sample capture occurred.
+[Failure audit](attempt1/INDEPENDENT-AUDIT.json) preserves every failed launch.
+V2 adds `numactl --all` before absolute CPU2 placement, verifies unchanged binaries,
+and reuses completed preparation. [Corrected protocol](protocol-v2.json).
 
 ## Frozen collection
 

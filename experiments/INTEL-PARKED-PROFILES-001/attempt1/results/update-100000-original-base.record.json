@@ -1,0 +1,29 @@
+{
+  "index": 30,
+  "cell": "update-100000-original",
+  "variant": "base",
+  "workload_command": [
+    "numactl",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/base/update",
+    "--case",
+    "update",
+    "--size",
+    "100000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103",
+    "--pattern",
+    "original"
+  ],
+  "binary_sha256": "e4b440e4c71187973999ba6b9e360d201b7075f3df46be68b6e08dbcde49895e",
+  "captures": [],
+  "status": "INCOMPLETE",
+  "error": "workload exited before readiness",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/bplus-intel-parked-001/collect.py\", line 49, in <module>\n    assert proc.poll() is None,'workload exited before readiness'\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: workload exited before readiness\n",
+  "workload_returncode": 1
+}

@@ -1,0 +1,27 @@
+{
+  "index": 20,
+  "cell": "scan-1000000",
+  "variant": "scanB",
+  "workload_command": [
+    "numactl",
+    "--physcpubind=2",
+    "--membind=0",
+    "build/scanB/scan",
+    "--case",
+    "scan",
+    "--size",
+    "1000000",
+    "--ops",
+    "20000000000",
+    "--member-bytes",
+    "16",
+    "--seed",
+    "7103"
+  ],
+  "binary_sha256": "0e0aed385f9b044a7abb14b2e7dfa1780eac1a9da9c98fff6580464cfdaa39b8",
+  "captures": [],
+  "status": "INCOMPLETE",
+  "error": "workload exited before readiness",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/bplus-intel-parked-001/collect.py\", line 49, in <module>\n    assert proc.poll() is None,'workload exited before readiness'\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: workload exited before readiness\n",
+  "workload_returncode": 1
+}
