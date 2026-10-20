@@ -1,0 +1,281 @@
+{
+  "id": "INTEL-FOLLOWUP-001",
+  "source_commit": "e556dc473",
+  "binary_origin": "37efd287f exact previously validated ELF hashes; source/referees unchanged",
+  "runner": "secondary Intel Sapphire Rapids, CPU2/NUMA0; new host/SMT condition, no cross-host causal comparison",
+  "cells": [
+    {
+      "id": "update-100000-same",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "same"
+      ],
+      "deep": "pebs"
+    },
+    {
+      "id": "update-100000-position",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "position"
+      ],
+      "deep": "pebs"
+    },
+    {
+      "id": "update-1000000-same",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "same"
+      ],
+      "deep": "pebs"
+    },
+    {
+      "id": "update-1000000-position",
+      "family": "update",
+      "driver": "update",
+      "variants": [
+        "base"
+      ],
+      "args": [
+        "--case",
+        "update",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--pattern",
+        "position"
+      ],
+      "deep": "pebs"
+    },
+    {
+      "id": "iterator-1000000-forward-integer-7",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "7"
+      ],
+      "deep": "pebs"
+    },
+    {
+      "id": "iterator-100000-forward-integer-4",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itB"
+      ],
+      "args": [
+        "--size",
+        "100000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "4"
+      ],
+      "deep": null
+    },
+    {
+      "id": "iterator-1000000-forward-integer-4",
+      "family": "iterator",
+      "driver": "iterator",
+      "variants": [
+        "base",
+        "itA"
+      ],
+      "args": [
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103",
+        "--direction",
+        "forward",
+        "--encoding",
+        "integer",
+        "--mask",
+        "4"
+      ],
+      "deep": null
+    },
+    {
+      "id": "scan-1000000",
+      "family": "scan",
+      "driver": "scan",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "--case",
+        "scan",
+        "--size",
+        "1000000",
+        "--ops",
+        "20000000000",
+        "--member-bytes",
+        "16",
+        "--seed",
+        "7103"
+      ],
+      "deep": "lbr"
+    },
+    {
+      "id": "scan-trim-319-zero",
+      "family": "scan",
+      "driver": "guard",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "run",
+        "trim",
+        "319",
+        "701",
+        "2",
+        "20000000000",
+        "0"
+      ],
+      "deep": "lbr"
+    },
+    {
+      "id": "scan-resize-319-zero",
+      "family": "scan",
+      "driver": "guard",
+      "variants": [
+        "base",
+        "scanB"
+      ],
+      "args": [
+        "run",
+        "resize",
+        "319",
+        "701",
+        "2",
+        "20000000000",
+        "0"
+      ],
+      "deep": "lbr"
+    }
+  ],
+  "configurations": 16,
+  "purpose": "Fresh independently isolated TMA and load/branch attribution; diagnostic only, no timing acceptance",
+  "isolation": "CPU50 sibling offlined under owned lease; original state restored by exit and independent recovery. CPU2/50 topology asserted. All foreign leases/services/native workers checked, no Docker. No lease takeover.",
+  "tma": {
+    "level": 2,
+    "windows": 3,
+    "seconds": 5,
+    "interval_ms": 1000,
+    "quality": "Each window exactly5 four-root finite slot sets in0..100,sum100+/-0.3pp,everymetric100percent scheduling. CPU2 affinity/alive,CPU/workloadaccounting<=1percent. Topology2,50 and sibling50offline asserted before/after; no fabricated siblingbusypercentage."
+  },
+  "pebs": {
+    "command": "perf mem record -t load -U --ldlat 30 -c 1000 -s --running-time -o RAW --pid PID -- sleep 5",
+    "windows": 2,
+    "seconds": 5,
+    "qualification": "precise_ip>=2,>=200 load samples,zero recorded losses,>=90% positive weights and decoded data source, scope valid; threshold-selected slow loads only, not all accesses or slot categories"
+  },
+  "lbr": {
+    "command": "perf record -e cycles:u -c 1000000 -j any,u -s --running-time -o RAW --pid PID -- sleep 5",
+    "windows": 2,
+    "seconds": 5,
+    "qualification": ">=200 sample rows with nonempty branch stack,zero recorded losses,scope valid; branch-stack observations at cycles samples not unbiased branch/mispredict rates"
+  },
+  "capability_probes": "One5s PEBS on baseline1M same-update and one5s LBR on baseline1Mscan. Failed/unsupported probe is retained and that tool skipped; no alternateevent retry. TMA proceeds independently.",
+  "correctness": "Verify all44ELF hashes; fresh8native/sanitizeroriginals+12cacheoracles and48original/profile/sanitizersemantic outputs, same-mode candidateownedbytes.",
+  "failure_policy": "Keep everyfailedwindow; no retry. WholeconfigTMA requires3/3; matched interpretation requires bothwholeconfigs. Deep windows2/2 required; unavailable notzero. Isolationloss abortsremainingwork.",
+  "limits": [
+    "No operation counts inside fixed-time windows; no cycles/op or work-removal inference",
+    "Update state evolves; record phase/order and do not assume stationarity",
+    "New CPU50offline condition and differenthost cannot explain old timingfailures causally",
+    "Raw PEBS/LBR data retained locally with hashes and decoded reports",
+    "No code implementation or newpopulation in thisdiagnostic round"
+  ],
+  "runtime_seconds": 1500,
+  "recovery_seconds": 1800,
+  "source_adoption": "NONE",
+  "deep_gates": {
+    "both_windows": true,
+    "scheduling": "Enabled/running time evidence must show>=99.5percent for intendedsamplingevent. Unknown scheduling means unavailable. No assumedunmultiplexed events.",
+    "records": "Exacteventidentity/precision/filter,finitepositiveperiods;zero PERF_RECORD_LOST/THROTTLE; report/exportcountsagree;mapsretained. Auxiliaryevents excludedfromload denominator.",
+    "pebs": "Atleast200intendedloadsamples,precise_ip>=2,positivefiniteweights>=90percent,recognizednonzero/nonNA/nonunknown data_source>=90percent. Record unknownshare.",
+    "lbr": "Atleast200intendedcycles samples,nonemptybranchstacks>=90percent. Attribute branchentries without calling them unbiasedmispredictionrates.",
+    "probe_review": "Aftertwo probes,controller+independentreview reconstructgates fromraw beforewritingprobes-reviewed.json. Waitbounded240s,defaultFalseon timeout; no remeasurement. Anyunqualifiedprobe skipsthatdeepmethod;TMAcontinues."
+  }
+}

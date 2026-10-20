@@ -1,5 +1,13 @@
 # Experiment summary
 
+## 20 October: Intel follow-ups and evidence corrections
+
+[Follow-up](INTEL-FOLLOWUP-001/README.md): exact libc/debug attribution and independent
+36-profile audit complete; fresh16-config secondary-host diagnostic prepared.
+[Corrections](INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md): earlier profiler
+exclusivity unproven; selected-symbol percentages corrected to workload denominator.
+Old raw evidence unchanged; earlier leads provisional. Source NONE; counts unchanged.
+
 ## 20 October: all pending Intel families profiled
 
 [Diagnostic sweep](INTEL-PARKED-PROFILES-001/README.md):36 configurations,104/108

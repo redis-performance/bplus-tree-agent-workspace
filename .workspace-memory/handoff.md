@@ -1,3 +1,14 @@
+<!-- INTEL-FOLLOWUP-CURRENT -->
+Intel follow-ups: offline attribution independently verified; 16-config secondary-host
+protocol prepared, no new capture yet. See experiments/INTEL-FOLLOWUP-001/README.md.
+IMPORTANT: earlier profiler exclusivity was unproven (another reservation predates
+sweep); selected-symbol annotation percentages were not workload percentages.
+Read experiments/INTEL-PARKED-PROFILES-001/CORRECTIONS-20261020.md before older summaries.
+Original raw evidence sealed unchanged. New secondary run requires CPU50 offline,
+restoration and fresh correctness; independent preexecution review in progress.
+Source NONE; counts unchanged34/18PARK/16REJECT/0approved;22 populations.
+<!-- INTEL-FOLLOWUP-CURRENT-END -->
+
 <!-- INTEL-PARKED-PROFILES-CURRENT -->
 Intel all-pending profile sweep CLOSED, source NONE.36configs across iteratorbase/A/B,
 correctedscanbase/B and updateNONE:104/108L2 windows qualify;32/36wholeconfigs.
