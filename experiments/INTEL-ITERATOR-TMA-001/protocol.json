@@ -1,0 +1,127 @@
+{
+  "experiment": "INTEL-ITERATOR-TMA-001",
+  "source_commit": "c6112e052e8c11dfa1fef051d704de598b367f52",
+  "candidate": "exact retained B; not a new implementation population",
+  "stage": "baseline qualification only",
+  "runner": "secondary Intel Sapphire Rapids, CPU2 + NUMA node0; sibling50 online",
+  "new_condition": "Explicit NUMA memory binding (previous run recorded CPU pin only), wider ops-only parser and600ms target vs old short controls. No claimed noise cure.",
+  "cells": [
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": true
+    },
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "reverse",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 100000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 4,
+      "primary": false
+    },
+    {
+      "size": 100000,
+      "layout": "fraction",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": true
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "reverse",
+      "output_mask": 7,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "integer",
+      "direction": "forward",
+      "output_mask": 4,
+      "primary": false
+    },
+    {
+      "size": 1000000,
+      "layout": "fraction",
+      "direction": "forward",
+      "output_mask": 7,
+      "primary": false
+    }
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    3
+  ],
+  "block_order": [
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "calibration": {
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "visits": 10000000,
+    "target_ns": 600000000,
+    "rule": "ceil(10M *600ms / minimum elapsed) rounded up to whole traversals",
+    "max_visits": 2000000000,
+    "failure": "PARK; no clipping or recalibration"
+  },
+  "aa_processes": 192,
+  "minimum_window_ns": 500000000,
+  "max_abs_block_difference_percent": 1,
+  "smt_max_busy_percent_per_process_envelope": 1,
+  "cpu": 2,
+  "numa": 0,
+  "sibling": 50,
+  "aa_budget_seconds": 900,
+  "per_process_timeout_seconds": 60,
+  "profile": {
+    "level": 2,
+    "sizes": [
+      100000,
+      1000000
+    ],
+    "windows_per_size": 3,
+    "seconds_per_window": 10,
+    "scope": "CPU2; verify workload affinity and CPU/sibling accounting; same baseline binary used for timing",
+    "mask": 7,
+    "encoding": "integer",
+    "direction": "forward",
+    "seed": 7103,
+    "visits": 20000000000,
+    "workload_to_cpu_busy_accounting_tolerance_pct": 1
+  },
+  "candidate_timing_authorized_by_this_protocol": false,
+  "failure_policy": "Timing/duration/SMT failures: finish fixed schedule within900s. Process timeout/nonzero/semantic/affinity failure: preserve partial output and metadata, stop, PARK. No retries or candidate comparison.",
+  "gate_invariants": [
+    "checksum equals expected",
+    "fixture fingerprint and tree bytes identical within each block",
+    "operations and traversals identical",
+    "CPU endpoints both2",
+    "L2 TMA scheduling100percent; four roots sum100 within0.3pp"
+  ],
+  "acceptance": "Not available at baseline-only stage; further guards, ABBA, candidate TMA, independent confirmation/review required."
+}
