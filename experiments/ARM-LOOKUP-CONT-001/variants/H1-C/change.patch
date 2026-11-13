@@ -1,0 +1,68 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..b8ad13df0 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1298,11 +1298,11 @@ static unsigned int zbtScoreLeafLowerBound(zbtScoreLeaf *leaf, double score,
+ 
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+- * are touched. */
+-static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+-                                  const unsigned char *ele, size_t elelen,
+-                                  double *score,
+-                                  unsigned int *position)
++ * are touched. Return the physical slot, or UINT_MAX when absent. Keeping
++ * matching separate lets membership callers inline it without outputs. */
++static inline __attribute__((always_inline)) unsigned int
++zbtScoreLeafMatchMember(zbtScoreLeaf *leaf, uint32_t hash,
++                        const unsigned char *ele, size_t elelen)
+ {
+     uint8_t tag = hash >> 24;
+     uint16_t *offsets = zbtScoreLeafOffsets(leaf);
+@@ -1327,16 +1327,24 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+         size_t len;
+         const unsigned char *stored = zbtPackedData(record, &len);
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+-        {
+-            unsigned int logical =
+-                zbtScoreLeafPhysicalPos(leaf, physical);
+-            if (score) *score = zbtScoreLeafScore(leaf, logical);
+-            if (position) *position = logical;
+-            return 1;
+-        }
++            return physical;
+         next = found + 1;
+     }
+-    return 0;
++    return UINT_MAX;
++}
++
++/* Materialize requested outputs only after the shared match has succeeded. */
++static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++                                  const unsigned char *ele, size_t elelen,
++                                  double *score,
++                                  unsigned int *position)
++{
++    unsigned int physical = zbtScoreLeafMatchMember(leaf, hash, ele, elelen);
++    if (physical == UINT_MAX) return 0;
++    unsigned int logical = zbtScoreLeafPhysicalPos(leaf, physical);
++    if (score) *score = zbtScoreLeafScore(leaf, logical);
++    if (position) *position = logical;
++    return 1;
+ }
+ 
+ /* Choose a score-leaf split that balances bytes, not just element count.
+@@ -2005,8 +2013,11 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+                         continue;
+                     }
+                 }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+-                                           score_pos))
++                int found = score == NULL && score_pos == NULL ?
++                    zbtScoreLeafMatchMember(leaf, hash, ele, elelen) != UINT_MAX :
++                    zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
++                                           score_pos);
++                if (found)
+                 {
+                     if (score_leaf) *score_leaf = leaf;
+                     if (found_bucket) *found_bucket = bucket;

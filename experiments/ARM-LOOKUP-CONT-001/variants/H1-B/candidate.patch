@@ -1,0 +1,76 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..cf22c4e6a 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1299,7 +1299,8 @@ static unsigned int zbtScoreLeafLowerBound(zbtScoreLeaf *leaf, double score,
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+-static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++static inline __attribute__((always_inline))
++int zbtScoreLeafFindMemberImpl(zbtScoreLeaf *leaf, uint32_t hash,
+                                   const unsigned char *ele, size_t elelen,
+                                   double *score,
+                                   unsigned int *position)
+@@ -1339,6 +1340,23 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+     return 0;
+ }
+ 
++/* Keep output-producing callers behind the original leaf boundary. */
++static __attribute__((noinline))
++int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++                            const unsigned char *ele, size_t elelen,
++                            double *score, unsigned int *position)
++{
++    return zbtScoreLeafFindMemberImpl(leaf, hash, ele, elelen, score, position);
++}
++
++/* Membership lookups expose the shared search with constant absent outputs. */
++static inline __attribute__((always_inline))
++int zbtScoreLeafContainsMember(zbtScoreLeaf *leaf, uint32_t hash,
++                                const unsigned char *ele, size_t elelen)
++{
++    return zbtScoreLeafFindMemberImpl(leaf, hash, ele, elelen, NULL, NULL);
++}
++
+ /* Choose a score-leaf split that balances bytes, not just element count.
+  * Both sides must fit in the 4 KB leaf limit. */
+ static unsigned int zbtScoreChooseSplit(unsigned int count, double *scores,
+@@ -2005,8 +2023,15 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+                         continue;
+                     }
+                 }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+-                                           score_pos))
++                /* Output and insertion callers retain the generic boundary.
++                 * The inlined index path folds this test for raw membership. */
++                int membership_only = !score && !score_leaf && !score_pos &&
++                    !found_bucket && !found_pos && !insert_bucket && !insert_pos;
++                int found = membership_only ?
++                    zbtScoreLeafContainsMember(leaf, hash, ele, elelen) :
++                    zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
++                                          score_pos);
++                if (found)
+                 {
+                     if (score_leaf) *score_leaf = leaf;
+                     if (found_bucket) *found_bucket = bucket;
+@@ -3266,6 +3291,9 @@ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
+     uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
++    if (score == NULL)
++        return zbtIndexFind(zs, hash, ele, elelen, NULL,
++                            NULL, NULL, NULL, NULL);
+     return zbtIndexFind(zs, hash, ele, elelen, score,
+                         NULL, NULL, NULL, NULL);
+ }
+@@ -3280,6 +3308,9 @@ int zbtreeScoreRawWithHash(zbtreeSet *zs, uint32_t hash,
+                            const unsigned char *ele, size_t elelen,
+                            double *score)
+ {
++    if (score == NULL)
++        return zbtIndexFind(zs, hash, ele, elelen, NULL,
++                            NULL, NULL, NULL, NULL);
+     return zbtIndexFind(zs, hash, ele, elelen, score,
+                         NULL, NULL, NULL, NULL);
+ }
