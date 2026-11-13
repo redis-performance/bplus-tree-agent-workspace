@@ -1,6 +1,6 @@
 # ARM membership lookup gap isolation
 
-Status: investigation requested; source and harness qualification precede measurements. This is a new standalone diagnostic, with no candidate accepted and no new result yet.
+Status: STARTED. Baseline synchronized to upstream unstable `ee8e7f70152404649ac947157fd662d11b4a00d5` before any timing run. Exact source/dependency provenance and fetch time: [unstable-manifest.json](unstable-manifest.json). Correctness requalification is in progress; no candidate selected.
 
 The objective is to isolate the packed B+ tree membership cost observed in the two-key, 500-member, full-overlap intersection case. Keep Redis server, networking, command dispatch and persistence outside this workspace. Any eventual command-level confirmation belongs to the Redis integration campaign.
 
