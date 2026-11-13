@@ -15,3 +15,5 @@ Do not combine tracks. Helper implementations A exactwholehelperalwaysinline; B 
 ## TMA classification
 
 Baseline and candidate Frontend_Bound, Bad_Speculation, Backend_Bound and Retiring unavailable as validated workload categories. CPU2wide baseline labels lack continuous exclusion/formula qualification; no candidate capture. No causal slot claim underlies ranking. Childcategories unavailable. Mandatory topdown assessment and actual cpu-perf reconsultation recorded in CONSULTATION.md.
+
+Fresh matched native baseline before candidate measurement confirms41.38% leaf,21.77% raw and2.82% namedmemcmp, no lost samples; see native-profile/. The exact qualified ELF retains the separate helper. This supports the ranking without substituting LTO timings.

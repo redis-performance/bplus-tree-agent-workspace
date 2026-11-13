@@ -1,0 +1,14 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..fe442c798 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1299,7 +1299,8 @@ static unsigned int zbtScoreLeafLowerBound(zbtScoreLeaf *leaf, double score,
+ /* Look for an exact member in one score leaf. The byte tags are contiguous,
+  * so memchr rejects almost every unrelated member before its packed bytes
+  * are touched. */
+-static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
++static inline __attribute__((always_inline))
++int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+                                   const unsigned char *ele, size_t elelen,
+                                   double *score,
+                                   unsigned int *position)
