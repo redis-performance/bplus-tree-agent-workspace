@@ -17,3 +17,5 @@ Measure three fixed ABBA blocks per case and variant, using the same50M-op windo
 ## TMA classification
 
 All four qualified categories—Frontend_Bound, Bad_Speculation, Backend_Bound, Retiring—remain unavailable for baseline and candidates. Baseline CPU-wide capture is exploratory without continuous exclusion proof; no candidate capture yet. See BASELINE.md. The selected hypothesis relies on measured hotspot localization plus exact instruction ordering, not an inferred TMA resource.
+
+Confirmation qualification clarification recorded while discovery comparisons are running and before their results are read: held-out seeds29 and43 each receive their own three-block A/A qualification in all four cases before the selected candidate's three-block confirmation. Preserve failures, with no unchanged retries. This adds96 baseline-control rows and96 confirmation rows if a candidate clears discovery; no selection threshold changes. Intel replication, if warranted, also requires its own same-host A/A before baseline/candidate comparison.

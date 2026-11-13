@@ -1,6 +1,8 @@
 # ARM membership lookup gap isolation
 
-Status: STARTED. Baseline synchronized to upstream unstable `ee8e7f70152404649ac947157fd662d11b4a00d5` before any timing run. Exact source/dependency provenance and fetch time: [unstable-manifest.json](unstable-manifest.json). Correctness requalification is in progress; no candidate selected.
+Status: **complete — REJECT / source selection NONE**. Current baseline synchronized to upstream unstable `ee8e7f70152404649ac947157fd662d11b4a00d5`, verified again at 22:43:51UTC. All 12 A/A blocks pass; three independent scalar implementations improve the primary median1.39–1.84%, below the registered 2% gate. All 192 unprofiled timing rows and losing patches retained. Runner released; no source adoption or upstream action.
+
+[Results](RESULTS.md) · [Current unstable manifest](unstable-manifest.json) · [Population decision](implementation-selection.md) · [Independent review](review/FINAL.md) · [Release proof](RELEASE.json)
 
 The objective is to isolate the packed B+ tree membership cost observed in the two-key, 500-member, full-overlap intersection case. Keep Redis server, networking, command dispatch and persistence outside this workspace. Any eventual command-level confirmation belongs to the Redis integration campaign.
 
@@ -35,4 +37,4 @@ This repository is public: keep credentials, host addresses and private operatio
 | Backend_Bound | unavailable | unavailable |
 | Retiring | unavailable | unavailable |
 
-No capture has run for this standalone investigation. The earlier integration Intel funnel had CPU-wide scope and cannot supply these entries.
+A baseline CPU2-wide topdown capture was collected but remains exploratory without continuous exclusion evidence; candidate capture was unexecuted after rejection. See RESULTS.md for observed slot labels, actual collector/version and scope. The earlier integration Intel funnel cannot supply these entries.

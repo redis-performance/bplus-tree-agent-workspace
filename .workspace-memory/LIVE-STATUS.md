@@ -1,3 +1,20 @@
+<!-- ARM-LOOKUP-GAP-CURRENT -->
+Current-unstable ARM lookup investigation CLOSED/REJECT, source selection NONE.
+Baseline ee8e7f70152404649ac947157fd662d11b4a00d5 verified again22:43:51UTC.
+Exact extraction/dependencies isolated in experiments/ARM-LOOKUP-GAP-001/current;
+main src/referees and sealed history unchanged.12/12 A/A blocks pass;144 discovery
+rows across3 actual independent implementations yield primary medians1.39–1.84%
+faster, below registered2% gate. No guard block exceeds1%, memory/checksums match.
+57 native+57 sanitizer tests,24 fixture cells,90k output and45k external-record
+oracle checks pass per build. Independent review; all patches/raw rows retained.
+No confirmation, selected profile or Intel replication after rejection. Baseline
+CPU-wide TMA exploratory/unqualified. Runner released22:43:55UTC; saved coordinator
+restored, work/timer inactive, no owned processes/containers; fresh heartbeat/queue
+checks pass. No active lease or queued work.35 attempts18PARK/17REJECT/0approved;
+ARM25/Intel5/AMD5,23 populations. Read experiments/ARM-LOOKUP-GAP-001/RESULTS.md.
+Next work needs new hypothesis/protocol and fresh upstream sync; no unchanged retry.
+<!-- ARM-LOOKUP-GAP-CURRENT-END -->
+
 <!-- INTEL-FOLLOWUP-CURRENT -->
 Intel follow-ups CLOSED:16/16 configs,48/48 L2 windows qualify on secondary Intel,
 CPU2/NUMA0 sibling50offline. IteratorB1M Memory34.07→28.15%,Retiring46.81→53.01%:

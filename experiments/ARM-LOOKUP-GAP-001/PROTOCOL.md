@@ -6,7 +6,7 @@ Primary: 500 short members `m:1` through `m:500`, score equal to suffix, success
 
 Construction models single-pair ascending ZADD: reserve 129, perform the first 128 raw lookups/inserts representing conversion from the listpack, then FindForAdd/InsertNew. Long members reserve one because they trigger immediate tree encoding. No Redis server is linked. Exact integration allocator/hash seed and the original 64-set cache footprint are not reproduced; standalone attribution remains scoped.
 
-Guards: score-returning hits, same-length `x:` missing members, 256-byte successful members (external storage). Hash seed 17 creates bytes `(17+29*i)&255`. Correctness checks every member, expected score, complete order, missing lookup and independent query storage, then checks totals and unchanged owned memory. Native and ASan/UBSan checks precede measurement. `verify` mode never reads the clock.
+Guards: score-returning hits, same-length `x:` missing members, 256-byte successful members (inline storage with a16-bit length; external storage starts at320 bytes). Hash seed 17 creates bytes `(17+29*i)&255`. Correctness checks every member, expected score, complete order, missing lookup and independent query storage, then checks totals and unchanged owned memory. Native and ASan/UBSan checks precede measurement. `verify` mode never reads the clock.
 
 ARM qualification: dedicated reserved fleet runner, one thread pinned to CPU 2, no SMT on this ARM part; verify actual child affinity. No local timings. Record compiler, kernel, CPU and collector, actual background services and clocks where exposed. Stop only the owned workload; resume only the saved coordinator identity. Independent release timer plus bounded workload unit required.
 

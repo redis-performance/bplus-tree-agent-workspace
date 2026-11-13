@@ -1,5 +1,22 @@
 # Experiment summary
 
+## 13 November: current-unstable ARM membership lookup — REJECT
+
+[Investigation](ARM-LOOKUP-GAP-001/RESULTS.md) pins upstream unstable
+`ee8e7f70152404649ac947157fd662d11b4a00d5`, with exact same-pin dependencies and a
+final fresh fetch. All12 A/A blocks qualify. Three actual independent proposals
+and implementations test deferred logical-position work;144 discovery rows yield
+primary medians−1.394%/−1.528%/−1.841%, below the2% gate. No guard block exceeds1%;
+source selection NONE. All patches and raw rows retained, no unchanged retry.
+Correctness passes57 native+57 sanitizer tests per build,24 fixture cells,90,000
+optional-output and45,000 separate external-record oracle checks per build.
+Independent adversarial review verifies the source/raw decision;256B inline versus
+320B external threshold correction is documented. CPU-wide TMA remains exploratory.
+No fresh confirmation, candidate profiling or Intel replication after rejection.
+Runner released22:43:55UTC; original coordinator restored, no queued/owned work.
+Adds one optimization population:35 attempts /18PARK /17REJECT /0approved;
+ARM25 /Intel5 /AMD5;23 populations,5 replications,7 qualification attempts.
+
 ## 20 October: Intel follow-ups —48/48 TMA windows qualify
 
 [Fresh secondary-host sweep](INTEL-FOLLOWUP-001/README.md):16/16 configurations,

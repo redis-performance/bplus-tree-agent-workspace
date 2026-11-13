@@ -2,14 +2,18 @@
 
 Packed B+ tree and compact member-index benchmarks from [Redis PR #15635](https://github.com/redis/redis/pull/15635). Standalone C; no Redis server.
 
-**34 experiment attempts: 18 parked · 16 rejected · 0 approved.**
-ARM 24 · Intel 5 · AMD 5. Includes 22 new populations, 5 replications and 7 qualification attempts; shared Apple history counted once. Tree source unchanged.
+**35 experiment attempts: 18 parked · 17 rejected · 0 approved.**
+ARM 25 · Intel 5 · AMD 5. Includes 23 new populations, 5 replications and 7 qualification attempts; shared Apple history counted once. Tree source unchanged.
+
+Historical architecture charts (through20 October; current counts above):
 
 ![Experiment outcomes by architecture](experiments/EXPERIMENT-FLOWS-20261020/overview.png)
 
 **Experiment flows:** [All experiments](experiments/EXPERIMENT-FLOWS-20261020/all-attempts.svg) · [ARM](experiments/EXPERIMENT-FLOWS-20261020/arm.svg) · [Intel](experiments/EXPERIMENT-FLOWS-20261020/intel.svg) · [AMD](experiments/EXPERIMENT-FLOWS-20261020/amd.svg) · [Follow-ups](experiments/EXPERIMENT-FLOWS-20261020/followups.svg) · [Evidence ledger](experiments/EXPERIMENT-FLOWS-20261020/README.md)
 
 ## What matters
+
+**Current-unstable ARM lookup:** exact baseline `ee8e7f701`;12/12 A/A blocks pass. Three scalar variants improve discovery medians1.39–1.84%, below the2% gate. Rejected; source selection NONE. [Results](experiments/ARM-LOOKUP-GAP-001/RESULTS.md).
 
 **Intel follow-ups:**16 configurations /48 TMA windows pass. Iterator B: Memory Bound34.07→28.15% at1M; strongest parked lead, no speedup claim. [Results and next gates](experiments/INTEL-FOLLOWUP-001/README.md).
 
