@@ -1,0 +1,21 @@
+diff --git a/experiments/ARM-LOOKUP-GAP-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-GAP-001/current/src/zset_btree.c
+index c0a57b14e..acb0c21a2 100644
+--- a/experiments/ARM-LOOKUP-GAP-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-GAP-001/current/src/zset_btree.c
+@@ -1328,10 +1328,12 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+         const unsigned char *stored = zbtPackedData(record, &len);
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+-            unsigned int logical =
+-                zbtScoreLeafPhysicalPos(leaf, physical);
+-            if (score) *score = zbtScoreLeafScore(leaf, logical);
+-            if (position) *position = logical;
++            if (score || position) {
++                unsigned int logical =
++                    zbtScoreLeafPhysicalPos(leaf, physical);
++                if (score) *score = zbtScoreLeafScore(leaf, logical);
++                if (position) *position = logical;
++            }
+             return 1;
+         }
+         next = found + 1;

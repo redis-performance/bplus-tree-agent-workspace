@@ -1,0 +1,64 @@
+{"stem": "build", "argv": ["sh", "experiments/ARM-LOOKUP-GAP-001/build.sh", "bin"], "returncode": 0}
+{"stem": "affinity-zero-work", "argv": ["taskset", "-c", "2", "python3", "-c", "import os,json; a=sorted(os.sched_getaffinity(0));assert a==[2];print(json.dumps(a))"], "returncode": 0}
+{"stem": "cpu", "argv": ["lscpu"], "returncode": 0}
+{"stem": "verify-hit", "argv": ["taskset", "-c", "2", "bin/A", "verify", "hit", "17", "1"], "returncode": 0}
+{"stem": "aa-hit-0-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-0-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-0-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-0-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-1-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-1-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-1-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-1-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-2-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-2-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-2-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "aa-hit-2-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "hit", "17", "100000"], "returncode": 0}
+{"stem": "verify-score", "argv": ["taskset", "-c", "2", "bin/A", "verify", "score", "17", "1"], "returncode": 0}
+{"stem": "aa-score-0-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-0-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-0-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-0-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-1-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-1-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-1-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-1-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-2-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-2-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-2-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "aa-score-2-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "score", "17", "100000"], "returncode": 0}
+{"stem": "verify-miss", "argv": ["taskset", "-c", "2", "bin/A", "verify", "miss", "17", "1"], "returncode": 0}
+{"stem": "aa-miss-0-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-0-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-0-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-0-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-1-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-1-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-1-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-1-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-2-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-2-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-2-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "aa-miss-2-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "miss", "17", "100000"], "returncode": 0}
+{"stem": "verify-long", "argv": ["taskset", "-c", "2", "bin/A", "verify", "long", "17", "1"], "returncode": 0}
+{"stem": "aa-long-0-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-0-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-0-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-0-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-1-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-1-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-1-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-1-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-2-0", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-2-1", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-2-2", "argv": ["taskset", "-c", "2", "bin/B", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "aa-long-2-3", "argv": ["taskset", "-c", "2", "bin/A", "measure", "long", "17", "100000"], "returncode": 0}
+{"stem": "stat-hit-0", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "bin/A", "measure", "hit", "17", "400000"], "returncode": 0}
+{"stem": "stat-hit-1", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "bin/A", "measure", "hit", "17", "400000"], "returncode": 0}
+{"stem": "stat-hit-2", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "bin/A", "measure", "hit", "17", "400000"], "returncode": 0}
+{"stem": "record-hit", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "record", "-o", "$RUN_ROOT/evidence/hit.data", "-F", "999", "-e", "cycles:u", "--", "taskset", "-c", "2", "bin/A", "measure", "hit", "17", "400000"], "returncode": 0}
+{"stem": "report-hit", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "report", "--stdio", "--no-children", "--percent-limit", "0", "-i", "$RUN_ROOT/evidence/hit.data", "-s", "dso,symbol"], "returncode": 0}
+{"stem": "record-long", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "record", "-o", "$RUN_ROOT/evidence/long.data", "-F", "999", "-e", "cycles:u", "--", "taskset", "-c", "2", "bin/A", "measure", "long", "17", "400000"], "returncode": 0}
+{"stem": "report-long", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "report", "--stdio", "--no-children", "--percent-limit", "0", "-i", "$RUN_ROOT/evidence/long.data", "-s", "dso,symbol"], "returncode": 0}
+{"stem": "topdown-hit", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "--topdown", "-I1000", "-x,", "-a", "-C", "2", "--", "taskset", "-c", "2", "bin/A", "measure", "hit", "17", "400000"], "returncode": 0}
+{"stem": "perf-list", "argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "list", "--details"], "returncode": 0}
