@@ -1,3 +1,9 @@
+<!-- ARM-CONT-ACTIVE -->
+ARM lookup continuation STARTED; distinct helper/tag/metadata investigations active.
+Prior ARM-LOOKUP-GAP-001 sealed and its rejection unchanged. No source acceptance.
+Current upstream freshly checked ee8e7f701. See experiments/ARM-LOOKUP-CONT-001/README.md.
+<!-- ARM-CONT-ACTIVE-END -->
+
 <!-- ARM-LOOKUP-GAP-CURRENT -->
 Current-unstable ARM lookup investigation CLOSED/REJECT, source selection NONE.
 Baseline ee8e7f70152404649ac947157fd662d11b4a00d5 verified again22:43:51UTC.
