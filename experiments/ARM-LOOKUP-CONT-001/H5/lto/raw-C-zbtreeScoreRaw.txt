@@ -1,0 +1,277 @@
+  4080e0:	d10283ff 	sub	sp, sp, #0xa0
+  4080e4:	a9017bfd 	stp	x29, x30, [sp, #16]
+  4080e8:	910043fd 	add	x29, sp, #0x10
+  4080ec:	a90253f3 	stp	x19, x20, [sp, #32]
+  4080f0:	aa0003f3 	mov	x19, x0
+  4080f4:	aa0103f4 	mov	x20, x1
+  4080f8:	aa1403e0 	mov	x0, x20
+  4080fc:	aa0203e1 	mov	x1, x2
+  408100:	a9035bf5 	stp	x21, x22, [sp, #48]
+  408104:	aa0203f5 	mov	x21, x2
+  408108:	aa0303f6 	mov	x22, x3
+  40810c:	97ffe765 	bl	401ea0 <siphash.constprop.0>
+  408110:	f9402262 	ldr	x2, [x19, #64]
+  408114:	b4000202 	cbz	x2, 408154 <zbtreeScoreRaw+0x74>
+  408118:	f90003ff 	str	xzr, [sp]
+  40811c:	2a0003e1 	mov	w1, w0
+  408120:	aa1603e4 	mov	x4, x22
+  408124:	aa1503e3 	mov	x3, x21
+  408128:	aa1403e2 	mov	x2, x20
+  40812c:	aa1303e0 	mov	x0, x19
+  408130:	d2800007 	mov	x7, #0x0                   	// #0
+  408134:	d2800006 	mov	x6, #0x0                   	// #0
+  408138:	d2800005 	mov	x5, #0x0                   	// #0
+  40813c:	97fff779 	bl	405f20 <zbtIndexFindResizing>
+  408140:	a9417bfd 	ldp	x29, x30, [sp, #16]
+  408144:	a94253f3 	ldp	x19, x20, [sp, #32]
+  408148:	a9435bf5 	ldp	x21, x22, [sp, #48]
+  40814c:	910283ff 	add	sp, sp, #0xa0
+  408150:	d65f03c0 	ret
+  408154:	f940126a 	ldr	x10, [x19, #32]
+  408158:	b4000bea 	cbz	x10, 4082d4 <zbtreeScoreRaw+0x1f4>
+  40815c:	a90463f7 	stp	x23, x24, [sp, #64]
+  408160:	2a0003ec 	mov	w12, w0
+  408164:	53187c08 	lsr	w8, w0, #24
+  408168:	35000c28 	cbnz	w8, 4082ec <zbtreeScoreRaw+0x20c>
+  40816c:	b9403a61 	ldr	w1, [x19, #56]
+  408170:	d100054e 	sub	x14, x10, #0x1
+  408174:	f9400e6d 	ldr	x13, [x19, #24]
+  408178:	d280002f 	mov	x15, #0x1                   	// #1
+  40817c:	8a0001d7 	and	x23, x14, x0
+  408180:	2a0f03e8 	mov	w8, w15
+  408184:	0a0001c6 	and	w6, w14, w0
+  408188:	b200c3eb 	mov	x11, #0x101010101010101     	// #72340172838076673
+  40818c:	d2800018 	mov	x24, #0x0                   	// #0
+  408190:	35000c41 	cbnz	w1, 408318 <zbtreeScoreRaw+0x238>
+  408194:	d37be8c0 	lsl	x0, x6, #5
+  408198:	b207dbe1 	mov	x1, #0xfefefefefefefefe    	// #-72340172838076674
+  40819c:	8b0001b2 	add	x18, x13, x0
+  4081a0:	f29fdfe1 	movk	x1, #0xfeff
+  4081a4:	f86069a9 	ldr	x9, [x13, x0]
+  4081a8:	ca090160 	eor	x0, x11, x9
+  4081ac:	ca290167 	eon	x7, x11, x9
+  4081b0:	8b010000 	add	x0, x0, x1
+  4081b4:	8a0000e7 	and	x7, x7, x0
+  4081b8:	f201c0e7 	ands	x7, x7, #0x8080808080808080
+  4081bc:	540005c0 	b.eq	408274 <zbtreeScoreRaw+0x194>  // b.none
+  4081c0:	dac000e0 	rbit	x0, x7
+  4081c4:	dac01000 	clz	x0, x0
+  4081c8:	13037c00 	asr	w0, w0, #3
+  4081cc:	531d7001 	lsl	w1, w0, #3
+  4081d0:	9ac12521 	lsr	x1, x9, x1
+  4081d4:	6b21011f 	cmp	w8, w1, uxtb
+  4081d8:	54000481 	b.ne	408268 <zbtreeScoreRaw+0x188>  // b.any
+  4081dc:	91002000 	add	x0, x0, #0x8
+  4081e0:	78607a41 	ldrh	w1, [x18, x0, lsl #1]
+  4081e4:	529fffe0 	mov	w0, #0xffff                	// #65535
+  4081e8:	6b00003f 	cmp	w1, w0
+  4081ec:	540003e0 	b.eq	408268 <zbtreeScoreRaw+0x188>  // b.none
+  4081f0:	b9405660 	ldr	w0, [x19, #84]
+  4081f4:	6b00003f 	cmp	w1, w0
+  4081f8:	54000fc2 	b.cs	4083f0 <zbtreeScoreRaw+0x310>  // b.hs, b.nlast
+  4081fc:	f9402662 	ldr	x2, [x19, #72]
+  408200:	d37d3c20 	ubfiz	x0, x1, #3, #16
+  408204:	f8606840 	ldr	x0, [x2, x0]
+  408208:	b4000f40 	cbz	x0, 4083f0 <zbtreeScoreRaw+0x310>
+  40820c:	37000f20 	tbnz	w0, #0, 4083f0 <zbtreeScoreRaw+0x310>
+  408210:	b9403002 	ldr	w2, [x0, #48]
+  408214:	6b02003f 	cmp	w1, w2
+  408218:	54001801 	b.ne	408518 <zbtreeScoreRaw+0x438>  // b.any
+  40821c:	2a0c03e1 	mov	w1, w12
+  408220:	aa1603e4 	mov	x4, x22
+  408224:	aa1503e3 	mov	x3, x21
+  408228:	aa1403e2 	mov	x2, x20
+  40822c:	d2800005 	mov	x5, #0x0                   	// #0
+  408230:	f9002bea 	str	x10, [sp, #80]
+  408234:	290b23ec 	stp	w12, w8, [sp, #88]
+  408238:	a9061bee 	stp	x14, x6, [sp, #96]
+  40823c:	a9073fe7 	stp	x7, x15, [sp, #112]
+  408240:	a90837eb 	stp	x11, x13, [sp, #128]
+  408244:	a9094be9 	stp	x9, x18, [sp, #144]
+  408248:	97fff25e 	bl	404bc0 <zbtScoreLeafFindMember>
+  40824c:	f9402bea 	ldr	x10, [sp, #80]
+  408250:	a9461bee 	ldp	x14, x6, [sp, #96]
+  408254:	a9473fe7 	ldp	x7, x15, [sp, #112]
+  408258:	a94837eb 	ldp	x11, x13, [sp, #128]
+  40825c:	a9494be9 	ldp	x9, x18, [sp, #144]
+  408260:	294b23ec 	ldp	w12, w8, [sp, #88]
+  408264:	35000c00 	cbnz	w0, 4083e4 <zbtreeScoreRaw+0x304>
+  408268:	d10004e0 	sub	x0, x7, #0x1
+  40826c:	ea0000e7 	ands	x7, x7, x0
+  408270:	54fffa81 	b.ne	4081c0 <zbtreeScoreRaw+0xe0>  // b.any
+  408274:	b4001038 	cbz	x24, 408478 <zbtreeScoreRaw+0x398>
+  408278:	72001d3f 	tst	w9, #0xff
+  40827c:	540002a0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408280:	f2781d3f 	tst	x9, #0xff00
+  408284:	54000260 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408288:	f2701d3f 	tst	x9, #0xff0000
+  40828c:	54000220 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408290:	6b4963ff 	cmp	wzr, w9, lsr #24
+  408294:	540001e0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408298:	f2601d3f 	tst	x9, #0xff00000000
+  40829c:	540001a0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  4082a0:	f2581d3f 	tst	x9, #0xff0000000000
+  4082a4:	54000160 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  4082a8:	f2501d3f 	tst	x9, #0xff000000000000
+  4082ac:	54000120 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  4082b0:	eb49e3ff 	cmp	xzr, x9, lsr #56
+  4082b4:	540000e0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  4082b8:	910004c1 	add	x1, x6, #0x1
+  4082bc:	91000700 	add	x0, x24, #0x1
+  4082c0:	aa0003f8 	mov	x24, x0
+  4082c4:	8a0101c6 	and	x6, x14, x1
+  4082c8:	eb00015f 	cmp	x10, x0
+  4082cc:	54fff641 	b.ne	408194 <zbtreeScoreRaw+0xb4>  // b.any
+  4082d0:	a94463f7 	ldp	x23, x24, [sp, #64]
+  4082d4:	52800000 	mov	w0, #0x0                   	// #0
+  4082d8:	a9417bfd 	ldp	x29, x30, [sp, #16]
+  4082dc:	a94253f3 	ldp	x19, x20, [sp, #32]
+  4082e0:	a9435bf5 	ldp	x21, x22, [sp, #48]
+  4082e4:	910283ff 	add	sp, sp, #0xa0
+  4082e8:	d65f03c0 	ret
+  4082ec:	b9403a61 	ldr	w1, [x19, #56]
+  4082f0:	2a0803ef 	mov	w15, w8
+  4082f4:	b200c3eb 	mov	x11, #0x101010101010101     	// #72340172838076673
+  4082f8:	d100054e 	sub	x14, x10, #0x1
+  4082fc:	f9400e6d 	ldr	x13, [x19, #24]
+  408300:	9b0b7deb 	mul	x11, x15, x11
+  408304:	12001d08 	and	w8, w8, #0xff
+  408308:	8a0001d7 	and	x23, x14, x0
+  40830c:	0a0001c6 	and	w6, w14, w0
+  408310:	d2800018 	mov	x24, #0x0                   	// #0
+  408314:	34fff401 	cbz	w1, 408194 <zbtreeScoreRaw+0xb4>
+  408318:	8b0604d2 	add	x18, x6, x6, lsl #1
+  40831c:	b207dbe1 	mov	x1, #0xfefefefefefefefe    	// #-72340172838076674
+  408320:	f29fdfe1 	movk	x1, #0xfeff
+  408324:	d37cee40 	lsl	x0, x18, #4
+  408328:	8b1211b2 	add	x18, x13, x18, lsl #4
+  40832c:	f86069a9 	ldr	x9, [x13, x0]
+  408330:	ca0b0120 	eor	x0, x9, x11
+  408334:	8b010007 	add	x7, x0, x1
+  408338:	8a2000e7 	bic	x7, x7, x0
+  40833c:	f201c0e7 	ands	x7, x7, #0x8080808080808080
+  408340:	540006a0 	b.eq	408414 <zbtreeScoreRaw+0x334>  // b.none
+  408344:	dac000e0 	rbit	x0, x7
+  408348:	dac01000 	clz	x0, x0
+  40834c:	13037c00 	asr	w0, w0, #3
+  408350:	531d7001 	lsl	w1, w0, #3
+  408354:	9ac12521 	lsr	x1, x9, x1
+  408358:	6b21011f 	cmp	w8, w1, uxtb
+  40835c:	54000561 	b.ne	408408 <zbtreeScoreRaw+0x328>  // b.any
+  408360:	91001000 	add	x0, x0, #0x4
+  408364:	b8607a41 	ldr	w1, [x18, x0, lsl #2]
+  408368:	3100043f 	cmn	w1, #0x1
+  40836c:	540004e0 	b.eq	408408 <zbtreeScoreRaw+0x328>  // b.none
+  408370:	b9405660 	ldr	w0, [x19, #84]
+  408374:	6b00003f 	cmp	w1, w0
+  408378:	540003c2 	b.cs	4083f0 <zbtreeScoreRaw+0x310>  // b.hs, b.nlast
+  40837c:	f9402660 	ldr	x0, [x19, #72]
+  408380:	f8615800 	ldr	x0, [x0, w1, uxtw #3]
+  408384:	b4000360 	cbz	x0, 4083f0 <zbtreeScoreRaw+0x310>
+  408388:	37000340 	tbnz	w0, #0, 4083f0 <zbtreeScoreRaw+0x310>
+  40838c:	b9403002 	ldr	w2, [x0, #48]
+  408390:	6b02003f 	cmp	w1, w2
+  408394:	54000c21 	b.ne	408518 <zbtreeScoreRaw+0x438>  // b.any
+  408398:	2a0c03e1 	mov	w1, w12
+  40839c:	aa1603e4 	mov	x4, x22
+  4083a0:	aa1503e3 	mov	x3, x21
+  4083a4:	aa1403e2 	mov	x2, x20
+  4083a8:	d2800005 	mov	x5, #0x0                   	// #0
+  4083ac:	f9002bea 	str	x10, [sp, #80]
+  4083b0:	290b23ec 	stp	w12, w8, [sp, #88]
+  4083b4:	a9061bee 	stp	x14, x6, [sp, #96]
+  4083b8:	a90727f2 	stp	x18, x9, [sp, #112]
+  4083bc:	a9083fe7 	stp	x7, x15, [sp, #128]
+  4083c0:	a90937eb 	stp	x11, x13, [sp, #144]
+  4083c4:	97fff1ff 	bl	404bc0 <zbtScoreLeafFindMember>
+  4083c8:	f9402bea 	ldr	x10, [sp, #80]
+  4083cc:	a9461bee 	ldp	x14, x6, [sp, #96]
+  4083d0:	a94727f2 	ldp	x18, x9, [sp, #112]
+  4083d4:	a9483fe7 	ldp	x7, x15, [sp, #128]
+  4083d8:	a94937eb 	ldp	x11, x13, [sp, #144]
+  4083dc:	294b23ec 	ldp	w12, w8, [sp, #88]
+  4083e0:	34000140 	cbz	w0, 408408 <zbtreeScoreRaw+0x328>
+  4083e4:	a94463f7 	ldp	x23, x24, [sp, #64]
+  4083e8:	52800020 	mov	w0, #0x1                   	// #1
+  4083ec:	17ffff55 	b	408140 <zbtreeScoreRaw+0x60>
+  4083f0:	b0000022 	adrp	x2, 40d000 <_IO_stdin_used+0x110>
+  4083f4:	90000020 	adrp	x0, 40c000 <zbtScoreMergePair+0x730>
+  4083f8:	91078042 	add	x2, x2, #0x1e0
+  4083fc:	913de000 	add	x0, x0, #0xf78
+  408400:	5280f921 	mov	w1, #0x7c9                 	// #1993
+  408404:	97ffeb5b 	bl	403170 <standalone_panic>
+  408408:	d10004e0 	sub	x0, x7, #0x1
+  40840c:	ea0000e7 	ands	x7, x7, x0
+  408410:	54fff9a1 	b.ne	408344 <zbtreeScoreRaw+0x264>  // b.any
+  408414:	b40005b8 	cbz	x24, 4084c8 <zbtreeScoreRaw+0x3e8>
+  408418:	72001d3f 	tst	w9, #0xff
+  40841c:	54fff5a0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408420:	f2781d3f 	tst	x9, #0xff00
+  408424:	54fff560 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408428:	f2701d3f 	tst	x9, #0xff0000
+  40842c:	54fff520 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408430:	6b4963ff 	cmp	wzr, w9, lsr #24
+  408434:	54fff4e0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408438:	f2601d3f 	tst	x9, #0xff00000000
+  40843c:	54fff4a0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408440:	f2581d3f 	tst	x9, #0xff0000000000
+  408444:	54fff460 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408448:	f2501d3f 	tst	x9, #0xff000000000000
+  40844c:	54fff420 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408450:	eb49e3ff 	cmp	xzr, x9, lsr #56
+  408454:	54fff3e0 	b.eq	4082d0 <zbtreeScoreRaw+0x1f0>  // b.none
+  408458:	910004c1 	add	x1, x6, #0x1
+  40845c:	91000700 	add	x0, x24, #0x1
+  408460:	aa0003f8 	mov	x24, x0
+  408464:	8a0101c6 	and	x6, x14, x1
+  408468:	eb00015f 	cmp	x10, x0
+  40846c:	54fff561 	b.ne	408318 <zbtreeScoreRaw+0x238>  // b.any
+  408470:	a94463f7 	ldp	x23, x24, [sp, #64]
+  408474:	17ffff98 	b	4082d4 <zbtreeScoreRaw+0x1f4>
+  408478:	d28f82a1 	mov	x1, #0x7c15                	// #31765
+  40847c:	d37b7ee0 	ubfiz	x0, x23, #5, #32
+  408480:	f2afe941 	movk	x1, #0x7f4a, lsl #16
+  408484:	8b0001a0 	add	x0, x13, x0
+  408488:	f2cf3721 	movk	x1, #0x79b9, lsl #32
+  40848c:	d2800022 	mov	x2, #0x1                   	// #1
+  408490:	f2f3c6e1 	movk	x1, #0x9e37, lsl #48
+  408494:	9ac82044 	lsl	x4, x2, x8
+  408498:	f9400403 	ldr	x3, [x0, #8]
+  40849c:	9b017de1 	mul	x1, x15, x1
+  4084a0:	d37afc20 	lsr	x0, x1, #58
+  4084a4:	d364a421 	ubfx	x1, x1, #36, #6
+  4084a8:	9ac02040 	lsl	x0, x2, x0
+  4084ac:	aa040000 	orr	x0, x0, x4
+  4084b0:	9ac12042 	lsl	x2, x2, x1
+  4084b4:	aa020000 	orr	x0, x0, x2
+  4084b8:	ea23001f 	bics	xzr, x0, x3
+  4084bc:	54ffede0 	b.eq	408278 <zbtreeScoreRaw+0x198>  // b.none
+  4084c0:	a94463f7 	ldp	x23, x24, [sp, #64]
+  4084c4:	17ffff84 	b	4082d4 <zbtreeScoreRaw+0x1f4>
+  4084c8:	d28f82a0 	mov	x0, #0x7c15                	// #31765
+  4084cc:	52800604 	mov	w4, #0x30                  	// #48
+  4084d0:	f2afe940 	movk	x0, #0x7f4a, lsl #16
+  4084d4:	d2800022 	mov	x2, #0x1                   	// #1
+  4084d8:	f2cf3720 	movk	x0, #0x79b9, lsl #32
+  4084dc:	9ba436e4 	umaddl	x4, w23, w4, x13
+  4084e0:	f2f3c6e0 	movk	x0, #0x9e37, lsl #48
+  4084e4:	9ac82041 	lsl	x1, x2, x8
+  4084e8:	9b007de0 	mul	x0, x15, x0
+  4084ec:	f9400484 	ldr	x4, [x4, #8]
+  4084f0:	d37afc03 	lsr	x3, x0, #58
+  4084f4:	d364a400 	ubfx	x0, x0, #36, #6
+  4084f8:	9ac32043 	lsl	x3, x2, x3
+  4084fc:	aa030021 	orr	x1, x1, x3
+  408500:	9ac02042 	lsl	x2, x2, x0
+  408504:	aa020020 	orr	x0, x1, x2
+  408508:	ea24001f 	bics	xzr, x0, x4
+  40850c:	54fff860 	b.eq	408418 <zbtreeScoreRaw+0x338>  // b.none
+  408510:	a94463f7 	ldp	x23, x24, [sp, #64]
+  408514:	17ffff70 	b	4082d4 <zbtreeScoreRaw+0x1f4>
+  408518:	b0000022 	adrp	x2, 40d000 <_IO_stdin_used+0x110>
+  40851c:	90000020 	adrp	x0, 40c000 <zbtScoreMergePair+0x730>
+  408520:	91084042 	add	x2, x2, #0x210
+  408524:	913de000 	add	x0, x0, #0xf78
+  408528:	5280f9c1 	mov	w1, #0x7ce                 	// #1998
+  40852c:	97ffeb11 	bl	403170 <standalone_panic>
+

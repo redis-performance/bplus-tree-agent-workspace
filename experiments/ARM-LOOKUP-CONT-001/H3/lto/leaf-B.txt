@@ -1,0 +1,243 @@
+0000000000404bc0 <zbtScoreLeafFindMember>:
+  404bc0:	a9b87bfd 	stp	x29, x30, [sp, #-128]!
+  404bc4:	d28000e6 	mov	x6, #0x7                   	// #7
+  404bc8:	910003fd 	mov	x29, sp
+  404bcc:	a90153f3 	stp	x19, x20, [sp, #16]
+  404bd0:	a9025bf5 	stp	x21, x22, [sp, #32]
+  404bd4:	9100e016 	add	x22, x0, #0x38
+  404bd8:	a9046bf9 	stp	x25, x26, [sp, #64]
+  404bdc:	a90573fb 	stp	x27, x28, [sp, #80]
+  404be0:	39404407 	ldrb	w7, [x0, #17]
+  404be4:	a90717e4 	stp	x4, x5, [sp, #112]
+  404be8:	3940d004 	ldrb	w4, [x0, #52]
+  404bec:	b9006fe7 	str	w7, [sp, #108]
+  404bf0:	7100009f 	cmp	w4, #0x0
+  404bf4:	9ba71894 	umaddl	x20, w4, w7, x6
+  404bf8:	d343fe94 	lsr	x20, x20, #3
+  404bfc:	91002694 	add	x20, x20, #0x9
+  404c00:	927ffa94 	and	x20, x20, #0xfffffffffffffffe
+  404c04:	9a9f1294 	csel	x20, x20, xzr, ne	// ne = any
+  404c08:	8b27469c 	add	x28, x20, w7, uxtw #1
+  404c0c:	8b1c02dc 	add	x28, x22, x28
+  404c10:	8b274399 	add	x25, x28, w7, uxtw
+  404c14:	eb1c033f 	cmp	x25, x28
+  404c18:	54001a89 	b.ls	404f68 <zbtScoreLeafFindMember+0x3a8>  // b.plast
+  404c1c:	a90363f7 	stp	x23, x24, [sp, #48]
+  404c20:	aa0003fb 	mov	x27, x0
+  404c24:	aa0303f5 	mov	x21, x3
+  404c28:	f90033e2 	str	x2, [sp, #96]
+  404c2c:	2a0103f8 	mov	w24, w1
+  404c30:	aa1c03e0 	mov	x0, x28
+  404c34:	f100207f 	cmp	x3, #0x8
+  404c38:	54000229 	b.ls	404c7c <zbtScoreLeafFindMember+0xbc>  // b.plast
+  404c3c:	1400002f 	b	404cf8 <zbtScoreLeafFindMember+0x138>
+  404c40:	eb2142bf 	cmp	x21, w1, uxtw
+  404c44:	54000cc0 	b.eq	404ddc <zbtScoreLeafFindMember+0x21c>  // b.none
+  404c48:	7103f83f 	cmp	w1, #0xfe
+  404c4c:	54000121 	b.ne	404c70 <zbtScoreLeafFindMember+0xb0>  // b.any
+  404c50:	78401041 	ldurh	w1, [x2, #1]
+  404c54:	91000c40 	add	x0, x2, #0x3
+  404c58:	eb0102bf 	cmp	x21, x1
+  404c5c:	540000a1 	b.ne	404c70 <zbtScoreLeafFindMember+0xb0>  // b.any
+  404c60:	f94033e1 	ldr	x1, [sp, #96]
+  404c64:	aa1503e2 	mov	x2, x21
+  404c68:	97ffef7a 	bl	400a50 <memcmp@plt>
+  404c6c:	340007a0 	cbz	w0, 404d60 <zbtScoreLeafFindMember+0x1a0>
+  404c70:	91000660 	add	x0, x19, #0x1
+  404c74:	eb00033f 	cmp	x25, x0
+  404c78:	54000a29 	b.ls	404dbc <zbtScoreLeafFindMember+0x1fc>  // b.plast
+  404c7c:	cb000322 	sub	x2, x25, x0
+  404c80:	53187f01 	lsr	w1, w24, #24
+  404c84:	97ffef83 	bl	400a90 <memchr@plt>
+  404c88:	aa0003f3 	mov	x19, x0
+  404c8c:	b4000980 	cbz	x0, 404dbc <zbtScoreLeafFindMember+0x1fc>
+  404c90:	4b1c0001 	sub	w1, w0, w28
+  404c94:	cb1c001a 	sub	x26, x0, x28
+  404c98:	8b214681 	add	x1, x20, w1, uxtw #1
+  404c9c:	78616ac1 	ldrh	w1, [x22, x1]
+  404ca0:	8b010362 	add	x2, x27, x1
+  404ca4:	38616b61 	ldrb	w1, [x27, x1]
+  404ca8:	7103fc3f 	cmp	w1, #0xff
+  404cac:	54fffca1 	b.ne	404c40 <zbtScoreLeafFindMember+0x80>  // b.any
+  404cb0:	b8401040 	ldur	w0, [x2, #1]
+  404cb4:	6b00031f 	cmp	w24, w0
+  404cb8:	54fffdc1 	b.ne	404c70 <zbtScoreLeafFindMember+0xb0>  // b.any
+  404cbc:	f840d040 	ldur	x0, [x2, #13]
+  404cc0:	b4001580 	cbz	x0, 404f70 <zbtScoreLeafFindMember+0x3b0>
+  404cc4:	f8405041 	ldur	x1, [x2, #5]
+  404cc8:	17ffffe4 	b	404c58 <zbtScoreLeafFindMember+0x98>
+  404ccc:	b8401040 	ldur	w0, [x2, #1]
+  404cd0:	6b00031f 	cmp	w24, w0
+  404cd4:	540000c1 	b.ne	404cec <zbtScoreLeafFindMember+0x12c>  // b.any
+  404cd8:	f840d040 	ldur	x0, [x2, #13]
+  404cdc:	b40014a0 	cbz	x0, 404f70 <zbtScoreLeafFindMember+0x3b0>
+  404ce0:	f8405041 	ldur	x1, [x2, #5]
+  404ce4:	eb15003f 	cmp	x1, x21
+  404ce8:	54000300 	b.eq	404d48 <zbtScoreLeafFindMember+0x188>  // b.none
+  404cec:	91000660 	add	x0, x19, #0x1
+  404cf0:	eb00033f 	cmp	x25, x0
+  404cf4:	54000649 	b.ls	404dbc <zbtScoreLeafFindMember+0x1fc>  // b.plast
+  404cf8:	cb000322 	sub	x2, x25, x0
+  404cfc:	53187f01 	lsr	w1, w24, #24
+  404d00:	97ffef64 	bl	400a90 <memchr@plt>
+  404d04:	aa0003f3 	mov	x19, x0
+  404d08:	b40005a0 	cbz	x0, 404dbc <zbtScoreLeafFindMember+0x1fc>
+  404d0c:	4b1c0000 	sub	w0, w0, w28
+  404d10:	cb1c027a 	sub	x26, x19, x28
+  404d14:	8b204680 	add	x0, x20, w0, uxtw #1
+  404d18:	78606ac1 	ldrh	w1, [x22, x0]
+  404d1c:	8b010362 	add	x2, x27, x1
+  404d20:	38616b61 	ldrb	w1, [x27, x1]
+  404d24:	7103fc3f 	cmp	w1, #0xff
+  404d28:	54fffd20 	b.eq	404ccc <zbtScoreLeafFindMember+0x10c>  // b.none
+  404d2c:	91000440 	add	x0, x2, #0x1
+  404d30:	7103f83f 	cmp	w1, #0xfe
+  404d34:	54fffd81 	b.ne	404ce4 <zbtScoreLeafFindMember+0x124>  // b.any
+  404d38:	78401041 	ldurh	w1, [x2, #1]
+  404d3c:	91000c40 	add	x0, x2, #0x3
+  404d40:	eb15003f 	cmp	x1, x21
+  404d44:	54fffd41 	b.ne	404cec <zbtScoreLeafFindMember+0x12c>  // b.any
+  404d48:	f94033e1 	ldr	x1, [sp, #96]
+  404d4c:	aa1503e2 	mov	x2, x21
+  404d50:	97ffef40 	bl	400a50 <memcmp@plt>
+  404d54:	35fffcc0 	cbnz	w0, 404cec <zbtScoreLeafFindMember+0x12c>
+  404d58:	d503201f 	nop
+  404d5c:	d503201f 	nop
+  404d60:	f9403be8 	ldr	x8, [sp, #112]
+  404d64:	b9406fe1 	ldr	w1, [sp, #108]
+  404d68:	3940d760 	ldrb	w0, [x27, #53]
+  404d6c:	51000427 	sub	w7, w1, #0x1
+  404d70:	7100001f 	cmp	w0, #0x0
+  404d74:	4b1a00e7 	sub	w7, w7, w26
+  404d78:	1a870347 	csel	w7, w26, w7, eq	// eq = none
+  404d7c:	b40000a8 	cbz	x8, 404d90 <zbtScoreLeafFindMember+0x1d0>
+  404d80:	aa1b03e0 	mov	x0, x27
+  404d84:	2a0703e1 	mov	w1, w7
+  404d88:	97fff3a6 	bl	401c20 <zbtScoreLeafScore>
+  404d8c:	fd000100 	str	d0, [x8]
+  404d90:	f9403fe0 	ldr	x0, [sp, #120]
+  404d94:	b4000040 	cbz	x0, 404d9c <zbtScoreLeafFindMember+0x1dc>
+  404d98:	b9000007 	str	w7, [x0]
+  404d9c:	a94363f7 	ldp	x23, x24, [sp, #48]
+  404da0:	52800020 	mov	w0, #0x1                   	// #1
+  404da4:	a94153f3 	ldp	x19, x20, [sp, #16]
+  404da8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+  404dac:	a9446bf9 	ldp	x25, x26, [sp, #64]
+  404db0:	a94573fb 	ldp	x27, x28, [sp, #80]
+  404db4:	a8c87bfd 	ldp	x29, x30, [sp], #128
+  404db8:	d65f03c0 	ret
+  404dbc:	a94363f7 	ldp	x23, x24, [sp, #48]
+  404dc0:	52800000 	mov	w0, #0x0                   	// #0
+  404dc4:	a94153f3 	ldp	x19, x20, [sp, #16]
+  404dc8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+  404dcc:	a9446bf9 	ldp	x25, x26, [sp, #64]
+  404dd0:	a94573fb 	ldp	x27, x28, [sp, #80]
+  404dd4:	a8c87bfd 	ldp	x29, x30, [sp], #128
+  404dd8:	d65f03c0 	ret
+  404ddc:	f10016bf 	cmp	x21, #0x5
+  404de0:	54000940 	b.eq	404f08 <zbtScoreLeafFindMember+0x348>  // b.none
+  404de4:	54000208 	b.hi	404e24 <zbtScoreLeafFindMember+0x264>  // b.pmore
+  404de8:	f1000ebf 	cmp	x21, #0x3
+  404dec:	54000a60 	b.eq	404f38 <zbtScoreLeafFindMember+0x378>  // b.none
+  404df0:	f10012bf 	cmp	x21, #0x4
+  404df4:	54000320 	b.eq	404e58 <zbtScoreLeafFindMember+0x298>  // b.none
+  404df8:	f10006bf 	cmp	x21, #0x1
+  404dfc:	540006c0 	b.eq	404ed4 <zbtScoreLeafFindMember+0x314>  // b.none
+  404e00:	f1000abf 	cmp	x21, #0x2
+  404e04:	54fffae1 	b.ne	404d60 <zbtScoreLeafFindMember+0x1a0>  // b.any
+  404e08:	f94033e1 	ldr	x1, [sp, #96]
+  404e0c:	78401040 	ldurh	w0, [x2, #1]
+  404e10:	79400021 	ldrh	w1, [x1]
+  404e14:	6b00003f 	cmp	w1, w0
+  404e18:	1a9f17e0 	cset	w0, eq	// eq = none
+  404e1c:	34fff2a0 	cbz	w0, 404c70 <zbtScoreLeafFindMember+0xb0>
+  404e20:	17ffffd0 	b	404d60 <zbtScoreLeafFindMember+0x1a0>
+  404e24:	f1001ebf 	cmp	x21, #0x7
+  404e28:	54000240 	b.eq	404e70 <zbtScoreLeafFindMember+0x2b0>  // b.none
+  404e2c:	f10022bf 	cmp	x21, #0x8
+  404e30:	54000600 	b.eq	404ef0 <zbtScoreLeafFindMember+0x330>  // b.none
+  404e34:	f94033e0 	ldr	x0, [sp, #96]
+  404e38:	b8401041 	ldur	w1, [x2, #1]
+  404e3c:	b9400000 	ldr	w0, [x0]
+  404e40:	6b00003f 	cmp	w1, w0
+  404e44:	540003a0 	b.eq	404eb8 <zbtScoreLeafFindMember+0x2f8>  // b.none
+  404e48:	52800020 	mov	w0, #0x1                   	// #1
+  404e4c:	52000000 	eor	w0, w0, #0x1
+  404e50:	34fff100 	cbz	w0, 404c70 <zbtScoreLeafFindMember+0xb0>
+  404e54:	17ffffc3 	b	404d60 <zbtScoreLeafFindMember+0x1a0>
+  404e58:	f94033e0 	ldr	x0, [sp, #96]
+  404e5c:	b9400001 	ldr	w1, [x0]
+  404e60:	b8401040 	ldur	w0, [x2, #1]
+  404e64:	6b00003f 	cmp	w1, w0
+  404e68:	54fff041 	b.ne	404c70 <zbtScoreLeafFindMember+0xb0>  // b.any
+  404e6c:	17ffffbd 	b	404d60 <zbtScoreLeafFindMember+0x1a0>
+  404e70:	f94033e0 	ldr	x0, [sp, #96]
+  404e74:	b8401041 	ldur	w1, [x2, #1]
+  404e78:	b9400000 	ldr	w0, [x0]
+  404e7c:	6b00003f 	cmp	w1, w0
+  404e80:	54fffe41 	b.ne	404e48 <zbtScoreLeafFindMember+0x288>  // b.any
+  404e84:	f94033e0 	ldr	x0, [sp, #96]
+  404e88:	78405041 	ldurh	w1, [x2, #5]
+  404e8c:	79400800 	ldrh	w0, [x0, #4]
+  404e90:	6b00003f 	cmp	w1, w0
+  404e94:	54fffda1 	b.ne	404e48 <zbtScoreLeafFindMember+0x288>  // b.any
+  404e98:	f94033e0 	ldr	x0, [sp, #96]
+  404e9c:	39401c41 	ldrb	w1, [x2, #7]
+  404ea0:	39401800 	ldrb	w0, [x0, #6]
+  404ea4:	6b00003f 	cmp	w1, w0
+  404ea8:	54fffd01 	b.ne	404e48 <zbtScoreLeafFindMember+0x288>  // b.any
+  404eac:	52800000 	mov	w0, #0x0                   	// #0
+  404eb0:	52000000 	eor	w0, w0, #0x1
+  404eb4:	17ffffe7 	b	404e50 <zbtScoreLeafFindMember+0x290>
+  404eb8:	f94033e0 	ldr	x0, [sp, #96]
+  404ebc:	78405041 	ldurh	w1, [x2, #5]
+  404ec0:	79400800 	ldrh	w0, [x0, #4]
+  404ec4:	6b00003f 	cmp	w1, w0
+  404ec8:	54ffff20 	b.eq	404eac <zbtScoreLeafFindMember+0x2ec>  // b.none
+  404ecc:	52800020 	mov	w0, #0x1                   	// #1
+  404ed0:	17ffffdf 	b	404e4c <zbtScoreLeafFindMember+0x28c>
+  404ed4:	f94033e0 	ldr	x0, [sp, #96]
+  404ed8:	39400441 	ldrb	w1, [x2, #1]
+  404edc:	39400000 	ldrb	w0, [x0]
+  404ee0:	6b00003f 	cmp	w1, w0
+  404ee4:	1a9f17e0 	cset	w0, eq	// eq = none
+  404ee8:	34ffec40 	cbz	w0, 404c70 <zbtScoreLeafFindMember+0xb0>
+  404eec:	17ffff9d 	b	404d60 <zbtScoreLeafFindMember+0x1a0>
+  404ef0:	f94033e0 	ldr	x0, [sp, #96]
+  404ef4:	f8401041 	ldur	x1, [x2, #1]
+  404ef8:	f9400000 	ldr	x0, [x0]
+  404efc:	eb00003f 	cmp	x1, x0
+  404f00:	54ffeb81 	b.ne	404c70 <zbtScoreLeafFindMember+0xb0>  // b.any
+  404f04:	17ffff97 	b	404d60 <zbtScoreLeafFindMember+0x1a0>
+  404f08:	f94033e0 	ldr	x0, [sp, #96]
+  404f0c:	b8401041 	ldur	w1, [x2, #1]
+  404f10:	b9400000 	ldr	w0, [x0]
+  404f14:	6b00003f 	cmp	w1, w0
+  404f18:	54fff981 	b.ne	404e48 <zbtScoreLeafFindMember+0x288>  // b.any
+  404f1c:	f94033e0 	ldr	x0, [sp, #96]
+  404f20:	39401441 	ldrb	w1, [x2, #5]
+  404f24:	39401000 	ldrb	w0, [x0, #4]
+  404f28:	6b00003f 	cmp	w1, w0
+  404f2c:	54fffc00 	b.eq	404eac <zbtScoreLeafFindMember+0x2ec>  // b.none
+  404f30:	52800020 	mov	w0, #0x1                   	// #1
+  404f34:	17ffffc6 	b	404e4c <zbtScoreLeafFindMember+0x28c>
+  404f38:	f94033e0 	ldr	x0, [sp, #96]
+  404f3c:	78401041 	ldurh	w1, [x2, #1]
+  404f40:	79400000 	ldrh	w0, [x0]
+  404f44:	6b00003f 	cmp	w1, w0
+  404f48:	54fff801 	b.ne	404e48 <zbtScoreLeafFindMember+0x288>  // b.any
+  404f4c:	f94033e0 	ldr	x0, [sp, #96]
+  404f50:	39400c41 	ldrb	w1, [x2, #3]
+  404f54:	39400800 	ldrb	w0, [x0, #2]
+  404f58:	6b00003f 	cmp	w1, w0
+  404f5c:	54fffa80 	b.eq	404eac <zbtScoreLeafFindMember+0x2ec>  // b.none
+  404f60:	52800020 	mov	w0, #0x1                   	// #1
+  404f64:	17ffffba 	b	404e4c <zbtScoreLeafFindMember+0x28c>
+  404f68:	52800000 	mov	w0, #0x0                   	// #0
+  404f6c:	17ffff96 	b	404dc4 <zbtScoreLeafFindMember+0x204>
+  404f70:	90000042 	adrp	x2, 40c000 <lookup_loop+0x570>
+  404f74:	90000040 	adrp	x0, 40c000 <lookup_loop+0x570>
+  404f78:	911fa042 	add	x2, x2, #0x7e8
+  404f7c:	911fe000 	add	x0, x0, #0x7f8
+  404f80:	52804ae1 	mov	w1, #0x257                 	// #599
+  404f84:	97fff87b 	bl	403170 <standalone_panic>

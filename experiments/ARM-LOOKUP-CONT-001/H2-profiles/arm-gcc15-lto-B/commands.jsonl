@@ -1,0 +1,10 @@
+{"argv": ["taskset", "-c", "2", "python3", "-c", "import os;assert os.sched_getaffinity(0)=={2};print(\"CPU2\")"], "stem": "affinity-zero-work", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "/opt/benchmark-task/bin/H2-lto-B", "measure", "hit", "17", "400000"], "stem": "stat-0", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "/opt/benchmark-task/bin/H2-lto-B", "measure", "hit", "17", "400000"], "stem": "stat-1", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "-x,", "-e", "cycles:u,instructions:u,branches:u,branch-misses:u", "--", "taskset", "-c", "2", "/opt/benchmark-task/bin/H2-lto-B", "measure", "hit", "17", "400000"], "stem": "stat-2", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "record", "-o", "/opt/benchmark-task/H2-profile-gcc15-lto-B/hit.data", "-F", "999", "-e", "cycles:u", "--", "taskset", "-c", "2", "/opt/benchmark-task/bin/H2-lto-B", "measure", "hit", "17", "400000"], "stem": "record", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "report", "--stdio", "--no-children", "--percent-limit", "0", "-i", "/opt/benchmark-task/H2-profile-gcc15-lto-B/hit.data", "-s", "dso,symbol"], "stem": "report", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "stat", "--topdown", "-I1000", "-x,", "-a", "-C", "2", "--", "taskset", "-c", "2", "/opt/benchmark-task/bin/H2-lto-B", "measure", "hit", "17", "400000"], "stem": "topdown", "returncode": 0}
+{"argv": ["objdump", "-d", "/opt/benchmark-task/bin/H2-lto-B"], "stem": "assembly", "returncode": 0}
+{"argv": ["size", "/opt/benchmark-task/bin/H2-lto-B"], "stem": "size", "returncode": 0}
+{"argv": ["/usr/lib/linux-tools/6.14.0-1010-aws/perf", "--version"], "stem": "perf-version", "returncode": 0}

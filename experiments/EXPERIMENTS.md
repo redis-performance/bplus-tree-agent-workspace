@@ -1,5 +1,17 @@
 # Experiment log
 
+## 14 November: filter-boundary and descriptor populations rejected
+
+[H4](ARM-LOOKUP-CONT-001/H4-RESULTS.md) retains432 ARM/Intel comparison rows; its last surviving variant fails Intel miss guards in all three blocks. [H6](ARM-LOOKUP-CONT-001/H6-RESULTS.md) retains216 ARM rows; all primary cases miss2%, despite verified code generation. Independent raw/ELF reviews confirm both decisions. No further candidate timing or source adoption.
+
+Completed totals: **44 attempts / 23 PARK / 21 REJECT / 0 approved; ARM32 / Intel6 / AMD6; 27 populations, 5 replications, 12 qualifications.** H2/H5/H7 remain active and excluded.
+
+## 14 November: short-inline equality population rejected
+
+[H3 results](ARM-LOOKUP-CONT-001/H3-RESULTS.md) retain 504 comparison rows and three patches. ARM primary gains do not offset qualified Intel long/external guard regressions; C also fails native ARM, and B fails target ARM external lookup. [Independent audit](ARM-LOOKUP-CONT-001/reviews/H3-FINAL.md) confirms every row, join and gate. Source NONE; no further H3 timing or confirmation.
+
+Completed totals: **42 attempts / 23 PARK / 19 REJECT / 0 approved; ARM30 / Intel6 / AMD6; 25 populations, 5 replications, 12 qualifications.** H2/H4/H5/H6 remain active and excluded.
+
 ## 14 November: AMD controls parked; ARM and Intel candidate work continues
 
 [AMD qualification](ARM-LOOKUP-CONT-001/AMD-RESULTS.md) retains 144 baseline rows. Both compiler cohorts fail the registered noise bound; no candidate timing. Count this one protocol once. Completed totals: **41 attempts / 23 PARK / 18 REJECT / 0 approved; ARM 29 / Intel 6 / AMD 6; 24 populations, 5 replications, 12 qualifications.** H2–H6 remain active and excluded. [Current status](ARM-LOOKUP-CONT-001/STATUS.md).

@@ -1,0 +1,59 @@
+
+AMDuProfPcm Report
+
+Processor Name:,AMD EPYC 9R45 96-Core Processor                
+System:,Family(0x1a) Model(0x02) Stepping(0x1)
+Operating System:,Linux 6.14.0-1010-aws
+Number of Sockets :,1
+Number of Core Complexes(CCX) :,12
+Number of Cores :,96
+Number of Threads :,96
+SMT Enabled in HW:,False
+SMT Enabled by OS :,False
+
+CPU Topology:
+Socket, CCX, Core(s)
+0,0, 0 1 2 3 4 5 6 7
+0,1, 32 33 34 35 36 37 38 39
+0,2, 16 17 18 19 20 21 22 23
+0,3, 24 25 26 27 28 29 30 31
+0,4, 8 9 10 11 12 13 14 15
+0,5, 40 41 42 43 44 45 46 47
+0,6, 56 57 58 59 60 61 62 63
+0,7, 72 73 74 75 76 77 78 79
+0,8, 48 49 50 51 52 53 54 55
+0,9, 88 89 90 91 92 93 94 95
+0,10, 64 65 66 67 68 69 70 71
+0,11, 80 81 82 83 84 85 86 87
+
+Socket-UMC Topology:
+Socket, UMC(s)
+0,0 1 2 3 4 5 6 7 8 9 10 11 
+
+Core P0 state frequency (MHz):,2600.000000
+Multiplex interval for core (ms):,1
+Sample interval (ms):,1000
+Data Collection Driver:,Linux Perf Driver
+NMI Watchdog Enabled:,1
+Version:,5.2.606.0 (PUBLIC)
+
+Hypervisor Info:
+Hypervisor Enabled:,False
+Command:,"AMDuProfPcm -m pipeline_util -d 5 -o /opt/benchmark-task/baseline-diagnostic-native-update-v3/tma-2.csv -p 1083576 -u 1"
+
+Abbreviation :
+IPC    : Instructions Per CPU Cycle
+CPI    : CPU Cycles Per Instructions
+pti    : Per Thousand Instructions
+ptc    : Per Thousand CPU Cycles
+pto    : Per Thousand Operations
+Topdown metrics are reported in "% slots"
+
+Profile Time: 2026/11/14 02:45:27:785
+CORE METRICS,,,,,,,,,,,,,,
+System (Aggregated),,,,,,,,,,,,,,
+Total_Dispatch_Slots,SMT_Disp_contention,Frontend_Bound,Bad_Speculation,Backend_Bound,Retiring,Frontend_Bound.Latency,Frontend_Bound.BW,Bad_Speculation.Mispredicts,Bad_Speculation.Pipeline_Restarts,Backend_Bound.Memory,Backend_Bound.CPU,Retiring.Fastpath,Retiring.Microcode,
+145009816760.00,0.00,23.58,4.22,18.81,53.40,17.43,6.15,4.22,0.00,13.85,4.96,53.40,0.00,
+145004909376.00,0.00,23.54,4.23,18.82,53.39,17.41,6.13,4.23,0.00,13.98,4.84,53.39,0.00,
+145028795904.00,0.00,23.57,4.19,18.78,53.45,17.38,6.19,4.19,0.00,13.71,5.07,53.45,0.00,
+145025602848.00,0.00,23.56,4.19,18.78,53.45,17.40,6.16,4.19,0.00,13.67,5.11,53.45,0.00,

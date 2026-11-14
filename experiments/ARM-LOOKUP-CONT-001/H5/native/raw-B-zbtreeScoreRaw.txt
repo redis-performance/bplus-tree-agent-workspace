@@ -1,0 +1,29 @@
+    cdc0:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    cdc4:	910003fd 	mov	x29, sp
+    cdc8:	a90153f3 	stp	x19, x20, [sp, #16]
+    cdcc:	aa0003f3 	mov	x19, x0
+    cdd0:	aa0103f4 	mov	x20, x1
+    cdd4:	aa1403e0 	mov	x0, x20
+    cdd8:	aa0203e1 	mov	x1, x2
+    cddc:	a9025bf5 	stp	x21, x22, [sp, #32]
+    cde0:	aa0203f5 	mov	x21, x2
+    cde4:	aa0303f6 	mov	x22, x3
+    cde8:	94001c07 	bl	13e04 <dictGenHashFunction>
+    cdec:	f9402261 	ldr	x1, [x19, #64]
+    cdf0:	aa1603e4 	mov	x4, x22
+    cdf4:	aa1503e3 	mov	x3, x21
+    cdf8:	aa1403e2 	mov	x2, x20
+    cdfc:	b40000e1 	cbz	x1, ce18 <zbtreeScoreRaw+0x58>
+    ce00:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    ce04:	2a0003e1 	mov	w1, w0
+    ce08:	aa1303e0 	mov	x0, x19
+    ce0c:	a94153f3 	ldp	x19, x20, [sp, #16]
+    ce10:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    ce14:	17ffea2b 	b	76c0 <zbtScoreRawResizing>
+    ce18:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    ce1c:	2a0003e1 	mov	w1, w0
+    ce20:	aa1303e0 	mov	x0, x19
+    ce24:	a94153f3 	ldp	x19, x20, [sp, #16]
+    ce28:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    ce2c:	17ffe09e 	b	50a4 <zbtScoreRawStable>
+

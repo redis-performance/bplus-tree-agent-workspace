@@ -1,0 +1,268 @@
+    50a4:	a9b57bfd 	stp	x29, x30, [sp, #-176]!
+    50a8:	910003fd 	mov	x29, sp
+    50ac:	a9025bf5 	stp	x21, x22, [sp, #32]
+    50b0:	91006016 	add	x22, x0, #0x18
+    50b4:	aa0003f5 	mov	x21, x0
+    50b8:	a9068fe2 	stp	x2, x3, [sp, #104]
+    50bc:	f94006c0 	ldr	x0, [x22, #8]
+    50c0:	f9003fe4 	str	x4, [sp, #120]
+    50c4:	f90047e0 	str	x0, [sp, #136]
+    50c8:	b4000b60 	cbz	x0, 5234 <zbtScoreRawStable+0x190>
+    50cc:	d1000400 	sub	x0, x0, #0x1
+    50d0:	a90153f3 	stp	x19, x20, [sp, #16]
+    50d4:	53187c26 	lsr	w6, w1, #24
+    50d8:	a90363f7 	stp	x23, x24, [sp, #48]
+    50dc:	2a0103f4 	mov	w20, w1
+    50e0:	0a000033 	and	w19, w1, w0
+    50e4:	a9046bf9 	stp	x25, x26, [sp, #64]
+    50e8:	a90573fb 	stp	x27, x28, [sp, #80]
+    50ec:	f9004fe0 	str	x0, [sp, #152]
+    50f0:	35000aa6 	cbnz	w6, 5244 <zbtScoreRawStable+0x1a0>
+    50f4:	d2800040 	mov	x0, #0x2                   	// #2
+    50f8:	5280003c 	mov	w28, #0x1                   	// #1
+    50fc:	f2a10000 	movk	x0, #0x800, lsl #16
+    5100:	f2c01000 	movk	x0, #0x80, lsl #32
+    5104:	f90053e0 	str	x0, [sp, #160]
+    5108:	b200c3e0 	mov	x0, #0x101010101010101     	// #72340172838076673
+    510c:	f9004be0 	str	x0, [sp, #144]
+    5110:	b94022c0 	ldr	w0, [x22, #32]
+    5114:	f9400eb8 	ldr	x24, [x21, #24]
+    5118:	35000c20 	cbnz	w0, 529c <zbtScoreRawStable+0x1f8>
+    511c:	d37bea69 	lsl	x9, x19, #5
+    5120:	529ffff7 	mov	w23, #0xffff                	// #65535
+    5124:	8b090300 	add	x0, x24, x9
+    5128:	f90043ff 	str	xzr, [sp, #128]
+    512c:	f90057e0 	str	x0, [sp, #168]
+    5130:	f8696b19 	ldr	x25, [x24, x9]
+    5134:	8b09031a 	add	x26, x24, x9
+    5138:	f9404be1 	ldr	x1, [sp, #144]
+    513c:	ca190020 	eor	x0, x1, x25
+    5140:	ca390025 	eon	x5, x1, x25
+    5144:	b207dbe1 	mov	x1, #0xfefefefefefefefe    	// #-72340172838076674
+    5148:	f29fdfe1 	movk	x1, #0xfeff
+    514c:	8b010000 	add	x0, x0, x1
+    5150:	8a0000a5 	and	x5, x5, x0
+    5154:	f201c0bb 	ands	x27, x5, #0x8080808080808080
+    5158:	540003a1 	b.ne	51cc <zbtScoreRawStable+0x128>  // b.any
+    515c:	140000af 	b	5418 <zbtScoreRawStable+0x374>
+    5160:	f94026a0 	ldr	x0, [x21, #72]
+    5164:	2a0103e2 	mov	w2, w1
+    5168:	f8627800 	ldr	x0, [x0, x2, lsl #3]
+    516c:	b40004c0 	cbz	x0, 5204 <zbtScoreRawStable+0x160>
+    5170:	370004a0 	tbnz	w0, #0, 5204 <zbtScoreRawStable+0x160>
+    5174:	b9403002 	ldr	w2, [x0, #48]
+    5178:	6b02003f 	cmp	w1, w2
+    517c:	540019c1 	b.ne	54b4 <zbtScoreRawStable+0x410>  // b.any
+    5180:	f94022a1 	ldr	x1, [x21, #64]
+    5184:	b4000121 	cbz	x1, 51a8 <zbtScoreRawStable+0x104>
+    5188:	79405823 	ldrh	w3, [x1, #44]
+    518c:	79402c02 	ldrh	w2, [x0, #22]
+    5190:	6b02007f 	cmp	w3, w2
+    5194:	1a9f17e2 	cset	w2, eq	// eq = none
+    5198:	eb16003f 	cmp	x1, x22
+    519c:	1a9f17e1 	cset	w1, eq	// eq = none
+    51a0:	6b01005f 	cmp	w2, w1
+    51a4:	540000e1 	b.ne	51c0 <zbtScoreRawStable+0x11c>  // b.any
+    51a8:	a9468fe2 	ldp	x2, x3, [sp, #104]
+    51ac:	2a1403e1 	mov	w1, w20
+    51b0:	f9403fe4 	ldr	x4, [sp, #120]
+    51b4:	97fff958 	bl	3714 <zbtScoreLeafFindMember.constprop.0>
+    51b8:	35001720 	cbnz	w0, 549c <zbtScoreRawStable+0x3f8>
+    51bc:	d503201f 	nop
+    51c0:	d1000760 	sub	x0, x27, #0x1
+    51c4:	8a00037b 	and	x27, x27, x0
+    51c8:	b400129b 	cbz	x27, 5418 <zbtScoreRawStable+0x374>
+    51cc:	dac00361 	rbit	x1, x27
+    51d0:	dac01021 	clz	x1, x1
+    51d4:	13037c21 	asr	w1, w1, #3
+    51d8:	531d7020 	lsl	w0, w1, #3
+    51dc:	9ac02720 	lsr	x0, x25, x0
+    51e0:	6b20039f 	cmp	w28, w0, uxtb
+    51e4:	54fffee1 	b.ne	51c0 <zbtScoreRawStable+0x11c>  // b.any
+    51e8:	91002021 	add	x1, x1, #0x8
+    51ec:	78617b41 	ldrh	w1, [x26, x1, lsl #1]
+    51f0:	6b17003f 	cmp	w1, w23
+    51f4:	54fffe60 	b.eq	51c0 <zbtScoreRawStable+0x11c>  // b.none
+    51f8:	b94056a0 	ldr	w0, [x21, #84]
+    51fc:	6b00003f 	cmp	w1, w0
+    5200:	54fffb03 	b.cc	5160 <zbtScoreRawStable+0xbc>  // b.lo, b.ul, b.last
+    5204:	f94022a0 	ldr	x0, [x21, #64]
+    5208:	b5fffdc0 	cbnz	x0, 51c0 <zbtScoreRawStable+0x11c>
+    520c:	f0000062 	adrp	x2, 14000 <ztrycalloc_usable>
+    5210:	f0000060 	adrp	x0, 14000 <ztrycalloc_usable>
+    5214:	91396042 	add	x2, x2, #0xe58
+    5218:	912e0000 	add	x0, x0, #0xb80
+    521c:	5280f921 	mov	w1, #0x7c9                 	// #1993
+    5220:	94003a78 	bl	13c00 <standalone_panic>
+    5224:	a94153f3 	ldp	x19, x20, [sp, #16]
+    5228:	a94363f7 	ldp	x23, x24, [sp, #48]
+    522c:	a9446bf9 	ldp	x25, x26, [sp, #64]
+    5230:	a94573fb 	ldp	x27, x28, [sp, #80]
+    5234:	52800000 	mov	w0, #0x0                   	// #0
+    5238:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    523c:	a8cb7bfd 	ldp	x29, x30, [sp], #176
+    5240:	d65f03c0 	ret
+    5244:	d28f82a0 	mov	x0, #0x7c15                	// #31765
+    5248:	2a0603f9 	mov	w25, w6
+    524c:	f2afe940 	movk	x0, #0x7f4a, lsl #16
+    5250:	b200c3e3 	mov	x3, #0x101010101010101     	// #72340172838076673
+    5254:	f2cf3720 	movk	x0, #0x79b9, lsl #32
+    5258:	d2800021 	mov	x1, #0x1                   	// #1
+    525c:	f2f3c6e0 	movk	x0, #0x9e37, lsl #48
+    5260:	9b037f23 	mul	x3, x25, x3
+    5264:	f9004be3 	str	x3, [sp, #144]
+    5268:	9ac62022 	lsl	x2, x1, x6
+    526c:	9b007f20 	mul	x0, x25, x0
+    5270:	12001cdc 	and	w28, w6, #0xff
+    5274:	f9400eb8 	ldr	x24, [x21, #24]
+    5278:	d37afc03 	lsr	x3, x0, #58
+    527c:	d364a400 	ubfx	x0, x0, #36, #6
+    5280:	9ac32023 	lsl	x3, x1, x3
+    5284:	aa030042 	orr	x2, x2, x3
+    5288:	9ac02021 	lsl	x1, x1, x0
+    528c:	aa010040 	orr	x0, x2, x1
+    5290:	f90053e0 	str	x0, [sp, #160]
+    5294:	b94022c0 	ldr	w0, [x22, #32]
+    5298:	34fff420 	cbz	w0, 511c <zbtScoreRawStable+0x78>
+    529c:	d37ffa60 	lsl	x0, x19, #1
+    52a0:	d2800019 	mov	x25, #0x0                   	// #0
+    52a4:	8b130001 	add	x1, x0, x19
+    52a8:	8b011301 	add	x1, x24, x1, lsl #4
+    52ac:	aa0103fb 	mov	x27, x1
+    52b0:	8b130000 	add	x0, x0, x19
+    52b4:	d37cec00 	lsl	x0, x0, #4
+    52b8:	8b000309 	add	x9, x24, x0
+    52bc:	f8606b17 	ldr	x23, [x24, x0]
+    52c0:	f9404be0 	ldr	x0, [sp, #144]
+    52c4:	ca0002e5 	eor	x5, x23, x0
+    52c8:	b207dbe0 	mov	x0, #0xfefefefefefefefe    	// #-72340172838076674
+    52cc:	f29fdfe0 	movk	x0, #0xfeff
+    52d0:	8b0000a0 	add	x0, x5, x0
+    52d4:	8a250005 	bic	x5, x0, x5
+    52d8:	f201c0ba 	ands	x26, x5, #0x8080808080808080
+    52dc:	540003c1 	b.ne	5354 <zbtScoreRawStable+0x2b0>  // b.any
+    52e0:	14000030 	b	53a0 <zbtScoreRawStable+0x2fc>
+    52e4:	f94026a0 	ldr	x0, [x21, #72]
+    52e8:	f8615800 	ldr	x0, [x0, w1, uxtw #3]
+    52ec:	b4000500 	cbz	x0, 538c <zbtScoreRawStable+0x2e8>
+    52f0:	370004e0 	tbnz	w0, #0, 538c <zbtScoreRawStable+0x2e8>
+    52f4:	b9403002 	ldr	w2, [x0, #48]
+    52f8:	6b01005f 	cmp	w2, w1
+    52fc:	54000dc1 	b.ne	54b4 <zbtScoreRawStable+0x410>  // b.any
+    5300:	f94022a1 	ldr	x1, [x21, #64]
+    5304:	b4000121 	cbz	x1, 5328 <zbtScoreRawStable+0x284>
+    5308:	eb16003f 	cmp	x1, x22
+    530c:	79405823 	ldrh	w3, [x1, #44]
+    5310:	79402c01 	ldrh	w1, [x0, #22]
+    5314:	1a9f17e2 	cset	w2, eq	// eq = none
+    5318:	6b03003f 	cmp	w1, w3
+    531c:	1a9f17e1 	cset	w1, eq	// eq = none
+    5320:	6b01005f 	cmp	w2, w1
+    5324:	54000121 	b.ne	5348 <zbtScoreRawStable+0x2a4>  // b.any
+    5328:	a9468fe2 	ldp	x2, x3, [sp, #104]
+    532c:	2a1403e1 	mov	w1, w20
+    5330:	f9403fe4 	ldr	x4, [sp, #120]
+    5334:	f90043e9 	str	x9, [sp, #128]
+    5338:	97fff8f7 	bl	3714 <zbtScoreLeafFindMember.constprop.0>
+    533c:	f94043e9 	ldr	x9, [sp, #128]
+    5340:	35000ae0 	cbnz	w0, 549c <zbtScoreRawStable+0x3f8>
+    5344:	d503201f 	nop
+    5348:	d1000740 	sub	x0, x26, #0x1
+    534c:	8a00035a 	and	x26, x26, x0
+    5350:	b400029a 	cbz	x26, 53a0 <zbtScoreRawStable+0x2fc>
+    5354:	dac00340 	rbit	x0, x26
+    5358:	dac01000 	clz	x0, x0
+    535c:	13037c00 	asr	w0, w0, #3
+    5360:	531d7001 	lsl	w1, w0, #3
+    5364:	9ac126e1 	lsr	x1, x23, x1
+    5368:	6b21039f 	cmp	w28, w1, uxtb
+    536c:	54fffee1 	b.ne	5348 <zbtScoreRawStable+0x2a4>  // b.any
+    5370:	91001000 	add	x0, x0, #0x4
+    5374:	b8607921 	ldr	w1, [x9, x0, lsl #2]
+    5378:	3100043f 	cmn	w1, #0x1
+    537c:	54fffe60 	b.eq	5348 <zbtScoreRawStable+0x2a4>  // b.none
+    5380:	b94056a0 	ldr	w0, [x21, #84]
+    5384:	6b01001f 	cmp	w0, w1
+    5388:	54fffae8 	b.hi	52e4 <zbtScoreRawStable+0x240>  // b.pmore
+    538c:	f94022a0 	ldr	x0, [x21, #64]
+    5390:	b4fff3e0 	cbz	x0, 520c <zbtScoreRawStable+0x168>
+    5394:	d1000740 	sub	x0, x26, #0x1
+    5398:	8a00035a 	and	x26, x26, x0
+    539c:	b5fffdda 	cbnz	x26, 5354 <zbtScoreRawStable+0x2b0>
+    53a0:	b50000b9 	cbnz	x25, 53b4 <zbtScoreRawStable+0x310>
+    53a4:	f9400760 	ldr	x0, [x27, #8]
+    53a8:	f94053e1 	ldr	x1, [sp, #160]
+    53ac:	ea20003f 	bics	xzr, x1, x0
+    53b0:	54fff3a1 	b.ne	5224 <zbtScoreRawStable+0x180>  // b.any
+    53b4:	72001eff 	tst	w23, #0xff
+    53b8:	54fff360 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53bc:	f2781eff 	tst	x23, #0xff00
+    53c0:	54fff320 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53c4:	f2701eff 	tst	x23, #0xff0000
+    53c8:	54fff2e0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53cc:	6b5763ff 	cmp	wzr, w23, lsr #24
+    53d0:	54fff2a0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53d4:	f2601eff 	tst	x23, #0xff00000000
+    53d8:	54fff260 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53dc:	f2581eff 	tst	x23, #0xff0000000000
+    53e0:	54fff220 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53e4:	f2501eff 	tst	x23, #0xff000000000000
+    53e8:	54fff1e0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53ec:	eb57e3ff 	cmp	xzr, x23, lsr #56
+    53f0:	54fff1a0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    53f4:	f9404fe0 	ldr	x0, [sp, #152]
+    53f8:	91000673 	add	x19, x19, #0x1
+    53fc:	91000739 	add	x25, x25, #0x1
+    5400:	8a000273 	and	x19, x19, x0
+    5404:	f94047e0 	ldr	x0, [sp, #136]
+    5408:	eb19001f 	cmp	x0, x25
+    540c:	54fff0c0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5410:	d37ffa60 	lsl	x0, x19, #1
+    5414:	17ffffa7 	b	52b0 <zbtScoreRawStable+0x20c>
+    5418:	f94043e0 	ldr	x0, [sp, #128]
+    541c:	b50000a0 	cbnz	x0, 5430 <zbtScoreRawStable+0x38c>
+    5420:	a94a03e1 	ldp	x1, x0, [sp, #160]
+    5424:	f9400400 	ldr	x0, [x0, #8]
+    5428:	ea20003f 	bics	xzr, x1, x0
+    542c:	54ffefc1 	b.ne	5224 <zbtScoreRawStable+0x180>  // b.any
+    5430:	72001f3f 	tst	w25, #0xff
+    5434:	54ffef80 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5438:	f2781f3f 	tst	x25, #0xff00
+    543c:	54ffef40 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5440:	f2701f3f 	tst	x25, #0xff0000
+    5444:	54ffef00 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5448:	6b5963ff 	cmp	wzr, w25, lsr #24
+    544c:	54ffeec0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5450:	f2601f3f 	tst	x25, #0xff00000000
+    5454:	54ffee80 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5458:	f2581f3f 	tst	x25, #0xff0000000000
+    545c:	54ffee40 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5460:	f2501f3f 	tst	x25, #0xff000000000000
+    5464:	54ffee00 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5468:	eb59e3ff 	cmp	xzr, x25, lsr #56
+    546c:	54ffedc0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5470:	f9404fe1 	ldr	x1, [sp, #152]
+    5474:	91000673 	add	x19, x19, #0x1
+    5478:	f94043e0 	ldr	x0, [sp, #128]
+    547c:	8a010273 	and	x19, x19, x1
+    5480:	f94047e1 	ldr	x1, [sp, #136]
+    5484:	91000400 	add	x0, x0, #0x1
+    5488:	f90043e0 	str	x0, [sp, #128]
+    548c:	eb00003f 	cmp	x1, x0
+    5490:	54ffeca0 	b.eq	5224 <zbtScoreRawStable+0x180>  // b.none
+    5494:	d37bea69 	lsl	x9, x19, #5
+    5498:	17ffff26 	b	5130 <zbtScoreRawStable+0x8c>
+    549c:	a94153f3 	ldp	x19, x20, [sp, #16]
+    54a0:	52800020 	mov	w0, #0x1                   	// #1
+    54a4:	a94363f7 	ldp	x23, x24, [sp, #48]
+    54a8:	a9446bf9 	ldp	x25, x26, [sp, #64]
+    54ac:	a94573fb 	ldp	x27, x28, [sp, #80]
+    54b0:	17ffff62 	b	5238 <zbtScoreRawStable+0x194>
+    54b4:	f0000062 	adrp	x2, 14000 <ztrycalloc_usable>
+    54b8:	f0000060 	adrp	x0, 14000 <ztrycalloc_usable>
+    54bc:	913a2042 	add	x2, x2, #0xe88
+    54c0:	912e0000 	add	x0, x0, #0xb80
+    54c4:	5280f9c1 	mov	w1, #0x7ce                 	// #1998
+    54c8:	940039ce 	bl	13c00 <standalone_panic>
+    54cc:	d503201f 	nop
+

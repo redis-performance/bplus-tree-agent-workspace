@@ -6,7 +6,7 @@ Independence limitation: this reviewer previously implemented B. This is a fresh
 
 ## Evidence identity and method
 
-Read the three isolated patches/reports under `build/arm-cont-private/worktrees/H5-{A,B,C}/experiments/ARM-LOOKUP-CONT-001/variants/H5-*`, plus complete saved `assembly-{A,B,C}.stdout`, `metadata.json`, `commands.jsonl` and `size-*.stdout` in [H5-native](../../../build/arm-cont-private/fleet/H5-native/) and [H5-lto](../../../build/arm-cont-private/fleet/H5-lto/). The saved full disassemblies, rather than only the extracted raw-function snippets, matter: LTO A/C use membership clones, while LTO B inlines dispatch into `lookup_loop`.
+Read the three isolated patches/reports under `build/arm-cont-private/worktrees/H5-{A,B,C}/experiments/ARM-LOOKUP-CONT-001/variants/H5-*`, plus complete saved `assembly-{A,B,C}.stdout`, `metadata.json`, `commands.jsonl` and `size-*.stdout` in [H5-native](../H5/native/) and [H5-lto](../H5/lto/). The saved full disassemblies, rather than only the extracted raw-function snippets, matter: LTO A/C use membership clones, while LTO B inlines dispatch into `lookup_loop`.
 
 The saved native build uses `cc -std=c11 -O3 -g -Wall -Wextra -Werror -fno-omit-frame-pointer`; LTO uses the recorded immutable compiler image with `-flto=auto` and those same flags. Exact compiler identity remains scoped to the parent cohort metadata; no workstation compiler substitutes for either capture. Baseline ELF hashes are native `2eb912b89e950ff00f5d08bb6b1b4d0393b111e1797114f183a13dbbc655afbf` and LTO `77cab5362267de71388a294683e5b8d16bf2a0c599b9ef1313c870d669e39abb`.
 
