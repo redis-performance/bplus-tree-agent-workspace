@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "diagnostic_executions": 0,
+  "source_scope": [
+    "zbtIndexSetId",
+    "zbtIndexTableAlloc",
+    "zbtIndexTableRelease",
+    "zbtIndexTableInsertRaw",
+    "zbtIndexTableFind",
+    "zbtIndexTableFindReference",
+    "zbtIndexCopyLeaf",
+    "zbtIndexRehashStep",
+    "zbtIndexDupTable",
+    "zbtDefragPlainAllocation",
+    "zbtreeDefragStart",
+    "zbtIndexRebuild",
+    "zbtIndexScanSlot"
+  ],
+  "original_leaf_body_unchanged": true,
+  "diagnostic_leaf_retention_attributes": [
+    "noinline",
+    "noipa"
+  ],
+  "original_fixture_setup_exact": true,
+  "post_original_free_completion_fence": true,
+  "outputs_after_completion_only": true,
+  "builds": [
+    {
+      "mode": "native",
+      "elf_sha256": "8facf50e3c68a07ecc738aed446a0f0f9290e85e5d69c26e82d727e98031687c",
+      "assembly_sha256": "dcf0692de6cda882c42009ae99c84443e3a67ee90e00549654c85ec1cc651c62",
+      "symbols_sha256": "5998e567b12d824b67cc79a05e38ddd0621de64d7de8ca756f60428243f71c79",
+      "undefined_sha256": "e8414dafa5ad80293a7825661550e2f7e44de90e206dcd849510837dd2e935c3",
+      "receipt_sha256": "e9a9f0b3e76b70a9df981b3807caa2c0a0feb155091f5d56ca99fb1f511addd6",
+      "generation_manifest_sha256": "ba617cffda9c52c932dcb5777a700de440d39a0ab12fd83d40eedfb5250f6348",
+      "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "denied_clock_symbols": 13,
+      "call_control_flow": [
+        {
+          "symbol": "shLeaf",
+          "original_call_sites": [
+            "0xb672",
+            "0xb79e"
+          ],
+          "normal_exit_sites": [
+            "0xb6c0",
+            "0xb77f",
+            "0xb79e"
+          ],
+          "assertion_exit_sites": 11,
+          "verified_straight_line_fatal_helpers": [
+            "shBucket.part.0",
+            "shInc.part.0"
+          ],
+          "normal_paths_exactly_one_original_call": true
+        }
+      ]
+    },
+    {
+      "mode": "lto",
+      "elf_sha256": "0a9c7f0dca40d181bd8770dcd0c46c7eb9030ca584749dfc2e0db6514cedaf39",
+      "assembly_sha256": "69e9578250add658fa0699bc8d3da6b5aaca16a60754b40fd99deb997c1d224a",
+      "symbols_sha256": "292a582ea80eaad390018f184a71f8f288dc41da78ec9b3d598140e73a89dce6",
+      "undefined_sha256": "7662eb86759087e6d89ec6f988454c7939cc537a78cb870523e6ea4126f3fcd3",
+      "receipt_sha256": "9ae224257f7945c561f3b704d9cec5375cfb27b4c71992eafdc9d5dc1cf50b8e",
+      "generation_manifest_sha256": "ba617cffda9c52c932dcb5777a700de440d39a0ab12fd83d40eedfb5250f6348",
+      "compiler": "cc (GCC) 15.2.0",
+      "denied_clock_symbols": 13,
+      "call_control_flow": [
+        {
+          "symbol": "shLeaf",
+          "original_call_sites": [
+            "0x407255",
+            "0x40738a"
+          ],
+          "normal_exit_sites": [
+            "0x4072aa",
+            "0x40738a"
+          ],
+          "assertion_exit_sites": 11,
+          "verified_straight_line_fatal_helpers": [
+            "shBucket.part.0.lto_priv.0",
+            "shInc.part.0.lto_priv.0"
+          ],
+          "normal_paths_exactly_one_original_call": true
+        }
+      ]
+    }
+  ]
+}
