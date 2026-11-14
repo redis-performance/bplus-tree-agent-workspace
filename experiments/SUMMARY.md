@@ -1,5 +1,11 @@
 # Experiment summary
 
+## 14 November: diagnostics complete and all reservations released
+
+[Consolidated report](ARM-LOOKUP-CONT-001/OVERNIGHT-RESULTS.md): eight hypothesis families,24 isolated options,zero accepted changes. H2 remains PARK after failed ARM held-out controls; H7 is statically rejected and H8 never admitted to timing. The slot-hint census and separate lifecycle check add structural and bounded native correctness evidence only. [Fleet restoration](ARM-LOOKUP-CONT-001/FLEET-RESTORATION.md) is independently verified for all three campaign reservations, including the preserved Intel cleanup failure and reviewed repair.
+
+Current completed ledger remains **47 attempts:25 PARK,22 REJECT,0 approved; ARM35 / Intel6 / AMD6;29 populations,5 replications,13 qualifications**. These totals include historical entries and are distinct from the24 options. Final report/artifact review continues through07:24:14UTC; no new fleet workload is admitted. Older entries below are historical snapshots.
+
 ## 14 November: profiler-off qualification parked
 
 [Q4](ARM-LOOKUP-CONT-001/Q4-RESULTS.md) retains72 baseline rows: hit block0 fails at+1.019883%,17 other blocks pass. The fixed sequence stops before later seeds or any candidate. Independent review verifies every process/model/isolation join; no threshold waiver. H2 remains PARK. [H8](ARM-LOOKUP-CONT-001/H8-READINESS.md) is statically eligible but its prepared timing collector and proposed H2R1 replication are not admitted after Q4 fails.

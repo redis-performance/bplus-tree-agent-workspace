@@ -1,0 +1,52 @@
+--- original/cleanup-portability.py
++++ repaired/cleanup-portability.py
+@@ -99,17 +99,35 @@
+     def stop_owned_work(self, root, generation):
+         unit = root.name + '-work.service'
+         group = '/system.slice/' + unit
+-        before = self.properties(unit, ['ControlGroup'])
++        keys = ['LoadState', 'ActiveState', 'MainPID', 'ControlGroup']
++        before = self.properties(unit, keys)
++        require(before['LoadState'] in ('loaded', 'not-found'), 'Unknown work unit load state')
+         require(before['ControlGroup'] in ('', group), 'Unexpected work unit cgroup')
+         containers = self.containers(root, generation)
+-        self.run(['systemctl', 'stop', unit], timeout=30)
++        absent = before['LoadState'] == 'not-found'
++        if absent:
++            # An unloaded transient unit is acceptable only with independent
++            # proof of no owned work. Never reinterpret a failed stop as absence.
++            require(before['ActiveState'] == 'inactive' and before['MainPID'] == '0' and
++                    before['ControlGroup'] == '', 'Absent work unit has inconsistent state')
++            require(cgroup_empty(group), 'Absent work unit has a nonempty cgroup')
++            require(not containers, 'Absent work unit has owned containers')
++            require(not self.owned_processes(root, generation), 'Absent work unit has owned processes')
++        else:
++            self.run(['systemctl', 'stop', unit], timeout=30)
+         # Use immutable IDs. A same-name replacement never receives this removal.
+         for container in containers:
+             current_ids = self.run(['docker', 'ps', '-aq', '--no-trunc']).split()
+             if container['id'] in current_ids:
+                 self.run(['docker', 'rm', '-f', container['id']], timeout=30)
+         require(not self.containers(root, generation), 'Owned container remains or replacement appeared')
+-        after = self.properties(unit, ['ActiveState', 'MainPID', 'ControlGroup'])
++        after = self.properties(unit, keys)
++        require(after['LoadState'] in ('loaded', 'not-found'), 'Unknown stopped work unit load state')
++        if absent:
++            require(after['LoadState'] == 'not-found', 'Absent work unit appeared during cleanup')
++        if after['LoadState'] == 'not-found':
++            require(after['ActiveState'] == 'inactive' and after['ControlGroup'] == '',
++                    'Unloaded work unit has inconsistent state')
+         require(after['ActiveState'] in ('inactive', 'failed') and after['MainPID'] == '0' and
+                 after['ControlGroup'] in ('', group), 'Owned work unit has not stopped')
+         require(cgroup_empty(group), 'Owned work cgroup is not empty')
+@@ -124,7 +142,9 @@
+                 require(ticks != container['ticks'], 'Original container process survives')
+         survivors = self.owned_processes(root, generation)
+         require(not survivors, 'Owned processes remain: ' + str(survivors))
+-        return {'unit_stopped': True, 'cgroup_empty': True, 'owned_processes': [],
++        return {'unit_stopped': True, 'stop_action': 'already_absent' if absent else 'systemctl_stop',
++                'load_state_before': before['LoadState'], 'load_state_after': after['LoadState'],
++                'cgroup_empty': True, 'owned_processes': [],
+                 'removed_container_ids': [c['id'] for c in containers], 'owned_containers_remaining': []}
+ 
+     def owned_processes(self, root, generation):

@@ -25,4 +25,4 @@ See the [semantic review](reviews/SLOT-HINT-CENSUS-FINAL.md), [operational revie
 
 Frontend_Bound, Bad_Speculation, Backend_Bound and Retiring, including all children, are unavailable for this diagnostic. No speed estimate or bottleneck attribution follows from these counts. H2 and Q4 remain PARK, ARM remains released, and the completed performance ledger remains47/25PARK/22REJECT/0approved.
 
-A separately frozen baseline lifecycle correctness check is being prepared to address the observed coverage gap. It has no candidate and cannot admit timing or adoption. Its fixed source, review and completion cutoffs are06:15,06:30 and06:45UTC respectively; missing a cutoff closes it incomplete.
+The separately frozen [baseline lifecycle correctness check](SLOT-LIFECYCLE-RESULTS.md) subsequently passed its fixed stale-hint, duplication and Rebuild assertions. It adds bounded native correctness evidence, with no candidate, timing qualification or adoption. Source, review and completion all met the fixed06:15/06:30/06:45UTC cutoffs. Its distinct fixture does not add observations to this census.

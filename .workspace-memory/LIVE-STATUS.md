@@ -1,16 +1,18 @@
 <!-- ARM-CONT-ACTIVE -->
-Six-hour continuation active through 2026-11-14 07:24:14 UTC; final 30 minutes for review and cleanup.
-No accepted source. H1/H3/H4/H5/H6 rejected; H7 rejected statically without timing.
-H2 is PARK after held-out ARM A/A failure; Q4 also PARK. H8 timing is unadmitted.
-Four baseline census grids pass, with zero repeated failed leaf lookups. No new implementation.
-The separate counter support probe failed the frozen parser; no measurement captures or retry.
-H2 cross-ABI portability closed incomplete at metadata admission; no guest source build or test ran.
-Three new slot-hint proposals support baseline shadow-census preparation only; no candidate is admitted.
-47 completed attempts: 25 PARK, 22 REJECT, 0 approved; ARM35/Intel6/AMD6;
+Six-hour continuation active through 2026-11-14 07:24:14 UTC for final reporting and review.
+No accepted source. Eight families / 24 options: H1/H3/H4/H5/H6 rejected;
+H7 statically rejected, H2 PARK after failed ARM held-out controls, H8 timing unadmitted.
+Q4 also PARK. Original failed controls remain closed; no unchanged retries.
+Four original census grids show no repeated failed-leaf opportunity; counter support fails before captures.
+H2 cross-ABI portability is closed incomplete with zero guest source builds or tests.
+Slot-hint census passes 12 runs / 7,000 counted queries; stable exposure is not a speed estimate.
+Separate native lifecycle check passes 7 checkpoints / 61,139 verification lookups,
+including 56 copied stale hints and 250 fresh Rebuild seeds. No candidate implementation.
+47 completed ledger attempts: 25 PARK, 22 REJECT, 0 approved; ARM35 / Intel6 / AMD6;
 29 populations, 5 replications, 13 qualifications. Diagnostics add no count.
-ARM and AMD released with restoration independently verified.
-Intel remains reserved for separately reviewed structural diagnostics. No local measurements.
-Read experiments/ARM-LOOKUP-CONT-001/STATUS.md for current evidence and decisions.
+ARM, AMD and Intel reservations RELEASED, restoration independently verified.
+Intel's preserved first cleanup failure was repaired under review; no lease extension or workload retry.
+No further fleet work and no local measurements. Read experiments/ARM-LOOKUP-CONT-001/OVERNIGHT-RESULTS.md.
 <!-- ARM-CONT-ACTIVE-END -->
 
 <!-- ARM-LOOKUP-GAP-CURRENT -->

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "scope": "Historical registered server-command comparison from13November, not a measurement by this overnight standalone investigation",
+  "metric": "operations/second; higher is better",
+  "workload": "ZINTERCARD 2 ov:1 ov:2 LIMIT 0; two distinct sorted sets,500 identical members each,full overlap",
+  "duration_seconds_per_run": 120,
+  "runs_per_version_per_host": 3,
+  "compiler": "GCC15.2.0,DebianBookworm",
+  "source_commits": {
+    "ga": "1a2574ce1551d3de6e0b4a56756c0fdbc6659e4f",
+    "merged": "51e28c2a724a2632c0c75f376c352cd8aee37e0e"
+  },
+  "hosts": {
+    "Intel": {
+      "original_completion_sha256": "ee02a325840f1d47bc4874118deca0ee1baa2b9852576360856bfd89bc91205a",
+      "cohorts": {
+        "ga": {
+          "ops_per_second_in_recorded_order": [
+            49443.99,
+            48586.45,
+            48185.62
+          ],
+          "median": 48586.45,
+          "range": [
+            48185.62,
+            49443.99
+          ]
+        },
+        "merged": {
+          "ops_per_second_in_recorded_order": [
+            48963.35,
+            48169.12,
+            47822.52
+          ],
+          "median": 48169.12,
+          "range": [
+            47822.52,
+            48963.35
+          ]
+        }
+      },
+      "median_throughput_change_percent": -0.85894318271863,
+      "observed_min_max_ranges_overlap": true,
+      "completed": 6,
+      "failed": 0
+    },
+    "ARM": {
+      "original_completion_sha256": "567a1e62fe0ffe15d38f63da7ebecc871971c6f4a667ca358f01814259dc4936",
+      "cohorts": {
+        "ga": {
+          "ops_per_second_in_recorded_order": [
+            55760.62,
+            56671.42,
+            56480.0
+          ],
+          "median": 56480.0,
+          "range": [
+            55760.62,
+            56671.42
+          ]
+        },
+        "merged": {
+          "ops_per_second_in_recorded_order": [
+            39374.61,
+            38955.44,
+            39088.24
+          ],
+          "median": 39088.24,
+          "range": [
+            38955.44,
+            39374.61
+          ]
+        }
+      },
+      "median_throughput_change_percent": -30.79277620396601,
+      "observed_min_max_ranges_overlap": false,
+      "completed": 6,
+      "failed": 0
+    }
+  },
+  "normalization": "Only selected result values, compiler/workload scope and source artifact hashes. Private host identities, keys, job IDs and operational records omitted.",
+  "new_performance_measurements": 0
+}
