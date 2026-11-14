@@ -1,11 +1,12 @@
 # Overnight continuation active
 
-Authorized through **14 November2026,07:24:14UTC**, with final30minutes for review, reporting and verified cleanup. No source is accepted.
+Authorized through **14 November 2026, 07:24:14 UTC**, with final 30 minutes for review, reporting and verified cleanup. No source is accepted.
 
 - H1/H3/H4/H5/H6: independently reviewed REJECT; all patches and raw rows retained, no unchanged retries.
-- H2-B: all original six-case and five supplemental guards pass on ARM/Intel native/LTO. Matched ARM profiles show about5% fewer cycles and2% fewer instructions for fixed work; qualified Intel profiles are separately reported. Hardened, independently reviewed collectors now run fresh seeds29/43 across all11cases on ARM and Intel target-LTO cohorts. Source remains NONE pending complete confirmation and final review.
-- H5-A: target primary improves only0.519–0.531%; independent review closes REJECT/NONE despite passing native ARM/Intel. No later H5 cohort is admitted.
-- H7: all three isolated exact-mask implementations pass correctness and independent source review; exact ARM native/target static gates remain pending. H8 range-first record classification now has three isolated baseline worktrees and implementation work, with no stacked patches.
-- AMD: both original compiler controls failed; baseline diagnostics retained, no candidate timing. Runner released and independently verified. Raw AMD/ARM pipeline output remains unqualified where scope/formula evidence is missing.
+- [H2: PARK / NONE](H2-RESULTS.md). Original discovery and guards pass, but held-out ARM seed43 fails one A/A block at −3.601147%. Independent review audits all 864 held-out rows, including the cross-host scheduling deviation. Intel passes cannot replace ARM qualification. The original failure remains closed and retained.
+- [H7: static REJECT / NONE](H7-RESULTS.md). All three target raw frames grow176→192 bytes, violating the frozen gate. No timing ran; this unmeasured screen adds no completed timing attempt.
+- H8: three isolated range-first classification variants pass correctness and source review. ARM lookup static reviews pass; supplemental generic consumer coverage is being finalized. No timing or acceptance yet.
+- [Q4](ARM-PROFILER-OFF-QUALIFICATION.md): a distinct baseline-only isolation protocol is prepared. The previously active ARM profiler had unrestricted affinity. Reviewed recovery code and two bounded timers are staged; concrete deployment review precedes any service stop or execution. Q4 cannot retroactively pass H2.
+- AMD: both original compiler controls failed; no candidate timing. Runner released and independently verified. ARM/AMD pipeline categories remain unavailable where scope/formula evidence is missing.
 
-ARM and Intel retain bounded reservations with independent cleanup. Current completed ledger:45attempts,23PARK,22REJECT,0approved; ARM33/Intel6/AMD6;28populations,5replications,12qualifications. Active source populations are excluded. Fresh upstream fetch still identifies ee8e7f701. Standalone evidence does not establish server-command recovery.
+ARM and Intel retain bounded reservations with independent cleanup. Current completed ledger: **46 attempts, 24 PARK, 22 REJECT, 0 approved; ARM34 / Intel6 / AMD6; 29 populations, 5 replications, 12 qualifications**. Active and unmeasured work is excluded. Upstream remains ee8e7f701. Standalone evidence does not establish server-command recovery.

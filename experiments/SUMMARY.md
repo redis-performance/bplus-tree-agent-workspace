@@ -1,5 +1,11 @@
 # Experiment summary
 
+## 14 November: metadata population parked; exact-mask screen rejected
+
+[H2](ARM-LOOKUP-CONT-001/H2-RESULTS.md) closes PARK/NONE after one held-out ARM seed43 baseline block fails at −3.601147%. All 864 held-out rows and the cross-host scheduling deviation are retained and independently reviewed. Passing Intel results do not replace ARM controls. [H7](ARM-LOOKUP-CONT-001/H7-RESULTS.md) fails the static frame gate before timing and adds no measured population. H8 remains active; a separate baseline-only isolation qualification is prepared.
+
+Current completed total: **46 attempts: 24 PARK, 22 REJECT, 0 approved; ARM34 / Intel6 / AMD6; 29 populations, 5 replications, 12 qualifications**. H2 adds one completed population. H8 and the new qualification remain excluded until a completed decision.
+
 ## 14 November: resize-boundary population rejected
 
 H5 closes REJECT/NONE after independent reconstruction of 288 comparison and 216 A/A rows. A passes native ARM and Intel but improves the ARM target only 0.519–0.531%, below the 2% primary gate. B fails static admission; C fails native primary. All artifacts remain retained. [Result](ARM-LOOKUP-CONT-001/H5-RESULTS.md).

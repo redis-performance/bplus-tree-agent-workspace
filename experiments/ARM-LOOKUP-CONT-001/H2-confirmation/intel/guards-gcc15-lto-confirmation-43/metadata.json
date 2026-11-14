@@ -1,0 +1,53 @@
+{
+  "cohort": "gcc15-lto",
+  "cases": {
+    "iterator-forward": 1000000,
+    "iterator-reverse": 1000000,
+    "rank-forward": 200000,
+    "rank-reverse": 200000,
+    "churn": 20000
+  },
+  "harness_sha256": "f1e67e306afdd59b5e0eff8b67025129227aebf037ded199a026d87c63f9049e",
+  "build_script_sha256": "50430c79c75fa9d7dca5a65f37e0f12552ca3d69086421cd28378ac0e6823677",
+  "compiler_image": "sha256:9ca91b05c7b07d2979f16413e8b2cd6ec8a7c80ffca4121ccab0aeba33f90460",
+  "seed": 43,
+  "binaries": {
+    "base": {
+      "path": "bin/guards-gcc15-lto-base",
+      "source_sha256": "16def20f621e1e9fcb2cd3f2818aea49e23dae9066ebea5fa276e841c5e095c9",
+      "binary_sha256": "a7c25483af84443319cd894a424a0a9c36dd951d9bbbc1bdda0cd47432190e31"
+    },
+    "B": {
+      "path": "bin/guards-gcc15-lto-B",
+      "source_sha256": "63b18cd5aa70d455fb2639e826386045841052b8f2cea85e5b97f9018d829f29",
+      "binary_sha256": "54d7d9866ea1eff606dab9d3e904faee69aea25574b51feef00757f5235fa48b"
+    }
+  },
+  "started": 1794626982.6473396,
+  "confirmation": true,
+  "confirmation_origin": "guards-gcc15-lto",
+  "requested_variants": [
+    "B"
+  ],
+  "confirmation_collector_sha256": "a1ddc7e99f7a03076757dd64f263a3c3dd6d4fc0501dc516a83a6a1306c09704",
+  "confirmation_driver_sha256": "72a0d1771c830becf95a8f7439378b9f88b2c689c214dcd8d2b7b2a386841a67",
+  "origin_sha256": {
+    "metadata.json": "a30a6b9fe2184b9c7381fbe910832d1290b103843c695f4148d6c1d42e35e7b9",
+    "qualification.json": "9540ec626936ac13e1fa132719ca02230aaedfe68b36d8721b5b1ed42dc5d5c9",
+    "comparison-analysis.json": "7f2e0807873c4f54265ee3791f175e178ada6cf6476f089549f1c5c7edaac22a"
+  },
+  "measured_variants": [
+    "B"
+  ],
+  "excluded_variants": {
+    "C": {
+      "source_sha256": "789ca7e217baa67cba165d2ebed7be0c9c1a2a7067f94ae870431395e66ffe49",
+      "decision": "REJECT",
+      "reason": "qualified ARM LTO iterator-forward+24.7%,iterator-reverse+20.4..20.7% exceed1%",
+      "evidence": "H2-GUARD-DECISION.md",
+      "recorded": 1794623008.3890703
+    }
+  },
+  "comparison_collector_sha256": "a1ddc7e99f7a03076757dd64f263a3c3dd6d4fc0501dc516a83a6a1306c09704",
+  "comparison_started": 1794627129.4520695
+}
