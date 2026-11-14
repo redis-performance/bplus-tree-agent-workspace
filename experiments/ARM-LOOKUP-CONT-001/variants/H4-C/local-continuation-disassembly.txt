@@ -1,0 +1,565 @@
+
+build/arm-cont-private/codegen/lookup:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000004460 <zbtIndexTableFindContinue>:
+    4460:	55                   	push   %rbp
+    4461:	89 d0                	mov    %edx,%eax
+    4463:	49 89 f2             	mov    %rsi,%r10
+    4466:	48 89 e5             	mov    %rsp,%rbp
+    4469:	41 57                	push   %r15
+    446b:	41 56                	push   %r14
+    446d:	49 89 fe             	mov    %rdi,%r14
+    4470:	41 55                	push   %r13
+    4472:	41 54                	push   %r12
+    4474:	53                   	push   %rbx
+    4475:	48 83 ec 78          	sub    $0x78,%rsp
+    4479:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    447d:	4c 8b 4e 08          	mov    0x8(%rsi),%r9
+    4481:	89 55 c8             	mov    %edx,-0x38(%rbp)
+    4484:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4488:	49 8d 71 ff          	lea    -0x1(%r9),%rsi
+    448c:	48 89 4d b8          	mov    %rcx,-0x48(%rbp)
+    4490:	21 f2                	and    %esi,%edx
+    4492:	c1 e8 18             	shr    $0x18,%eax
+    4495:	4c 89 45 b0          	mov    %r8,-0x50(%rbp)
+    4499:	48 89 75 c0          	mov    %rsi,-0x40(%rbp)
+    449d:	0f 84 cd 03 00 00    	je     4870 <zbtIndexTableFindContinue+0x410>
+    44a3:	89 c1                	mov    %eax,%ecx
+    44a5:	41 89 c7             	mov    %eax,%r15d
+    44a8:	89 c0                	mov    %eax,%eax
+    44aa:	48 89 c7             	mov    %rax,%rdi
+    44ad:	48 89 45 90          	mov    %rax,-0x70(%rbp)
+    44b1:	48 b8 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rax
+    44b8:	79 37 9e 
+    44bb:	48 0f af c7          	imul   %rdi,%rax
+    44bf:	bf 01 00 00 00       	mov    $0x1,%edi
+    44c4:	48 89 fe             	mov    %rdi,%rsi
+    44c7:	48 d3 e6             	shl    %cl,%rsi
+    44ca:	48 89 c1             	mov    %rax,%rcx
+    44cd:	48 c1 e8 24          	shr    $0x24,%rax
+    44d1:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    44d5:	48 0f ab ce          	bts    %rcx,%rsi
+    44d9:	48 89 c1             	mov    %rax,%rcx
+    44dc:	48 d3 e7             	shl    %cl,%rdi
+    44df:	48 09 fe             	or     %rdi,%rsi
+    44e2:	41 8b 42 20          	mov    0x20(%r10),%eax
+    44e6:	4d 8b 1a             	mov    (%r10),%r11
+    44e9:	83 f8 01             	cmp    $0x1,%eax
+    44ec:	48 19 c9             	sbb    %rcx,%rcx
+    44ef:	48 83 e1 f0          	and    $0xfffffffffffffff0,%rcx
+    44f3:	48 83 c1 30          	add    $0x30,%rcx
+    44f7:	48 0f af ca          	imul   %rdx,%rcx
+    44fb:	49 8b 7c 0b 08       	mov    0x8(%r11,%rcx,1),%rdi
+    4500:	48 21 f7             	and    %rsi,%rdi
+    4503:	48 39 f7             	cmp    %rsi,%rdi
+    4506:	0f 85 96 03 00 00    	jne    48a2 <zbtIndexTableFindContinue+0x442>
+    450c:	4d 85 c9             	test   %r9,%r9
+    450f:	0f 84 8d 03 00 00    	je     48a2 <zbtIndexTableFindContinue+0x442>
+    4515:	c7 45 cc 00 00 00 00 	movl   $0x0,-0x34(%rbp)
+    451c:	31 f6                	xor    %esi,%esi
+    451e:	45 31 c0             	xor    %r8d,%r8d
+    4521:	48 89 5d 30          	mov    %rbx,0x30(%rbp)
+    4525:	83 f8 01             	cmp    $0x1,%eax
+    4528:	4d 19 e4             	sbb    %r12,%r12
+    452b:	49 83 e4 f0          	and    $0xfffffffffffffff0,%r12
+    452f:	49 83 c4 30          	add    $0x30,%r12
+    4533:	4c 0f af e2          	imul   %rdx,%r12
+    4537:	4d 01 dc             	add    %r11,%r12
+    453a:	49 8b 04 24          	mov    (%r12),%rax
+    453e:	48 85 f6             	test   %rsi,%rsi
+    4541:	0f 85 71 01 00 00    	jne    46b8 <zbtIndexTableFindContinue+0x258>
+    4547:	84 c0                	test   %al,%al
+    4549:	0f 84 06 03 00 00    	je     4855 <zbtIndexTableFindContinue+0x3f5>
+    454f:	48 89 c1             	mov    %rax,%rcx
+    4552:	48 c1 e9 08          	shr    $0x8,%rcx
+    4556:	4d 85 c0             	test   %r8,%r8
+    4559:	74 75                	je     45d0 <zbtIndexTableFindContinue+0x170>
+    455b:	84 c9                	test   %cl,%cl
+    455d:	0f 84 2a 03 00 00    	je     488d <zbtIndexTableFindContinue+0x42d>
+    4563:	a9 00 00 ff 00       	test   $0xff0000,%eax
+    4568:	0f 84 1f 03 00 00    	je     488d <zbtIndexTableFindContinue+0x42d>
+    456e:	a9 00 00 00 ff       	test   $0xff000000,%eax
+    4573:	0f 84 b6 04 00 00    	je     4a2f <zbtIndexTableFindContinue+0x5cf>
+    4579:	48 89 c1             	mov    %rax,%rcx
+    457c:	48 c1 e9 20          	shr    $0x20,%rcx
+    4580:	84 c9                	test   %cl,%cl
+    4582:	0f 84 b5 04 00 00    	je     4a3d <zbtIndexTableFindContinue+0x5dd>
+    4588:	48 89 c1             	mov    %rax,%rcx
+    458b:	48 c1 e9 28          	shr    $0x28,%rcx
+    458f:	84 c9                	test   %cl,%cl
+    4591:	0f 84 b4 04 00 00    	je     4a4b <zbtIndexTableFindContinue+0x5eb>
+    4597:	48 89 c1             	mov    %rax,%rcx
+    459a:	48 c1 e9 30          	shr    $0x30,%rcx
+    459e:	84 c9                	test   %cl,%cl
+    45a0:	0f 84 b3 04 00 00    	je     4a59 <zbtIndexTableFindContinue+0x5f9>
+    45a6:	48 c1 e8 38          	shr    $0x38,%rax
+    45aa:	0f 84 b7 04 00 00    	je     4a67 <zbtIndexTableFindContinue+0x607>
+    45b0:	48 83 c6 01          	add    $0x1,%rsi
+    45b4:	48 83 c2 01          	add    $0x1,%rdx
+    45b8:	48 23 55 c0          	and    -0x40(%rbp),%rdx
+    45bc:	4c 39 ce             	cmp    %r9,%rsi
+    45bf:	0f 84 c3 04 00 00    	je     4a88 <zbtIndexTableFindContinue+0x628>
+    45c5:	41 8b 42 20          	mov    0x20(%r10),%eax
+    45c9:	e9 57 ff ff ff       	jmp    4525 <zbtIndexTableFindContinue+0xc5>
+    45ce:	66 90                	xchg   %ax,%ax
+    45d0:	41 8b 7a 20          	mov    0x20(%r10),%edi
+    45d4:	85 ff                	test   %edi,%edi
+    45d6:	0f 85 d7 02 00 00    	jne    48b3 <zbtIndexTableFindContinue+0x453>
+    45dc:	66 41 83 7c 24 10 ff 	cmpw   $0xffff,0x10(%r12)
+    45e3:	0f 84 99 03 00 00    	je     4982 <zbtIndexTableFindContinue+0x522>
+    45e9:	84 c9                	test   %cl,%cl
+    45eb:	0f 84 be 04 00 00    	je     4aaf <zbtIndexTableFindContinue+0x64f>
+    45f1:	48 89 c1             	mov    %rax,%rcx
+    45f4:	48 c1 e9 10          	shr    $0x10,%rcx
+    45f8:	66 41 83 7c 24 12 ff 	cmpw   $0xffff,0x12(%r12)
+    45ff:	0f 84 9f 03 00 00    	je     49a4 <zbtIndexTableFindContinue+0x544>
+    4605:	84 c9                	test   %cl,%cl
+    4607:	0f 84 af 04 00 00    	je     4abc <zbtIndexTableFindContinue+0x65c>
+    460d:	48 89 c1             	mov    %rax,%rcx
+    4610:	48 c1 e9 18          	shr    $0x18,%rcx
+    4614:	66 41 83 7c 24 14 ff 	cmpw   $0xffff,0x14(%r12)
+    461b:	0f 84 9a 03 00 00    	je     49bb <zbtIndexTableFindContinue+0x55b>
+    4621:	84 c9                	test   %cl,%cl
+    4623:	0f 84 d4 04 00 00    	je     4afd <zbtIndexTableFindContinue+0x69d>
+    4629:	48 89 c1             	mov    %rax,%rcx
+    462c:	48 c1 e9 20          	shr    $0x20,%rcx
+    4630:	66 41 83 7c 24 16 ff 	cmpw   $0xffff,0x16(%r12)
+    4637:	0f 84 95 03 00 00    	je     49d2 <zbtIndexTableFindContinue+0x572>
+    463d:	84 c9                	test   %cl,%cl
+    463f:	0f 84 e8 04 00 00    	je     4b2d <zbtIndexTableFindContinue+0x6cd>
+    4645:	48 89 c1             	mov    %rax,%rcx
+    4648:	48 c1 e9 28          	shr    $0x28,%rcx
+    464c:	66 41 83 7c 24 18 ff 	cmpw   $0xffff,0x18(%r12)
+    4653:	0f 84 90 03 00 00    	je     49e9 <zbtIndexTableFindContinue+0x589>
+    4659:	84 c9                	test   %cl,%cl
+    465b:	0f 84 bc 04 00 00    	je     4b1d <zbtIndexTableFindContinue+0x6bd>
+    4661:	48 89 c1             	mov    %rax,%rcx
+    4664:	48 c1 e9 30          	shr    $0x30,%rcx
+    4668:	66 41 83 7c 24 1a ff 	cmpw   $0xffff,0x1a(%r12)
+    466f:	0f 84 8b 03 00 00    	je     4a00 <zbtIndexTableFindContinue+0x5a0>
+    4675:	84 c9                	test   %cl,%cl
+    4677:	0f 84 90 04 00 00    	je     4b0d <zbtIndexTableFindContinue+0x6ad>
+    467d:	48 c1 e8 38          	shr    $0x38,%rax
+    4681:	66 41 83 7c 24 1c ff 	cmpw   $0xffff,0x1c(%r12)
+    4688:	0f 84 89 03 00 00    	je     4a17 <zbtIndexTableFindContinue+0x5b7>
+    468e:	48 85 c0             	test   %rax,%rax
+    4691:	0f 84 de 03 00 00    	je     4a75 <zbtIndexTableFindContinue+0x615>
+    4697:	66 41 83 7c 24 1e ff 	cmpw   $0xffff,0x1e(%r12)
+    469e:	b8 07 00 00 00       	mov    $0x7,%eax
+    46a3:	0f 45 45 cc          	cmovne -0x34(%rbp),%eax
+    46a7:	4d 0f 44 c4          	cmove  %r12,%r8
+    46ab:	89 45 cc             	mov    %eax,-0x34(%rbp)
+    46ae:	e9 fd fe ff ff       	jmp    45b0 <zbtIndexTableFindContinue+0x150>
+    46b3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    46b8:	48 bf 01 01 01 01 01 	movabs $0x101010101010101,%rdi
+    46bf:	01 01 01 
+    46c2:	48 8b 4d 90          	mov    -0x70(%rbp),%rcx
+    46c6:	48 0f af cf          	imul   %rdi,%rcx
+    46ca:	48 31 c1             	xor    %rax,%rcx
+    46cd:	49 89 cd             	mov    %rcx,%r13
+    46d0:	48 89 cb             	mov    %rcx,%rbx
+    46d3:	48 b9 80 80 80 80 80 	movabs $0x8080808080808080,%rcx
+    46da:	80 80 80 
+    46dd:	49 29 fd             	sub    %rdi,%r13
+    46e0:	48 f7 d3             	not    %rbx
+    46e3:	4c 21 eb             	and    %r13,%rbx
+    46e6:	48 21 cb             	and    %rcx,%rbx
+    46e9:	0f 84 58 fe ff ff    	je     4547 <zbtIndexTableFindContinue+0xe7>
+    46ef:	49 8d 4e 18          	lea    0x18(%r14),%rcx
+    46f3:	49 39 ca             	cmp    %rcx,%r10
+    46f6:	0f 85 19 05 00 00    	jne    4c15 <zbtIndexTableFindContinue+0x7b5>
+    46fc:	48 89 55 88          	mov    %rdx,-0x78(%rbp)
+    4700:	48 89 75 80          	mov    %rsi,-0x80(%rbp)
+    4704:	4c 89 8d 78 ff ff ff 	mov    %r9,-0x88(%rbp)
+    470b:	4c 89 9d 70 ff ff ff 	mov    %r11,-0x90(%rbp)
+    4712:	4c 89 85 68 ff ff ff 	mov    %r8,-0x98(%rbp)
+    4719:	e9 92 00 00 00       	jmp    47b0 <zbtIndexTableFindContinue+0x350>
+    471e:	66 90                	xchg   %ax,%ax
+    4720:	49 8b 76 48          	mov    0x48(%r14),%rsi
+    4724:	89 d1                	mov    %edx,%ecx
+    4726:	48 8b 3c ce          	mov    (%rsi,%rcx,8),%rdi
+    472a:	48 85 ff             	test   %rdi,%rdi
+    472d:	0f 84 bb 00 00 00    	je     47ee <zbtIndexTableFindContinue+0x38e>
+    4733:	40 f6 c7 01          	test   $0x1,%dil
+    4737:	0f 85 b1 00 00 00    	jne    47ee <zbtIndexTableFindContinue+0x38e>
+    473d:	39 57 30             	cmp    %edx,0x30(%rdi)
+    4740:	0f 85 b7 04 00 00    	jne    4bfd <zbtIndexTableFindContinue+0x79d>
+    4746:	49 8b 56 40          	mov    0x40(%r14),%rdx
+    474a:	48 85 d2             	test   %rdx,%rdx
+    474d:	74 15                	je     4764 <zbtIndexTableFindContinue+0x304>
+    474f:	4c 39 d2             	cmp    %r10,%rdx
+    4752:	0f b7 72 2c          	movzwl 0x2c(%rdx),%esi
+    4756:	0f 94 c1             	sete   %cl
+    4759:	66 39 77 16          	cmp    %si,0x16(%rdi)
+    475d:	0f 94 c2             	sete   %dl
+    4760:	38 d1                	cmp    %dl,%cl
+    4762:	75 3c                	jne    47a0 <zbtIndexTableFindContinue+0x340>
+    4764:	4c 8b 4d 18          	mov    0x18(%rbp),%r9
+    4768:	4c 8b 45 a8          	mov    -0x58(%rbp),%r8
+    476c:	48 89 7d a0          	mov    %rdi,-0x60(%rbp)
+    4770:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+    4774:	48 8b 55 b8          	mov    -0x48(%rbp),%rdx
+    4778:	4c 89 55 98          	mov    %r10,-0x68(%rbp)
+    477c:	8b 75 c8             	mov    -0x38(%rbp),%esi
+    477f:	e8 3c fb ff ff       	call   42c0 <zbtScoreLeafFindMember>
+    4784:	48 8b 7d a0          	mov    -0x60(%rbp),%rdi
+    4788:	85 c0                	test   %eax,%eax
+    478a:	0f 85 39 03 00 00    	jne    4ac9 <zbtIndexTableFindContinue+0x669>
+    4790:	49 8b 04 24          	mov    (%r12),%rax
+    4794:	4c 8b 55 98          	mov    -0x68(%rbp),%r10
+    4798:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    479f:	00 
+    47a0:	48 8d 53 ff          	lea    -0x1(%rbx),%rdx
+    47a4:	48 21 d3             	and    %rdx,%rbx
+    47a7:	48 85 db             	test   %rbx,%rbx
+    47aa:	0f 84 80 00 00 00    	je     4830 <zbtIndexTableFindContinue+0x3d0>
+    47b0:	31 c9                	xor    %ecx,%ecx
+    47b2:	48 89 c2             	mov    %rax,%rdx
+    47b5:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    47ba:	41 89 cd             	mov    %ecx,%r13d
+    47bd:	83 e1 f8             	and    $0xfffffff8,%ecx
+    47c0:	48 d3 ea             	shr    %cl,%rdx
+    47c3:	41 c1 fd 03          	sar    $0x3,%r13d
+    47c7:	41 38 d7             	cmp    %dl,%r15b
+    47ca:	75 d4                	jne    47a0 <zbtIndexTableFindContinue+0x340>
+    47cc:	45 8b 4a 20          	mov    0x20(%r10),%r9d
+    47d0:	45 85 c9             	test   %r9d,%r9d
+    47d3:	75 3b                	jne    4810 <zbtIndexTableFindContinue+0x3b0>
+    47d5:	44 89 ea             	mov    %r13d,%edx
+    47d8:	41 0f b7 54 54 10    	movzwl 0x10(%r12,%rdx,2),%edx
+    47de:	66 83 fa ff          	cmp    $0xffff,%dx
+    47e2:	74 bc                	je     47a0 <zbtIndexTableFindContinue+0x340>
+    47e4:	41 3b 56 54          	cmp    0x54(%r14),%edx
+    47e8:	0f 82 32 ff ff ff    	jb     4720 <zbtIndexTableFindContinue+0x2c0>
+    47ee:	49 83 7e 40 00       	cmpq   $0x0,0x40(%r14)
+    47f3:	75 ab                	jne    47a0 <zbtIndexTableFindContinue+0x340>
+    47f5:	48 8d 15 14 0e 01 00 	lea    0x10e14(%rip),%rdx        # 15610 <_IO_stdin_used+0x610>
+    47fc:	be bb 07 00 00       	mov    $0x7bb,%esi
+    4801:	48 8d 3d a0 0c 01 00 	lea    0x10ca0(%rip),%rdi        # 154a8 <_IO_stdin_used+0x4a8>
+    4808:	e8 33 f6 00 00       	call   13e40 <standalone_panic>
+    480d:	0f 1f 00             	nopl   (%rax)
+    4810:	44 89 ea             	mov    %r13d,%edx
+    4813:	41 8b 54 94 10       	mov    0x10(%r12,%rdx,4),%edx
+    4818:	83 fa ff             	cmp    $0xffffffff,%edx
+    481b:	75 c7                	jne    47e4 <zbtIndexTableFindContinue+0x384>
+    481d:	48 8d 53 ff          	lea    -0x1(%rbx),%rdx
+    4821:	48 21 d3             	and    %rdx,%rbx
+    4824:	48 85 db             	test   %rbx,%rbx
+    4827:	75 87                	jne    47b0 <zbtIndexTableFindContinue+0x350>
+    4829:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    4830:	48 8b 55 88          	mov    -0x78(%rbp),%rdx
+    4834:	48 8b 75 80          	mov    -0x80(%rbp),%rsi
+    4838:	4c 8b 8d 78 ff ff ff 	mov    -0x88(%rbp),%r9
+    483f:	4c 8b 9d 70 ff ff ff 	mov    -0x90(%rbp),%r11
+    4846:	4c 8b 85 68 ff ff ff 	mov    -0x98(%rbp),%r8
+    484d:	84 c0                	test   %al,%al
+    484f:	0f 85 fa fc ff ff    	jne    454f <zbtIndexTableFindContinue+0xef>
+    4855:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4859:	31 c0                	xor    %eax,%eax
+    485b:	48 85 db             	test   %rbx,%rbx
+    485e:	74 42                	je     48a2 <zbtIndexTableFindContinue+0x442>
+    4860:	4d 85 c0             	test   %r8,%r8
+    4863:	75 31                	jne    4896 <zbtIndexTableFindContinue+0x436>
+    4865:	89 45 cc             	mov    %eax,-0x34(%rbp)
+    4868:	4d 89 e0             	mov    %r12,%r8
+    486b:	eb 29                	jmp    4896 <zbtIndexTableFindContinue+0x436>
+    486d:	0f 1f 00             	nopl   (%rax)
+    4870:	48 c7 45 90 01 00 00 	movq   $0x1,-0x70(%rbp)
+    4877:	00 
+    4878:	41 bf 01 00 00 00    	mov    $0x1,%r15d
+    487e:	48 be 02 00 00 08 80 	movabs $0x8008000002,%rsi
+    4885:	00 00 00 
+    4888:	e9 55 fc ff ff       	jmp    44e2 <zbtIndexTableFindContinue+0x82>
+    488d:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4891:	48 85 db             	test   %rbx,%rbx
+    4894:	74 0c                	je     48a2 <zbtIndexTableFindContinue+0x442>
+    4896:	48 8b 45 38          	mov    0x38(%rbp),%rax
+    489a:	8b 7d cc             	mov    -0x34(%rbp),%edi
+    489d:	4c 89 03             	mov    %r8,(%rbx)
+    48a0:	89 38                	mov    %edi,(%rax)
+    48a2:	31 c0                	xor    %eax,%eax
+    48a4:	48 83 c4 78          	add    $0x78,%rsp
+    48a8:	5b                   	pop    %rbx
+    48a9:	41 5c                	pop    %r12
+    48ab:	41 5d                	pop    %r13
+    48ad:	41 5e                	pop    %r14
+    48af:	41 5f                	pop    %r15
+    48b1:	5d                   	pop    %rbp
+    48b2:	c3                   	ret
+    48b3:	41 83 7c 24 10 ff    	cmpl   $0xffffffff,0x10(%r12)
+    48b9:	0f 84 c3 00 00 00    	je     4982 <zbtIndexTableFindContinue+0x522>
+    48bf:	84 c9                	test   %cl,%cl
+    48c1:	0f 84 e8 01 00 00    	je     4aaf <zbtIndexTableFindContinue+0x64f>
+    48c7:	48 89 c1             	mov    %rax,%rcx
+    48ca:	48 c1 e9 10          	shr    $0x10,%rcx
+    48ce:	41 83 7c 24 14 ff    	cmpl   $0xffffffff,0x14(%r12)
+    48d4:	0f 84 ca 00 00 00    	je     49a4 <zbtIndexTableFindContinue+0x544>
+    48da:	84 c9                	test   %cl,%cl
+    48dc:	0f 84 da 01 00 00    	je     4abc <zbtIndexTableFindContinue+0x65c>
+    48e2:	48 89 c1             	mov    %rax,%rcx
+    48e5:	48 c1 e9 18          	shr    $0x18,%rcx
+    48e9:	41 83 7c 24 18 ff    	cmpl   $0xffffffff,0x18(%r12)
+    48ef:	0f 84 c6 00 00 00    	je     49bb <zbtIndexTableFindContinue+0x55b>
+    48f5:	84 c9                	test   %cl,%cl
+    48f7:	0f 84 00 02 00 00    	je     4afd <zbtIndexTableFindContinue+0x69d>
+    48fd:	48 89 c1             	mov    %rax,%rcx
+    4900:	48 c1 e9 20          	shr    $0x20,%rcx
+    4904:	41 83 7c 24 1c ff    	cmpl   $0xffffffff,0x1c(%r12)
+    490a:	0f 84 c2 00 00 00    	je     49d2 <zbtIndexTableFindContinue+0x572>
+    4910:	84 c9                	test   %cl,%cl
+    4912:	0f 84 15 02 00 00    	je     4b2d <zbtIndexTableFindContinue+0x6cd>
+    4918:	48 89 c1             	mov    %rax,%rcx
+    491b:	48 c1 e9 28          	shr    $0x28,%rcx
+    491f:	41 83 7c 24 20 ff    	cmpl   $0xffffffff,0x20(%r12)
+    4925:	0f 84 be 00 00 00    	je     49e9 <zbtIndexTableFindContinue+0x589>
+    492b:	84 c9                	test   %cl,%cl
+    492d:	0f 84 ea 01 00 00    	je     4b1d <zbtIndexTableFindContinue+0x6bd>
+    4933:	48 89 c1             	mov    %rax,%rcx
+    4936:	48 c1 e9 30          	shr    $0x30,%rcx
+    493a:	41 83 7c 24 24 ff    	cmpl   $0xffffffff,0x24(%r12)
+    4940:	0f 84 ba 00 00 00    	je     4a00 <zbtIndexTableFindContinue+0x5a0>
+    4946:	84 c9                	test   %cl,%cl
+    4948:	0f 84 bf 01 00 00    	je     4b0d <zbtIndexTableFindContinue+0x6ad>
+    494e:	48 c1 e8 38          	shr    $0x38,%rax
+    4952:	41 83 7c 24 28 ff    	cmpl   $0xffffffff,0x28(%r12)
+    4958:	0f 84 b9 00 00 00    	je     4a17 <zbtIndexTableFindContinue+0x5b7>
+    495e:	48 85 c0             	test   %rax,%rax
+    4961:	0f 84 0e 01 00 00    	je     4a75 <zbtIndexTableFindContinue+0x615>
+    4967:	41 83 7c 24 2c ff    	cmpl   $0xffffffff,0x2c(%r12)
+    496d:	b8 07 00 00 00       	mov    $0x7,%eax
+    4972:	0f 45 45 cc          	cmovne -0x34(%rbp),%eax
+    4976:	4d 0f 44 c4          	cmove  %r12,%r8
+    497a:	89 45 cc             	mov    %eax,-0x34(%rbp)
+    497d:	e9 2e fc ff ff       	jmp    45b0 <zbtIndexTableFindContinue+0x150>
+    4982:	84 c9                	test   %cl,%cl
+    4984:	0f 84 cb 01 00 00    	je     4b55 <zbtIndexTableFindContinue+0x6f5>
+    498a:	a9 00 00 ff 00       	test   $0xff0000,%eax
+    498f:	0f 84 a8 01 00 00    	je     4b3d <zbtIndexTableFindContinue+0x6dd>
+    4995:	c7 45 cc 00 00 00 00 	movl   $0x0,-0x34(%rbp)
+    499c:	4d 89 e0             	mov    %r12,%r8
+    499f:	e9 ca fb ff ff       	jmp    456e <zbtIndexTableFindContinue+0x10e>
+    49a4:	84 c9                	test   %cl,%cl
+    49a6:	0f 84 d9 01 00 00    	je     4b85 <zbtIndexTableFindContinue+0x725>
+    49ac:	c7 45 cc 01 00 00 00 	movl   $0x1,-0x34(%rbp)
+    49b3:	4d 89 e0             	mov    %r12,%r8
+    49b6:	e9 b3 fb ff ff       	jmp    456e <zbtIndexTableFindContinue+0x10e>
+    49bb:	84 c9                	test   %cl,%cl
+    49bd:	0f 84 aa 01 00 00    	je     4b6d <zbtIndexTableFindContinue+0x70d>
+    49c3:	c7 45 cc 02 00 00 00 	movl   $0x2,-0x34(%rbp)
+    49ca:	4d 89 e0             	mov    %r12,%r8
+    49cd:	e9 a7 fb ff ff       	jmp    4579 <zbtIndexTableFindContinue+0x119>
+    49d2:	84 c9                	test   %cl,%cl
+    49d4:	0f 84 0b 02 00 00    	je     4be5 <zbtIndexTableFindContinue+0x785>
+    49da:	c7 45 cc 03 00 00 00 	movl   $0x3,-0x34(%rbp)
+    49e1:	4d 89 e0             	mov    %r12,%r8
+    49e4:	e9 9f fb ff ff       	jmp    4588 <zbtIndexTableFindContinue+0x128>
+    49e9:	84 c9                	test   %cl,%cl
+    49eb:	0f 84 dc 01 00 00    	je     4bcd <zbtIndexTableFindContinue+0x76d>
+    49f1:	c7 45 cc 04 00 00 00 	movl   $0x4,-0x34(%rbp)
+    49f8:	4d 89 e0             	mov    %r12,%r8
+    49fb:	e9 97 fb ff ff       	jmp    4597 <zbtIndexTableFindContinue+0x137>
+    4a00:	84 c9                	test   %cl,%cl
+    4a02:	0f 84 ad 01 00 00    	je     4bb5 <zbtIndexTableFindContinue+0x755>
+    4a08:	c7 45 cc 05 00 00 00 	movl   $0x5,-0x34(%rbp)
+    4a0f:	4d 89 e0             	mov    %r12,%r8
+    4a12:	e9 8f fb ff ff       	jmp    45a6 <zbtIndexTableFindContinue+0x146>
+    4a17:	48 85 c0             	test   %rax,%rax
+    4a1a:	0f 84 7d 01 00 00    	je     4b9d <zbtIndexTableFindContinue+0x73d>
+    4a20:	c7 45 cc 06 00 00 00 	movl   $0x6,-0x34(%rbp)
+    4a27:	4d 89 e0             	mov    %r12,%r8
+    4a2a:	e9 81 fb ff ff       	jmp    45b0 <zbtIndexTableFindContinue+0x150>
+    4a2f:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a33:	b8 03 00 00 00       	mov    $0x3,%eax
+    4a38:	e9 1e fe ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4a3d:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a41:	b8 04 00 00 00       	mov    $0x4,%eax
+    4a46:	e9 10 fe ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4a4b:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a4f:	b8 05 00 00 00       	mov    $0x5,%eax
+    4a54:	e9 02 fe ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4a59:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a5d:	b8 06 00 00 00       	mov    $0x6,%eax
+    4a62:	e9 f4 fd ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4a67:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a6b:	b8 07 00 00 00       	mov    $0x7,%eax
+    4a70:	e9 e6 fd ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4a75:	c7 45 cc 07 00 00 00 	movl   $0x7,-0x34(%rbp)
+    4a7c:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a80:	4d 89 e0             	mov    %r12,%r8
+    4a83:	e9 09 fe ff ff       	jmp    4891 <zbtIndexTableFindContinue+0x431>
+    4a88:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4a8c:	48 85 db             	test   %rbx,%rbx
+    4a8f:	0f 84 0d fe ff ff    	je     48a2 <zbtIndexTableFindContinue+0x442>
+    4a95:	4d 85 c0             	test   %r8,%r8
+    4a98:	0f 84 04 fe ff ff    	je     48a2 <zbtIndexTableFindContinue+0x442>
+    4a9e:	48 8b 45 38          	mov    0x38(%rbp),%rax
+    4aa2:	8b 75 cc             	mov    -0x34(%rbp),%esi
+    4aa5:	4c 89 03             	mov    %r8,(%rbx)
+    4aa8:	89 30                	mov    %esi,(%rax)
+    4aaa:	e9 f3 fd ff ff       	jmp    48a2 <zbtIndexTableFindContinue+0x442>
+    4aaf:	c7 45 cc 01 00 00 00 	movl   $0x1,-0x34(%rbp)
+    4ab6:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4aba:	eb c4                	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4abc:	c7 45 cc 02 00 00 00 	movl   $0x2,-0x34(%rbp)
+    4ac3:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4ac7:	eb b7                	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4ac9:	48 83 7d 10 00       	cmpq   $0x0,0x10(%rbp)
+    4ace:	74 07                	je     4ad7 <zbtIndexTableFindContinue+0x677>
+    4ad0:	48 8b 45 10          	mov    0x10(%rbp),%rax
+    4ad4:	48 89 38             	mov    %rdi,(%rax)
+    4ad7:	48 83 7d 20 00       	cmpq   $0x0,0x20(%rbp)
+    4adc:	74 07                	je     4ae5 <zbtIndexTableFindContinue+0x685>
+    4ade:	48 8b 45 20          	mov    0x20(%rbp),%rax
+    4ae2:	4c 89 20             	mov    %r12,(%rax)
+    4ae5:	48 83 7d 28 00       	cmpq   $0x0,0x28(%rbp)
+    4aea:	74 07                	je     4af3 <zbtIndexTableFindContinue+0x693>
+    4aec:	48 8b 45 28          	mov    0x28(%rbp),%rax
+    4af0:	44 89 28             	mov    %r13d,(%rax)
+    4af3:	b8 01 00 00 00       	mov    $0x1,%eax
+    4af8:	e9 a7 fd ff ff       	jmp    48a4 <zbtIndexTableFindContinue+0x444>
+    4afd:	c7 45 cc 03 00 00 00 	movl   $0x3,-0x34(%rbp)
+    4b04:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b08:	e9 73 ff ff ff       	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4b0d:	c7 45 cc 06 00 00 00 	movl   $0x6,-0x34(%rbp)
+    4b14:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b18:	e9 63 ff ff ff       	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4b1d:	c7 45 cc 05 00 00 00 	movl   $0x5,-0x34(%rbp)
+    4b24:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b28:	e9 53 ff ff ff       	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4b2d:	c7 45 cc 04 00 00 00 	movl   $0x4,-0x34(%rbp)
+    4b34:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b38:	e9 43 ff ff ff       	jmp    4a80 <zbtIndexTableFindContinue+0x620>
+    4b3d:	c7 45 cc 00 00 00 00 	movl   $0x0,-0x34(%rbp)
+    4b44:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b48:	4d 89 e0             	mov    %r12,%r8
+    4b4b:	b8 02 00 00 00       	mov    $0x2,%eax
+    4b50:	e9 06 fd ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4b55:	c7 45 cc 00 00 00 00 	movl   $0x0,-0x34(%rbp)
+    4b5c:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b60:	4d 89 e0             	mov    %r12,%r8
+    4b63:	b8 01 00 00 00       	mov    $0x1,%eax
+    4b68:	e9 ee fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4b6d:	c7 45 cc 02 00 00 00 	movl   $0x2,-0x34(%rbp)
+    4b74:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b78:	4d 89 e0             	mov    %r12,%r8
+    4b7b:	b8 03 00 00 00       	mov    $0x3,%eax
+    4b80:	e9 d6 fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4b85:	c7 45 cc 01 00 00 00 	movl   $0x1,-0x34(%rbp)
+    4b8c:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4b90:	4d 89 e0             	mov    %r12,%r8
+    4b93:	b8 02 00 00 00       	mov    $0x2,%eax
+    4b98:	e9 be fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4b9d:	c7 45 cc 06 00 00 00 	movl   $0x6,-0x34(%rbp)
+    4ba4:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4ba8:	4d 89 e0             	mov    %r12,%r8
+    4bab:	b8 07 00 00 00       	mov    $0x7,%eax
+    4bb0:	e9 a6 fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4bb5:	c7 45 cc 05 00 00 00 	movl   $0x5,-0x34(%rbp)
+    4bbc:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4bc0:	4d 89 e0             	mov    %r12,%r8
+    4bc3:	b8 06 00 00 00       	mov    $0x6,%eax
+    4bc8:	e9 8e fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4bcd:	c7 45 cc 04 00 00 00 	movl   $0x4,-0x34(%rbp)
+    4bd4:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4bd8:	4d 89 e0             	mov    %r12,%r8
+    4bdb:	b8 05 00 00 00       	mov    $0x5,%eax
+    4be0:	e9 76 fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4be5:	c7 45 cc 03 00 00 00 	movl   $0x3,-0x34(%rbp)
+    4bec:	48 8b 5d 30          	mov    0x30(%rbp),%rbx
+    4bf0:	4d 89 e0             	mov    %r12,%r8
+    4bf3:	b8 04 00 00 00       	mov    $0x4,%eax
+    4bf8:	e9 5e fc ff ff       	jmp    485b <zbtIndexTableFindContinue+0x3fb>
+    4bfd:	48 8d 15 ba 0f 01 00 	lea    0x10fba(%rip),%rdx        # 15bbe <_IO_stdin_used+0xbbe>
+    4c04:	be c0 07 00 00       	mov    $0x7c0,%esi
+    4c09:	48 8d 3d 98 08 01 00 	lea    0x10898(%rip),%rdi        # 154a8 <_IO_stdin_used+0x4a8>
+    4c10:	e8 2b f2 00 00       	call   13e40 <standalone_panic>
+    4c15:	48 89 55 a0          	mov    %rdx,-0x60(%rbp)
+    4c19:	4c 89 4d 88          	mov    %r9,-0x78(%rbp)
+    4c1d:	4c 89 5d 80          	mov    %r11,-0x80(%rbp)
+    4c21:	4c 89 85 78 ff ff ff 	mov    %r8,-0x88(%rbp)
+    4c28:	48 89 75 98          	mov    %rsi,-0x68(%rbp)
+    4c2c:	4c 89 d6             	mov    %r10,%rsi
+    4c2f:	45 89 fa             	mov    %r15d,%r10d
+    4c32:	49 89 f7             	mov    %rsi,%r15
+    4c35:	31 d2                	xor    %edx,%edx
+    4c37:	48 89 c6             	mov    %rax,%rsi
+    4c3a:	f3 48 0f bc d3       	tzcnt  %rbx,%rdx
+    4c3f:	41 89 d5             	mov    %edx,%r13d
+    4c42:	83 e2 f8             	and    $0xfffffff8,%edx
+    4c45:	89 d1                	mov    %edx,%ecx
+    4c47:	41 c1 fd 03          	sar    $0x3,%r13d
+    4c4b:	48 d3 ee             	shr    %cl,%rsi
+    4c4e:	41 38 f2             	cmp    %sil,%r10b
+    4c51:	0f 85 af 00 00 00    	jne    4d06 <zbtIndexTableFindContinue+0x8a6>
+    4c57:	45 8b 47 20          	mov    0x20(%r15),%r8d
+    4c5b:	44 89 ea             	mov    %r13d,%edx
+    4c5e:	45 85 c0             	test   %r8d,%r8d
+    4c61:	0f 85 d4 00 00 00    	jne    4d3b <zbtIndexTableFindContinue+0x8db>
+    4c67:	41 0f b7 54 54 10    	movzwl 0x10(%r12,%rdx,2),%edx
+    4c6d:	66 83 fa ff          	cmp    $0xffff,%dx
+    4c71:	0f 84 8f 00 00 00    	je     4d06 <zbtIndexTableFindContinue+0x8a6>
+    4c77:	41 3b 56 54          	cmp    0x54(%r14),%edx
+    4c7b:	0f 83 74 fb ff ff    	jae    47f5 <zbtIndexTableFindContinue+0x395>
+    4c81:	49 8b 76 48          	mov    0x48(%r14),%rsi
+    4c85:	89 d1                	mov    %edx,%ecx
+    4c87:	48 8b 3c ce          	mov    (%rsi,%rcx,8),%rdi
+    4c8b:	48 85 ff             	test   %rdi,%rdi
+    4c8e:	0f 84 61 fb ff ff    	je     47f5 <zbtIndexTableFindContinue+0x395>
+    4c94:	40 f6 c7 01          	test   $0x1,%dil
+    4c98:	0f 85 57 fb ff ff    	jne    47f5 <zbtIndexTableFindContinue+0x395>
+    4c9e:	3b 57 30             	cmp    0x30(%rdi),%edx
+    4ca1:	0f 85 56 ff ff ff    	jne    4bfd <zbtIndexTableFindContinue+0x79d>
+    4ca7:	49 8b 56 40          	mov    0x40(%r14),%rdx
+    4cab:	48 85 d2             	test   %rdx,%rdx
+    4cae:	74 15                	je     4cc5 <zbtIndexTableFindContinue+0x865>
+    4cb0:	4c 39 fa             	cmp    %r15,%rdx
+    4cb3:	0f b7 72 2c          	movzwl 0x2c(%rdx),%esi
+    4cb7:	0f 94 c1             	sete   %cl
+    4cba:	66 39 77 16          	cmp    %si,0x16(%rdi)
+    4cbe:	0f 94 c2             	sete   %dl
+    4cc1:	38 d1                	cmp    %dl,%cl
+    4cc3:	75 41                	jne    4d06 <zbtIndexTableFindContinue+0x8a6>
+    4cc5:	4c 8b 4d 18          	mov    0x18(%rbp),%r9
+    4cc9:	4c 8b 45 a8          	mov    -0x58(%rbp),%r8
+    4ccd:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    4cd4:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+    4cd8:	48 8b 55 b8          	mov    -0x48(%rbp),%rdx
+    4cdc:	44 88 95 68 ff ff ff 	mov    %r10b,-0x98(%rbp)
+    4ce3:	8b 75 c8             	mov    -0x38(%rbp),%esi
+    4ce6:	e8 d5 f5 ff ff       	call   42c0 <zbtScoreLeafFindMember>
+    4ceb:	48 8b bd 70 ff ff ff 	mov    -0x90(%rbp),%rdi
+    4cf2:	85 c0                	test   %eax,%eax
+    4cf4:	0f 85 cf fd ff ff    	jne    4ac9 <zbtIndexTableFindContinue+0x669>
+    4cfa:	49 8b 04 24          	mov    (%r12),%rax
+    4cfe:	44 0f b6 95 68 ff ff 	movzbl -0x98(%rbp),%r10d
+    4d05:	ff 
+    4d06:	48 8d 53 ff          	lea    -0x1(%rbx),%rdx
+    4d0a:	48 21 d3             	and    %rdx,%rbx
+    4d0d:	48 85 db             	test   %rbx,%rbx
+    4d10:	0f 85 1f ff ff ff    	jne    4c35 <zbtIndexTableFindContinue+0x7d5>
+    4d16:	4c 89 ff             	mov    %r15,%rdi
+    4d19:	48 8b 55 a0          	mov    -0x60(%rbp),%rdx
+    4d1d:	45 89 d7             	mov    %r10d,%r15d
+    4d20:	48 8b 75 98          	mov    -0x68(%rbp),%rsi
+    4d24:	4c 8b 4d 88          	mov    -0x78(%rbp),%r9
+    4d28:	4c 8b 5d 80          	mov    -0x80(%rbp),%r11
+    4d2c:	49 89 fa             	mov    %rdi,%r10
+    4d2f:	4c 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%r8
+    4d36:	e9 0c f8 ff ff       	jmp    4547 <zbtIndexTableFindContinue+0xe7>
+    4d3b:	41 8b 54 94 10       	mov    0x10(%r12,%rdx,4),%edx
+    4d40:	83 fa ff             	cmp    $0xffffffff,%edx
+    4d43:	0f 85 2e ff ff ff    	jne    4c77 <zbtIndexTableFindContinue+0x817>
+    4d49:	eb bb                	jmp    4d06 <zbtIndexTableFindContinue+0x8a6>
+
+Disassembly of section .fini:

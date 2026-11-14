@@ -1,0 +1,24 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..4756b708d 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1843,12 +1843,18 @@ static inline void zbtIndexRecordHomeTag(zbtIndexTable *table, uint32_t hash) {
+     *zbtIndexHomeTagsAt(table, home) |= zbtIndexTagBits(zbtIndexTag(hash));
+ }
+ 
++/* Keep lookup-only mask construction behind the post-candidate filter check.
++ * Insertion-side filter maintenance continues to inline zbtIndexTagBits. */
++static __attribute__((noinline)) uint64_t zbtIndexQueryTagBits(uint8_t tag) {
++    return zbtIndexTagBits(tag);
++}
++
+ /* Return zero only when the home bucket proves that a hash is absent. */
+ static inline int zbtIndexHomeMayContain(const zbtIndexTable *table,
+                                          uint32_t hash)
+ {
+     unsigned long home = hash & (table->size - 1);
+-    uint64_t bits = zbtIndexTagBits(zbtIndexTag(hash));
++    uint64_t bits = zbtIndexQueryTagBits(zbtIndexTag(hash));
+     return (*zbtIndexHomeTagsAt(table, home) & bits) == bits;
+ }
+ 

@@ -1,0 +1,166 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..5a4f767dd 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1954,11 +1954,62 @@ static void zbtIndexTableInsertRaw(zbtIndexTable *table, uint32_t hash,
+     serverPanic("B+ tree member index has no free slot");
+ }
+ 
+-/* Search one table. A matching hash still has to be checked against the
+- * member in its score leaf because the stored hash is not a unique key.
+- * Inline so read-only callers can omit the insertion/cursor bookkeeping. */
++/* Resolve one bucket's candidates in the original order. Both the home
++ * fast path and continuation use this one body; the leaf helper is unchanged. */
+ static inline __attribute__((always_inline))
+-int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
++int zbtIndexBucketFind(zbtreeSet *zs, zbtIndexTable *table,
++                       zbtIndexBucket *bucket, uint32_t hash, uint8_t tag,
++                       const unsigned char *ele, size_t elelen, double *score,
++                       zbtScoreLeaf **score_leaf, unsigned int *score_pos,
++                       zbtIndexBucket **found_bucket, unsigned int *found_pos)
++{
++    uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
++    while (matches) {
++        unsigned int pos = zbtIndexFirstTag(matches);
++        if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
++            matches &= matches - 1;
++            continue;
++        }
++        uint32_t id = zbtIndexGetId(table, bucket, pos);
++        if (id != ZBT_INDEX_DELETED_ID)
++        {
++            zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?
++                zs->score_leaf_by_id[id] : NULL;
++            if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {
++                serverAssert(zs->member_rehash &&
++                             table == &zs->member_index);
++                matches &= matches - 1;
++                continue;
++            }
++            serverAssert(leaf->id == id);
++            if (zs->member_rehash) {
++                int in_new = table == &zs->member_rehash->table;
++                int migrated = leaf->n.index_resize ==
++                               zs->member_rehash->resize_id;
++                if (in_new != migrated) {
++                    matches &= matches - 1;
++                    continue;
++                }
++            }
++            if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
++                                       score_pos))
++            {
++                if (score_leaf) *score_leaf = leaf;
++                if (found_bucket) *found_bucket = bucket;
++                if (found_pos) *found_pos = pos;
++                return 1;
++            }
++        }
++        matches &= matches - 1;
++    }
++    return 0;
++}
++
++/* Continue after a failed home-bucket match. Keep the negative-filter
++ * computation behind this boundary. Start bookkeeping at the home bucket
++ * so its first tombstone and unused slot retain their original priority. */
++static __attribute__((noinline))
++int zbtIndexTableFindContinue(zbtreeSet *zs, zbtIndexTable *table,
+                              uint32_t hash, const unsigned char *ele,
+                              size_t elelen, double *score,
+                              zbtScoreLeaf **score_leaf,
+@@ -1968,7 +2019,7 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+                              zbtIndexBucket **insert_bucket,
+                              unsigned int *insert_pos)
+ {
+-    if (table->size == 0) return 0;
++    if (!zbtIndexHomeMayContain(table, hash)) return 0;
+     uint8_t tag = zbtIndexTag(hash);
+     unsigned long mask = table->size - 1;
+     unsigned long index = hash & mask;
+@@ -1977,49 +2028,11 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
+-        uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
+-        while (matches) {
+-            unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+-                matches &= matches - 1;
+-                continue;
+-            }
+-            uint32_t id = zbtIndexGetId(table, bucket, pos);
+-            if (id != ZBT_INDEX_DELETED_ID)
+-            {
+-                zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?
+-                    zs->score_leaf_by_id[id] : NULL;
+-                if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {
+-                    serverAssert(zs->member_rehash &&
+-                                 table == &zs->member_index);
+-                    matches &= matches - 1;
+-                    continue;
+-                }
+-                serverAssert(leaf->id == id);
+-                if (zs->member_rehash) {
+-                    int in_new = table == &zs->member_rehash->table;
+-                    int migrated = leaf->n.index_resize ==
+-                                   zs->member_rehash->resize_id;
+-                    if (in_new != migrated) {
+-                        matches &= matches - 1;
+-                        continue;
+-                    }
+-                }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+-                                           score_pos))
+-                {
+-                    if (score_leaf) *score_leaf = leaf;
+-                    if (found_bucket) *found_bucket = bucket;
+-                    if (found_pos) *found_pos = pos;
+-                    return 1;
+-                }
+-            }
+-            matches &= matches - 1;
+-        }
+-
+-        /* Hits in the home bucket need no missing-member filter. Check it
+-         * only after those candidates, before following the probe run. */
+-        if (probes == 0 && !zbtIndexHomeMayContain(table, hash)) return 0;
++        /* Home candidates were already exhausted by the inline caller. */
++        if (probes != 0 && zbtIndexBucketFind(zs, table, bucket, hash, tag,
++                                             ele, elelen, score, score_leaf,
++                                             score_pos, found_bucket, found_pos))
++            return 1;
+ 
+         /* Save the first tombstone for a possible insertion. An unused slot,
+          * unlike a tombstone, proves that the member is not farther ahead. */
+@@ -2049,6 +2062,30 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+     return 0;
+ }
+ 
++/* Successful home-bucket hits return without entering the filter/probe
++ * continuation. Inline so unused lookup outputs still disappear. */
++static inline __attribute__((always_inline))
++int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
++                             uint32_t hash, const unsigned char *ele,
++                             size_t elelen, double *score,
++                             zbtScoreLeaf **score_leaf,
++                             unsigned int *score_pos,
++                             zbtIndexBucket **found_bucket,
++                             unsigned int *found_pos,
++                             zbtIndexBucket **insert_bucket,
++                             unsigned int *insert_pos)
++{
++    if (table->size == 0) return 0;
++    zbtIndexBucket *bucket = zbtIndexBucketAt(table, hash & (table->size - 1));
++    if (zbtIndexBucketFind(zs, table, bucket, hash, zbtIndexTag(hash),
++                           ele, elelen, score, score_leaf, score_pos,
++                           found_bucket, found_pos))
++        return 1;
++    return zbtIndexTableFindContinue(zs, table, hash, ele, elelen, score,
++                                     score_leaf, score_pos, found_bucket,
++                                     found_pos, insert_bucket, insert_pos);
++}
++
+ /* Find an entry whose leaf number has to change. Entries with the same tag
+  * and leaf number look alike, but any reachable one is sufficient. With
+  * linear probing, two search paths stay together after they meet, so

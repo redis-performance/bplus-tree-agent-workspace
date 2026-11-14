@@ -1,12 +1,14 @@
 <!-- ARM-CONT-ACTIVE -->
 Six-hour continuation ACTIVE through2026-11-14 07:24:14UTC; final30min review/cleanup.
-H1 native216rows all3REJECT: besthit−6.787% loses score/miss/update. SourceNONE.
-Two qualification attempts PARK preserved; renewednative72AA/18blocks pass.
-H2 threeisolated metadata implementations active; Intel independently reserved,
-Parca temporarily stopped/CPU50offline with independent exact-state cleanup.
-ARM lease renewed after automatic release; live ownership private, no localtiming.
-38completedattempts20PARK18REJECT0approved;24populations, activeworknotcounted.
-Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H1-RESULTS}.md.
+H1 rejected/sourceNONE with independentreview. H2 nativeARM andtargetLTO B/C pass
+sixcases; Intel nativepasses, IntelLTO andfivecase supplementalguards underway.
+H3 three short-equality variants built; H4 three filter-boundary variants correctnessready.
+H5 independent raw-state implementations next. No patchstacking/sourceadoption.
+Two additional qualification protocols PASS; ledger PARK means no adoption.
+40completedattempts22PARK18REJECT0approved;ARM29/Intel6/AMD5;
+24populations/5replications/11qualifications; activecandidatework excluded.
+ARM/Intel private leases with independent cleanup; no localmeasurements.
+Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H2-TARGET-RESULTS}.md.
 Keep working throughwindow across supported options; no unchangedfailedretry.
 <!-- ARM-CONT-ACTIVE-END -->
 

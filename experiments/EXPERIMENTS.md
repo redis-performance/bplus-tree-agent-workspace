@@ -1,5 +1,12 @@
 # Experiment log
 
+## 14 November: two more qualification protocols complete
+
+[ARM long-window LTO](ARM-LOOKUP-CONT-001/LTO-LONG-COHORT.md) passes18/18 blocks across72rows. [Independent Intel qualification](ARM-LOOKUP-CONT-001/INTEL-COHORT.md) passes18/18 blocks per compiler,144rows total, with both baseline TMA cohorts independently audited. Count each protocol once: **qualification PASS; ledger PARK / source NONE**. These are successful controls, not failed qualification or adopted optimizations. Prior Q1/Q2 failures remain unchanged.
+
+Completed totals: **40 attempts /22 PARK /18 REJECT /0 approved; ARM29 /Intel6 /AMD5;24 populations,5 replications,11 qualifications.** [Independent count audit](ARM-LOOKUP-CONT-001/reviews/COUNTS-QUALIFICATION.md). H2 and subsequent candidate tracks remain active and excluded. H1 independent review is complete. [Current results/status](ARM-LOOKUP-CONT-001/STATUS.md).
+
+
 ## 14 November: overnight continuation active; helper population rejected
 
 [Overnight queue/deadline](ARM-LOOKUP-CONT-001/OVERNIGHT.md): authorized through07:24:14UTC, final30minutes review/cleanup. Upstream ee8e7f701 remains pinned. Two frozen qualification attempts remain PARK (short update windows; then one noisy LTO updateblock), with all288rows retained. Renewed native qualification passes72rows/18blocks before H1 discovery. [H1](ARM-LOOKUP-CONT-001/H1-RESULTS.md) retains216rows and three independently implemented/correctness-qualified patches: all REJECT on primary/guard gates. Best membership median−6.787% loses score/miss/update. No source adopted. H2 metadata population and independent Intel controls are active; no final campaign verdict yet.

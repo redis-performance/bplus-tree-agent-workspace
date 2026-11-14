@@ -1,0 +1,352 @@
+
+build/arm-cont-private/lookup-O3-static:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000002fd0 <zbtIndexTableInsertRaw>:
+    2fd0:	55                   	push   %rbp
+    2fd1:	b8 01 00 00 00       	mov    $0x1,%eax
+    2fd6:	48 89 e5             	mov    %rsp,%rbp
+    2fd9:	41 57                	push   %r15
+    2fdb:	41 56                	push   %r14
+    2fdd:	41 55                	push   %r13
+    2fdf:	41 54                	push   %r12
+    2fe1:	53                   	push   %rbx
+    2fe2:	89 f3                	mov    %esi,%ebx
+    2fe4:	48 83 ec 08          	sub    $0x8,%rsp
+    2fe8:	4c 8b 4f 08          	mov    0x8(%rdi),%r9
+    2fec:	c1 eb 18             	shr    $0x18,%ebx
+    2fef:	0f 44 d8             	cmove  %eax,%ebx
+    2ff2:	4d 8d 59 ff          	lea    -0x1(%r9),%r11
+    2ff6:	44 21 de             	and    %r11d,%esi
+    2ff9:	4d 85 c9             	test   %r9,%r9
+    2ffc:	0f 84 24 01 00 00    	je     3126 <zbtIndexTableInsertRaw+0x156>
+    3002:	44 8b 6f 20          	mov    0x20(%rdi),%r13d
+    3006:	4c 8b 17             	mov    (%rdi),%r10
+    3009:	49 89 f8             	mov    %rdi,%r8
+    300c:	41 89 d4             	mov    %edx,%r12d
+    300f:	48 89 f1             	mov    %rsi,%rcx
+    3012:	45 31 f6             	xor    %r14d,%r14d
+    3015:	45 85 ed             	test   %r13d,%r13d
+    3018:	0f 85 e4 01 00 00    	jne    3202 <zbtIndexTableInsertRaw+0x232>
+    301e:	48 89 c8             	mov    %rcx,%rax
+    3021:	48 c1 e0 05          	shl    $0x5,%rax
+    3025:	4c 01 d0             	add    %r10,%rax
+    3028:	48 8b 10             	mov    (%rax),%rdx
+    302b:	66 83 78 10 ff       	cmpw   $0xffff,0x10(%rax)
+    3030:	89 d7                	mov    %edx,%edi
+    3032:	0f 84 28 02 00 00    	je     3260 <zbtIndexTableInsertRaw+0x290>
+    3038:	84 d2                	test   %dl,%dl
+    303a:	0f 84 ac 02 00 00    	je     32ec <zbtIndexTableInsertRaw+0x31c>
+    3040:	49 89 d7             	mov    %rdx,%r15
+    3043:	49 c1 ef 08          	shr    $0x8,%r15
+    3047:	66 83 78 12 ff       	cmpw   $0xffff,0x12(%rax)
+    304c:	44 89 ff             	mov    %r15d,%edi
+    304f:	0f 84 db 02 00 00    	je     3330 <zbtIndexTableInsertRaw+0x360>
+    3055:	45 84 ff             	test   %r15b,%r15b
+    3058:	0f 84 e3 03 00 00    	je     3441 <zbtIndexTableInsertRaw+0x471>
+    305e:	49 89 d7             	mov    %rdx,%r15
+    3061:	49 c1 ef 10          	shr    $0x10,%r15
+    3065:	66 83 78 14 ff       	cmpw   $0xffff,0x14(%rax)
+    306a:	44 89 ff             	mov    %r15d,%edi
+    306d:	0f 84 dd 02 00 00    	je     3350 <zbtIndexTableInsertRaw+0x380>
+    3073:	45 84 ff             	test   %r15b,%r15b
+    3076:	0f 84 dc 03 00 00    	je     3458 <zbtIndexTableInsertRaw+0x488>
+    307c:	49 89 d7             	mov    %rdx,%r15
+    307f:	49 c1 ef 18          	shr    $0x18,%r15
+    3083:	66 83 78 16 ff       	cmpw   $0xffff,0x16(%rax)
+    3088:	44 89 ff             	mov    %r15d,%edi
+    308b:	0f 84 dc 02 00 00    	je     336d <zbtIndexTableInsertRaw+0x39d>
+    3091:	45 84 ff             	test   %r15b,%r15b
+    3094:	0f 84 d5 03 00 00    	je     346f <zbtIndexTableInsertRaw+0x49f>
+    309a:	49 89 d7             	mov    %rdx,%r15
+    309d:	49 c1 ef 20          	shr    $0x20,%r15
+    30a1:	66 83 78 18 ff       	cmpw   $0xffff,0x18(%rax)
+    30a6:	44 89 ff             	mov    %r15d,%edi
+    30a9:	0f 84 de 02 00 00    	je     338d <zbtIndexTableInsertRaw+0x3bd>
+    30af:	45 84 ff             	test   %r15b,%r15b
+    30b2:	0f 84 d1 03 00 00    	je     3489 <zbtIndexTableInsertRaw+0x4b9>
+    30b8:	49 89 d7             	mov    %rdx,%r15
+    30bb:	49 c1 ef 28          	shr    $0x28,%r15
+    30bf:	66 83 78 1a ff       	cmpw   $0xffff,0x1a(%rax)
+    30c4:	44 89 ff             	mov    %r15d,%edi
+    30c7:	0f 84 e0 02 00 00    	je     33ad <zbtIndexTableInsertRaw+0x3dd>
+    30cd:	45 84 ff             	test   %r15b,%r15b
+    30d0:	0f 84 cd 03 00 00    	je     34a3 <zbtIndexTableInsertRaw+0x4d3>
+    30d6:	49 89 d7             	mov    %rdx,%r15
+    30d9:	49 c1 ef 30          	shr    $0x30,%r15
+    30dd:	66 83 78 1c ff       	cmpw   $0xffff,0x1c(%rax)
+    30e2:	44 89 ff             	mov    %r15d,%edi
+    30e5:	0f 84 e2 02 00 00    	je     33cd <zbtIndexTableInsertRaw+0x3fd>
+    30eb:	45 84 ff             	test   %r15b,%r15b
+    30ee:	0f 84 c9 03 00 00    	je     34bd <zbtIndexTableInsertRaw+0x4ed>
+    30f4:	49 89 d7             	mov    %rdx,%r15
+    30f7:	49 c1 ef 38          	shr    $0x38,%r15
+    30fb:	66 83 78 1e ff       	cmpw   $0xffff,0x1e(%rax)
+    3100:	44 89 ff             	mov    %r15d,%edi
+    3103:	0f 84 e4 02 00 00    	je     33ed <zbtIndexTableInsertRaw+0x41d>
+    3109:	45 84 ff             	test   %r15b,%r15b
+    310c:	0f 84 45 04 00 00    	je     3557 <zbtIndexTableInsertRaw+0x587>
+    3112:	48 83 c1 01          	add    $0x1,%rcx
+    3116:	49 83 c6 01          	add    $0x1,%r14
+    311a:	4c 21 d9             	and    %r11,%rcx
+    311d:	4d 39 f1             	cmp    %r14,%r9
+    3120:	0f 85 f8 fe ff ff    	jne    301e <zbtIndexTableInsertRaw+0x4e>
+    3126:	48 8d 15 bb 44 01 00 	lea    0x144bb(%rip),%rdx        # 175e8 <_IO_stdin_used+0x5e8>
+    312d:	be a8 07 00 00       	mov    $0x7a8,%esi
+    3132:	48 8d 3d 6f 43 01 00 	lea    0x1436f(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    3139:	e8 12 2f 01 00       	call   16050 <standalone_panic>
+    313e:	66 90                	xchg   %ax,%ax
+    3140:	49 89 d7             	mov    %rdx,%r15
+    3143:	49 c1 ef 10          	shr    $0x10,%r15
+    3147:	83 78 18 ff          	cmpl   $0xffffffff,0x18(%rax)
+    314b:	44 89 ff             	mov    %r15d,%edi
+    314e:	0f 84 d0 02 00 00    	je     3424 <zbtIndexTableInsertRaw+0x454>
+    3154:	45 84 ff             	test   %r15b,%r15b
+    3157:	0f 84 c7 02 00 00    	je     3424 <zbtIndexTableInsertRaw+0x454>
+    315d:	49 89 d7             	mov    %rdx,%r15
+    3160:	49 c1 ef 18          	shr    $0x18,%r15
+    3164:	83 78 1c ff          	cmpl   $0xffffffff,0x1c(%rax)
+    3168:	44 89 ff             	mov    %r15d,%edi
+    316b:	0f 84 66 03 00 00    	je     34d7 <zbtIndexTableInsertRaw+0x507>
+    3171:	45 84 ff             	test   %r15b,%r15b
+    3174:	0f 84 5d 03 00 00    	je     34d7 <zbtIndexTableInsertRaw+0x507>
+    317a:	49 89 d7             	mov    %rdx,%r15
+    317d:	49 c1 ef 20          	shr    $0x20,%r15
+    3181:	83 78 20 ff          	cmpl   $0xffffffff,0x20(%rax)
+    3185:	44 89 ff             	mov    %r15d,%edi
+    3188:	0f 84 69 03 00 00    	je     34f7 <zbtIndexTableInsertRaw+0x527>
+    318e:	45 84 ff             	test   %r15b,%r15b
+    3191:	0f 84 60 03 00 00    	je     34f7 <zbtIndexTableInsertRaw+0x527>
+    3197:	49 89 d7             	mov    %rdx,%r15
+    319a:	49 c1 ef 28          	shr    $0x28,%r15
+    319e:	83 78 24 ff          	cmpl   $0xffffffff,0x24(%rax)
+    31a2:	44 89 ff             	mov    %r15d,%edi
+    31a5:	0f 84 6c 03 00 00    	je     3517 <zbtIndexTableInsertRaw+0x547>
+    31ab:	45 84 ff             	test   %r15b,%r15b
+    31ae:	0f 84 63 03 00 00    	je     3517 <zbtIndexTableInsertRaw+0x547>
+    31b4:	49 89 d7             	mov    %rdx,%r15
+    31b7:	49 c1 ef 30          	shr    $0x30,%r15
+    31bb:	83 78 28 ff          	cmpl   $0xffffffff,0x28(%rax)
+    31bf:	44 89 ff             	mov    %r15d,%edi
+    31c2:	0f 84 6f 03 00 00    	je     3537 <zbtIndexTableInsertRaw+0x567>
+    31c8:	45 84 ff             	test   %r15b,%r15b
+    31cb:	0f 84 66 03 00 00    	je     3537 <zbtIndexTableInsertRaw+0x567>
+    31d1:	49 89 d7             	mov    %rdx,%r15
+    31d4:	49 c1 ef 38          	shr    $0x38,%r15
+    31d8:	83 78 2c ff          	cmpl   $0xffffffff,0x2c(%rax)
+    31dc:	44 89 ff             	mov    %r15d,%edi
+    31df:	0f 84 92 03 00 00    	je     3577 <zbtIndexTableInsertRaw+0x5a7>
+    31e5:	4d 85 ff             	test   %r15,%r15
+    31e8:	0f 84 89 03 00 00    	je     3577 <zbtIndexTableInsertRaw+0x5a7>
+    31ee:	48 83 c1 01          	add    $0x1,%rcx
+    31f2:	49 83 c6 01          	add    $0x1,%r14
+    31f6:	4c 21 d9             	and    %r11,%rcx
+    31f9:	4d 39 f1             	cmp    %r14,%r9
+    31fc:	0f 84 24 ff ff ff    	je     3126 <zbtIndexTableInsertRaw+0x156>
+    3202:	48 8d 04 49          	lea    (%rcx,%rcx,2),%rax
+    3206:	48 c1 e0 04          	shl    $0x4,%rax
+    320a:	4c 01 d0             	add    %r10,%rax
+    320d:	48 8b 10             	mov    (%rax),%rdx
+    3210:	83 78 10 ff          	cmpl   $0xffffffff,0x10(%rax)
+    3214:	89 d7                	mov    %edx,%edi
+    3216:	0f 84 f1 01 00 00    	je     340d <zbtIndexTableInsertRaw+0x43d>
+    321c:	84 d2                	test   %dl,%dl
+    321e:	0f 84 e9 01 00 00    	je     340d <zbtIndexTableInsertRaw+0x43d>
+    3224:	49 89 d7             	mov    %rdx,%r15
+    3227:	49 c1 ef 08          	shr    $0x8,%r15
+    322b:	83 78 14 ff          	cmpl   $0xffffffff,0x14(%rax)
+    322f:	44 89 ff             	mov    %r15d,%edi
+    3232:	74 09                	je     323d <zbtIndexTableInsertRaw+0x26d>
+    3234:	45 84 ff             	test   %r15b,%r15b
+    3237:	0f 85 03 ff ff ff    	jne    3140 <zbtIndexTableInsertRaw+0x170>
+    323d:	49 c7 c1 ff 00 ff ff 	mov    $0xffffffffffff00ff,%r9
+    3244:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    324a:	b9 08 00 00 00       	mov    $0x8,%ecx
+    324f:	41 be 01 00 00 00    	mov    $0x1,%r14d
+    3255:	eb 21                	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3257:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    325e:	00 00 
+    3260:	49 c7 c1 00 ff ff ff 	mov    $0xffffffffffffff00,%r9
+    3267:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    326d:	31 c9                	xor    %ecx,%ecx
+    326f:	45 31 f6             	xor    %r14d,%r14d
+    3272:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    3278:	40 84 ff             	test   %dil,%dil
+    327b:	0f 84 85 00 00 00    	je     3306 <zbtIndexTableInsertRaw+0x336>
+    3281:	0f b6 fb             	movzbl %bl,%edi
+    3284:	49 21 d1             	and    %rdx,%r9
+    3287:	48 89 fa             	mov    %rdi,%rdx
+    328a:	48 d3 e2             	shl    %cl,%rdx
+    328d:	49 09 d1             	or     %rdx,%r9
+    3290:	4c 89 08             	mov    %r9,(%rax)
+    3293:	45 85 ed             	test   %r13d,%r13d
+    3296:	74 78                	je     3310 <zbtIndexTableInsertRaw+0x340>
+    3298:	46 89 64 b0 10       	mov    %r12d,0x10(%rax,%r14,4)
+    329d:	ba 01 00 00 00       	mov    $0x1,%edx
+    32a2:	4c 0f af de          	imul   %rsi,%r11
+    32a6:	89 d9                	mov    %ebx,%ecx
+    32a8:	49 83 40 10 01       	addq   $0x1,0x10(%r8)
+    32ad:	48 b8 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rax
+    32b4:	79 37 9e 
+    32b7:	48 0f af f8          	imul   %rax,%rdi
+    32bb:	48 89 d0             	mov    %rdx,%rax
+    32be:	48 d3 e0             	shl    %cl,%rax
+    32c1:	48 89 f9             	mov    %rdi,%rcx
+    32c4:	48 c1 ef 24          	shr    $0x24,%rdi
+    32c8:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    32cc:	48 0f ab c8          	bts    %rcx,%rax
+    32d0:	89 f9                	mov    %edi,%ecx
+    32d2:	48 d3 e2             	shl    %cl,%rdx
+    32d5:	48 09 d0             	or     %rdx,%rax
+    32d8:	4b 09 44 1a 08       	or     %rax,0x8(%r10,%r11,1)
+    32dd:	48 83 c4 08          	add    $0x8,%rsp
+    32e1:	5b                   	pop    %rbx
+    32e2:	41 5c                	pop    %r12
+    32e4:	41 5d                	pop    %r13
+    32e6:	41 5e                	pop    %r14
+    32e8:	41 5f                	pop    %r15
+    32ea:	5d                   	pop    %rbp
+    32eb:	c3                   	ret
+    32ec:	49 c7 c1 00 ff ff ff 	mov    $0xffffffffffffff00,%r9
+    32f3:	31 c9                	xor    %ecx,%ecx
+    32f5:	45 31 f6             	xor    %r14d,%r14d
+    32f8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    32ff:	00 
+    3300:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    3306:	49 83 40 18 01       	addq   $0x1,0x18(%r8)
+    330b:	e9 71 ff ff ff       	jmp    3281 <zbtIndexTableInsertRaw+0x2b1>
+    3310:	41 8d 94 24 01 00 ff 	lea    -0xffff(%r12),%edx
+    3317:	ff 
+    3318:	81 fa ff ff fe ff    	cmp    $0xfffeffff,%edx
+    331e:	0f 86 73 02 00 00    	jbe    3597 <zbtIndexTableInsertRaw+0x5c7>
+    3324:	66 46 89 64 70 10    	mov    %r12w,0x10(%rax,%r14,2)
+    332a:	e9 6e ff ff ff       	jmp    329d <zbtIndexTableInsertRaw+0x2cd>
+    332f:	90                   	nop
+    3330:	49 c7 c1 ff 00 ff ff 	mov    $0xffffffffffff00ff,%r9
+    3337:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    333d:	b9 08 00 00 00       	mov    $0x8,%ecx
+    3342:	41 be 01 00 00 00    	mov    $0x1,%r14d
+    3348:	e9 2b ff ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    334d:	0f 1f 00             	nopl   (%rax)
+    3350:	49 c7 c1 ff ff 00 ff 	mov    $0xffffffffff00ffff,%r9
+    3357:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    335d:	b9 10 00 00 00       	mov    $0x10,%ecx
+    3362:	41 be 02 00 00 00    	mov    $0x2,%r14d
+    3368:	e9 0b ff ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    336d:	49 b9 ff ff ff 00 ff 	movabs $0xffffffff00ffffff,%r9
+    3374:	ff ff ff 
+    3377:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    337d:	b9 18 00 00 00       	mov    $0x18,%ecx
+    3382:	41 be 03 00 00 00    	mov    $0x3,%r14d
+    3388:	e9 eb fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    338d:	49 b9 ff ff ff ff 00 	movabs $0xffffff00ffffffff,%r9
+    3394:	ff ff ff 
+    3397:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    339d:	b9 20 00 00 00       	mov    $0x20,%ecx
+    33a2:	41 be 04 00 00 00    	mov    $0x4,%r14d
+    33a8:	e9 cb fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    33ad:	49 b9 ff ff ff ff ff 	movabs $0xffff00ffffffffff,%r9
+    33b4:	00 ff ff 
+    33b7:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    33bd:	b9 28 00 00 00       	mov    $0x28,%ecx
+    33c2:	41 be 05 00 00 00    	mov    $0x5,%r14d
+    33c8:	e9 ab fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    33cd:	49 b9 ff ff ff ff ff 	movabs $0xff00ffffffffffff,%r9
+    33d4:	ff 00 ff 
+    33d7:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    33dd:	b9 30 00 00 00       	mov    $0x30,%ecx
+    33e2:	41 be 06 00 00 00    	mov    $0x6,%r14d
+    33e8:	e9 8b fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    33ed:	49 b9 ff ff ff ff ff 	movabs $0xffffffffffffff,%r9
+    33f4:	ff ff 00 
+    33f7:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    33fd:	b9 38 00 00 00       	mov    $0x38,%ecx
+    3402:	41 be 07 00 00 00    	mov    $0x7,%r14d
+    3408:	e9 6b fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    340d:	49 c7 c1 00 ff ff ff 	mov    $0xffffffffffffff00,%r9
+    3414:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    341a:	31 c9                	xor    %ecx,%ecx
+    341c:	45 31 f6             	xor    %r14d,%r14d
+    341f:	e9 54 fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3424:	49 c7 c1 ff ff 00 ff 	mov    $0xffffffffff00ffff,%r9
+    342b:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    3431:	b9 10 00 00 00       	mov    $0x10,%ecx
+    3436:	41 be 02 00 00 00    	mov    $0x2,%r14d
+    343c:	e9 37 fe ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3441:	49 c7 c1 ff 00 ff ff 	mov    $0xffffffffffff00ff,%r9
+    3448:	b9 08 00 00 00       	mov    $0x8,%ecx
+    344d:	41 be 01 00 00 00    	mov    $0x1,%r14d
+    3453:	e9 a8 fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    3458:	49 c7 c1 ff ff 00 ff 	mov    $0xffffffffff00ffff,%r9
+    345f:	b9 10 00 00 00       	mov    $0x10,%ecx
+    3464:	41 be 02 00 00 00    	mov    $0x2,%r14d
+    346a:	e9 91 fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    346f:	49 b9 ff ff ff 00 ff 	movabs $0xffffffff00ffffff,%r9
+    3476:	ff ff ff 
+    3479:	b9 18 00 00 00       	mov    $0x18,%ecx
+    347e:	41 be 03 00 00 00    	mov    $0x3,%r14d
+    3484:	e9 77 fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    3489:	49 b9 ff ff ff ff 00 	movabs $0xffffff00ffffffff,%r9
+    3490:	ff ff ff 
+    3493:	b9 20 00 00 00       	mov    $0x20,%ecx
+    3498:	41 be 04 00 00 00    	mov    $0x4,%r14d
+    349e:	e9 5d fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    34a3:	49 b9 ff ff ff ff ff 	movabs $0xffff00ffffffffff,%r9
+    34aa:	00 ff ff 
+    34ad:	b9 28 00 00 00       	mov    $0x28,%ecx
+    34b2:	41 be 05 00 00 00    	mov    $0x5,%r14d
+    34b8:	e9 43 fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    34bd:	49 b9 ff ff ff ff ff 	movabs $0xff00ffffffffffff,%r9
+    34c4:	ff 00 ff 
+    34c7:	b9 30 00 00 00       	mov    $0x30,%ecx
+    34cc:	41 be 06 00 00 00    	mov    $0x6,%r14d
+    34d2:	e9 29 fe ff ff       	jmp    3300 <zbtIndexTableInsertRaw+0x330>
+    34d7:	49 b9 ff ff ff 00 ff 	movabs $0xffffffff00ffffff,%r9
+    34de:	ff ff ff 
+    34e1:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    34e7:	b9 18 00 00 00       	mov    $0x18,%ecx
+    34ec:	41 be 03 00 00 00    	mov    $0x3,%r14d
+    34f2:	e9 81 fd ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    34f7:	49 b9 ff ff ff ff 00 	movabs $0xffffff00ffffffff,%r9
+    34fe:	ff ff ff 
+    3501:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    3507:	b9 20 00 00 00       	mov    $0x20,%ecx
+    350c:	41 be 04 00 00 00    	mov    $0x4,%r14d
+    3512:	e9 61 fd ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3517:	49 b9 ff ff ff ff ff 	movabs $0xffff00ffffffffff,%r9
+    351e:	00 ff ff 
+    3521:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    3527:	b9 28 00 00 00       	mov    $0x28,%ecx
+    352c:	41 be 05 00 00 00    	mov    $0x5,%r14d
+    3532:	e9 41 fd ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3537:	49 b9 ff ff ff ff ff 	movabs $0xff00ffffffffffff,%r9
+    353e:	ff 00 ff 
+    3541:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    3547:	b9 30 00 00 00       	mov    $0x30,%ecx
+    354c:	41 be 06 00 00 00    	mov    $0x6,%r14d
+    3552:	e9 21 fd ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3557:	41 bb 20 00 00 00    	mov    $0x20,%r11d
+    355d:	41 be 07 00 00 00    	mov    $0x7,%r14d
+    3563:	b9 38 00 00 00       	mov    $0x38,%ecx
+    3568:	49 b9 ff ff ff ff ff 	movabs $0xffffffffffffff,%r9
+    356f:	ff ff 00 
+    3572:	e9 8f fd ff ff       	jmp    3306 <zbtIndexTableInsertRaw+0x336>
+    3577:	49 b9 ff ff ff ff ff 	movabs $0xffffffffffffff,%r9
+    357e:	ff ff 00 
+    3581:	41 bb 30 00 00 00    	mov    $0x30,%r11d
+    3587:	b9 38 00 00 00       	mov    $0x38,%ecx
+    358c:	41 be 07 00 00 00    	mov    $0x7,%r14d
+    3592:	e9 e1 fc ff ff       	jmp    3278 <zbtIndexTableInsertRaw+0x2a8>
+    3597:	e8 f4 f9 ff ff       	call   2f90 <zbtIndexSetId.part.0>
+
+Disassembly of section .fini:

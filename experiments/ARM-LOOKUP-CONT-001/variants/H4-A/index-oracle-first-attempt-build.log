@@ -1,0 +1,16 @@
+In file included from experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c:11,
+                 from experiments/ARM-LOOKUP-CONT-001/variants/H4-A/index_oracle.c:3:
+experiments/ARM-LOOKUP-CONT-001/variants/H4-A/index_oracle.c: In function ‘resizing’:
+experiments/ARM-LOOKUP-CONT-001/variants/H4-A/index_oracle.c:92:73: error: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Werror=sign-compare]
+   92 |     serverAssert(zs->member_rehash && zs->member_rehash->table.wide_ids == wide);
+      |                                                                         ^~
+experiments/ARM-LOOKUP-CONT-001/current/compat/server.h:15:36: note: in definition of macro ‘serverAssert’
+   15 | #define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)
+      |                                    ^
+experiments/ARM-LOOKUP-CONT-001/variants/H4-A/index_oracle.c:101:44: error: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Werror=sign-compare]
+  101 |     serverAssert(zs->member_index.wide_ids == wide);
+      |                                            ^~
+experiments/ARM-LOOKUP-CONT-001/current/compat/server.h:15:36: note: in definition of macro ‘serverAssert’
+   15 | #define serverAssert(x) do { if (!(x)) standalone_panic(__FILE__, __LINE__, #x); } while (0)
+      |                                    ^
+cc1: all warnings being treated as errors

@@ -1,0 +1,51 @@
+
+build/arm-cont-private/lookup-codegen:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000002a70 <zbtIndexHomeMayContain>:
+    2a70:	48 8b 47 08          	mov    0x8(%rdi),%rax
+    2a74:	89 f1                	mov    %esi,%ecx
+    2a76:	48 83 e8 01          	sub    $0x1,%rax
+    2a7a:	21 f0                	and    %esi,%eax
+    2a7c:	c1 e9 18             	shr    $0x18,%ecx
+    2a7f:	48 be 02 00 00 08 80 	movabs $0x8008000002,%rsi
+    2a86:	00 00 00 
+    2a89:	74 34                	je     2abf <zbtIndexHomeMayContain+0x4f>
+    2a8b:	89 ca                	mov    %ecx,%edx
+    2a8d:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    2a93:	48 be 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rsi
+    2a9a:	79 37 9e 
+    2a9d:	48 0f af d6          	imul   %rsi,%rdx
+    2aa1:	4c 89 c6             	mov    %r8,%rsi
+    2aa4:	48 d3 e6             	shl    %cl,%rsi
+    2aa7:	48 89 d1             	mov    %rdx,%rcx
+    2aaa:	48 c1 ea 24          	shr    $0x24,%rdx
+    2aae:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    2ab2:	48 0f ab ce          	bts    %rcx,%rsi
+    2ab6:	48 89 d1             	mov    %rdx,%rcx
+    2ab9:	49 d3 e0             	shl    %cl,%r8
+    2abc:	4c 09 c6             	or     %r8,%rsi
+    2abf:	83 7f 20 01          	cmpl   $0x1,0x20(%rdi)
+    2ac3:	48 8b 0f             	mov    (%rdi),%rcx
+    2ac6:	48 19 d2             	sbb    %rdx,%rdx
+    2ac9:	48 83 e2 f0          	and    $0xfffffffffffffff0,%rdx
+    2acd:	48 83 c2 30          	add    $0x30,%rdx
+    2ad1:	48 0f af c2          	imul   %rdx,%rax
+    2ad5:	48 8b 54 01 08       	mov    0x8(%rcx,%rax,1),%rdx
+    2ada:	48 21 f2             	and    %rsi,%rdx
+    2add:	48 39 f2             	cmp    %rsi,%rdx
+    2ae0:	0f 94 c0             	sete   %al
+    2ae3:	0f b6 c0             	movzbl %al,%eax
+    2ae6:	c3                   	ret
+
+Disassembly of section .fini:

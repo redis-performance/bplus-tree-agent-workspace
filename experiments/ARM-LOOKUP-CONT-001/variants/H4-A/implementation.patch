@@ -1,0 +1,13 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..7c43d8124 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1844,7 +1844,7 @@ static inline void zbtIndexRecordHomeTag(zbtIndexTable *table, uint32_t hash) {
+ }
+ 
+ /* Return zero only when the home bucket proves that a hash is absent. */
+-static inline int zbtIndexHomeMayContain(const zbtIndexTable *table,
++static __attribute__((noinline)) int zbtIndexHomeMayContain(const zbtIndexTable *table,
+                                          uint32_t hash)
+ {
+     unsigned long home = hash & (table->size - 1);

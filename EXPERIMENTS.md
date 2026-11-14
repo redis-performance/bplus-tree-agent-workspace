@@ -1,6 +1,6 @@
 # Historical AWS Intel ledger
 
-Current overnight decisions and counts: [consolidated experiments](experiments/EXPERIMENTS.md) — 38 completed attempts, 20 parked, 18 rejected, 0 approved. H1 helper population rejected; continuation active through 14 November 07:24 UTC. These historical notes add no extra population.
+Current overnight decisions and counts: [consolidated experiments](experiments/EXPERIMENTS.md) — 40 completed attempts, 22 parked, 18 rejected, 0 approved. H1 helper population rejected; continuation active through 14 November 07:24 UTC. These historical notes add no extra population.
 
 This file preserves the Intel worker’s historical notes. The current consolidated
 ledger is [EXPERIMENTS.md](experiments/EXPERIMENTS.md). Later decisions supersede earlier

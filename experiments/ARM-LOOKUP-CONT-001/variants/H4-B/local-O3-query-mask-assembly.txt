@@ -1,0 +1,33 @@
+
+build/arm-cont-private/lookup-O3-static:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000002a70 <zbtIndexQueryTagBits>:
+    2a70:	40 0f b6 d7          	movzbl %dil,%edx
+    2a74:	be 01 00 00 00       	mov    $0x1,%esi
+    2a79:	89 f9                	mov    %edi,%ecx
+    2a7b:	48 b8 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rax
+    2a82:	79 37 9e 
+    2a85:	48 0f af d0          	imul   %rax,%rdx
+    2a89:	48 89 f0             	mov    %rsi,%rax
+    2a8c:	48 d3 e0             	shl    %cl,%rax
+    2a8f:	48 89 d1             	mov    %rdx,%rcx
+    2a92:	48 c1 ea 24          	shr    $0x24,%rdx
+    2a96:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    2a9a:	48 0f ab c8          	bts    %rcx,%rax
+    2a9e:	48 89 d1             	mov    %rdx,%rcx
+    2aa1:	48 d3 e6             	shl    %cl,%rsi
+    2aa4:	48 09 f0             	or     %rsi,%rax
+    2aa7:	c3                   	ret
+
+Disassembly of section .fini:

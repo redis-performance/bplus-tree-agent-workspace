@@ -1,3 +1,17 @@
+<!-- ARM-CONT-ACTIVE -->
+Six-hour continuation ACTIVE through2026-11-14 07:24:14UTC; final30min review/cleanup.
+H1 rejected/sourceNONE with independentreview. H2 nativeARM andtargetLTO B/C pass
+sixcases; Intel nativepasses, IntelLTO andfivecase supplementalguards underway.
+H3 three short-equality variants built; H4 three filter-boundary variants correctnessready.
+H5 independent raw-state implementations next. No patchstacking/sourceadoption.
+Two additional qualification protocols PASS; ledger PARK means no adoption.
+40completedattempts22PARK18REJECT0approved;ARM29/Intel6/AMD5;
+24populations/5replications/11qualifications; activecandidatework excluded.
+ARM/Intel private leases with independent cleanup; no localmeasurements.
+Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H2-TARGET-RESULTS}.md.
+Keep working throughwindow across supported options; no unchangedfailedretry.
+<!-- ARM-CONT-ACTIVE-END -->
+
 <!-- ARM-LOOKUP-GAP-CURRENT -->
 Current-unstable ARM lookup investigation CLOSED/REJECT, source selection NONE.
 Baseline ee8e7f70152404649ac947157fd662d11b4a00d5 verified again22:43:51UTC.
