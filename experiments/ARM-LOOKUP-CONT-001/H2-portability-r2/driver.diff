@@ -1,0 +1,93 @@
+--- H2-portability/driver.py
++++ H2-portability-r2/driver.py
+@@ -13,7 +13,9 @@
+ import time
+ 
+ EXP=Path('experiments/ARM-LOOKUP-CONT-001')
+-HARNESS=EXP/'H2-portability'
++HARNESS=EXP/'H2-portability'  # Original frozen C/shell harness remains unchanged.
++CODE=EXP/'H2-portability-r2'
++TASK_WINDOW=(1794632085.7812834,1794633885.7812834)
+ OWNER='bplus ARM-LOOKUP-CONT-001'
+ BASE_IMAGE='sha256:9ca91b05c7b07d2979f16413e8b2cd6ec8a7c80ffca4121ccab0aeba33f90460'
+ CLEANUP_CAPS={'Type':'exec','TimeoutStartUSec':'3min','RuntimeMaxUSec':'3min',
+@@ -130,7 +132,7 @@
+ 
+ def claim(root,mode):
+     require(mode in ('image-receipt','correctness'),'Unknown phase')
+-    out=Path(root)/('H2-portability-'+mode+'-001');out.mkdir();return out
++    out=Path(root)/('H2-portability-r2-'+mode+'-001');out.mkdir();return out
+ 
+ 
+ def validate_record(record,review,root,record_pin,manifest_pin,mode,image):
+@@ -142,7 +144,10 @@
+     require(record['containers']==names and record['cleanup_contract']==dict(containers=names,
+         reap_containers_before_resume=True,restore_sibling50=True,ownership_required=True),'Cleanup/container ownership contract mismatch')
+     require(record['base_image_id']==BASE_IMAGE,'Wrong immutable build base')
++    require(record['cpu2_expected_siblings']=='2' and record['saved_sibling_pair']=='2,50',
++            'Offline topology/provenance binding mismatch')
+     started,deadline=record['task_started_epoch'],record['task_deadline_epoch']
++    require((started,deadline)==TASK_WINDOW,'Original task window must not change')
+     require(all(type(v) in (int,float) and math.isfinite(v) for v in (started,deadline)) and
+             0<started<deadline<=record['deadline']-300 and deadline-started<=1800,
+             'Single task budget must be positive and at most30min including image preparation')
+@@ -203,7 +208,7 @@
+     cpu = Path('/sys/devices/system/cpu/cpu2')
+     snapshot['cpu2_online'] = (cpu/'online').read_text().strip()
+     snapshot['cpu2_siblings'] = (cpu/'topology/thread_siblings_list').read_text().strip()
+-    require(snapshot['cpu2_online'] == '1' and snapshot['cpu2_siblings'] == '2,50' and
++    require(snapshot['cpu2_online'] == '1' and snapshot['cpu2_siblings'] == record['cpu2_expected_siblings'] == '2' and
+             Path('/sys/devices/system/cpu/cpu50/online').read_text().strip() == '0',
+             'CPU2 offline or unexpected sibling')
+     expected_services = {s['unit']:s['exec_start_sha256'] for s in record['cleanup_services']}
+@@ -301,9 +306,20 @@
+         return result,stem
+ 
+ 
++def validate_staging(receipt,root,manifest_pin,files,isolation_pin):
++    """Pure complete-stage gate. A failed/partial stage admits no Docker action."""
++    require(set(receipt)=={'schema_version','status','run_root','manifest_sha256','verified_files',
++                          'failed_files','isolation_sha256'},'Unexpected staging receipt schema')
++    require(type(receipt['schema_version']) is int and receipt['schema_version']==1 and
++            receipt['status']=='STAGED' and receipt['run_root']==str(Path(root).resolve()) and
++            receipt['manifest_sha256']==manifest_pin and receipt['isolation_sha256']==isolation_pin and
++            receipt['verified_files']==files and receipt['failed_files']==[],
++            'Missing/failed/partial/mismatched input staging')
++
++
+ def main():
+     p=argparse.ArgumentParser(description=__doc__)
+-    for arg in ('root','mode','image-id','manifest-sha256','isolation-record','isolation-sha256','review','review-sha256'):
++    for arg in ('root','mode','image-id','manifest-sha256','isolation-record','isolation-sha256','review','review-sha256','staging-receipt','staging-receipt-sha256'):
+         p.add_argument('--'+arg,required=True)
+     p.add_argument('--image-receipt');p.add_argument('--image-receipt-sha256')
+     args=p.parse_args();root=Path(args.root).resolve();out=claim(root,args.mode)
+@@ -314,12 +330,17 @@
+         require(re.fullmatch('sha256:[0-9a-f]{64}',args.image_id),'Use full image content ID')
+         validate_record(record,review,root,args.isolation_sha256,args.manifest_sha256,args.mode,args.image_id)
+         deadline=time.monotonic()+record['task_deadline_epoch']-time.time()
+-        manifest_path=root/HARNESS/'files.json';manifest=read(manifest_path)
++        manifest_path=root/CODE/'files.json';manifest=read(manifest_path)
++        staging_path=Path(args.staging_receipt).resolve()
++        require(sha(staging_path)==args.staging_receipt_sha256==review['staging_receipt_sha256'],
++                'Staging receipt review/hash differs')
++        validate_staging(read(staging_path),root,args.manifest_sha256,manifest['files'],args.isolation_sha256)
+         def identities():
+             require(time.monotonic()<deadline and record['task_started_epoch']<=time.time()<record['task_deadline_epoch'],
+                     'Fixed shared task budget unavailable')
+             require(sha(record_path)==args.isolation_sha256 and sha(review_path)==args.review_sha256 and
+-                    sha(manifest_path)==args.manifest_sha256,'Admission bytes changed')
++                    sha(manifest_path)==args.manifest_sha256 and sha(staging_path)==args.staging_receipt_sha256,
++                    'Admission/staging bytes changed')
+             for relative,pin in manifest['files'].items():require(sha(root/relative)==pin,'Input changed: '+relative)
+             require(sha(root/EXP/'current/src/zset_btree.c')==BASE and sha(root/'H2-B-source/zset_btree.c')==B,'Source pair changed')
+             for artifact in record['cleanup_artifacts']:
+@@ -336,7 +357,7 @@
+                 labels.get('h2.portability.prepare')==manifest['files'][str(HARNESS/'prepare-image.sh')],
+                 'Image lacks exact reviewed preparation/base binding')
+         write(out/'admission.json',dict(mode=args.mode,image=args.image_id,manifest=args.manifest_sha256,
+-            isolation=args.isolation_sha256,review=args.review_sha256,qualification=False,prior_H2='PARK'))
++            isolation=args.isolation_sha256,review=args.review_sha256,staging=args.staging_receipt_sha256,qualification=False,prior_H2='PARK'))
+         if args.mode=='image-receipt':
+             metadata={}
+             commands={'packages':['dpkg-query','-W','-f=${binary:Package}\t${Version}\t${Architecture}\n'],

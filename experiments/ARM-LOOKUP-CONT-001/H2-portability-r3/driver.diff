@@ -1,0 +1,134 @@
+--- H2-portability-r2/driver.py
++++ H2-portability-r3/driver.py
+@@ -10,11 +10,12 @@
+ import platform
+ import re
+ import subprocess
++import stat
+ import time
+ 
+ EXP=Path('experiments/ARM-LOOKUP-CONT-001')
+ HARNESS=EXP/'H2-portability'  # Original frozen C/shell harness remains unchanged.
+-CODE=EXP/'H2-portability-r2'
++CODE=EXP/'H2-portability-r3'
+ TASK_WINDOW=(1794632085.7812834,1794633885.7812834)
+ OWNER='bplus ARM-LOOKUP-CONT-001'
+ BASE_IMAGE='sha256:9ca91b05c7b07d2979f16413e8b2cd6ec8a7c80ffca4121ccab0aeba33f90460'
+@@ -132,7 +133,7 @@
+ 
+ def claim(root,mode):
+     require(mode in ('image-receipt','correctness'),'Unknown phase')
+-    out=Path(root)/('H2-portability-r2-'+mode+'-001');out.mkdir();return out
++    out=Path(root)/('H2-portability-r3-'+mode+'-001');out.mkdir();return out
+ 
+ 
+ def validate_record(record,review,root,record_pin,manifest_pin,mode,image):
+@@ -263,10 +264,45 @@
+     return ceiling
+ 
+ 
++RECEIPT_ITEMS=('apt-update.log','apt-install.log','packages.tsv','apt-config','apt-lists','package-archives.sha256')
++
++
++def check_export_container(info,cid,name,image,labels):
++    require(re.fullmatch('[0-9a-f]{64}',cid) is not None and info['Id']==cid and
++            info['Name']=='/'+name and info['Image']==image,'Export container ID/name/image differs')
++    actual=info['Config'].get('Labels') or {}
++    require(all(actual.get(k)==v for k,v in labels.items()),'Export container ownership differs')
++    state=info['State'];host=info['HostConfig']
++    require(state['Status']=='created' and state['Running'] is False and type(state['Pid']) is int and state['Pid']==0,
++            'Export container was started')
++    require(host['NetworkMode']=='none' and host['ReadonlyRootfs'] is True and
++            host['CapDrop']==['ALL'] and not host.get('CapAdd') and not info['Mounts'] and
++            info['Path']=='/bin/true' and not info['Args'],'Unexpected export container privileges/command/mounts')
++
++
++def receipt_inventory(destination):
++    """Host lstat inventory; preserve source ownership with docker cp -a, no -L."""
++    destination=Path(destination)
++    require(all((destination/name).exists() for name in RECEIPT_ITEMS),'Incomplete copied receipt items')
++    require((destination/'package-archives.sha256').stat().st_size>0,'Empty downloaded-package hash receipt')
++    require(all((destination/'apt-lists'/name).is_dir() for name in ('partial','auxfiles')),
++            'Required apt partial/auxfiles directory omitted')
++    entries=[]
++    for path in sorted(destination.rglob('*')):
++        st=path.lstat();row=dict(path=str(path.relative_to(destination)),uid=st.st_uid,gid=st.st_gid,
++                               mode=stat.S_IMODE(st.st_mode),size=st.st_size)
++        if stat.S_ISREG(st.st_mode):row.update(kind='file',sha256=sha(path))
++        elif stat.S_ISDIR(st.st_mode):row.update(kind='directory')
++        elif stat.S_ISLNK(st.st_mode):row.update(kind='symlink',target=os.readlink(path))
++        else:raise ValueError('Unexpected special file in apt receipts')
++        entries.append(row)
++    return entries
++
++
+ class Runner:
+-    def __init__(self,root,out,record,identities,image,deadline):
++    def __init__(self,root,out,record,identities,image,deadline,mode):
+         self.root,self.out,self.record,self.identities,self.image=root,out,record,identities,image
+-        self.index=0;self.deadline=deadline
++        self.index=0;self.deadline=deadline;self.mode=mode
+     def raw(self,argv,stem,timeout=30):
+         remaining=min(self.deadline-time.monotonic(),self.record['task_deadline_epoch']-time.time(),self.record['deadline']-time.time()-300,
+                       min(s['fire_epoch'] for s in self.record['cleanup_timer_schedules'])-time.time()-300)
+@@ -281,6 +317,41 @@
+         append(self.out/'commands.jsonl',dict(argv=argv,stem=stem,returncode=code,timeout_seconds=timeout))
+         require(code==0,'Command failed/unsupported/timed out: '+stem)
+         return stdout
++    def export_receipts(self):
++        require(self.mode=='image-receipt','Host receipt export forbidden in correctness mode')
++        self.index+=1;stem=f'{self.index:03d}-host-export'
++        self.identities();isolation(self.root,self.record,self.out,stem+'-pre')
++        name=self.record['containers']['check'];labels=self.record['container_labels']
++        require(not self.raw(['docker','ps','-aq','--filter','name=^/'+name+'$'],stem+'-name').strip(),
++                'Owned export container already exists')
++        destination=self.out/'image-preparation-receipts';destination.mkdir()
++        argv=['docker','create','--name',name,'--network','none','--read-only','--cap-drop','ALL']
++        for key,value in sorted(labels.items()):argv+=['--label',key+'='+value]
++        argv += [self.image,'/bin/true']
++        try:
++            cid=self.raw(argv,stem+'-create').decode().strip()
++            def inspect(suffix):
++                rows=json.loads(self.raw(['docker','inspect',cid],stem+'-'+suffix))
++                require(type(rows) is list and len(rows)==1,'Missing/duplicate export container inspect')
++                check_export_container(rows[0],cid,name,self.image,labels)
++            inspect('inspect')
++            for index,item in enumerate(RECEIPT_ITEMS):
++                self.identities();inspect('before-copy-'+str(index))
++                self.raw(['docker','cp','-a',cid+':/opt/h2-portability-receipts/'+item,str(destination/item)],
++                         stem+'-copy-'+str(index),120)
++            inventory=receipt_inventory(destination)
++            write(self.out/(stem+'.inventory.json'),inventory)
++            inspect('before-remove')
++            self.raw(['docker','rm',cid],stem+'-remove')
++            data=(self.out/(stem+'.inventory.json')).read_bytes()
++            (self.out/(stem+'.stdout')).write_bytes(data)
++            (self.out/(stem+'.stderr')).write_bytes(b'')
++        finally:
++            # On failure retain stopped owned container and copied prefix; the
++            # independently reviewed exact-ID cleanup remains responsible.
++            self.identities();isolation(self.root,self.record,self.out,stem+'-post')
++        return data,stem
++
+     def container(self,arguments,stem,timeout=120):
+         self.index+=1;stem=f'{self.index:03d}-'+stem
+         self.identities();isolation(self.root,self.record,self.out,stem+'-pre')
+@@ -348,7 +419,7 @@
+                 require(sha(path)==artifact['sha256'],'Cleanup artifact changed')
+             if args.mode=='correctness':
+                 require(sha(args.image_receipt)==args.image_receipt_sha256==review['image_receipt_sha256'],'Image receipt changed')
+-        identities();runner=Runner(root,out,record,identities,args.image_id,deadline)
++        identities();runner=Runner(root,out,record,identities,args.image_id,deadline,args.mode)
+         isolation(root,record,out,'admission')
+         inspected=json.loads(runner.raw(['docker','image','inspect',args.image_id],'image-inspect'))
+         require(len(inspected)==1 and inspected[0]['Id']==args.image_id,'Wrong image')
+@@ -374,7 +445,8 @@
+                 commands[target+'-tools-sha']=['sha256sum','/usr/bin/'+prefix+'-gcc','/usr/bin/'+prefix+'-ld','/usr/bin/'+spec['qemu']]
+                 commands[target+'-libraries']=['find','/usr/'+prefix,'-type','f','-exec','sha256sum','{}','+']
+             for stage,argv in commands.items():
+-                data,stem=runner.container(argv,'metadata-'+stage)
++                if stage=='export-receipts':data,stem=runner.export_receipts()
++                else:data,stem=runner.container(argv,'metadata-'+stage)
+                 metadata[stage]={'sha256':hashlib.sha256(data).hexdigest(),'file':stem+'.stdout'}
+                 if stage=='timeout-version':require(data.startswith(b'timeout (GNU coreutils)'),'GNU timeout required; no fallback')
+                 if stage.endswith('-target'):require(data.decode().strip()==TARGETS[stage[:-7]]['prefix'],'Cross target mismatch')

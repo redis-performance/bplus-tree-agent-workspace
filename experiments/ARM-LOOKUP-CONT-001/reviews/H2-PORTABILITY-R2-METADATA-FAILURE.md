@@ -1,0 +1,9 @@
+# Portability r2 metadata failure audit
+
+The r2 metadata phase is closed **INCOMPLETE_OR_UNSUPPORTED**, at `export-receipts`. No compiler, emulator or guest C executable ran, and no final image receipt was produced. This is an operational export failure, not a source correctness result. H2 remains PARK.
+
+The independent raw audit found11 commands and five metadata containers. Their return codes are0,0,0,0,1. Package enumeration and the retained package TSV are byte-identical; GNU timeout identity and operational-tool hashes were captured. The fifth container failed while copying the apt-list tree: the log explicitly reports permission denied for `_apt`-owned `partial` and inability to preserve ownership for `partial`/`auxfiles`. All five containers retained `--cap-drop ALL`; all11 admission/pre/post isolation snapshots passed. The fixed command sequence stopped before either target compiler or emulator query. `completed` is empty, the attempt is consumed, and partial outputs remain preserved.
+
+The controller reports explicit authorization for a separately reviewed operational r3 within the same05:24:45.781 UTC deadline. Export through Docker's host API from an exact identified, never-started owned container can address these filesystem permissions while retaining all guest capability restrictions. R3 must preserve this failure, use new phase/staging/manifest identities, retain the same image/source/oracle/count/deadline pins, copy only the fixed receipt items, record their hashes and ownership/mode, and remove only the inspected immutable owned container ID. No execution admission is granted by this failure audit.
+
+Private raw audit SHA-256: `0b16714bb0fc4c5cc1d056138b314170e6819ba3e87858dc0e809093711cddb1`. The reviewer performed saved-artifact checks only, with no fleet action, guest execution, local performance work or frozen-file modification.

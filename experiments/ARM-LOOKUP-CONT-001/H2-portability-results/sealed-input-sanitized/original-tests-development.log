@@ -1,0 +1,41 @@
+test_live_negative_gates (__main__.Isolation.test_live_negative_gates) ... ok
+test_parca_redaction (__main__.Isolation.test_parca_redaction) ... ok
+test_valid (__main__.Isolation.test_valid) ... ok
+test_expired_budget_never_launches (__main__.RunnerTests.test_expired_budget_never_launches) ... ok
+test_labels_and_postcheck_after_failure (__main__.RunnerTests.test_labels_and_postcheck_after_failure) ... ok
+test_timeout_clamped_to_cleanup_margin (__main__.RunnerTests.test_timeout_clamped_to_cleanup_margin) ... ok
+test_abi_positive (__main__.Validators.test_abi_positive) ... ok
+test_abi_rejects_wrong_width_endian_cache (__main__.Validators.test_abi_rejects_wrong_width_endian_cache) ... ok
+test_baseline_no_fake_cache (__main__.Validators.test_baseline_no_fake_cache) ... ok
+test_claim (__main__.Validators.test_claim) ... ok
+test_clock_symbols (__main__.Validators.test_clock_symbols) ... ok
+test_elf_header_and_interpreter_negatives (__main__.Validators.test_elf_header_and_interpreter_negatives) ... 
+  test_elf_header_and_interpreter_negatives (__main__.Validators.test_elf_header_and_interpreter_negatives) (target='s390x', offset=18) ... FAIL
+  test_elf_header_and_interpreter_negatives (__main__.Validators.test_elf_header_and_interpreter_negatives) (target='s390x', offset=64) ... FAIL
+test_elf_positive (__main__.Validators.test_elf_positive) ... ok
+test_no_measure_plan_and_exact_grid (__main__.Validators.test_no_measure_plan_and_exact_grid) ... ok
+test_oracle_counts (__main__.Validators.test_oracle_counts) ... ok
+test_record_label_binding (__main__.Validators.test_record_label_binding) ... ok
+test_unit_exact57 (__main__.Validators.test_unit_exact57) ... ok
+test_verify (__main__.Validators.test_verify) ... ok
+
+======================================================================
+FAIL: test_elf_header_and_interpreter_negatives (__main__.Validators.test_elf_header_and_interpreter_negatives) (target='s390x', offset=18)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "WORKSPACE/experiments/ARM-LOOKUP-CONT-001/H2-portability/test_driver.py", line 52, in test_elf_header_and_interpreter_negatives
+    with self.subTest(target=target,offset=offset),self.assertRaises(ValueError):d.check_elf(b,target)
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_elf_header_and_interpreter_negatives (__main__.Validators.test_elf_header_and_interpreter_negatives) (target='s390x', offset=64)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "WORKSPACE/experiments/ARM-LOOKUP-CONT-001/H2-portability/test_driver.py", line 52, in test_elf_header_and_interpreter_negatives
+    with self.subTest(target=target,offset=offset),self.assertRaises(ValueError):d.check_elf(b,target)
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.043s
+
+FAILED (failures=2)

@@ -1,0 +1,23 @@
+# Intel portability cleanup independent review
+
+**Cleanup code admission: PASS for the exact frozen script and proposed lease below.** This does not admit an unreviewed deployment or a mismatched container launcher. Before any portability work, the controller must verify the concrete lease, script, ownership labels, and two bounded cleanup services/timers, then retire the old timer pair. No live change was performed by this reviewer.
+
+| Input | SHA-256 |
+|---|---|
+| `cleanup-portability.py` | `115b44d09b7d64ec59c005b4f9c54b0acd8584188594cd182f5d933efb691f1c` |
+| `test-cleanup-portability.py` | `2f651c1426bc5e2180d2217210b7b336c29e55ba42eae2f4e69ed314f785e484` |
+| Proposed reservation | `5b3a145241fcc9c1e6678cacbe95357689bb385194ab697bbc67fc669898abd0` |
+
+Reviewer role: independent cleanup reviewer, not implementation author. I independently ran all 26 offline tests using temporary leases and mocked process/service/container operations. All pass. I also compared the proposed reservation to the saved original: every original field, including coordinator identity, CPU50 saved state, profiler active state, and deadline, is preserved. The proposal adds an immutable generation, exact run root, and explicit restoration schema. It does not extend the reservation.
+
+The cleanup requires exact owner/generation/root agreement and a plain root/lease/lock path. A matching RELEASED lease is idempotent. Otherwise it validates original coordinator identity before work, serializes concurrent invocations, and records failed restoration as RELEASE_INCOMPLETE. Atomic replacement fsyncs the file and parent directory. Lease bytes are rechecked between stages and before overwrite/resume; a changed lease is not overwritten.
+
+Container ownership requires both an exact permitted image/check name and all three labels: `org.redis-performance.cleanup.owner`, `.root`, and `.generation`. The image container need not bind-mount the task root. Unknown root-associated names/labels fail closed. Known containers are removed by immutable ID, and a replacement with the same name blocks continuation. The code verifies container cgroups and original process identity after removal, plus the work service's stopped/PID-zero state, empty cgroup, and absence of owned processes by executable, cwd, or root argument. Unrelated containers are left alone. Command lines are inspected in memory, not retained.
+
+Restoration order is explicit: prove work stopped; restore and read back CPU50 online; restore active profiler with empty CPUAffinity/AllowedCPUs policy and expected affinity on every observed thread; prove work stopped again; then resume only the original coordinator through a pidfd-bound signal and verify its identity/state. A failure at either work proof, CPU restore, profiler restore, or identity check prevents premature coordinator resume. Tests cover these stages, same-name container replacement, surviving original container PID despite empty reported cgroups, all-thread affinity mismatch, permission failures, concurrent cleanup, lease drift, and retry/idempotence.
+
+The proposed profiler CPU set is honestly labeled an expected restored set derived from the original active/unrestricted policy and CPU50 restoration. It is not a fabricated observation of every pre-reservation profiler thread. Live deployment must confirm that policy and topology remain applicable. The script deliberately fails closed on unexpected cgroups, more than 16 Docker containers, permission errors, and non-UTF8 process arguments; these conservative failures require retained evidence and a controlled retry, not a false release claim.
+
+The internal 150-second operational budget starts after acquiring the lock and bounds subprocess calls. Lock waits and filesystem/process scanning also require the external service cap. The proposed 07:12 and 07:15:30 UTC timer pair must use an effective 180-second runtime cap plus 15-second stop timeout, a service type for which that cap applies, and control-group killing. Verify actual schedules, ExecStart generation/script, and runtime properties before stopping the old timers. Both bounded attempts must finish before the unchanged reservation deadline. The old cleanup scripts and timer configuration remain preserved as history.
+
+At review time the portability harness author was notified that its draft launcher used a different ownership label. That launcher must emit the three exact labels above for both permitted container names and bind them to the same reviewed generation before execution admission. Passing this cleanup review does not waive the separate harness, image, ABI, or live deployment gates. H2 remains PARK, and this correctness preparation adds no performance population.
