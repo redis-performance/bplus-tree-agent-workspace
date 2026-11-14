@@ -1,0 +1,76 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..c7277d3c2 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -215,8 +215,7 @@ struct zbtScoreNode {
+     uint8_t parent_index;    /* Our position in parent->child[]. */
+     uint8_t count;           /* Elements in a leaf, children in an inner node. */
+     uint8_t isleaf;          /* Non-zero for zbtScoreLeaf. */
+-    /* Only score leaves use these. They live in this header's padding so that
+-     * a score leaf still costs 56 bytes before its packed arrays. */
++    /* Only score leaves use these. They live in this header's padding. */
+     uint8_t score_shift;
+     uint8_t has_external;
+     uint8_t moved_out;       /* Page share moved out by score changes. */
+@@ -229,6 +228,7 @@ struct zbtScoreLeaf {
+     zbtScoreNode n;
+     zbtScoreLeaf *prev;
+     zbtScoreLeaf *next;
++    uint16_t score_bytes;   /* Cached packed-score extent, including spare bytes. */
+     uint64_t score_base;
+     uint32_t id;
+     uint8_t score_bits;
+@@ -354,8 +354,9 @@ static size_t zbtScoreLeafScoreBytes(unsigned int count,
+ 
+ /* Return the offset array that follows the packed scores. */
+ static inline uint16_t *zbtScoreLeafOffsets(zbtScoreLeaf *leaf) {
+-    return (uint16_t *)(leaf->data +
++    debugServerAssert(leaf->score_bytes ==
+         zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
++    return (uint16_t *)(leaf->data + leaf->score_bytes);
+ }
+ 
+ /* Return the hash-tag array that follows the offsets. */
+@@ -1024,6 +1025,7 @@ static zbtScoreLeaf *zbtScoreLeafBuild(zbtreeSet *zs, unsigned int count,
+     leaf->n.score_shift = score_shift;
+     leaf->score_base = score_base;
+     leaf->score_bits = score_bits;
++    leaf->score_bytes = zbtScoreLeafScoreBytes(count, score_bits);
+     memset(leaf->data, 0, zbtScoreLeafScoreBytes(count, score_bits));
+     offsets = zbtScoreLeafOffsets(leaf);
+     hash_tags = zbtScoreLeafHashTags(leaf);
+@@ -1425,6 +1427,7 @@ static int zbtScoreInsertInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+     leaf->n.score_shift = score_shift;
+     leaf->score_base = score_base;
+     leaf->score_bits = score_bits;
++    leaf->score_bytes = score_bytes;
+     leaf->record_start = new_offset;
+     memset(leaf->data, 0, score_bytes);
+ 
+@@ -1513,6 +1516,7 @@ static int zbtScoreInsertFast(zbtreeSet *zs, zbtScoreLeaf *leaf, double score,
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
++    leaf->score_bytes = score_bytes;
+     leaf->record_start = new_offset;
+     offsets[physical] = new_offset;
+     zbtScoreUpdatePath(&leaf->n, 1);
+@@ -2661,6 +2665,7 @@ static void zbtScoreDeleteInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
++    leaf->score_bytes = score_bytes;
+     if (compact_records) {
+         for (unsigned int i = 0; i < count; i++) {
+             if (offsets[i] < deleted_offset) offsets[i] += deleted_bytes;
+@@ -4595,6 +4600,10 @@ static long long zbtTestCheckNode(zbtScoreNode *node, zbtScoreInner *parent,
+                    "parent index");
+     if (node->isleaf) {
+         ZBT_TEST_CHECK(node->subtree == node->count, "leaf subtree");
++        zbtScoreLeaf *leaf = (zbtScoreLeaf *)node;
++        ZBT_TEST_CHECK(leaf->score_bytes ==
++                       zbtScoreLeafScoreBytes(node->count, leaf->score_bits),
++                       "cached score bytes");
+         return node->count;
+     }
+     zbtScoreInner *inner = (zbtScoreInner *)node;

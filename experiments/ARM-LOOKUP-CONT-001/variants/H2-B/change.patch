@@ -1,0 +1,289 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..d3562db8a 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -214,13 +214,11 @@ struct zbtScoreNode {
+     uint64_t subtree;        /* Elements represented by this node. */
+     uint8_t parent_index;    /* Our position in parent->child[]. */
+     uint8_t count;           /* Elements in a leaf, children in an inner node. */
+-    uint8_t isleaf;          /* Non-zero for zbtScoreLeaf. */
+-    /* Only score leaves use these. They live in this header's padding so that
+-     * a score leaf still costs 56 bytes before its packed arrays. */
+-    uint8_t score_shift;
+-    uint8_t has_external;
++    /* Six low bits hold the leaf score shift, then leaf/external flags. */
++    uint8_t flags;
+     uint8_t moved_out;       /* Page share moved out by score changes. */
+     uint16_t index_resize;   /* Resize that copied this leaf, zero if none. */
++    uint16_t score_bytes;    /* Cached packed-score allocation size for leaves. */
+ };
+ 
+ /* The data[] array starts with packed scores and offsets. Member records
+@@ -237,6 +235,33 @@ struct zbtScoreLeaf {
+     unsigned char data[];
+ };
+ 
++#define ZBT_NODE_SCORE_SHIFT_MASK 0x3f
++#define ZBT_NODE_IS_LEAF 0x40
++#define ZBT_NODE_HAS_EXTERNAL 0x80
++
++/* Explicit masks keep the header representation independent of C bitfields. */
++static inline int zbtScoreNodeIsLeaf(const zbtScoreNode *node) {
++    return (node->flags & ZBT_NODE_IS_LEAF) != 0;
++}
++
++static inline unsigned int zbtScoreLeafShift(const zbtScoreLeaf *leaf) {
++    return leaf->n.flags & ZBT_NODE_SCORE_SHIFT_MASK;
++}
++
++static inline void zbtScoreLeafSetShift(zbtScoreLeaf *leaf, unsigned int shift) {
++    serverAssert(shift <= ZBT_NODE_SCORE_SHIFT_MASK);
++    leaf->n.flags = (leaf->n.flags & ~ZBT_NODE_SCORE_SHIFT_MASK) | shift;
++}
++
++static inline int zbtScoreLeafHasExternal(const zbtScoreLeaf *leaf) {
++    return (leaf->n.flags & ZBT_NODE_HAS_EXTERNAL) != 0;
++}
++
++#if UINTPTR_MAX == UINT64_MAX
++_Static_assert(sizeof(zbtScoreNode) == 24, "score node header must stay 24 bytes");
++_Static_assert(offsetof(zbtScoreLeaf, data) == 56, "score leaf header must stay 56 bytes");
++#endif
++
+ /* max_score[] and child_count[] describe the child at the same index. */
+ struct zbtScoreInner {
+     zbtScoreNode n;
+@@ -354,8 +379,7 @@ static size_t zbtScoreLeafScoreBytes(unsigned int count,
+ 
+ /* Return the offset array that follows the packed scores. */
+ static inline uint16_t *zbtScoreLeafOffsets(zbtScoreLeaf *leaf) {
+-    return (uint16_t *)(leaf->data +
+-        zbtScoreLeafScoreBytes(leaf->n.count, leaf->score_bits));
++    return (uint16_t *)(leaf->data + leaf->n.score_bytes);
+ }
+ 
+ /* Return the hash-tag array that follows the offsets. */
+@@ -482,7 +506,7 @@ static void zbtScoreLeafWriteScore(zbtScoreLeaf *leaf, unsigned int pos,
+     uint64_t ordered = zbtScoreToOrdered(score);
+     uint64_t delta = leaf->reversed ? leaf->score_base - ordered :
+                                        ordered - leaf->score_base;
+-    delta >>= leaf->n.score_shift;
++    delta >>= zbtScoreLeafShift(leaf);
+     size_t bitpos = (size_t)zbtScoreLeafPhysicalPos(leaf, pos) * bits;
+     size_t byte = bitpos / 8;
+     unsigned int shift = bitpos & 7;
+@@ -510,7 +534,7 @@ static double zbtScoreLeafScore(zbtScoreLeaf *leaf, unsigned int pos) {
+             delta |= (uint64_t)leaf->data[byte + 8] << (64 - shift);
+         if (bits < 64)
+             delta &= (UINT64_C(1) << bits) - 1;
+-        delta <<= leaf->n.score_shift;
++        delta <<= zbtScoreLeafShift(leaf);
+     }
+     uint64_t ordered = leaf->reversed ? leaf->score_base - delta :
+                                          leaf->score_base + delta;
+@@ -808,7 +832,7 @@ static void zbtBuildElementDetach(zbtBuildElement *ele) {
+  * replacement leaf has a NULL pointer here because the builder cleared it.
+  * Records for deleted members remain non-NULL and are released now. */
+ static void zbtScoreLeafFreeOwned(zbtreeSet *zs, zbtScoreLeaf *leaf) {
+-    if (leaf->n.has_external) {
++    if (zbtScoreLeafHasExternal(leaf)) {
+         for (unsigned int i = 0; i < leaf->n.count; i++) {
+             unsigned char *record = zbtScoreLeafRecord(leaf, i);
+             if (record[0] != ZBT_PACKED_EXTERNAL) continue;
+@@ -871,7 +895,7 @@ static void zbtScoreReleaseLeafId(zbtreeSet *zs, uint32_t id) {
+ static const unsigned char *zbtScoreNodeMaxElement(zbtScoreNode *node,
+                                                    size_t *len)
+ {
+-    while (!node->isleaf) {
++    while (!zbtScoreNodeIsLeaf(node)) {
+         zbtScoreInner *inner = (zbtScoreInner *)node;
+         node = inner->child[inner->n.count - 1];
+     }
+@@ -881,7 +905,7 @@ static const unsigned char *zbtScoreNodeMaxElement(zbtScoreNode *node,
+ 
+ /* Return the greatest score below one score-tree node. */
+ static double zbtScoreNodeMaxScore(zbtScoreNode *node) {
+-    if (node->isleaf) {
++    if (zbtScoreNodeIsLeaf(node)) {
+         zbtScoreLeaf *leaf = (zbtScoreLeaf *)node;
+         return zbtScoreLeafScore(leaf, leaf->n.count - 1);
+     }
+@@ -1018,12 +1042,13 @@ static zbtScoreLeaf *zbtScoreLeafBuild(zbtreeSet *zs, unsigned int count,
+     serverAssert(request <= ZBT_SCORE_LEAF_BYTES);
+ 
+     memset(leaf, 0, offsetof(zbtScoreLeaf, data));
+-    leaf->n.isleaf = 1;
++    leaf->n.flags = ZBT_NODE_IS_LEAF;
+     leaf->n.count = count;
+     leaf->n.subtree = count;
+-    leaf->n.score_shift = score_shift;
++    zbtScoreLeafSetShift(leaf, score_shift);
+     leaf->score_base = score_base;
+     leaf->score_bits = score_bits;
++    leaf->n.score_bytes = zbtScoreLeafScoreBytes(count, score_bits);
+     memset(leaf->data, 0, zbtScoreLeafScoreBytes(count, score_bits));
+     offsets = zbtScoreLeafOffsets(leaf);
+     hash_tags = zbtScoreLeafHashTags(leaf);
+@@ -1043,7 +1068,7 @@ static zbtScoreLeaf *zbtScoreLeafBuild(zbtreeSet *zs, unsigned int count,
+         offsets[i] = (uint16_t)((char *)records - (char *)leaf);
+         hash_tags[i] = tags[i];
+         if (zbtBuildElementWrite(zs, records, &elems[i]))
+-            leaf->n.has_external = 1;
++            leaf->n.flags |= ZBT_NODE_HAS_EXTERNAL;
+     }
+     leaf->record_start = records - (unsigned char *)leaf;
+     zbtScoreRegisterLeaf(zs, leaf, id);
+@@ -1270,7 +1295,7 @@ static zbtScoreLeaf *zbtScoreFindLeaf(const zbtreeSet *zs, double score,
+ {
+     zbtScoreNode *node = zs->score_root;
+     if (node == NULL) return NULL;
+-    while (!node->isleaf) {
++    while (!zbtScoreNodeIsLeaf(node)) {
+         zbtScoreInner *inner = (zbtScoreInner *)node;
+         node = inner->child[zbtScoreChild(inner, score, ele, elelen)];
+     }
+@@ -1418,13 +1443,14 @@ static int zbtScoreInsertInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+     uint16_t new_offset = leaf->record_start - item_bytes;
+     if (zbtBuildElementWrite(zs, (unsigned char *)leaf + new_offset,
+                              &elems[inserted]))
+-        leaf->n.has_external = 1;
++        leaf->n.flags |= ZBT_NODE_HAS_EXTERNAL;
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
+-    leaf->n.score_shift = score_shift;
++    zbtScoreLeafSetShift(leaf, score_shift);
+     leaf->score_base = score_base;
+     leaf->score_bits = score_bits;
++    leaf->n.score_bytes = zbtScoreLeafScoreBytes(count, score_bits);
+     leaf->record_start = new_offset;
+     memset(leaf->data, 0, score_bytes);
+ 
+@@ -1453,7 +1479,7 @@ static int zbtScoreLeafPackScore(zbtScoreLeaf *leaf, double score,
+         return 0;
+     uint64_t delta = leaf->reversed ? leaf->score_base - ordered :
+                                        ordered - leaf->score_base;
+-    unsigned int shift = leaf->n.score_shift;
++    unsigned int shift = zbtScoreLeafShift(leaf);
+     if (delta & ((UINT64_C(1) << shift) - 1)) return 0;
+     delta >>= shift;
+     if (leaf->score_bits == 0) {
+@@ -1509,10 +1535,11 @@ static int zbtScoreInsertFast(zbtreeSet *zs, zbtScoreLeaf *leaf, double score,
+            oldcount - physical);
+     uint16_t new_offset = leaf->record_start - item_bytes;
+     if (zbtBuildElementWrite(zs, (unsigned char *)leaf + new_offset, ele))
+-        leaf->n.has_external = 1;
++        leaf->n.flags |= ZBT_NODE_HAS_EXTERNAL;
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
++    leaf->n.score_bytes = score_bytes;
+     leaf->record_start = new_offset;
+     offsets[physical] = new_offset;
+     zbtScoreUpdatePath(&leaf->n, 1);
+@@ -2661,6 +2688,7 @@ static void zbtScoreDeleteInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+ 
+     leaf->n.count = count;
+     leaf->n.subtree = count;
++    leaf->n.score_bytes = score_bytes;
+     if (compact_records) {
+         for (unsigned int i = 0; i < count; i++) {
+             if (offsets[i] < deleted_offset) offsets[i] += deleted_bytes;
+@@ -2818,7 +2846,7 @@ static void zbtScoreDeleteRun(zbtreeSet *zs, zbtScoreLeaf *score_leaf,
+ /* Free a tree recursively. Tree height is small because inner pages have high
+  * fanout, so recursion depth is bounded by the practical set size. */
+ static void zbtScoreFreeTree(zbtreeSet *zs, zbtScoreNode *node) {
+-    if (node->isleaf) {
++    if (zbtScoreNodeIsLeaf(node)) {
+         zbtScoreLeafFreeOwned(zs, (zbtScoreLeaf *)node);
+         return;
+     }
+@@ -2903,16 +2931,16 @@ static zbtScoreNode *zbtScoreDupTree(zbtreeSet *dst,
+                                      zbtScoreInner *parent,
+                                      unsigned int parent_index)
+ {
+-    size_t bytes = source->isleaf ? zmalloc_usable_size((void *)source) :
++    size_t bytes = zbtScoreNodeIsLeaf(source) ? zmalloc_usable_size((void *)source) :
+                                   sizeof(zbtScoreInner);
+     zbtScoreNode *copy = zbtAlloc(dst, bytes);
+     memcpy(copy, source, bytes);
+     copy->parent = parent;
+     copy->parent_index = parent_index;
+ 
+-    if (copy->isleaf) {
++    if (zbtScoreNodeIsLeaf(copy)) {
+         zbtScoreLeaf *leaf = (zbtScoreLeaf *)copy;
+-        if (leaf->n.has_external) {
++        if (zbtScoreLeafHasExternal(leaf)) {
+             for (unsigned int i = 0; i < leaf->n.count; i++) {
+                 unsigned char *record = zbtScoreLeafRecord(leaf, i);
+                 if (record[0] != ZBT_PACKED_EXTERNAL) continue;
+@@ -3030,7 +3058,7 @@ void zbtreeDismissMemory(zbtreeSet *zs) {
+     zbtScoreLeaf *leaf = zs->score_first;
+     while (leaf) {
+         zbtScoreLeaf *next = leaf->next;
+-        if (leaf->n.has_external) {
++        if (zbtScoreLeafHasExternal(leaf)) {
+             for (unsigned int i = 0; i < leaf->n.count; i++) {
+                 unsigned char *record = zbtScoreLeafRecord(leaf, i);
+                 if (record[0] == ZBT_PACKED_EXTERNAL)
+@@ -3139,7 +3167,7 @@ static zbtScoreNode *zbtDefragScoreNode(
+     else
+         zs->score_root = newnode;
+ 
+-    if (newnode->isleaf) {
++    if (zbtScoreNodeIsLeaf(newnode)) {
+         zbtScoreLeaf *leaf = (zbtScoreLeaf *)newnode;
+         if (leaf->prev) leaf->prev->next = leaf;
+         else zs->score_first = leaf;
+@@ -3931,7 +3959,7 @@ int zbtreeIteratorSeekRank(const zbtreeSet *zs, unsigned long rank,
+     }
+ 
+     zbtScoreNode *node = zs->score_root;
+-    while (!node->isleaf) {
++    while (!zbtScoreNodeIsLeaf(node)) {
+         zbtScoreInner *inner = (zbtScoreInner *)node;
+         unsigned int pos = 0;
+         while (rank >= inner->child_count[pos]) {
+@@ -3980,7 +4008,7 @@ int zbtreeIteratorSeekScore(const zbtreeSet *zs, double score, int exclusive,
+         return 0;
+     }
+ 
+-    while (!node->isleaf) {
++    while (!zbtScoreNodeIsLeaf(node)) {
+         zbtScoreInner *inner = (zbtScoreInner *)node;
+         unsigned int pos = 0;
+         if (reverse) {
+@@ -4162,7 +4190,7 @@ static unsigned long zbtScoreRankForBound(const zbtreeSet *zs, double score,
+     unsigned long rank = 0;
+     if (node == NULL) return 0;
+ 
+-    while (!node->isleaf) {
++    while (!zbtScoreNodeIsLeaf(node)) {
+         zbtScoreInner *inner = (zbtScoreInner *)node;
+         unsigned int pos = 0;
+         while (pos + 1 < inner->n.count &&
+@@ -4593,7 +4621,7 @@ static long long zbtTestCheckNode(zbtScoreNode *node, zbtScoreInner *parent,
+     ZBT_TEST_CHECK(node->parent == parent, "parent pointer");
+     ZBT_TEST_CHECK(parent == NULL || node->parent_index == index,
+                    "parent index");
+-    if (node->isleaf) {
++    if (zbtScoreNodeIsLeaf(node)) {
+         ZBT_TEST_CHECK(node->subtree == node->count, "leaf subtree");
+         return node->count;
+     }
+@@ -4619,12 +4647,12 @@ static long long zbtTestCheckNode(zbtScoreNode *node, zbtScoreInner *parent,
+  * records own. */
+ static size_t zbtTestNodeAllocSize(zbtScoreNode *node) {
+     size_t bytes = zmalloc_usable_size(node);
+-    if (node->isleaf) {
++    if (zbtScoreNodeIsLeaf(node)) {
+         zbtScoreLeaf *leaf = (zbtScoreLeaf *)node;
+         for (unsigned int i = 0; i < leaf->n.count; i++) {
+             unsigned char *record = zbtScoreLeafRecord(leaf, i);
+             if (record[0] != ZBT_PACKED_EXTERNAL) continue;
+-            serverAssert(leaf->n.has_external);
++            serverAssert(zbtScoreLeafHasExternal(leaf));
+             bytes += zmalloc_usable_size(zbtExternalPointer(record));
+         }
+     } else {
