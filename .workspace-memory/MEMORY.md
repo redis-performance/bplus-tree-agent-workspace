@@ -1,3 +1,15 @@
+<!-- ARM-CONT-ACTIVE -->
+Six-hour continuation ACTIVE through2026-11-14 07:24:14UTC; final30min review/cleanup.
+H1 native216rows all3REJECT: besthit−6.787% loses score/miss/update. SourceNONE.
+Two qualification attempts PARK preserved; renewednative72AA/18blocks pass.
+H2 threeisolated metadata implementations active; Intel independently reserved,
+Parca temporarily stopped/CPU50offline with independent exact-state cleanup.
+ARM lease renewed after automatic release; live ownership private, no localtiming.
+38completedattempts20PARK18REJECT0approved;24populations, activeworknotcounted.
+Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H1-RESULTS}.md.
+Keep working throughwindow across supported options; no unchangedfailedretry.
+<!-- ARM-CONT-ACTIVE-END -->
+
 <!-- ARM-LOOKUP-GAP-CURRENT -->
 Current-unstable ARM lookup investigation CLOSED/REJECT, source selection NONE.
 Baseline ee8e7f70152404649ac947157fd662d11b4a00d5 verified again22:43:51UTC.

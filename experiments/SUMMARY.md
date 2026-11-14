@@ -1,5 +1,12 @@
 # Experiment summary
 
+## 14 November: overnight continuation active; helper population rejected
+
+[Overnight queue/deadline](ARM-LOOKUP-CONT-001/OVERNIGHT.md): authorized through07:24:14UTC, final30minutes review/cleanup. Upstream ee8e7f701 remains pinned. Two frozen qualification attempts remain PARK (short update windows; then one noisy LTO updateblock), with all288rows retained. Renewed native qualification passes72rows/18blocks before H1 discovery. [H1](ARM-LOOKUP-CONT-001/H1-RESULTS.md) retains216rows and three independently implemented/correctness-qualified patches: all REJECT on primary/guard gates. Best membership median−6.787% loses score/miss/update. No source adopted. H2 metadata population and independent Intel controls are active; no final campaign verdict yet.
+
+Completed-decision ledger adds two qualification attempts and one native population: **38attempts /20PARK /18REJECT /0approved; ARM28 /Intel5 /AMD5;24populations,5replications,9qualificationattempts.** Renewed native controls belong to H1, not an extra attempt. Active work is not counted as a completed decision. Qualification and H1 review remains in progress; all raw evidence preserved.
+
+
 ## 13 November: current-unstable ARM membership lookup — REJECT
 
 [Investigation](ARM-LOOKUP-GAP-001/RESULTS.md) pins upstream unstable

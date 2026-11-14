@@ -1,7 +1,13 @@
 <!-- ARM-CONT-ACTIVE -->
-ARM lookup continuation STARTED; distinct helper/tag/metadata investigations active.
-Prior ARM-LOOKUP-GAP-001 sealed and its rejection unchanged. No source acceptance.
-Current upstream freshly checked ee8e7f701. See experiments/ARM-LOOKUP-CONT-001/README.md.
+Six-hour continuation ACTIVE through2026-11-14 07:24:14UTC; final30min review/cleanup.
+H1 native216rows all3REJECT: besthit−6.787% loses score/miss/update. SourceNONE.
+Two qualification attempts PARK preserved; renewednative72AA/18blocks pass.
+H2 threeisolated metadata implementations active; Intel independently reserved,
+Parca temporarily stopped/CPU50offline with independent exact-state cleanup.
+ARM lease renewed after automatic release; live ownership private, no localtiming.
+38completedattempts20PARK18REJECT0approved;24populations, activeworknotcounted.
+Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H1-RESULTS}.md.
+Keep working throughwindow across supported options; no unchangedfailedretry.
 <!-- ARM-CONT-ACTIVE-END -->
 
 <!-- ARM-LOOKUP-GAP-CURRENT -->

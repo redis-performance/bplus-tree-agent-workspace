@@ -2,12 +2,9 @@
 
 Packed B+ tree and compact member-index benchmarks from [Redis PR #15635](https://github.com/redis/redis/pull/15635). Standalone C; no Redis server.
 
-**Latest investigation: ARM membership lookup.** The qualified standalone baseline is synchronized with Redis `unstable` at [`ee8e7f701524`](https://github.com/redis/redis/commit/ee8e7f70152404649ac947157fd662d11b4a00d5), verified on 13 November 2026. [Current source and dependencies](experiments/ARM-LOOKUP-GAP-001/current/) · [Exact source manifest](experiments/ARM-LOOKUP-GAP-001/unstable-manifest.json).
+**Overnight continuation active through 14 November,07:24UTC.** Current baseline is Redis unstable [`ee8e7f701524`](https://github.com/redis/redis/commit/ee8e7f70152404649ac947157fd662d11b4a00d5). Three helper-boundary candidates are rejected: the best membership gain(6.79%) regresses guards. Independent metadata work and Intel qualification are underway. [Live status](experiments/ARM-LOOKUP-CONT-001/STATUS.md) · [Queue](experiments/ARM-LOOKUP-CONT-001/OVERNIGHT.md) · [Helper results](experiments/ARM-LOOKUP-CONT-001/H1-RESULTS.md).
 
-All 48 baseline measurements and 144 candidate measurements completed. Three scalar candidates improved discovery medians by 1.39–1.84%, below the 2% acceptance threshold; none was adopted. [Full results](experiments/ARM-LOOKUP-GAP-001/RESULTS.md) · [Independent review](experiments/ARM-LOOKUP-GAP-001/review/FINAL.md).
-
-**35 experiment attempts: 18 parked · 17 rejected · 0 approved.**
-ARM 25 · Intel 5 · AMD 5. Includes 23 new populations, 5 replications and 7 qualification attempts; shared Apple history counted once. No optimization adopted; historical source and sealed experiments remain reproducible.
+**38 completed experiment attempts:20parked ·18rejected ·0approved.** ARM28 ·Intel5 ·AMD5. Includes24populations,5replications,9qualification attempts; active work excluded. No optimization adopted. [Earlier sealed ARM investigation](experiments/ARM-LOOKUP-GAP-001/RESULTS.md).
 
 Historical architecture charts (through20 October; current counts above):
 
