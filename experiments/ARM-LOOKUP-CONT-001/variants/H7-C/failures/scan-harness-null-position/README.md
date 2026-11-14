@@ -1,0 +1,1 @@
+The initial focused scan harness passed NULL to zbtreeUpdateScore, which requires a valid insertion-position result. The unchanged baseline crashed before any candidate scan execution. Backtrace and exact failed harness retained. Correct the test to call zbtreeFindForAdd first; candidate source is unchanged. This is a harness failure, not a candidate pass or failure.

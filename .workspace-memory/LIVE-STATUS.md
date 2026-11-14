@@ -2,10 +2,10 @@
 Six-hour continuation active through 2026-11-14 07:24:14 UTC; final 30 minutes review/cleanup.
 H1 rejected. H2-B passes original six cases and five supplemental guards on ARM/Intel
 native/LTO; C rejected on iterator guards. Fresh seeds and matched-profile review pending.
-H3 A/B pass native ARM but fail Intel guards; C rejected. H4/H6 rejected; H5 target running; H7 exact-mask implementations active.
+H3 A/B pass native ARM but fail Intel guards; C rejected. H4/H5/H6 rejected; H2 held-out confirmations running; H7 source review passes; H8 implementations active.
 AMD qualification failed both compilers: no candidate timing. All failures retained.
-44 completed attempts: 23 PARK, 21 REJECT, 0 approved; ARM32/Intel6/AMD6;
-27 populations / 5 replications / 12 qualifications. Active populations excluded.
+45 completed attempts: 23 PARK, 22 REJECT, 0 approved; ARM33/Intel6/AMD6;
+28 populations / 5 replications / 12 qualifications. Active populations excluded.
 ARM/Intel private leases with independent cleanup; AMD released and independently verified. No local measurements.
 Read experiments/ARM-LOOKUP-CONT-001/STATUS.md. Continue through authorized window.
 <!-- ARM-CONT-ACTIVE-END -->

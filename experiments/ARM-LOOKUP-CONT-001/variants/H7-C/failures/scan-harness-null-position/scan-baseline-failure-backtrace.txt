@@ -1,0 +1,14 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555561f35 in zbtreeUpdateScore (zs=zs@entry=0x5555555752a0, ele=ele@entry=0x555555575331 "", score=-1000, position=position@entry=0x0) at WORKSPACE/build/arm-cont-private/worktrees/H7-C/build/arm-cont-private/baseline.c:3742
+3742	    zbtScoreLeaf *oldleaf = position->score_leaf;
+#0  0x0000555555561f35 in zbtreeUpdateScore (zs=zs@entry=0x5555555752a0, ele=ele@entry=0x555555575331 "", score=-1000, position=position@entry=0x0) at WORKSPACE/build/arm-cont-private/worktrees/H7-C/build/arm-cont-private/baseline.c:3742
+#1  0x0000555555555608 in main () at experiments/ARM-LOOKUP-CONT-001/variants/H7-C/scan_oracle.c:95

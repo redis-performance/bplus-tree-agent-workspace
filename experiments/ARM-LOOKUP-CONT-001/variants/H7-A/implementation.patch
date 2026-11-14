@@ -1,0 +1,35 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..14ef277e1 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1861,6 +1861,15 @@ static inline uint64_t zbtIndexTagMask(uint64_t tags, uint8_t tag) {
+            UINT64_C(0x8080808080808080);
+ }
+ 
++/* Return only true matching bytes, allowing lookup to consume each bit
++ * without rechecking its tag. Low seven bits plus 127 cannot carry between
++ * bytes; OR with x also rejects bytes whose original high bit was set. */
++static inline uint64_t zbtIndexExactTagMask(uint64_t tags, uint8_t tag) {
++    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
++    uint64_t low = UINT64_C(0x7f7f7f7f7f7f7f7f);
++    return ~(((x & low) + low) | x | low);
++}
++
+ /* Return the first matching byte position in a non-zero tag mask. */
+ static inline unsigned int zbtIndexFirstTag(uint64_t mask) {
+     return __builtin_ctzll(mask) >> 3;
+@@ -1977,13 +1986,9 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
+-        uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
++        uint64_t matches = zbtIndexExactTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+-                matches &= matches - 1;
+-                continue;
+-            }
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {

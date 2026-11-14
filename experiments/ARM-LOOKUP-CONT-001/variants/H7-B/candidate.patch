@@ -1,0 +1,51 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..35125c524 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1861,6 +1861,17 @@ static inline uint64_t zbtIndexTagMask(uint64_t tags, uint8_t tag) {
+            UINT64_C(0x8080808080808080);
+ }
+ 
++/* Set only the high bits of bytes equal to tag. Each unsigned byte of x &
++ * low has value 0..127, so adding 127 produces 127..254 without a carry into
++ * the next byte. Its high bit stays clear only for a zero low-seven-bit
++ * value; OR with x also excludes bytes whose original high bit was set.
++ * OR with low clears every non-high bit after the complement. */
++static inline uint64_t zbtIndexExactTagMask(uint64_t tags, uint8_t tag) {
++    const uint64_t low = UINT64_C(0x7f7f7f7f7f7f7f7f);
++    uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
++    return ~(((x & low) + low) | x | low);
++}
++
+ /* Return the first matching byte position in a non-zero tag mask. */
+ static inline unsigned int zbtIndexFirstTag(uint64_t mask) {
+     return __builtin_ctzll(mask) >> 3;
+@@ -1977,13 +1988,9 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
+-        uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
++        uint64_t matches = zbtIndexExactTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+-                matches &= matches - 1;
+-                continue;
+-            }
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {
+@@ -2066,11 +2073,10 @@ static int zbtIndexTableFindReference(zbtIndexTable *table, uint32_t hash,
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
+-        uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
++        uint64_t matches = zbtIndexExactTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) == tag &&
+-                zbtIndexGetId(table, bucket, pos) == id)
++            if (zbtIndexGetId(table, bucket, pos) == id)
+             {
+                 *found_bucket = bucket;
+                 *found_pos = pos;

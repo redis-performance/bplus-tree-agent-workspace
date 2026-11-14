@@ -1,0 +1,186 @@
+0000000000005020 <zbtIndexTableFindReference>:
+    5020:	4c 8b 5f 08          	mov    0x8(%rdi),%r11
+    5024:	45 31 d2             	xor    %r10d,%r10d
+    5027:	4d 85 db             	test   %r11,%r11
+    502a:	0f 84 e8 01 00 00    	je     5218 <zbtIndexTableFindReference+0x1f8>
+    5030:	55                   	push   %rbp
+    5031:	89 f0                	mov    %esi,%eax
+    5033:	41 89 d1             	mov    %edx,%r9d
+    5036:	48 89 ca             	mov    %rcx,%rdx
+    5039:	48 b9 02 00 00 08 80 	movabs $0x8008000002,%rcx
+    5040:	00 00 00 
+    5043:	48 89 e5             	mov    %rsp,%rbp
+    5046:	41 57                	push   %r15
+    5048:	4d 89 c7             	mov    %r8,%r15
+    504b:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    5051:	41 56                	push   %r14
+    5053:	41 55                	push   %r13
+    5055:	4d 8d 6b ff          	lea    -0x1(%r11),%r13
+    5059:	41 54                	push   %r12
+    505b:	44 21 ee             	and    %r13d,%esi
+    505e:	c1 e8 18             	shr    $0x18,%eax
+    5061:	53                   	push   %rbx
+    5062:	74 3d                	je     50a1 <zbtIndexTableFindReference+0x81>
+    5064:	41 89 c0             	mov    %eax,%r8d
+    5067:	41 ba 01 00 00 00    	mov    $0x1,%r10d
+    506d:	89 c1                	mov    %eax,%ecx
+    506f:	48 bb 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rbx
+    5076:	79 37 9e 
+    5079:	49 0f af d8          	imul   %r8,%rbx
+    507d:	4d 89 d6             	mov    %r10,%r14
+    5080:	49 d3 e6             	shl    %cl,%r14
+    5083:	4c 89 f0             	mov    %r14,%rax
+    5086:	48 89 d9             	mov    %rbx,%rcx
+    5089:	48 c1 eb 24          	shr    $0x24,%rbx
+    508d:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    5091:	48 0f ab c8          	bts    %rcx,%rax
+    5095:	48 89 d9             	mov    %rbx,%rcx
+    5098:	49 d3 e2             	shl    %cl,%r10
+    509b:	4c 89 d1             	mov    %r10,%rcx
+    509e:	48 09 c1             	or     %rax,%rcx
+    50a1:	44 8b 57 20          	mov    0x20(%rdi),%r10d
+    50a5:	4c 8b 27             	mov    (%rdi),%r12
+    50a8:	45 85 d2             	test   %r10d,%r10d
+    50ab:	0f 85 cf 00 00 00    	jne    5180 <zbtIndexTableFindReference+0x160>
+    50b1:	48 89 f0             	mov    %rsi,%rax
+    50b4:	48 c1 e0 05          	shl    $0x5,%rax
+    50b8:	49 8b 5c 04 08       	mov    0x8(%r12,%rax,1),%rbx
+    50bd:	48 21 cb             	and    %rcx,%rbx
+    50c0:	48 39 cb             	cmp    %rcx,%rbx
+    50c3:	0f 85 a1 00 00 00    	jne    516a <zbtIndexTableFindReference+0x14a>
+    50c9:	48 b8 01 01 01 01 01 	movabs $0x101010101010101,%rax
+    50d0:	01 01 01 
+    50d3:	48 c7 45 d0 00 00 00 	movq   $0x0,-0x30(%rbp)
+    50da:	00 
+    50db:	49 be 7f 7f 7f 7f 7f 	movabs $0x7f7f7f7f7f7f7f7f,%r14
+    50e2:	7f 7f 7f 
+    50e5:	4c 0f af c0          	imul   %rax,%r8
+    50e9:	4c 89 5d c0          	mov    %r11,-0x40(%rbp)
+    50ed:	44 89 55 bc          	mov    %r10d,-0x44(%rbp)
+    50f1:	4c 89 45 c8          	mov    %r8,-0x38(%rbp)
+    50f5:	41 b8 ff ff ff ff    	mov    $0xffffffff,%r8d
+    50fb:	48 89 f7             	mov    %rsi,%rdi
+    50fe:	48 8b 45 c8          	mov    -0x38(%rbp),%rax
+    5102:	48 c1 e7 05          	shl    $0x5,%rdi
+    5106:	4c 01 e7             	add    %r12,%rdi
+    5109:	4c 8b 1f             	mov    (%rdi),%r11
+    510c:	4c 31 d8             	xor    %r11,%rax
+    510f:	48 89 c1             	mov    %rax,%rcx
+    5112:	4c 21 f1             	and    %r14,%rcx
+    5115:	4c 01 f1             	add    %r14,%rcx
+    5118:	48 09 c1             	or     %rax,%rcx
+    511b:	4c 09 f1             	or     %r14,%rcx
+    511e:	48 83 f1 ff          	xor    $0xffffffffffffffff,%rcx
+    5122:	75 19                	jne    513d <zbtIndexTableFindReference+0x11d>
+    5124:	e9 f7 00 00 00       	jmp    5220 <zbtIndexTableFindReference+0x200>
+    5129:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    5130:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+    5134:	48 21 c1             	and    %rax,%rcx
+    5137:	0f 84 e3 00 00 00    	je     5220 <zbtIndexTableFindReference+0x200>
+    513d:	31 c0                	xor    %eax,%eax
+    513f:	f3 48 0f bc c1       	tzcnt  %rcx,%rax
+    5144:	c1 f8 03             	sar    $0x3,%eax
+    5147:	41 89 c2             	mov    %eax,%r10d
+    514a:	46 0f b7 54 57 10    	movzwl 0x10(%rdi,%r10,2),%r10d
+    5150:	66 41 83 fa ff       	cmp    $0xffff,%r10w
+    5155:	45 0f 44 d0          	cmove  %r8d,%r10d
+    5159:	45 39 d1             	cmp    %r10d,%r9d
+    515c:	75 d2                	jne    5130 <zbtIndexTableFindReference+0x110>
+    515e:	48 89 3a             	mov    %rdi,(%rdx)
+    5161:	41 ba 01 00 00 00    	mov    $0x1,%r10d
+    5167:	41 89 07             	mov    %eax,(%r15)
+    516a:	44 89 d0             	mov    %r10d,%eax
+    516d:	5b                   	pop    %rbx
+    516e:	41 5c                	pop    %r12
+    5170:	41 5d                	pop    %r13
+    5172:	41 5e                	pop    %r14
+    5174:	41 5f                	pop    %r15
+    5176:	5d                   	pop    %rbp
+    5177:	c3                   	ret
+    5178:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    517f:	00 
+    5180:	48 8d 04 36          	lea    (%rsi,%rsi,1),%rax
+    5184:	45 31 d2             	xor    %r10d,%r10d
+    5187:	48 8d 3c 30          	lea    (%rax,%rsi,1),%rdi
+    518b:	48 c1 e7 04          	shl    $0x4,%rdi
+    518f:	49 8b 5c 3c 08       	mov    0x8(%r12,%rdi,1),%rbx
+    5194:	48 21 cb             	and    %rcx,%rbx
+    5197:	48 39 cb             	cmp    %rcx,%rbx
+    519a:	75 ce                	jne    516a <zbtIndexTableFindReference+0x14a>
+    519c:	48 b9 01 01 01 01 01 	movabs $0x101010101010101,%rcx
+    51a3:	01 01 01 
+    51a6:	4c 89 5d d0          	mov    %r11,-0x30(%rbp)
+    51aa:	45 31 f6             	xor    %r14d,%r14d
+    51ad:	48 bb 7f 7f 7f 7f 7f 	movabs $0x7f7f7f7f7f7f7f7f,%rbx
+    51b4:	7f 7f 7f 
+    51b7:	4c 0f af c1          	imul   %rcx,%r8
+    51bb:	48 8d 3c 30          	lea    (%rax,%rsi,1),%rdi
+    51bf:	48 c1 e7 04          	shl    $0x4,%rdi
+    51c3:	4c 01 e7             	add    %r12,%rdi
+    51c6:	4c 8b 1f             	mov    (%rdi),%r11
+    51c9:	4c 89 d8             	mov    %r11,%rax
+    51cc:	4c 31 c0             	xor    %r8,%rax
+    51cf:	48 89 c1             	mov    %rax,%rcx
+    51d2:	48 21 d9             	and    %rbx,%rcx
+    51d5:	48 01 d9             	add    %rbx,%rcx
+    51d8:	48 09 c1             	or     %rax,%rcx
+    51db:	48 09 d9             	or     %rbx,%rcx
+    51de:	48 83 f1 ff          	xor    $0xffffffffffffffff,%rcx
+    51e2:	75 15                	jne    51f9 <zbtIndexTableFindReference+0x1d9>
+    51e4:	e9 87 00 00 00       	jmp    5270 <zbtIndexTableFindReference+0x250>
+    51e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    51f0:	48 8d 41 ff          	lea    -0x1(%rcx),%rax
+    51f4:	48 21 c1             	and    %rax,%rcx
+    51f7:	74 77                	je     5270 <zbtIndexTableFindReference+0x250>
+    51f9:	31 c0                	xor    %eax,%eax
+    51fb:	f3 48 0f bc c1       	tzcnt  %rcx,%rax
+    5200:	c1 f8 03             	sar    $0x3,%eax
+    5203:	41 89 c2             	mov    %eax,%r10d
+    5206:	46 3b 4c 97 10       	cmp    0x10(%rdi,%r10,4),%r9d
+    520b:	75 e3                	jne    51f0 <zbtIndexTableFindReference+0x1d0>
+    520d:	e9 4c ff ff ff       	jmp    515e <zbtIndexTableFindReference+0x13e>
+    5212:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    5218:	44 89 d0             	mov    %r10d,%eax
+    521b:	c3                   	ret
+    521c:	0f 1f 40 00          	nopl   0x0(%rax)
+    5220:	48 b9 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rcx
+    5227:	fe fe fe 
+    522a:	4c 89 d8             	mov    %r11,%rax
+    522d:	48 f7 d0             	not    %rax
+    5230:	49 01 cb             	add    %rcx,%r11
+    5233:	48 b9 80 80 80 80 80 	movabs $0x8080808080808080,%rcx
+    523a:	80 80 80 
+    523d:	4c 21 d8             	and    %r11,%rax
+    5240:	48 85 c8             	test   %rcx,%rax
+    5243:	75 1a                	jne    525f <zbtIndexTableFindReference+0x23f>
+    5245:	48 83 c6 01          	add    $0x1,%rsi
+    5249:	48 83 45 d0 01       	addq   $0x1,-0x30(%rbp)
+    524e:	48 8b 45 d0          	mov    -0x30(%rbp),%rax
+    5252:	4c 21 ee             	and    %r13,%rsi
+    5255:	48 39 45 c0          	cmp    %rax,-0x40(%rbp)
+    5259:	0f 85 9c fe ff ff    	jne    50fb <zbtIndexTableFindReference+0xdb>
+    525f:	44 8b 55 bc          	mov    -0x44(%rbp),%r10d
+    5263:	e9 02 ff ff ff       	jmp    516a <zbtIndexTableFindReference+0x14a>
+    5268:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    526f:	00 
+    5270:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    5277:	fe fe fe 
+    527a:	48 b9 80 80 80 80 80 	movabs $0x8080808080808080,%rcx
+    5281:	80 80 80 
+    5284:	4c 01 d8             	add    %r11,%rax
+    5287:	49 f7 d3             	not    %r11
+    528a:	4c 21 d8             	and    %r11,%rax
+    528d:	48 85 c8             	test   %rcx,%rax
+    5290:	75 1a                	jne    52ac <zbtIndexTableFindReference+0x28c>
+    5292:	48 83 c6 01          	add    $0x1,%rsi
+    5296:	49 83 c6 01          	add    $0x1,%r14
+    529a:	4c 21 ee             	and    %r13,%rsi
+    529d:	4c 39 75 d0          	cmp    %r14,-0x30(%rbp)
+    52a1:	74 09                	je     52ac <zbtIndexTableFindReference+0x28c>
+    52a3:	48 8d 04 36          	lea    (%rsi,%rsi,1),%rax
+    52a7:	e9 0f ff ff ff       	jmp    51bb <zbtIndexTableFindReference+0x19b>
+    52ac:	45 31 d2             	xor    %r10d,%r10d
+    52af:	e9 b6 fe ff ff       	jmp    516a <zbtIndexTableFindReference+0x14a>
+    52b4:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    52bb:	00 00 00 00 
+    52bf:	90                   	nop

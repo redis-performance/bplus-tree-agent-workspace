@@ -1,5 +1,11 @@
 # Experiment summary
 
+## 14 November: resize-boundary population rejected
+
+H5 closes REJECT/NONE after independent reconstruction of 288 comparison and 216 A/A rows. A passes native ARM and Intel but improves the ARM target only 0.519–0.531%, below the 2% primary gate. B fails static admission; C fails native primary. All artifacts remain retained. [Result](ARM-LOOKUP-CONT-001/H5-RESULTS.md).
+
+Current completed total: **45 attempts: 23 PARK, 22 REJECT, 0 approved; ARM33 / Intel6 / AMD6; 28 populations, 5 replications, 12 qualifications**. H2, H7 and H8 remain active and excluded. H2's fresh confirmations are underway; H7 correctness/source review passes with fleet static gates pending; H8 is a separate isolated classification hypothesis.
+
 ## 14 November: filter-boundary and descriptor populations rejected
 
 [H4](ARM-LOOKUP-CONT-001/H4-RESULTS.md) retains432 ARM/Intel comparison rows; its last surviving variant fails Intel miss guards in all three blocks. [H6](ARM-LOOKUP-CONT-001/H6-RESULTS.md) retains216 ARM rows; all primary cases miss2%, despite verified code generation. Independent raw/ELF reviews confirm both decisions. No further candidate timing or source adoption.

@@ -1,0 +1,66 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..8ab3a15cc 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1852,13 +1852,13 @@ static inline int zbtIndexHomeMayContain(const zbtIndexTable *table,
+     return (*zbtIndexHomeTagsAt(table, home) & bits) == bits;
+ }
+ 
+-/* Return a mask with the high bit set in every byte equal to tag. As with
+- * the usual zero-byte test, a bit above a real match may also be set. Every
+- * candidate is therefore checked against the stored byte before use. */
++/* Return exactly the high bit of each byte equal to tag. Adding 127 to each
++ * byte's low seven bits cannot carry into another byte. A result byte has
++ * its high bit clear only when both halves of the original byte were zero. */
+ static inline uint64_t zbtIndexTagMask(uint64_t tags, uint8_t tag) {
+     uint64_t x = tags ^ (UINT64_C(0x0101010101010101) * tag);
+-    return (x - UINT64_C(0x0101010101010101)) & ~x &
+-           UINT64_C(0x8080808080808080);
++    const uint64_t low = UINT64_C(0x7f7f7f7f7f7f7f7f);
++    return ~(((x & low) + low) | x | low);
+ }
+ 
+ /* Return the first matching byte position in a non-zero tag mask. */
+@@ -1980,10 +1980,6 @@ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+         uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+-                matches &= matches - 1;
+-                continue;
+-            }
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {
+@@ -2069,8 +2065,7 @@ static int zbtIndexTableFindReference(zbtIndexTable *table, uint32_t hash,
+         uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
+             unsigned int pos = zbtIndexFirstTag(matches);
+-            if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) == tag &&
+-                zbtIndexGetId(table, bucket, pos) == id)
++            if (zbtIndexGetId(table, bucket, pos) == id)
+             {
+                 *found_bucket = bucket;
+                 *found_pos = pos;
+@@ -4204,9 +4199,8 @@ static inline uint64_t zbtLeafTagWord(const uint8_t *tags) {
+ /* Store the logical positions of the leaf tags that an index tag can stand
+  * for, and return their number. 'tags' is the physical array, which is in
+  * reverse order when 'reversed' is set. zbtIndexTag() folds leaf tag zero
+- * into one. Eight tags are compared at once. As with bucket tags, a mask bit
+- * can be set above a real match, so each candidate is checked against its
+- * byte. Only complete words are loaded: member records follow the tags. */
++ * into one. Eight tags are compared at once using exact masks. Only complete
++ * words are loaded: member records follow the tags. */
+ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+                                              unsigned int count, int reversed,
+                                              uint8_t tag,
+@@ -4221,8 +4215,7 @@ static inline unsigned int zbtLeafTagMatches(const uint8_t *tags,
+         if (tag == 1) mask |= zbtIndexTagMask(word, 0);
+         while (mask) {
+             unsigned int pos = w * 8 + zbtIndexFirstTag(mask);
+-            if (tags[pos] == tag || (tag == 1 && tags[pos] == 0))
+-                positions[found++] = reversed ? last - pos : pos;
++            positions[found++] = reversed ? last - pos : pos;
+             mask &= mask - 1;
+         }
+     }
