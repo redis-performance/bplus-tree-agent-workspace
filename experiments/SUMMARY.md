@@ -1,5 +1,11 @@
 # Experiment summary
 
+## 14 November: profiler-off qualification parked
+
+[Q4](ARM-LOOKUP-CONT-001/Q4-RESULTS.md) retains72 baseline rows: hit block0 fails at+1.019883%,17 other blocks pass. The fixed sequence stops before later seeds or any candidate. Independent review verifies every process/model/isolation join; no threshold waiver. H2 remains PARK. [H8](ARM-LOOKUP-CONT-001/H8-READINESS.md) is statically eligible but its prepared timing collector and proposed H2R1 replication are not admitted after Q4 fails.
+
+Current completed total: **47 attempts: 25 PARK, 22 REJECT, 0 approved; ARM35 / Intel6 / AMD6; 29 populations, 5 replications, 13 qualifications**. Q4 adds one qualification protocol; unmeasured preparations add no attempt. Baseline structural and bounded counter diagnostics are separate from acceptance.
+
 ## 14 November: metadata population parked; exact-mask screen rejected
 
 [H2](ARM-LOOKUP-CONT-001/H2-RESULTS.md) closes PARK/NONE after one held-out ARM seed43 baseline block fails at −3.601147%. All 864 held-out rows and the cross-host scheduling deviation are retained and independently reviewed. Passing Intel results do not replace ARM controls. [H7](ARM-LOOKUP-CONT-001/H7-RESULTS.md) fails the static frame gate before timing and adds no measured population. H8 remains active; a separate baseline-only isolation qualification is prepared.

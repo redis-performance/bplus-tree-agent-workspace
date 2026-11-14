@@ -1,0 +1,15 @@
+# Q4 profiler-off baseline qualification: PARK / NONE
+
+The first fixed cohort, ARM target GCC15/LTO seed43, fails one of18 A/A blocks. Hit block0 is **+1.0198832566%**, above the unchanged absolute1% limit. All72 rows are retained. The other17 blocks pass; the minimum row is2,385.362127ms and all case memory endpoints match. The strict failure remains binding despite its small excess.
+
+The failed ABBA elapsed values are3,768,919,926;3,866,293,920;3,764,814,306;3,785,145,650ns. Both labels execute the same immutable original ELF77cab5362267de71388a294683e5b8d16bf2a0c599b9ef1313c870d669e39abb. No candidate executable ran, including verification. Target29/17 and native17 were not admitted after the failed first cohort. [Raw controls](Q4-results/Q4-lto-43/aa.jsonl), [complete analysis](Q4-results/Q4-lto-43/analysis.json) and [sequence decision](Q4-results/Q4-profiler-off/result.json) are retained.
+
+This changed isolation condition stopped the previously active/unrestricted system profiler under independently reviewed recovery. All original fixture, source, compiler, binary, seed, warmup, counts, clocks and thresholds stayed fixed. Q4 does not establish that the profiler caused or did not cause the original H2 failure. Original H2 remains PARK/NONE independently.
+
+Whole-child user CPU seconds in the failed block are3.784421/3.882117/3.780056/3.800633; involuntary context switches are29/27/25/27, and major faults are zero. These diagnostics include process startup, fixture construction, warmup and teardown. They are not timed-loop-only measurements or a causal diagnosis. A slower process also consumed more CPU time, but Q4 collected no retired-instruction/cycle counters or frequency record to explain it.
+
+H8's prepared profiler-off collector is NEVER ADMITTED because its complete-Q4-PASS dependency failed. The proposed H2R1 replication likewise remains NOT ADMITTED. No retry, longer window, threshold change or seed substitution follows this result. A separately scoped structural census may still collect algorithmic path counts; such counts do not qualify timings or select a source.
+
+All measurement/process records are published with original/published hash provenance. Operational service/process snapshots remain private for independent review. The owner fetched archives only after the whole unit was inactive and a second live MainPID0 assertion passed. The tool transcript records that sequential precondition, but a separate timestamped precondition record was not persisted; the independent audit must distinguish that owner attestation from reconstructible captured evidence. Earlier bounded progress queries did not fetch archives.
+
+[Independent raw review](reviews/Q4-FINAL.md) confirms the complete evidence and PARK decision. This adds exactly one qualification protocol:47 completed attempts,25 PARK,22 REJECT,0 approved; ARM35/Intel6/AMD6;29 populations,5 replications,13 qualifications. No source is accepted. ARM Frontend_Bound, Bad_Speculation, Backend_Bound, Retiring and children remain unavailable. No candidate profile or optimization gain follows from Q4.
