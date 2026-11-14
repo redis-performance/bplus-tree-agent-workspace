@@ -1,6 +1,6 @@
 # Overnight ARM lookup investigation — 14 November 2026
 
-**No optimization is accepted.** H1/H3/H4/H5/H6 were rejected, H2-B remains parked after failed held-out ARM controls, H7 failed its static frame gate, and H8 was never admitted to timing. The fixed slot-hint census passed all 12 runs but exercised stable hints only. The separate lifecycle correctness diagnostic passed all seven fixed checkpoints. All campaign reservations are released with independent restoration checks. The authorized window remains active through 07:24:14 UTC for reporting and artifact review.
+**No optimization is accepted.** H1/H3/H4/H5/H6 were rejected, H2-B remains parked after failed held-out ARM controls, H7 failed its static frame gate, and H8 was never admitted to timing. The fixed slot-hint census passed all 12 runs but exercised stable hints only. The separate lifecycle correctness diagnostic passed all seven fixed checkpoints. All campaign reservations are released with independent restoration checks. The full authorized six-hour window ended at 07:24:14 UTC after reporting and artifact review.
 
 The strongest retained lead is H2-B: held-out seed 29 primary elapsed changes are −5.175%,−5.136%,−5.313% on the ARM target and −4.813%,−4.784%,−4.732% on the Intel target, with all eleven cases passing. It remains PARK because the next ARM seed 43 A/A control failed before any candidate comparison. The roughly 8% H2-C target gain is rejected by 20–25% iterator regressions and is not an alternate success.
 
@@ -105,7 +105,7 @@ Native-only gains, profile fractions, correctness passes and unexecuted ELF buil
 
 All campaign reservations are released: AMD 02:47:49 UTC, ARM 04:40:22, Intel 06:27:53. Independent checks confirm saved coordinator/profiler/CPU state and absent owned workloads. Intel's first release attempt stopped before restoration because systemd had unloaded the completed transient service. A narrow 37-test repair received independent code and deployment review, preserved the original script/failed lease/journal, and restored the same reservation without extending it. The independent 06:30:30 check confirms restored state, all four recovery timers inactive and seven unrelated containers unchanged. [Restoration record and proof hashes](FLEET-RESTORATION.md).
 
-Source selection remains NONE. Frozen original sources and referees are unchanged; losing variants, failed controls and failed operational prefixes remain retained. Published text records disclose normalization through original/published hashes; executable and private operational artifacts remain inventoried separately. The authorized window is active through 07:24:14 UTC for final reporting and artifact review; no new fleet workload is admitted.
+Source selection remains NONE. Frozen original sources and referees are unchanged; losing variants, failed controls and failed operational prefixes remain retained. Published text records disclose normalization through original/published hashes; executable and private operational artifacts remain inventoried separately. The authorized window ended at 07:24:14 UTC after final reporting and artifact review; no further fleet workload is authorized under this campaign.
 
 
 ## Report and artifact verification

@@ -1,5 +1,5 @@
 <!-- ARM-CONT-ACTIVE -->
-Six-hour continuation active through 2026-11-14 07:24:14 UTC for final reporting and review.
+Six-hour continuation completed 2026-11-14 07:24:14 UTC; final reporting and review closed.
 No accepted source. Eight families / 24 options: H1/H3/H4/H5/H6 rejected;
 H7 statically rejected, H2 PARK after failed ARM held-out controls, H8 timing unadmitted.
 Q4 also PARK. Original failed controls remain closed; no unchanged retries.

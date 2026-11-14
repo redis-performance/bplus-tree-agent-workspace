@@ -1,6 +1,6 @@
-# Overnight campaign — reporting and review
+# Overnight campaign — complete
 
-As of06:30UTC, all measurements and diagnostics are closed, all campaign reservations are released with independent restoration checks, and source selection remains NONE. [Consolidated results](OVERNIGHT-RESULTS.md). Final report/artifact review continues through07:24:14UTC. The queue and02:50 snapshot below record the original plan and earlier state.
+As of06:30UTC, all measurements and diagnostics are closed, all campaign reservations are released with independent restoration checks, and source selection remains NONE. [Consolidated results](OVERNIGHT-RESULTS.md). The final report/artifact review window ended at 07:24:14 UTC. The queue and02:50 snapshot below record the original plan and earlier state.
 
 User-authorized unattended window: **2026-11-14 01:24:14–07:24:14UTC (Lisbon)**. Continue supported hypotheses through this window; stop admitting work that cannot complete with review/cleanup from06:54UTC. Independent cleanup remains bounded for every reservation. This extends the continuation and supersedes its initial three-track budget; correctness, controls and acceptance gates remain.
 

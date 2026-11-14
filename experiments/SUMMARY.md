@@ -4,7 +4,7 @@
 
 [Consolidated report](ARM-LOOKUP-CONT-001/OVERNIGHT-RESULTS.md): eight hypothesis families,24 isolated options,zero accepted changes. H2 remains PARK after failed ARM held-out controls; H7 is statically rejected and H8 never admitted to timing. The slot-hint census and separate lifecycle check add structural and bounded native correctness evidence only. [Fleet restoration](ARM-LOOKUP-CONT-001/FLEET-RESTORATION.md) is independently verified for all three campaign reservations, including the preserved Intel cleanup failure and reviewed repair.
 
-Current completed ledger remains **47 attempts:25 PARK,22 REJECT,0 approved; ARM35 / Intel6 / AMD6;29 populations,5 replications,13 qualifications**. These totals include historical entries and are distinct from the24 options. Final report/artifact review continues through07:24:14UTC; no new fleet workload is admitted. Older entries below are historical snapshots.
+Current completed ledger remains **47 attempts:25 PARK,22 REJECT,0 approved; ARM35 / Intel6 / AMD6;29 populations,5 replications,13 qualifications**. These totals include historical entries and are distinct from the24 options. The full authorized window ended at 07:24:14 UTC after final report/artifact review; no further fleet workload is authorized under this campaign. Older entries below are historical snapshots.
 
 ## 14 November: profiler-off qualification parked
 

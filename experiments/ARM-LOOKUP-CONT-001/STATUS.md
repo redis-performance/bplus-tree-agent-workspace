@@ -1,11 +1,11 @@
-# Overnight continuation active
+# Overnight continuation complete
 
-Authorized through **14 November 2026, 07:24:14 UTC**, with final 30 minutes for review, reporting and verified cleanup. No source is accepted.
+The authorized six-hour window ended **14 November 2026, 07:24:14 UTC**, after final review, reporting and verified cleanup. No source is accepted. See the [consolidated report](OVERNIGHT-RESULTS.md).
 
 - H1/H3/H4/H5/H6: independently reviewed REJECT; all patches and raw rows retained, no unchanged retries.
 - [H2: PARK / NONE](H2-RESULTS.md). Original discovery and guards pass, but held-out ARM seed43 fails one A/A block at −3.601147%. Independent review audits all 864 held-out rows, including the cross-host scheduling deviation. Intel passes cannot replace ARM qualification. The original failure remains closed and retained.
 - [H7: static REJECT / NONE](H7-RESULTS.md). All three target raw frames grow176→192 bytes, violating the frozen gate. No timing ran; this unmeasured screen adds no completed timing attempt.
-- H8: three isolated range-first classification variants pass correctness and source review. ARM lookup and supplemental generic consumer static reviews pass. No timing or acceptance yet.
+- H8: three isolated range-first classification variants pass correctness and source review. ARM lookup and supplemental generic consumer static reviews pass. No timing was admitted; no acceptance.
 - [Q4](ARM-PROFILER-OFF-QUALIFICATION.md): a distinct baseline-only isolation protocol is prepared. The previously active ARM profiler had unrestricted affinity. Concrete independent deployment review passed after correcting overlapping recovery runtimes. Q4 completed PARK at target43 hit block0 (+1.019883%); all72 rows retained, no later cohort or candidate. Independent final raw review confirms PARK. H8 profiler-off timing and H2R1 remain unadmitted. Q4 cannot retroactively pass H2.
 - [Structural and counter diagnostics](DIAGNOSTIC-RESULTS.md): all four census grids pass and show zero repeated negative leaf visits; both proposed mechanisms remain NONE for implementation under this primary objective. The counter support probe failed the frozen output parser, so no measurement captures ran and no retry is admitted.
 - [H2 cross-ABI portability](H2-PORTABILITY-RESULTS.md): closed INCOMPLETE at metadata admission. The final CPU-help command listed `max` but returned status 1. No guest source build or correctness test ran; both ABI gaps remain open and H2 stays PARK.
