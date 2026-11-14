@@ -53,7 +53,7 @@ Both processes exited0 with empty stderr. B's focused test checks cache formula/
 
 ## Provenance and TMA
 
-This worker performed read-only source/evidence inspection and bounded correctness-only execution. Only this report was written for this task. No fleet query, timing, profiling, source/referee change, commit or push occurred. Backend is Codex; exact model, tokens and monetary costs are unreported. Own fresh tool discovery found no cpu-perf/library_status tools. Shared controller consultation in `../CONSULTATION.md` is explicitly shared: server0.1.1, bundled `deb5a0bac467`,3/287 indexed sources,158 passages; no supporting retrieved passage establishes a workload mechanism. Those were not this reviewer's calls.
+This worker performed read-only source/evidence inspection and bounded correctness-only execution. Only this report was written for this task. No fleet query, timing, profiling, source/referee change, commit or push occurred. Detailed backend provenance is retained privately; exact model, tokens and monetary costs are unreported. Own fresh tool discovery found no cpu-perf/library_status tools. Shared controller consultation in `../CONSULTATION.md` is explicitly shared: server0.1.1, bundled `deb5a0bac467`,3/287 indexed sources,158 passages; no supporting retrieved passage establishes a workload mechanism. Those were not this reviewer's calls.
 
 | TMA category | Qualified baseline | H2-B | H2-C |
 |---|---|---|---|
