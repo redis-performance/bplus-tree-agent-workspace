@@ -1,0 +1,49 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..02d253a37 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1324,9 +1324,41 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+             continue;
+         }
+ 
+-        size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
+-        if (len == elelen && memcmp(stored, ele, len) == 0)
++        int equal;
++        if (elelen <= 8 && record[0] == elelen) {
++            /* The inline length proves both ranges. Overlapping head/tail
++             * loads cover every byte without reading past either member. */
++            const unsigned char *stored = record + 1;
++            if (elelen == 0) {
++                equal = 1;
++            } else if (elelen == 1) {
++                equal = stored[0] == ele[0];
++            } else if (elelen < 4) {
++                uint16_t a, b, c, d;
++                memcpy(&a, stored, sizeof(a));
++                memcpy(&b, ele, sizeof(b));
++                memcpy(&c, stored + elelen - sizeof(c), sizeof(c));
++                memcpy(&d, ele + elelen - sizeof(d), sizeof(d));
++                equal = a == b && c == d;
++            } else if (elelen < 8) {
++                uint32_t a, b, c, d;
++                memcpy(&a, stored, sizeof(a));
++                memcpy(&b, ele, sizeof(b));
++                memcpy(&c, stored + elelen - sizeof(c), sizeof(c));
++                memcpy(&d, ele + elelen - sizeof(d), sizeof(d));
++                equal = a == b && c == d;
++            } else {
++                uint64_t a, b;
++                memcpy(&a, stored, sizeof(a));
++                memcpy(&b, ele, sizeof(b));
++                equal = a == b;
++            }
++        } else {
++            size_t len;
++            const unsigned char *stored = zbtPackedData(record, &len);
++            equal = len == elelen && memcmp(stored, ele, len) == 0;
++        }
++        if (equal)
+         {
+             unsigned int logical =
+                 zbtScoreLeafPhysicalPos(leaf, physical);

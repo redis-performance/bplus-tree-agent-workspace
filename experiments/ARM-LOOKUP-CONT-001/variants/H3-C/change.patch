@@ -1,0 +1,29 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..2b38ca02d 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1324,9 +1324,21 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+             continue;
+         }
+ 
+-        size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
+-        if (len == elelen && memcmp(stored, ele, len) == 0)
++        int equal;
++        if (elelen <= 8 && record[0] == elelen) {
++            /* The marker proves both inline storage and the exact length.
++             * Read each byte only inside that length, including no reads
++             * for an empty member. Only equality is needed here. */
++            unsigned int difference = 0;
++            for (size_t i = 0; i < elelen; i++)
++                difference |= record[i + 1] ^ ele[i];
++            equal = difference == 0;
++        } else {
++            size_t len;
++            const unsigned char *stored = zbtPackedData(record, &len);
++            equal = len == elelen && memcmp(stored, ele, len) == 0;
++        }
++        if (equal)
+         {
+             unsigned int logical =
+                 zbtScoreLeafPhysicalPos(leaf, physical);

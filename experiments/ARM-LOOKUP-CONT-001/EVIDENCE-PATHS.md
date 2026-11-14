@@ -1,0 +1,3 @@
+Public command transcripts replace owned fleet roots with `/opt/benchmark-task` and controller workspace roots with `WORKSPACE`. Kernel hostnames are omitted. Per-run values, source/ELF hashes and timestamps remain unchanged. Binary profiles stay in private storage; checksums and textual captures identify them. No timing runs execute on the controller.
+
+Original manifests are retained as source-artifact provenance. `PUBLISHED-SHA256SUMS` hashes the sanitized public copies, including reports whose local paths or participant descriptions were redacted. Candidate patch and C source bytes are not changed.

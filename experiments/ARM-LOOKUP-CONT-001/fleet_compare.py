@@ -7,8 +7,8 @@ out=root/a.phase;out.mkdir(exist_ok=a.measure_only);exp='experiments/ARM-LOOKUP-
 lease=json.loads((root/'reservation.json').read_text());assert lease['owner']=='bplus ARM-LOOKUP-CONT-001' and lease['state']=='RESERVED' and time.time()<lease['deadline']-900
 assert subprocess.check_output(['systemctl','is-active',root.name+'-release.timer'],text=True).strip()=='active'
 def run(cmd,stem):
- q=subprocess.run(cmd,capture_output=True,text=True,timeout=240);(out/(stem+'.stdout')).write_text(q.stdout);(out/(stem+'.stderr')).write_text(q.stderr)
- with (out/'commands.jsonl').open('a') as f:f.write(json.dumps({'argv':cmd,'stem':stem,'returncode':q.returncode})+'\n')
+ started=time.time();q=subprocess.run(cmd,capture_output=True,text=True,timeout=240);(out/(stem+'.stdout')).write_text(q.stdout);(out/(stem+'.stderr')).write_text(q.stderr)
+ with (out/'commands.jsonl').open('a') as f:f.write(json.dumps({'argv':cmd,'stem':stem,'returncode':q.returncode,'started':started,'finished':time.time()})+'\n')
  assert q.returncode==0,(stem,q.stderr[-1600:]);return q
 sha=lambda p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 prior=json.loads((root/'baseline/metadata.json').read_text());base=root/'bin'/a.cohort/'lookup';assert sha(base)==prior['binary_sha256'][a.cohort]
@@ -16,7 +16,7 @@ meta={'scale':a.scale,'started':time.time(),'cohort':a.cohort,'seed':a.seed,'bas
 if a.measure_only:
  meta=json.loads((out/'metadata.json').read_text())
  assert meta.get('scale',1)==a.scale
- assert meta['cohort']==a.cohort and meta['seed']==a.seed and set(meta['variants'])==set(a.variants)
+ assert meta['cohort']==a.cohort and meta['seed']==a.seed and set(a.variants)<=set(meta['variants'])
  for v in a.variants:assert sha(root/'bin'/(a.phase+'-'+v))==meta['variants'][v]['binary_sha256']
 else:
  for v in a.variants:
@@ -27,6 +27,7 @@ else:
   run(cmd,'build-'+v);run(['objdump','-d',str(root/binary)],'assembly-'+v);run(['size',str(root/binary)],'size-'+v)
   meta['variants'][v]={'source_sha256':sha(root/src),'binary_sha256':sha(root/binary)}
 run(['taskset','-c','2','python3','-c','import os;assert os.sched_getaffinity(0)=={2};print("CPU2")'],'affinity-zero-work');assert not subprocess.check_output(['docker','ps','-q'],text=True).strip()
+if not a.build_only:meta.update(measured_variants=list(a.variants),measurement_started=time.time(),measurement_controller_affinity=sorted(os.sched_getaffinity(0)))
 (out/'metadata.json').write_text(json.dumps(meta,indent=2))
 if a.build_only:raise SystemExit(0)
 cases={'hit':50000,'score':50000,'miss':100000,'long':20000,'external':20000,'update':20000}

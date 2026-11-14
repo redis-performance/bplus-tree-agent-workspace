@@ -1,0 +1,36 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..1e4ab81e8 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1324,9 +1324,28 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+             continue;
+         }
+ 
+-        size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
+-        if (len == elelen && memcmp(stored, ele, len) == 0)
++        int equal;
++        if (elelen <= 8 && record[0] == elelen) {
++            /* The marker proves inline storage and the exact byte length.
++             * Constant sizes let the compiler inline bounded comparisons. */
++            switch (elelen) {
++            case 0: equal = 1; break;
++            case 1: equal = memcmp(record + 1, ele, 1) == 0; break;
++            case 2: equal = memcmp(record + 1, ele, 2) == 0; break;
++            case 3: equal = memcmp(record + 1, ele, 3) == 0; break;
++            case 4: equal = memcmp(record + 1, ele, 4) == 0; break;
++            case 5: equal = memcmp(record + 1, ele, 5) == 0; break;
++            case 6: equal = memcmp(record + 1, ele, 6) == 0; break;
++            case 7: equal = memcmp(record + 1, ele, 7) == 0; break;
++            case 8: equal = memcmp(record + 1, ele, 8) == 0; break;
++            default: equal = 0; break;
++            }
++        } else {
++            size_t len;
++            const unsigned char *stored = zbtPackedData(record, &len);
++            equal = len == elelen && memcmp(stored, ele, len) == 0;
++        }
++        if (equal)
+         {
+             unsigned int logical =
+                 zbtScoreLeafPhysicalPos(leaf, physical);

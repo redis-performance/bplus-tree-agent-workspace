@@ -1,7 +1,8 @@
 import json,pathlib,sys,statistics
 p=pathlib.Path(sys.argv[1]);rows=[json.loads(x) for x in (p/'comparison.jsonl').read_text().splitlines()];meta=json.loads((p/'metadata.json').read_text());out={'rows':len(rows),'variants':{},'blocks':[]}
-assert len(rows)==72*len(meta['variants'])
-for v,vm in meta['variants'].items():
+measured=meta.get('measured_variants',list(meta['variants']));assert len(rows)==72*len(measured)
+for v in measured:
+ vm=meta['variants'][v]
  cases={};eligible=True
  for case in ['hit','score','miss','long','external','update']:
   rr=[r for r in rows if r['variant']==v and r['case']==case];assert len(rr)==12
