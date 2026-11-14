@@ -1,0 +1,16 @@
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==1087907==ERROR: AddressSanitizer: SEGV on unknown address 0x776d90ce9000 (pc 0x776d8fb88dc4 bp 0x7fff82961de0 sp 0x7fff82961dd8 T0)
+==1087907==The signal is caused by a READ memory access.
+    #0 0x776d8fb88dc4 in __memmove_avx_unaligned_erms ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:318
+    #1 0x59558c2870fa in memcpy /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29
+    #2 0x59558c2870fa in zbtPackedWriteInline experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c:591
+    #3 0x59558c2c9fd4 in synthetic experiments/ARM-LOOKUP-CONT-001/variants/H6-A/descriptor_oracle.c:52
+    #4 0x59558c2c9fd4 in main experiments/ARM-LOOKUP-CONT-001/variants/H6-A/descriptor_oracle.c:121
+    #5 0x776d8fa2a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #6 0x776d8fa2a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #7 0x59558c284864 in _start (WORKSPACE/build/arm-cont-private/worktrees/H6-A/build/arm-cont-private/descriptor-oracle-sanitizer+0x52864) (BuildId: 878b1a529618582b4add0549f6c008ac0b05b891)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:318 in __memmove_avx_unaligned_erms
+==1087907==ABORTING

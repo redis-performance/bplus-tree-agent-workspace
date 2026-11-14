@@ -1,0 +1,237 @@
+00000000000037d0 <zbtScoreLeafFindMember.constprop.0>:
+    37d0:	a9b87bfd 	stp	x29, x30, [sp, #-128]!
+    37d4:	910003fd 	mov	x29, sp
+    37d8:	a90153f3 	stp	x19, x20, [sp, #16]
+    37dc:	aa0003f3 	mov	x19, x0
+    37e0:	a9025bf5 	stp	x21, x22, [sp, #32]
+    37e4:	aa0303f6 	mov	x22, x3
+    37e8:	a90363f7 	stp	x23, x24, [sp, #48]
+    37ec:	9100e278 	add	x24, x19, #0x38
+    37f0:	d2800017 	mov	x23, #0x0                   	// #0
+    37f4:	a9046bf9 	stp	x25, x26, [sp, #64]
+    37f8:	2a0103fa 	mov	w26, w1
+    37fc:	53187c39 	lsr	w25, w1, #24
+    3800:	a90573fb 	stp	x27, x28, [sp, #80]
+    3804:	aa0203fb 	mov	x27, x2
+    3808:	3940d000 	ldrb	w0, [x0, #52]
+    380c:	39404675 	ldrb	w21, [x19, #17]
+    3810:	b90077f5 	str	w21, [sp, #116]
+    3814:	f9003fe4 	str	x4, [sp, #120]
+    3818:	340000c0 	cbz	w0, 3830 <zbtScoreLeafFindMember.constprop.0+0x60>
+    381c:	d28000e1 	mov	x1, #0x7                   	// #7
+    3820:	9bb50400 	umaddl	x0, w0, w21, x1
+    3824:	d343fc00 	lsr	x0, x0, #3
+    3828:	91002400 	add	x0, x0, #0x9
+    382c:	927ff817 	and	x23, x0, #0xfffffffffffffffe
+    3830:	b94077e0 	ldr	w0, [sp, #116]
+    3834:	8b2046f4 	add	x20, x23, w0, uxtw #1
+    3838:	8b140314 	add	x20, x24, x20
+    383c:	8b150295 	add	x21, x20, x21
+    3840:	eb15029f 	cmp	x20, x21
+    3844:	54000c42 	b.cs	39cc <zbtScoreLeafFindMember.constprop.0+0x1fc>  // b.hs, b.nlast
+    3848:	aa1403e0 	mov	x0, x20
+    384c:	f10022df 	cmp	x22, #0x8
+    3850:	54000269 	b.ls	389c <zbtScoreLeafFindMember.constprop.0+0xcc>  // b.plast
+    3854:	14000031 	b	3918 <zbtScoreLeafFindMember.constprop.0+0x148>
+    3858:	eb2002df 	cmp	x22, w0, uxtb
+    385c:	54000c80 	b.eq	39ec <zbtScoreLeafFindMember.constprop.0+0x21c>  // b.none
+    3860:	7103f81f 	cmp	w0, #0xfe
+    3864:	54000161 	b.ne	3890 <zbtScoreLeafFindMember.constprop.0+0xc0>  // b.any
+    3868:	78401022 	ldurh	w2, [x1, #1]
+    386c:	91000c20 	add	x0, x1, #0x3
+    3870:	eb0202df 	cmp	x22, x2
+    3874:	540000e1 	b.ne	3890 <zbtScoreLeafFindMember.constprop.0+0xc0>  // b.any
+    3878:	aa1603e2 	mov	x2, x22
+    387c:	aa1b03e1 	mov	x1, x27
+    3880:	f90037e3 	str	x3, [sp, #104]
+    3884:	97fff513 	bl	cd0 <memcmp@plt>
+    3888:	f94037e3 	ldr	x3, [sp, #104]
+    388c:	340007a0 	cbz	w0, 3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3890:	91000460 	add	x0, x3, #0x1
+    3894:	eb0002bf 	cmp	x21, x0
+    3898:	540009a9 	b.ls	39cc <zbtScoreLeafFindMember.constprop.0+0x1fc>  // b.plast
+    389c:	cb0002a2 	sub	x2, x21, x0
+    38a0:	2a1903e1 	mov	w1, w25
+    38a4:	97fff51f 	bl	d20 <memchr@plt>
+    38a8:	aa0003e3 	mov	x3, x0
+    38ac:	b4000900 	cbz	x0, 39cc <zbtScoreLeafFindMember.constprop.0+0x1fc>
+    38b0:	4b140000 	sub	w0, w0, w20
+    38b4:	cb14007c 	sub	x28, x3, x20
+    38b8:	8b000700 	add	x0, x24, x0, lsl #1
+    38bc:	78776800 	ldrh	w0, [x0, x23]
+    38c0:	8b000261 	add	x1, x19, x0
+    38c4:	38606a60 	ldrb	w0, [x19, x0]
+    38c8:	7103fc1f 	cmp	w0, #0xff
+    38cc:	54fffc61 	b.ne	3858 <zbtScoreLeafFindMember.constprop.0+0x88>  // b.any
+    38d0:	b8401020 	ldur	w0, [x1, #1]
+    38d4:	6b00035f 	cmp	w26, w0
+    38d8:	54fffdc1 	b.ne	3890 <zbtScoreLeafFindMember.constprop.0+0xc0>  // b.any
+    38dc:	f840d020 	ldur	x0, [x1, #13]
+    38e0:	b4001400 	cbz	x0, 3b60 <zbtScoreLeafFindMember.constprop.0+0x390>
+    38e4:	f8405022 	ldur	x2, [x1, #5]
+    38e8:	17ffffe2 	b	3870 <zbtScoreLeafFindMember.constprop.0+0xa0>
+    38ec:	b8401040 	ldur	w0, [x2, #1]
+    38f0:	6b00035f 	cmp	w26, w0
+    38f4:	540000c1 	b.ne	390c <zbtScoreLeafFindMember.constprop.0+0x13c>  // b.any
+    38f8:	f840d040 	ldur	x0, [x2, #13]
+    38fc:	b4001320 	cbz	x0, 3b60 <zbtScoreLeafFindMember.constprop.0+0x390>
+    3900:	f8405041 	ldur	x1, [x2, #5]
+    3904:	eb0102df 	cmp	x22, x1
+    3908:	54000300 	b.eq	3968 <zbtScoreLeafFindMember.constprop.0+0x198>  // b.none
+    390c:	91000460 	add	x0, x3, #0x1
+    3910:	eb0002bf 	cmp	x21, x0
+    3914:	540005c9 	b.ls	39cc <zbtScoreLeafFindMember.constprop.0+0x1fc>  // b.plast
+    3918:	cb0002a2 	sub	x2, x21, x0
+    391c:	2a1903e1 	mov	w1, w25
+    3920:	97fff500 	bl	d20 <memchr@plt>
+    3924:	aa0003e3 	mov	x3, x0
+    3928:	b4000520 	cbz	x0, 39cc <zbtScoreLeafFindMember.constprop.0+0x1fc>
+    392c:	4b140000 	sub	w0, w0, w20
+    3930:	cb14007c 	sub	x28, x3, x20
+    3934:	8b000700 	add	x0, x24, x0, lsl #1
+    3938:	78776800 	ldrh	w0, [x0, x23]
+    393c:	8b000262 	add	x2, x19, x0
+    3940:	38606a60 	ldrb	w0, [x19, x0]
+    3944:	7103fc1f 	cmp	w0, #0xff
+    3948:	54fffd20 	b.eq	38ec <zbtScoreLeafFindMember.constprop.0+0x11c>  // b.none
+    394c:	7103f81f 	cmp	w0, #0xfe
+    3950:	54000701 	b.ne	3a30 <zbtScoreLeafFindMember.constprop.0+0x260>  // b.any
+    3954:	78401041 	ldurh	w1, [x2, #1]
+    3958:	91000c40 	add	x0, x2, #0x3
+    395c:	eb0102df 	cmp	x22, x1
+    3960:	54fffd61 	b.ne	390c <zbtScoreLeafFindMember.constprop.0+0x13c>  // b.any
+    3964:	d503201f 	nop
+    3968:	aa1603e2 	mov	x2, x22
+    396c:	aa1b03e1 	mov	x1, x27
+    3970:	f90037e3 	str	x3, [sp, #104]
+    3974:	97fff4d7 	bl	cd0 <memcmp@plt>
+    3978:	f94037e3 	ldr	x3, [sp, #104]
+    397c:	35fffc80 	cbnz	w0, 390c <zbtScoreLeafFindMember.constprop.0+0x13c>
+    3980:	f9403fe7 	ldr	x7, [sp, #120]
+    3984:	b94077e0 	ldr	w0, [sp, #116]
+    3988:	3940d661 	ldrb	w1, [x19, #53]
+    398c:	51000400 	sub	w0, w0, #0x1
+    3990:	7100003f 	cmp	w1, #0x0
+    3994:	4b1c0000 	sub	w0, w0, w28
+    3998:	1a800381 	csel	w1, w28, w0, eq	// eq = none
+    399c:	b4000087 	cbz	x7, 39ac <zbtScoreLeafFindMember.constprop.0+0x1dc>
+    39a0:	aa1303e0 	mov	x0, x19
+    39a4:	97fff9a3 	bl	2030 <zbtScoreLeafScore>
+    39a8:	fd0000e0 	str	d0, [x7]
+    39ac:	a94153f3 	ldp	x19, x20, [sp, #16]
+    39b0:	52800020 	mov	w0, #0x1                   	// #1
+    39b4:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    39b8:	a94363f7 	ldp	x23, x24, [sp, #48]
+    39bc:	a9446bf9 	ldp	x25, x26, [sp, #64]
+    39c0:	a94573fb 	ldp	x27, x28, [sp, #80]
+    39c4:	a8c87bfd 	ldp	x29, x30, [sp], #128
+    39c8:	d65f03c0 	ret
+    39cc:	a94153f3 	ldp	x19, x20, [sp, #16]
+    39d0:	52800000 	mov	w0, #0x0                   	// #0
+    39d4:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    39d8:	a94363f7 	ldp	x23, x24, [sp, #48]
+    39dc:	a9446bf9 	ldp	x25, x26, [sp, #64]
+    39e0:	a94573fb 	ldp	x27, x28, [sp, #80]
+    39e4:	a8c87bfd 	ldp	x29, x30, [sp], #128
+    39e8:	d65f03c0 	ret
+    39ec:	f10016df 	cmp	x22, #0x5
+    39f0:	54000a20 	b.eq	3b34 <zbtScoreLeafFindMember.constprop.0+0x364>  // b.none
+    39f4:	54000248 	b.hi	3a3c <zbtScoreLeafFindMember.constprop.0+0x26c>  // b.pmore
+    39f8:	f1000edf 	cmp	x22, #0x3
+    39fc:	54000860 	b.eq	3b08 <zbtScoreLeafFindMember.constprop.0+0x338>  // b.none
+    3a00:	f10012df 	cmp	x22, #0x4
+    3a04:	54000360 	b.eq	3a70 <zbtScoreLeafFindMember.constprop.0+0x2a0>  // b.none
+    3a08:	f10006df 	cmp	x22, #0x1
+    3a0c:	54000720 	b.eq	3af0 <zbtScoreLeafFindMember.constprop.0+0x320>  // b.none
+    3a10:	f1000adf 	cmp	x22, #0x2
+    3a14:	54fffb61 	b.ne	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>  // b.any
+    3a18:	78401020 	ldurh	w0, [x1, #1]
+    3a1c:	79400361 	ldrh	w1, [x27]
+    3a20:	6b00003f 	cmp	w1, w0
+    3a24:	1a9f17e0 	cset	w0, eq	// eq = none
+    3a28:	34fff340 	cbz	w0, 3890 <zbtScoreLeafFindMember.constprop.0+0xc0>
+    3a2c:	17ffffd5 	b	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3a30:	2a0003e1 	mov	w1, w0
+    3a34:	91000440 	add	x0, x2, #0x1
+    3a38:	17ffffb3 	b	3904 <zbtScoreLeafFindMember.constprop.0+0x134>
+    3a3c:	f1001edf 	cmp	x22, #0x7
+    3a40:	54000220 	b.eq	3a84 <zbtScoreLeafFindMember.constprop.0+0x2b4>  // b.none
+    3a44:	f10022df 	cmp	x22, #0x8
+    3a48:	540004a0 	b.eq	3adc <zbtScoreLeafFindMember.constprop.0+0x30c>  // b.none
+    3a4c:	91000422 	add	x2, x1, #0x1
+    3a50:	b9400360 	ldr	w0, [x27]
+    3a54:	b8401021 	ldur	w1, [x1, #1]
+    3a58:	6b00003f 	cmp	w1, w0
+    3a5c:	54000340 	b.eq	3ac4 <zbtScoreLeafFindMember.constprop.0+0x2f4>  // b.none
+    3a60:	52800020 	mov	w0, #0x1                   	// #1
+    3a64:	52000000 	eor	w0, w0, #0x1
+    3a68:	34fff140 	cbz	w0, 3890 <zbtScoreLeafFindMember.constprop.0+0xc0>
+    3a6c:	17ffffc5 	b	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3a70:	b8401020 	ldur	w0, [x1, #1]
+    3a74:	b9400362 	ldr	w2, [x27]
+    3a78:	6b00005f 	cmp	w2, w0
+    3a7c:	54fff0a1 	b.ne	3890 <zbtScoreLeafFindMember.constprop.0+0xc0>  // b.any
+    3a80:	17ffffc0 	b	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3a84:	91000422 	add	x2, x1, #0x1
+    3a88:	b9400360 	ldr	w0, [x27]
+    3a8c:	b8401021 	ldur	w1, [x1, #1]
+    3a90:	6b00003f 	cmp	w1, w0
+    3a94:	54fffe61 	b.ne	3a60 <zbtScoreLeafFindMember.constprop.0+0x290>  // b.any
+    3a98:	79400841 	ldrh	w1, [x2, #4]
+    3a9c:	79400b60 	ldrh	w0, [x27, #4]
+    3aa0:	6b00003f 	cmp	w1, w0
+    3aa4:	54fffde1 	b.ne	3a60 <zbtScoreLeafFindMember.constprop.0+0x290>  // b.any
+    3aa8:	39401841 	ldrb	w1, [x2, #6]
+    3aac:	39401b60 	ldrb	w0, [x27, #6]
+    3ab0:	6b00003f 	cmp	w1, w0
+    3ab4:	54fffd61 	b.ne	3a60 <zbtScoreLeafFindMember.constprop.0+0x290>  // b.any
+    3ab8:	52800000 	mov	w0, #0x0                   	// #0
+    3abc:	52000000 	eor	w0, w0, #0x1
+    3ac0:	17ffffea 	b	3a68 <zbtScoreLeafFindMember.constprop.0+0x298>
+    3ac4:	79400841 	ldrh	w1, [x2, #4]
+    3ac8:	79400b60 	ldrh	w0, [x27, #4]
+    3acc:	6b00003f 	cmp	w1, w0
+    3ad0:	54ffff40 	b.eq	3ab8 <zbtScoreLeafFindMember.constprop.0+0x2e8>  // b.none
+    3ad4:	52800020 	mov	w0, #0x1                   	// #1
+    3ad8:	17ffffe3 	b	3a64 <zbtScoreLeafFindMember.constprop.0+0x294>
+    3adc:	f9400360 	ldr	x0, [x27]
+    3ae0:	f8401021 	ldur	x1, [x1, #1]
+    3ae4:	eb00003f 	cmp	x1, x0
+    3ae8:	54ffed41 	b.ne	3890 <zbtScoreLeafFindMember.constprop.0+0xc0>  // b.any
+    3aec:	17ffffa5 	b	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3af0:	39400360 	ldrb	w0, [x27]
+    3af4:	39400421 	ldrb	w1, [x1, #1]
+    3af8:	6b00003f 	cmp	w1, w0
+    3afc:	1a9f17e0 	cset	w0, eq	// eq = none
+    3b00:	34ffec80 	cbz	w0, 3890 <zbtScoreLeafFindMember.constprop.0+0xc0>
+    3b04:	17ffff9f 	b	3980 <zbtScoreLeafFindMember.constprop.0+0x1b0>
+    3b08:	78401022 	ldurh	w2, [x1, #1]
+    3b0c:	91000421 	add	x1, x1, #0x1
+    3b10:	79400360 	ldrh	w0, [x27]
+    3b14:	6b00005f 	cmp	w2, w0
+    3b18:	54fffa41 	b.ne	3a60 <zbtScoreLeafFindMember.constprop.0+0x290>  // b.any
+    3b1c:	39400821 	ldrb	w1, [x1, #2]
+    3b20:	39400b60 	ldrb	w0, [x27, #2]
+    3b24:	6b00003f 	cmp	w1, w0
+    3b28:	54fffc80 	b.eq	3ab8 <zbtScoreLeafFindMember.constprop.0+0x2e8>  // b.none
+    3b2c:	52800020 	mov	w0, #0x1                   	// #1
+    3b30:	17ffffcd 	b	3a64 <zbtScoreLeafFindMember.constprop.0+0x294>
+    3b34:	91000422 	add	x2, x1, #0x1
+    3b38:	b9400360 	ldr	w0, [x27]
+    3b3c:	b8401021 	ldur	w1, [x1, #1]
+    3b40:	6b00003f 	cmp	w1, w0
+    3b44:	54fff8e1 	b.ne	3a60 <zbtScoreLeafFindMember.constprop.0+0x290>  // b.any
+    3b48:	39401041 	ldrb	w1, [x2, #4]
+    3b4c:	39401360 	ldrb	w0, [x27, #4]
+    3b50:	6b00003f 	cmp	w1, w0
+    3b54:	54fffb20 	b.eq	3ab8 <zbtScoreLeafFindMember.constprop.0+0x2e8>  // b.none
+    3b58:	52800020 	mov	w0, #0x1                   	// #1
+    3b5c:	17ffffc2 	b	3a64 <zbtScoreLeafFindMember.constprop.0+0x294>
+    3b60:	d0000082 	adrp	x2, 15000 <_IO_stdin_used+0x3a0>
+    3b64:	d0000080 	adrp	x0, 15000 <_IO_stdin_used+0x3a0>
+    3b68:	910c8042 	add	x2, x2, #0x320
+    3b6c:	91090000 	add	x0, x0, #0x240
+    3b70:	52804ae1 	mov	w1, #0x257                 	// #599
+    3b74:	940041d3 	bl	142c0 <standalone_panic>
+    3b78:	d503201f 	nop
+    3b7c:	d503201f 	nop

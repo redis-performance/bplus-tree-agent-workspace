@@ -1,0 +1,52 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..640c17eb0 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -3261,13 +3261,33 @@ int zbtreeDefragStep(zbtreeSet *zs, zbtreeDefragState *state,
+ 
+ /* -------------------------- Lookup and update --------------------------- */
+ 
++/* Raw readers enter this single-table kernel only when no resize is active. */
++static __attribute__((noinline))
++int zbtScoreRawStable(zbtreeSet *zs, uint32_t hash,
++                       const unsigned char *ele, size_t elelen, double *score)
++{
++    return zbtIndexTableFind(zs, &zs->member_index, hash, ele, elelen, score,
++                             NULL, NULL, NULL, NULL, NULL, NULL);
++}
++
++/* Preserve the generic reader's one-step progress and safe state reload if
++ * that step finishes the resize and releases its context. */
++static __attribute__((noinline))
++int zbtScoreRawResizing(zbtreeSet *zs, uint32_t hash,
++                         const unsigned char *ele, size_t elelen, double *score)
++{
++    return zbtIndexFind(zs, hash, ele, elelen, score,
++                        NULL, NULL, NULL, NULL);
++}
++
+ /* Find a member supplied as raw bytes, without making a temporary sds. */
+ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
+     uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
+-    return zbtIndexFind(zs, hash, ele, elelen, score,
+-                        NULL, NULL, NULL, NULL);
++    if (zs->member_rehash)
++        return zbtScoreRawResizing(zs, hash, ele, elelen, score);
++    return zbtScoreRawStable(zs, hash, ele, elelen, score);
+ }
+ 
+ /* Return the hash the member index uses for 'ele'. */
+@@ -3280,8 +3300,9 @@ int zbtreeScoreRawWithHash(zbtreeSet *zs, uint32_t hash,
+                            const unsigned char *ele, size_t elelen,
+                            double *score)
+ {
+-    return zbtIndexFind(zs, hash, ele, elelen, score,
+-                        NULL, NULL, NULL, NULL);
++    if (zs->member_rehash)
++        return zbtScoreRawResizing(zs, hash, ele, elelen, score);
++    return zbtScoreRawStable(zs, hash, ele, elelen, score);
+ }
+ 
+ /* Find an sds member and optionally return its score. */

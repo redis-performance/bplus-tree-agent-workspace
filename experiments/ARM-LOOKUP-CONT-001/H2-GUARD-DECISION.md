@@ -1,0 +1,9 @@
+# H2 supplemental target guard decision
+
+ARM GCC15/LTO supplemental controls pass all15 blocks/60rows. Both variants then complete60comparison rows each with exact model/checksum/memory joins. **C is REJECT**: forward iteration regresses24.687–24.720% and reverse iteration20.413–20.741%, all three blocks in both directions. These are distinct fixed-direction qualified cases, so the failure cannot be averaged away. Lookup speed does not override the original1% guard bound. No source acceptance or fresh-seed confirmation for C.
+
+B passes all five supplemental target guards. All five supplemental guards also pass on ARM native and Intel native/LTO, with all 60 controls and 60 B comparison rows per cohort. B is the only eligible H2 candidate, pending fresh held-out confirmation and matched-profile review.
+
+Exclude C before future supplemental comparisons. Preserve already collected native/Intel six-case measurements, target guard failures and any in-flight profile capture. No new timing retry of C is admitted. The original guard source/build script, counts, timing boundaries and gates remain byte-identical. Collector orchestration now reads an explicit source-hash-bound H2-exclusions.json before a new comparison phase, records requested/measured/excluded variants and its own hash, and skips a globally rejected variant. Existing completed comparison outputs are untouched. Active A/A qualification continues because it belongs to the baseline and still-eligible B; no partial control attempt is restarted.
+
+ARM TMA roots/children for these iterator guards are unavailable; the failure is an elapsed-time result, not an attributed pipeline cause. A separate bounded diagnostic may inspect saved code/profile evidence before considering a distinct hypothesis. The rejected C patch remains unchanged and retained.

@@ -1,0 +1,138 @@
+
+build/arm-cont-private/lookup-codegen:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000003bd0 <zbtScoreLeafFindMember.constprop.0>:
+    3bd0:	55                   	push   %rbp
+    3bd1:	89 f0                	mov    %esi,%eax
+    3bd3:	49 89 d2             	mov    %rdx,%r10
+    3bd6:	49 89 c9             	mov    %rcx,%r9
+    3bd9:	c1 e8 18             	shr    $0x18,%eax
+    3bdc:	4c 8d 5f 38          	lea    0x38(%rdi),%r11
+    3be0:	48 89 e5             	mov    %rsp,%rbp
+    3be3:	41 57                	push   %r15
+    3be5:	49 89 ff             	mov    %rdi,%r15
+    3be8:	41 56                	push   %r14
+    3bea:	41 55                	push   %r13
+    3bec:	41 54                	push   %r12
+    3bee:	53                   	push   %rbx
+    3bef:	48 83 ec 48          	sub    $0x48,%rsp
+    3bf3:	89 45 c4             	mov    %eax,-0x3c(%rbp)
+    3bf6:	44 0f b6 67 11       	movzbl 0x11(%rdi),%r12d
+    3bfb:	0f b6 47 34          	movzbl 0x34(%rdi),%eax
+    3bff:	4c 89 45 a0          	mov    %r8,-0x60(%rbp)
+    3c03:	45 31 c0             	xor    %r8d,%r8d
+    3c06:	4c 89 e2             	mov    %r12,%rdx
+    3c09:	84 c0                	test   %al,%al
+    3c0b:	74 17                	je     3c24 <zbtScoreLeafFindMember.constprop.0+0x54>
+    3c0d:	49 0f af c4          	imul   %r12,%rax
+    3c11:	48 83 c0 07          	add    $0x7,%rax
+    3c15:	48 c1 e8 03          	shr    $0x3,%rax
+    3c19:	48 83 c0 09          	add    $0x9,%rax
+    3c1d:	48 83 e0 fe          	and    $0xfffffffffffffffe,%rax
+    3c21:	49 89 c0             	mov    %rax,%r8
+    3c24:	4b 8d 0c 60          	lea    (%r8,%r12,2),%rcx
+    3c28:	4d 8d 2c 0b          	lea    (%r11,%rcx,1),%r13
+    3c2c:	4d 01 ec             	add    %r13,%r12
+    3c2f:	4d 39 e5             	cmp    %r12,%r13
+    3c32:	0f 83 20 01 00 00    	jae    3d58 <zbtScoreLeafFindMember.constprop.0+0x188>
+    3c38:	88 55 9f             	mov    %dl,-0x61(%rbp)
+    3c3b:	4c 89 ef             	mov    %r13,%rdi
+    3c3e:	4c 89 db             	mov    %r11,%rbx
+    3c41:	4d 89 c6             	mov    %r8,%r14
+    3c44:	89 75 c0             	mov    %esi,-0x40(%rbp)
+    3c47:	4c 89 55 a8          	mov    %r10,-0x58(%rbp)
+    3c4b:	4c 89 4d c8          	mov    %r9,-0x38(%rbp)
+    3c4f:	eb 24                	jmp    3c75 <zbtScoreLeafFindMember.constprop.0+0xa5>
+    3c51:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    3c58:	0f b7 c0             	movzwl %ax,%eax
+    3c5b:	48 8d 7a 01          	lea    0x1(%rdx),%rdi
+    3c5f:	83 e8 01             	sub    $0x1,%eax
+    3c62:	48 39 45 c8          	cmp    %rax,-0x38(%rbp)
+    3c66:	74 71                	je     3cd9 <zbtScoreLeafFindMember.constprop.0+0x109>
+    3c68:	48 8d 79 01          	lea    0x1(%rcx),%rdi
+    3c6c:	4c 39 e7             	cmp    %r12,%rdi
+    3c6f:	0f 83 e3 00 00 00    	jae    3d58 <zbtScoreLeafFindMember.constprop.0+0x188>
+    3c75:	8b 75 c4             	mov    -0x3c(%rbp),%esi
+    3c78:	4c 89 e2             	mov    %r12,%rdx
+    3c7b:	48 29 fa             	sub    %rdi,%rdx
+    3c7e:	e8 9d d5 ff ff       	call   1220 <memchr@plt>
+    3c83:	48 89 c1             	mov    %rax,%rcx
+    3c86:	48 85 c0             	test   %rax,%rax
+    3c89:	0f 84 c9 00 00 00    	je     3d58 <zbtScoreLeafFindMember.constprop.0+0x188>
+    3c8f:	49 89 c0             	mov    %rax,%r8
+    3c92:	4d 29 e8             	sub    %r13,%r8
+    3c95:	44 89 c0             	mov    %r8d,%eax
+    3c98:	48 8d 04 43          	lea    (%rbx,%rax,2),%rax
+    3c9c:	42 0f b7 04 30       	movzwl (%rax,%r14,1),%eax
+    3ca1:	48 89 c2             	mov    %rax,%rdx
+    3ca4:	81 e2 ff 0f 00 00    	and    $0xfff,%edx
+    3caa:	4c 01 fa             	add    %r15,%rdx
+    3cad:	66 c1 e8 0c          	shr    $0xc,%ax
+    3cb1:	75 a5                	jne    3c58 <zbtScoreLeafFindMember.constprop.0+0x88>
+    3cb3:	0f b6 02             	movzbl (%rdx),%eax
+    3cb6:	3c ff                	cmp    $0xff,%al
+    3cb8:	75 7e                	jne    3d38 <zbtScoreLeafFindMember.constprop.0+0x168>
+    3cba:	8b 45 c0             	mov    -0x40(%rbp),%eax
+    3cbd:	3b 42 01             	cmp    0x1(%rdx),%eax
+    3cc0:	75 a6                	jne    3c68 <zbtScoreLeafFindMember.constprop.0+0x98>
+    3cc2:	48 8b 7a 0d          	mov    0xd(%rdx),%rdi
+    3cc6:	48 85 ff             	test   %rdi,%rdi
+    3cc9:	0f 84 9a 00 00 00    	je     3d69 <zbtScoreLeafFindMember.constprop.0+0x199>
+    3ccf:	48 8b 42 05          	mov    0x5(%rdx),%rax
+    3cd3:	48 39 45 c8          	cmp    %rax,-0x38(%rbp)
+    3cd7:	75 8f                	jne    3c68 <zbtScoreLeafFindMember.constprop.0+0x98>
+    3cd9:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    3cdd:	48 8b 75 a8          	mov    -0x58(%rbp),%rsi
+    3ce1:	4c 89 45 b0          	mov    %r8,-0x50(%rbp)
+    3ce5:	48 89 4d b8          	mov    %rcx,-0x48(%rbp)
+    3ce9:	e8 42 d5 ff ff       	call   1230 <memcmp@plt>
+    3cee:	48 8b 4d b8          	mov    -0x48(%rbp),%rcx
+    3cf2:	4c 8b 45 b0          	mov    -0x50(%rbp),%r8
+    3cf6:	85 c0                	test   %eax,%eax
+    3cf8:	0f 85 6a ff ff ff    	jne    3c68 <zbtScoreLeafFindMember.constprop.0+0x98>
+    3cfe:	41 80 7f 35 00       	cmpb   $0x0,0x35(%r15)
+    3d03:	0f b6 55 9f          	movzbl -0x61(%rbp),%edx
+    3d07:	44 89 c6             	mov    %r8d,%esi
+    3d0a:	74 09                	je     3d15 <zbtScoreLeafFindMember.constprop.0+0x145>
+    3d0c:	0f b6 fa             	movzbl %dl,%edi
+    3d0f:	8d 77 ff             	lea    -0x1(%rdi),%esi
+    3d12:	44 29 c6             	sub    %r8d,%esi
+    3d15:	48 8b 5d a0          	mov    -0x60(%rbp),%rbx
+    3d19:	48 85 db             	test   %rbx,%rbx
+    3d1c:	74 0c                	je     3d2a <zbtScoreLeafFindMember.constprop.0+0x15a>
+    3d1e:	4c 89 ff             	mov    %r15,%rdi
+    3d21:	e8 da eb ff ff       	call   2900 <zbtScoreLeafScore>
+    3d26:	f2 0f 11 03          	movsd  %xmm0,(%rbx)
+    3d2a:	b8 01 00 00 00       	mov    $0x1,%eax
+    3d2f:	eb 29                	jmp    3d5a <zbtScoreLeafFindMember.constprop.0+0x18a>
+    3d31:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    3d38:	48 8d 7a 01          	lea    0x1(%rdx),%rdi
+    3d3c:	3c fe                	cmp    $0xfe,%al
+    3d3e:	0f 85 1e ff ff ff    	jne    3c62 <zbtScoreLeafFindMember.constprop.0+0x92>
+    3d44:	0f b7 42 01          	movzwl 0x1(%rdx),%eax
+    3d48:	48 8d 7a 03          	lea    0x3(%rdx),%rdi
+    3d4c:	e9 11 ff ff ff       	jmp    3c62 <zbtScoreLeafFindMember.constprop.0+0x92>
+    3d51:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    3d58:	31 c0                	xor    %eax,%eax
+    3d5a:	48 83 c4 48          	add    $0x48,%rsp
+    3d5e:	5b                   	pop    %rbx
+    3d5f:	41 5c                	pop    %r12
+    3d61:	41 5d                	pop    %r13
+    3d63:	41 5e                	pop    %r14
+    3d65:	41 5f                	pop    %r15
+    3d67:	5d                   	pop    %rbp
+    3d68:	c3                   	ret
+    3d69:	e8 b2 f1 ff ff       	call   2f20 <zbtPackedData.part.0>
+
+Disassembly of section .fini:

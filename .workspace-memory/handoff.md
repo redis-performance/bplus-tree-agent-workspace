@@ -1,15 +1,13 @@
 <!-- ARM-CONT-ACTIVE -->
-Six-hour continuation ACTIVE through2026-11-14 07:24:14UTC; final30min review/cleanup.
-H1 rejected/sourceNONE with independentreview. H2 nativeARM andtargetLTO B/C pass
-sixcases; Intel nativepasses, IntelLTO andfivecase supplementalguards underway.
-H3 three short-equality variants built; H4 three filter-boundary variants correctnessready.
-H5 independent raw-state implementations next. No patchstacking/sourceadoption.
-Two additional qualification protocols PASS; ledger PARK means no adoption.
-40completedattempts22PARK18REJECT0approved;ARM29/Intel6/AMD5;
-24populations/5replications/11qualifications; activecandidatework excluded.
-ARM/Intel private leases with independent cleanup; no localmeasurements.
-Read experiments/ARM-LOOKUP-CONT-001/{STATUS,OVERNIGHT,H2-TARGET-RESULTS}.md.
-Keep working throughwindow across supported options; no unchangedfailedretry.
+Six-hour continuation active through 2026-11-14 07:24:14 UTC; final 30 minutes review/cleanup.
+H1 rejected. H2-B passes original six cases and five supplemental guards on ARM/Intel
+native/LTO; C rejected on iterator guards. Fresh seeds and matched-profile review pending.
+H3 A/B pass native ARM; C rejected. H4/H5 target static review; H6 correctness ready.
+AMD qualification failed both compilers: no candidate timing. All failures retained.
+41 completed attempts: 23 PARK, 18 REJECT, 0 approved; ARM29/Intel6/AMD6;
+24 populations / 5 replications / 12 qualifications. Active populations excluded.
+Three private fleet leases with independent cleanup; no local measurements.
+Read experiments/ARM-LOOKUP-CONT-001/STATUS.md. Continue through authorized window.
 <!-- ARM-CONT-ACTIVE-END -->
 
 <!-- ARM-LOOKUP-GAP-CURRENT -->

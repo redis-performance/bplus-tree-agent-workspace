@@ -2,9 +2,9 @@
 
 Packed B+ tree and compact member-index benchmarks from [Redis PR #15635](https://github.com/redis/redis/pull/15635). Standalone C; no Redis server.
 
-**Overnight continuation active through 14 November,07:24UTC.** Current baseline is Redis unstable [`ee8e7f701524`](https://github.com/redis/redis/commit/ee8e7f70152404649ac947157fd662d11b4a00d5). Three helper-boundary candidates are rejected: the best membership gain(6.79%) regresses guards. Metadata, short-equality and index/raw-state work remain active; ARM long-window LTO and both Intel compiler qualifications are complete. [Live status](experiments/ARM-LOOKUP-CONT-001/STATUS.md) · [Queue](experiments/ARM-LOOKUP-CONT-001/OVERNIGHT.md) · [Helper results](experiments/ARM-LOOKUP-CONT-001/H1-RESULTS.md).
+**Overnight continuation active through 14 November,07:24UTC.** Current baseline is Redis unstable [`ee8e7f701524`](https://github.com/redis/redis/commit/ee8e7f70152404649ac947157fd662d11b4a00d5). Three helper-boundary candidates are rejected: the best membership gain(6.79%) regresses guards. H2-B passes all original and supplemental ARM/Intel guards; fresh confirmation remains. H3-A/B pass initial ARM screening. Further independent hypotheses remain active. [Live status](experiments/ARM-LOOKUP-CONT-001/STATUS.md) · [Queue](experiments/ARM-LOOKUP-CONT-001/OVERNIGHT.md) · [Helper results](experiments/ARM-LOOKUP-CONT-001/H1-RESULTS.md).
 
-**40 completed experiment attempts: 22 parked ·18 rejected ·0 approved.** ARM29 ·Intel6 ·AMD5. Includes24 populations,5 replications,11 qualifications; active work excluded. The latest two qualification protocols passed; PARK records no source adoption. [Earlier sealed ARM investigation](experiments/ARM-LOOKUP-GAP-001/RESULTS.md).
+**41 completed experiment attempts: 23 parked ·18 rejected ·0 approved.** ARM29 ·Intel6 ·AMD6. Includes24 populations,5 replications,12 qualifications; active work excluded. AMD controls failed; no AMD candidate timing. [Earlier sealed ARM investigation](experiments/ARM-LOOKUP-GAP-001/RESULTS.md).
 
 Historical architecture charts (through20 October; current counts above):
 

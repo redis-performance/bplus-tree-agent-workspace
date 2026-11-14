@@ -1,0 +1,1638 @@
+
+build/arm-cont-private/codegen/lookup:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000008010 <zbtIndexFindResizing>:
+    8010:	55                   	push   %rbp
+    8011:	48 89 e5             	mov    %rsp,%rbp
+    8014:	41 57                	push   %r15
+    8016:	41 56                	push   %r14
+    8018:	41 55                	push   %r13
+    801a:	41 54                	push   %r12
+    801c:	49 89 fc             	mov    %rdi,%r12
+    801f:	53                   	push   %rbx
+    8020:	48 81 ec f8 00 00 00 	sub    $0xf8,%rsp
+    8027:	48 8b 45 10          	mov    0x10(%rbp),%rax
+    802b:	4c 8b 75 18          	mov    0x18(%rbp),%r14
+    802f:	89 75 ac             	mov    %esi,-0x54(%rbp)
+    8032:	48 89 55 a0          	mov    %rdx,-0x60(%rbp)
+    8036:	48 8b 5d 20          	mov    0x20(%rbp),%rbx
+    803a:	48 89 4d 98          	mov    %rcx,-0x68(%rbp)
+    803e:	4c 89 45 90          	mov    %r8,-0x70(%rbp)
+    8042:	4c 89 8d 00 ff ff ff 	mov    %r9,-0x100(%rbp)
+    8049:	48 89 45 88          	mov    %rax,-0x78(%rbp)
+    804d:	4c 89 b5 38 ff ff ff 	mov    %r14,-0xc8(%rbp)
+    8054:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    805b:	00 00 
+    805d:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+    8061:	31 c0                	xor    %eax,%eax
+    8063:	48 83 7f 40 00       	cmpq   $0x0,0x40(%rdi)
+    8068:	c7 45 b0 00 00 00 00 	movl   $0x0,-0x50(%rbp)
+    806f:	48 c7 45 b8 00 00 00 	movq   $0x0,-0x48(%rbp)
+    8076:	00 
+    8077:	48 c7 45 c0 00 00 00 	movq   $0x0,-0x40(%rbp)
+    807e:	00 
+    807f:	c7 45 b4 00 00 00 00 	movl   $0x0,-0x4c(%rbp)
+    8086:	0f 84 d9 04 00 00    	je     8565 <zbtIndexFindResizing+0x555>
+    808c:	e8 8f fb ff ff       	call   7c20 <zbtIndexRehashStep.constprop.0.isra.0>
+    8091:	4d 8b 6c 24 40       	mov    0x40(%r12),%r13
+    8096:	4d 85 ed             	test   %r13,%r13
+    8099:	0f 84 c6 04 00 00    	je     8565 <zbtIndexFindResizing+0x555>
+    809f:	4d 8b 45 08          	mov    0x8(%r13),%r8
+    80a3:	4d 85 f6             	test   %r14,%r14
+    80a6:	0f 84 94 03 00 00    	je     8440 <zbtIndexFindResizing+0x430>
+    80ac:	48 85 db             	test   %rbx,%rbx
+    80af:	0f 84 33 0b 00 00    	je     8be8 <zbtIndexFindResizing+0xbd8>
+    80b5:	4d 85 c0             	test   %r8,%r8
+    80b8:	0f 84 49 0d 00 00    	je     8e07 <zbtIndexFindResizing+0xdf7>
+    80be:	48 8d 45 b4          	lea    -0x4c(%rbp),%rax
+    80c2:	48 89 85 08 ff ff ff 	mov    %rax,-0xf8(%rbp)
+    80c9:	48 8d 45 b8          	lea    -0x48(%rbp),%rax
+    80cd:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+    80d4:	48 8d 45 b0          	lea    -0x50(%rbp),%rax
+    80d8:	48 89 85 f8 fe ff ff 	mov    %rax,-0x108(%rbp)
+    80df:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+    80e3:	48 89 85 40 ff ff ff 	mov    %rax,-0xc0(%rbp)
+    80ea:	8b 75 ac             	mov    -0x54(%rbp),%esi
+    80ed:	49 8d 50 ff          	lea    -0x1(%r8),%rdx
+    80f1:	41 bb 01 00 00 00    	mov    $0x1,%r11d
+    80f7:	48 89 95 18 ff ff ff 	mov    %rdx,-0xe8(%rbp)
+    80fe:	89 f0                	mov    %esi,%eax
+    8100:	21 d0                	and    %edx,%eax
+    8102:	c1 ee 18             	shr    $0x18,%esi
+    8105:	48 ba 01 01 01 01 01 	movabs $0x101010101010101,%rdx
+    810c:	01 01 01 
+    810f:	48 89 85 28 ff ff ff 	mov    %rax,-0xd8(%rbp)
+    8116:	89 f1                	mov    %esi,%ecx
+    8118:	48 b8 02 00 00 08 80 	movabs $0x8008000002,%rax
+    811f:	00 00 00 
+    8122:	48 89 85 20 ff ff ff 	mov    %rax,-0xe0(%rbp)
+    8129:	48 89 95 30 ff ff ff 	mov    %rdx,-0xd0(%rbp)
+    8130:	74 47                	je     8179 <zbtIndexFindResizing+0x169>
+    8132:	89 f0                	mov    %esi,%eax
+    8134:	41 89 f3             	mov    %esi,%r11d
+    8137:	48 0f af d0          	imul   %rax,%rdx
+    813b:	48 89 95 30 ff ff ff 	mov    %rdx,-0xd0(%rbp)
+    8142:	48 ba 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rdx
+    8149:	79 37 9e 
+    814c:	48 0f af c2          	imul   %rdx,%rax
+    8150:	ba 01 00 00 00       	mov    $0x1,%edx
+    8155:	48 89 d6             	mov    %rdx,%rsi
+    8158:	48 d3 e6             	shl    %cl,%rsi
+    815b:	48 89 c7             	mov    %rax,%rdi
+    815e:	48 c1 e8 24          	shr    $0x24,%rax
+    8162:	48 c1 ef 3a          	shr    $0x3a,%rdi
+    8166:	89 c1                	mov    %eax,%ecx
+    8168:	48 0f ab fe          	bts    %rdi,%rsi
+    816c:	48 d3 e2             	shl    %cl,%rdx
+    816f:	48 09 d6             	or     %rdx,%rsi
+    8172:	48 89 b5 20 ff ff ff 	mov    %rsi,-0xe0(%rbp)
+    8179:	49 8b 45 00          	mov    0x0(%r13),%rax
+    817d:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+    8184:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    8189:	49 39 c5             	cmp    %rax,%r13
+    818c:	0f 85 97 13 00 00    	jne    9529 <zbtIndexFindResizing+0x1519>
+    8192:	48 8b b5 28 ff ff ff 	mov    -0xd8(%rbp),%rsi
+    8199:	45 31 d2             	xor    %r10d,%r10d
+    819c:	c7 45 80 00 00 00 00 	movl   $0x0,-0x80(%rbp)
+    81a3:	45 31 c9             	xor    %r9d,%r9d
+    81a6:	4c 89 85 10 ff ff ff 	mov    %r8,-0xf0(%rbp)
+    81ad:	4d 89 d0             	mov    %r10,%r8
+    81b0:	48 89 9d 68 ff ff ff 	mov    %rbx,-0x98(%rbp)
+    81b7:	48 89 f2             	mov    %rsi,%rdx
+    81ba:	44 89 db             	mov    %r11d,%ebx
+    81bd:	41 83 7d 20 01       	cmpl   $0x1,0x20(%r13)
+    81c2:	48 8b b5 60 ff ff ff 	mov    -0xa0(%rbp),%rsi
+    81c9:	48 19 c0             	sbb    %rax,%rax
+    81cc:	48 8b 8d 30 ff ff ff 	mov    -0xd0(%rbp),%rcx
+    81d3:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
+    81d7:	48 83 c0 30          	add    $0x30,%rax
+    81db:	48 0f af c2          	imul   %rdx,%rax
+    81df:	4c 8d 14 06          	lea    (%rsi,%rax,1),%r10
+    81e3:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    81ea:	fe fe fe 
+    81ed:	49 8b 3a             	mov    (%r10),%rdi
+    81f0:	48 31 f9             	xor    %rdi,%rcx
+    81f3:	4c 8d 3c 01          	lea    (%rcx,%rax,1),%r15
+    81f7:	48 f7 d1             	not    %rcx
+    81fa:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    8201:	80 80 80 
+    8204:	49 21 cf             	and    %rcx,%r15
+    8207:	49 21 c7             	and    %rax,%r15
+    820a:	0f 84 21 01 00 00    	je     8331 <zbtIndexFindResizing+0x321>
+    8210:	4c 89 e0             	mov    %r12,%rax
+    8213:	48 89 95 58 ff ff ff 	mov    %rdx,-0xa8(%rbp)
+    821a:	41 89 dc             	mov    %ebx,%r12d
+    821d:	4c 89 d3             	mov    %r10,%rbx
+    8220:	4c 89 85 50 ff ff ff 	mov    %r8,-0xb0(%rbp)
+    8227:	49 89 c2             	mov    %rax,%r10
+    822a:	4c 89 8d 48 ff ff ff 	mov    %r9,-0xb8(%rbp)
+    8231:	e9 99 00 00 00       	jmp    82cf <zbtIndexFindResizing+0x2bf>
+    8236:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    823d:	00 00 00 
+    8240:	44 89 f0             	mov    %r14d,%eax
+    8243:	0f b7 44 43 10       	movzwl 0x10(%rbx,%rax,2),%eax
+    8248:	66 83 f8 ff          	cmp    $0xffff,%ax
+    824c:	74 72                	je     82c0 <zbtIndexFindResizing+0x2b0>
+    824e:	41 3b 42 54          	cmp    0x54(%r10),%eax
+    8252:	73 6c                	jae    82c0 <zbtIndexFindResizing+0x2b0>
+    8254:	49 8b 4a 48          	mov    0x48(%r10),%rcx
+    8258:	89 c2                	mov    %eax,%edx
+    825a:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    825e:	48 85 ff             	test   %rdi,%rdi
+    8261:	74 5d                	je     82c0 <zbtIndexFindResizing+0x2b0>
+    8263:	40 f6 c7 01          	test   $0x1,%dil
+    8267:	75 57                	jne    82c0 <zbtIndexFindResizing+0x2b0>
+    8269:	39 47 30             	cmp    %eax,0x30(%rdi)
+    826c:	0f 85 e0 19 00 00    	jne    9c52 <zbtIndexFindResizing+0x1c42>
+    8272:	41 0f b7 45 2c       	movzwl 0x2c(%r13),%eax
+    8277:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    827b:	75 43                	jne    82c0 <zbtIndexFindResizing+0x2b0>
+    827d:	4c 8b 4d 88          	mov    -0x78(%rbp),%r9
+    8281:	4c 8b 45 90          	mov    -0x70(%rbp),%r8
+    8285:	4c 89 95 70 ff ff ff 	mov    %r10,-0x90(%rbp)
+    828c:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    8290:	48 8b 55 a0          	mov    -0x60(%rbp),%rdx
+    8294:	48 89 bd 78 ff ff ff 	mov    %rdi,-0x88(%rbp)
+    829b:	8b 75 ac             	mov    -0x54(%rbp),%esi
+    829e:	e8 ad b8 ff ff       	call   3b50 <zbtScoreLeafFindMember>
+    82a3:	48 8b bd 78 ff ff ff 	mov    -0x88(%rbp),%rdi
+    82aa:	4c 8b 95 70 ff ff ff 	mov    -0x90(%rbp),%r10
+    82b1:	85 c0                	test   %eax,%eax
+    82b3:	0f 85 29 0e 00 00    	jne    90e2 <zbtIndexFindResizing+0x10d2>
+    82b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    82c0:	49 8d 47 ff          	lea    -0x1(%r15),%rax
+    82c4:	49 21 c7             	and    %rax,%r15
+    82c7:	4d 85 ff             	test   %r15,%r15
+    82ca:	74 44                	je     8310 <zbtIndexFindResizing+0x300>
+    82cc:	48 8b 3b             	mov    (%rbx),%rdi
+    82cf:	31 c9                	xor    %ecx,%ecx
+    82d1:	f3 49 0f bc cf       	tzcnt  %r15,%rcx
+    82d6:	41 89 ce             	mov    %ecx,%r14d
+    82d9:	83 e1 f8             	and    $0xfffffff8,%ecx
+    82dc:	48 d3 ef             	shr    %cl,%rdi
+    82df:	41 c1 fe 03          	sar    $0x3,%r14d
+    82e3:	41 38 fc             	cmp    %dil,%r12b
+    82e6:	75 d8                	jne    82c0 <zbtIndexFindResizing+0x2b0>
+    82e8:	41 8b 45 20          	mov    0x20(%r13),%eax
+    82ec:	85 c0                	test   %eax,%eax
+    82ee:	0f 84 4c ff ff ff    	je     8240 <zbtIndexFindResizing+0x230>
+    82f4:	44 89 f0             	mov    %r14d,%eax
+    82f7:	8b 44 83 10          	mov    0x10(%rbx,%rax,4),%eax
+    82fb:	83 f8 ff             	cmp    $0xffffffff,%eax
+    82fe:	0f 85 4a ff ff ff    	jne    824e <zbtIndexFindResizing+0x23e>
+    8304:	49 8d 47 ff          	lea    -0x1(%r15),%rax
+    8308:	49 21 c7             	and    %rax,%r15
+    830b:	4d 85 ff             	test   %r15,%r15
+    830e:	75 bc                	jne    82cc <zbtIndexFindResizing+0x2bc>
+    8310:	4c 89 d0             	mov    %r10,%rax
+    8313:	48 8b 95 58 ff ff ff 	mov    -0xa8(%rbp),%rdx
+    831a:	49 89 da             	mov    %rbx,%r10
+    831d:	44 89 e3             	mov    %r12d,%ebx
+    8320:	4c 8b 85 50 ff ff ff 	mov    -0xb0(%rbp),%r8
+    8327:	4c 8b 8d 48 ff ff ff 	mov    -0xb8(%rbp),%r9
+    832e:	49 89 c4             	mov    %rax,%r12
+    8331:	4d 85 c9             	test   %r9,%r9
+    8334:	75 3a                	jne    8370 <zbtIndexFindResizing+0x360>
+    8336:	41 83 7d 20 01       	cmpl   $0x1,0x20(%r13)
+    833b:	48 8b 85 28 ff ff ff 	mov    -0xd8(%rbp),%rax
+    8342:	48 19 c9             	sbb    %rcx,%rcx
+    8345:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    834c:	48 83 e1 f0          	and    $0xfffffffffffffff0,%rcx
+    8350:	48 83 c1 30          	add    $0x30,%rcx
+    8354:	48 0f af c8          	imul   %rax,%rcx
+    8358:	48 8b 85 20 ff ff ff 	mov    -0xe0(%rbp),%rax
+    835f:	48 8b 74 0f 08       	mov    0x8(%rdi,%rcx,1),%rsi
+    8364:	48 21 c6             	and    %rax,%rsi
+    8367:	48 39 f0             	cmp    %rsi,%rax
+    836a:	0f 85 c3 0f 00 00    	jne    9333 <zbtIndexFindResizing+0x1323>
+    8370:	49 8b 0a             	mov    (%r10),%rcx
+    8373:	84 c9                	test   %cl,%cl
+    8375:	0f 84 dc 09 00 00    	je     8d57 <zbtIndexFindResizing+0xd47>
+    837b:	48 89 cf             	mov    %rcx,%rdi
+    837e:	48 c1 ef 08          	shr    $0x8,%rdi
+    8382:	4d 85 c0             	test   %r8,%r8
+    8385:	0f 84 f8 00 00 00    	je     8483 <zbtIndexFindResizing+0x473>
+    838b:	40 84 ff             	test   %dil,%dil
+    838e:	0f 84 a5 0d 00 00    	je     9139 <zbtIndexFindResizing+0x1129>
+    8394:	f7 c1 00 00 ff 00    	test   $0xff0000,%ecx
+    839a:	0f 84 82 0d 00 00    	je     9122 <zbtIndexFindResizing+0x1112>
+    83a0:	f7 c1 00 00 00 ff    	test   $0xff000000,%ecx
+    83a6:	0f 84 ef 0d 00 00    	je     919b <zbtIndexFindResizing+0x118b>
+    83ac:	48 89 cf             	mov    %rcx,%rdi
+    83af:	48 c1 ef 20          	shr    $0x20,%rdi
+    83b3:	40 84 ff             	test   %dil,%dil
+    83b6:	0f 84 9a 0d 00 00    	je     9156 <zbtIndexFindResizing+0x1146>
+    83bc:	48 89 cf             	mov    %rcx,%rdi
+    83bf:	48 c1 ef 28          	shr    $0x28,%rdi
+    83c3:	40 84 ff             	test   %dil,%dil
+    83c6:	0f 84 a1 0d 00 00    	je     916d <zbtIndexFindResizing+0x115d>
+    83cc:	48 89 cf             	mov    %rcx,%rdi
+    83cf:	48 c1 ef 30          	shr    $0x30,%rdi
+    83d3:	40 84 ff             	test   %dil,%dil
+    83d6:	0f 84 a8 0d 00 00    	je     9184 <zbtIndexFindResizing+0x1174>
+    83dc:	48 c1 e9 38          	shr    $0x38,%rcx
+    83e0:	0f 84 cc 0d 00 00    	je     91b2 <zbtIndexFindResizing+0x11a2>
+    83e6:	48 8b 85 10 ff ff ff 	mov    -0xf0(%rbp),%rax
+    83ed:	48 8d 72 01          	lea    0x1(%rdx),%rsi
+    83f1:	49 83 c1 01          	add    $0x1,%r9
+    83f5:	48 23 b5 18 ff ff ff 	and    -0xe8(%rbp),%rsi
+    83fc:	48 89 f2             	mov    %rsi,%rdx
+    83ff:	49 39 c1             	cmp    %rax,%r9
+    8402:	0f 82 b5 fd ff ff    	jb     81bd <zbtIndexFindResizing+0x1ad>
+    8408:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    840f:	4d 89 c2             	mov    %r8,%r10
+    8412:	48 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%rax
+    8419:	48 85 c0             	test   %rax,%rax
+    841c:	0f 84 6d 09 00 00    	je     8d8f <zbtIndexFindResizing+0xd7f>
+    8422:	4d 85 d2             	test   %r10,%r10
+    8425:	0f 84 64 09 00 00    	je     8d8f <zbtIndexFindResizing+0xd7f>
+    842b:	4c 89 10             	mov    %r10,(%rax)
+    842e:	8b 75 80             	mov    -0x80(%rbp),%esi
+    8431:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+    8438:	89 30                	mov    %esi,(%rax)
+    843a:	e9 50 09 00 00       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    843f:	90                   	nop
+    8440:	48 85 db             	test   %rbx,%rbx
+    8443:	0f 84 b7 03 00 00    	je     8800 <zbtIndexFindResizing+0x7f0>
+    8449:	4d 85 c0             	test   %r8,%r8
+    844c:	0f 84 50 09 00 00    	je     8da2 <zbtIndexFindResizing+0xd92>
+    8452:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8459:	00 00 00 00 
+    845d:	48 8d 45 b0          	lea    -0x50(%rbp),%rax
+    8461:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    8468:	00 00 00 00 
+    846c:	48 c7 85 40 ff ff ff 	movq   $0x0,-0xc0(%rbp)
+    8473:	00 00 00 00 
+    8477:	48 89 85 f8 fe ff ff 	mov    %rax,-0x108(%rbp)
+    847e:	e9 67 fc ff ff       	jmp    80ea <zbtIndexFindResizing+0xda>
+    8483:	45 8b 5d 20          	mov    0x20(%r13),%r11d
+    8487:	45 85 db             	test   %r11d,%r11d
+    848a:	0f 85 ac 07 00 00    	jne    8c3c <zbtIndexFindResizing+0xc2c>
+    8490:	66 41 83 7a 10 ff    	cmpw   $0xffff,0x10(%r10)
+    8496:	0f 84 c4 03 00 00    	je     8860 <zbtIndexFindResizing+0x850>
+    849c:	40 84 ff             	test   %dil,%dil
+    849f:	0f 84 6a 0e 00 00    	je     930f <zbtIndexFindResizing+0x12ff>
+    84a5:	48 89 cf             	mov    %rcx,%rdi
+    84a8:	48 c1 ef 10          	shr    $0x10,%rdi
+    84ac:	66 41 83 7a 12 ff    	cmpw   $0xffff,0x12(%r10)
+    84b2:	0f 84 00 0a 00 00    	je     8eb8 <zbtIndexFindResizing+0xea8>
+    84b8:	40 84 ff             	test   %dil,%dil
+    84bb:	0f 84 27 0e 00 00    	je     92e8 <zbtIndexFindResizing+0x12d8>
+    84c1:	48 89 cf             	mov    %rcx,%rdi
+    84c4:	48 c1 ef 18          	shr    $0x18,%rdi
+    84c8:	66 41 83 7a 14 ff    	cmpw   $0xffff,0x14(%r10)
+    84ce:	0f 84 cc 09 00 00    	je     8ea0 <zbtIndexFindResizing+0xe90>
+    84d4:	40 84 ff             	test   %dil,%dil
+    84d7:	0f 84 e4 0d 00 00    	je     92c1 <zbtIndexFindResizing+0x12b1>
+    84dd:	48 89 cf             	mov    %rcx,%rdi
+    84e0:	48 c1 ef 20          	shr    $0x20,%rdi
+    84e4:	66 41 83 7a 16 ff    	cmpw   $0xffff,0x16(%r10)
+    84ea:	0f 84 4a 0a 00 00    	je     8f3a <zbtIndexFindResizing+0xf2a>
+    84f0:	40 84 ff             	test   %dil,%dil
+    84f3:	0f 84 a1 0d 00 00    	je     929a <zbtIndexFindResizing+0x128a>
+    84f9:	48 89 cf             	mov    %rcx,%rdi
+    84fc:	48 c1 ef 28          	shr    $0x28,%rdi
+    8500:	66 41 83 7a 18 ff    	cmpw   $0xffff,0x18(%r10)
+    8506:	0f 84 16 0a 00 00    	je     8f22 <zbtIndexFindResizing+0xf12>
+    850c:	40 84 ff             	test   %dil,%dil
+    850f:	0f 84 36 0e 00 00    	je     934b <zbtIndexFindResizing+0x133b>
+    8515:	48 89 cf             	mov    %rcx,%rdi
+    8518:	48 c1 ef 30          	shr    $0x30,%rdi
+    851c:	66 41 83 7a 1a ff    	cmpw   $0xffff,0x1a(%r10)
+    8522:	0f 84 42 0a 00 00    	je     8f6a <zbtIndexFindResizing+0xf5a>
+    8528:	40 84 ff             	test   %dil,%dil
+    852b:	0f 84 41 0e 00 00    	je     9372 <zbtIndexFindResizing+0x1362>
+    8531:	48 c1 e9 38          	shr    $0x38,%rcx
+    8535:	66 41 83 7a 1c ff    	cmpw   $0xffff,0x1c(%r10)
+    853b:	0f 84 11 0a 00 00    	je     8f52 <zbtIndexFindResizing+0xf42>
+    8541:	48 85 c9             	test   %rcx,%rcx
+    8544:	0f 84 64 0e 00 00    	je     93ae <zbtIndexFindResizing+0x139e>
+    854a:	66 41 83 7a 1e ff    	cmpw   $0xffff,0x1e(%r10)
+    8550:	b8 07 00 00 00       	mov    $0x7,%eax
+    8555:	0f 45 45 80          	cmovne -0x80(%rbp),%eax
+    8559:	4d 0f 44 c2          	cmove  %r10,%r8
+    855d:	89 45 80             	mov    %eax,-0x80(%rbp)
+    8560:	e9 81 fe ff ff       	jmp    83e6 <zbtIndexFindResizing+0x3d6>
+    8565:	4d 8b 54 24 20       	mov    0x20(%r12),%r10
+    856a:	48 83 bd 38 ff ff ff 	cmpq   $0x0,-0xc8(%rbp)
+    8571:	00 
+    8572:	4c 89 d0             	mov    %r10,%rax
+    8575:	0f 84 55 09 00 00    	je     8ed0 <zbtIndexFindResizing+0xec0>
+    857b:	45 31 ed             	xor    %r13d,%r13d
+    857e:	48 85 db             	test   %rbx,%rbx
+    8581:	0f 84 b3 02 00 00    	je     883a <zbtIndexFindResizing+0x82a>
+    8587:	48 8d 75 b0          	lea    -0x50(%rbp),%rsi
+    858b:	48 89 b5 f0 fe ff ff 	mov    %rsi,-0x110(%rbp)
+    8592:	48 8d 75 c0          	lea    -0x40(%rbp),%rsi
+    8596:	48 89 b5 08 ff ff ff 	mov    %rsi,-0xf8(%rbp)
+    859d:	48 8d 75 b4          	lea    -0x4c(%rbp),%rsi
+    85a1:	48 89 b5 f8 fe ff ff 	mov    %rsi,-0x108(%rbp)
+    85a8:	49 89 c2             	mov    %rax,%r10
+    85ab:	48 85 c0             	test   %rax,%rax
+    85ae:	0f 84 46 04 00 00    	je     89fa <zbtIndexFindResizing+0x9ea>
+    85b4:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    85b9:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    85c0:	48 8d 45 b8          	lea    -0x48(%rbp),%rax
+    85c4:	48 89 85 e8 fe ff ff 	mov    %rax,-0x118(%rbp)
+    85cb:	8b 75 ac             	mov    -0x54(%rbp),%esi
+    85ce:	49 8d 52 ff          	lea    -0x1(%r10),%rdx
+    85d2:	41 bb 01 00 00 00    	mov    $0x1,%r11d
+    85d8:	48 89 95 18 ff ff ff 	mov    %rdx,-0xe8(%rbp)
+    85df:	89 f0                	mov    %esi,%eax
+    85e1:	21 d0                	and    %edx,%eax
+    85e3:	c1 ee 18             	shr    $0x18,%esi
+    85e6:	48 ba 01 01 01 01 01 	movabs $0x101010101010101,%rdx
+    85ed:	01 01 01 
+    85f0:	48 89 85 28 ff ff ff 	mov    %rax,-0xd8(%rbp)
+    85f7:	89 f1                	mov    %esi,%ecx
+    85f9:	48 b8 02 00 00 08 80 	movabs $0x8008000002,%rax
+    8600:	00 00 00 
+    8603:	48 89 85 20 ff ff ff 	mov    %rax,-0xe0(%rbp)
+    860a:	48 89 95 30 ff ff ff 	mov    %rdx,-0xd0(%rbp)
+    8611:	74 47                	je     865a <zbtIndexFindResizing+0x64a>
+    8613:	89 f0                	mov    %esi,%eax
+    8615:	41 89 f3             	mov    %esi,%r11d
+    8618:	48 0f af d0          	imul   %rax,%rdx
+    861c:	48 89 95 30 ff ff ff 	mov    %rdx,-0xd0(%rbp)
+    8623:	48 ba 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rdx
+    862a:	79 37 9e 
+    862d:	48 0f af c2          	imul   %rdx,%rax
+    8631:	ba 01 00 00 00       	mov    $0x1,%edx
+    8636:	48 89 d6             	mov    %rdx,%rsi
+    8639:	48 d3 e6             	shl    %cl,%rsi
+    863c:	48 89 c1             	mov    %rax,%rcx
+    863f:	48 c1 e8 24          	shr    $0x24,%rax
+    8643:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    8647:	48 0f ab ce          	bts    %rcx,%rsi
+    864b:	89 c1                	mov    %eax,%ecx
+    864d:	48 d3 e2             	shl    %cl,%rdx
+    8650:	48 09 d6             	or     %rdx,%rsi
+    8653:	48 89 b5 20 ff ff ff 	mov    %rsi,-0xe0(%rbp)
+    865a:	49 8b 44 24 18       	mov    0x18(%r12),%rax
+    865f:	45 31 c0             	xor    %r8d,%r8d
+    8662:	45 31 c9             	xor    %r9d,%r9d
+    8665:	31 c9                	xor    %ecx,%ecx
+    8667:	44 89 85 40 ff ff ff 	mov    %r8d,-0xc0(%rbp)
+    866e:	48 89 85 48 ff ff ff 	mov    %rax,-0xb8(%rbp)
+    8675:	48 8b 85 28 ff ff ff 	mov    -0xd8(%rbp),%rax
+    867c:	48 89 9d 60 ff ff ff 	mov    %rbx,-0xa0(%rbp)
+    8683:	48 89 85 68 ff ff ff 	mov    %rax,-0x98(%rbp)
+    868a:	4c 89 95 10 ff ff ff 	mov    %r10,-0xf0(%rbp)
+    8691:	4d 89 ea             	mov    %r13,%r10
+    8694:	45 89 dd             	mov    %r11d,%r13d
+    8697:	41 83 7c 24 38 01    	cmpl   $0x1,0x38(%r12)
+    869d:	48 8b 85 68 ff ff ff 	mov    -0x98(%rbp),%rax
+    86a4:	48 be ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rsi
+    86ab:	fe fe fe 
+    86ae:	4d 19 f6             	sbb    %r14,%r14
+    86b1:	48 8b 95 30 ff ff ff 	mov    -0xd0(%rbp),%rdx
+    86b8:	49 83 e6 f0          	and    $0xfffffffffffffff0,%r14
+    86bc:	49 83 c6 30          	add    $0x30,%r14
+    86c0:	4c 0f af f0          	imul   %rax,%r14
+    86c4:	48 8b 85 48 ff ff ff 	mov    -0xb8(%rbp),%rax
+    86cb:	49 01 c6             	add    %rax,%r14
+    86ce:	49 8b 06             	mov    (%r14),%rax
+    86d1:	48 31 c2             	xor    %rax,%rdx
+    86d4:	48 8d 1c 32          	lea    (%rdx,%rsi,1),%rbx
+    86d8:	48 f7 d2             	not    %rdx
+    86db:	48 be 80 80 80 80 80 	movabs $0x8080808080808080,%rsi
+    86e2:	80 80 80 
+    86e5:	48 21 d3             	and    %rdx,%rbx
+    86e8:	48 21 f3             	and    %rsi,%rbx
+    86eb:	0f 84 bd 01 00 00    	je     88ae <zbtIndexFindResizing+0x89e>
+    86f1:	48 89 8d 58 ff ff ff 	mov    %rcx,-0xa8(%rbp)
+    86f8:	4c 89 8d 50 ff ff ff 	mov    %r9,-0xb0(%rbp)
+    86ff:	e9 9f 00 00 00       	jmp    87a3 <zbtIndexFindResizing+0x793>
+    8704:	0f 1f 40 00          	nopl   0x0(%rax)
+    8708:	49 8b 4c 24 48       	mov    0x48(%r12),%rcx
+    870d:	89 c2                	mov    %eax,%edx
+    870f:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    8713:	48 85 ff             	test   %rdi,%rdi
+    8716:	0f 84 c7 00 00 00    	je     87e3 <zbtIndexFindResizing+0x7d3>
+    871c:	40 f6 c7 01          	test   $0x1,%dil
+    8720:	0f 85 bd 00 00 00    	jne    87e3 <zbtIndexFindResizing+0x7d3>
+    8726:	3b 47 30             	cmp    0x30(%rdi),%eax
+    8729:	0f 85 23 15 00 00    	jne    9c52 <zbtIndexFindResizing+0x1c42>
+    872f:	4d 85 d2             	test   %r10,%r10
+    8732:	74 1d                	je     8751 <zbtIndexFindResizing+0x741>
+    8734:	48 8b 85 70 ff ff ff 	mov    -0x90(%rbp),%rax
+    873b:	49 39 c2             	cmp    %rax,%r10
+    873e:	41 0f b7 42 2c       	movzwl 0x2c(%r10),%eax
+    8743:	0f 94 c2             	sete   %dl
+    8746:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    874a:	0f 94 c0             	sete   %al
+    874d:	38 c2                	cmp    %al,%dl
+    874f:	75 3f                	jne    8790 <zbtIndexFindResizing+0x780>
+    8751:	4c 8b 4d 88          	mov    -0x78(%rbp),%r9
+    8755:	4c 8b 45 90          	mov    -0x70(%rbp),%r8
+    8759:	4c 89 95 78 ff ff ff 	mov    %r10,-0x88(%rbp)
+    8760:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    8764:	48 8b 55 a0          	mov    -0x60(%rbp),%rdx
+    8768:	48 89 7d 80          	mov    %rdi,-0x80(%rbp)
+    876c:	8b 75 ac             	mov    -0x54(%rbp),%esi
+    876f:	e8 dc b3 ff ff       	call   3b50 <zbtScoreLeafFindMember>
+    8774:	48 8b 7d 80          	mov    -0x80(%rbp),%rdi
+    8778:	4c 8b 95 78 ff ff ff 	mov    -0x88(%rbp),%r10
+    877f:	85 c0                	test   %eax,%eax
+    8781:	0f 85 fb 07 00 00    	jne    8f82 <zbtIndexFindResizing+0xf72>
+    8787:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    878e:	00 00 
+    8790:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    8794:	48 21 c3             	and    %rax,%rbx
+    8797:	48 85 db             	test   %rbx,%rbx
+    879a:	0f 84 00 01 00 00    	je     88a0 <zbtIndexFindResizing+0x890>
+    87a0:	49 8b 06             	mov    (%r14),%rax
+    87a3:	31 c9                	xor    %ecx,%ecx
+    87a5:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    87aa:	41 89 cf             	mov    %ecx,%r15d
+    87ad:	83 e1 f8             	and    $0xfffffff8,%ecx
+    87b0:	48 d3 e8             	shr    %cl,%rax
+    87b3:	41 c1 ff 03          	sar    $0x3,%r15d
+    87b7:	41 38 c5             	cmp    %al,%r13b
+    87ba:	75 d4                	jne    8790 <zbtIndexFindResizing+0x780>
+    87bc:	41 8b 7c 24 38       	mov    0x38(%r12),%edi
+    87c1:	44 89 f8             	mov    %r15d,%eax
+    87c4:	85 ff                	test   %edi,%edi
+    87c6:	0f 85 b4 00 00 00    	jne    8880 <zbtIndexFindResizing+0x870>
+    87cc:	41 0f b7 44 46 10    	movzwl 0x10(%r14,%rax,2),%eax
+    87d2:	66 83 f8 ff          	cmp    $0xffff,%ax
+    87d6:	74 b8                	je     8790 <zbtIndexFindResizing+0x780>
+    87d8:	41 3b 44 24 54       	cmp    0x54(%r12),%eax
+    87dd:	0f 82 25 ff ff ff    	jb     8708 <zbtIndexFindResizing+0x6f8>
+    87e3:	4d 85 d2             	test   %r10,%r10
+    87e6:	75 a8                	jne    8790 <zbtIndexFindResizing+0x780>
+    87e8:	48 8d 15 69 ef 00 00 	lea    0xef69(%rip),%rdx        # 17758 <_IO_stdin_used+0x758>
+    87ef:	be c9 07 00 00       	mov    $0x7c9,%esi
+    87f4:	48 8d 3d ad ec 00 00 	lea    0xecad(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    87fb:	e8 10 d1 00 00       	call   15910 <standalone_panic>
+    8800:	4d 85 c0             	test   %r8,%r8
+    8803:	0f 84 3d 08 00 00    	je     9046 <zbtIndexFindResizing+0x1036>
+    8809:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8810:	00 00 00 00 
+    8814:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    881b:	00 00 00 00 
+    881f:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8826:	00 00 00 00 
+    882a:	48 c7 85 40 ff ff ff 	movq   $0x0,-0xc0(%rbp)
+    8831:	00 00 00 00 
+    8835:	e9 b0 f8 ff ff       	jmp    80ea <zbtIndexFindResizing+0xda>
+    883a:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    8841:	00 00 00 00 
+    8845:	48 8d 75 c0          	lea    -0x40(%rbp),%rsi
+    8849:	48 89 b5 08 ff ff ff 	mov    %rsi,-0xf8(%rbp)
+    8850:	48 8d 75 b4          	lea    -0x4c(%rbp),%rsi
+    8854:	48 89 b5 f8 fe ff ff 	mov    %rsi,-0x108(%rbp)
+    885b:	e9 48 fd ff ff       	jmp    85a8 <zbtIndexFindResizing+0x598>
+    8860:	40 84 ff             	test   %dil,%dil
+    8863:	0f 84 9c 0b 00 00    	je     9405 <zbtIndexFindResizing+0x13f5>
+    8869:	c7 45 80 00 00 00 00 	movl   $0x0,-0x80(%rbp)
+    8870:	4d 89 d0             	mov    %r10,%r8
+    8873:	e9 1c fb ff ff       	jmp    8394 <zbtIndexFindResizing+0x384>
+    8878:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    887f:	00 
+    8880:	41 8b 44 86 10       	mov    0x10(%r14,%rax,4),%eax
+    8885:	83 f8 ff             	cmp    $0xffffffff,%eax
+    8888:	0f 85 4a ff ff ff    	jne    87d8 <zbtIndexFindResizing+0x7c8>
+    888e:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    8892:	48 21 c3             	and    %rax,%rbx
+    8895:	48 85 db             	test   %rbx,%rbx
+    8898:	0f 85 02 ff ff ff    	jne    87a0 <zbtIndexFindResizing+0x790>
+    889e:	66 90                	xchg   %ax,%ax
+    88a0:	48 8b 8d 58 ff ff ff 	mov    -0xa8(%rbp),%rcx
+    88a7:	4c 8b 8d 50 ff ff ff 	mov    -0xb0(%rbp),%r9
+    88ae:	48 85 c9             	test   %rcx,%rcx
+    88b1:	75 3b                	jne    88ee <zbtIndexFindResizing+0x8de>
+    88b3:	41 83 7c 24 38 01    	cmpl   $0x1,0x38(%r12)
+    88b9:	48 8b b5 28 ff ff ff 	mov    -0xd8(%rbp),%rsi
+    88c0:	48 19 c0             	sbb    %rax,%rax
+    88c3:	48 8b bd 48 ff ff ff 	mov    -0xb8(%rbp),%rdi
+    88ca:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
+    88ce:	48 83 c0 30          	add    $0x30,%rax
+    88d2:	48 0f af c6          	imul   %rsi,%rax
+    88d6:	48 8b b5 20 ff ff ff 	mov    -0xe0(%rbp),%rsi
+    88dd:	48 8b 54 07 08       	mov    0x8(%rdi,%rax,1),%rdx
+    88e2:	48 21 f2             	and    %rsi,%rdx
+    88e5:	48 39 f2             	cmp    %rsi,%rdx
+    88e8:	0f 85 51 0a 00 00    	jne    933f <zbtIndexFindResizing+0x132f>
+    88ee:	49 8b 06             	mov    (%r14),%rax
+    88f1:	84 c0                	test   %al,%al
+    88f3:	0f 84 c0 00 00 00    	je     89b9 <zbtIndexFindResizing+0x9a9>
+    88f9:	48 89 c2             	mov    %rax,%rdx
+    88fc:	48 c1 ea 08          	shr    $0x8,%rdx
+    8900:	4d 85 c9             	test   %r9,%r9
+    8903:	0f 84 30 01 00 00    	je     8a39 <zbtIndexFindResizing+0xa29>
+    8909:	84 d2                	test   %dl,%dl
+    890b:	0f 84 e4 06 00 00    	je     8ff5 <zbtIndexFindResizing+0xfe5>
+    8911:	a9 00 00 ff 00       	test   $0xff0000,%eax
+    8916:	0f 84 c1 06 00 00    	je     8fdd <zbtIndexFindResizing+0xfcd>
+    891c:	a9 00 00 00 ff       	test   $0xff000000,%eax
+    8921:	0f 84 07 07 00 00    	je     902e <zbtIndexFindResizing+0x101e>
+    8927:	48 89 c2             	mov    %rax,%rdx
+    892a:	48 c1 ea 20          	shr    $0x20,%rdx
+    892e:	84 d2                	test   %dl,%dl
+    8930:	0f 84 e0 06 00 00    	je     9016 <zbtIndexFindResizing+0x1006>
+    8936:	48 89 c2             	mov    %rax,%rdx
+    8939:	48 c1 ea 28          	shr    $0x28,%rdx
+    893d:	84 d2                	test   %dl,%dl
+    893f:	0f 84 85 07 00 00    	je     90ca <zbtIndexFindResizing+0x10ba>
+    8945:	48 89 c2             	mov    %rax,%rdx
+    8948:	48 c1 ea 30          	shr    $0x30,%rdx
+    894c:	84 d2                	test   %dl,%dl
+    894e:	0f 84 5e 07 00 00    	je     90b2 <zbtIndexFindResizing+0x10a2>
+    8954:	48 c1 e8 38          	shr    $0x38,%rax
+    8958:	0f 84 3c 07 00 00    	je     909a <zbtIndexFindResizing+0x108a>
+    895e:	48 8b 85 68 ff ff ff 	mov    -0x98(%rbp),%rax
+    8965:	48 83 c1 01          	add    $0x1,%rcx
+    8969:	48 83 c0 01          	add    $0x1,%rax
+    896d:	48 23 85 18 ff ff ff 	and    -0xe8(%rbp),%rax
+    8974:	48 89 85 68 ff ff ff 	mov    %rax,-0x98(%rbp)
+    897b:	48 8b 85 10 ff ff ff 	mov    -0xf0(%rbp),%rax
+    8982:	48 39 c1             	cmp    %rax,%rcx
+    8985:	0f 85 0c fd ff ff    	jne    8697 <zbtIndexFindResizing+0x687>
+    898b:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+    8992:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    8999:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    89a0:	48 85 c0             	test   %rax,%rax
+    89a3:	74 4b                	je     89f0 <zbtIndexFindResizing+0x9e0>
+    89a5:	4d 85 c9             	test   %r9,%r9
+    89a8:	74 46                	je     89f0 <zbtIndexFindResizing+0x9e0>
+    89aa:	4c 89 08             	mov    %r9,(%rax)
+    89ad:	48 8b 85 f8 fe ff ff 	mov    -0x108(%rbp),%rax
+    89b4:	44 89 00             	mov    %r8d,(%rax)
+    89b7:	eb 37                	jmp    89f0 <zbtIndexFindResizing+0x9e0>
+    89b9:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    89c0:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    89c7:	31 d2                	xor    %edx,%edx
+    89c9:	48 83 bd 08 ff ff ff 	cmpq   $0x0,-0xf8(%rbp)
+    89d0:	00 
+    89d1:	74 1d                	je     89f0 <zbtIndexFindResizing+0x9e0>
+    89d3:	4d 85 c9             	test   %r9,%r9
+    89d6:	0f 84 59 08 00 00    	je     9235 <zbtIndexFindResizing+0x1225>
+    89dc:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+    89e3:	4c 89 08             	mov    %r9,(%rax)
+    89e6:	48 8b 85 f8 fe ff ff 	mov    -0x108(%rbp),%rax
+    89ed:	44 89 00             	mov    %r8d,(%rax)
+    89f0:	48 83 bd 38 ff ff ff 	cmpq   $0x0,-0xc8(%rbp)
+    89f7:	00 
+    89f8:	74 0e                	je     8a08 <zbtIndexFindResizing+0x9f8>
+    89fa:	48 8b 45 c0          	mov    -0x40(%rbp),%rax
+    89fe:	48 8b b5 38 ff ff ff 	mov    -0xc8(%rbp),%rsi
+    8a05:	48 89 06             	mov    %rax,(%rsi)
+    8a08:	48 85 db             	test   %rbx,%rbx
+    8a0b:	74 05                	je     8a12 <zbtIndexFindResizing+0xa02>
+    8a0d:	8b 45 b4             	mov    -0x4c(%rbp),%eax
+    8a10:	89 03                	mov    %eax,(%rbx)
+    8a12:	31 c0                	xor    %eax,%eax
+    8a14:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    8a18:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+    8a1f:	00 00 
+    8a21:	0f 85 e2 0a 00 00    	jne    9509 <zbtIndexFindResizing+0x14f9>
+    8a27:	48 81 c4 f8 00 00 00 	add    $0xf8,%rsp
+    8a2e:	5b                   	pop    %rbx
+    8a2f:	41 5c                	pop    %r12
+    8a31:	41 5d                	pop    %r13
+    8a33:	41 5e                	pop    %r14
+    8a35:	41 5f                	pop    %r15
+    8a37:	5d                   	pop    %rbp
+    8a38:	c3                   	ret
+    8a39:	41 8b 74 24 38       	mov    0x38(%r12),%esi
+    8a3e:	85 f6                	test   %esi,%esi
+    8a40:	0f 85 d5 00 00 00    	jne    8b1b <zbtIndexFindResizing+0xb0b>
+    8a46:	66 41 83 7e 10 ff    	cmpw   $0xffff,0x10(%r14)
+    8a4c:	0f 84 d0 01 00 00    	je     8c22 <zbtIndexFindResizing+0xc12>
+    8a52:	84 d2                	test   %dl,%dl
+    8a54:	0f 84 b8 07 00 00    	je     9212 <zbtIndexFindResizing+0x1202>
+    8a5a:	48 89 c2             	mov    %rax,%rdx
+    8a5d:	48 c1 ea 10          	shr    $0x10,%rdx
+    8a61:	66 41 83 7e 12 ff    	cmpw   $0xffff,0x12(%r14)
+    8a67:	0f 84 9c 02 00 00    	je     8d09 <zbtIndexFindResizing+0xcf9>
+    8a6d:	84 d2                	test   %dl,%dl
+    8a6f:	0f 84 da 07 00 00    	je     924f <zbtIndexFindResizing+0x123f>
+    8a75:	48 89 c2             	mov    %rax,%rdx
+    8a78:	48 c1 ea 18          	shr    $0x18,%rdx
+    8a7c:	66 41 83 7e 14 ff    	cmpw   $0xffff,0x14(%r14)
+    8a82:	0f 84 b5 02 00 00    	je     8d3d <zbtIndexFindResizing+0xd2d>
+    8a88:	84 d2                	test   %dl,%dl
+    8a8a:	0f 84 fb 07 00 00    	je     928b <zbtIndexFindResizing+0x127b>
+    8a90:	48 89 c2             	mov    %rax,%rdx
+    8a93:	48 c1 ea 20          	shr    $0x20,%rdx
+    8a97:	66 41 83 7e 16 ff    	cmpw   $0xffff,0x16(%r14)
+    8a9d:	0f 84 80 02 00 00    	je     8d23 <zbtIndexFindResizing+0xd13>
+    8aa3:	84 d2                	test   %dl,%dl
+    8aa5:	0f 84 d1 07 00 00    	je     927c <zbtIndexFindResizing+0x126c>
+    8aab:	48 89 c2             	mov    %rax,%rdx
+    8aae:	48 c1 ea 28          	shr    $0x28,%rdx
+    8ab2:	66 41 83 7e 18 ff    	cmpw   $0xffff,0x18(%r14)
+    8ab8:	0f 84 2f 03 00 00    	je     8ded <zbtIndexFindResizing+0xddd>
+    8abe:	84 d2                	test   %dl,%dl
+    8ac0:	0f 84 a7 07 00 00    	je     926d <zbtIndexFindResizing+0x125d>
+    8ac6:	48 89 c2             	mov    %rax,%rdx
+    8ac9:	48 c1 ea 30          	shr    $0x30,%rdx
+    8acd:	66 41 83 7e 1a ff    	cmpw   $0xffff,0x1a(%r14)
+    8ad3:	0f 84 74 03 00 00    	je     8e4d <zbtIndexFindResizing+0xe3d>
+    8ad9:	84 d2                	test   %dl,%dl
+    8adb:	0f 84 7d 07 00 00    	je     925e <zbtIndexFindResizing+0x124e>
+    8ae1:	48 c1 e8 38          	shr    $0x38,%rax
+    8ae5:	66 41 83 7e 1c ff    	cmpw   $0xffff,0x1c(%r14)
+    8aeb:	0f 84 41 03 00 00    	je     8e32 <zbtIndexFindResizing+0xe22>
+    8af1:	48 85 c0             	test   %rax,%rax
+    8af4:	0f 84 46 07 00 00    	je     9240 <zbtIndexFindResizing+0x1230>
+    8afa:	66 41 83 7e 1e ff    	cmpw   $0xffff,0x1e(%r14)
+    8b00:	b8 07 00 00 00       	mov    $0x7,%eax
+    8b05:	0f 45 85 40 ff ff ff 	cmovne -0xc0(%rbp),%eax
+    8b0c:	4d 0f 44 ce          	cmove  %r14,%r9
+    8b10:	89 85 40 ff ff ff    	mov    %eax,-0xc0(%rbp)
+    8b16:	e9 43 fe ff ff       	jmp    895e <zbtIndexFindResizing+0x94e>
+    8b1b:	41 83 7e 10 ff       	cmpl   $0xffffffff,0x10(%r14)
+    8b20:	0f 84 fc 00 00 00    	je     8c22 <zbtIndexFindResizing+0xc12>
+    8b26:	84 d2                	test   %dl,%dl
+    8b28:	0f 84 e4 06 00 00    	je     9212 <zbtIndexFindResizing+0x1202>
+    8b2e:	48 89 c2             	mov    %rax,%rdx
+    8b31:	48 c1 ea 10          	shr    $0x10,%rdx
+    8b35:	41 83 7e 14 ff       	cmpl   $0xffffffff,0x14(%r14)
+    8b3a:	0f 84 c9 01 00 00    	je     8d09 <zbtIndexFindResizing+0xcf9>
+    8b40:	84 d2                	test   %dl,%dl
+    8b42:	0f 84 07 07 00 00    	je     924f <zbtIndexFindResizing+0x123f>
+    8b48:	48 89 c2             	mov    %rax,%rdx
+    8b4b:	48 c1 ea 18          	shr    $0x18,%rdx
+    8b4f:	41 83 7e 18 ff       	cmpl   $0xffffffff,0x18(%r14)
+    8b54:	0f 84 e3 01 00 00    	je     8d3d <zbtIndexFindResizing+0xd2d>
+    8b5a:	84 d2                	test   %dl,%dl
+    8b5c:	0f 84 29 07 00 00    	je     928b <zbtIndexFindResizing+0x127b>
+    8b62:	48 89 c2             	mov    %rax,%rdx
+    8b65:	48 c1 ea 20          	shr    $0x20,%rdx
+    8b69:	41 83 7e 1c ff       	cmpl   $0xffffffff,0x1c(%r14)
+    8b6e:	0f 84 af 01 00 00    	je     8d23 <zbtIndexFindResizing+0xd13>
+    8b74:	84 d2                	test   %dl,%dl
+    8b76:	0f 84 00 07 00 00    	je     927c <zbtIndexFindResizing+0x126c>
+    8b7c:	48 89 c2             	mov    %rax,%rdx
+    8b7f:	48 c1 ea 28          	shr    $0x28,%rdx
+    8b83:	41 83 7e 20 ff       	cmpl   $0xffffffff,0x20(%r14)
+    8b88:	0f 84 5f 02 00 00    	je     8ded <zbtIndexFindResizing+0xddd>
+    8b8e:	84 d2                	test   %dl,%dl
+    8b90:	0f 84 d7 06 00 00    	je     926d <zbtIndexFindResizing+0x125d>
+    8b96:	48 89 c2             	mov    %rax,%rdx
+    8b99:	48 c1 ea 30          	shr    $0x30,%rdx
+    8b9d:	41 83 7e 24 ff       	cmpl   $0xffffffff,0x24(%r14)
+    8ba2:	0f 84 a5 02 00 00    	je     8e4d <zbtIndexFindResizing+0xe3d>
+    8ba8:	84 d2                	test   %dl,%dl
+    8baa:	0f 84 ae 06 00 00    	je     925e <zbtIndexFindResizing+0x124e>
+    8bb0:	48 c1 e8 38          	shr    $0x38,%rax
+    8bb4:	41 83 7e 28 ff       	cmpl   $0xffffffff,0x28(%r14)
+    8bb9:	0f 84 73 02 00 00    	je     8e32 <zbtIndexFindResizing+0xe22>
+    8bbf:	48 85 c0             	test   %rax,%rax
+    8bc2:	0f 84 78 06 00 00    	je     9240 <zbtIndexFindResizing+0x1230>
+    8bc8:	41 83 7e 2c ff       	cmpl   $0xffffffff,0x2c(%r14)
+    8bcd:	b8 07 00 00 00       	mov    $0x7,%eax
+    8bd2:	0f 45 85 40 ff ff ff 	cmovne -0xc0(%rbp),%eax
+    8bd9:	4d 0f 44 ce          	cmove  %r14,%r9
+    8bdd:	89 85 40 ff ff ff    	mov    %eax,-0xc0(%rbp)
+    8be3:	e9 76 fd ff ff       	jmp    895e <zbtIndexFindResizing+0x94e>
+    8be8:	4d 85 c0             	test   %r8,%r8
+    8beb:	0f 84 84 02 00 00    	je     8e75 <zbtIndexFindResizing+0xe65>
+    8bf1:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8bf8:	00 00 00 00 
+    8bfc:	48 8d 45 b4          	lea    -0x4c(%rbp),%rax
+    8c00:	48 89 85 08 ff ff ff 	mov    %rax,-0xf8(%rbp)
+    8c07:	48 8d 45 b8          	lea    -0x48(%rbp),%rax
+    8c0b:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+    8c12:	48 8d 45 c0          	lea    -0x40(%rbp),%rax
+    8c16:	48 89 85 40 ff ff ff 	mov    %rax,-0xc0(%rbp)
+    8c1d:	e9 c8 f4 ff ff       	jmp    80ea <zbtIndexFindResizing+0xda>
+    8c22:	84 d2                	test   %dl,%dl
+    8c24:	0f 84 2b 08 00 00    	je     9455 <zbtIndexFindResizing+0x1445>
+    8c2a:	c7 85 40 ff ff ff 00 	movl   $0x0,-0xc0(%rbp)
+    8c31:	00 00 00 
+    8c34:	4d 89 f1             	mov    %r14,%r9
+    8c37:	e9 d5 fc ff ff       	jmp    8911 <zbtIndexFindResizing+0x901>
+    8c3c:	41 83 7a 10 ff       	cmpl   $0xffffffff,0x10(%r10)
+    8c41:	0f 84 19 fc ff ff    	je     8860 <zbtIndexFindResizing+0x850>
+    8c47:	40 84 ff             	test   %dil,%dil
+    8c4a:	0f 84 bf 06 00 00    	je     930f <zbtIndexFindResizing+0x12ff>
+    8c50:	48 89 cf             	mov    %rcx,%rdi
+    8c53:	48 c1 ef 10          	shr    $0x10,%rdi
+    8c57:	41 83 7a 14 ff       	cmpl   $0xffffffff,0x14(%r10)
+    8c5c:	0f 84 56 02 00 00    	je     8eb8 <zbtIndexFindResizing+0xea8>
+    8c62:	40 84 ff             	test   %dil,%dil
+    8c65:	0f 84 7d 06 00 00    	je     92e8 <zbtIndexFindResizing+0x12d8>
+    8c6b:	48 89 cf             	mov    %rcx,%rdi
+    8c6e:	48 c1 ef 18          	shr    $0x18,%rdi
+    8c72:	41 83 7a 18 ff       	cmpl   $0xffffffff,0x18(%r10)
+    8c77:	0f 84 23 02 00 00    	je     8ea0 <zbtIndexFindResizing+0xe90>
+    8c7d:	40 84 ff             	test   %dil,%dil
+    8c80:	0f 84 3b 06 00 00    	je     92c1 <zbtIndexFindResizing+0x12b1>
+    8c86:	48 89 cf             	mov    %rcx,%rdi
+    8c89:	48 c1 ef 20          	shr    $0x20,%rdi
+    8c8d:	41 83 7a 1c ff       	cmpl   $0xffffffff,0x1c(%r10)
+    8c92:	0f 84 a2 02 00 00    	je     8f3a <zbtIndexFindResizing+0xf2a>
+    8c98:	40 84 ff             	test   %dil,%dil
+    8c9b:	0f 84 f9 05 00 00    	je     929a <zbtIndexFindResizing+0x128a>
+    8ca1:	48 89 cf             	mov    %rcx,%rdi
+    8ca4:	48 c1 ef 28          	shr    $0x28,%rdi
+    8ca8:	41 83 7a 20 ff       	cmpl   $0xffffffff,0x20(%r10)
+    8cad:	0f 84 6f 02 00 00    	je     8f22 <zbtIndexFindResizing+0xf12>
+    8cb3:	40 84 ff             	test   %dil,%dil
+    8cb6:	0f 84 8f 06 00 00    	je     934b <zbtIndexFindResizing+0x133b>
+    8cbc:	48 89 cf             	mov    %rcx,%rdi
+    8cbf:	48 c1 ef 30          	shr    $0x30,%rdi
+    8cc3:	41 83 7a 24 ff       	cmpl   $0xffffffff,0x24(%r10)
+    8cc8:	0f 84 9c 02 00 00    	je     8f6a <zbtIndexFindResizing+0xf5a>
+    8cce:	40 84 ff             	test   %dil,%dil
+    8cd1:	0f 84 9b 06 00 00    	je     9372 <zbtIndexFindResizing+0x1362>
+    8cd7:	48 c1 e9 38          	shr    $0x38,%rcx
+    8cdb:	41 83 7a 28 ff       	cmpl   $0xffffffff,0x28(%r10)
+    8ce0:	0f 84 6c 02 00 00    	je     8f52 <zbtIndexFindResizing+0xf42>
+    8ce6:	48 85 c9             	test   %rcx,%rcx
+    8ce9:	0f 84 bf 06 00 00    	je     93ae <zbtIndexFindResizing+0x139e>
+    8cef:	41 83 7a 2c ff       	cmpl   $0xffffffff,0x2c(%r10)
+    8cf4:	b8 07 00 00 00       	mov    $0x7,%eax
+    8cf9:	0f 45 45 80          	cmovne -0x80(%rbp),%eax
+    8cfd:	4d 0f 44 c2          	cmove  %r10,%r8
+    8d01:	89 45 80             	mov    %eax,-0x80(%rbp)
+    8d04:	e9 dd f6 ff ff       	jmp    83e6 <zbtIndexFindResizing+0x3d6>
+    8d09:	84 d2                	test   %dl,%dl
+    8d0b:	0f 84 75 07 00 00    	je     9486 <zbtIndexFindResizing+0x1476>
+    8d11:	c7 85 40 ff ff ff 01 	movl   $0x1,-0xc0(%rbp)
+    8d18:	00 00 00 
+    8d1b:	4d 89 f1             	mov    %r14,%r9
+    8d1e:	e9 f9 fb ff ff       	jmp    891c <zbtIndexFindResizing+0x90c>
+    8d23:	84 d2                	test   %dl,%dl
+    8d25:	0f 84 41 07 00 00    	je     946c <zbtIndexFindResizing+0x145c>
+    8d2b:	c7 85 40 ff ff ff 03 	movl   $0x3,-0xc0(%rbp)
+    8d32:	00 00 00 
+    8d35:	4d 89 f1             	mov    %r14,%r9
+    8d38:	e9 f9 fb ff ff       	jmp    8936 <zbtIndexFindResizing+0x926>
+    8d3d:	84 d2                	test   %dl,%dl
+    8d3f:	0f 84 aa 07 00 00    	je     94ef <zbtIndexFindResizing+0x14df>
+    8d45:	c7 85 40 ff ff ff 02 	movl   $0x2,-0xc0(%rbp)
+    8d4c:	00 00 00 
+    8d4f:	4d 89 f1             	mov    %r14,%r9
+    8d52:	e9 d0 fb ff ff       	jmp    8927 <zbtIndexFindResizing+0x917>
+    8d57:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    8d5e:	4d 89 d6             	mov    %r10,%r14
+    8d61:	4d 89 c2             	mov    %r8,%r10
+    8d64:	31 c0                	xor    %eax,%eax
+    8d66:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    8d6d:	00 
+    8d6e:	74 1f                	je     8d8f <zbtIndexFindResizing+0xd7f>
+    8d70:	4d 85 d2             	test   %r10,%r10
+    8d73:	0f 84 af 05 00 00    	je     9328 <zbtIndexFindResizing+0x1318>
+    8d79:	48 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%rax
+    8d80:	8b 75 80             	mov    -0x80(%rbp),%esi
+    8d83:	4c 89 10             	mov    %r10,(%rax)
+    8d86:	48 8b 85 08 ff ff ff 	mov    -0xf8(%rbp),%rax
+    8d8d:	89 30                	mov    %esi,(%rax)
+    8d8f:	48 85 db             	test   %rbx,%rbx
+    8d92:	0f 84 cf 00 00 00    	je     8e67 <zbtIndexFindResizing+0xe57>
+    8d98:	48 83 bd 38 ff ff ff 	cmpq   $0x0,-0xc8(%rbp)
+    8d9f:	00 
+    8da0:	75 65                	jne    8e07 <zbtIndexFindResizing+0xdf7>
+    8da2:	4d 8b 54 24 20       	mov    0x20(%r12),%r10
+    8da7:	4d 85 d2             	test   %r10,%r10
+    8daa:	0f 84 5d fc ff ff    	je     8a0d <zbtIndexFindResizing+0x9fd>
+    8db0:	48 c7 85 e8 fe ff ff 	movq   $0x0,-0x118(%rbp)
+    8db7:	00 00 00 00 
+    8dbb:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    8dc0:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    8dc7:	48 8d 45 b0          	lea    -0x50(%rbp),%rax
+    8dcb:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+    8dd2:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8dd9:	00 00 00 00 
+    8ddd:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8de4:	00 00 00 00 
+    8de8:	e9 de f7 ff ff       	jmp    85cb <zbtIndexFindResizing+0x5bb>
+    8ded:	84 d2                	test   %dl,%dl
+    8def:	0f 84 e0 06 00 00    	je     94d5 <zbtIndexFindResizing+0x14c5>
+    8df5:	c7 85 40 ff ff ff 04 	movl   $0x4,-0xc0(%rbp)
+    8dfc:	00 00 00 
+    8dff:	4d 89 f1             	mov    %r14,%r9
+    8e02:	e9 3e fb ff ff       	jmp    8945 <zbtIndexFindResizing+0x935>
+    8e07:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8e0e:	00 00 00 00 
+    8e12:	48 8d 45 b0          	lea    -0x50(%rbp),%rax
+    8e16:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+    8e1d:	49 8b 44 24 20       	mov    0x20(%r12),%rax
+    8e22:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8e29:	00 00 00 00 
+    8e2d:	e9 76 f7 ff ff       	jmp    85a8 <zbtIndexFindResizing+0x598>
+    8e32:	48 85 c0             	test   %rax,%rax
+    8e35:	0f 84 00 06 00 00    	je     943b <zbtIndexFindResizing+0x142b>
+    8e3b:	c7 85 40 ff ff ff 06 	movl   $0x6,-0xc0(%rbp)
+    8e42:	00 00 00 
+    8e45:	4d 89 f1             	mov    %r14,%r9
+    8e48:	e9 11 fb ff ff       	jmp    895e <zbtIndexFindResizing+0x94e>
+    8e4d:	84 d2                	test   %dl,%dl
+    8e4f:	0f 84 66 06 00 00    	je     94bb <zbtIndexFindResizing+0x14ab>
+    8e55:	c7 85 40 ff ff ff 05 	movl   $0x5,-0xc0(%rbp)
+    8e5c:	00 00 00 
+    8e5f:	4d 89 f1             	mov    %r14,%r9
+    8e62:	e9 ed fa ff ff       	jmp    8954 <zbtIndexFindResizing+0x944>
+    8e67:	48 83 bd 38 ff ff ff 	cmpq   $0x0,-0xc8(%rbp)
+    8e6e:	00 
+    8e6f:	0f 84 d1 01 00 00    	je     9046 <zbtIndexFindResizing+0x1036>
+    8e75:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    8e7c:	00 00 00 00 
+    8e80:	49 8b 44 24 20       	mov    0x20(%r12),%rax
+    8e85:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8e8c:	00 00 00 00 
+    8e90:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8e97:	00 00 00 00 
+    8e9b:	e9 08 f7 ff ff       	jmp    85a8 <zbtIndexFindResizing+0x598>
+    8ea0:	40 84 ff             	test   %dil,%dil
+    8ea3:	0f 84 f7 05 00 00    	je     94a0 <zbtIndexFindResizing+0x1490>
+    8ea9:	c7 45 80 02 00 00 00 	movl   $0x2,-0x80(%rbp)
+    8eb0:	4d 89 d0             	mov    %r10,%r8
+    8eb3:	e9 f4 f4 ff ff       	jmp    83ac <zbtIndexFindResizing+0x39c>
+    8eb8:	40 84 ff             	test   %dil,%dil
+    8ebb:	0f 84 d2 04 00 00    	je     9393 <zbtIndexFindResizing+0x1383>
+    8ec1:	c7 45 80 01 00 00 00 	movl   $0x1,-0x80(%rbp)
+    8ec8:	4d 89 d0             	mov    %r10,%r8
+    8ecb:	e9 d0 f4 ff ff       	jmp    83a0 <zbtIndexFindResizing+0x390>
+    8ed0:	48 85 db             	test   %rbx,%rbx
+    8ed3:	0f 84 f0 02 00 00    	je     91c9 <zbtIndexFindResizing+0x11b9>
+    8ed9:	4d 85 d2             	test   %r10,%r10
+    8edc:	0f 84 af 01 00 00    	je     9091 <zbtIndexFindResizing+0x1081>
+    8ee2:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    8ee7:	45 31 ed             	xor    %r13d,%r13d
+    8eea:	48 c7 85 e8 fe ff ff 	movq   $0x0,-0x118(%rbp)
+    8ef1:	00 00 00 00 
+    8ef5:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    8efc:	48 8d 45 b0          	lea    -0x50(%rbp),%rax
+    8f00:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    8f07:	00 00 00 00 
+    8f0b:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    8f12:	00 00 00 00 
+    8f16:	48 89 85 f0 fe ff ff 	mov    %rax,-0x110(%rbp)
+    8f1d:	e9 a9 f6 ff ff       	jmp    85cb <zbtIndexFindResizing+0x5bb>
+    8f22:	40 84 ff             	test   %dil,%dil
+    8f25:	0f 84 bf 04 00 00    	je     93ea <zbtIndexFindResizing+0x13da>
+    8f2b:	c7 45 80 04 00 00 00 	movl   $0x4,-0x80(%rbp)
+    8f32:	4d 89 d0             	mov    %r10,%r8
+    8f35:	e9 92 f4 ff ff       	jmp    83cc <zbtIndexFindResizing+0x3bc>
+    8f3a:	40 84 ff             	test   %dil,%dil
+    8f3d:	0f 84 8c 04 00 00    	je     93cf <zbtIndexFindResizing+0x13bf>
+    8f43:	c7 45 80 03 00 00 00 	movl   $0x3,-0x80(%rbp)
+    8f4a:	4d 89 d0             	mov    %r10,%r8
+    8f4d:	e9 6a f4 ff ff       	jmp    83bc <zbtIndexFindResizing+0x3ac>
+    8f52:	48 85 c9             	test   %rcx,%rcx
+    8f55:	0f 84 b3 05 00 00    	je     950e <zbtIndexFindResizing+0x14fe>
+    8f5b:	c7 45 80 06 00 00 00 	movl   $0x6,-0x80(%rbp)
+    8f62:	4d 89 d0             	mov    %r10,%r8
+    8f65:	e9 7c f4 ff ff       	jmp    83e6 <zbtIndexFindResizing+0x3d6>
+    8f6a:	40 84 ff             	test   %dil,%dil
+    8f6d:	0f 84 ad 04 00 00    	je     9420 <zbtIndexFindResizing+0x1410>
+    8f73:	c7 45 80 05 00 00 00 	movl   $0x5,-0x80(%rbp)
+    8f7a:	4d 89 d0             	mov    %r10,%r8
+    8f7d:	e9 5a f4 ff ff       	jmp    83dc <zbtIndexFindResizing+0x3cc>
+    8f82:	48 8b 85 00 ff ff ff 	mov    -0x100(%rbp),%rax
+    8f89:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    8f90:	48 85 c0             	test   %rax,%rax
+    8f93:	74 03                	je     8f98 <zbtIndexFindResizing+0xf88>
+    8f95:	48 89 38             	mov    %rdi,(%rax)
+    8f98:	48 8b 85 e8 fe ff ff 	mov    -0x118(%rbp),%rax
+    8f9f:	48 85 c0             	test   %rax,%rax
+    8fa2:	74 03                	je     8fa7 <zbtIndexFindResizing+0xf97>
+    8fa4:	4c 89 30             	mov    %r14,(%rax)
+    8fa7:	48 8b 85 f0 fe ff ff 	mov    -0x110(%rbp),%rax
+    8fae:	48 85 c0             	test   %rax,%rax
+    8fb1:	74 03                	je     8fb6 <zbtIndexFindResizing+0xfa6>
+    8fb3:	44 89 38             	mov    %r15d,(%rax)
+    8fb6:	48 8b b5 38 ff ff ff 	mov    -0xc8(%rbp),%rsi
+    8fbd:	48 85 f6             	test   %rsi,%rsi
+    8fc0:	74 07                	je     8fc9 <zbtIndexFindResizing+0xfb9>
+    8fc2:	48 8b 45 b8          	mov    -0x48(%rbp),%rax
+    8fc6:	48 89 06             	mov    %rax,(%rsi)
+    8fc9:	48 85 db             	test   %rbx,%rbx
+    8fcc:	74 05                	je     8fd3 <zbtIndexFindResizing+0xfc3>
+    8fce:	8b 45 b0             	mov    -0x50(%rbp),%eax
+    8fd1:	89 03                	mov    %eax,(%rbx)
+    8fd3:	b8 01 00 00 00       	mov    $0x1,%eax
+    8fd8:	e9 37 fa ff ff       	jmp    8a14 <zbtIndexFindResizing+0xa04>
+    8fdd:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    8fe4:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    8feb:	ba 02 00 00 00       	mov    $0x2,%edx
+    8ff0:	e9 d4 f9 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    8ff5:	48 83 bd 08 ff ff ff 	cmpq   $0x0,-0xf8(%rbp)
+    8ffc:	00 
+    8ffd:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    9004:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    900b:	0f 85 cb f9 ff ff    	jne    89dc <zbtIndexFindResizing+0x9cc>
+    9011:	e9 da f9 ff ff       	jmp    89f0 <zbtIndexFindResizing+0x9e0>
+    9016:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    901d:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9024:	ba 04 00 00 00       	mov    $0x4,%edx
+    9029:	e9 9b f9 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    902e:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    9035:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    903c:	ba 03 00 00 00       	mov    $0x3,%edx
+    9041:	e9 83 f9 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    9046:	4d 8b 54 24 20       	mov    0x20(%r12),%r10
+    904b:	4d 85 d2             	test   %r10,%r10
+    904e:	0f 84 be f9 ff ff    	je     8a12 <zbtIndexFindResizing+0xa02>
+    9054:	48 c7 85 e8 fe ff ff 	movq   $0x0,-0x118(%rbp)
+    905b:	00 00 00 00 
+    905f:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    9064:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    906b:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    9072:	00 00 00 00 
+    9076:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    907d:	00 00 00 00 
+    9081:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    9088:	00 00 00 00 
+    908c:	e9 3a f5 ff ff       	jmp    85cb <zbtIndexFindResizing+0x5bb>
+    9091:	31 c0                	xor    %eax,%eax
+    9093:	89 03                	mov    %eax,(%rbx)
+    9095:	e9 78 f9 ff ff       	jmp    8a12 <zbtIndexFindResizing+0xa02>
+    909a:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    90a1:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    90a8:	ba 07 00 00 00       	mov    $0x7,%edx
+    90ad:	e9 17 f9 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    90b2:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    90b9:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    90c0:	ba 06 00 00 00       	mov    $0x6,%edx
+    90c5:	e9 ff f8 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    90ca:	44 8b 85 40 ff ff ff 	mov    -0xc0(%rbp),%r8d
+    90d1:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    90d8:	ba 05 00 00 00       	mov    $0x5,%edx
+    90dd:	e9 e7 f8 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    90e2:	45 89 f7             	mov    %r14d,%r15d
+    90e5:	49 89 de             	mov    %rbx,%r14
+    90e8:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    90ef:	48 8b 85 00 ff ff ff 	mov    -0x100(%rbp),%rax
+    90f6:	48 85 c0             	test   %rax,%rax
+    90f9:	74 03                	je     90fe <zbtIndexFindResizing+0x10ee>
+    90fb:	48 89 38             	mov    %rdi,(%rax)
+    90fe:	48 8b 85 f0 fe ff ff 	mov    -0x110(%rbp),%rax
+    9105:	48 85 c0             	test   %rax,%rax
+    9108:	74 03                	je     910d <zbtIndexFindResizing+0x10fd>
+    910a:	4c 89 30             	mov    %r14,(%rax)
+    910d:	48 8b 85 f8 fe ff ff 	mov    -0x108(%rbp),%rax
+    9114:	48 85 c0             	test   %rax,%rax
+    9117:	0f 85 96 fe ff ff    	jne    8fb3 <zbtIndexFindResizing+0xfa3>
+    911d:	e9 94 fe ff ff       	jmp    8fb6 <zbtIndexFindResizing+0xfa6>
+    9122:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9129:	4d 89 d6             	mov    %r10,%r14
+    912c:	4d 89 c2             	mov    %r8,%r10
+    912f:	b8 02 00 00 00       	mov    $0x2,%eax
+    9134:	e9 2d fc ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    9139:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9140:	4d 89 c2             	mov    %r8,%r10
+    9143:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    914a:	00 
+    914b:	0f 85 28 fc ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    9151:	e9 39 fc ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    9156:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    915d:	4d 89 d6             	mov    %r10,%r14
+    9160:	4d 89 c2             	mov    %r8,%r10
+    9163:	b8 04 00 00 00       	mov    $0x4,%eax
+    9168:	e9 f9 fb ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    916d:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9174:	4d 89 d6             	mov    %r10,%r14
+    9177:	4d 89 c2             	mov    %r8,%r10
+    917a:	b8 05 00 00 00       	mov    $0x5,%eax
+    917f:	e9 e2 fb ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    9184:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    918b:	4d 89 d6             	mov    %r10,%r14
+    918e:	4d 89 c2             	mov    %r8,%r10
+    9191:	b8 06 00 00 00       	mov    $0x6,%eax
+    9196:	e9 cb fb ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    919b:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    91a2:	4d 89 d6             	mov    %r10,%r14
+    91a5:	4d 89 c2             	mov    %r8,%r10
+    91a8:	b8 03 00 00 00       	mov    $0x3,%eax
+    91ad:	e9 b4 fb ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    91b2:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    91b9:	4d 89 d6             	mov    %r10,%r14
+    91bc:	4d 89 c2             	mov    %r8,%r10
+    91bf:	b8 07 00 00 00       	mov    $0x7,%eax
+    91c4:	e9 9d fb ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    91c9:	4d 85 d2             	test   %r10,%r10
+    91cc:	0f 84 40 f8 ff ff    	je     8a12 <zbtIndexFindResizing+0xa02>
+    91d2:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    91d7:	45 31 ed             	xor    %r13d,%r13d
+    91da:	48 c7 85 e8 fe ff ff 	movq   $0x0,-0x118(%rbp)
+    91e1:	00 00 00 00 
+    91e5:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    91ec:	48 c7 85 f0 fe ff ff 	movq   $0x0,-0x110(%rbp)
+    91f3:	00 00 00 00 
+    91f7:	48 c7 85 08 ff ff ff 	movq   $0x0,-0xf8(%rbp)
+    91fe:	00 00 00 00 
+    9202:	48 c7 85 f8 fe ff ff 	movq   $0x0,-0x108(%rbp)
+    9209:	00 00 00 00 
+    920d:	e9 b9 f3 ff ff       	jmp    85cb <zbtIndexFindResizing+0x5bb>
+    9212:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9219:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    921f:	48 83 bd 08 ff ff ff 	cmpq   $0x0,-0xf8(%rbp)
+    9226:	00 
+    9227:	4d 89 f1             	mov    %r14,%r9
+    922a:	0f 85 ac f7 ff ff    	jne    89dc <zbtIndexFindResizing+0x9cc>
+    9230:	e9 bb f7 ff ff       	jmp    89f0 <zbtIndexFindResizing+0x9e0>
+    9235:	4d 89 f1             	mov    %r14,%r9
+    9238:	41 89 d0             	mov    %edx,%r8d
+    923b:	e9 9c f7 ff ff       	jmp    89dc <zbtIndexFindResizing+0x9cc>
+    9240:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9247:	41 b8 07 00 00 00    	mov    $0x7,%r8d
+    924d:	eb d0                	jmp    921f <zbtIndexFindResizing+0x120f>
+    924f:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9256:	41 b8 02 00 00 00    	mov    $0x2,%r8d
+    925c:	eb c1                	jmp    921f <zbtIndexFindResizing+0x120f>
+    925e:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9265:	41 b8 06 00 00 00    	mov    $0x6,%r8d
+    926b:	eb b2                	jmp    921f <zbtIndexFindResizing+0x120f>
+    926d:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9274:	41 b8 05 00 00 00    	mov    $0x5,%r8d
+    927a:	eb a3                	jmp    921f <zbtIndexFindResizing+0x120f>
+    927c:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9283:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+    9289:	eb 94                	jmp    921f <zbtIndexFindResizing+0x120f>
+    928b:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9292:	41 b8 03 00 00 00    	mov    $0x3,%r8d
+    9298:	eb 85                	jmp    921f <zbtIndexFindResizing+0x120f>
+    929a:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    92a1:	4d 89 d6             	mov    %r10,%r14
+    92a4:	4d 89 f2             	mov    %r14,%r10
+    92a7:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    92ae:	00 
+    92af:	c7 45 80 04 00 00 00 	movl   $0x4,-0x80(%rbp)
+    92b6:	0f 85 bd fa ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    92bc:	e9 ce fa ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    92c1:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    92c8:	4d 89 d6             	mov    %r10,%r14
+    92cb:	4d 89 f2             	mov    %r14,%r10
+    92ce:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    92d5:	00 
+    92d6:	c7 45 80 03 00 00 00 	movl   $0x3,-0x80(%rbp)
+    92dd:	0f 85 96 fa ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    92e3:	e9 a7 fa ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    92e8:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    92ef:	4d 89 d6             	mov    %r10,%r14
+    92f2:	4d 89 f2             	mov    %r14,%r10
+    92f5:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    92fc:	00 
+    92fd:	c7 45 80 02 00 00 00 	movl   $0x2,-0x80(%rbp)
+    9304:	0f 85 6f fa ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    930a:	e9 80 fa ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    930f:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9316:	4d 89 d6             	mov    %r10,%r14
+    9319:	4d 89 f2             	mov    %r14,%r10
+    931c:	c7 45 80 01 00 00 00 	movl   $0x1,-0x80(%rbp)
+    9323:	e9 1b fe ff ff       	jmp    9143 <zbtIndexFindResizing+0x1133>
+    9328:	89 45 80             	mov    %eax,-0x80(%rbp)
+    932b:	4d 89 f2             	mov    %r14,%r10
+    932e:	e9 46 fa ff ff       	jmp    8d79 <zbtIndexFindResizing+0xd69>
+    9333:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    933a:	e9 50 fa ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    933f:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9346:	e9 a5 f6 ff ff       	jmp    89f0 <zbtIndexFindResizing+0x9e0>
+    934b:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9352:	4d 89 d6             	mov    %r10,%r14
+    9355:	4d 89 f2             	mov    %r14,%r10
+    9358:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    935f:	00 
+    9360:	c7 45 80 05 00 00 00 	movl   $0x5,-0x80(%rbp)
+    9367:	0f 85 0c fa ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    936d:	e9 1d fa ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    9372:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9379:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    9380:	00 
+    9381:	c7 45 80 06 00 00 00 	movl   $0x6,-0x80(%rbp)
+    9388:	0f 85 eb f9 ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    938e:	e9 fc f9 ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    9393:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    939a:	c7 45 80 01 00 00 00 	movl   $0x1,-0x80(%rbp)
+    93a1:	4d 89 d6             	mov    %r10,%r14
+    93a4:	b8 02 00 00 00       	mov    $0x2,%eax
+    93a9:	e9 b8 f9 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    93ae:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    93b5:	48 83 bd 40 ff ff ff 	cmpq   $0x0,-0xc0(%rbp)
+    93bc:	00 
+    93bd:	c7 45 80 07 00 00 00 	movl   $0x7,-0x80(%rbp)
+    93c4:	0f 85 af f9 ff ff    	jne    8d79 <zbtIndexFindResizing+0xd69>
+    93ca:	e9 c0 f9 ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    93cf:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    93d6:	c7 45 80 03 00 00 00 	movl   $0x3,-0x80(%rbp)
+    93dd:	4d 89 d6             	mov    %r10,%r14
+    93e0:	b8 04 00 00 00       	mov    $0x4,%eax
+    93e5:	e9 7c f9 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    93ea:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    93f1:	c7 45 80 04 00 00 00 	movl   $0x4,-0x80(%rbp)
+    93f8:	4d 89 d6             	mov    %r10,%r14
+    93fb:	b8 05 00 00 00       	mov    $0x5,%eax
+    9400:	e9 61 f9 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    9405:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    940c:	c7 45 80 00 00 00 00 	movl   $0x0,-0x80(%rbp)
+    9413:	4d 89 d6             	mov    %r10,%r14
+    9416:	b8 01 00 00 00       	mov    $0x1,%eax
+    941b:	e9 46 f9 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    9420:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9427:	c7 45 80 05 00 00 00 	movl   $0x5,-0x80(%rbp)
+    942e:	4d 89 d6             	mov    %r10,%r14
+    9431:	b8 06 00 00 00       	mov    $0x6,%eax
+    9436:	e9 2b f9 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    943b:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9442:	4d 89 f1             	mov    %r14,%r9
+    9445:	41 b8 06 00 00 00    	mov    $0x6,%r8d
+    944b:	ba 07 00 00 00       	mov    $0x7,%edx
+    9450:	e9 74 f5 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    9455:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    945c:	4d 89 f1             	mov    %r14,%r9
+    945f:	45 31 c0             	xor    %r8d,%r8d
+    9462:	ba 01 00 00 00       	mov    $0x1,%edx
+    9467:	e9 5d f5 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    946c:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    9473:	4d 89 f1             	mov    %r14,%r9
+    9476:	41 b8 03 00 00 00    	mov    $0x3,%r8d
+    947c:	ba 04 00 00 00       	mov    $0x4,%edx
+    9481:	e9 43 f5 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    9486:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    948d:	4d 89 f1             	mov    %r14,%r9
+    9490:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    9496:	ba 02 00 00 00       	mov    $0x2,%edx
+    949b:	e9 29 f5 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    94a0:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    94a7:	c7 45 80 02 00 00 00 	movl   $0x2,-0x80(%rbp)
+    94ae:	4d 89 d6             	mov    %r10,%r14
+    94b1:	b8 03 00 00 00       	mov    $0x3,%eax
+    94b6:	e9 ab f8 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    94bb:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    94c2:	4d 89 f1             	mov    %r14,%r9
+    94c5:	41 b8 05 00 00 00    	mov    $0x5,%r8d
+    94cb:	ba 06 00 00 00       	mov    $0x6,%edx
+    94d0:	e9 f4 f4 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    94d5:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    94dc:	4d 89 f1             	mov    %r14,%r9
+    94df:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+    94e5:	ba 05 00 00 00       	mov    $0x5,%edx
+    94ea:	e9 da f4 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    94ef:	48 8b 9d 60 ff ff ff 	mov    -0xa0(%rbp),%rbx
+    94f6:	4d 89 f1             	mov    %r14,%r9
+    94f9:	41 b8 02 00 00 00    	mov    $0x2,%r8d
+    94ff:	ba 03 00 00 00       	mov    $0x3,%edx
+    9504:	e9 c0 f4 ff ff       	jmp    89c9 <zbtIndexFindResizing+0x9b9>
+    9509:	e8 e2 7c ff ff       	call   11f0 <__stack_chk_fail@plt>
+    950e:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    9515:	c7 45 80 06 00 00 00 	movl   $0x6,-0x80(%rbp)
+    951c:	4d 89 d6             	mov    %r10,%r14
+    951f:	b8 07 00 00 00       	mov    $0x7,%eax
+    9524:	e9 3d f8 ff ff       	jmp    8d66 <zbtIndexFindResizing+0xd56>
+    9529:	48 8b 85 28 ff ff ff 	mov    -0xd8(%rbp),%rax
+    9530:	45 31 c9             	xor    %r9d,%r9d
+    9533:	31 f6                	xor    %esi,%esi
+    9535:	4d 89 e2             	mov    %r12,%r10
+    9538:	48 89 9d 78 ff ff ff 	mov    %rbx,-0x88(%rbp)
+    953f:	49 be 80 80 80 80 80 	movabs $0x8080808080808080,%r14
+    9546:	80 80 80 
+    9549:	48 89 45 80          	mov    %rax,-0x80(%rbp)
+    954d:	31 c0                	xor    %eax,%eax
+    954f:	44 88 9d 70 ff ff ff 	mov    %r11b,-0x90(%rbp)
+    9556:	4d 89 eb             	mov    %r13,%r11
+    9559:	41 89 c5             	mov    %eax,%r13d
+    955c:	41 83 7b 20 01       	cmpl   $0x1,0x20(%r11)
+    9561:	48 8b 55 80          	mov    -0x80(%rbp),%rdx
+    9565:	48 19 c0             	sbb    %rax,%rax
+    9568:	48 8b bd 30 ff ff ff 	mov    -0xd0(%rbp),%rdi
+    956f:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
+    9573:	48 83 c0 30          	add    $0x30,%rax
+    9577:	48 0f af c2          	imul   %rdx,%rax
+    957b:	48 8b 95 60 ff ff ff 	mov    -0xa0(%rbp),%rdx
+    9582:	48 8d 1c 02          	lea    (%rdx,%rax,1),%rbx
+    9586:	48 ba ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rdx
+    958d:	fe fe fe 
+    9590:	48 8b 03             	mov    (%rbx),%rax
+    9593:	48 31 c7             	xor    %rax,%rdi
+    9596:	48 8d 0c 17          	lea    (%rdi,%rdx,1),%rcx
+    959a:	48 f7 d7             	not    %rdi
+    959d:	48 21 f9             	and    %rdi,%rcx
+    95a0:	4c 21 f1             	and    %r14,%rcx
+    95a3:	49 89 cc             	mov    %rcx,%r12
+    95a6:	0f 84 05 01 00 00    	je     96b1 <zbtIndexFindResizing+0x16a1>
+    95ac:	44 89 ad 68 ff ff ff 	mov    %r13d,-0x98(%rbp)
+    95b3:	4d 89 dd             	mov    %r11,%r13
+    95b6:	48 89 b5 58 ff ff ff 	mov    %rsi,-0xa8(%rbp)
+    95bd:	4c 89 8d 50 ff ff ff 	mov    %r9,-0xb0(%rbp)
+    95c4:	4c 89 85 48 ff ff ff 	mov    %r8,-0xb8(%rbp)
+    95cb:	eb 7d                	jmp    964a <zbtIndexFindResizing+0x163a>
+    95cd:	49 8b 4a 48          	mov    0x48(%r10),%rcx
+    95d1:	89 c2                	mov    %eax,%edx
+    95d3:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    95d7:	48 85 ff             	test   %rdi,%rdi
+    95da:	0f 84 08 f2 ff ff    	je     87e8 <zbtIndexFindResizing+0x7d8>
+    95e0:	40 f6 c7 01          	test   $0x1,%dil
+    95e4:	0f 85 fe f1 ff ff    	jne    87e8 <zbtIndexFindResizing+0x7d8>
+    95ea:	3b 47 30             	cmp    0x30(%rdi),%eax
+    95ed:	0f 85 5f 06 00 00    	jne    9c52 <zbtIndexFindResizing+0x1c42>
+    95f3:	41 0f b7 45 2c       	movzwl 0x2c(%r13),%eax
+    95f8:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    95fc:	75 3c                	jne    963a <zbtIndexFindResizing+0x162a>
+    95fe:	4c 8b 4d 88          	mov    -0x78(%rbp),%r9
+    9602:	4c 8b 45 90          	mov    -0x70(%rbp),%r8
+    9606:	4c 89 95 e8 fe ff ff 	mov    %r10,-0x118(%rbp)
+    960d:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    9611:	48 8b 55 a0          	mov    -0x60(%rbp),%rdx
+    9615:	48 89 bd 10 ff ff ff 	mov    %rdi,-0xf0(%rbp)
+    961c:	8b 75 ac             	mov    -0x54(%rbp),%esi
+    961f:	e8 2c a5 ff ff       	call   3b50 <zbtScoreLeafFindMember>
+    9624:	48 8b bd 10 ff ff ff 	mov    -0xf0(%rbp),%rdi
+    962b:	4c 8b 95 e8 fe ff ff 	mov    -0x118(%rbp),%r10
+    9632:	85 c0                	test   %eax,%eax
+    9634:	0f 85 ee 05 00 00    	jne    9c28 <zbtIndexFindResizing+0x1c18>
+    963a:	49 8d 44 24 ff       	lea    -0x1(%r12),%rax
+    963f:	49 21 c4             	and    %rax,%r12
+    9642:	4d 85 e4             	test   %r12,%r12
+    9645:	74 4b                	je     9692 <zbtIndexFindResizing+0x1682>
+    9647:	48 8b 03             	mov    (%rbx),%rax
+    964a:	31 d2                	xor    %edx,%edx
+    964c:	f3 49 0f bc d4       	tzcnt  %r12,%rdx
+    9651:	41 89 d7             	mov    %edx,%r15d
+    9654:	83 e2 f8             	and    $0xfffffff8,%edx
+    9657:	89 d1                	mov    %edx,%ecx
+    9659:	41 c1 ff 03          	sar    $0x3,%r15d
+    965d:	48 d3 e8             	shr    %cl,%rax
+    9660:	38 85 70 ff ff ff    	cmp    %al,-0x90(%rbp)
+    9666:	75 d2                	jne    963a <zbtIndexFindResizing+0x162a>
+    9668:	45 8b 45 20          	mov    0x20(%r13),%r8d
+    966c:	44 89 f8             	mov    %r15d,%eax
+    966f:	45 85 c0             	test   %r8d,%r8d
+    9672:	0f 85 c8 05 00 00    	jne    9c40 <zbtIndexFindResizing+0x1c30>
+    9678:	0f b7 44 43 10       	movzwl 0x10(%rbx,%rax,2),%eax
+    967d:	66 83 f8 ff          	cmp    $0xffff,%ax
+    9681:	74 b7                	je     963a <zbtIndexFindResizing+0x162a>
+    9683:	41 3b 42 54          	cmp    0x54(%r10),%eax
+    9687:	0f 83 5b f1 ff ff    	jae    87e8 <zbtIndexFindResizing+0x7d8>
+    968d:	e9 3b ff ff ff       	jmp    95cd <zbtIndexFindResizing+0x15bd>
+    9692:	4d 89 eb             	mov    %r13,%r11
+    9695:	48 8b b5 58 ff ff ff 	mov    -0xa8(%rbp),%rsi
+    969c:	44 8b ad 68 ff ff ff 	mov    -0x98(%rbp),%r13d
+    96a3:	4c 8b 8d 50 ff ff ff 	mov    -0xb0(%rbp),%r9
+    96aa:	4c 8b 85 48 ff ff ff 	mov    -0xb8(%rbp),%r8
+    96b1:	48 85 f6             	test   %rsi,%rsi
+    96b4:	75 3a                	jne    96f0 <zbtIndexFindResizing+0x16e0>
+    96b6:	41 83 7b 20 01       	cmpl   $0x1,0x20(%r11)
+    96bb:	48 8b 95 28 ff ff ff 	mov    -0xd8(%rbp),%rdx
+    96c2:	48 19 c0             	sbb    %rax,%rax
+    96c5:	48 8b 8d 60 ff ff ff 	mov    -0xa0(%rbp),%rcx
+    96cc:	48 83 e0 f0          	and    $0xfffffffffffffff0,%rax
+    96d0:	48 83 c0 30          	add    $0x30,%rax
+    96d4:	48 0f af c2          	imul   %rdx,%rax
+    96d8:	48 8b 95 20 ff ff ff 	mov    -0xe0(%rbp),%rdx
+    96df:	48 8b 7c 01 08       	mov    0x8(%rcx,%rax,1),%rdi
+    96e4:	48 21 d7             	and    %rdx,%rdi
+    96e7:	48 39 d7             	cmp    %rdx,%rdi
+    96ea:	0f 85 8f 00 00 00    	jne    977f <zbtIndexFindResizing+0x176f>
+    96f0:	48 8b 03             	mov    (%rbx),%rax
+    96f3:	84 c0                	test   %al,%al
+    96f5:	0f 84 4c 02 00 00    	je     9947 <zbtIndexFindResizing+0x1937>
+    96fb:	48 89 c1             	mov    %rax,%rcx
+    96fe:	48 c1 e9 08          	shr    $0x8,%rcx
+    9702:	4d 85 c9             	test   %r9,%r9
+    9705:	0f 84 72 01 00 00    	je     987d <zbtIndexFindResizing+0x186d>
+    970b:	84 c9                	test   %cl,%cl
+    970d:	0f 84 51 01 00 00    	je     9864 <zbtIndexFindResizing+0x1854>
+    9713:	a9 00 00 ff 00       	test   $0xff0000,%eax
+    9718:	0f 84 27 01 00 00    	je     9845 <zbtIndexFindResizing+0x1835>
+    971e:	a9 00 00 00 ff       	test   $0xff000000,%eax
+    9723:	0f 84 fd 00 00 00    	je     9826 <zbtIndexFindResizing+0x1816>
+    9729:	48 89 c1             	mov    %rax,%rcx
+    972c:	48 c1 e9 20          	shr    $0x20,%rcx
+    9730:	84 c9                	test   %cl,%cl
+    9732:	0f 84 cf 00 00 00    	je     9807 <zbtIndexFindResizing+0x17f7>
+    9738:	48 89 c1             	mov    %rax,%rcx
+    973b:	48 c1 e9 28          	shr    $0x28,%rcx
+    973f:	84 c9                	test   %cl,%cl
+    9741:	0f 84 a1 00 00 00    	je     97e8 <zbtIndexFindResizing+0x17d8>
+    9747:	48 89 c1             	mov    %rax,%rcx
+    974a:	48 c1 e9 30          	shr    $0x30,%rcx
+    974e:	84 c9                	test   %cl,%cl
+    9750:	74 77                	je     97c9 <zbtIndexFindResizing+0x17b9>
+    9752:	48 c1 e8 38          	shr    $0x38,%rax
+    9756:	74 52                	je     97aa <zbtIndexFindResizing+0x179a>
+    9758:	4c 89 cb             	mov    %r9,%rbx
+    975b:	48 8b 45 80          	mov    -0x80(%rbp),%rax
+    975f:	48 83 c6 01          	add    $0x1,%rsi
+    9763:	48 83 c0 01          	add    $0x1,%rax
+    9767:	48 23 85 18 ff ff ff 	and    -0xe8(%rbp),%rax
+    976e:	48 89 45 80          	mov    %rax,-0x80(%rbp)
+    9772:	4c 39 c6             	cmp    %r8,%rsi
+    9775:	73 1a                	jae    9791 <zbtIndexFindResizing+0x1781>
+    9777:	49 89 d9             	mov    %rbx,%r9
+    977a:	e9 dd fd ff ff       	jmp    955c <zbtIndexFindResizing+0x154c>
+    977f:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9786:	4d 89 dd             	mov    %r11,%r13
+    9789:	4d 89 d4             	mov    %r10,%r12
+    978c:	e9 fe f5 ff ff       	jmp    8d8f <zbtIndexFindResizing+0xd7f>
+    9791:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    9795:	4d 89 d4             	mov    %r10,%r12
+    9798:	4d 89 dd             	mov    %r11,%r13
+    979b:	49 89 da             	mov    %rbx,%r10
+    979e:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    97a5:	e9 68 ec ff ff       	jmp    8412 <zbtIndexFindResizing+0x402>
+    97aa:	4d 89 d4             	mov    %r10,%r12
+    97ad:	49 89 da             	mov    %rbx,%r10
+    97b0:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    97b4:	4d 89 dd             	mov    %r11,%r13
+    97b7:	4d 89 d6             	mov    %r10,%r14
+    97ba:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    97c1:	4d 89 ca             	mov    %r9,%r10
+    97c4:	e9 f6 f9 ff ff       	jmp    91bf <zbtIndexFindResizing+0x11af>
+    97c9:	4d 89 d4             	mov    %r10,%r12
+    97cc:	49 89 da             	mov    %rbx,%r10
+    97cf:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    97d3:	4d 89 dd             	mov    %r11,%r13
+    97d6:	4d 89 d6             	mov    %r10,%r14
+    97d9:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    97e0:	4d 89 ca             	mov    %r9,%r10
+    97e3:	e9 a9 f9 ff ff       	jmp    9191 <zbtIndexFindResizing+0x1181>
+    97e8:	4d 89 d4             	mov    %r10,%r12
+    97eb:	49 89 da             	mov    %rbx,%r10
+    97ee:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    97f2:	4d 89 dd             	mov    %r11,%r13
+    97f5:	4d 89 d6             	mov    %r10,%r14
+    97f8:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    97ff:	4d 89 ca             	mov    %r9,%r10
+    9802:	e9 73 f9 ff ff       	jmp    917a <zbtIndexFindResizing+0x116a>
+    9807:	4d 89 d4             	mov    %r10,%r12
+    980a:	49 89 da             	mov    %rbx,%r10
+    980d:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    9811:	4d 89 dd             	mov    %r11,%r13
+    9814:	4d 89 d6             	mov    %r10,%r14
+    9817:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    981e:	4d 89 ca             	mov    %r9,%r10
+    9821:	e9 3d f9 ff ff       	jmp    9163 <zbtIndexFindResizing+0x1153>
+    9826:	4d 89 d4             	mov    %r10,%r12
+    9829:	49 89 da             	mov    %rbx,%r10
+    982c:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    9830:	4d 89 dd             	mov    %r11,%r13
+    9833:	4d 89 d6             	mov    %r10,%r14
+    9836:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    983d:	4d 89 ca             	mov    %r9,%r10
+    9840:	e9 63 f9 ff ff       	jmp    91a8 <zbtIndexFindResizing+0x1198>
+    9845:	4d 89 d4             	mov    %r10,%r12
+    9848:	49 89 da             	mov    %rbx,%r10
+    984b:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    984f:	4d 89 dd             	mov    %r11,%r13
+    9852:	4d 89 d6             	mov    %r10,%r14
+    9855:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    985c:	4d 89 ca             	mov    %r9,%r10
+    985f:	e9 cb f8 ff ff       	jmp    912f <zbtIndexFindResizing+0x111f>
+    9864:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    9868:	4d 89 d4             	mov    %r10,%r12
+    986b:	4d 89 dd             	mov    %r11,%r13
+    986e:	4d 89 ca             	mov    %r9,%r10
+    9871:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9878:	e9 c6 f8 ff ff       	jmp    9143 <zbtIndexFindResizing+0x1133>
+    987d:	41 83 7b 20 00       	cmpl   $0x0,0x20(%r11)
+    9882:	0f 85 de 00 00 00    	jne    9966 <zbtIndexFindResizing+0x1956>
+    9888:	66 83 7b 10 ff       	cmpw   $0xffff,0x10(%rbx)
+    988d:	0f 84 08 03 00 00    	je     9b9b <zbtIndexFindResizing+0x1b8b>
+    9893:	84 c9                	test   %cl,%cl
+    9895:	0f 84 d3 02 00 00    	je     9b6e <zbtIndexFindResizing+0x1b5e>
+    989b:	48 89 c1             	mov    %rax,%rcx
+    989e:	48 c1 e9 10          	shr    $0x10,%rcx
+    98a2:	66 83 7b 12 ff       	cmpw   $0xffff,0x12(%rbx)
+    98a7:	0f 84 af 02 00 00    	je     9b5c <zbtIndexFindResizing+0x1b4c>
+    98ad:	84 c9                	test   %cl,%cl
+    98af:	0f 84 7a 02 00 00    	je     9b2f <zbtIndexFindResizing+0x1b1f>
+    98b5:	48 89 c1             	mov    %rax,%rcx
+    98b8:	48 c1 e9 18          	shr    $0x18,%rcx
+    98bc:	66 83 7b 14 ff       	cmpw   $0xffff,0x14(%rbx)
+    98c1:	0f 84 56 02 00 00    	je     9b1d <zbtIndexFindResizing+0x1b0d>
+    98c7:	84 c9                	test   %cl,%cl
+    98c9:	0f 84 21 02 00 00    	je     9af0 <zbtIndexFindResizing+0x1ae0>
+    98cf:	48 89 c1             	mov    %rax,%rcx
+    98d2:	48 c1 e9 20          	shr    $0x20,%rcx
+    98d6:	66 83 7b 16 ff       	cmpw   $0xffff,0x16(%rbx)
+    98db:	0f 84 fd 01 00 00    	je     9ade <zbtIndexFindResizing+0x1ace>
+    98e1:	84 c9                	test   %cl,%cl
+    98e3:	0f 84 c8 01 00 00    	je     9ab1 <zbtIndexFindResizing+0x1aa1>
+    98e9:	48 89 c1             	mov    %rax,%rcx
+    98ec:	48 c1 e9 28          	shr    $0x28,%rcx
+    98f0:	66 83 7b 18 ff       	cmpw   $0xffff,0x18(%rbx)
+    98f5:	0f 84 a4 01 00 00    	je     9a9f <zbtIndexFindResizing+0x1a8f>
+    98fb:	84 c9                	test   %cl,%cl
+    98fd:	0f 84 6f 01 00 00    	je     9a72 <zbtIndexFindResizing+0x1a62>
+    9903:	48 89 c1             	mov    %rax,%rcx
+    9906:	48 c1 e9 30          	shr    $0x30,%rcx
+    990a:	66 83 7b 1a ff       	cmpw   $0xffff,0x1a(%rbx)
+    990f:	0f 84 4b 01 00 00    	je     9a60 <zbtIndexFindResizing+0x1a50>
+    9915:	84 c9                	test   %cl,%cl
+    9917:	0f 84 19 01 00 00    	je     9a36 <zbtIndexFindResizing+0x1a26>
+    991d:	48 c1 e8 38          	shr    $0x38,%rax
+    9921:	66 83 7b 1c ff       	cmpw   $0xffff,0x1c(%rbx)
+    9926:	0f 84 fa 00 00 00    	je     9a26 <zbtIndexFindResizing+0x1a16>
+    992c:	48 85 c0             	test   %rax,%rax
+    992f:	0f 84 dc 00 00 00    	je     9a11 <zbtIndexFindResizing+0x1a01>
+    9935:	66 83 7b 1e ff       	cmpw   $0xffff,0x1e(%rbx)
+    993a:	0f 84 c6 00 00 00    	je     9a06 <zbtIndexFindResizing+0x19f6>
+    9940:	31 db                	xor    %ebx,%ebx
+    9942:	e9 14 fe ff ff       	jmp    975b <zbtIndexFindResizing+0x174b>
+    9947:	4d 89 d4             	mov    %r10,%r12
+    994a:	49 89 da             	mov    %rbx,%r10
+    994d:	44 89 6d 80          	mov    %r13d,-0x80(%rbp)
+    9951:	4d 89 dd             	mov    %r11,%r13
+    9954:	4d 89 d6             	mov    %r10,%r14
+    9957:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    995e:	4d 89 ca             	mov    %r9,%r10
+    9961:	e9 fe f3 ff ff       	jmp    8d64 <zbtIndexFindResizing+0xd54>
+    9966:	83 7b 10 ff          	cmpl   $0xffffffff,0x10(%rbx)
+    996a:	0f 84 2b 02 00 00    	je     9b9b <zbtIndexFindResizing+0x1b8b>
+    9970:	84 c9                	test   %cl,%cl
+    9972:	0f 84 9b 02 00 00    	je     9c13 <zbtIndexFindResizing+0x1c03>
+    9978:	48 89 c1             	mov    %rax,%rcx
+    997b:	48 c1 e9 10          	shr    $0x10,%rcx
+    997f:	83 7b 14 ff          	cmpl   $0xffffffff,0x14(%rbx)
+    9983:	0f 84 d3 01 00 00    	je     9b5c <zbtIndexFindResizing+0x1b4c>
+    9989:	84 c9                	test   %cl,%cl
+    998b:	0f 84 6d 02 00 00    	je     9bfe <zbtIndexFindResizing+0x1bee>
+    9991:	48 89 c1             	mov    %rax,%rcx
+    9994:	48 c1 e9 18          	shr    $0x18,%rcx
+    9998:	83 7b 18 ff          	cmpl   $0xffffffff,0x18(%rbx)
+    999c:	0f 84 7b 01 00 00    	je     9b1d <zbtIndexFindResizing+0x1b0d>
+    99a2:	84 c9                	test   %cl,%cl
+    99a4:	0f 84 3f 02 00 00    	je     9be9 <zbtIndexFindResizing+0x1bd9>
+    99aa:	48 89 c1             	mov    %rax,%rcx
+    99ad:	48 c1 e9 20          	shr    $0x20,%rcx
+    99b1:	83 7b 1c ff          	cmpl   $0xffffffff,0x1c(%rbx)
+    99b5:	0f 84 23 01 00 00    	je     9ade <zbtIndexFindResizing+0x1ace>
+    99bb:	84 c9                	test   %cl,%cl
+    99bd:	0f 84 11 02 00 00    	je     9bd4 <zbtIndexFindResizing+0x1bc4>
+    99c3:	48 89 c1             	mov    %rax,%rcx
+    99c6:	48 c1 e9 28          	shr    $0x28,%rcx
+    99ca:	83 7b 20 ff          	cmpl   $0xffffffff,0x20(%rbx)
+    99ce:	0f 84 cb 00 00 00    	je     9a9f <zbtIndexFindResizing+0x1a8f>
+    99d4:	84 c9                	test   %cl,%cl
+    99d6:	0f 84 e3 01 00 00    	je     9bbf <zbtIndexFindResizing+0x1baf>
+    99dc:	48 89 c1             	mov    %rax,%rcx
+    99df:	48 c1 e9 30          	shr    $0x30,%rcx
+    99e3:	83 7b 24 ff          	cmpl   $0xffffffff,0x24(%rbx)
+    99e7:	74 77                	je     9a60 <zbtIndexFindResizing+0x1a50>
+    99e9:	84 c9                	test   %cl,%cl
+    99eb:	74 49                	je     9a36 <zbtIndexFindResizing+0x1a26>
+    99ed:	48 c1 e8 38          	shr    $0x38,%rax
+    99f1:	83 7b 28 ff          	cmpl   $0xffffffff,0x28(%rbx)
+    99f5:	74 2f                	je     9a26 <zbtIndexFindResizing+0x1a16>
+    99f7:	48 85 c0             	test   %rax,%rax
+    99fa:	74 15                	je     9a11 <zbtIndexFindResizing+0x1a01>
+    99fc:	83 7b 2c ff          	cmpl   $0xffffffff,0x2c(%rbx)
+    9a00:	0f 85 3a ff ff ff    	jne    9940 <zbtIndexFindResizing+0x1930>
+    9a06:	41 bd 07 00 00 00    	mov    $0x7,%r13d
+    9a0c:	e9 4a fd ff ff       	jmp    975b <zbtIndexFindResizing+0x174b>
+    9a11:	4d 89 d4             	mov    %r10,%r12
+    9a14:	4d 89 dd             	mov    %r11,%r13
+    9a17:	49 89 da             	mov    %rbx,%r10
+    9a1a:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9a21:	e9 8f f9 ff ff       	jmp    93b5 <zbtIndexFindResizing+0x13a5>
+    9a26:	48 85 c0             	test   %rax,%rax
+    9a29:	74 20                	je     9a4b <zbtIndexFindResizing+0x1a3b>
+    9a2b:	41 bd 06 00 00 00    	mov    $0x6,%r13d
+    9a31:	e9 25 fd ff ff       	jmp    975b <zbtIndexFindResizing+0x174b>
+    9a36:	4d 89 d4             	mov    %r10,%r12
+    9a39:	4d 89 dd             	mov    %r11,%r13
+    9a3c:	49 89 da             	mov    %rbx,%r10
+    9a3f:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9a46:	e9 2e f9 ff ff       	jmp    9379 <zbtIndexFindResizing+0x1369>
+    9a4b:	4d 89 d4             	mov    %r10,%r12
+    9a4e:	4d 89 dd             	mov    %r11,%r13
+    9a51:	49 89 da             	mov    %rbx,%r10
+    9a54:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9a5b:	e9 b5 fa ff ff       	jmp    9515 <zbtIndexFindResizing+0x1505>
+    9a60:	84 c9                	test   %cl,%cl
+    9a62:	74 26                	je     9a8a <zbtIndexFindResizing+0x1a7a>
+    9a64:	49 89 d9             	mov    %rbx,%r9
+    9a67:	41 bd 05 00 00 00    	mov    $0x5,%r13d
+    9a6d:	e9 e0 fc ff ff       	jmp    9752 <zbtIndexFindResizing+0x1742>
+    9a72:	4d 89 d4             	mov    %r10,%r12
+    9a75:	49 89 da             	mov    %rbx,%r10
+    9a78:	4d 89 dd             	mov    %r11,%r13
+    9a7b:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9a82:	4d 89 d6             	mov    %r10,%r14
+    9a85:	e9 cb f8 ff ff       	jmp    9355 <zbtIndexFindResizing+0x1345>
+    9a8a:	4d 89 d4             	mov    %r10,%r12
+    9a8d:	4d 89 dd             	mov    %r11,%r13
+    9a90:	49 89 da             	mov    %rbx,%r10
+    9a93:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9a9a:	e9 88 f9 ff ff       	jmp    9427 <zbtIndexFindResizing+0x1417>
+    9a9f:	84 c9                	test   %cl,%cl
+    9aa1:	74 26                	je     9ac9 <zbtIndexFindResizing+0x1ab9>
+    9aa3:	49 89 d9             	mov    %rbx,%r9
+    9aa6:	41 bd 04 00 00 00    	mov    $0x4,%r13d
+    9aac:	e9 96 fc ff ff       	jmp    9747 <zbtIndexFindResizing+0x1737>
+    9ab1:	4d 89 d4             	mov    %r10,%r12
+    9ab4:	49 89 da             	mov    %rbx,%r10
+    9ab7:	4d 89 dd             	mov    %r11,%r13
+    9aba:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9ac1:	4d 89 d6             	mov    %r10,%r14
+    9ac4:	e9 db f7 ff ff       	jmp    92a4 <zbtIndexFindResizing+0x1294>
+    9ac9:	4d 89 d4             	mov    %r10,%r12
+    9acc:	4d 89 dd             	mov    %r11,%r13
+    9acf:	49 89 da             	mov    %rbx,%r10
+    9ad2:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9ad9:	e9 13 f9 ff ff       	jmp    93f1 <zbtIndexFindResizing+0x13e1>
+    9ade:	84 c9                	test   %cl,%cl
+    9ae0:	74 26                	je     9b08 <zbtIndexFindResizing+0x1af8>
+    9ae2:	49 89 d9             	mov    %rbx,%r9
+    9ae5:	41 bd 03 00 00 00    	mov    $0x3,%r13d
+    9aeb:	e9 48 fc ff ff       	jmp    9738 <zbtIndexFindResizing+0x1728>
+    9af0:	4d 89 d4             	mov    %r10,%r12
+    9af3:	49 89 da             	mov    %rbx,%r10
+    9af6:	4d 89 dd             	mov    %r11,%r13
+    9af9:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b00:	4d 89 d6             	mov    %r10,%r14
+    9b03:	e9 c3 f7 ff ff       	jmp    92cb <zbtIndexFindResizing+0x12bb>
+    9b08:	4d 89 d4             	mov    %r10,%r12
+    9b0b:	4d 89 dd             	mov    %r11,%r13
+    9b0e:	49 89 da             	mov    %rbx,%r10
+    9b11:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b18:	e9 b9 f8 ff ff       	jmp    93d6 <zbtIndexFindResizing+0x13c6>
+    9b1d:	84 c9                	test   %cl,%cl
+    9b1f:	74 26                	je     9b47 <zbtIndexFindResizing+0x1b37>
+    9b21:	49 89 d9             	mov    %rbx,%r9
+    9b24:	41 bd 02 00 00 00    	mov    $0x2,%r13d
+    9b2a:	e9 fa fb ff ff       	jmp    9729 <zbtIndexFindResizing+0x1719>
+    9b2f:	4d 89 d4             	mov    %r10,%r12
+    9b32:	49 89 da             	mov    %rbx,%r10
+    9b35:	4d 89 dd             	mov    %r11,%r13
+    9b38:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b3f:	4d 89 d6             	mov    %r10,%r14
+    9b42:	e9 ab f7 ff ff       	jmp    92f2 <zbtIndexFindResizing+0x12e2>
+    9b47:	4d 89 d4             	mov    %r10,%r12
+    9b4a:	4d 89 dd             	mov    %r11,%r13
+    9b4d:	49 89 da             	mov    %rbx,%r10
+    9b50:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b57:	e9 4b f9 ff ff       	jmp    94a7 <zbtIndexFindResizing+0x1497>
+    9b5c:	84 c9                	test   %cl,%cl
+    9b5e:	74 26                	je     9b86 <zbtIndexFindResizing+0x1b76>
+    9b60:	49 89 d9             	mov    %rbx,%r9
+    9b63:	41 bd 01 00 00 00    	mov    $0x1,%r13d
+    9b69:	e9 b0 fb ff ff       	jmp    971e <zbtIndexFindResizing+0x170e>
+    9b6e:	4d 89 d4             	mov    %r10,%r12
+    9b71:	49 89 da             	mov    %rbx,%r10
+    9b74:	4d 89 dd             	mov    %r11,%r13
+    9b77:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b7e:	4d 89 d6             	mov    %r10,%r14
+    9b81:	e9 93 f7 ff ff       	jmp    9319 <zbtIndexFindResizing+0x1309>
+    9b86:	4d 89 d4             	mov    %r10,%r12
+    9b89:	4d 89 dd             	mov    %r11,%r13
+    9b8c:	49 89 da             	mov    %rbx,%r10
+    9b8f:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9b96:	e9 ff f7 ff ff       	jmp    939a <zbtIndexFindResizing+0x138a>
+    9b9b:	84 c9                	test   %cl,%cl
+    9b9d:	74 0b                	je     9baa <zbtIndexFindResizing+0x1b9a>
+    9b9f:	49 89 d9             	mov    %rbx,%r9
+    9ba2:	45 31 ed             	xor    %r13d,%r13d
+    9ba5:	e9 69 fb ff ff       	jmp    9713 <zbtIndexFindResizing+0x1703>
+    9baa:	4d 89 d4             	mov    %r10,%r12
+    9bad:	4d 89 dd             	mov    %r11,%r13
+    9bb0:	49 89 da             	mov    %rbx,%r10
+    9bb3:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9bba:	e9 4d f8 ff ff       	jmp    940c <zbtIndexFindResizing+0x13fc>
+    9bbf:	4d 89 d4             	mov    %r10,%r12
+    9bc2:	4d 89 dd             	mov    %r11,%r13
+    9bc5:	49 89 da             	mov    %rbx,%r10
+    9bc8:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9bcf:	e9 84 f7 ff ff       	jmp    9358 <zbtIndexFindResizing+0x1348>
+    9bd4:	4d 89 d4             	mov    %r10,%r12
+    9bd7:	4d 89 dd             	mov    %r11,%r13
+    9bda:	49 89 da             	mov    %rbx,%r10
+    9bdd:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9be4:	e9 be f6 ff ff       	jmp    92a7 <zbtIndexFindResizing+0x1297>
+    9be9:	4d 89 d4             	mov    %r10,%r12
+    9bec:	4d 89 dd             	mov    %r11,%r13
+    9bef:	49 89 da             	mov    %rbx,%r10
+    9bf2:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9bf9:	e9 d0 f6 ff ff       	jmp    92ce <zbtIndexFindResizing+0x12be>
+    9bfe:	4d 89 d4             	mov    %r10,%r12
+    9c01:	4d 89 dd             	mov    %r11,%r13
+    9c04:	49 89 da             	mov    %rbx,%r10
+    9c07:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9c0e:	e9 e2 f6 ff ff       	jmp    92f5 <zbtIndexFindResizing+0x12e5>
+    9c13:	4d 89 d4             	mov    %r10,%r12
+    9c16:	4d 89 dd             	mov    %r11,%r13
+    9c19:	49 89 da             	mov    %rbx,%r10
+    9c1c:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9c23:	e9 f4 f6 ff ff       	jmp    931c <zbtIndexFindResizing+0x130c>
+    9c28:	49 89 da             	mov    %rbx,%r10
+    9c2b:	48 8b 9d 78 ff ff ff 	mov    -0x88(%rbp),%rbx
+    9c32:	4d 89 d6             	mov    %r10,%r14
+    9c35:	e9 b5 f4 ff ff       	jmp    90ef <zbtIndexFindResizing+0x10df>
+    9c3a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    9c40:	8b 44 83 10          	mov    0x10(%rbx,%rax,4),%eax
+    9c44:	83 f8 ff             	cmp    $0xffffffff,%eax
+    9c47:	0f 85 36 fa ff ff    	jne    9683 <zbtIndexFindResizing+0x1673>
+    9c4d:	e9 e8 f9 ff ff       	jmp    963a <zbtIndexFindResizing+0x162a>
+    9c52:	48 8d 15 74 df 00 00 	lea    0xdf74(%rip),%rdx        # 17bcd <_IO_stdin_used+0xbcd>
+    9c59:	be ce 07 00 00       	mov    $0x7ce,%esi
+    9c5e:	48 8d 3d 43 d8 00 00 	lea    0xd843(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    9c65:	e8 a6 bc 00 00       	call   15910 <standalone_panic>
+
+Disassembly of section .fini:

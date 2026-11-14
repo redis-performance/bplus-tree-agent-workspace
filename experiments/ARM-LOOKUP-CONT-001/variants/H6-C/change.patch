@@ -1,0 +1,182 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..abd109027 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -363,6 +363,54 @@ static inline uint8_t *zbtScoreLeafHashTags(zbtScoreLeaf *leaf) {
+     return (uint8_t *)(zbtScoreLeafOffsets(leaf) + leaf->n.count);
+ }
+ 
++/* Record addresses fit in twelve bits. The high nibble is an exact inline
++ * length code: zero means generic; codes 1..15 name the lengths below.
++ * Only a byte-length inline header may supply a hint, never an external or
++ * 16-bit-length record, even when its logical length happens to be small. */
++#define ZBT_RECORD_OFFSET_MASK 0x0fff
++_Static_assert(ZBT_SCORE_LEAF_BYTES <= ZBT_RECORD_OFFSET_MASK,
++               "leaf record offsets must fit in twelve bits");
++static const uint8_t zbtRecordInlineLengths[16] =
++    {0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 12, 16, 24, 32, 64, 128};
++
++static inline uint16_t zbtRecordOffset(uint16_t descriptor) {
++    return descriptor & ZBT_RECORD_OFFSET_MASK;
++}
++
++static inline unsigned int zbtRecordLengthCode(uint16_t descriptor) {
++    return descriptor >> 12;
++}
++
++/* Read the header only after the record has been written. */
++static uint16_t zbtRecordDescriptor(unsigned int offset,
++                                     const unsigned char *record)
++{
++    serverAssert(offset <= ZBT_RECORD_OFFSET_MASK);
++    unsigned int code = 0;
++    if (record[0] <= 8) {
++        code = record[0] + 1;
++    } else {
++        switch (record[0]) {
++        case 12: code = 10; break;
++        case 16: code = 11; break;
++        case 24: code = 12; break;
++        case 32: code = 13; break;
++        case 64: code = 14; break;
++        case 128: code = 15; break;
++        }
++    }
++    debugServerAssert(code == 0 || record[0] == zbtRecordInlineLengths[code]);
++    return (uint16_t)(offset | (code << 12));
++}
++
++/* Relocate the address without carrying arithmetic into the length code. */
++static inline uint16_t zbtRecordDescriptorMove(uint16_t descriptor,
++                                               unsigned int offset)
++{
++    serverAssert(offset <= ZBT_RECORD_OFFSET_MASK);
++    return (descriptor & ~ZBT_RECORD_OFFSET_MASK) | offset;
++}
++
+ /* Left-edge leaves keep their arrays in reverse physical order. Logical
+  * positions remain sorted, but prepending then inserts at the physical end
+  * and does not move the existing packed scores or offsets. */
+@@ -376,7 +424,8 @@ static inline unsigned int zbtScoreLeafPhysicalPos(zbtScoreLeaf *leaf,
+ static inline uint16_t zbtScoreLeafOffset(zbtScoreLeaf *leaf,
+                                           unsigned int pos)
+ {
+-    return zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)];
++    return zbtRecordOffset(
++        zbtScoreLeafOffsets(leaf)[zbtScoreLeafPhysicalPos(leaf, pos)]);
+ }
+ 
+ /* The packed arrays form one bit stream: bit p lives in byte p/8 at bit p%8.
+@@ -1040,10 +1089,10 @@ static zbtScoreLeaf *zbtScoreLeafBuild(zbtreeSet *zs, unsigned int count,
+         records -= item_bytes;
+         serverAssert((char *)records - (char *)leaf <=
+                      ZBT_SCORE_LEAF_BYTES);
+-        offsets[i] = (uint16_t)((char *)records - (char *)leaf);
+         hash_tags[i] = tags[i];
+         if (zbtBuildElementWrite(zs, records, &elems[i]))
+             leaf->n.has_external = 1;
++        offsets[i] = zbtRecordDescriptor(records - (unsigned char *)leaf, records);
+     }
+     leaf->record_start = records - (unsigned char *)leaf;
+     zbtScoreRegisterLeaf(zs, leaf, id);
+@@ -1314,18 +1363,24 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+         uint8_t *found = memchr(next, tag, end - next);
+         if (found == NULL) break;
+         unsigned int physical = found - tags;
+-        uint16_t offset = offsets[physical];
+-        unsigned char *record = (unsigned char *)leaf + offset;
+-
+-        if (record[0] == ZBT_PACKED_EXTERNAL &&
+-            zbtExternalHash(record) != hash)
+-        {
+-            next = found + 1;
+-            continue;
+-        }
+-
++        uint16_t descriptor = offsets[physical];
++        unsigned char *record = (unsigned char *)leaf + zbtRecordOffset(descriptor);
++        unsigned int code = zbtRecordLengthCode(descriptor);
+         size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
++        const unsigned char *stored;
++        if (code) {
++            len = zbtRecordInlineLengths[code];
++            debugServerAssert(record[0] == len);
++            stored = record + 1;
++        } else {
++            if (record[0] == ZBT_PACKED_EXTERNAL &&
++                zbtExternalHash(record) != hash)
++            {
++                next = found + 1;
++                continue;
++            }
++            stored = zbtPackedData(record, &len);
++        }
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+             unsigned int logical =
+@@ -1394,7 +1449,7 @@ static unsigned int zbtScoreChooseSplit(unsigned int count, double *scores,
+  * same leaf allocation. Existing records remain where they are; only the new
+  * record is added and the packed scores and offsets are rewritten.
+  *
+- * 'locations' contains the old record offsets in the new logical order.
++ * 'locations' contains decoded old record offsets in the new logical order.
+  * Return zero when the changed arrays and new record no longer fit in the
+  * free space, so the caller can rebuild or split the leaf.
+  */
+@@ -1434,7 +1489,7 @@ static int zbtScoreInsertInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+         zbtScoreLeafWriteScore(leaf, i, scores[i]);
+         uint16_t offset = i == inserted ? new_offset : locations[i];
+         unsigned int physical = zbtScoreLeafPhysicalPos(leaf, i);
+-        offsets[physical] = offset;
++        offsets[physical] = zbtRecordDescriptor(offset, (unsigned char *)leaf + offset);
+         hash_tags[physical] = tags[i];
+         debugServerAssert(zbtScoreLeafScore(leaf, i) == scores[i]);
+     }
+@@ -1514,7 +1569,7 @@ static int zbtScoreInsertFast(zbtreeSet *zs, zbtScoreLeaf *leaf, double score,
+     leaf->n.count = count;
+     leaf->n.subtree = count;
+     leaf->record_start = new_offset;
+-    offsets[physical] = new_offset;
++    offsets[physical] = zbtRecordDescriptor(new_offset, (unsigned char *)leaf + new_offset);
+     zbtScoreUpdatePath(&leaf->n, 1);
+     return 1;
+ }
+@@ -2512,7 +2567,7 @@ static size_t zbtScoreLeafRecordBytes(zbtScoreLeaf *leaf) {
+     uint16_t *offsets = zbtScoreLeafOffsets(leaf);
+     size_t bytes = 0;
+     for (unsigned int i = 0; i < leaf->n.count; i++)
+-        bytes += zbtRecordStorageBytes((unsigned char *)leaf + offsets[i]);
++        bytes += zbtRecordStorageBytes((unsigned char *)leaf + zbtRecordOffset(offsets[i]));
+     return bytes;
+ }
+ 
+@@ -2610,7 +2665,7 @@ static void zbtScoreDeleteInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+     uint16_t *old_offsets = zbtScoreLeafOffsets(leaf);
+     uint8_t old_tags[ZBT_SCORE_LEAF_MAX];
+     memcpy(old_tags, zbtScoreLeafHashTags(leaf), oldcount);
+-    uint16_t deleted_offset = old_offsets[physical];
++    uint16_t deleted_offset = zbtRecordOffset(old_offsets[physical]);
+     unsigned char *deleted_record = (unsigned char *)leaf + deleted_offset;
+     size_t deleted_bytes = zbtRecordStorageBytes(deleted_record);
+ 
+@@ -2636,7 +2691,7 @@ static void zbtScoreDeleteInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+     if (compact_records && deleted_offset != leaf->record_start) {
+         int above = 0;
+         for (unsigned int i = 0; i < oldcount && !above; i++)
+-            above = old_offsets[i] > deleted_offset;
++            above = zbtRecordOffset(old_offsets[i]) > deleted_offset;
+         if (!above) compact_records = 0;
+     }
+     if (compact_records) {
+@@ -2663,7 +2718,9 @@ static void zbtScoreDeleteInPlace(zbtreeSet *zs, zbtScoreLeaf *leaf,
+     leaf->n.subtree = count;
+     if (compact_records) {
+         for (unsigned int i = 0; i < count; i++) {
+-            if (offsets[i] < deleted_offset) offsets[i] += deleted_bytes;
++            unsigned int offset = zbtRecordOffset(offsets[i]);
++            if (offset < deleted_offset)
++                offsets[i] = zbtRecordDescriptorMove(offsets[i], offset + deleted_bytes);
+         }
+     }
+     zbtScoreUpdatePath(&leaf->n, -1);

@@ -48,7 +48,18 @@ assert not subprocess.check_output(['docker','ps','-q'],text=True).strip()
 run(['taskset','-c','2','python3','-c','import os;assert os.sched_getaffinity(0)=={2}'],'affinity-'+a.action)
 if a.action=='compare':
  gate=json.loads((out/'qualification.json').read_text());assert gate['pass'] and len(gate['blocks'])==15
-variants=['base'] if a.action=='qualify' else list(a.variants)
+requested_variants=list(a.variants)
+exclusions={}
+exclusion_file=root/'H2-exclusions.json'
+if a.action=='compare' and exclusion_file.exists():
+ exclusions=json.loads(exclusion_file.read_text())
+ for v,item in exclusions.items():
+  if v in meta['binaries']:assert item['source_sha256']==meta['binaries'][v]['source_sha256']
+variants=['base'] if a.action=='qualify' else [v for v in requested_variants if v not in exclusions]
+assert variants
+if a.action=='compare':
+ meta.update(requested_variants=requested_variants,measured_variants=variants,excluded_variants=exclusions,comparison_collector_sha256=sha(__file__),comparison_started=time.time())
+ (out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
 rowfile=out/('aa.jsonl' if a.action=='qualify' else 'comparison.jsonl');assert not rowfile.exists()
 blocks=[];allrows=[]
 for v in variants:

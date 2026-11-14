@@ -1,0 +1,51 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..26c9d6cbd 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -3261,13 +3261,34 @@ int zbtreeDefragStep(zbtreeSet *zs, zbtreeDefragState *state,
+ 
+ /* -------------------------- Lookup and update --------------------------- */
+ 
++/* Keep resize progress and the two-table search outside stable raw reads.
++ * The generic finder reloads resize state after its step, which can finish
++ * the resize and release the old state. */
++static __attribute__((noinline))
++int zbtIndexReadResizing(zbtreeSet *zs, uint32_t hash,
++                         const unsigned char *ele, size_t elelen,
++                         double *score)
++{
++    return zbtIndexFind(zs, hash, ele, elelen, score,
++                        NULL, NULL, NULL, NULL);
++}
++
++static inline __attribute__((always_inline))
++int zbtIndexReadRaw(zbtreeSet *zs, uint32_t hash,
++                    const unsigned char *ele, size_t elelen, double *score)
++{
++    if (zs->member_rehash)
++        return zbtIndexReadResizing(zs, hash, ele, elelen, score);
++    return zbtIndexTableFind(zs, &zs->member_index, hash, ele, elelen, score,
++                             NULL, NULL, NULL, NULL, NULL, NULL);
++}
++
+ /* Find a member supplied as raw bytes, without making a temporary sds. */
+ int zbtreeScoreRaw(zbtreeSet *zs, const unsigned char *ele,
+                    size_t elelen, double *score)
+ {
+     uint32_t hash = (uint32_t)dictGenHashFunction(ele, elelen);
+-    return zbtIndexFind(zs, hash, ele, elelen, score,
+-                        NULL, NULL, NULL, NULL);
++    return zbtIndexReadRaw(zs, hash, ele, elelen, score);
+ }
+ 
+ /* Return the hash the member index uses for 'ele'. */
+@@ -3280,8 +3301,7 @@ int zbtreeScoreRawWithHash(zbtreeSet *zs, uint32_t hash,
+                            const unsigned char *ele, size_t elelen,
+                            double *score)
+ {
+-    return zbtIndexFind(zs, hash, ele, elelen, score,
+-                        NULL, NULL, NULL, NULL);
++    return zbtIndexReadRaw(zs, hash, ele, elelen, score);
+ }
+ 
+ /* Find an sds member and optionally return its score. */

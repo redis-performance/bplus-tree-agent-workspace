@@ -1,5 +1,9 @@
 # Experiment log
 
+## 14 November: AMD controls parked; ARM and Intel candidate work continues
+
+[AMD qualification](ARM-LOOKUP-CONT-001/AMD-RESULTS.md) retains 144 baseline rows. Both compiler cohorts fail the registered noise bound; no candidate timing. Count this one protocol once. Completed totals: **41 attempts / 23 PARK / 18 REJECT / 0 approved; ARM 29 / Intel 6 / AMD 6; 24 populations, 5 replications, 12 qualifications.** H2–H6 remain active and excluded. [Current status](ARM-LOOKUP-CONT-001/STATUS.md).
+
 ## 14 November: two more qualification protocols complete
 
 [ARM long-window LTO](ARM-LOOKUP-CONT-001/LTO-LONG-COHORT.md) passes18/18 blocks across72rows. [Independent Intel qualification](ARM-LOOKUP-CONT-001/INTEL-COHORT.md) passes18/18 blocks per compiler,144rows total, with both baseline TMA cohorts independently audited. Count each protocol once: **qualification PASS; ledger PARK / source NONE**. These are successful controls, not failed qualification or adopted optimizations. Prior Q1/Q2 failures remain unchanged.

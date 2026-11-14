@@ -1,0 +1,1 @@
+The first focused mutation-oracle build retained a node-type accessor from an earlier test harness. This baseline uses node->isleaf directly. Compilation with -Werror rejected the missing accessor before execution; replacing that test-only call with the baseline field access fixes the harness. Candidate source unchanged.

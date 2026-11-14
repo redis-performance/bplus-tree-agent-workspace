@@ -1,0 +1,50 @@
+{
+  "cohort": "native",
+  "seed": 17,
+  "cases": {
+    "iterator-forward": 1000000,
+    "iterator-reverse": 1000000,
+    "rank-forward": 200000,
+    "rank-reverse": 200000,
+    "churn": 20000
+  },
+  "harness_sha256": "f1e67e306afdd59b5e0eff8b67025129227aebf037ded199a026d87c63f9049e",
+  "build_script_sha256": "50430c79c75fa9d7dca5a65f37e0f12552ca3d69086421cd28378ac0e6823677",
+  "compiler_image": null,
+  "binaries": {
+    "base": {
+      "path": "bin/guards-native-base",
+      "source_sha256": "16def20f621e1e9fcb2cd3f2818aea49e23dae9066ebea5fa276e841c5e095c9",
+      "binary_sha256": "98bf93849bdc0d11b49f09990c6d19300462b2e06b93faa7b88c44c92185796b"
+    },
+    "B": {
+      "path": "bin/guards-native-B",
+      "source_sha256": "63b18cd5aa70d455fb2639e826386045841052b8f2cea85e5b97f9018d829f29",
+      "binary_sha256": "a9082effe3666feb7825f4550216be901babe0036a79b0abae9d5de741372e93"
+    },
+    "C": {
+      "path": "bin/guards-native-C",
+      "source_sha256": "789ca7e217baa67cba165d2ebed7be0c9c1a2a7067f94ae870431395e66ffe49",
+      "binary_sha256": "4e9f031667d4a7790f1aea2919d7419c10192fbb5618c4574aadf2cba1b5b4f2"
+    }
+  },
+  "started": 1794622429.4304736,
+  "requested_variants": [
+    "B",
+    "C"
+  ],
+  "measured_variants": [
+    "B"
+  ],
+  "excluded_variants": {
+    "C": {
+      "source_sha256": "789ca7e217baa67cba165d2ebed7be0c9c1a2a7067f94ae870431395e66ffe49",
+      "decision": "REJECT",
+      "reason": "qualified ARM LTO iterator-forward+24.7%,iterator-reverse+20.4..20.7% exceed1%",
+      "evidence": "H2-GUARD-DECISION.md",
+      "recorded": 1794623008.3890703
+    }
+  },
+  "comparison_collector_sha256": "a1ddc7e99f7a03076757dd64f263a3c3dd6d4fc0501dc516a83a6a1306c09704",
+  "comparison_started": 1794623063.113979
+}

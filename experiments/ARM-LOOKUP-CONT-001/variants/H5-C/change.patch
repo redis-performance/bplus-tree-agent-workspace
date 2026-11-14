@@ -1,0 +1,55 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..46789cf85 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -2306,9 +2306,10 @@ static int zbtIndexOwnsBucket(zbtIndexTable *table,
+     return address >= first && address < last;
+ }
+ 
+-/* Look in both tables and optionally return score and insertion positions. */
+-static inline __attribute__((always_inline))
+-int zbtIndexFind(zbtreeSet *zs, uint32_t hash,
++/* Preserve the original resize progress and both-table lookup behind a
++ * separate boundary. The step may finish and free member_rehash. */
++static __attribute__((noinline))
++int zbtIndexFindResizing(zbtreeSet *zs, uint32_t hash,
+                         const unsigned char *ele, size_t elelen,
+                         double *score,
+                         zbtScoreLeaf **found_score_leaf,
+@@ -2350,6 +2351,36 @@ found:
+     return 1;
+ }
+ 
++/* Stable lookup needs only the current table. Keep every optional output
++ * and insertion-hint convention of the generic dispatcher. */
++static inline __attribute__((always_inline))
++int zbtIndexFind(zbtreeSet *zs, uint32_t hash,
++                        const unsigned char *ele, size_t elelen,
++                        double *score,
++                        zbtScoreLeaf **found_score_leaf,
++                        unsigned int *found_score_position,
++                        zbtIndexBucket **found_bucket,
++                        unsigned int *found_bucket_position)
++{
++    if (zs->member_rehash == NULL) {
++        zbtIndexBucket *bucket = NULL, *hint_bucket = NULL;
++        unsigned int pos = 0, hint_pos = 0;
++        int found = zbtIndexTableFind(zs, &zs->member_index, hash, ele, elelen,
++                                      score, found_score_leaf,
++                                      found_score_position,
++                                      found_bucket ? &bucket : NULL,
++                                      found_bucket_position ? &pos : NULL,
++                                      found_bucket ? &hint_bucket : NULL,
++                                      found_bucket ? &hint_pos : NULL);
++        if (found_bucket) *found_bucket = found ? bucket : hint_bucket;
++        if (found_bucket_position) *found_bucket_position = found ? pos : hint_pos;
++        return found;
++    }
++    return zbtIndexFindResizing(zs, hash, ele, elelen, score,
++                                found_score_leaf, found_score_position,
++                                found_bucket, found_bucket_position);
++}
++
+ /* Find a table entry by hash tag and leaf ID without reading its member. */
+ static int zbtIndexFindReference(zbtreeSet *zs, uint32_t hash,
+                                  uint32_t score_leaf_id,

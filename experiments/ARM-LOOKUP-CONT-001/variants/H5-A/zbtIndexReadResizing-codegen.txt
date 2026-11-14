@@ -1,0 +1,642 @@
+
+build/arm-cont-private/lookup-codegen:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000008380 <zbtIndexReadResizing>:
+    8380:	55                   	push   %rbp
+    8381:	48 89 e5             	mov    %rsp,%rbp
+    8384:	41 57                	push   %r15
+    8386:	41 56                	push   %r14
+    8388:	41 55                	push   %r13
+    838a:	41 89 f5             	mov    %esi,%r13d
+    838d:	41 54                	push   %r12
+    838f:	49 89 fc             	mov    %rdi,%r12
+    8392:	53                   	push   %rbx
+    8393:	48 83 ec 78          	sub    $0x78,%rsp
+    8397:	4c 8b 7f 40          	mov    0x40(%rdi),%r15
+    839b:	48 89 55 c8          	mov    %rdx,-0x38(%rbp)
+    839f:	48 89 4d c0          	mov    %rcx,-0x40(%rbp)
+    83a3:	4c 89 45 b8          	mov    %r8,-0x48(%rbp)
+    83a7:	4d 85 ff             	test   %r15,%r15
+    83aa:	0f 84 84 02 00 00    	je     8634 <zbtIndexReadResizing+0x2b4>
+    83b0:	e8 db fb ff ff       	call   7f90 <zbtIndexRehashStep.constprop.0.isra.0>
+    83b5:	4d 8b 7c 24 40       	mov    0x40(%r12),%r15
+    83ba:	4d 85 ff             	test   %r15,%r15
+    83bd:	0f 84 71 02 00 00    	je     8634 <zbtIndexReadResizing+0x2b4>
+    83c3:	49 8b 47 08          	mov    0x8(%r15),%rax
+    83c7:	48 85 c0             	test   %rax,%rax
+    83ca:	0f 84 64 02 00 00    	je     8634 <zbtIndexReadResizing+0x2b4>
+    83d0:	48 8d 78 ff          	lea    -0x1(%rax),%rdi
+    83d4:	44 89 e9             	mov    %r13d,%ecx
+    83d7:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    83dd:	89 fe                	mov    %edi,%esi
+    83df:	48 89 bd 78 ff ff ff 	mov    %rdi,-0x88(%rbp)
+    83e6:	48 bf 02 00 00 08 80 	movabs $0x8008000002,%rdi
+    83ed:	00 00 00 
+    83f0:	44 21 ee             	and    %r13d,%esi
+    83f3:	c1 e9 18             	shr    $0x18,%ecx
+    83f6:	48 89 7d 80          	mov    %rdi,-0x80(%rbp)
+    83fa:	48 bf 01 01 01 01 01 	movabs $0x101010101010101,%rdi
+    8401:	01 01 01 
+    8404:	74 3e                	je     8444 <zbtIndexReadResizing+0xc4>
+    8406:	49 b8 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%r8
+    840d:	79 37 9e 
+    8410:	89 ca                	mov    %ecx,%edx
+    8412:	41 89 c9             	mov    %ecx,%r9d
+    8415:	48 0f af fa          	imul   %rdx,%rdi
+    8419:	49 0f af d0          	imul   %r8,%rdx
+    841d:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    8423:	4d 89 c2             	mov    %r8,%r10
+    8426:	49 d3 e2             	shl    %cl,%r10
+    8429:	48 89 d1             	mov    %rdx,%rcx
+    842c:	48 c1 ea 24          	shr    $0x24,%rdx
+    8430:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    8434:	49 0f ab ca          	bts    %rcx,%r10
+    8438:	89 d1                	mov    %edx,%ecx
+    843a:	49 d3 e0             	shl    %cl,%r8
+    843d:	4d 09 c2             	or     %r8,%r10
+    8440:	4c 89 55 80          	mov    %r10,-0x80(%rbp)
+    8444:	49 8b 1f             	mov    (%r15),%rbx
+    8447:	41 8b 57 20          	mov    0x20(%r15),%edx
+    844b:	4d 8d 54 24 18       	lea    0x18(%r12),%r10
+    8450:	48 89 5d 98          	mov    %rbx,-0x68(%rbp)
+    8454:	85 d2                	test   %edx,%edx
+    8456:	0f 85 65 06 00 00    	jne    8ac1 <zbtIndexReadResizing+0x741>
+    845c:	48 89 f2             	mov    %rsi,%rdx
+    845f:	48 89 85 68 ff ff ff 	mov    %rax,-0x98(%rbp)
+    8466:	45 31 c0             	xor    %r8d,%r8d
+    8469:	45 89 ce             	mov    %r9d,%r14d
+    846c:	48 c1 e2 05          	shl    $0x5,%rdx
+    8470:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    8477:	48 01 d3             	add    %rdx,%rbx
+    847a:	44 89 6d a0          	mov    %r13d,-0x60(%rbp)
+    847e:	4d 89 d5             	mov    %r10,%r13
+    8481:	48 89 9d 60 ff ff ff 	mov    %rbx,-0xa0(%rbp)
+    8488:	48 8b 45 98          	mov    -0x68(%rbp),%rax
+    848c:	49 89 f1             	mov    %rsi,%r9
+    848f:	48 8b 95 70 ff ff ff 	mov    -0x90(%rbp),%rdx
+    8496:	49 c1 e1 05          	shl    $0x5,%r9
+    849a:	49 01 c1             	add    %rax,%r9
+    849d:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    84a4:	fe fe fe 
+    84a7:	4d 8b 11             	mov    (%r9),%r10
+    84aa:	4c 31 d2             	xor    %r10,%rdx
+    84ad:	48 89 d3             	mov    %rdx,%rbx
+    84b0:	48 01 c2             	add    %rax,%rdx
+    84b3:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    84ba:	80 80 80 
+    84bd:	48 f7 d3             	not    %rbx
+    84c0:	48 21 d3             	and    %rdx,%rbx
+    84c3:	48 21 c3             	and    %rax,%rbx
+    84c6:	0f 84 e5 00 00 00    	je     85b1 <zbtIndexReadResizing+0x231>
+    84cc:	4d 89 eb             	mov    %r13,%r11
+    84cf:	4c 89 45 90          	mov    %r8,-0x70(%rbp)
+    84d3:	4d 89 e5             	mov    %r12,%r13
+    84d6:	4d 89 d4             	mov    %r10,%r12
+    84d9:	48 89 75 88          	mov    %rsi,-0x78(%rbp)
+    84dd:	eb 6d                	jmp    854c <zbtIndexReadResizing+0x1cc>
+    84df:	90                   	nop
+    84e0:	49 8b 4d 48          	mov    0x48(%r13),%rcx
+    84e4:	48 8b 3c c1          	mov    (%rcx,%rax,8),%rdi
+    84e8:	48 85 ff             	test   %rdi,%rdi
+    84eb:	0f 84 8e 00 00 00    	je     857f <zbtIndexReadResizing+0x1ff>
+    84f1:	40 f6 c7 01          	test   $0x1,%dil
+    84f5:	0f 85 84 00 00 00    	jne    857f <zbtIndexReadResizing+0x1ff>
+    84fb:	3b 57 30             	cmp    0x30(%rdi),%edx
+    84fe:	0f 85 ad 07 00 00    	jne    8cb1 <zbtIndexReadResizing+0x931>
+    8504:	0f b7 47 16          	movzwl 0x16(%rdi),%eax
+    8508:	66 41 39 47 2c       	cmp    %ax,0x2c(%r15)
+    850d:	75 31                	jne    8540 <zbtIndexReadResizing+0x1c0>
+    850f:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    8513:	48 8b 4d c0          	mov    -0x40(%rbp),%rcx
+    8517:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    851b:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    851f:	8b 75 a0             	mov    -0x60(%rbp),%esi
+    8522:	4c 89 5d b0          	mov    %r11,-0x50(%rbp)
+    8526:	e8 75 b9 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    852b:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+    852f:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    8533:	85 c0                	test   %eax,%eax
+    8535:	0f 85 62 07 00 00    	jne    8c9d <zbtIndexReadResizing+0x91d>
+    853b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    8540:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    8544:	48 21 c3             	and    %rax,%rbx
+    8547:	48 85 db             	test   %rbx,%rbx
+    854a:	74 54                	je     85a0 <zbtIndexReadResizing+0x220>
+    854c:	31 c9                	xor    %ecx,%ecx
+    854e:	4c 89 e2             	mov    %r12,%rdx
+    8551:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    8556:	89 c8                	mov    %ecx,%eax
+    8558:	83 e1 f8             	and    $0xfffffff8,%ecx
+    855b:	48 d3 ea             	shr    %cl,%rdx
+    855e:	c1 f8 03             	sar    $0x3,%eax
+    8561:	41 38 d6             	cmp    %dl,%r14b
+    8564:	75 da                	jne    8540 <zbtIndexReadResizing+0x1c0>
+    8566:	41 0f b7 44 41 10    	movzwl 0x10(%r9,%rax,2),%eax
+    856c:	66 83 f8 ff          	cmp    $0xffff,%ax
+    8570:	74 ce                	je     8540 <zbtIndexReadResizing+0x1c0>
+    8572:	0f b7 d0             	movzwl %ax,%edx
+    8575:	41 3b 55 54          	cmp    0x54(%r13),%edx
+    8579:	0f 82 61 ff ff ff    	jb     84e0 <zbtIndexReadResizing+0x160>
+    857f:	4d 39 df             	cmp    %r11,%r15
+    8582:	74 bc                	je     8540 <zbtIndexReadResizing+0x1c0>
+    8584:	48 8d 15 cd f1 00 00 	lea    0xf1cd(%rip),%rdx        # 17758 <_IO_stdin_used+0x758>
+    858b:	be c9 07 00 00       	mov    $0x7c9,%esi
+    8590:	48 8d 3d 11 ef 00 00 	lea    0xef11(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    8597:	e8 c4 df 00 00       	call   16560 <standalone_panic>
+    859c:	0f 1f 40 00          	nopl   0x0(%rax)
+    85a0:	4c 8b 45 90          	mov    -0x70(%rbp),%r8
+    85a4:	48 8b 75 88          	mov    -0x78(%rbp),%rsi
+    85a8:	4d 89 e2             	mov    %r12,%r10
+    85ab:	4d 89 ec             	mov    %r13,%r12
+    85ae:	4d 89 dd             	mov    %r11,%r13
+    85b1:	4d 85 c0             	test   %r8,%r8
+    85b4:	75 17                	jne    85cd <zbtIndexReadResizing+0x24d>
+    85b6:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    85bd:	48 8b 45 80          	mov    -0x80(%rbp),%rax
+    85c1:	48 8b 57 08          	mov    0x8(%rdi),%rdx
+    85c5:	48 21 c2             	and    %rax,%rdx
+    85c8:	48 39 c2             	cmp    %rax,%rdx
+    85cb:	75 63                	jne    8630 <zbtIndexReadResizing+0x2b0>
+    85cd:	45 84 d2             	test   %r10b,%r10b
+    85d0:	74 5e                	je     8630 <zbtIndexReadResizing+0x2b0>
+    85d2:	41 f7 c2 00 ff 00 00 	test   $0xff00,%r10d
+    85d9:	74 55                	je     8630 <zbtIndexReadResizing+0x2b0>
+    85db:	41 f7 c2 00 00 ff 00 	test   $0xff0000,%r10d
+    85e2:	74 4c                	je     8630 <zbtIndexReadResizing+0x2b0>
+    85e4:	41 f7 c2 00 00 00 ff 	test   $0xff000000,%r10d
+    85eb:	74 43                	je     8630 <zbtIndexReadResizing+0x2b0>
+    85ed:	4c 89 d2             	mov    %r10,%rdx
+    85f0:	48 c1 ea 20          	shr    $0x20,%rdx
+    85f4:	84 d2                	test   %dl,%dl
+    85f6:	74 38                	je     8630 <zbtIndexReadResizing+0x2b0>
+    85f8:	4c 89 d2             	mov    %r10,%rdx
+    85fb:	48 c1 ea 28          	shr    $0x28,%rdx
+    85ff:	84 d2                	test   %dl,%dl
+    8601:	74 2d                	je     8630 <zbtIndexReadResizing+0x2b0>
+    8603:	4c 89 d2             	mov    %r10,%rdx
+    8606:	48 c1 ea 30          	shr    $0x30,%rdx
+    860a:	84 d2                	test   %dl,%dl
+    860c:	74 22                	je     8630 <zbtIndexReadResizing+0x2b0>
+    860e:	49 c1 ea 38          	shr    $0x38,%r10
+    8612:	74 1c                	je     8630 <zbtIndexReadResizing+0x2b0>
+    8614:	48 83 c6 01          	add    $0x1,%rsi
+    8618:	49 83 c0 01          	add    $0x1,%r8
+    861c:	48 23 b5 78 ff ff ff 	and    -0x88(%rbp),%rsi
+    8623:	4c 39 85 68 ff ff ff 	cmp    %r8,-0x98(%rbp)
+    862a:	0f 85 58 fe ff ff    	jne    8488 <zbtIndexReadResizing+0x108>
+    8630:	44 8b 6d a0          	mov    -0x60(%rbp),%r13d
+    8634:	4d 8b 44 24 20       	mov    0x20(%r12),%r8
+    8639:	4d 85 c0             	test   %r8,%r8
+    863c:	0f 84 6f 02 00 00    	je     88b1 <zbtIndexReadResizing+0x531>
+    8642:	49 8d 40 ff          	lea    -0x1(%r8),%rax
+    8646:	44 89 e9             	mov    %r13d,%ecx
+    8649:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    864f:	48 bf 01 01 01 01 01 	movabs $0x101010101010101,%rdi
+    8656:	01 01 01 
+    8659:	89 c2                	mov    %eax,%edx
+    865b:	48 89 45 80          	mov    %rax,-0x80(%rbp)
+    865f:	48 b8 02 00 00 08 80 	movabs $0x8008000002,%rax
+    8666:	00 00 00 
+    8669:	44 21 ea             	and    %r13d,%edx
+    866c:	c1 e9 18             	shr    $0x18,%ecx
+    866f:	48 89 85 78 ff ff ff 	mov    %rax,-0x88(%rbp)
+    8676:	74 40                	je     86b8 <zbtIndexReadResizing+0x338>
+    8678:	48 be 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rsi
+    867f:	79 37 9e 
+    8682:	89 c8                	mov    %ecx,%eax
+    8684:	41 89 c9             	mov    %ecx,%r9d
+    8687:	48 0f af f8          	imul   %rax,%rdi
+    868b:	48 0f af c6          	imul   %rsi,%rax
+    868f:	be 01 00 00 00       	mov    $0x1,%esi
+    8694:	49 89 f2             	mov    %rsi,%r10
+    8697:	49 d3 e2             	shl    %cl,%r10
+    869a:	48 89 c1             	mov    %rax,%rcx
+    869d:	48 c1 e8 24          	shr    $0x24,%rax
+    86a1:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    86a5:	49 0f ab ca          	bts    %rcx,%r10
+    86a9:	89 c1                	mov    %eax,%ecx
+    86ab:	48 d3 e6             	shl    %cl,%rsi
+    86ae:	49 09 f2             	or     %rsi,%r10
+    86b1:	4c 89 95 78 ff ff ff 	mov    %r10,-0x88(%rbp)
+    86b8:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    86bd:	49 8b 74 24 18       	mov    0x18(%r12),%rsi
+    86c2:	48 89 45 b0          	mov    %rax,-0x50(%rbp)
+    86c6:	41 8b 44 24 38       	mov    0x38(%r12),%eax
+    86cb:	48 89 75 a0          	mov    %rsi,-0x60(%rbp)
+    86cf:	85 c0                	test   %eax,%eax
+    86d1:	0f 85 eb 01 00 00    	jne    88c2 <zbtIndexReadResizing+0x542>
+    86d7:	48 89 d0             	mov    %rdx,%rax
+    86da:	4c 89 85 68 ff ff ff 	mov    %r8,-0x98(%rbp)
+    86e1:	45 89 ce             	mov    %r9d,%r14d
+    86e4:	48 c1 e0 05          	shl    $0x5,%rax
+    86e8:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    86ef:	48 01 f0             	add    %rsi,%rax
+    86f2:	44 89 6d 98          	mov    %r13d,-0x68(%rbp)
+    86f6:	31 f6                	xor    %esi,%esi
+    86f8:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+    86ff:	48 8b 45 a0          	mov    -0x60(%rbp),%rax
+    8703:	49 89 d3             	mov    %rdx,%r11
+    8706:	48 8b 8d 70 ff ff ff 	mov    -0x90(%rbp),%rcx
+    870d:	49 c1 e3 05          	shl    $0x5,%r11
+    8711:	49 01 c3             	add    %rax,%r11
+    8714:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    871b:	fe fe fe 
+    871e:	4d 8b 2b             	mov    (%r11),%r13
+    8721:	4c 31 e9             	xor    %r13,%rcx
+    8724:	48 89 cb             	mov    %rcx,%rbx
+    8727:	48 01 c1             	add    %rax,%rcx
+    872a:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    8731:	80 80 80 
+    8734:	48 f7 d3             	not    %rbx
+    8737:	48 21 cb             	and    %rcx,%rbx
+    873a:	48 21 c3             	and    %rax,%rbx
+    873d:	0f 84 ef 00 00 00    	je     8832 <zbtIndexReadResizing+0x4b2>
+    8743:	4d 89 e1             	mov    %r12,%r9
+    8746:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+    874a:	4d 89 fc             	mov    %r15,%r12
+    874d:	4d 89 df             	mov    %r11,%r15
+    8750:	48 89 55 88          	mov    %rdx,-0x78(%rbp)
+    8754:	e9 83 00 00 00       	jmp    87dc <zbtIndexReadResizing+0x45c>
+    8759:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    8760:	49 8b 49 48          	mov    0x48(%r9),%rcx
+    8764:	48 8b 3c c1          	mov    (%rcx,%rax,8),%rdi
+    8768:	48 85 ff             	test   %rdi,%rdi
+    876b:	0f 84 9e 00 00 00    	je     880f <zbtIndexReadResizing+0x48f>
+    8771:	40 f6 c7 01          	test   $0x1,%dil
+    8775:	0f 85 94 00 00 00    	jne    880f <zbtIndexReadResizing+0x48f>
+    877b:	3b 57 30             	cmp    0x30(%rdi),%edx
+    877e:	0f 85 2d 05 00 00    	jne    8cb1 <zbtIndexReadResizing+0x931>
+    8784:	4d 85 e4             	test   %r12,%r12
+    8787:	74 1b                	je     87a4 <zbtIndexReadResizing+0x424>
+    8789:	0f b7 47 16          	movzwl 0x16(%rdi),%eax
+    878d:	66 41 39 44 24 2c    	cmp    %ax,0x2c(%r12)
+    8793:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+    8797:	0f 94 c2             	sete   %dl
+    879a:	49 39 c4             	cmp    %rax,%r12
+    879d:	0f 94 c0             	sete   %al
+    87a0:	38 c2                	cmp    %al,%dl
+    87a2:	75 2c                	jne    87d0 <zbtIndexReadResizing+0x450>
+    87a4:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    87a8:	48 8b 4d c0          	mov    -0x40(%rbp),%rcx
+    87ac:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    87b0:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    87b4:	8b 75 98             	mov    -0x68(%rbp),%esi
+    87b7:	e8 e4 b6 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    87bc:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    87c0:	85 c0                	test   %eax,%eax
+    87c2:	0f 85 d5 04 00 00    	jne    8c9d <zbtIndexReadResizing+0x91d>
+    87c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    87cf:	00 
+    87d0:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    87d4:	48 21 c3             	and    %rax,%rbx
+    87d7:	48 85 db             	test   %rbx,%rbx
+    87da:	74 48                	je     8824 <zbtIndexReadResizing+0x4a4>
+    87dc:	31 c9                	xor    %ecx,%ecx
+    87de:	4c 89 ea             	mov    %r13,%rdx
+    87e1:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    87e6:	89 c8                	mov    %ecx,%eax
+    87e8:	83 e1 f8             	and    $0xfffffff8,%ecx
+    87eb:	48 d3 ea             	shr    %cl,%rdx
+    87ee:	c1 f8 03             	sar    $0x3,%eax
+    87f1:	41 38 d6             	cmp    %dl,%r14b
+    87f4:	75 da                	jne    87d0 <zbtIndexReadResizing+0x450>
+    87f6:	41 0f b7 44 47 10    	movzwl 0x10(%r15,%rax,2),%eax
+    87fc:	66 83 f8 ff          	cmp    $0xffff,%ax
+    8800:	74 ce                	je     87d0 <zbtIndexReadResizing+0x450>
+    8802:	0f b7 d0             	movzwl %ax,%edx
+    8805:	41 3b 51 54          	cmp    0x54(%r9),%edx
+    8809:	0f 82 51 ff ff ff    	jb     8760 <zbtIndexReadResizing+0x3e0>
+    880f:	4d 85 e4             	test   %r12,%r12
+    8812:	0f 84 6c fd ff ff    	je     8584 <zbtIndexReadResizing+0x204>
+    8818:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    881c:	48 21 c3             	and    %rax,%rbx
+    881f:	48 85 db             	test   %rbx,%rbx
+    8822:	75 b8                	jne    87dc <zbtIndexReadResizing+0x45c>
+    8824:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+    8828:	48 8b 55 88          	mov    -0x78(%rbp),%rdx
+    882c:	4d 89 e7             	mov    %r12,%r15
+    882f:	4d 89 cc             	mov    %r9,%r12
+    8832:	48 85 f6             	test   %rsi,%rsi
+    8835:	75 1a                	jne    8851 <zbtIndexReadResizing+0x4d1>
+    8837:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    883e:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    8845:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+    8849:	48 21 c1             	and    %rax,%rcx
+    884c:	48 39 c1             	cmp    %rax,%rcx
+    884f:	75 60                	jne    88b1 <zbtIndexReadResizing+0x531>
+    8851:	45 84 ed             	test   %r13b,%r13b
+    8854:	74 5b                	je     88b1 <zbtIndexReadResizing+0x531>
+    8856:	41 f7 c5 00 ff 00 00 	test   $0xff00,%r13d
+    885d:	74 52                	je     88b1 <zbtIndexReadResizing+0x531>
+    885f:	41 f7 c5 00 00 ff 00 	test   $0xff0000,%r13d
+    8866:	74 49                	je     88b1 <zbtIndexReadResizing+0x531>
+    8868:	41 f7 c5 00 00 00 ff 	test   $0xff000000,%r13d
+    886f:	74 40                	je     88b1 <zbtIndexReadResizing+0x531>
+    8871:	4c 89 e9             	mov    %r13,%rcx
+    8874:	48 c1 e9 20          	shr    $0x20,%rcx
+    8878:	84 c9                	test   %cl,%cl
+    887a:	74 35                	je     88b1 <zbtIndexReadResizing+0x531>
+    887c:	4c 89 e9             	mov    %r13,%rcx
+    887f:	48 c1 e9 28          	shr    $0x28,%rcx
+    8883:	84 c9                	test   %cl,%cl
+    8885:	74 2a                	je     88b1 <zbtIndexReadResizing+0x531>
+    8887:	4c 89 e9             	mov    %r13,%rcx
+    888a:	48 c1 e9 30          	shr    $0x30,%rcx
+    888e:	84 c9                	test   %cl,%cl
+    8890:	74 1f                	je     88b1 <zbtIndexReadResizing+0x531>
+    8892:	49 c1 ed 38          	shr    $0x38,%r13
+    8896:	74 19                	je     88b1 <zbtIndexReadResizing+0x531>
+    8898:	48 83 c2 01          	add    $0x1,%rdx
+    889c:	48 83 c6 01          	add    $0x1,%rsi
+    88a0:	48 23 55 80          	and    -0x80(%rbp),%rdx
+    88a4:	48 39 b5 68 ff ff ff 	cmp    %rsi,-0x98(%rbp)
+    88ab:	0f 85 4e fe ff ff    	jne    86ff <zbtIndexReadResizing+0x37f>
+    88b1:	48 83 c4 78          	add    $0x78,%rsp
+    88b5:	31 c0                	xor    %eax,%eax
+    88b7:	5b                   	pop    %rbx
+    88b8:	41 5c                	pop    %r12
+    88ba:	41 5d                	pop    %r13
+    88bc:	41 5e                	pop    %r14
+    88be:	41 5f                	pop    %r15
+    88c0:	5d                   	pop    %rbp
+    88c1:	c3                   	ret
+    88c2:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    88c6:	4c 89 85 68 ff ff ff 	mov    %r8,-0x98(%rbp)
+    88cd:	45 89 ce             	mov    %r9d,%r14d
+    88d0:	48 8d 0c 10          	lea    (%rax,%rdx,1),%rcx
+    88d4:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    88db:	48 c1 e1 04          	shl    $0x4,%rcx
+    88df:	44 89 6d 98          	mov    %r13d,-0x68(%rbp)
+    88e3:	48 01 ce             	add    %rcx,%rsi
+    88e6:	48 89 b5 60 ff ff ff 	mov    %rsi,-0xa0(%rbp)
+    88ed:	31 f6                	xor    %esi,%esi
+    88ef:	4c 8d 1c 10          	lea    (%rax,%rdx,1),%r11
+    88f3:	48 8b 45 a0          	mov    -0x60(%rbp),%rax
+    88f7:	48 8b 8d 70 ff ff ff 	mov    -0x90(%rbp),%rcx
+    88fe:	49 c1 e3 04          	shl    $0x4,%r11
+    8902:	49 01 c3             	add    %rax,%r11
+    8905:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    890c:	fe fe fe 
+    890f:	4d 8b 2b             	mov    (%r11),%r13
+    8912:	4c 31 e9             	xor    %r13,%rcx
+    8915:	48 8d 1c 01          	lea    (%rcx,%rax,1),%rbx
+    8919:	48 f7 d1             	not    %rcx
+    891c:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    8923:	80 80 80 
+    8926:	48 21 cb             	and    %rcx,%rbx
+    8929:	48 21 c3             	and    %rax,%rbx
+    892c:	0f 84 e3 00 00 00    	je     8a15 <zbtIndexReadResizing+0x695>
+    8932:	4d 89 e1             	mov    %r12,%r9
+    8935:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+    8939:	4d 89 fc             	mov    %r15,%r12
+    893c:	4d 89 df             	mov    %r11,%r15
+    893f:	48 89 55 88          	mov    %rdx,-0x78(%rbp)
+    8943:	eb 7f                	jmp    89c4 <zbtIndexReadResizing+0x644>
+    8945:	0f 1f 00             	nopl   (%rax)
+    8948:	49 8b 49 48          	mov    0x48(%r9),%rcx
+    894c:	89 c2                	mov    %eax,%edx
+    894e:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    8952:	48 85 ff             	test   %rdi,%rdi
+    8955:	0f 84 97 00 00 00    	je     89f2 <zbtIndexReadResizing+0x672>
+    895b:	40 f6 c7 01          	test   $0x1,%dil
+    895f:	0f 85 8d 00 00 00    	jne    89f2 <zbtIndexReadResizing+0x672>
+    8965:	39 47 30             	cmp    %eax,0x30(%rdi)
+    8968:	0f 85 43 03 00 00    	jne    8cb1 <zbtIndexReadResizing+0x931>
+    896e:	4d 85 e4             	test   %r12,%r12
+    8971:	74 1b                	je     898e <zbtIndexReadResizing+0x60e>
+    8973:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+    8977:	49 39 c4             	cmp    %rax,%r12
+    897a:	41 0f b7 44 24 2c    	movzwl 0x2c(%r12),%eax
+    8980:	0f 94 c2             	sete   %dl
+    8983:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    8987:	0f 94 c0             	sete   %al
+    898a:	38 c2                	cmp    %al,%dl
+    898c:	75 2a                	jne    89b8 <zbtIndexReadResizing+0x638>
+    898e:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    8992:	48 8b 4d c0          	mov    -0x40(%rbp),%rcx
+    8996:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    899a:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    899e:	8b 75 98             	mov    -0x68(%rbp),%esi
+    89a1:	e8 fa b4 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    89a6:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    89aa:	85 c0                	test   %eax,%eax
+    89ac:	0f 85 eb 02 00 00    	jne    8c9d <zbtIndexReadResizing+0x91d>
+    89b2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    89b8:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    89bc:	48 21 c3             	and    %rax,%rbx
+    89bf:	48 85 db             	test   %rbx,%rbx
+    89c2:	74 43                	je     8a07 <zbtIndexReadResizing+0x687>
+    89c4:	31 c9                	xor    %ecx,%ecx
+    89c6:	4c 89 e8             	mov    %r13,%rax
+    89c9:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    89ce:	89 ca                	mov    %ecx,%edx
+    89d0:	83 e1 f8             	and    $0xfffffff8,%ecx
+    89d3:	48 d3 e8             	shr    %cl,%rax
+    89d6:	c1 fa 03             	sar    $0x3,%edx
+    89d9:	41 38 c6             	cmp    %al,%r14b
+    89dc:	75 da                	jne    89b8 <zbtIndexReadResizing+0x638>
+    89de:	41 8b 44 97 10       	mov    0x10(%r15,%rdx,4),%eax
+    89e3:	83 f8 ff             	cmp    $0xffffffff,%eax
+    89e6:	74 d0                	je     89b8 <zbtIndexReadResizing+0x638>
+    89e8:	41 3b 41 54          	cmp    0x54(%r9),%eax
+    89ec:	0f 82 56 ff ff ff    	jb     8948 <zbtIndexReadResizing+0x5c8>
+    89f2:	4d 85 e4             	test   %r12,%r12
+    89f5:	0f 84 89 fb ff ff    	je     8584 <zbtIndexReadResizing+0x204>
+    89fb:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    89ff:	48 21 c3             	and    %rax,%rbx
+    8a02:	48 85 db             	test   %rbx,%rbx
+    8a05:	75 bd                	jne    89c4 <zbtIndexReadResizing+0x644>
+    8a07:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+    8a0b:	48 8b 55 88          	mov    -0x78(%rbp),%rdx
+    8a0f:	4d 89 e7             	mov    %r12,%r15
+    8a12:	4d 89 cc             	mov    %r9,%r12
+    8a15:	48 85 f6             	test   %rsi,%rsi
+    8a18:	75 1e                	jne    8a38 <zbtIndexReadResizing+0x6b8>
+    8a1a:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    8a21:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    8a28:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+    8a2c:	48 21 c1             	and    %rax,%rcx
+    8a2f:	48 39 c1             	cmp    %rax,%rcx
+    8a32:	0f 85 79 fe ff ff    	jne    88b1 <zbtIndexReadResizing+0x531>
+    8a38:	45 84 ed             	test   %r13b,%r13b
+    8a3b:	0f 84 70 fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a41:	41 f7 c5 00 ff 00 00 	test   $0xff00,%r13d
+    8a48:	0f 84 63 fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a4e:	41 f7 c5 00 00 ff 00 	test   $0xff0000,%r13d
+    8a55:	0f 84 56 fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a5b:	41 f7 c5 00 00 00 ff 	test   $0xff000000,%r13d
+    8a62:	0f 84 49 fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a68:	4c 89 e9             	mov    %r13,%rcx
+    8a6b:	48 c1 e9 20          	shr    $0x20,%rcx
+    8a6f:	84 c9                	test   %cl,%cl
+    8a71:	0f 84 3a fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a77:	4c 89 e9             	mov    %r13,%rcx
+    8a7a:	48 c1 e9 28          	shr    $0x28,%rcx
+    8a7e:	84 c9                	test   %cl,%cl
+    8a80:	0f 84 2b fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a86:	4c 89 e9             	mov    %r13,%rcx
+    8a89:	48 c1 e9 30          	shr    $0x30,%rcx
+    8a8d:	84 c9                	test   %cl,%cl
+    8a8f:	0f 84 1c fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a95:	49 c1 ed 38          	shr    $0x38,%r13
+    8a99:	0f 84 12 fe ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8a9f:	48 83 c2 01          	add    $0x1,%rdx
+    8aa3:	48 83 c6 01          	add    $0x1,%rsi
+    8aa7:	48 23 55 80          	and    -0x80(%rbp),%rdx
+    8aab:	48 39 b5 68 ff ff ff 	cmp    %rsi,-0x98(%rbp)
+    8ab2:	0f 84 f9 fd ff ff    	je     88b1 <zbtIndexReadResizing+0x531>
+    8ab8:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    8abc:	e9 2e fe ff ff       	jmp    88ef <zbtIndexReadResizing+0x56f>
+    8ac1:	48 8d 14 36          	lea    (%rsi,%rsi,1),%rdx
+    8ac5:	44 89 6d b0          	mov    %r13d,-0x50(%rbp)
+    8ac9:	45 31 c0             	xor    %r8d,%r8d
+    8acc:	45 89 ce             	mov    %r9d,%r14d
+    8acf:	48 8d 0c 32          	lea    (%rdx,%rsi,1),%rcx
+    8ad3:	48 89 85 68 ff ff ff 	mov    %rax,-0x98(%rbp)
+    8ada:	4d 89 d5             	mov    %r10,%r13
+    8add:	48 c1 e1 04          	shl    $0x4,%rcx
+    8ae1:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    8ae8:	48 01 cb             	add    %rcx,%rbx
+    8aeb:	48 89 9d 60 ff ff ff 	mov    %rbx,-0xa0(%rbp)
+    8af2:	48 8b 45 98          	mov    -0x68(%rbp),%rax
+    8af6:	4c 8d 1c 32          	lea    (%rdx,%rsi,1),%r11
+    8afa:	48 8b 95 70 ff ff ff 	mov    -0x90(%rbp),%rdx
+    8b01:	49 c1 e3 04          	shl    $0x4,%r11
+    8b05:	49 01 c3             	add    %rax,%r11
+    8b08:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    8b0f:	fe fe fe 
+    8b12:	4d 8b 0b             	mov    (%r11),%r9
+    8b15:	4c 31 ca             	xor    %r9,%rdx
+    8b18:	48 8d 1c 02          	lea    (%rdx,%rax,1),%rbx
+    8b1c:	48 f7 d2             	not    %rdx
+    8b1f:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    8b26:	80 80 80 
+    8b29:	48 21 d3             	and    %rdx,%rbx
+    8b2c:	48 21 c3             	and    %rax,%rbx
+    8b2f:	0f 84 db 00 00 00    	je     8c10 <zbtIndexReadResizing+0x890>
+    8b35:	4d 89 ea             	mov    %r13,%r10
+    8b38:	4c 89 45 90          	mov    %r8,-0x70(%rbp)
+    8b3c:	4d 89 e5             	mov    %r12,%r13
+    8b3f:	4d 89 cc             	mov    %r9,%r12
+    8b42:	48 89 75 88          	mov    %rsi,-0x78(%rbp)
+    8b46:	eb 74                	jmp    8bbc <zbtIndexReadResizing+0x83c>
+    8b48:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    8b4f:	00 
+    8b50:	49 8b 4d 48          	mov    0x48(%r13),%rcx
+    8b54:	89 c2                	mov    %eax,%edx
+    8b56:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    8b5a:	48 85 ff             	test   %rdi,%rdi
+    8b5d:	0f 84 87 00 00 00    	je     8bea <zbtIndexReadResizing+0x86a>
+    8b63:	40 f6 c7 01          	test   $0x1,%dil
+    8b67:	0f 85 7d 00 00 00    	jne    8bea <zbtIndexReadResizing+0x86a>
+    8b6d:	39 47 30             	cmp    %eax,0x30(%rdi)
+    8b70:	0f 85 3b 01 00 00    	jne    8cb1 <zbtIndexReadResizing+0x931>
+    8b76:	41 0f b7 47 2c       	movzwl 0x2c(%r15),%eax
+    8b7b:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    8b7f:	75 2f                	jne    8bb0 <zbtIndexReadResizing+0x830>
+    8b81:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    8b85:	48 8b 4d c0          	mov    -0x40(%rbp),%rcx
+    8b89:	4c 89 5d a0          	mov    %r11,-0x60(%rbp)
+    8b8d:	48 8b 55 c8          	mov    -0x38(%rbp),%rdx
+    8b91:	8b 75 b0             	mov    -0x50(%rbp),%esi
+    8b94:	4c 89 55 a8          	mov    %r10,-0x58(%rbp)
+    8b98:	e8 03 b3 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    8b9d:	4c 8b 55 a8          	mov    -0x58(%rbp),%r10
+    8ba1:	4c 8b 5d a0          	mov    -0x60(%rbp),%r11
+    8ba5:	85 c0                	test   %eax,%eax
+    8ba7:	0f 85 f0 00 00 00    	jne    8c9d <zbtIndexReadResizing+0x91d>
+    8bad:	0f 1f 00             	nopl   (%rax)
+    8bb0:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    8bb4:	48 21 c3             	and    %rax,%rbx
+    8bb7:	48 85 db             	test   %rbx,%rbx
+    8bba:	74 43                	je     8bff <zbtIndexReadResizing+0x87f>
+    8bbc:	31 c9                	xor    %ecx,%ecx
+    8bbe:	4c 89 e0             	mov    %r12,%rax
+    8bc1:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    8bc6:	89 ca                	mov    %ecx,%edx
+    8bc8:	83 e1 f8             	and    $0xfffffff8,%ecx
+    8bcb:	48 d3 e8             	shr    %cl,%rax
+    8bce:	c1 fa 03             	sar    $0x3,%edx
+    8bd1:	41 38 c6             	cmp    %al,%r14b
+    8bd4:	75 da                	jne    8bb0 <zbtIndexReadResizing+0x830>
+    8bd6:	41 8b 44 93 10       	mov    0x10(%r11,%rdx,4),%eax
+    8bdb:	83 f8 ff             	cmp    $0xffffffff,%eax
+    8bde:	74 d0                	je     8bb0 <zbtIndexReadResizing+0x830>
+    8be0:	41 3b 45 54          	cmp    0x54(%r13),%eax
+    8be4:	0f 82 66 ff ff ff    	jb     8b50 <zbtIndexReadResizing+0x7d0>
+    8bea:	4d 39 d7             	cmp    %r10,%r15
+    8bed:	0f 85 91 f9 ff ff    	jne    8584 <zbtIndexReadResizing+0x204>
+    8bf3:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    8bf7:	48 21 c3             	and    %rax,%rbx
+    8bfa:	48 85 db             	test   %rbx,%rbx
+    8bfd:	75 bd                	jne    8bbc <zbtIndexReadResizing+0x83c>
+    8bff:	4c 8b 45 90          	mov    -0x70(%rbp),%r8
+    8c03:	48 8b 75 88          	mov    -0x78(%rbp),%rsi
+    8c07:	4d 89 e1             	mov    %r12,%r9
+    8c0a:	4d 89 ec             	mov    %r13,%r12
+    8c0d:	4d 89 d5             	mov    %r10,%r13
+    8c10:	4d 85 c0             	test   %r8,%r8
+    8c13:	75 17                	jne    8c2c <zbtIndexReadResizing+0x8ac>
+    8c15:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    8c1c:	48 8b 45 80          	mov    -0x80(%rbp),%rax
+    8c20:	48 8b 57 08          	mov    0x8(%rdi),%rdx
+    8c24:	48 21 c2             	and    %rax,%rdx
+    8c27:	48 39 c2             	cmp    %rax,%rdx
+    8c2a:	75 68                	jne    8c94 <zbtIndexReadResizing+0x914>
+    8c2c:	45 84 c9             	test   %r9b,%r9b
+    8c2f:	74 63                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c31:	41 f7 c1 00 ff 00 00 	test   $0xff00,%r9d
+    8c38:	74 5a                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c3a:	41 f7 c1 00 00 ff 00 	test   $0xff0000,%r9d
+    8c41:	74 51                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c43:	41 f7 c1 00 00 00 ff 	test   $0xff000000,%r9d
+    8c4a:	74 48                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c4c:	4c 89 ca             	mov    %r9,%rdx
+    8c4f:	48 c1 ea 20          	shr    $0x20,%rdx
+    8c53:	84 d2                	test   %dl,%dl
+    8c55:	74 3d                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c57:	4c 89 ca             	mov    %r9,%rdx
+    8c5a:	48 c1 ea 28          	shr    $0x28,%rdx
+    8c5e:	84 d2                	test   %dl,%dl
+    8c60:	74 32                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c62:	4c 89 ca             	mov    %r9,%rdx
+    8c65:	48 c1 ea 30          	shr    $0x30,%rdx
+    8c69:	84 d2                	test   %dl,%dl
+    8c6b:	74 27                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c6d:	49 c1 e9 38          	shr    $0x38,%r9
+    8c71:	74 21                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c73:	48 83 c6 01          	add    $0x1,%rsi
+    8c77:	49 83 c0 01          	add    $0x1,%r8
+    8c7b:	48 23 b5 78 ff ff ff 	and    -0x88(%rbp),%rsi
+    8c82:	4c 39 85 68 ff ff ff 	cmp    %r8,-0x98(%rbp)
+    8c89:	74 09                	je     8c94 <zbtIndexReadResizing+0x914>
+    8c8b:	48 8d 14 36          	lea    (%rsi,%rsi,1),%rdx
+    8c8f:	e9 5e fe ff ff       	jmp    8af2 <zbtIndexReadResizing+0x772>
+    8c94:	44 8b 6d b0          	mov    -0x50(%rbp),%r13d
+    8c98:	e9 97 f9 ff ff       	jmp    8634 <zbtIndexReadResizing+0x2b4>
+    8c9d:	48 83 c4 78          	add    $0x78,%rsp
+    8ca1:	b8 01 00 00 00       	mov    $0x1,%eax
+    8ca6:	5b                   	pop    %rbx
+    8ca7:	41 5c                	pop    %r12
+    8ca9:	41 5d                	pop    %r13
+    8cab:	41 5e                	pop    %r14
+    8cad:	41 5f                	pop    %r15
+    8caf:	5d                   	pop    %rbp
+    8cb0:	c3                   	ret
+    8cb1:	48 8d 15 15 ef 00 00 	lea    0xef15(%rip),%rdx        # 17bcd <_IO_stdin_used+0xbcd>
+    8cb8:	be ce 07 00 00       	mov    $0x7ce,%esi
+    8cbd:	48 8d 3d e4 e7 00 00 	lea    0xe7e4(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    8cc4:	e8 97 d8 00 00       	call   16560 <standalone_panic>
+
+Disassembly of section .fini:

@@ -1,0 +1,104 @@
+{
+  "baseline": "e13d9fc88",
+  "only_production_path": "experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c",
+  "unchanged_functions": {
+    "zbtScoreLeafScoreBytes": true,
+    "zbtScoreLeafOffsets": true,
+    "zbtScoreLeafHashTags": true,
+    "zbtScoreLeafPhysicalPos": true,
+    "zbtScoreLeafScore": true,
+    "zbtScoreLeafWriteScore": true,
+    "zbtPackedData": true,
+    "zbtPackedWriteInline": true,
+    "zbtBuildElementWrite": true,
+    "zbtExternalDup": true,
+    "zbtExternalHash": true,
+    "zbtIndexTableFind": true,
+    "zbtIndexFind": true,
+    "zbtreeScoreRaw": true,
+    "zbtreeScoreRawWithHash": true,
+    "zbtScoreChooseSplit": true,
+    "zbtScoreCompactLeaf": true,
+    "zbtScoreMergePair": true,
+    "zbtScoreLeafReverseForPop": true,
+    "zbtScoreDupTree": true,
+    "zbtDefragScoreNode": true,
+    "zbtDefragExternalMember": true,
+    "zbtreeDefragStep": true
+  },
+  "direct_descriptor_consumers": [
+    {
+      "line": 415,
+      "text": "static inline uint16_t zbtScoreLeafDescriptor(zbtScoreLeaf *leaf,"
+    },
+    {
+      "line": 425,
+      "text": "return zbtRecordOffset(zbtScoreLeafDescriptor(leaf, pos));"
+    },
+    {
+      "line": 656,
+      "text": "debugServerAssert(!zbtRecordHasInlineLength(zbtScoreLeafDescriptor(leaf, pos)) ||"
+    },
+    {
+      "line": 657,
+      "text": "record[0] == zbtRecordInlineLength(zbtScoreLeafDescriptor(leaf, pos)));"
+    },
+    {
+      "line": 1095,
+      "text": "offsets[i] = zbtRecordDescriptor(records - (unsigned char *)leaf, records);"
+    },
+    {
+      "line": 1366,
+      "text": "uint16_t descriptor = offsets[physical];"
+    },
+    {
+      "line": 1491,
+      "text": "locations[i];"
+    },
+    {
+      "line": 1493,
+      "text": "offsets[physical] = descriptor;"
+    },
+    {
+      "line": 1573,
+      "text": "offsets[physical] = zbtRecordDescriptor(new_offset, (unsigned char *)leaf + new_offset);"
+    },
+    {
+      "line": 1662,
+      "text": "uint16_t locations[ZBT_SCORE_LEAF_MAX + 1];"
+    },
+    {
+      "line": 1669,
+      "text": "locations[i] = 0;"
+    },
+    {
+      "line": 1674,
+      "text": "locations[i] = zbtScoreLeafDescriptor(oldleaf, src);"
+    },
+    {
+      "line": 2571,
+      "text": "bytes += zbtRecordStorageBytes((unsigned char *)leaf + zbtRecordOffset(offsets[i]));"
+    },
+    {
+      "line": 2669,
+      "text": "uint16_t deleted_offset = zbtRecordOffset(old_offsets[physical]);"
+    },
+    {
+      "line": 2695,
+      "text": "above = zbtRecordOffset(old_offsets[i]) > deleted_offset;"
+    },
+    {
+      "line": 2722,
+      "text": "uint16_t offset = zbtRecordOffset(offsets[i]);"
+    },
+    {
+      "line": 2724,
+      "text": "offsets[i] = zbtRecordMoveDescriptor(offsets[i], offset + deleted_bytes);"
+    },
+    {
+      "line": 2743,
+      "text": "uint16_t offset = offsets[i]; offsets[i] = offsets[j]; offsets[j] = offset;"
+    }
+  ],
+  "source_prefix_before_descriptor_helpers_unchanged": true
+}
