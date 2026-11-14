@@ -1,0 +1,15 @@
+# Lifecycle correctness operational review
+
+The separately authored driver, staging wrapper and launcher pass independent review for this fixed native-only baseline diagnostic. This review does not authorize C execution before source admission, fleet compilation and independent review of the actual emitted binary. No candidate, timing qualification or source adoption is involved.
+
+Reviewed driver: `6bf9a972c77311c846036a753eba78ca19819162d1a0328a02cd78fcab8b5fca`; stage wrapper: `fb3e3874c64184d272bac125e7f0ff53fcc6b513991c43a721695a3dbfafe9b5`; launcher: `ed3251e1ba98ad19021bfaf58aa50b93b9e6a3958d316502e5089fa77082c51f`. Independent reruns passed22 driver and21 wrapper tests. All subprocess and fleet actions in these tests are mocked; their output is not a C correctness result or live isolation proof.
+
+The driver requires the complete new source manifest, explicit compiled inputs, declared dependencies, and the unchanged original93-file census manifest. Staging accepts an existing dependency only if its bytes match. It uses new source paths and separate exclusive build/test claims, preserves partial failure, rejects symlinks and unsafe archive members, and never overwrites different inputs. Structured approvals bind source, operational scripts, configuration, staging receipt and actual native ELF/build receipt.
+
+Source freeze must occur by06:15UTC, independent phase review and launch by06:30UTC, and all execution by06:45UTC. Timestamp validation rejects bool, nonfinite, future and out-of-order values. Fixed source-freeze chronology must be attested by the source reviewer. Bounds and joins are repeated remotely and after staging isolation. These are distinct diagnostic cutoffs; the prior portability task remains closed.
+
+Build executes compilation and static inspection only. Test executes one fixed CPU2 native invocation followed by its strict saved-output checker. The wrapper/driver run onCPU0. There is no Docker workload. Command and systemd ceilings reserve termination time and preserve partial output. The work service uses Typeexec,30-second startup,600-second build or240-second test ceiling,15-second stop, KillModecontrol-group and SendSIGKILL. Every command has full pre/post isolation, including failure paths; concurrent command and postcheck failures are retained separately. A diagnostic cannot emit completion after a failed postcheck.
+
+The same reviewed generation-bound cleanup, exact lease and recovery timers remain unchanged. Staging and launch require an idle exact owned work unit, empty cgroup and no owned processes or containers. Only that idle failed work unit may be reset. Infrastructure reuse is limited to its immutable isolation audit, never the expired portability validator. Actual fleet results still require independent semantic and operational review, and independent restoration proof before reservation release is claimed.
+
+No source changes, changed operation sequence, adaptive retry, deadline extension, performance inference or candidate admission follows from this approval.
