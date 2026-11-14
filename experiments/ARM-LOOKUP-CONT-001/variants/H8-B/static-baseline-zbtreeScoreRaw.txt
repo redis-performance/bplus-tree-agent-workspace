@@ -1,0 +1,631 @@
+000000000000d550 <zbtreeScoreRaw>:
+    d550:	f3 0f 1e fa          	endbr64
+    d554:	55                   	push   %rbp
+    d555:	48 89 e5             	mov    %rsp,%rbp
+    d558:	41 57                	push   %r15
+    d55a:	41 56                	push   %r14
+    d55c:	49 89 d6             	mov    %rdx,%r14
+    d55f:	41 55                	push   %r13
+    d561:	41 54                	push   %r12
+    d563:	49 89 fc             	mov    %rdi,%r12
+    d566:	48 89 f7             	mov    %rsi,%rdi
+    d569:	53                   	push   %rbx
+    d56a:	48 81 ec 88 00 00 00 	sub    $0x88,%rsp
+    d571:	48 89 75 c0          	mov    %rsi,-0x40(%rbp)
+    d575:	48 89 d6             	mov    %rdx,%rsi
+    d578:	48 89 4d b8          	mov    %rcx,-0x48(%rbp)
+    d57c:	e8 df 8c 00 00       	call   16260 <dictGenHashFunction>
+    d581:	4d 8b 7c 24 40       	mov    0x40(%r12),%r15
+    d586:	89 45 cc             	mov    %eax,-0x34(%rbp)
+    d589:	48 89 c3             	mov    %rax,%rbx
+    d58c:	4d 85 ff             	test   %r15,%r15
+    d58f:	0f 84 99 02 00 00    	je     d82e <zbtreeScoreRaw+0x2de>
+    d595:	4c 89 e7             	mov    %r12,%rdi
+    d598:	e8 33 a8 ff ff       	call   7dd0 <zbtIndexRehashStep.constprop.0.isra.0>
+    d59d:	4d 8b 7c 24 40       	mov    0x40(%r12),%r15
+    d5a2:	4d 85 ff             	test   %r15,%r15
+    d5a5:	0f 84 83 02 00 00    	je     d82e <zbtreeScoreRaw+0x2de>
+    d5ab:	49 8b 7f 08          	mov    0x8(%r15),%rdi
+    d5af:	48 85 ff             	test   %rdi,%rdi
+    d5b2:	0f 84 76 02 00 00    	je     d82e <zbtreeScoreRaw+0x2de>
+    d5b8:	48 8d 47 ff          	lea    -0x1(%rdi),%rax
+    d5bc:	89 d9                	mov    %ebx,%ecx
+    d5be:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    d5c4:	48 be 01 01 01 01 01 	movabs $0x101010101010101,%rsi
+    d5cb:	01 01 01 
+    d5ce:	89 c2                	mov    %eax,%edx
+    d5d0:	48 89 85 70 ff ff ff 	mov    %rax,-0x90(%rbp)
+    d5d7:	48 b8 02 00 00 08 80 	movabs $0x8008000002,%rax
+    d5de:	00 00 00 
+    d5e1:	21 da                	and    %ebx,%edx
+    d5e3:	c1 e9 18             	shr    $0x18,%ecx
+    d5e6:	48 89 85 78 ff ff ff 	mov    %rax,-0x88(%rbp)
+    d5ed:	48 89 75 98          	mov    %rsi,-0x68(%rbp)
+    d5f1:	74 44                	je     d637 <zbtreeScoreRaw+0xe7>
+    d5f3:	89 c8                	mov    %ecx,%eax
+    d5f5:	41 89 c9             	mov    %ecx,%r9d
+    d5f8:	48 0f af f0          	imul   %rax,%rsi
+    d5fc:	48 89 75 98          	mov    %rsi,-0x68(%rbp)
+    d600:	48 be 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rsi
+    d607:	79 37 9e 
+    d60a:	48 0f af c6          	imul   %rsi,%rax
+    d60e:	be 01 00 00 00       	mov    $0x1,%esi
+    d613:	49 89 f0             	mov    %rsi,%r8
+    d616:	49 d3 e0             	shl    %cl,%r8
+    d619:	48 89 c1             	mov    %rax,%rcx
+    d61c:	48 c1 e8 24          	shr    $0x24,%rax
+    d620:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    d624:	49 0f ab c8          	bts    %rcx,%r8
+    d628:	89 c1                	mov    %eax,%ecx
+    d62a:	48 d3 e6             	shl    %cl,%rsi
+    d62d:	49 09 f0             	or     %rsi,%r8
+    d630:	4c 89 85 78 ff ff ff 	mov    %r8,-0x88(%rbp)
+    d637:	49 8b 37             	mov    (%r15),%rsi
+    d63a:	41 8b 4f 20          	mov    0x20(%r15),%ecx
+    d63e:	4d 8d 54 24 18       	lea    0x18(%r12),%r10
+    d643:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+    d647:	85 c9                	test   %ecx,%ecx
+    d649:	0f 85 6a 06 00 00    	jne    dcb9 <zbtreeScoreRaw+0x769>
+    d64f:	48 89 d0             	mov    %rdx,%rax
+    d652:	48 89 bd 60 ff ff ff 	mov    %rdi,-0xa0(%rbp)
+    d659:	45 31 c0             	xor    %r8d,%r8d
+    d65c:	48 c1 e0 05          	shl    $0x5,%rax
+    d660:	48 89 9d 68 ff ff ff 	mov    %rbx,-0x98(%rbp)
+    d667:	44 89 cb             	mov    %r9d,%ebx
+    d66a:	48 01 f0             	add    %rsi,%rax
+    d66d:	4c 89 75 a0          	mov    %r14,-0x60(%rbp)
+    d671:	4d 89 d6             	mov    %r10,%r14
+    d674:	48 89 85 58 ff ff ff 	mov    %rax,-0xa8(%rbp)
+    d67b:	48 8b 45 90          	mov    -0x70(%rbp),%rax
+    d67f:	49 89 d1             	mov    %rdx,%r9
+    d682:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    d686:	49 c1 e1 05          	shl    $0x5,%r9
+    d68a:	49 01 c1             	add    %rax,%r9
+    d68d:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    d694:	fe fe fe 
+    d697:	4d 8b 11             	mov    (%r9),%r10
+    d69a:	4c 31 d1             	xor    %r10,%rcx
+    d69d:	49 89 cd             	mov    %rcx,%r13
+    d6a0:	48 01 c1             	add    %rax,%rcx
+    d6a3:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    d6aa:	80 80 80 
+    d6ad:	49 f7 d5             	not    %r13
+    d6b0:	49 21 cd             	and    %rcx,%r13
+    d6b3:	49 21 c5             	and    %rax,%r13
+    d6b6:	0f 84 e5 00 00 00    	je     d7a1 <zbtreeScoreRaw+0x251>
+    d6bc:	4d 89 f3             	mov    %r14,%r11
+    d6bf:	4c 89 45 88          	mov    %r8,-0x78(%rbp)
+    d6c3:	4d 89 e6             	mov    %r12,%r14
+    d6c6:	4d 89 d4             	mov    %r10,%r12
+    d6c9:	48 89 55 80          	mov    %rdx,-0x80(%rbp)
+    d6cd:	eb 6d                	jmp    d73c <zbtreeScoreRaw+0x1ec>
+    d6cf:	90                   	nop
+    d6d0:	49 8b 4e 48          	mov    0x48(%r14),%rcx
+    d6d4:	48 8b 3c c1          	mov    (%rcx,%rax,8),%rdi
+    d6d8:	48 85 ff             	test   %rdi,%rdi
+    d6db:	0f 84 8d 00 00 00    	je     d76e <zbtreeScoreRaw+0x21e>
+    d6e1:	40 f6 c7 01          	test   $0x1,%dil
+    d6e5:	0f 85 83 00 00 00    	jne    d76e <zbtreeScoreRaw+0x21e>
+    d6eb:	3b 57 30             	cmp    0x30(%rdi),%edx
+    d6ee:	0f 85 ac 07 00 00    	jne    dea0 <zbtreeScoreRaw+0x950>
+    d6f4:	0f b7 47 16          	movzwl 0x16(%rdi),%eax
+    d6f8:	66 41 39 47 2c       	cmp    %ax,0x2c(%r15)
+    d6fd:	75 31                	jne    d730 <zbtreeScoreRaw+0x1e0>
+    d6ff:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    d703:	48 8b 4d a0          	mov    -0x60(%rbp),%rcx
+    d707:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    d70b:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    d70f:	8b 75 cc             	mov    -0x34(%rbp),%esi
+    d712:	4c 89 5d b0          	mov    %r11,-0x50(%rbp)
+    d716:	e8 85 67 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    d71b:	4c 8b 5d b0          	mov    -0x50(%rbp),%r11
+    d71f:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    d723:	85 c0                	test   %eax,%eax
+    d725:	0f 85 6b 07 00 00    	jne    de96 <zbtreeScoreRaw+0x946>
+    d72b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    d730:	49 8d 45 ff          	lea    -0x1(%r13),%rax
+    d734:	49 21 c5             	and    %rax,%r13
+    d737:	4d 85 ed             	test   %r13,%r13
+    d73a:	74 54                	je     d790 <zbtreeScoreRaw+0x240>
+    d73c:	31 c9                	xor    %ecx,%ecx
+    d73e:	4c 89 e2             	mov    %r12,%rdx
+    d741:	f3 49 0f bc cd       	tzcnt  %r13,%rcx
+    d746:	89 c8                	mov    %ecx,%eax
+    d748:	83 e1 f8             	and    $0xfffffff8,%ecx
+    d74b:	48 d3 ea             	shr    %cl,%rdx
+    d74e:	c1 f8 03             	sar    $0x3,%eax
+    d751:	38 d3                	cmp    %dl,%bl
+    d753:	75 db                	jne    d730 <zbtreeScoreRaw+0x1e0>
+    d755:	41 0f b7 44 41 10    	movzwl 0x10(%r9,%rax,2),%eax
+    d75b:	66 83 f8 ff          	cmp    $0xffff,%ax
+    d75f:	74 cf                	je     d730 <zbtreeScoreRaw+0x1e0>
+    d761:	0f b7 d0             	movzwl %ax,%edx
+    d764:	41 3b 56 54          	cmp    0x54(%r14),%edx
+    d768:	0f 82 62 ff ff ff    	jb     d6d0 <zbtreeScoreRaw+0x180>
+    d76e:	4d 39 df             	cmp    %r11,%r15
+    d771:	74 bd                	je     d730 <zbtreeScoreRaw+0x1e0>
+    d773:	48 8d 15 ce 9f 00 00 	lea    0x9fce(%rip),%rdx        # 17748 <_IO_stdin_used+0x748>
+    d77a:	be c9 07 00 00       	mov    $0x7c9,%esi
+    d77f:	48 8d 3d 22 9d 00 00 	lea    0x9d22(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    d786:	e8 d5 88 00 00       	call   16060 <standalone_panic>
+    d78b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    d790:	4c 8b 45 88          	mov    -0x78(%rbp),%r8
+    d794:	48 8b 55 80          	mov    -0x80(%rbp),%rdx
+    d798:	4d 89 e2             	mov    %r12,%r10
+    d79b:	4d 89 f4             	mov    %r14,%r12
+    d79e:	4d 89 de             	mov    %r11,%r14
+    d7a1:	4d 85 c0             	test   %r8,%r8
+    d7a4:	75 1a                	jne    d7c0 <zbtreeScoreRaw+0x270>
+    d7a6:	48 8b b5 58 ff ff ff 	mov    -0xa8(%rbp),%rsi
+    d7ad:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    d7b4:	48 8b 4e 08          	mov    0x8(%rsi),%rcx
+    d7b8:	48 21 c1             	and    %rax,%rcx
+    d7bb:	48 39 c1             	cmp    %rax,%rcx
+    d7be:	75 63                	jne    d823 <zbtreeScoreRaw+0x2d3>
+    d7c0:	45 84 d2             	test   %r10b,%r10b
+    d7c3:	74 5e                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7c5:	41 f7 c2 00 ff 00 00 	test   $0xff00,%r10d
+    d7cc:	74 55                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7ce:	41 f7 c2 00 00 ff 00 	test   $0xff0000,%r10d
+    d7d5:	74 4c                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7d7:	41 f7 c2 00 00 00 ff 	test   $0xff000000,%r10d
+    d7de:	74 43                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7e0:	4c 89 d1             	mov    %r10,%rcx
+    d7e3:	48 c1 e9 20          	shr    $0x20,%rcx
+    d7e7:	84 c9                	test   %cl,%cl
+    d7e9:	74 38                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7eb:	4c 89 d1             	mov    %r10,%rcx
+    d7ee:	48 c1 e9 28          	shr    $0x28,%rcx
+    d7f2:	84 c9                	test   %cl,%cl
+    d7f4:	74 2d                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d7f6:	4c 89 d1             	mov    %r10,%rcx
+    d7f9:	48 c1 e9 30          	shr    $0x30,%rcx
+    d7fd:	84 c9                	test   %cl,%cl
+    d7ff:	74 22                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d801:	49 c1 ea 38          	shr    $0x38,%r10
+    d805:	74 1c                	je     d823 <zbtreeScoreRaw+0x2d3>
+    d807:	48 83 c2 01          	add    $0x1,%rdx
+    d80b:	49 83 c0 01          	add    $0x1,%r8
+    d80f:	48 23 95 70 ff ff ff 	and    -0x90(%rbp),%rdx
+    d816:	4c 39 85 60 ff ff ff 	cmp    %r8,-0xa0(%rbp)
+    d81d:	0f 85 58 fe ff ff    	jne    d67b <zbtreeScoreRaw+0x12b>
+    d823:	48 8b 9d 68 ff ff ff 	mov    -0x98(%rbp),%rbx
+    d82a:	4c 8b 75 a0          	mov    -0x60(%rbp),%r14
+    d82e:	4d 8b 44 24 20       	mov    0x20(%r12),%r8
+    d833:	4d 85 c0             	test   %r8,%r8
+    d836:	0f 84 6c 02 00 00    	je     daa8 <zbtreeScoreRaw+0x558>
+    d83c:	49 8d 40 ff          	lea    -0x1(%r8),%rax
+    d840:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+    d846:	48 bf 01 01 01 01 01 	movabs $0x101010101010101,%rdi
+    d84d:	01 01 01 
+    d850:	89 c2                	mov    %eax,%edx
+    d852:	48 89 45 80          	mov    %rax,-0x80(%rbp)
+    d856:	48 b8 02 00 00 08 80 	movabs $0x8008000002,%rax
+    d85d:	00 00 00 
+    d860:	21 da                	and    %ebx,%edx
+    d862:	c1 eb 18             	shr    $0x18,%ebx
+    d865:	48 89 85 78 ff ff ff 	mov    %rax,-0x88(%rbp)
+    d86c:	74 42                	je     d8b0 <zbtreeScoreRaw+0x360>
+    d86e:	89 d8                	mov    %ebx,%eax
+    d870:	be 01 00 00 00       	mov    $0x1,%esi
+    d875:	41 89 d9             	mov    %ebx,%r9d
+    d878:	48 b9 15 7c 4a 7f b9 	movabs $0x9e3779b97f4a7c15,%rcx
+    d87f:	79 37 9e 
+    d882:	48 0f af f8          	imul   %rax,%rdi
+    d886:	49 89 f2             	mov    %rsi,%r10
+    d889:	48 0f af c1          	imul   %rcx,%rax
+    d88d:	89 d9                	mov    %ebx,%ecx
+    d88f:	49 d3 e2             	shl    %cl,%r10
+    d892:	48 89 c1             	mov    %rax,%rcx
+    d895:	48 c1 e8 24          	shr    $0x24,%rax
+    d899:	48 c1 e9 3a          	shr    $0x3a,%rcx
+    d89d:	49 0f ab ca          	bts    %rcx,%r10
+    d8a1:	89 c1                	mov    %eax,%ecx
+    d8a3:	48 d3 e6             	shl    %cl,%rsi
+    d8a6:	49 09 f2             	or     %rsi,%r10
+    d8a9:	4c 89 95 78 ff ff ff 	mov    %r10,-0x88(%rbp)
+    d8b0:	49 8d 44 24 18       	lea    0x18(%r12),%rax
+    d8b5:	49 8b 74 24 18       	mov    0x18(%r12),%rsi
+    d8ba:	48 89 45 b0          	mov    %rax,-0x50(%rbp)
+    d8be:	41 8b 44 24 38       	mov    0x38(%r12),%eax
+    d8c3:	48 89 75 a0          	mov    %rsi,-0x60(%rbp)
+    d8c7:	85 c0                	test   %eax,%eax
+    d8c9:	0f 85 ed 01 00 00    	jne    dabc <zbtreeScoreRaw+0x56c>
+    d8cf:	48 89 d0             	mov    %rdx,%rax
+    d8d2:	4c 89 85 68 ff ff ff 	mov    %r8,-0x98(%rbp)
+    d8d9:	45 89 cd             	mov    %r9d,%r13d
+    d8dc:	48 c1 e0 05          	shl    $0x5,%rax
+    d8e0:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    d8e7:	48 01 f0             	add    %rsi,%rax
+    d8ea:	4c 89 75 98          	mov    %r14,-0x68(%rbp)
+    d8ee:	31 f6                	xor    %esi,%esi
+    d8f0:	48 89 85 60 ff ff ff 	mov    %rax,-0xa0(%rbp)
+    d8f7:	48 8b 45 a0          	mov    -0x60(%rbp),%rax
+    d8fb:	49 89 d3             	mov    %rdx,%r11
+    d8fe:	48 8b 8d 70 ff ff ff 	mov    -0x90(%rbp),%rcx
+    d905:	49 c1 e3 05          	shl    $0x5,%r11
+    d909:	49 01 c3             	add    %rax,%r11
+    d90c:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    d913:	fe fe fe 
+    d916:	4d 8b 33             	mov    (%r11),%r14
+    d919:	4c 31 f1             	xor    %r14,%rcx
+    d91c:	48 89 cb             	mov    %rcx,%rbx
+    d91f:	48 01 c1             	add    %rax,%rcx
+    d922:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    d929:	80 80 80 
+    d92c:	48 f7 d3             	not    %rbx
+    d92f:	48 21 cb             	and    %rcx,%rbx
+    d932:	48 21 c3             	and    %rax,%rbx
+    d935:	0f 84 e7 00 00 00    	je     da22 <zbtreeScoreRaw+0x4d2>
+    d93b:	4d 89 e1             	mov    %r12,%r9
+    d93e:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+    d942:	4d 89 fc             	mov    %r15,%r12
+    d945:	4d 89 df             	mov    %r11,%r15
+    d948:	48 89 55 88          	mov    %rdx,-0x78(%rbp)
+    d94c:	eb 7e                	jmp    d9cc <zbtreeScoreRaw+0x47c>
+    d94e:	66 90                	xchg   %ax,%ax
+    d950:	49 8b 49 48          	mov    0x48(%r9),%rcx
+    d954:	48 8b 3c c1          	mov    (%rcx,%rax,8),%rdi
+    d958:	48 85 ff             	test   %rdi,%rdi
+    d95b:	0f 84 9e 00 00 00    	je     d9ff <zbtreeScoreRaw+0x4af>
+    d961:	40 f6 c7 01          	test   $0x1,%dil
+    d965:	0f 85 94 00 00 00    	jne    d9ff <zbtreeScoreRaw+0x4af>
+    d96b:	3b 57 30             	cmp    0x30(%rdi),%edx
+    d96e:	0f 85 2c 05 00 00    	jne    dea0 <zbtreeScoreRaw+0x950>
+    d974:	4d 85 e4             	test   %r12,%r12
+    d977:	74 1b                	je     d994 <zbtreeScoreRaw+0x444>
+    d979:	0f b7 47 16          	movzwl 0x16(%rdi),%eax
+    d97d:	66 41 39 44 24 2c    	cmp    %ax,0x2c(%r12)
+    d983:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+    d987:	0f 94 c2             	sete   %dl
+    d98a:	49 39 c4             	cmp    %rax,%r12
+    d98d:	0f 94 c0             	sete   %al
+    d990:	38 c2                	cmp    %al,%dl
+    d992:	75 2c                	jne    d9c0 <zbtreeScoreRaw+0x470>
+    d994:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    d998:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    d99c:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    d9a0:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    d9a4:	8b 75 cc             	mov    -0x34(%rbp),%esi
+    d9a7:	e8 f4 64 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    d9ac:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    d9b0:	85 c0                	test   %eax,%eax
+    d9b2:	0f 85 de 04 00 00    	jne    de96 <zbtreeScoreRaw+0x946>
+    d9b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    d9bf:	00 
+    d9c0:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    d9c4:	48 21 c3             	and    %rax,%rbx
+    d9c7:	48 85 db             	test   %rbx,%rbx
+    d9ca:	74 48                	je     da14 <zbtreeScoreRaw+0x4c4>
+    d9cc:	31 c9                	xor    %ecx,%ecx
+    d9ce:	4c 89 f2             	mov    %r14,%rdx
+    d9d1:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    d9d6:	89 c8                	mov    %ecx,%eax
+    d9d8:	83 e1 f8             	and    $0xfffffff8,%ecx
+    d9db:	48 d3 ea             	shr    %cl,%rdx
+    d9de:	c1 f8 03             	sar    $0x3,%eax
+    d9e1:	41 38 d5             	cmp    %dl,%r13b
+    d9e4:	75 da                	jne    d9c0 <zbtreeScoreRaw+0x470>
+    d9e6:	41 0f b7 44 47 10    	movzwl 0x10(%r15,%rax,2),%eax
+    d9ec:	66 83 f8 ff          	cmp    $0xffff,%ax
+    d9f0:	74 ce                	je     d9c0 <zbtreeScoreRaw+0x470>
+    d9f2:	0f b7 d0             	movzwl %ax,%edx
+    d9f5:	41 3b 51 54          	cmp    0x54(%r9),%edx
+    d9f9:	0f 82 51 ff ff ff    	jb     d950 <zbtreeScoreRaw+0x400>
+    d9ff:	4d 85 e4             	test   %r12,%r12
+    da02:	0f 84 6b fd ff ff    	je     d773 <zbtreeScoreRaw+0x223>
+    da08:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    da0c:	48 21 c3             	and    %rax,%rbx
+    da0f:	48 85 db             	test   %rbx,%rbx
+    da12:	75 b8                	jne    d9cc <zbtreeScoreRaw+0x47c>
+    da14:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+    da18:	48 8b 55 88          	mov    -0x78(%rbp),%rdx
+    da1c:	4d 89 e7             	mov    %r12,%r15
+    da1f:	4d 89 cc             	mov    %r9,%r12
+    da22:	48 85 f6             	test   %rsi,%rsi
+    da25:	75 1a                	jne    da41 <zbtreeScoreRaw+0x4f1>
+    da27:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    da2e:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    da35:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+    da39:	48 21 c1             	and    %rax,%rcx
+    da3c:	48 39 c1             	cmp    %rax,%rcx
+    da3f:	75 67                	jne    daa8 <zbtreeScoreRaw+0x558>
+    da41:	45 84 f6             	test   %r14b,%r14b
+    da44:	74 62                	je     daa8 <zbtreeScoreRaw+0x558>
+    da46:	41 f7 c6 00 ff 00 00 	test   $0xff00,%r14d
+    da4d:	74 59                	je     daa8 <zbtreeScoreRaw+0x558>
+    da4f:	41 f7 c6 00 00 ff 00 	test   $0xff0000,%r14d
+    da56:	74 50                	je     daa8 <zbtreeScoreRaw+0x558>
+    da58:	41 f7 c6 00 00 00 ff 	test   $0xff000000,%r14d
+    da5f:	74 47                	je     daa8 <zbtreeScoreRaw+0x558>
+    da61:	4c 89 f1             	mov    %r14,%rcx
+    da64:	48 c1 e9 20          	shr    $0x20,%rcx
+    da68:	84 c9                	test   %cl,%cl
+    da6a:	74 3c                	je     daa8 <zbtreeScoreRaw+0x558>
+    da6c:	4c 89 f1             	mov    %r14,%rcx
+    da6f:	48 c1 e9 28          	shr    $0x28,%rcx
+    da73:	84 c9                	test   %cl,%cl
+    da75:	74 31                	je     daa8 <zbtreeScoreRaw+0x558>
+    da77:	4c 89 f1             	mov    %r14,%rcx
+    da7a:	48 c1 e9 30          	shr    $0x30,%rcx
+    da7e:	84 c9                	test   %cl,%cl
+    da80:	74 26                	je     daa8 <zbtreeScoreRaw+0x558>
+    da82:	49 c1 ee 38          	shr    $0x38,%r14
+    da86:	74 20                	je     daa8 <zbtreeScoreRaw+0x558>
+    da88:	48 83 c2 01          	add    $0x1,%rdx
+    da8c:	48 83 c6 01          	add    $0x1,%rsi
+    da90:	48 23 55 80          	and    -0x80(%rbp),%rdx
+    da94:	48 39 b5 68 ff ff ff 	cmp    %rsi,-0x98(%rbp)
+    da9b:	0f 85 56 fe ff ff    	jne    d8f7 <zbtreeScoreRaw+0x3a7>
+    daa1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    daa8:	31 c0                	xor    %eax,%eax
+    daaa:	48 81 c4 88 00 00 00 	add    $0x88,%rsp
+    dab1:	5b                   	pop    %rbx
+    dab2:	41 5c                	pop    %r12
+    dab4:	41 5d                	pop    %r13
+    dab6:	41 5e                	pop    %r14
+    dab8:	41 5f                	pop    %r15
+    daba:	5d                   	pop    %rbp
+    dabb:	c3                   	ret
+    dabc:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    dac0:	4c 89 85 68 ff ff ff 	mov    %r8,-0x98(%rbp)
+    dac7:	45 89 cd             	mov    %r9d,%r13d
+    daca:	48 8d 0c 10          	lea    (%rax,%rdx,1),%rcx
+    dace:	48 89 bd 70 ff ff ff 	mov    %rdi,-0x90(%rbp)
+    dad5:	48 c1 e1 04          	shl    $0x4,%rcx
+    dad9:	4c 89 75 98          	mov    %r14,-0x68(%rbp)
+    dadd:	48 01 ce             	add    %rcx,%rsi
+    dae0:	48 89 b5 60 ff ff ff 	mov    %rsi,-0xa0(%rbp)
+    dae7:	31 f6                	xor    %esi,%esi
+    dae9:	4c 8d 1c 10          	lea    (%rax,%rdx,1),%r11
+    daed:	48 8b 45 a0          	mov    -0x60(%rbp),%rax
+    daf1:	48 8b 8d 70 ff ff ff 	mov    -0x90(%rbp),%rcx
+    daf8:	49 c1 e3 04          	shl    $0x4,%r11
+    dafc:	49 01 c3             	add    %rax,%r11
+    daff:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    db06:	fe fe fe 
+    db09:	4d 8b 33             	mov    (%r11),%r14
+    db0c:	4c 31 f1             	xor    %r14,%rcx
+    db0f:	48 8d 1c 01          	lea    (%rcx,%rax,1),%rbx
+    db13:	48 f7 d1             	not    %rcx
+    db16:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    db1d:	80 80 80 
+    db20:	48 21 cb             	and    %rcx,%rbx
+    db23:	48 21 c3             	and    %rax,%rbx
+    db26:	0f 84 e1 00 00 00    	je     dc0d <zbtreeScoreRaw+0x6bd>
+    db2c:	4d 89 e1             	mov    %r12,%r9
+    db2f:	48 89 75 90          	mov    %rsi,-0x70(%rbp)
+    db33:	4d 89 fc             	mov    %r15,%r12
+    db36:	4d 89 df             	mov    %r11,%r15
+    db39:	48 89 55 88          	mov    %rdx,-0x78(%rbp)
+    db3d:	eb 7d                	jmp    dbbc <zbtreeScoreRaw+0x66c>
+    db3f:	90                   	nop
+    db40:	49 8b 49 48          	mov    0x48(%r9),%rcx
+    db44:	89 c2                	mov    %eax,%edx
+    db46:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    db4a:	48 85 ff             	test   %rdi,%rdi
+    db4d:	0f 84 97 00 00 00    	je     dbea <zbtreeScoreRaw+0x69a>
+    db53:	40 f6 c7 01          	test   $0x1,%dil
+    db57:	0f 85 8d 00 00 00    	jne    dbea <zbtreeScoreRaw+0x69a>
+    db5d:	39 47 30             	cmp    %eax,0x30(%rdi)
+    db60:	0f 85 3a 03 00 00    	jne    dea0 <zbtreeScoreRaw+0x950>
+    db66:	4d 85 e4             	test   %r12,%r12
+    db69:	74 1b                	je     db86 <zbtreeScoreRaw+0x636>
+    db6b:	48 8b 45 b0          	mov    -0x50(%rbp),%rax
+    db6f:	49 39 c4             	cmp    %rax,%r12
+    db72:	41 0f b7 44 24 2c    	movzwl 0x2c(%r12),%eax
+    db78:	0f 94 c2             	sete   %dl
+    db7b:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    db7f:	0f 94 c0             	sete   %al
+    db82:	38 c2                	cmp    %al,%dl
+    db84:	75 2a                	jne    dbb0 <zbtreeScoreRaw+0x660>
+    db86:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    db8a:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    db8e:	4c 89 4d a8          	mov    %r9,-0x58(%rbp)
+    db92:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    db96:	8b 75 cc             	mov    -0x34(%rbp),%esi
+    db99:	e8 02 63 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    db9e:	4c 8b 4d a8          	mov    -0x58(%rbp),%r9
+    dba2:	85 c0                	test   %eax,%eax
+    dba4:	0f 85 ec 02 00 00    	jne    de96 <zbtreeScoreRaw+0x946>
+    dbaa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    dbb0:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    dbb4:	48 21 c3             	and    %rax,%rbx
+    dbb7:	48 85 db             	test   %rbx,%rbx
+    dbba:	74 43                	je     dbff <zbtreeScoreRaw+0x6af>
+    dbbc:	31 c9                	xor    %ecx,%ecx
+    dbbe:	4c 89 f0             	mov    %r14,%rax
+    dbc1:	f3 48 0f bc cb       	tzcnt  %rbx,%rcx
+    dbc6:	89 ca                	mov    %ecx,%edx
+    dbc8:	83 e1 f8             	and    $0xfffffff8,%ecx
+    dbcb:	48 d3 e8             	shr    %cl,%rax
+    dbce:	c1 fa 03             	sar    $0x3,%edx
+    dbd1:	41 38 c5             	cmp    %al,%r13b
+    dbd4:	75 da                	jne    dbb0 <zbtreeScoreRaw+0x660>
+    dbd6:	41 8b 44 97 10       	mov    0x10(%r15,%rdx,4),%eax
+    dbdb:	83 f8 ff             	cmp    $0xffffffff,%eax
+    dbde:	74 d0                	je     dbb0 <zbtreeScoreRaw+0x660>
+    dbe0:	41 3b 41 54          	cmp    0x54(%r9),%eax
+    dbe4:	0f 82 56 ff ff ff    	jb     db40 <zbtreeScoreRaw+0x5f0>
+    dbea:	4d 85 e4             	test   %r12,%r12
+    dbed:	0f 84 80 fb ff ff    	je     d773 <zbtreeScoreRaw+0x223>
+    dbf3:	48 8d 43 ff          	lea    -0x1(%rbx),%rax
+    dbf7:	48 21 c3             	and    %rax,%rbx
+    dbfa:	48 85 db             	test   %rbx,%rbx
+    dbfd:	75 bd                	jne    dbbc <zbtreeScoreRaw+0x66c>
+    dbff:	48 8b 75 90          	mov    -0x70(%rbp),%rsi
+    dc03:	48 8b 55 88          	mov    -0x78(%rbp),%rdx
+    dc07:	4d 89 e7             	mov    %r12,%r15
+    dc0a:	4d 89 cc             	mov    %r9,%r12
+    dc0d:	48 85 f6             	test   %rsi,%rsi
+    dc10:	75 1e                	jne    dc30 <zbtreeScoreRaw+0x6e0>
+    dc12:	48 8b bd 60 ff ff ff 	mov    -0xa0(%rbp),%rdi
+    dc19:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    dc20:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+    dc24:	48 21 c1             	and    %rax,%rcx
+    dc27:	48 39 c1             	cmp    %rax,%rcx
+    dc2a:	0f 85 78 fe ff ff    	jne    daa8 <zbtreeScoreRaw+0x558>
+    dc30:	45 84 f6             	test   %r14b,%r14b
+    dc33:	0f 84 6f fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc39:	41 f7 c6 00 ff 00 00 	test   $0xff00,%r14d
+    dc40:	0f 84 62 fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc46:	41 f7 c6 00 00 ff 00 	test   $0xff0000,%r14d
+    dc4d:	0f 84 55 fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc53:	41 f7 c6 00 00 00 ff 	test   $0xff000000,%r14d
+    dc5a:	0f 84 48 fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc60:	4c 89 f1             	mov    %r14,%rcx
+    dc63:	48 c1 e9 20          	shr    $0x20,%rcx
+    dc67:	84 c9                	test   %cl,%cl
+    dc69:	0f 84 39 fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc6f:	4c 89 f1             	mov    %r14,%rcx
+    dc72:	48 c1 e9 28          	shr    $0x28,%rcx
+    dc76:	84 c9                	test   %cl,%cl
+    dc78:	0f 84 2a fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc7e:	4c 89 f1             	mov    %r14,%rcx
+    dc81:	48 c1 e9 30          	shr    $0x30,%rcx
+    dc85:	84 c9                	test   %cl,%cl
+    dc87:	0f 84 1b fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc8d:	49 c1 ee 38          	shr    $0x38,%r14
+    dc91:	0f 84 11 fe ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dc97:	48 83 c2 01          	add    $0x1,%rdx
+    dc9b:	48 83 c6 01          	add    $0x1,%rsi
+    dc9f:	48 23 55 80          	and    -0x80(%rbp),%rdx
+    dca3:	48 39 b5 68 ff ff ff 	cmp    %rsi,-0x98(%rbp)
+    dcaa:	0f 84 f8 fd ff ff    	je     daa8 <zbtreeScoreRaw+0x558>
+    dcb0:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    dcb4:	e9 30 fe ff ff       	jmp    dae9 <zbtreeScoreRaw+0x599>
+    dcb9:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    dcbd:	48 89 bd 60 ff ff ff 	mov    %rdi,-0xa0(%rbp)
+    dcc4:	45 31 c0             	xor    %r8d,%r8d
+    dcc7:	48 8d 0c 10          	lea    (%rax,%rdx,1),%rcx
+    dccb:	48 89 5d 88          	mov    %rbx,-0x78(%rbp)
+    dccf:	44 89 cb             	mov    %r9d,%ebx
+    dcd2:	48 c1 e1 04          	shl    $0x4,%rcx
+    dcd6:	4c 89 75 b0          	mov    %r14,-0x50(%rbp)
+    dcda:	4d 89 d6             	mov    %r10,%r14
+    dcdd:	48 01 ce             	add    %rcx,%rsi
+    dce0:	48 89 b5 58 ff ff ff 	mov    %rsi,-0xa8(%rbp)
+    dce7:	4c 8d 1c 10          	lea    (%rax,%rdx,1),%r11
+    dceb:	48 8b 45 90          	mov    -0x70(%rbp),%rax
+    dcef:	48 8b 4d 98          	mov    -0x68(%rbp),%rcx
+    dcf3:	49 c1 e3 04          	shl    $0x4,%r11
+    dcf7:	49 01 c3             	add    %rax,%r11
+    dcfa:	48 b8 ff fe fe fe fe 	movabs $0xfefefefefefefeff,%rax
+    dd01:	fe fe fe 
+    dd04:	4d 8b 0b             	mov    (%r11),%r9
+    dd07:	4c 31 c9             	xor    %r9,%rcx
+    dd0a:	4c 8d 2c 01          	lea    (%rcx,%rax,1),%r13
+    dd0e:	48 f7 d1             	not    %rcx
+    dd11:	48 b8 80 80 80 80 80 	movabs $0x8080808080808080,%rax
+    dd18:	80 80 80 
+    dd1b:	49 21 cd             	and    %rcx,%r13
+    dd1e:	49 21 c5             	and    %rax,%r13
+    dd21:	0f 84 db 00 00 00    	je     de02 <zbtreeScoreRaw+0x8b2>
+    dd27:	4d 89 f2             	mov    %r14,%r10
+    dd2a:	4c 89 45 80          	mov    %r8,-0x80(%rbp)
+    dd2e:	4d 89 e6             	mov    %r12,%r14
+    dd31:	4d 89 cc             	mov    %r9,%r12
+    dd34:	48 89 95 68 ff ff ff 	mov    %rdx,-0x98(%rbp)
+    dd3b:	eb 6f                	jmp    ddac <zbtreeScoreRaw+0x85c>
+    dd3d:	0f 1f 00             	nopl   (%rax)
+    dd40:	49 8b 4e 48          	mov    0x48(%r14),%rcx
+    dd44:	89 c2                	mov    %eax,%edx
+    dd46:	48 8b 3c d1          	mov    (%rcx,%rdx,8),%rdi
+    dd4a:	48 85 ff             	test   %rdi,%rdi
+    dd4d:	0f 84 86 00 00 00    	je     ddd9 <zbtreeScoreRaw+0x889>
+    dd53:	40 f6 c7 01          	test   $0x1,%dil
+    dd57:	0f 85 7c 00 00 00    	jne    ddd9 <zbtreeScoreRaw+0x889>
+    dd5d:	39 47 30             	cmp    %eax,0x30(%rdi)
+    dd60:	0f 85 3a 01 00 00    	jne    dea0 <zbtreeScoreRaw+0x950>
+    dd66:	41 0f b7 47 2c       	movzwl 0x2c(%r15),%eax
+    dd6b:	66 39 47 16          	cmp    %ax,0x16(%rdi)
+    dd6f:	75 2f                	jne    dda0 <zbtreeScoreRaw+0x850>
+    dd71:	4c 8b 45 b8          	mov    -0x48(%rbp),%r8
+    dd75:	48 8b 4d b0          	mov    -0x50(%rbp),%rcx
+    dd79:	4c 89 5d a0          	mov    %r11,-0x60(%rbp)
+    dd7d:	48 8b 55 c0          	mov    -0x40(%rbp),%rdx
+    dd81:	8b 75 cc             	mov    -0x34(%rbp),%esi
+    dd84:	4c 89 55 a8          	mov    %r10,-0x58(%rbp)
+    dd88:	e8 13 61 ff ff       	call   3ea0 <zbtScoreLeafFindMember.constprop.0>
+    dd8d:	4c 8b 55 a8          	mov    -0x58(%rbp),%r10
+    dd91:	4c 8b 5d a0          	mov    -0x60(%rbp),%r11
+    dd95:	85 c0                	test   %eax,%eax
+    dd97:	0f 85 f9 00 00 00    	jne    de96 <zbtreeScoreRaw+0x946>
+    dd9d:	0f 1f 00             	nopl   (%rax)
+    dda0:	49 8d 45 ff          	lea    -0x1(%r13),%rax
+    dda4:	49 21 c5             	and    %rax,%r13
+    dda7:	4d 85 ed             	test   %r13,%r13
+    ddaa:	74 42                	je     ddee <zbtreeScoreRaw+0x89e>
+    ddac:	31 c9                	xor    %ecx,%ecx
+    ddae:	4c 89 e0             	mov    %r12,%rax
+    ddb1:	f3 49 0f bc cd       	tzcnt  %r13,%rcx
+    ddb6:	89 ca                	mov    %ecx,%edx
+    ddb8:	83 e1 f8             	and    $0xfffffff8,%ecx
+    ddbb:	48 d3 e8             	shr    %cl,%rax
+    ddbe:	c1 fa 03             	sar    $0x3,%edx
+    ddc1:	38 c3                	cmp    %al,%bl
+    ddc3:	75 db                	jne    dda0 <zbtreeScoreRaw+0x850>
+    ddc5:	41 8b 44 93 10       	mov    0x10(%r11,%rdx,4),%eax
+    ddca:	83 f8 ff             	cmp    $0xffffffff,%eax
+    ddcd:	74 d1                	je     dda0 <zbtreeScoreRaw+0x850>
+    ddcf:	41 3b 46 54          	cmp    0x54(%r14),%eax
+    ddd3:	0f 82 67 ff ff ff    	jb     dd40 <zbtreeScoreRaw+0x7f0>
+    ddd9:	4d 39 d7             	cmp    %r10,%r15
+    dddc:	0f 85 91 f9 ff ff    	jne    d773 <zbtreeScoreRaw+0x223>
+    dde2:	49 8d 45 ff          	lea    -0x1(%r13),%rax
+    dde6:	49 21 c5             	and    %rax,%r13
+    dde9:	4d 85 ed             	test   %r13,%r13
+    ddec:	75 be                	jne    ddac <zbtreeScoreRaw+0x85c>
+    ddee:	4c 8b 45 80          	mov    -0x80(%rbp),%r8
+    ddf2:	48 8b 95 68 ff ff ff 	mov    -0x98(%rbp),%rdx
+    ddf9:	4d 89 e1             	mov    %r12,%r9
+    ddfc:	4d 89 f4             	mov    %r14,%r12
+    ddff:	4d 89 d6             	mov    %r10,%r14
+    de02:	4d 85 c0             	test   %r8,%r8
+    de05:	75 1a                	jne    de21 <zbtreeScoreRaw+0x8d1>
+    de07:	48 8b b5 58 ff ff ff 	mov    -0xa8(%rbp),%rsi
+    de0e:	48 8b 85 78 ff ff ff 	mov    -0x88(%rbp),%rax
+    de15:	48 8b 4e 08          	mov    0x8(%rsi),%rcx
+    de19:	48 21 c1             	and    %rax,%rcx
+    de1c:	48 39 c1             	cmp    %rax,%rcx
+    de1f:	75 68                	jne    de89 <zbtreeScoreRaw+0x939>
+    de21:	45 84 c9             	test   %r9b,%r9b
+    de24:	74 63                	je     de89 <zbtreeScoreRaw+0x939>
+    de26:	41 f7 c1 00 ff 00 00 	test   $0xff00,%r9d
+    de2d:	74 5a                	je     de89 <zbtreeScoreRaw+0x939>
+    de2f:	41 f7 c1 00 00 ff 00 	test   $0xff0000,%r9d
+    de36:	74 51                	je     de89 <zbtreeScoreRaw+0x939>
+    de38:	41 f7 c1 00 00 00 ff 	test   $0xff000000,%r9d
+    de3f:	74 48                	je     de89 <zbtreeScoreRaw+0x939>
+    de41:	4c 89 c9             	mov    %r9,%rcx
+    de44:	48 c1 e9 20          	shr    $0x20,%rcx
+    de48:	84 c9                	test   %cl,%cl
+    de4a:	74 3d                	je     de89 <zbtreeScoreRaw+0x939>
+    de4c:	4c 89 c9             	mov    %r9,%rcx
+    de4f:	48 c1 e9 28          	shr    $0x28,%rcx
+    de53:	84 c9                	test   %cl,%cl
+    de55:	74 32                	je     de89 <zbtreeScoreRaw+0x939>
+    de57:	4c 89 c9             	mov    %r9,%rcx
+    de5a:	48 c1 e9 30          	shr    $0x30,%rcx
+    de5e:	84 c9                	test   %cl,%cl
+    de60:	74 27                	je     de89 <zbtreeScoreRaw+0x939>
+    de62:	49 c1 e9 38          	shr    $0x38,%r9
+    de66:	74 21                	je     de89 <zbtreeScoreRaw+0x939>
+    de68:	48 83 c2 01          	add    $0x1,%rdx
+    de6c:	49 83 c0 01          	add    $0x1,%r8
+    de70:	48 23 95 70 ff ff ff 	and    -0x90(%rbp),%rdx
+    de77:	4c 39 85 60 ff ff ff 	cmp    %r8,-0xa0(%rbp)
+    de7e:	74 09                	je     de89 <zbtreeScoreRaw+0x939>
+    de80:	48 8d 04 12          	lea    (%rdx,%rdx,1),%rax
+    de84:	e9 5e fe ff ff       	jmp    dce7 <zbtreeScoreRaw+0x797>
+    de89:	48 8b 5d 88          	mov    -0x78(%rbp),%rbx
+    de8d:	4c 8b 75 b0          	mov    -0x50(%rbp),%r14
+    de91:	e9 98 f9 ff ff       	jmp    d82e <zbtreeScoreRaw+0x2de>
+    de96:	b8 01 00 00 00       	mov    $0x1,%eax
+    de9b:	e9 0a fc ff ff       	jmp    daaa <zbtreeScoreRaw+0x55a>
+    dea0:	48 8d 15 16 9d 00 00 	lea    0x9d16(%rip),%rdx        # 17bbd <_IO_stdin_used+0xbbd>
+    dea7:	be ce 07 00 00       	mov    $0x7ce,%esi
+    deac:	48 8d 3d f5 95 00 00 	lea    0x95f5(%rip),%rdi        # 174a8 <_IO_stdin_used+0x4a8>
+    deb3:	e8 a8 81 00 00       	call   16060 <standalone_panic>
+    deb8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    debf:	00 

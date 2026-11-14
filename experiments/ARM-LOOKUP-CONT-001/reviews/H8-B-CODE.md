@@ -1,0 +1,9 @@
+# H8-B independent source review
+
+PASS for source semantics and retained artifact identity. Candidate SHA-256 `24151adc87c1c7c7262adfc360b2b2e7ae662320050c60f1014889bf7c8f5040` reconstructs exactly from the retained patch against the frozen baseline. All retained checksum entries match. The reviewer did not author B or its tests and performed no measurement.
+
+The lookup-only decoder handles every header byte: 0–253 produces the existing one-byte length/payload; 254 copies the original unaligned16-bit length; the remaining byte255 checks full hash before external pointer validation and length access. Rejection leaves both output arguments untouched and the caller continues before reading them. Accepted external records retain the original nonnull assertion. The leaf loop, equality bounds, optional outputs, other decoder callers, index/resize paths and data layout are unchanged.
+
+Focused baseline/candidate tests cover all header classes, binary members, mismatches and unequal lengths, guard-ended records, externally stored short/empty members, matching-null assertions, mismatching-null rejection and mutation/relocation lifecycles. Required native/sanitizer, fixture and supplied oracle results pass. The lookup-specific decoder duplicates the three representation rules from the generic decoder; that maintenance cost favors the smaller A scope if both later satisfy every gate.
+
+Local compiler evidence is only a preparation result. Exact ARM native and target LTO code must still show one ordinary-range classifier, no runtime decoder call or jump table, unchanged raw/leaf frames and external hash rejection before pointer access. The additional external classifier remains a binding guard risk. No performance, portability-execution or pipeline result is inferred. Source selection remains NONE.

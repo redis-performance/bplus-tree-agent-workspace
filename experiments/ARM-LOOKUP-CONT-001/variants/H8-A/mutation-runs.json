@@ -1,0 +1,56 @@
+[
+  {
+    "name": "mutation_oracle-native",
+    "build_argv": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-DREDIS_DEBUG",
+      "-fno-omit-frame-pointer",
+      "-O2",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/src",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/compat",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/vendor",
+      "experiments/ARM-LOOKUP-CONT-001/variants/H8-A/mutation_oracle.c",
+      "experiments/ARM-LOOKUP-CONT-001/current/compat/standalone.c",
+      "experiments/ARM-LOOKUP-CONT-001/current/vendor/siphash.c",
+      "-lm",
+      "-o",
+      "build/arm-cont-private/mutation_oracle-native"
+    ],
+    "build_returncode": 0,
+    "returncode": 0,
+    "binary_sha256": "08eca2b01fef6d130c74db9545f62b2dd2715b21c21f3e80347b0ed4473556b8"
+  },
+  {
+    "name": "mutation_oracle-sanitizer",
+    "build_argv": [
+      "cc",
+      "-std=c11",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-DREDIS_DEBUG",
+      "-fno-omit-frame-pointer",
+      "-O1",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/src",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/compat",
+      "-Iexperiments/ARM-LOOKUP-CONT-001/current/vendor",
+      "experiments/ARM-LOOKUP-CONT-001/variants/H8-A/mutation_oracle.c",
+      "experiments/ARM-LOOKUP-CONT-001/current/compat/standalone.c",
+      "experiments/ARM-LOOKUP-CONT-001/current/vendor/siphash.c",
+      "-lm",
+      "-o",
+      "build/arm-cont-private/mutation_oracle-sanitizer"
+    ],
+    "build_returncode": 0,
+    "returncode": 0,
+    "binary_sha256": "9ebde74ce185115cd4abdc2cb1b455192474341da6dfb7507228eb3d95dbc22b"
+  }
+]

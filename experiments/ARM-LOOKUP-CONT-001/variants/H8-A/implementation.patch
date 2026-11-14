@@ -1,0 +1,33 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..84d56c0ef 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -1317,15 +1317,20 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+         uint16_t offset = offsets[physical];
+         unsigned char *record = (unsigned char *)leaf + offset;
+ 
+-        if (record[0] == ZBT_PACKED_EXTERNAL &&
+-            zbtExternalHash(record) != hash)
+-        {
+-            next = found + 1;
+-            continue;
+-        }
+-
+         size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
++        const unsigned char *stored;
++        if (record[0] < ZBT_PACKED_SHORT) {
++            len = record[0];
++            stored = record + 1;
++        } else {
++            if (record[0] == ZBT_PACKED_EXTERNAL &&
++                zbtExternalHash(record) != hash)
++            {
++                next = found + 1;
++                continue;
++            }
++            stored = zbtPackedData(record, &len);
++        }
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+             unsigned int logical =

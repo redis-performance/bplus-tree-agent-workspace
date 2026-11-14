@@ -1,0 +1,2301 @@
+;; Function zbtPackedDataChecked.part.0 (zbtPackedDataChecked.part.0, funcdef_no=227, decl_uid=8718, cgraph_uid=325, symbol_order=326)
+
+void zbtPackedDataChecked.part.0 ()
+{
+  <bb 2> [local count: 1073741824]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 604, "ptr != NULL");
+
+}
+
+
+
+;; Function zbtBuildElementFromLeaf (zbtBuildElementFromLeaf, funcdef_no=67, decl_uid=4600, cgraph_uid=68, symbol_order=67)
+
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+void zbtBuildElementFromLeaf (struct zbtBuildElement * ele, struct zbtScoreLeaf * leaf, unsigned int pos)
+{
+  size_t bytes;
+  unsigned char _2;
+  sizetype _14;
+  unsigned char * _15;
+  unsigned int _17;
+  unsigned char _19;
+  long unsigned int _20;
+  const unsigned char * _21;
+  unsigned short _22;
+  long unsigned int _23;
+  const unsigned char * _24;
+  unsigned long _27;
+  unsigned char * _28;
+  unsigned long _29;
+  const unsigned char * _30;
+  unsigned char[0:] * _31;
+  unsigned char _32;
+  unsigned int _33;
+  unsigned char _34;
+  unsigned int _35;
+  unsigned char _37;
+  unsigned int iftmp.17_39;
+  unsigned int iftmp.17_40;
+  long unsigned int _41;
+  long unsigned int _42;
+  long unsigned int _43;
+  long unsigned int _44;
+  uint16_t * _45;
+  short unsigned int _46;
+  long unsigned int _47;
+  long unsigned int _48;
+  long unsigned int _49;
+  long unsigned int _50;
+  long unsigned int _52;
+  long unsigned int _53;
+  long unsigned int _73;
+  unsigned int _75;
+  unsigned char * _77;
+  unsigned char * _79;
+
+  <bb 2> [local count: 1073741824]:
+  _31 = &leaf_5(D)->data;
+  _32 = leaf_5(D)->score_bits;
+  _34 = leaf_5(D)->n.count;
+  if (_32 == 0)
+    goto <bb 4>; [34.00%]
+  else
+    goto <bb 3>; [66.00%]
+
+  <bb 3> [local count: 708669601]:
+  _47 = (long unsigned int) _34;
+  _48 = (long unsigned int) _32;
+  _49 = _47 * _48;
+  _50 = _49 + 7;
+  bytes_51 = _50 >> 3;
+  _52 = bytes_51 + 9;
+  _53 = _52 & 18446744073709551614;
+
+  <bb 4> [local count: 1073741824]:
+  # _43 = PHI <0(2), _53(3)>
+  _37 = leaf_5(D)->reversed;
+  if (_37 != 0)
+    goto <bb 5>; [50.00%]
+  else
+    goto <bb 6>; [50.00%]
+
+  <bb 5> [local count: 536870913]:
+  _35 = (unsigned int) _34;
+  _33 = _35 - pos_6(D);
+  iftmp.17_39 = _33 + 4294967295;
+
+  <bb 6> [local count: 1073741824]:
+  # iftmp.17_40 = PHI <pos_6(D)(4), iftmp.17_39(5)>
+  _41 = (long unsigned int) iftmp.17_40;
+  _42 = _41 * 2;
+  _44 = _42 + _43;
+  _45 = _31 + _44;
+  _46 = *_45;
+  _14 = (sizetype) _46;
+  _15 = leaf_5(D) + _14;
+  _19 = MEM[(const unsigned char *)_15];
+  if (_19 <= 253)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 7> [local count: 365072224]:
+  _20 = (long unsigned int) _19;
+  _21 = _15 + 1;
+  goto <bb 13>; [100.00%]
+
+  <bb 8> [local count: 708669601]:
+  if (_19 == 254)
+    goto <bb 9>; [20.97%]
+  else
+    goto <bb 10>; [79.03%]
+
+  <bb 9> [local count: 148608018]:
+  _22 = MEM <unsigned short> [(char * {ref-all})_15 + 1B];
+  _23 = (long unsigned int) _22;
+  _24 = _15 + 3;
+  goto <bb 13>; [100.00%]
+
+  <bb 10> [local count: 560061584]:
+  _27 = MEM <unsigned long> [(char * {ref-all})_15 + 13B];
+  _28 = (unsigned char *) _27;
+  if (_27 == 0)
+    goto <bb 11>; [0.04%]
+  else
+    goto <bb 12>; [99.96%]
+
+  <bb 11> [local count: 224024]:
+  zbtPackedDataChecked.part.0 ();
+
+  <bb 12> [local count: 559837560]:
+  _29 = MEM <unsigned long> [(char * {ref-all})_15 + 5B];
+
+  <bb 13> [local count: 1073517802]:
+  # _30 = PHI <_21(7), _24(9), _28(12)>
+  # _73 = PHI <_20(7), _23(9), _29(12)>
+  MEM[(size_t *)ele_8(D) + 8B] = _73;
+  ele_8(D)->ptr = _30;
+  _2 = *_15;
+  if (_2 == 255)
+    goto <bb 14>; [34.00%]
+  else
+    goto <bb 15>; [66.00%]
+
+  <bb 14> [local count: 364996056]:
+  _17 = MEM <unsigned int> [(char * {ref-all})_15 + 1B];
+
+  <bb 15> [local count: 1073517802]:
+  # _79 = PHI <_15(14), 0B(13)>
+  # _77 = PHI <_30(14), 0B(13)>
+  # _75 = PHI <_17(14), 0(13)>
+  ele_8(D)->hash = _75;
+  ele_8(D)->external = _77;
+  ele_8(D)->owner_record = _79;
+  return;
+
+}
+
+
+
+;; Function zbtIndexScanSlot (zbtIndexScanSlot, funcdef_no=214, decl_uid=6234, cgraph_uid=215, symbol_order=214)
+
+Removing basic block 104
+Removing basic block 105
+Removing basic block 106
+Removing basic block 107
+Removing basic block 108
+Removing basic block 109
+Removing basic block 110
+Removing basic block 111
+Removing basic block 112
+Removing basic block 113
+Removing basic block 114
+Removing basic block 115
+Removing basic block 116
+Removing basic block 117
+Removing basic block 118
+Removing basic block 119
+Removing basic block 120
+Removing basic block 121
+Removing basic block 122
+Removing basic block 123
+Removing basic block 124
+Removing basic block 125
+Removing basic block 126
+Removing basic block 127
+Removing basic block 128
+Removing basic block 129
+Removing basic block 130
+Removing basic block 131
+Removing basic block 132
+Removing basic block 133
+Removing basic block 134
+Removing basic block 135
+Removing basic block 136
+Removing basic block 137
+Removing basic block 138
+Removing basic block 139
+Removing basic block 140
+Removing basic block 141
+Removing basic block 142
+Removing basic block 143
+Removing basic block 144
+Removing basic block 145
+Removing basic block 146
+Removing basic block 147
+Removing basic block 148
+Removing basic block 149
+Removing basic block 150
+Removing basic block 151
+Removing basic block 152
+Removing basic block 153
+Removing basic block 154
+Removing basic block 155
+Removing basic block 156
+Removing basic block 157
+Removing basic block 158
+Removing basic block 159
+Removing basic block 160
+Removing basic block 161
+Removing basic block 162
+Removing basic block 163
+Removing basic block 164
+Removing basic block 165
+Removing basic block 166
+Removing basic block 167
+Removing basic block 168
+Removing basic block 169
+Removing basic block 170
+Removing basic block 171
+long unsigned int zbtIndexScanSlot (const struct zbtreeSet * zs, struct zbtIndexTable * table, union zbtIndexBucket * bucket, unsigned int slot_pos, long unsigned int home_start, long unsigned int home_end, void (*<T6cc>) (void *, const unsigned char *, size_t, double) fn, void * privdata)
+{
+  unsigned long ivtmp.719;
+  unsigned long ivtmp.710;
+  unsigned long ivtmp.704;
+  unsigned long ivtmp.701;
+  unsigned long ivtmp.696;
+  unsigned long ivtmp.690;
+  size_t bytes;
+  unsigned int found;
+  unsigned int words;
+  uint64_t mask;
+  unsigned int pos;
+  unsigned int pos;
+  uint64_t x;
+  size_t bytes;
+  uint64_t mixed;
+  uint16_t id;
+  int found;
+  unsigned int first_pos;
+  union zbtIndexBucket * first;
+  long unsigned int home;
+  uint32_t hash;
+  size_t len;
+  long unsigned int home;
+  long unsigned int emitted;
+  unsigned int positions[96];
+  uint8_t tag;
+  unsigned int _1;
+  long unsigned int _2;
+  _Bool _3;
+  unsigned int _4;
+  _Bool _5;
+  long unsigned int _7;
+  long unsigned int _8;
+  unsigned int _9;
+  struct zbtScoreLeaf * * _10;
+  long unsigned int _11;
+  long unsigned int _12;
+  struct zbtScoreLeaf * * _13;
+  long unsigned int leaf.170_14;
+  long unsigned int _15;
+  struct zbtIndexRehash * _16;
+  const struct zbtIndexTable * _17;
+  unsigned int _18;
+  struct zbtIndexRehash * _19;
+  struct zbtIndexTable * _20;
+  _Bool _21;
+  unsigned char _23;
+  unsigned char _25;
+  unsigned int _26;
+  _Bool _27;
+  _Bool _28;
+  _Bool _29;
+  long unsigned int _31;
+  long unsigned int _32;
+  long unsigned int _33;
+  _Bool _34;
+  _Bool _35;
+  _Bool _36;
+  union zbtIndexBucket * first.171_37;
+  unsigned int first_pos.172_38;
+  const uint8_t * _39;
+  double _40;
+  _Bool _43;
+  _Bool _47;
+  long unsigned int _49;
+  void * _50;
+  _Bool _53;
+  union zbtIndexBucket * _55;
+  long unsigned int _62;
+  unsigned int _64;
+  unsigned int iftmp.20_66;
+  struct zbtScoreLeaf * iftmp.169_69;
+  unsigned int _72;
+  _Bool _74;
+  int _89;
+  _Bool _100;
+  unsigned char _102;
+  int _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _109;
+  unsigned int _110;
+  unsigned int _111;
+  long unsigned int _112;
+  long unsigned int _113;
+  union zbtIndexBucket * _114;
+  long unsigned int iftmp.6_116;
+  short unsigned int _119;
+  short unsigned int _120;
+  unsigned char[0:] * _122;
+  unsigned char _123;
+  _Bool _124;
+  _Bool _125;
+  unsigned int iftmp.174_126;
+  long unsigned int _127;
+  long unsigned int _128;
+  long unsigned int _129;
+  uint8_t * _130;
+  long unsigned int _131;
+  unsigned int _132;
+  long unsigned int _133;
+  long unsigned int _134;
+  long unsigned int _135;
+  long unsigned int _137;
+  long unsigned int _138;
+  _Bool _140;
+  unsigned long _147;
+  long unsigned int _151;
+  long unsigned int _152;
+  long unsigned int _153;
+  long unsigned int _154;
+  long unsigned int _155;
+  long unsigned int _156;
+  long unsigned int _157;
+  long unsigned int _158;
+  int _161;
+  int _162;
+  unsigned int _163;
+  sizetype _165;
+  const uint8_t * _166;
+  unsigned char _167;
+  unsigned int iftmp.175_169;
+  long unsigned int _172;
+  long unsigned int _173;
+  unsigned int * _174;
+  long unsigned int _176;
+  long unsigned int _180;
+  unsigned char _183;
+  unsigned int iftmp.177_184;
+  long unsigned int _187;
+  long unsigned int _188;
+  unsigned int * _189;
+  _Bool _192;
+  _Bool _195;
+  sizetype _201;
+  unsigned char * _202;
+  unsigned int * _203;
+  unsigned char _204;
+  long unsigned int _205;
+  const unsigned char * _206;
+  unsigned short _207;
+  long unsigned int _208;
+  const unsigned char * _209;
+  unsigned long _212;
+  unsigned char * _213;
+  unsigned long _214;
+  const unsigned char * _215;
+  long unsigned int _216;
+  unsigned char _217;
+  long unsigned int _218;
+  unsigned char _219;
+  unsigned int _220;
+  _Bool _221;
+  unsigned char _222;
+  unsigned int iftmp.17_224;
+  unsigned int iftmp.17_225;
+  long unsigned int _226;
+  long unsigned int _227;
+  long unsigned int _228;
+  long unsigned int _229;
+  uint16_t * _230;
+  short unsigned int _231;
+  long unsigned int _232;
+  long unsigned int _233;
+  long unsigned int _234;
+  long unsigned int _235;
+  long unsigned int _237;
+  long unsigned int _238;
+  unsigned long _241;
+  long unsigned int _244;
+  unsigned char _245;
+  _Bool _249;
+  const uint8_t * _250;
+  _Bool _251;
+  sizetype _253;
+  unsigned int _259;
+  int _260;
+  _Bool _261;
+  unsigned int _263;
+  int _267;
+  long unsigned int _275;
+  long unsigned int _276;
+  long unsigned int _277;
+  long unsigned int _278;
+  long unsigned int _279;
+  long unsigned int _280;
+  long unsigned int _281;
+  long unsigned int _282;
+  unsigned long _284;
+  long unsigned int _287;
+  _Bool _294;
+  _Bool _295;
+  _Bool _296;
+  long unsigned int _297;
+  unsigned int * _299;
+  long unsigned int _300;
+  long unsigned int _301;
+  _Bool _303;
+  _Bool prephitmp_304;
+  unsigned int _305;
+  unsigned char _306;
+  unsigned int _316;
+  unsigned int _322;
+  unsigned int _323;
+  unsigned int _324;
+  unsigned long _327;
+  unsigned int _329;
+  sizetype _330;
+  long unsigned int _332;
+  long unsigned int _335;
+  long unsigned int _336;
+  long unsigned int _338;
+  long unsigned int _339;
+  long unsigned int _340;
+  long unsigned int _341;
+  unsigned int iftmp.17_342;
+  unsigned int _343;
+  unsigned int _344;
+  const unsigned char * _345;
+  long unsigned int _346;
+  const unsigned char * _347;
+  long unsigned int _348;
+  unsigned short _349;
+  unsigned long _350;
+  unsigned char * _351;
+  unsigned int _353;
+  long unsigned int _355;
+  unsigned int _356;
+  unsigned int _357;
+  unsigned long _358;
+  double _361;
+  const unsigned char * _363;
+  unsigned char _364;
+  unsigned char * _365;
+  sizetype _366;
+  short unsigned int _367;
+  uint16_t * _368;
+  long unsigned int _369;
+  void * _371;
+  long unsigned int _372;
+  long unsigned int _373;
+  unsigned int iftmp.17_374;
+  unsigned char _375;
+  long unsigned int _376;
+  unsigned char _377;
+  unsigned char _378;
+  unsigned int pretmp_380;
+  unsigned int pretmp_393;
+  long unsigned int _394;
+  sizetype _397;
+  void * _401;
+  const uint8_t * _402;
+  sizetype _403;
+  unsigned long _407;
+  unsigned long _408;
+  unsigned long _409;
+  long unsigned int _410;
+  void * _411;
+
+  <bb 2> [local count: 348071305]:
+  _62 = MEM[(const union zbtIndexBucket *)bucket_58(D)].narrow.tags;
+  _1 = slot_pos_59(D) * 8;
+  _2 = _62 >> _1;
+  tag_60 = (uint8_t) _2;
+  _89 = MEM[(const struct zbtIndexTable *)table_61(D)].wide_ids;
+  if (_89 != 0)
+    goto <bb 3>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 3> [local count: 118344244]:
+  _72 = MEM[(const union zbtIndexBucket *)bucket_58(D)].wide.id[slot_pos_59(D)];
+  _303 = _72 == 4294967295;
+  goto <bb 6>; [100.00%]
+
+  <bb 4> [local count: 229727059]:
+  id_71 = MEM[(const union zbtIndexBucket *)bucket_58(D)].narrow.id[slot_pos_59(D)];
+  if (id_71 != 65535)
+    goto <bb 5>; [78.28%]
+  else
+    goto <bb 101>; [21.72%]
+
+  <bb 5> [local count: 179830341]:
+  iftmp.20_66 = (unsigned int) id_71;
+
+  <bb 6> [local count: 298174587]:
+  # _64 = PHI <_72(3), iftmp.20_66(5)>
+  # prephitmp_304 = PHI <_303(3), 0(5)>
+  _3 = tag_60 == 0;
+  _5 = _3 | prephitmp_304;
+  if (_5 != 0)
+    goto <bb 101>; [20.74%]
+  else
+    goto <bb 7>; [79.26%]
+
+  <bb 7> [local count: 229727059]:
+  if (home_end_63(D) != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 13>; [50.00%]
+
+  <bb 8> [local count: 114863530]:
+  _131 = _2 & 255;
+  mixed_101 = _131 * 11400714819323198485;
+  _102 = tag_60 & 63;
+  _103 = (int) _102;
+  _104 = 1 << _103;
+  _105 = mixed_101 >> 58;
+  _106 = (unsigned int) _105;
+  _107 = 1 << _106;
+  _108 = _104 | _107;
+  _109 = mixed_101 >> 36;
+  _110 = (unsigned int) _109;
+  _111 = _110 & 63;
+  _112 = 1 << _111;
+  _113 = _108 | _112;
+  if (home_end_63(D) > home_start_65(D))
+    goto <bb 9>; [94.50%]
+  else
+    goto <bb 12>; [5.50%]
+
+  <bb 9> [local count: 108546036]:
+  _114 = MEM[(const struct zbtIndexTable *)table_61(D)].buckets;
+  _47 = _89 != 0;
+  iftmp.6_116 = _47 ? 48 : 32;
+  _332 = home_start_65(D) * iftmp.6_116;
+  _330 = _332 + 8;
+  _55 = _114 + _330;
+  ivtmp.719_334 = (unsigned long) _55;
+
+  <bb 10> [local count: 1014686024]:
+  # home_256 = PHI <home_67(11), home_start_65(D)(9)>
+  # ivtmp.719_331 = PHI <ivtmp.719_333(11), ivtmp.719_334(9)>
+  _50 = (void *) ivtmp.719_331;
+  _7 = MEM[(uint64_t *)_50];
+  _8 = _7 & _113;
+  if (_8 == _113)
+    goto <bb 12>; [5.50%]
+  else
+    goto <bb 11>; [94.50%]
+
+  <bb 11> [local count: 958878294]:
+  home_67 = home_256 + 1;
+  ivtmp.719_333 = iftmp.6_116 + ivtmp.719_331;
+  if (home_end_63(D) != home_67)
+    goto <bb 10>; [94.50%]
+  else
+    goto <bb 101>; [5.50%]
+
+  <bb 12> [local count: 90776647]:
+  # home_88 = PHI <home_256(10), home_start_65(D)(8)>
+  if (home_end_63(D) == home_88)
+    goto <bb 101>; [0.00%]
+  else
+    goto <bb 13>; [100.00%]
+
+  <bb 13> [local count: 205640178]:
+  _9 = zs_68(D)->next_score_leaf_id;
+  if (_9 > _64)
+    goto <bb 14>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 14> [local count: 102820089]:
+  _10 = zs_68(D)->score_leaf_by_id;
+  _11 = (long unsigned int) _64;
+  _12 = _11 * 8;
+  _13 = _10 + _12;
+  iftmp.169_69 = *_13;
+  if (iftmp.169_69 == 0B)
+    goto <bb 16>; [30.00%]
+  else
+    goto <bb 15>; [70.00%]
+
+  <bb 15> [local count: 71974062]:
+  leaf.170_14 = (long unsigned int) iftmp.169_69;
+  _15 = leaf.170_14 & 1;
+  if (_15 != 0)
+    goto <bb 16>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 16> [local count: 169653147]:
+  _16 = zs_68(D)->member_rehash;
+  if (_16 == 0B)
+    goto <bb 18>; [0.04%]
+  else
+    goto <bb 17>; [99.96%]
+
+  <bb 17> [local count: 169585285]:
+  _17 = &zs_68(D)->member_index;
+  if (_17 != table_61(D))
+    goto <bb 18>; [0.04%]
+  else
+    goto <bb 101>; [99.96%]
+
+  <bb 18> [local count: 135696]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 4274, "zs->member_rehash && table == &zs->member_index");
+
+  <bb 19> [local count: 35987031]:
+  _18 = iftmp.169_69->id;
+  if (_18 != _64)
+    goto <bb 20>; [0.04%]
+  else
+    goto <bb 21>; [99.96%]
+
+  <bb 20> [local count: 14395]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 4277, "leaf->id == id");
+
+  <bb 21> [local count: 35972636]:
+  _19 = zs_68(D)->member_rehash;
+  if (_19 != 0B)
+    goto <bb 22>; [70.00%]
+  else
+    goto <bb 23>; [30.00%]
+
+  <bb 22> [local count: 25180846]:
+  _20 = &_19->table;
+  _21 = _20 == table_61(D);
+  _119 = MEM[(const struct zbtScoreLeaf *)iftmp.169_69].n.index_resize;
+  _120 = _19->resize_id;
+  _53 = _119 == _120;
+  if (_21 != _53)
+    goto <bb 101>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 23> [local count: 23382214]:
+  _23 = iftmp.169_69->reversed;
+  _25 = iftmp.169_69->n.count;
+  _26 = (unsigned int) _25;
+  _122 = &iftmp.169_69->data;
+  _123 = iftmp.169_69->score_bits;
+  _394 = (long unsigned int) _25;
+  if (_123 == 0)
+    goto <bb 25>; [34.00%]
+  else
+    goto <bb 24>; [66.00%]
+
+  <bb 24> [local count: 15432260]:
+  _133 = (long unsigned int) _123;
+  _134 = _133 * _394;
+  _135 = _134 + 7;
+  bytes_136 = _135 >> 3;
+  _137 = bytes_136 + 9;
+  _138 = _137 & 18446744073709551614;
+
+  <bb 25> [local count: 23382214]:
+  # _128 = PHI <_15(23), _138(24)>
+  _127 = _394 * 2;
+  _129 = _127 + _128;
+  _130 = _122 + _129;
+  words_141 = _26 >> 3;
+  if (_23 != 0)
+    goto <bb 28>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 26> [local count: 11691107]:
+  if (words_141 != 0)
+    goto <bb 27>; [89.00%]
+  else
+    goto <bb 48>; [11.00%]
+
+  <bb 27> [local count: 10405085]:
+  _287 = _2 & 255;
+  _355 = _287 * 72340172838076673;
+  _241 = (unsigned long) words_141;
+  goto <bb 30>; [100.00%]
+
+  <bb 28> [local count: 11691106]:
+  iftmp.174_126 = _26 + 4294967295;
+  if (words_141 != 0)
+    goto <bb 29>; [89.00%]
+  else
+    goto <bb 49>; [11.00%]
+
+  <bb 29> [local count: 10405085]:
+  _410 = _2 & 255;
+  _297 = _410 * 72340172838076673;
+  _327 = (unsigned long) words_141;
+  goto <bb 39>; [100.00%]
+
+  <bb 30> [local count: 94591684]:
+  # found_289 = PHI <0(27), found_121(38)>
+  # ivtmp.704_318 = PHI <_15(27), ivtmp.704_317(38)>
+  _316 = (unsigned int) ivtmp.704_318;
+  _322 = _316 * 8;
+  _284 = MEM <unsigned long> [(char * {ref-all})_130 + ivtmp.704_318 * 8];
+  x_283 = _284 ^ _355;
+  _282 = x_283 + 18374403900871474943;
+  _281 = ~x_283;
+  _280 = _281 & _282;
+  if (tag_60 == 1)
+    goto <bb 32>; [34.00%]
+  else
+    goto <bb 31>; [66.00%]
+
+  <bb 31> [local count: 62430511]:
+  _279 = _280 & 9259542123273814144;
+  goto <bb 33>; [100.00%]
+
+  <bb 32> [local count: 32161173]:
+  _278 = _284 + 18374403900871474943;
+  _277 = ~_284;
+  _276 = _277 & _278;
+  _275 = _276 | _280;
+  mask_274 = _275 & 9259542123273814144;
+
+  <bb 33> [local count: 94591684]:
+  # mask_273 = PHI <_279(31), mask_274(32)>
+  if (mask_273 != 0)
+    goto <bb 34>; [89.00%]
+  else
+    goto <bb 38>; [11.00%]
+
+  <bb 34> [local count: 765332718]:
+  # mask_272 = PHI <mask_273(33), mask_170(36)>
+  # found_271 = PHI <found_289(33), found_193(36)>
+  _267 = __builtin_ctzll (mask_272);
+  _260 = _267 >> 3;
+  _259 = (unsigned int) _260;
+  pos_255 = _259 + _322;
+  _253 = (sizetype) pos_255;
+  _250 = _130 + _253;
+  _245 = *_250;
+  if (tag_60 == _245)
+    goto <bb 35>; [34.00%]
+  else
+    goto <bb 37>; [66.00%]
+
+  <bb 35> [local count: 346083459]:
+  found_223 = found_271 + 1;
+  _218 = (long unsigned int) found_271;
+  _216 = _218 * 4;
+  _203 = &positions + _216;
+  *_203 = pos_255;
+
+  <bb 36> [local count: 765332720]:
+  # found_193 = PHI <found_223(35), found_271(37)>
+  _180 = mask_272 + 18446744073709551615;
+  mask_170 = _180 & mask_272;
+  if (mask_170 != 0)
+    goto <bb 34>; [89.00%]
+  else
+    goto <bb 38>; [11.00%]
+
+  <bb 37> [local count: 505119592]:
+  _140 = _245 == 0;
+  _125 = tag_60 == 1;
+  _124 = _125 & _140;
+  if (_124 != 0)
+    goto <bb 35>; [17.00%]
+  else
+    goto <bb 36>; [83.00%]
+
+  <bb 38> [local count: 94591684]:
+  # found_121 = PHI <found_289(33), found_193(36)>
+  ivtmp.704_317 = ivtmp.704_318 + 1;
+  if (_241 != ivtmp.704_317)
+    goto <bb 30>; [89.00%]
+  else
+    goto <bb 103>; [11.00%]
+
+  <bb 39> [local count: 94591684]:
+  # found_262 = PHI <found_210(47), 0(29)>
+  # ivtmp.710_326 = PHI <ivtmp.710_328(47), _15(29)>
+  _323 = (unsigned int) ivtmp.710_326;
+  _329 = _323 * 8;
+  _147 = MEM <unsigned long> [(char * {ref-all})_130 + ivtmp.710_326 * 8];
+  x_150 = _147 ^ _297;
+  _151 = x_150 + 18374403900871474943;
+  _152 = ~x_150;
+  _153 = _151 & _152;
+  if (tag_60 == 1)
+    goto <bb 40>; [34.00%]
+  else
+    goto <bb 45>; [66.00%]
+
+  <bb 40> [local count: 32161173]:
+  _155 = _147 + 18374403900871474943;
+  _156 = ~_147;
+  _157 = _155 & _156;
+  _158 = _153 | _157;
+  mask_159 = _158 & 9259542123273814144;
+  goto <bb 46>; [100.00%]
+
+  <bb 41> [local count: 765332718]:
+  # mask_239 = PHI <mask_177(44), mask_200(46)>
+  # found_139 = PHI <found_196(44), found_262(46)>
+  _161 = __builtin_ctzll (mask_239);
+  _162 = _161 >> 3;
+  _163 = (unsigned int) _162;
+  pos_164 = _163 + _329;
+  _165 = (sizetype) pos_164;
+  _166 = _130 + _165;
+  _167 = *_166;
+  if (tag_60 == _167)
+    goto <bb 43>; [34.00%]
+  else
+    goto <bb 42>; [66.00%]
+
+  <bb 42> [local count: 505119592]:
+  _221 = _167 == 0;
+  _74 = tag_60 == 1;
+  _192 = _74 & _221;
+  if (_192 != 0)
+    goto <bb 43>; [17.00%]
+  else
+    goto <bb 44>; [83.00%]
+
+  <bb 43> [local count: 346083459]:
+  iftmp.175_169 = iftmp.174_126 - pos_164;
+  found_171 = found_139 + 1;
+  _172 = (long unsigned int) found_139;
+  _173 = _172 * 4;
+  _174 = &positions + _173;
+  *_174 = iftmp.175_169;
+
+  <bb 44> [local count: 765332720]:
+  # found_196 = PHI <found_171(43), found_139(42)>
+  _176 = mask_239 + 18446744073709551615;
+  mask_177 = _176 & mask_239;
+  if (mask_177 != 0)
+    goto <bb 41>; [89.00%]
+  else
+    goto <bb 47>; [11.00%]
+
+  <bb 45> [local count: 62430511]:
+  _154 = _153 & 9259542123273814144;
+
+  <bb 46> [local count: 94591684]:
+  # mask_200 = PHI <_154(45), mask_159(40)>
+  if (mask_200 != 0)
+    goto <bb 41>; [89.00%]
+  else
+    goto <bb 47>; [11.00%]
+
+  <bb 47> [local count: 94591684]:
+  # found_210 = PHI <found_196(44), found_262(46)>
+  ivtmp.710_328 = ivtmp.710_326 + 1;
+  if (_327 != ivtmp.710_328)
+    goto <bb 39>; [89.00%]
+  else
+    goto <bb 102>; [11.00%]
+
+  <bb 48> [local count: 1286022]:
+  if (_26 != 0)
+    goto <bb 51>; [89.00%]
+  else
+    goto <bb 50>; [11.00%]
+
+  <bb 49> [local count: 1286022]:
+  if (_26 != 0)
+    goto <bb 56>; [89.00%]
+  else
+    goto <bb 50>; [11.00%]
+
+  <bb 50> [local count: 285236]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 4291, "count != 0");
+
+  <bb 51> [local count: 10405085]:
+  # pos_194 = PHI <pos_182(103), words_141(48)>
+  # found_190 = PHI <found_121(103), words_141(48)>
+  _403 = (sizetype) pos_194;
+  _402 = _130 + _403;
+  ivtmp.696_404 = (unsigned long) _402;
+
+  <bb 52> [local count: 94591684]:
+  # pos_311 = PHI <pos_194(51), pos_291(55)>
+  # found_310 = PHI <found_190(51), found_293(55)>
+  # ivtmp.696_406 = PHI <ivtmp.696_404(51), ivtmp.696_405(55)>
+  _401 = (void *) ivtmp.696_406;
+  _306 = MEM[(const uint8_t *)_401];
+  if (tag_60 == _306)
+    goto <bb 53>; [34.00%]
+  else
+    goto <bb 54>; [66.00%]
+
+  <bb 53> [local count: 42774360]:
+  found_302 = found_310 + 1;
+  _301 = (long unsigned int) found_310;
+  _300 = _301 * 4;
+  _299 = &positions + _300;
+  *_299 = pos_311;
+  goto <bb 55>; [100.00%]
+
+  <bb 54> [local count: 62430511]:
+  _296 = _306 == 0;
+  _295 = tag_60 == 1;
+  _294 = _295 & _296;
+  if (_294 != 0)
+    goto <bb 53>; [17.00%]
+  else
+    goto <bb 55>; [83.00%]
+
+  <bb 55> [local count: 94591684]:
+  # found_293 = PHI <found_302(53), found_310(54)>
+  pos_291 = pos_311 + 1;
+  ivtmp.696_405 = ivtmp.696_406 + 1;
+  if (_26 > pos_291)
+    goto <bb 52>; [89.00%]
+  else
+    goto <bb 61>; [11.00%]
+
+  <bb 56> [local count: 10405085]:
+  # pos_285 = PHI <pos_86(102), words_141(49)>
+  # found_48 = PHI <found_210(102), words_141(49)>
+  _397 = (sizetype) pos_285;
+  _39 = _130 + _397;
+  ivtmp.701_398 = (unsigned long) _39;
+
+  <bb 57> [local count: 94591684]:
+  # found_87 = PHI <found_199(60), found_48(56)>
+  # ivtmp.701_400 = PHI <ivtmp.701_399(60), ivtmp.701_398(56)>
+  _371 = (void *) ivtmp.701_400;
+  _183 = MEM[(const uint8_t *)_371];
+  if (tag_60 == _183)
+    goto <bb 59>; [34.00%]
+  else
+    goto <bb 58>; [66.00%]
+
+  <bb 58> [local count: 62430511]:
+  _261 = _183 == 0;
+  _195 = tag_60 == 1;
+  _251 = _195 & _261;
+  if (_251 != 0)
+    goto <bb 59>; [17.00%]
+  else
+    goto <bb 60>; [83.00%]
+
+  <bb 59> [local count: 42774360]:
+  _353 = iftmp.174_126 - pos_285;
+  _357 = (unsigned int) ivtmp.701_398;
+  _356 = _353 + _357;
+  _305 = (unsigned int) ivtmp.701_400;
+  iftmp.177_184 = _356 - _305;
+  found_186 = found_87 + 1;
+  _187 = (long unsigned int) found_87;
+  _188 = _187 * 4;
+  _189 = &positions + _188;
+  *_189 = iftmp.177_184;
+
+  <bb 60> [local count: 94591684]:
+  # found_199 = PHI <found_186(59), found_87(58)>
+  ivtmp.701_399 = ivtmp.701_400 + 1;
+  _324 = (unsigned int) ivtmp.701_398;
+  _132 = pos_285 - _324;
+  _4 = (unsigned int) ivtmp.701_399;
+  pos_30 = _4 + _132;
+  if (_26 > pos_30)
+    goto <bb 57>; [89.00%]
+  else
+    goto <bb 61>; [11.00%]
+
+  <bb 61> [local count: 20810170]:
+  # found_389 = PHI <found_199(60), found_293(55)>
+
+  <bb 62> [local count: 23099289]:
+  # found_73 = PHI <found_389(61), found_121(103), found_210(102)>
+  if (found_73 == 0)
+    goto <bb 50>; [0.01%]
+  else
+    goto <bb 63>; [99.99%]
+
+  <bb 63> [local count: 23096978]:
+  _27 = found_73 > 1;
+  _28 = home_end_63(D) != 0;
+  _29 = _27 | _28;
+  if (_29 != 0)
+    goto <bb 75>; [50.00%]
+  else
+    goto <bb 64>; [50.00%]
+
+  <bb 64> [local count: 199967468]:
+  _378 = iftmp.169_69->score_bits;
+  _377 = iftmp.169_69->n.count;
+  if (_378 == 0)
+    goto <bb 65>; [34.00%]
+  else
+    goto <bb 74>; [66.00%]
+
+  <bb 65> [local count: 152364793]:
+  # _376 = PHI <_15(64), _335(74)>
+  pretmp_380 = MEM[(unsigned int *)&positions];
+  _375 = iftmp.169_69->reversed;
+  if (_375 != 0)
+    goto <bb 73>; [50.00%]
+  else
+    goto <bb 66>; [50.00%]
+
+  <bb 66> [local count: 152364793]:
+  # iftmp.17_374 = PHI <pretmp_380(65), iftmp.17_342(73)>
+  _373 = (long unsigned int) iftmp.17_374;
+  _372 = _373 * 2;
+  _369 = _372 + _376;
+  _368 = _122 + _369;
+  _367 = *_368;
+  _366 = (sizetype) _367;
+  _365 = iftmp.169_69 + _366;
+  _364 = MEM[(const unsigned char *)_365];
+  if (_364 <= 253)
+    goto <bb 72>; [34.00%]
+  else
+    goto <bb 68>; [66.00%]
+
+  <bb 67> [local count: 199919356]:
+  # _363 = PHI <_351(70), _347(71), _345(72)>
+  # len_362 = PHI <_350(70), _348(71), _346(72)>
+  _361 = zbtScoreLeafScore (iftmp.169_69, pretmp_380);
+  fn_90(D) (privdata_91(D), _363, len_362, _361);
+  goto <bb 101>; [100.00%]
+
+  <bb 68> [local count: 100560763]:
+  if (_364 == 254)
+    goto <bb 71>; [20.97%]
+  else
+    goto <bb 69>; [79.03%]
+
+  <bb 69> [local count: 79473170]:
+  _358 = MEM <unsigned long> [(char * {ref-all})_365 + 13B];
+  _351 = (unsigned char *) _358;
+  if (_358 == 0)
+    goto <bb 95>; [0.04%]
+  else
+    goto <bb 70>; [99.96%]
+
+  <bb 70> [local count: 79441382]:
+  _350 = MEM <unsigned long> [(char * {ref-all})_365 + 5B];
+  goto <bb 67>; [100.00%]
+
+  <bb 71> [local count: 21087593]:
+  _349 = MEM <unsigned short> [(char * {ref-all})_365 + 1B];
+  _348 = (long unsigned int) _349;
+  _347 = _365 + 3;
+  goto <bb 67>; [100.00%]
+
+  <bb 72> [local count: 51804031]:
+  _346 = (long unsigned int) _364;
+  _345 = _365 + 1;
+  goto <bb 67>; [100.00%]
+
+  <bb 73> [local count: 76182397]:
+  _344 = (unsigned int) _377;
+  _343 = _344 + 4294967295;
+  iftmp.17_342 = _343 - pretmp_380;
+  goto <bb 66>; [100.00%]
+
+  <bb 74> [local count: 100560763]:
+  _341 = (long unsigned int) _377;
+  _340 = (long unsigned int) _378;
+  _339 = _340 * _341;
+  _338 = _339 + 7;
+  bytes_337 = _338 >> 3;
+  _336 = bytes_337 + 9;
+  _335 = _336 & 18446744073709551614;
+  goto <bb 65>; [100.00%]
+
+  <bb 75> [local count: 11548489]:
+  ivtmp.690_412 = (unsigned long) &positions;
+  _409 = (unsigned long) found_73;
+  _408 = _409 * 4;
+  _407 = _408 + ivtmp.690_412;
+
+  <bb 76> [local count: 199967468]:
+  # emitted_41 = PHI <emitted_46(98), _15(75)>
+  # ivtmp.690_414 = PHI <ivtmp.690_413(98), ivtmp.690_412(75)>
+  _411 = (void *) ivtmp.690_414;
+  pretmp_393 = MEM[(unsigned int *)_411];
+  hash_77 = zbtScoreLeafHash (iftmp.169_69, pretmp_393);
+  _32 = table_61(D)->size;
+  if (home_end_63(D) != 0)
+    goto <bb 77>; [50.00%]
+  else
+    goto <bb 78>; [50.00%]
+
+  <bb 77> [local count: 49991867]:
+  _33 = _32 + 18446744073709551615;
+  _31 = (long unsigned int) hash_77;
+  home_78 = _31 & _33;
+  _34 = home_start_65(D) > home_78;
+  _35 = home_end_63(D) <= home_78;
+  _36 = _34 | _35;
+  if (_36 != 0)
+    goto <bb 84>; [33.00%]
+  else
+    goto <bb 78>; [67.00%]
+
+  <bb 78> [local count: 83486418]:
+  if (found_73 != 1)
+    goto <bb 79>; [48.88%]
+  else
+    goto <bb 86>; [51.12%]
+
+  <bb 79> [local count: 40808161]:
+  found_80 = zbtIndexTableFindReference (table_61(D), hash_77, _64, &first, &first_pos);
+  if (found_80 == 0)
+    goto <bb 80>; [0.04%]
+  else
+    goto <bb 81>; [99.96%]
+
+  <bb 80> [local count: 32647]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 4313, "found");
+
+  <bb 81> [local count: 40791838]:
+  first.171_37 = first;
+  if (first.171_37 != bucket_58(D))
+    goto <bb 83>; [53.47%]
+  else
+    goto <bb 82>; [46.53%]
+
+  <bb 82> [local count: 18980443]:
+  first_pos.172_38 = first_pos;
+  if (first_pos.172_38 != slot_pos_59(D))
+    goto <bb 83>; [48.88%]
+  else
+    goto <bb 85>; [51.12%]
+
+  <bb 83> [local count: 31089036]:
+  first ={v} {CLOBBER(eol)};
+  first_pos ={v} {CLOBBER(eol)};
+
+  <bb 84> [local count: 31089036]:
+  goto <bb 98>; [100.00%]
+
+  <bb 85> [local count: 9702802]:
+  first ={v} {CLOBBER(eol)};
+  first_pos ={v} {CLOBBER(eol)};
+
+  <bb 86> [local count: 152364793]:
+  _217 = iftmp.169_69->score_bits;
+  _219 = iftmp.169_69->n.count;
+  if (_217 == 0)
+    goto <bb 88>; [34.00%]
+  else
+    goto <bb 87>; [66.00%]
+
+  <bb 87> [local count: 100560763]:
+  _232 = (long unsigned int) _219;
+  _233 = (long unsigned int) _217;
+  _234 = _232 * _233;
+  _235 = _234 + 7;
+  bytes_236 = _235 >> 3;
+  _237 = bytes_236 + 9;
+  _238 = _237 & 18446744073709551614;
+
+  <bb 88> [local count: 152364793]:
+  # _228 = PHI <_15(86), _238(87)>
+  _222 = iftmp.169_69->reversed;
+  if (_222 != 0)
+    goto <bb 89>; [50.00%]
+  else
+    goto <bb 90>; [50.00%]
+
+  <bb 89> [local count: 76182397]:
+  _220 = (unsigned int) _219;
+  _263 = _220 + 4294967295;
+  iftmp.17_224 = _263 - pretmp_393;
+
+  <bb 90> [local count: 152364793]:
+  # iftmp.17_225 = PHI <pretmp_393(88), iftmp.17_224(89)>
+  _226 = (long unsigned int) iftmp.17_225;
+  _227 = _226 * 2;
+  _229 = _227 + _228;
+  _230 = _122 + _229;
+  _231 = *_230;
+  _201 = (sizetype) _231;
+  _202 = iftmp.169_69 + _201;
+  _204 = MEM[(const unsigned char *)_202];
+  if (_204 <= 253)
+    goto <bb 91>; [34.00%]
+  else
+    goto <bb 92>; [66.00%]
+
+  <bb 91> [local count: 51804031]:
+  _205 = (long unsigned int) _204;
+  _206 = _202 + 1;
+  goto <bb 97>; [100.00%]
+
+  <bb 92> [local count: 100560763]:
+  if (_204 == 254)
+    goto <bb 93>; [20.97%]
+  else
+    goto <bb 94>; [79.03%]
+
+  <bb 93> [local count: 21087593]:
+  _207 = MEM <unsigned short> [(char * {ref-all})_202 + 1B];
+  _208 = (long unsigned int) _207;
+  _209 = _202 + 3;
+  goto <bb 97>; [100.00%]
+
+  <bb 94> [local count: 79473170]:
+  _212 = MEM <unsigned long> [(char * {ref-all})_202 + 13B];
+  _213 = (unsigned char *) _212;
+  if (_212 == 0)
+    goto <bb 95>; [0.04%]
+  else
+    goto <bb 96>; [99.96%]
+
+  <bb 95> [local count: 63578]:
+  zbtPackedDataChecked.part.0 ();
+
+  <bb 96> [local count: 79441382]:
+  _214 = MEM <unsigned long> [(char * {ref-all})_202 + 5B];
+
+  <bb 97> [local count: 152333004]:
+  # _215 = PHI <_206(91), _209(93), _213(96)>
+  # len_257 = PHI <_205(91), _208(93), _214(96)>
+  _40 = zbtScoreLeafScore (iftmp.169_69, pretmp_393);
+  fn_90(D) (privdata_91(D), _215, len_257, _40);
+  emitted_93 = emitted_41 + 1;
+
+  <bb 98> [local count: 199919356]:
+  # emitted_46 = PHI <emitted_93(97), emitted_41(84)>
+  ivtmp.690_413 = ivtmp.690_414 + 4;
+  if (_407 != ivtmp.690_413)
+    goto <bb 76>; [94.50%]
+  else
+    goto <bb 99>; [5.50%]
+
+  <bb 99> [local count: 12281071]:
+  _43 = found_73 <= 1;
+  _244 = emitted_46 | home_end_63(D);
+  _249 = _244 == 0;
+  _100 = _43 & _249;
+  if (_100 != 0)
+    goto <bb 100>; [0.04%]
+  else
+    goto <bb 101>; [99.96%]
+
+  <bb 100> [local count: 4655]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 4325, "home_end || count > 1 || emitted != 0");
+
+  <bb 101> [local count: 347810983]:
+  # _49 = PHI <emitted_46(99), 0(6), 1(67), 0(4), _15(22), 0(17), 0(12), 0(11)>
+  positions ={v} {CLOBBER(eol)};
+  return _49;
+
+  <bb 102> [local count: 10405085]:
+  pos_86 = _26 & 4294967288;
+  if (_26 > pos_86)
+    goto <bb 56>; [89.34%]
+  else
+    goto <bb 62>; [10.66%]
+
+  <bb 103> [local count: 10405085]:
+  pos_182 = _26 & 4294967288;
+  if (_26 > pos_182)
+    goto <bb 51>; [88.66%]
+  else
+    goto <bb 62>; [11.34%]
+
+}
+
+
+
+;; Function zbtScoreLeafLowerBound (zbtScoreLeafLowerBound, funcdef_no=101, decl_uid=4906, cgraph_uid=102, symbol_order=101)
+
+Removing basic block 67
+Removing basic block 68
+Removing basic block 69
+Removing basic block 70
+Removing basic block 71
+Removing basic block 72
+Removing basic block 73
+Removing basic block 74
+Removing basic block 75
+Removing basic block 76
+Removing basic block 77
+Removing basic block 78
+Removing basic block 79
+Removing basic block 80
+Removing basic block 81
+Removing basic block 82
+Removing basic block 83
+Removing basic block 84
+Removing basic block 85
+Removing basic block 86
+Removing basic block 87
+Removing basic block 88
+Removing basic block 89
+Removing basic block 90
+Removing basic block 91
+Removing basic block 92
+Removing basic block 93
+Removing basic block 94
+Removing basic block 95
+Removing basic block 96
+Removing basic block 97
+Removing basic block 98
+Removing basic block 99
+Removing basic block 100
+Removing basic block 101
+unsigned int zbtScoreLeafLowerBound (struct zbtScoreLeaf * leaf, double score, const unsigned char * ele, size_t elelen)
+{
+  size_t bytes;
+  uint64_t bits;
+  unsigned int shift;
+  size_t byte;
+  size_t bitpos;
+  uint64_t delta;
+  int cmp;
+  size_t minlen;
+  size_t midlen;
+  unsigned int mid;
+  unsigned int hi;
+  unsigned int lo;
+  unsigned char _1;
+  unsigned int _2;
+  unsigned int _3;
+  long unsigned int iftmp.50_4;
+  long unsigned int iftmp.50_5;
+  long unsigned int pretmp_7;
+  unsigned int _10;
+  long unsigned int _11;
+  long unsigned int _16;
+  long unsigned int _17;
+  unsigned char _21;
+  long unsigned int _23;
+  unsigned int _26;
+  long unsigned int _28;
+  long unsigned int _30;
+  int _31;
+  unsigned char _32;
+  long unsigned int iftmp.50_36;
+  long unsigned int _41;
+  long unsigned int _51;
+  long unsigned int _52;
+  unsigned long _53;
+  const void * _55;
+  long unsigned int _60;
+  signed long ordered.53_63;
+  unsigned int _64;
+  signed long ordered.53_67;
+  long unsigned int _68;
+  long unsigned int _69;
+  double _71;
+  sizetype _73;
+  unsigned char * _74;
+  unsigned char _76;
+  long unsigned int _77;
+  const unsigned char * _78;
+  unsigned short _79;
+  long unsigned int _80;
+  const unsigned char * _81;
+  const unsigned char * _83;
+  unsigned long _84;
+  unsigned char * _85;
+  unsigned long _86;
+  const unsigned char * _87;
+  unsigned char[0:] * _88;
+  unsigned char _89;
+  unsigned int _90;
+  const unsigned char * _91;
+  long unsigned int _92;
+  const unsigned char * _93;
+  unsigned char _94;
+  long unsigned int _95;
+  unsigned int iftmp.17_96;
+  long unsigned int _98;
+  long unsigned int _99;
+  uint16_t * _102;
+  short unsigned int _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _109;
+  long unsigned int _110;
+  unsigned short _111;
+  unsigned long _112;
+  unsigned char * _116;
+  unsigned long _117;
+  unsigned char _118;
+  unsigned char * _119;
+  sizetype _121;
+  short unsigned int _122;
+  uint16_t * _123;
+  long unsigned int _124;
+  long unsigned int _125;
+  long unsigned int _126;
+  unsigned int iftmp.17_127;
+  unsigned int iftmp.17_128;
+  unsigned int _129;
+  unsigned char[0:] * _131;
+  unsigned int _139;
+  unsigned int _140;
+  long unsigned int pretmp_147;
+  long unsigned int _148;
+  double _150;
+  unsigned int _159;
+  unsigned int _160;
+  unsigned char[0:] * _162;
+  long unsigned int _167;
+  long unsigned int _168;
+  uint16_t * _170;
+  short unsigned int _171;
+  sizetype _172;
+  unsigned char * _173;
+  unsigned char _174;
+  unsigned long _175;
+  unsigned char * _176;
+  unsigned long _177;
+  unsigned short _178;
+  long unsigned int _179;
+  const unsigned char * _180;
+  long unsigned int _181;
+  const unsigned char * _182;
+  const unsigned char * _183;
+  long unsigned int pretmp_206;
+  signed long ordered.53_210;
+  long unsigned int _211;
+  long unsigned int _212;
+  double _214;
+
+  <bb 2> [local count: 118111598]:
+  _1 = leaf_13(D)->n.count;
+  hi_14 = (unsigned int) _1;
+  if (hi_14 != 0)
+    goto <bb 3>; [89.00%]
+  else
+    goto <bb 66>; [11.00%]
+
+  <bb 3> [local count: 105119322]:
+  _89 = leaf_13(D)->score_bits;
+  _90 = (unsigned int) _89;
+  _94 = leaf_13(D)->reversed;
+  if (_90 == 0)
+    goto <bb 31>; [34.00%]
+  else
+    goto <bb 4>; [66.00%]
+
+  <bb 4> [local count: 69378752]:
+  _105 = (long unsigned int) _89;
+  _104 = (long unsigned int) _1;
+  _106 = _104 * _105;
+  _107 = _106 + 7;
+  bytes_108 = _107 >> 3;
+  _109 = bytes_108 + 9;
+  _110 = _109 & 18446744073709551614;
+  _51 = 18446744073709551615 << _90;
+  _52 = ~_51;
+
+  <bb 5> [local count: 629653039]:
+  # lo_143 = PHI <0(4), lo_154(30)>
+  # hi_142 = PHI <hi_14(4), hi_155(30)>
+  _140 = hi_142 - lo_143;
+  _139 = _140 >> 1;
+  mid_136 = _139 + lo_143;
+  _131 = &leaf_13(D)->data;
+  if (_94 != 0)
+    goto <bb 6>; [50.00%]
+  else
+    goto <bb 7>; [50.00%]
+
+  <bb 6> [local count: 314826519]:
+  _129 = hi_14 + 4294967295;
+  iftmp.17_128 = _129 - mid_136;
+
+  <bb 7> [local count: 629653039]:
+  # iftmp.17_127 = PHI <mid_136(5), iftmp.17_128(6)>
+  _126 = (long unsigned int) iftmp.17_127;
+  _125 = _126 * 2;
+  _124 = _110 + _125;
+  _123 = _131 + _124;
+  _122 = *_123;
+  _121 = (sizetype) _122;
+  _119 = leaf_13(D) + _121;
+  _118 = MEM[(const unsigned char *)_119];
+  if (_118 <= 253)
+    goto <bb 12>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 8> [local count: 415571003]:
+  if (_118 == 254)
+    goto <bb 11>; [20.97%]
+  else
+    goto <bb 9>; [79.03%]
+
+  <bb 9> [local count: 328425762]:
+  _117 = MEM <unsigned long> [(char * {ref-all})_119 + 13B];
+  _116 = (unsigned char *) _117;
+  if (_117 == 0)
+    goto <bb 53>; [0.04%]
+  else
+    goto <bb 10>; [99.96%]
+
+  <bb 10> [local count: 328294393]:
+  _112 = MEM <unsigned long> [(char * {ref-all})_119 + 5B];
+  goto <bb 13>; [100.00%]
+
+  <bb 11> [local count: 87145241]:
+  _111 = MEM <unsigned short> [(char * {ref-all})_119 + 1B];
+  _95 = (long unsigned int) _111;
+  _93 = _119 + 3;
+  goto <bb 13>; [100.00%]
+
+  <bb 12> [local count: 214082036]:
+  _92 = (long unsigned int) _118;
+  _91 = _119 + 1;
+
+  <bb 13> [local count: 629521669]:
+  # _83 = PHI <_116(10), _93(11), _91(12)>
+  # midlen_82 = PHI <_112(10), _95(11), _92(12)>
+  bitpos_75 = _105 * _126;
+  byte_72 = bitpos_75 >> 3;
+  _64 = (unsigned int) bitpos_75;
+  shift_61 = _64 & 7;
+  _55 = _131 + byte_72;
+  _53 = MEM <unsigned long> [(char * {ref-all})_55];
+  _41 = _53 >> shift_61;
+  if (shift_61 != 0)
+    goto <bb 17>; [50.00%]
+  else
+    goto <bb 16>; [50.00%]
+
+  <bb 14> [local count: 629521669]:
+  # delta_33 = PHI <_28(15), delta_27(16)>
+  _32 = leaf_13(D)->n.score_shift;
+  _31 = (int) _32;
+  _30 = delta_33 << _31;
+  pretmp_7 = leaf_13(D)->score_base;
+  if (_94 != 0)
+    goto <bb 20>; [50.00%]
+  else
+    goto <bb 19>; [50.00%]
+
+  <bb 15> [local count: 157380417]:
+  # delta_29 = PHI <delta_27(16), _41(17)>
+  _28 = delta_29 & _52;
+  goto <bb 14>; [100.00%]
+
+  <bb 16> [local count: 236070625]:
+  # delta_27 = PHI <_41(13), _11(18)>
+  if (_90 <= 63)
+    goto <bb 15>; [25.00%]
+  else
+    goto <bb 14>; [75.00%]
+
+  <bb 17> [local count: 157380417]:
+  _26 = 64 - shift_61;
+  if (_26 < _90)
+    goto <bb 18>; [50.00%]
+  else
+    goto <bb 15>; [50.00%]
+
+  <bb 18> [local count: 78690208]:
+  _23 = byte_72 + 8;
+  _21 = leaf_13(D)->data[_23];
+  _17 = (long unsigned int) _21;
+  _16 = _17 << _26;
+  _11 = _16 | _41;
+  goto <bb 16>; [100.00%]
+
+  <bb 19> [local count: 314760834]:
+  iftmp.50_5 = pretmp_7 + _30;
+  goto <bb 21>; [100.00%]
+
+  <bb 20> [local count: 314760834]:
+  iftmp.50_4 = pretmp_7 - _30;
+
+  <bb 21> [local count: 629521669]:
+  # iftmp.50_36 = PHI <iftmp.50_5(19), iftmp.50_4(20)>
+  ordered.53_63 = (signed long) iftmp.50_36;
+  if (ordered.53_63 < 0)
+    goto <bb 23>; [41.00%]
+  else
+    goto <bb 22>; [59.00%]
+
+  <bb 22> [local count: 371417787]:
+  _60 = ~iftmp.50_36;
+  goto <bb 24>; [100.00%]
+
+  <bb 23> [local count: 258103882]:
+  _148 = iftmp.50_36 ^ 9223372036854775808;
+
+  <bb 24> [local count: 629521669]:
+  # bits_149 = PHI <_60(22), _148(23)>
+  _150 = VIEW_CONVERT_EXPR<double>(bits_149);
+  if (score_18(D) > _150)
+    goto <bb 25>; [1.04%]
+  else
+    goto <bb 26>; [98.96%]
+
+  <bb 25> [local count: 258103882]:
+  lo_151 = mid_136 + 1;
+  goto <bb 30>; [100.00%]
+
+  <bb 26> [local count: 622974645]:
+  if (score_18(D) < _150)
+    goto <bb 30>; [34.00%]
+  else
+    goto <bb 27>; [66.00%]
+
+  <bb 27> [local count: 411163263]:
+  minlen_152 = MIN_EXPR <elelen_20(D), midlen_82>;
+  cmp_153 = memcmp (_83, ele_19(D), minlen_152);
+  if (cmp_153 != 0)
+    goto <bb 28>; [34.00%]
+  else
+    goto <bb 29>; [66.00%]
+
+  <bb 28> [local count: 139795512]:
+  if (cmp_153 < 0)
+    goto <bb 25>; [88.60%]
+  else
+    goto <bb 30>; [11.40%]
+
+  <bb 29> [local count: 271367752]:
+  if (elelen_20(D) > midlen_82)
+    goto <bb 25>; [1.04%]
+  else
+    goto <bb 30>; [98.96%]
+
+  <bb 30> [local count: 754401325]:
+  # lo_154 = PHI <lo_151(25), lo_143(26), lo_143(28), lo_143(29)>
+  # hi_155 = PHI <hi_142(25), mid_136(26), mid_136(28), mid_136(29)>
+  if (lo_154 < hi_155)
+    goto <bb 5>; [89.00%]
+  else
+    goto <bb 65>; [11.00%]
+
+  <bb 31> [local count: 35740570]:
+  if (_94 != 0)
+    goto <bb 48>; [50.00%]
+  else
+    goto <bb 32>; [50.00%]
+
+  <bb 32> [local count: 162183361]:
+  # lo_156 = PHI <_90(31), lo_218(47)>
+  # hi_157 = PHI <hi_14(31), hi_219(47)>
+  _159 = hi_157 - lo_156;
+  _160 = _159 >> 1;
+  mid_161 = lo_156 + _160;
+  _162 = &leaf_13(D)->data;
+  _167 = (long unsigned int) mid_161;
+  _168 = _167 * 2;
+  _170 = _162 + _168;
+  _171 = *_170;
+  _172 = (sizetype) _171;
+  _173 = leaf_13(D) + _172;
+  _174 = MEM[(const unsigned char *)_173];
+  if (_174 <= 253)
+    goto <bb 37>; [34.00%]
+  else
+    goto <bb 33>; [66.00%]
+
+  <bb 33> [local count: 107041018]:
+  if (_174 == 254)
+    goto <bb 36>; [20.97%]
+  else
+    goto <bb 34>; [79.03%]
+
+  <bb 34> [local count: 84594516]:
+  _175 = MEM <unsigned long> [(char * {ref-all})_173 + 13B];
+  _176 = (unsigned char *) _175;
+  if (_175 == 0)
+    goto <bb 53>; [0.04%]
+  else
+    goto <bb 35>; [99.96%]
+
+  <bb 35> [local count: 84560678]:
+  _177 = MEM <unsigned long> [(char * {ref-all})_173 + 5B];
+  goto <bb 38>; [100.00%]
+
+  <bb 36> [local count: 22446502]:
+  _178 = MEM <unsigned short> [(char * {ref-all})_173 + 1B];
+  _179 = (long unsigned int) _178;
+  _180 = _173 + 3;
+  goto <bb 38>; [100.00%]
+
+  <bb 37> [local count: 55142344]:
+  _181 = (long unsigned int) _174;
+  _182 = _173 + 1;
+
+  <bb 38> [local count: 162149524]:
+  # _183 = PHI <_176(35), _180(36), _182(37)>
+  # midlen_184 = PHI <_177(35), _179(36), _181(37)>
+  pretmp_206 = leaf_13(D)->score_base;
+  ordered.53_210 = (signed long) pretmp_206;
+  if (ordered.53_210 < 0)
+    goto <bb 40>; [41.00%]
+  else
+    goto <bb 39>; [59.00%]
+
+  <bb 39> [local count: 95668220]:
+  _211 = ~pretmp_206;
+  goto <bb 41>; [100.00%]
+
+  <bb 40> [local count: 66481304]:
+  _212 = pretmp_206 ^ 9223372036854775808;
+
+  <bb 41> [local count: 162149524]:
+  # bits_213 = PHI <_211(39), _212(40)>
+  _214 = VIEW_CONVERT_EXPR<double>(bits_213);
+  if (score_18(D) > _214)
+    goto <bb 42>; [1.04%]
+  else
+    goto <bb 43>; [98.96%]
+
+  <bb 42> [local count: 66481304]:
+  lo_215 = mid_161 + 1;
+  goto <bb 47>; [100.00%]
+
+  <bb 43> [local count: 160463169]:
+  if (score_18(D) < _214)
+    goto <bb 47>; [34.00%]
+  else
+    goto <bb 44>; [66.00%]
+
+  <bb 44> [local count: 105905691]:
+  minlen_216 = MIN_EXPR <elelen_20(D), midlen_184>;
+  cmp_217 = memcmp (_183, ele_19(D), minlen_216);
+  if (cmp_217 != 0)
+    goto <bb 45>; [34.00%]
+  else
+    goto <bb 46>; [66.00%]
+
+  <bb 45> [local count: 36007936]:
+  if (cmp_217 < 0)
+    goto <bb 42>; [88.60%]
+  else
+    goto <bb 47>; [11.40%]
+
+  <bb 46> [local count: 69897756]:
+  if (elelen_20(D) > midlen_184)
+    goto <bb 42>; [1.04%]
+  else
+    goto <bb 47>; [98.96%]
+
+  <bb 47> [local count: 194315496]:
+  # lo_218 = PHI <lo_215(42), lo_156(43), lo_156(45), lo_156(46)>
+  # hi_219 = PHI <hi_157(42), mid_161(43), mid_161(45), mid_161(46)>
+  if (lo_218 < hi_219)
+    goto <bb 32>; [89.00%]
+  else
+    goto <bb 65>; [11.00%]
+
+  <bb 48> [local count: 162183361]:
+  # lo_115 = PHI <lo_6(64), _90(31)>
+  # hi_59 = PHI <hi_8(64), hi_14(31)>
+  _2 = hi_59 - lo_115;
+  _3 = _2 >> 1;
+  mid_15 = _3 + lo_115;
+  _88 = &leaf_13(D)->data;
+  _10 = hi_14 + 4294967295;
+  iftmp.17_96 = _10 - mid_15;
+  _98 = (long unsigned int) iftmp.17_96;
+  _99 = _98 * 2;
+  _102 = _88 + _99;
+  _103 = *_102;
+  _73 = (sizetype) _103;
+  _74 = leaf_13(D) + _73;
+  _76 = MEM[(const unsigned char *)_74];
+  if (_76 <= 253)
+    goto <bb 49>; [34.00%]
+  else
+    goto <bb 50>; [66.00%]
+
+  <bb 49> [local count: 55142344]:
+  _77 = (long unsigned int) _76;
+  _78 = _74 + 1;
+  goto <bb 55>; [100.00%]
+
+  <bb 50> [local count: 107041018]:
+  if (_76 == 254)
+    goto <bb 51>; [20.97%]
+  else
+    goto <bb 52>; [79.03%]
+
+  <bb 51> [local count: 22446502]:
+  _79 = MEM <unsigned short> [(char * {ref-all})_74 + 1B];
+  _80 = (long unsigned int) _79;
+  _81 = _74 + 3;
+  goto <bb 55>; [100.00%]
+
+  <bb 52> [local count: 84594516]:
+  _84 = MEM <unsigned long> [(char * {ref-all})_74 + 13B];
+  _85 = (unsigned char *) _84;
+  if (_84 == 0)
+    goto <bb 53>; [0.04%]
+  else
+    goto <bb 54>; [99.96%]
+
+  <bb 53> [local count: 199046]:
+  standalone_panic ("experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c", 604, "ptr != NULL");
+
+  <bb 54> [local count: 84560678]:
+  _86 = MEM <unsigned long> [(char * {ref-all})_74 + 5B];
+
+  <bb 55> [local count: 162149524]:
+  # _87 = PHI <_78(49), _81(51), _85(54)>
+  # midlen_132 = PHI <_77(49), _80(51), _86(54)>
+  pretmp_147 = leaf_13(D)->score_base;
+  ordered.53_67 = (signed long) pretmp_147;
+  if (ordered.53_67 < 0)
+    goto <bb 56>; [41.00%]
+  else
+    goto <bb 57>; [59.00%]
+
+  <bb 56> [local count: 66481304]:
+  _68 = pretmp_147 ^ 9223372036854775808;
+  goto <bb 58>; [100.00%]
+
+  <bb 57> [local count: 95668220]:
+  _69 = ~pretmp_147;
+
+  <bb 58> [local count: 162149524]:
+  # bits_70 = PHI <_68(56), _69(57)>
+  _71 = VIEW_CONVERT_EXPR<double>(bits_70);
+  if (score_18(D) > _71)
+    goto <bb 63>; [1.04%]
+  else
+    goto <bb 59>; [98.96%]
+
+  <bb 59> [local count: 160463169]:
+  if (score_18(D) < _71)
+    goto <bb 64>; [34.00%]
+  else
+    goto <bb 60>; [66.00%]
+
+  <bb 60> [local count: 105905691]:
+  minlen_24 = MIN_EXPR <elelen_20(D), midlen_132>;
+  cmp_25 = memcmp (_87, ele_19(D), minlen_24);
+  if (cmp_25 != 0)
+    goto <bb 62>; [34.00%]
+  else
+    goto <bb 61>; [66.00%]
+
+  <bb 61> [local count: 69897756]:
+  if (elelen_20(D) > midlen_132)
+    goto <bb 63>; [1.04%]
+  else
+    goto <bb 64>; [98.96%]
+
+  <bb 62> [local count: 36007936]:
+  if (cmp_25 < 0)
+    goto <bb 63>; [88.60%]
+  else
+    goto <bb 64>; [11.40%]
+
+  <bb 63> [local count: 66481304]:
+  lo_22 = mid_15 + 1;
+
+  <bb 64> [local count: 194315496]:
+  # lo_6 = PHI <lo_115(62), lo_22(63), lo_115(61), lo_115(59)>
+  # hi_8 = PHI <mid_15(62), hi_59(63), mid_15(61), mid_15(59)>
+  if (lo_6 < hi_8)
+    goto <bb 48>; [89.00%]
+  else
+    goto <bb 65>; [11.00%]
+
+  <bb 65> [local count: 125733554]:
+  # lo_146 = PHI <lo_6(64), lo_154(30), lo_218(47)>
+
+  <bb 66> [local count: 117912554]:
+  # lo_114 = PHI <lo_146(65), hi_14(2)>
+  return lo_114;
+
+}
+
+
+
+;; Function zbtreeIteratorNext (zbtreeIteratorNext, funcdef_no=209, decl_uid=3352, cgraph_uid=210, symbol_order=209)
+
+Removing basic block 46
+Removing basic block 47
+Removing basic block 48
+Removing basic block 49
+Removing basic block 50
+Removing basic block 51
+Removing basic block 52
+Removing basic block 53
+Removing basic block 54
+Removing basic block 55
+Removing basic block 56
+Removing basic block 57
+Removing basic block 58
+Removing basic block 59
+Removing basic block 60
+int zbtreeIteratorNext (struct zbtreeIterator * iter, int reverse, const unsigned char * * ele, size_t * len, double * score)
+{
+  uint64_t bits;
+  unsigned int shift;
+  size_t byte;
+  size_t bitpos;
+  uint64_t delta;
+  unsigned int bits;
+  size_t bytes;
+  size_t elelen;
+  unsigned int pos;
+  struct zbtScoreLeaf * leaf;
+  unsigned int _6;
+  unsigned char _7;
+  int _8;
+  int _9;
+  unsigned int _10;
+  unsigned int _11;
+  unsigned char _12;
+  unsigned int _13;
+  int _14;
+  unsigned int _15;
+  unsigned long _16;
+  sizetype _44;
+  unsigned char * _45;
+  unsigned char _47;
+  long unsigned int _48;
+  const unsigned char * _49;
+  unsigned short _50;
+  long unsigned int _51;
+  const unsigned char * _52;
+  unsigned long _55;
+  unsigned char * _56;
+  unsigned long _57;
+  const unsigned char * _58;
+  unsigned char[0:] * _59;
+  unsigned char _60;
+  unsigned long _61;
+  unsigned char _62;
+  unsigned int _63;
+  unsigned char _65;
+  unsigned int iftmp.17_67;
+  unsigned int iftmp.17_68;
+  long unsigned int _69;
+  long unsigned int _70;
+  long unsigned int _71;
+  long unsigned int _72;
+  uint16_t * _73;
+  short unsigned int _74;
+  long unsigned int _75;
+  long unsigned int _76;
+  long unsigned int _77;
+  long unsigned int _78;
+  long unsigned int _80;
+  long unsigned int _81;
+  unsigned char _83;
+  unsigned char _85;
+  unsigned char _86;
+  unsigned int _87;
+  unsigned int iftmp.17_89;
+  unsigned int iftmp.17_90;
+  long unsigned int _91;
+  long unsigned int _92;
+  unsigned int _95;
+  unsigned char[0:] * _97;
+  const void * _98;
+  unsigned long _99;
+  long unsigned int _100;
+  unsigned int _101;
+  long unsigned int _102;
+  unsigned char _103;
+  long unsigned int _104;
+  long unsigned int _105;
+  long unsigned int _106;
+  long unsigned int _107;
+  long unsigned int _108;
+  long unsigned int _110;
+  unsigned char _112;
+  int _113;
+  long unsigned int _114;
+  unsigned char _115;
+  long unsigned int iftmp.50_118;
+  long unsigned int iftmp.50_121;
+  long unsigned int iftmp.50_122;
+  signed long ordered.53_123;
+  long unsigned int _124;
+  long unsigned int _125;
+  double _127;
+  unsigned int _128;
+  unsigned long _129;
+  long unsigned int pretmp_175;
+
+  <bb 2> [local count: 1073741824]:
+  leaf_23 = iter_22(D)->leaf;
+  if (leaf_23 == 0B)
+    goto <bb 45>; [18.09%]
+  else
+    goto <bb 3>; [81.91%]
+
+  <bb 3> [local count: 879501929]:
+  pos_24 = iter_22(D)->pos;
+  _129 = (unsigned long) len_26(D);
+  _16 = (unsigned long) ele_25(D);
+  _61 = _16 | _129;
+  if (_61 != 0)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 4>; [67.00%]
+
+  <bb 4> [local count: 676318816]:
+  goto <bb 19>; [100.00%]
+
+  <bb 5> [local count: 290235635]:
+  _59 = &leaf_23->data;
+  _60 = leaf_23->score_bits;
+  _62 = leaf_23->n.count;
+  if (_60 == 0)
+    goto <bb 7>; [34.00%]
+  else
+    goto <bb 6>; [66.00%]
+
+  <bb 6> [local count: 191555518]:
+  _75 = (long unsigned int) _62;
+  _76 = (long unsigned int) _60;
+  _77 = _75 * _76;
+  _78 = _77 + 7;
+  bytes_79 = _78 >> 3;
+  _80 = bytes_79 + 9;
+  _81 = _80 & 18446744073709551614;
+
+  <bb 7> [local count: 290235635]:
+  # _71 = PHI <0(5), _81(6)>
+  _65 = leaf_23->reversed;
+  if (_65 != 0)
+    goto <bb 8>; [50.00%]
+  else
+    goto <bb 9>; [50.00%]
+
+  <bb 8> [local count: 145117817]:
+  _63 = (unsigned int) _62;
+  _128 = _63 - pos_24;
+  iftmp.17_67 = _128 + 4294967295;
+
+  <bb 9> [local count: 290235635]:
+  # iftmp.17_68 = PHI <pos_24(7), iftmp.17_67(8)>
+  _69 = (long unsigned int) iftmp.17_68;
+  _70 = _69 * 2;
+  _72 = _70 + _71;
+  _73 = _59 + _72;
+  _74 = *_73;
+  _44 = (sizetype) _74;
+  _45 = leaf_23 + _44;
+  _47 = MEM[(const unsigned char *)_45];
+  if (_47 <= 253)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 11>; [66.00%]
+
+  <bb 10> [local count: 98680117]:
+  _48 = (long unsigned int) _47;
+  _49 = _45 + 1;
+  goto <bb 16>; [100.00%]
+
+  <bb 11> [local count: 191555518]:
+  if (_47 == 254)
+    goto <bb 12>; [20.97%]
+  else
+    goto <bb 13>; [79.03%]
+
+  <bb 12> [local count: 40169193]:
+  _50 = MEM <unsigned short> [(char * {ref-all})_45 + 1B];
+  _51 = (long unsigned int) _50;
+  _52 = _45 + 3;
+  goto <bb 16>; [100.00%]
+
+  <bb 13> [local count: 151386325]:
+  _55 = MEM <unsigned long> [(char * {ref-all})_45 + 13B];
+  _56 = (unsigned char *) _55;
+  if (_55 == 0)
+    goto <bb 14>; [0.04%]
+  else
+    goto <bb 15>; [99.96%]
+
+  <bb 14> [local count: 60554]:
+  zbtPackedDataChecked.part.0 ();
+
+  <bb 15> [local count: 151325771]:
+  _57 = MEM <unsigned long> [(char * {ref-all})_45 + 5B];
+
+  <bb 16> [local count: 290175080]:
+  # _58 = PHI <_49(10), _52(12), _56(15)>
+  # elelen_146 = PHI <_48(10), _51(12), _57(15)>
+  if (ele_25(D) != 0B)
+    goto <bb 18>; [70.00%]
+  else
+    goto <bb 17>; [30.00%]
+
+  <bb 17> [local count: 203122558]:
+  *len_26(D) = elelen_146;
+  goto <bb 19>; [100.00%]
+
+  <bb 18> [local count: 203122557]:
+  *ele_25(D) = _58;
+  if (len_26(D) != 0B)
+    goto <bb 17>; [57.14%]
+  else
+    goto <bb 4>; [42.86%]
+
+  <bb 19> [local count: 879441374]:
+  if (score_32(D) != 0B)
+    goto <bb 20>; [70.00%]
+  else
+    goto <bb 36>; [30.00%]
+
+  <bb 20> [local count: 615608965]:
+  _83 = leaf_23->score_bits;
+  bits_84 = (unsigned int) _83;
+  if (bits_84 != 0)
+    goto <bb 21>; [50.00%]
+  else
+    goto <bb 29>; [50.00%]
+
+  <bb 21> [local count: 307804482]:
+  _85 = leaf_23->reversed;
+  if (_85 != 0)
+    goto <bb 22>; [50.00%]
+  else
+    goto <bb 23>; [50.00%]
+
+  <bb 22> [local count: 153902241]:
+  _86 = leaf_23->n.count;
+  _87 = (unsigned int) _86;
+  _15 = _87 - pos_24;
+  iftmp.17_89 = _15 + 4294967295;
+
+  <bb 23> [local count: 307804482]:
+  # iftmp.17_90 = PHI <pos_24(21), iftmp.17_89(22)>
+  _91 = (long unsigned int) iftmp.17_90;
+  _92 = (long unsigned int) _83;
+  bitpos_93 = _91 * _92;
+  byte_94 = bitpos_93 >> 3;
+  _95 = (unsigned int) bitpos_93;
+  shift_96 = _95 & 7;
+  _97 = &leaf_23->data;
+  _98 = _97 + byte_94;
+  _99 = MEM <unsigned long> [(char * {ref-all})_98];
+  _100 = _99 >> shift_96;
+  if (shift_96 != 0)
+    goto <bb 24>; [50.00%]
+  else
+    goto <bb 26>; [50.00%]
+
+  <bb 24> [local count: 153902241]:
+  _101 = 64 - shift_96;
+  if (bits_84 > _101)
+    goto <bb 25>; [50.00%]
+  else
+    goto <bb 27>; [50.00%]
+
+  <bb 25> [local count: 76951121]:
+  _102 = byte_94 + 8;
+  _103 = leaf_23->data[_102];
+  _104 = (long unsigned int) _103;
+  _105 = _104 << _101;
+  _106 = _100 | _105;
+
+  <bb 26> [local count: 230853361]:
+  # delta_147 = PHI <_100(23), _106(25)>
+  if (bits_84 <= 63)
+    goto <bb 27>; [25.00%]
+  else
+    goto <bb 28>; [75.00%]
+
+  <bb 27> [local count: 153902241]:
+  # delta_64 = PHI <delta_147(26), _100(24)>
+  _107 = 18446744073709551615 << bits_84;
+  _108 = ~_107;
+  _110 = delta_64 & _108;
+
+  <bb 28> [local count: 307804482]:
+  # delta_148 = PHI <delta_147(26), _110(27)>
+  _112 = leaf_23->n.score_shift;
+  _113 = (int) _112;
+  _114 = delta_148 << _113;
+
+  <bb 29> [local count: 615608965]:
+  # delta_149 = PHI <0(20), _114(28)>
+  _115 = leaf_23->reversed;
+  pretmp_175 = leaf_23->score_base;
+  if (_115 != 0)
+    goto <bb 30>; [50.00%]
+  else
+    goto <bb 31>; [50.00%]
+
+  <bb 30> [local count: 307804482]:
+  iftmp.50_118 = pretmp_175 - delta_149;
+  goto <bb 32>; [100.00%]
+
+  <bb 31> [local count: 307804482]:
+  iftmp.50_121 = delta_149 + pretmp_175;
+
+  <bb 32> [local count: 615608965]:
+  # iftmp.50_122 = PHI <iftmp.50_118(30), iftmp.50_121(31)>
+  ordered.53_123 = (signed long) iftmp.50_122;
+  if (ordered.53_123 < 0)
+    goto <bb 33>; [41.00%]
+  else
+    goto <bb 34>; [59.00%]
+
+  <bb 33> [local count: 252399673]:
+  _124 = iftmp.50_122 ^ 9223372036854775808;
+  goto <bb 35>; [100.00%]
+
+  <bb 34> [local count: 363209291]:
+  _125 = ~iftmp.50_122;
+
+  <bb 35> [local count: 615608965]:
+  # bits_126 = PHI <_124(33), _125(34)>
+  _127 = VIEW_CONVERT_EXPR<double>(bits_126);
+  *score_32(D) = _127;
+
+  <bb 36> [local count: 879441374]:
+  if (reverse_34(D) != 0)
+    goto <bb 37>; [50.00%]
+  else
+    goto <bb 42>; [50.00%]
+
+  <bb 37> [local count: 439720687]:
+  if (pos_24 != 0)
+    goto <bb 38>; [50.00%]
+  else
+    goto <bb 39>; [50.00%]
+
+  <bb 38> [local count: 219860343]:
+  _6 = pos_24 + 4294967295;
+  iter_22(D)->pos = _6;
+  goto <bb 40>; [100.00%]
+
+  <bb 39> [local count: 219860343]:
+  leaf_39 = leaf_23->prev;
+  iter_22(D)->leaf = leaf_39;
+  if (leaf_39 != 0B)
+    goto <bb 41>; [70.00%]
+  else
+    goto <bb 40>; [30.00%]
+
+  <bb 40> [local count: 65958102]:
+  goto <bb 45>; [100.00%]
+
+  <bb 41> [local count: 153902241]:
+  _7 = leaf_39->n.count;
+  _8 = (int) _7;
+  _9 = _8 + -1;
+  _10 = (unsigned int) _9;
+  iter_22(D)->pos = _10;
+  goto <bb 40>; [100.00%]
+
+  <bb 42> [local count: 439720687]:
+  _11 = pos_24 + 1;
+  _12 = leaf_23->n.count;
+  _13 = (unsigned int) _12;
+  if (_11 < _13)
+    goto <bb 43>; [50.00%]
+  else
+    goto <bb 44>; [50.00%]
+
+  <bb 43> [local count: 219860343]:
+  iter_22(D)->pos = _11;
+  goto <bb 40>; [100.00%]
+
+  <bb 44> [local count: 219860343]:
+  leaf_35 = leaf_23->next;
+  iter_22(D)->leaf = leaf_35;
+  iter_22(D)->pos = 0;
+  goto <bb 40>; [100.00%]
+
+  <bb 45> [local count: 1073681270]:
+  # _14 = PHI <0(2), 1(40)>
+  return _14;
+
+}
+
+

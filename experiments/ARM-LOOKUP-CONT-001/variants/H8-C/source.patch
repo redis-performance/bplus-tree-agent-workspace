@@ -1,0 +1,62 @@
+diff --git a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+index c0a57b14e..ee77a5202 100644
+--- a/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
++++ b/experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.c
+@@ -582,9 +582,12 @@ static void zbtExternalSetPointer(unsigned char *record, unsigned char *ptr) {
+     memcpy(record + ZBT_EXTERNAL_POINTER_OFFSET, &ptr, sizeof(ptr));
+ }
+ 
+-/* Return a member and store its length in 'len'. */
+-static const unsigned char *zbtPackedData(const unsigned char *record,
+-                                          size_t *len)
++/* Decode a member, optionally rejecting an external hash before touching its
++ * pointer. On rejection return NULL without storing a length. Ordinary inline
++ * headers form one range, so they need no external-record classification. */
++static const unsigned char *zbtPackedDataChecked(const unsigned char *record,
++                                                 size_t *len,
++                                                 const uint32_t *expected_hash)
+ {
+     if (record[0] < ZBT_PACKED_SHORT) {
+         *len = record[0];
+@@ -595,6 +598,8 @@ static const unsigned char *zbtPackedData(const unsigned char *record,
+         *len = shortlen;
+         return record + 3;
+     } else {
++        if (expected_hash && zbtExternalHash(record) != *expected_hash)
++            return NULL;
+         unsigned char *ptr = zbtExternalPointer(record);
+         serverAssert(ptr != NULL);
+         *len = zbtExternalLength(record);
+@@ -602,6 +607,13 @@ static const unsigned char *zbtPackedData(const unsigned char *record,
+     }
+ }
+ 
++/* Return a member and store its length in 'len'. */
++static const unsigned char *zbtPackedData(const unsigned char *record,
++                                          size_t *len)
++{
++    return zbtPackedDataChecked(record, len, NULL);
++}
++
+ /* Return the record at logical position 'pos'. */
+ static inline unsigned char *zbtScoreLeafRecord(zbtScoreLeaf *leaf,
+                                                 unsigned int pos)
+@@ -1317,15 +1329,13 @@ static int zbtScoreLeafFindMember(zbtScoreLeaf *leaf, uint32_t hash,
+         uint16_t offset = offsets[physical];
+         unsigned char *record = (unsigned char *)leaf + offset;
+ 
+-        if (record[0] == ZBT_PACKED_EXTERNAL &&
+-            zbtExternalHash(record) != hash)
+-        {
++        size_t len;
++        const unsigned char *stored = zbtPackedDataChecked(record, &len, &hash);
++        if (stored == NULL) {
+             next = found + 1;
+             continue;
+         }
+ 
+-        size_t len;
+-        const unsigned char *stored = zbtPackedData(record, &len);
+         if (len == elelen && memcmp(stored, ele, len) == 0)
+         {
+             unsigned int logical =
