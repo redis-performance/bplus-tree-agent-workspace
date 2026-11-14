@@ -26,9 +26,9 @@ assert run(['taskset','-c','2','python3','-c','import os;assert os.sched_getaffi
 assert run(['taskset','-c','2',str(binary),'verify','hit','17','1'],'verify').returncode==0
 meta={'started':time.time(),'binary_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'topdown_version':importlib.metadata.version('topdown-profiler'),'pmu_revision':(root/'pmu-revision.txt').read_text().strip(),'controller_affinity':[0],'workload_affinity':[2],'kernel':subprocess.check_output(['uname','-r'],text=True).strip(),'nmi_watchdog':pathlib.Path('/proc/sys/kernel/nmi_watchdog').read_text().strip(),'perf_event_paranoid':pathlib.Path('/proc/sys/kernel/perf_event_paranoid').read_text().strip()};save('metadata.json',meta)
 run([perf,'--version'],'perf-version');run(['size',str(binary)],'size');run(['objdump','-d',str(binary)],'assembly')
-f=(out/'workload.stdout').open('w');e=(out/'workload.stderr').open('w');cmd=['taskset','-c','2',str(binary),'measure','hit','17','40000000'];child=subprocess.Popen(cmd,stdout=f,stderr=e);save('workload-command.json',cmd);quality=[]
+f=(out/'workload.stdout').open('w');e=(out/'workload.stderr').open('w');cmd=['taskset','-c','2',str(binary),'measure','hit','17','10000000'];child=subprocess.Popen(cmd,stdout=f,stderr=e);save('workload-command.json',cmd);quality=[]
 try:
- time.sleep(.5);snap(child.pid)
+ time.sleep(.5);assert (out/'workload.stderr').stat().st_size==0, 'workload startup failed';snap(child.pid)
  runner=ToplevRunner(str(root/'pmu-tools/toplev.py'),ToplevOptions(level=2,extra_args=['-C','2']))
  for i in range(3):
   stem='tma-'+str(i);x=snap(child.pid);q=run(runner.build_command()+['--','sleep','5'],stem);sc=scope(x,snap(child.pid));save(stem+'.scope.json',sc)
@@ -44,7 +44,8 @@ try:
  if (out/'hit.data').exists():run([perf,'report','--stdio','--no-children','--percent-limit','0','-i',str(out/'hit.data'),'-s','dso,symbol'],'report')
  save('COMPLETE.json',{'finished':time.time(),'tma':quality,'all_tma_qualified':all(x['qualified'] for x in quality),'timing_acceptance':False})
 finally:
- if child.poll() is None:child.terminate()
+ terminated=child.poll() is None
+ if terminated:child.terminate()
  try:child.wait(timeout=5)
  except subprocess.TimeoutExpired:child.kill();child.wait()
- f.close();e.close();save('workload-end.json',{'returncode':child.returncode,'intentionally_terminated':True})
+ f.close();e.close();save('workload-end.json',{'returncode':child.returncode,'intentionally_terminated':terminated})
