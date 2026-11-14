@@ -2,7 +2,7 @@
 import argparse,pathlib,json,subprocess,time,hashlib
 p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--output',required=True);p.add_argument('--binary',required=True);a=p.parse_args();root=pathlib.Path(a.root);out=root/a.output;out.mkdir();binary=str(root/a.binary)
 lease=json.loads((root/'reservation.json').read_text());assert lease['state']=='RESERVED' and time.time()<lease['deadline']-300
-assert subprocess.check_output(['systemctl','is-active','bplus-arm-lookup-cont-20261113-release.timer'],text=True).strip()=='active'
+assert subprocess.check_output(['systemctl','is-active',root.name+'-release.timer'],text=True).strip()=='active'
 def run(cmd,stem):
  q=subprocess.run(cmd,capture_output=True,text=True,timeout=180);(out/(stem+'.stdout')).write_text(q.stdout);(out/(stem+'.stderr')).write_text(q.stderr)
  with (out/'commands.jsonl').open('a') as f:f.write(json.dumps({'argv':cmd,'stem':stem,'returncode':q.returncode})+'\n')
