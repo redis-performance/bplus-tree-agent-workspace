@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Serial fleet-only comparisons after full cohort qualification."""
 import argparse,os,pathlib,json,hashlib,subprocess,time
-p=argparse.ArgumentParser();p.add_argument('--build-only',action='store_true');p.add_argument('--measure-only',action='store_true');p.add_argument('--root',required=True);p.add_argument('--phase',required=True);p.add_argument('--variants',default='ABC');p.add_argument('--cohort',default='gcc15-lto');p.add_argument('--seed',default='17');a=p.parse_args();root=pathlib.Path(a.root);os.chdir(root)
+p=argparse.ArgumentParser();p.add_argument('--build-only',action='store_true');p.add_argument('--measure-only',action='store_true');p.add_argument('--scale',type=int,choices=[1,5],default=1);p.add_argument('--root',required=True);p.add_argument('--phase',required=True);p.add_argument('--variants',default='ABC');p.add_argument('--cohort',default='gcc15-lto');p.add_argument('--seed',default='17');a=p.parse_args();root=pathlib.Path(a.root);os.chdir(root)
 assert not (a.build_only and a.measure_only)
 out=root/a.phase;out.mkdir(exist_ok=a.measure_only);exp='experiments/ARM-LOOKUP-CONT-001'
 lease=json.loads((root/'reservation.json').read_text());assert lease['owner']=='bplus ARM-LOOKUP-CONT-001' and lease['state']=='RESERVED' and time.time()<lease['deadline']-900
@@ -12,9 +12,10 @@ def run(cmd,stem):
  assert q.returncode==0,(stem,q.stderr[-1600:]);return q
 sha=lambda p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 prior=json.loads((root/'baseline/metadata.json').read_text());base=root/'bin'/a.cohort/'lookup';assert sha(base)==prior['binary_sha256'][a.cohort]
-meta={'started':time.time(),'cohort':a.cohort,'seed':a.seed,'baseline_sha256':sha(base),'variants':{},'source_freeze':'ee8e7f70152404649ac947157fd662d11b4a00d5'}
+meta={'scale':a.scale,'started':time.time(),'cohort':a.cohort,'seed':a.seed,'baseline_sha256':sha(base),'variants':{},'source_freeze':'ee8e7f70152404649ac947157fd662d11b4a00d5'}
 if a.measure_only:
  meta=json.loads((out/'metadata.json').read_text())
+ assert meta.get('scale',1)==a.scale
  assert meta['cohort']==a.cohort and meta['seed']==a.seed and set(meta['variants'])==set(a.variants)
  for v in a.variants:assert sha(root/'bin'/(a.phase+'-'+v))==meta['variants'][v]['binary_sha256']
 else:
@@ -31,7 +32,8 @@ if a.build_only:raise SystemExit(0)
 cases={'hit':50000,'score':50000,'miss':100000,'long':20000,'external':20000,'update':20000}
 for v in a.variants:
  binary=root/'bin'/(a.phase+'-'+v)
- for case,sweeps in cases.items():
+ for case,base_sweeps in cases.items():
+  sweeps=base_sweeps*a.scale
   run(['taskset','-c','2',str(binary),'verify',case,a.seed,'1'],f'verify-{v}-{case}')
   for block in range(3):
    for slot,label in enumerate('ABBA'):
