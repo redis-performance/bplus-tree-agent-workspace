@@ -1,13 +1,14 @@
 <!-- ARM-CONT-ACTIVE -->
-Six-hour continuation active through 2026-11-14 07:24:14 UTC; final 30 minutes review/cleanup.
-H1 rejected. H2-B passes original six cases and five supplemental guards on ARM/Intel
-native/LTO; C rejected on iterator guards. Fresh seeds and matched-profile review pending.
-H3 A/B pass native ARM but fail Intel guards; C rejected. H4/H5/H6 rejected; H2 held-out confirmations running; H7 source review passes; H8 implementations active.
-AMD qualification failed both compilers: no candidate timing. All failures retained.
-45 completed attempts: 23 PARK, 22 REJECT, 0 approved; ARM33/Intel6/AMD6;
-28 populations / 5 replications / 12 qualifications. Active populations excluded.
-ARM/Intel private leases with independent cleanup; AMD released and independently verified. No local measurements.
-Read experiments/ARM-LOOKUP-CONT-001/STATUS.md. Continue through authorized window.
+Six-hour continuation active through 2026-11-14 07:24:14 UTC; final 30 minutes for review and cleanup.
+No accepted source. H1/H3/H4/H5/H6 rejected; H7 rejected statically without timing.
+H2 is PARK after held-out ARM A/A failure; Q4 also PARK. H8 timing is unadmitted.
+Four baseline census grids pass, with zero repeated failed leaf lookups. No new implementation.
+The separate counter support probe failed the frozen parser; no measurement captures or retry.
+47 completed attempts: 25 PARK, 22 REJECT, 0 approved; ARM35/Intel6/AMD6;
+29 populations, 5 replications, 13 qualifications. Diagnostics add no count.
+ARM and AMD released with restoration independently verified.
+Intel remains reserved for bounded portability correctness work. No local measurements.
+Read experiments/ARM-LOOKUP-CONT-001/STATUS.md for current evidence and decisions.
 <!-- ARM-CONT-ACTIVE-END -->
 
 <!-- ARM-LOOKUP-GAP-CURRENT -->

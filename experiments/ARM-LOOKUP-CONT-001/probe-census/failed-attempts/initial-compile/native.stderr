@@ -1,0 +1,110 @@
+In file included from experiments/ARM-LOOKUP-CONT-001/probe-census/generated/census.c:3:
+In function ‘zbtScoreRank’,
+    inlined from ‘zbtreeRank’ at experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c:3388:26:
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c:3368:16: error: ‘leaf’ may be used uninitialized [-Werror=maybe-uninitialized]
+ 3368 |     while (node->parent) {
+      |            ~~~~^~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c: In function ‘zbtreeRank’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c:3381:19: note: ‘leaf’ was declared here
+ 3381 |     zbtScoreLeaf *leaf;
+      |                   ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c: In function ‘zbtreeDelete’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c:3640:5: error: ‘score_leaf’ may be used uninitialized [-Werror=maybe-uninitialized]
+ 3640 |     zbtScoreDeleteAt(zs, score_leaf, score_pos, 1);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/generated/zset_btree.c:3632:19: note: ‘score_leaf’ was declared here
+ 3632 |     zbtScoreLeaf *score_leaf;
+      |                   ^~~~~~~~~~
+cc1: all warnings being treated as errors
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_clock_gettime’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:6:1: note: in expansion of macro ‘DENY’
+    6 | DENY(clock_gettime)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_clock_getres’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:7:1: note: in expansion of macro ‘DENY’
+    7 | DENY(clock_getres)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_clock’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:8:1: note: in expansion of macro ‘DENY’
+    8 | DENY(clock)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_time’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:9:1: note: in expansion of macro ‘DENY’
+    9 | DENY(time)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_gettimeofday’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:10:1: note: in expansion of macro ‘DENY’
+   10 | DENY(gettimeofday)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_times’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:11:1: note: in expansion of macro ‘DENY’
+   11 | DENY(times)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_getrusage’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:12:1: note: in expansion of macro ‘DENY’
+   12 | DENY(getrusage)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_timespec_get’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:13:1: note: in expansion of macro ‘DENY’
+   13 | DENY(timespec_get)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_timespec_getres’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:14:1: note: in expansion of macro ‘DENY’
+   14 | DENY(timespec_getres)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap___clock_gettime’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:15:1: note: in expansion of macro ‘DENY’
+   15 | DENY(__clock_gettime)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap___clock_gettime64’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:16:1: note: in expansion of macro ‘DENY’
+   16 | DENY(__clock_gettime64)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap___gettimeofday’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:17:1: note: in expansion of macro ‘DENY’
+   17 | DENY(__gettimeofday)
+      | ^~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c: In function ‘__wrap_syscall’:
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:5:11: error: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Werror=unused-result]
+    5 |     (void)write(STDERR_FILENO,message,sizeof(message)-1); _exit(125); }
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+experiments/ARM-LOOKUP-CONT-001/probe-census/deny_clock.c:18:1: note: in expansion of macro ‘DENY’
+   18 | DENY(syscall)
+      | ^~~~
+cc1: all warnings being treated as errors

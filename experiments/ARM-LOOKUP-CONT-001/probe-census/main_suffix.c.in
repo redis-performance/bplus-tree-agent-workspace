@@ -1,0 +1,40 @@
+    double sum;uint64_t hits;
+    serverAssert(!census_enabled && census_call_count==0 && census_query_count==0);
+    hits=lookup_loop(target,query,len,1000,scored,&sum,members,updating);
+    serverAssert(hits==(missing ? 0:1000ULL*N));
+    serverAssert(sum==(scored ? 125250000.0:0));
+    /* Counter reset and enable occur only after the exact original warmup. */
+    censusReset();
+    size_t owned_before=zbtreeAllocSize(target);
+    int resize_before=target->member_rehash!=NULL;
+    census_enabled=1;
+    hits=lookup_loop(target,query,len,sweeps,scored,&sum,members,updating);
+    census_enabled=0;
+    /* Immediate endpoints precede all validation lookups and output. */
+    size_t owned_after=zbtreeAllocSize(target);
+    int resize_after=target->member_rehash!=NULL;
+    serverAssert(census_current_query==UINT_MAX && census_query_count==sweeps*N);
+    serverAssert(hits==(missing ? 0:sweeps*N));
+    serverAssert(sum==(scored ? 125250.0*sweeps:0));
+    serverAssert(owned_after==owned_before);
+    zbtreeIterator final;
+    serverAssert(zbtreeIteratorStart(target,0,&final));
+    for (int i=0;i<N;i++) {
+        const unsigned char *bytes;size_t n;double score=0;
+        serverAssert(zbtreeIteratorNext(&final,0,&bytes,&n,&score));
+        serverAssert(score==i+1 && n==sdslen(members[i]) && !memcmp(bytes,members[i],n));
+        double got=0;
+        serverAssert(zbtreeScore(target,members[i],&got) && got==i+1);
+        got=-123;
+        serverAssert(!zbtreeScore(target,miss[i],&got) && got==-123);
+    }
+    serverAssert(!zbtreeIteratorNext(&final,0,NULL,NULL,NULL));
+    size_t owned_after_validation=zbtreeAllocSize(target);
+    printf("{\"revision\":0,\"verified\":true,\"untimed\":true,\"case\":\"%s\",\"seed\":%u,"
+           "\"members\":500,\"warmup_sweeps\":1000,\"sweeps\":%" PRIu64 ",\"ops\":%" PRIu64 ","
+           "\"hits\":%" PRIu64 ",\"score_sum\":%.0f,\"owned_bytes_before\":%zu,"
+           "\"owned_bytes_after\":%zu,\"owned_bytes_after_validation\":%zu,"
+           "\"active_resize_before\":%d,\"active_resize_after\":%d,",
+           case_name,seed,sweeps,sweeps*N,hits,sum,owned_before,owned_after,
+           owned_after_validation,resize_before,resize_after);
+    censusPrint();printf("}\n");

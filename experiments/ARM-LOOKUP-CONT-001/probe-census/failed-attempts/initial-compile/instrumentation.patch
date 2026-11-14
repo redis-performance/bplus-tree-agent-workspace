@@ -1,0 +1,107 @@
+--- original/zset_btree.c
++++ generated/zset_btree.c
+@@ -1957,6 +1957,8 @@
+ /* Search one table. A matching hash still has to be checked against the
+  * member in its score leaf because the stored hash is not a unique key.
+  * Inline so read-only callers can omit the insertion/cursor bookkeeping. */
++#include "../instrumentation.h"
++
+ static inline __attribute__((always_inline))
+ int zbtIndexTableFind(zbtreeSet *zs, zbtIndexTable *table,
+                              uint32_t hash, const unsigned char *ele,
+@@ -1968,7 +1970,8 @@
+                              zbtIndexBucket **insert_bucket,
+                              unsigned int *insert_pos)
+ {
+-    if (table->size == 0) return 0;
++    censusCall *census=censusBegin(zs,table);
++    if (table->size == 0) return censusEnd(census,0);
+     uint8_t tag = zbtIndexTag(hash);
+     unsigned long mask = table->size - 1;
+     unsigned long index = hash & mask;
+@@ -1977,19 +1980,24 @@
+ 
+     for (unsigned long probes = 0; probes < table->size; probes++) {
+         zbtIndexBucket *bucket = zbtIndexBucketAt(table, index);
++        CENSUS_INC(census,bucket_visits);
++        if (probes) CENSUS_INC(census,displaced_bucket_visits);
+         uint64_t matches = zbtIndexTagMask(zbtIndexTags(bucket), tag);
+         while (matches) {
++            CENSUS_INC(census,approximate_candidates);
+             unsigned int pos = zbtIndexFirstTag(matches);
+             if ((uint8_t)(zbtIndexTags(bucket) >> (pos * 8)) != tag) {
+                 matches &= matches - 1;
+                 continue;
+             }
++            CENSUS_INC(census,true_tag_candidates);
+             uint32_t id = zbtIndexGetId(table, bucket, pos);
+             if (id != ZBT_INDEX_DELETED_ID)
+             {
+                 zbtScoreLeaf *leaf = id < zs->next_score_leaf_id ?
+                     zs->score_leaf_by_id[id] : NULL;
+                 if (leaf == NULL || ZBT_IS_FREE_LEAF_ID(leaf)) {
++                    CENSUS_INC(census,free_reference_skips);
+                     serverAssert(zs->member_rehash &&
+                                  table == &zs->member_index);
+                     matches &= matches - 1;
+@@ -2001,25 +2009,38 @@
+                     int migrated = leaf->n.index_resize ==
+                                    zs->member_rehash->resize_id;
+                     if (in_new != migrated) {
++                        CENSUS_INC(census,migration_skips);
+                         matches &= matches - 1;
+                         continue;
+                     }
+                 }
+-                if (zbtScoreLeafFindMember(leaf, hash, ele, elelen, score,
+-                                           score_pos))
++                if (censusLeaf(census, leaf, hash, ele, elelen, score,
++                               score_pos, index))
+                 {
++                    if (probes == 0) CENSUS_INC(census,home_hit);
+                     if (score_leaf) *score_leaf = leaf;
+                     if (found_bucket) *found_bucket = bucket;
+                     if (found_pos) *found_pos = pos;
+-                    return 1;
++                    return censusEnd(census,1);
+                 }
++            } else {
++                CENSUS_INC(census,tombstone_skips);
+             }
+             matches &= matches - 1;
+         }
+ 
+         /* Hits in the home bucket need no missing-member filter. Check it
+          * only after those candidates, before following the probe run. */
+-        if (probes == 0 && !zbtIndexHomeMayContain(table, hash)) return 0;
++        if (probes == 0) {
++            CENSUS_INC(census,filter_evaluated);
++            int may_contain=zbtIndexHomeMayContain(table, hash);
++            if (!may_contain) {
++                CENSUS_INC(census,filter_false);
++                return censusEnd(census,0);
++            }
++            CENSUS_INC(census,filter_true);
++            CENSUS_INC(census,home_postfilter_fallback);
++        }
+ 
+         /* Save the first tombstone for a possible insertion. An unused slot,
+          * unlike a tombstone, proves that the member is not farther ahead. */
+@@ -2030,7 +2051,7 @@
+                     *insert_bucket = first_deleted ? first_deleted : bucket;
+                     *insert_pos = first_deleted ? first_deleted_pos : pos;
+                 }
+-                return 0;
++                return censusEnd(census,0);
+             }
+             if (first_deleted == NULL &&
+                 zbtIndexGetId(table, bucket, pos) == ZBT_INDEX_DELETED_ID)
+@@ -2046,7 +2067,7 @@
+         *insert_bucket = first_deleted;
+         *insert_pos = first_deleted_pos;
+     }
+-    return 0;
++    return censusEnd(census,0);
+ }
+ 
+ /* Find an entry whose leaf number has to change. Entries with the same tag
