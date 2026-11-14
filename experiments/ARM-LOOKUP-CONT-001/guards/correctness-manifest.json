@@ -1,0 +1,110 @@
+{
+  "scope": "local correctness only; verify calls only; no timers or PMU",
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "source_sha256": {
+    "baseline": "16def20f621e1e9fcb2cd3f2818aea49e23dae9066ebea5fa276e841c5e095c9",
+    "B": "63b18cd5aa70d455fb2639e826386045841052b8f2cea85e5b97f9018d829f29",
+    "C": "789ca7e217baa67cba165d2ebed7be0c9c1a2a7067f94ae870431395e66ffe49"
+  },
+  "referee_sha256": {
+    "experiments/ARM-LOOKUP-CONT-001/guards/guards.c": "f1e67e306afdd59b5e0eff8b67025129227aebf037ded199a026d87c63f9049e",
+    "experiments/ARM-LOOKUP-CONT-001/current/src/zset_btree.h": "e1575e812cdff6fae794c4dd619a4d6d7c586c5df01ac0c881376acd294161ac",
+    "experiments/ARM-LOOKUP-CONT-001/current/compat/server.h": "2e287290fe2b3492098d36c4dfee783be0c43b9cde5954a176c84aa28d4f36dd",
+    "experiments/ARM-LOOKUP-CONT-001/current/compat/standalone.c": "300e1c37c1679014e25446fd82f1c2d0bf36c46c79d29255c856782e14c10d71",
+    "experiments/ARM-LOOKUP-CONT-001/current/vendor/siphash.c": "2e53f604ab8389a744efa55c3891eb9ff8983d18314400338e17ecc6c5b4f75e",
+    "experiments/ARM-LOOKUP-CONT-001/current/vendor/sds.h": "5109573260ba9e3297030a851a0da1e485512a8c8f5b3cdbd6b062bef023a7b4"
+  },
+  "builds": {
+    "baseline-native": {
+      "binary_sha256": "f0600feb7932ba04cce2e6380f52dae19d0ac8d2c1634033ddea19228bba3fca",
+      "cells": 60,
+      "compiler_flags": [
+        "-O3",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    },
+    "baseline-sanitizer": {
+      "binary_sha256": "89ce926434b829fbe7a8d593265b53f9a13f01ca2d0d35a871fc04139484bf66",
+      "cells": 60,
+      "compiler_flags": [
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    },
+    "B-native": {
+      "binary_sha256": "e7dd7e06388d4563e0c480def4ffe45aa6427438d27785ac6b5d178bce1a010c",
+      "cells": 60,
+      "compiler_flags": [
+        "-O3",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    },
+    "B-sanitizer": {
+      "binary_sha256": "eb0e02603bf4553041c420993c42d6ac373021471f52392d80eb3c58c6a47d4c",
+      "cells": 60,
+      "compiler_flags": [
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    },
+    "C-native": {
+      "binary_sha256": "6fb6b14784187c16c2b86ba18a28f89d3cb4c1779eb275489067ccae9dab1d82",
+      "cells": 60,
+      "compiler_flags": [
+        "-O3",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    },
+    "C-sanitizer": {
+      "binary_sha256": "b60e0e8b79062e388d44ad4893a2fe0a7473c1e1f776b89fec223af4b9c80d9d",
+      "cells": 60,
+      "compiler_flags": [
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-std=c11",
+        "-g",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-omit-frame-pointer"
+      ],
+      "all_verify_passed": true
+    }
+  },
+  "same_mode_outputs_and_memory_equal": true
+}
