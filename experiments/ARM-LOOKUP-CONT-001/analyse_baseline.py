@@ -1,13 +1,13 @@
 import json,pathlib,sys,statistics
-p=pathlib.Path(sys.argv[1]);rows=[json.loads(x) for x in (p/'aa.jsonl').read_text().splitlines()];assert len(rows)==144
+p=pathlib.Path(sys.argv[1]);rows=[json.loads(x) for x in (p/'aa.jsonl').read_text().splitlines()];cohorts=sorted({r['cohort'] for r in rows});assert set(cohorts)<= {'native','gcc15-lto'} and len(rows)==72*len(cohorts)
 assert all(r['seed']==17 for r in rows)
 for r in rows:
  stem=f"aa-{r['cohort']}-{r['case']}-{r['block']}-{r['slot']}"
  raw=json.loads((p/(stem+'.stdout')).read_text())
  assert all(r[k]==v for k,v in raw.items())
- assert r['ops']==500*({'hit':50000,'score':50000,'miss':100000,'long':20000,'external':20000,'update':(20000 if p.name=='qualification2' else 10000)}[r['case']])
-out={'rows':144,'cohorts':{},'blocks':[]}
-for cohort in ['native','gcc15-lto']:
+ assert r['ops']==500*({'hit':50000,'score':50000,'miss':100000,'long':20000,'external':20000,'update':(10000 if p.name in ['baseline','qualification-1'] else 20000)}[r['case']])
+out={'rows':len(rows),'cohorts':{},'blocks':[]}
+for cohort in cohorts:
  cs={};ok=True
  for case in ['hit','score','miss','long','external','update']:
   rr=[r for r in rows if r['cohort']==cohort and r['case']==case];assert len(rr)==12
