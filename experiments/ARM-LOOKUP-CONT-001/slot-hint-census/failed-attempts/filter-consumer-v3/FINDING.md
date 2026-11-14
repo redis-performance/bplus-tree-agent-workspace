@@ -1,0 +1,1 @@
+Independent review found that reference maintenance calls the original home filter outside an active lookup table call. The original observer conflated reference and lookup consumers and the checker would reject a legitimate update path. No C diagnostic ran. Revised instrumentation will identify lookup, reference and scan separately.

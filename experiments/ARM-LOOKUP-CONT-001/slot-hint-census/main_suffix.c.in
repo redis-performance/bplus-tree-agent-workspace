@@ -1,0 +1,34 @@
+    double sum;uint64_t hits;
+    serverAssert(sh_phase==SH_SETUP && !sh_seed.active);
+    sh_phase=SH_WARMUP;
+    hits=lookup_loop(target,query,len,1000,scored,&sum,members,updating);
+    serverAssert(hits==(missing ? 0:1000ULL*N));
+    serverAssert(sum==(scored ? 125250000.0:0));
+    /* Counter reset and enable occur only after the exact original warmup. */
+    serverAssert(!sh_nqueries && !sh_ncalls);
+    size_t owned_before=zbtreeAllocSize(target);
+    int resize_before=target->member_rehash!=NULL;
+    shCountStart();
+    hits=lookup_loop(target,query,len,sweeps,scored,&sum,members,updating);
+    shCountEnd();
+    /* Immediate endpoints precede all validation lookups and output. */
+    size_t owned_after=zbtreeAllocSize(target);
+    int resize_after=target->member_rehash!=NULL;
+    serverAssert(sh_query==UINT_MAX && sh_nqueries==sweeps*N);
+    serverAssert(hits==(missing ? 0:sweeps*N));
+    serverAssert(sum==(scored ? 125250.0*sweeps:0));
+    serverAssert(owned_after==owned_before);
+    zbtreeIterator final;
+    serverAssert(zbtreeIteratorStart(target,0,&final));
+    for (int i=0;i<N;i++) {
+        const unsigned char *bytes;size_t n;double score=0;
+        serverAssert(zbtreeIteratorNext(&final,0,&bytes,&n,&score));
+        serverAssert(score==i+1 && n==sdslen(members[i]) && !memcmp(bytes,members[i],n));
+        double got=0;
+        serverAssert(zbtreeScore(target,members[i],&got) && got==i+1);
+        got=-123;
+        serverAssert(!zbtreeScore(target,miss[i],&got) && got==-123);
+    }
+    serverAssert(!zbtreeIteratorNext(&final,0,NULL,NULL,NULL));
+    size_t owned_after_validation=zbtreeAllocSize(target);
+    sh_phase=SH_CLEANUP;

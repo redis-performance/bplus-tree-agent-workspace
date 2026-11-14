@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "diagnostic_executions": 0,
+  "source_scope": [
+    "zbtIndexSetId",
+    "zbtIndexHomeMayContain",
+    "zbtIndexTableAlloc",
+    "zbtIndexTableRelease",
+    "zbtIndexTableInsertRaw",
+    "zbtIndexTableFind",
+    "zbtIndexTableFindReference",
+    "zbtIndexCopyLeaf",
+    "zbtIndexRehashStep",
+    "zbtIndexDupTable",
+    "zbtDefragPlainAllocation",
+    "zbtreeDefragStart",
+    "zbtIndexRebuild",
+    "zbtIndexScanSlot"
+  ],
+  "original_leaf_body_unchanged": true,
+  "diagnostic_leaf_retention_attributes": [
+    "noinline",
+    "noipa"
+  ],
+  "original_fixture_setup_exact": true,
+  "post_original_free_completion_fence": true,
+  "outputs_after_completion_only": true,
+  "builds": [
+    {
+      "mode": "native-v4",
+      "elf_sha256": "2e689ccbc0380e46d234dc51543c1edcd7bead7ff6d85065dba475a82fa1c315",
+      "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "denied_clock_symbols": 13,
+      "call_control_flow": [
+        {
+          "symbol": "shLeaf",
+          "original_call_sites": [
+            "0xb672",
+            "0xb79e"
+          ],
+          "normal_exit_sites": [
+            "0xb6c0",
+            "0xb77f",
+            "0xb79e"
+          ],
+          "assertion_exit_sites": 11,
+          "verified_straight_line_fatal_helpers": [
+            "shBucket.part.0",
+            "shInc.part.0"
+          ],
+          "normal_paths_exactly_one_original_call": true
+        }
+      ]
+    },
+    {
+      "mode": "lto-v4",
+      "elf_sha256": "f871fe375fbe2a085542a49ed3f09650a037c36ed73d2fda00cda3f7f9dc2c3f",
+      "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+      "denied_clock_symbols": 13,
+      "call_control_flow": [
+        {
+          "symbol": "shLeaf",
+          "original_call_sites": [
+            "0x751c",
+            "0x764b"
+          ],
+          "normal_exit_sites": [
+            "0x756a",
+            "0x7626",
+            "0x764b"
+          ],
+          "assertion_exit_sites": 11,
+          "verified_straight_line_fatal_helpers": [
+            "shBucket.part.0",
+            "shInc.part.0.lto_priv.0"
+          ],
+          "normal_paths_exactly_one_original_call": true
+        }
+      ]
+    }
+  ]
+}

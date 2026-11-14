@@ -1,0 +1,8 @@
+    printf("{\"revision\":0,\"diagnostic\":\"slot-hint\",\"cleanup_complete\":true,\"live_generations_after_cleanup\":0,\"verified\":true,\"untimed\":true,\"case\":\"%s\",\"seed\":%u,"
+           "\"members\":500,\"warmup_sweeps\":1000,\"sweeps\":%" PRIu64 ",\"ops\":%" PRIu64 ","
+           "\"hits\":%" PRIu64 ",\"score_sum\":%.0f,\"owned_bytes_before\":%zu,"
+           "\"owned_bytes_after\":%zu,\"owned_bytes_after_validation\":%zu,"
+           "\"active_resize_before\":%d,\"active_resize_after\":%d,",
+           case_name,seed,sweeps,sweeps*N,hits,sum,owned_before,owned_after,
+           owned_after_validation,resize_before,resize_after);
+    censusPrint();printf("}\n");

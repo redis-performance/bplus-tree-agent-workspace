@@ -1,0 +1,11 @@
+int main(int argc,char **argv) {
+    serverAssert(argc==2);
+    const char *case_name=argv[1];
+    int scored=!strcmp(case_name,"score"),missing=!strcmp(case_name,"miss");
+    int external=!strcmp(case_name,"external"),updating=!strcmp(case_name,"update");
+    int longkeys=!strcmp(case_name,"long")||external;
+    serverAssert(scored||missing||longkeys||updating||!strcmp(case_name,"hit"));
+    unsigned seed=17;uint8_t key[16];
+    for(unsigned i=0;i<16;i++)key[i]=(seed+i*29U)&255;
+    dictSetHashFunctionSeed(key);
+    uint64_t sweeps=updating ? 2:1;
