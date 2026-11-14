@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Owned Intel steady-workload profiles; timing acceptance is separate."""
-import argparse,collections,csv,hashlib,importlib.metadata,json,math,os,pathlib,signal,subprocess,time
+import argparse,shutil,collections,csv,hashlib,importlib.metadata,json,math,os,pathlib,signal,subprocess,time
 from topdown.collector.toplev import ToplevRunner,ToplevOptions
-p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--label',required=True);p.add_argument('--binary',required=True);a=p.parse_args();root=pathlib.Path(a.root);out=root/a.label;out.mkdir();binary=root/a.binary
+p=argparse.ArgumentParser();p.add_argument('--start-rep',type=int,default=0);p.add_argument('--resume-from');p.add_argument('--root',required=True);p.add_argument('--label',required=True);p.add_argument('--binary',required=True);a=p.parse_args();root=pathlib.Path(a.root);out=root/a.label;out.mkdir();binary=root/a.binary
 lease=json.loads((root/'reservation.json').read_text());assert lease['state']=='RESERVED' and time.time()<lease['deadline']-300
 assert subprocess.check_output(['systemctl','is-active',root.name+'-release.timer'],text=True).strip()=='active';assert os.sched_getaffinity(0)=={0}
 perf='/usr/lib/linux-tools/'+subprocess.check_output(['uname','-r'],text=True).strip()+'/perf';assert pathlib.Path(perf).exists();os.environ['PERF']=perf;os.environ['CACHEDIR']=str(root/'pmu-events')
@@ -28,21 +28,21 @@ meta={'started':time.time(),'binary_sha256':hashlib.sha256(binary.read_bytes()).
 run([perf,'--version'],'perf-version');run(['size',str(binary)],'size');run(['objdump','-d',str(binary)],'assembly')
 f=(out/'workload.stdout').open('w');e=(out/'workload.stderr').open('w');cmd=['taskset','-c','2',str(binary),'measure','hit','17','10000000'];child=subprocess.Popen(cmd,stdout=f,stderr=e);save('workload-command.json',cmd);quality=[]
 try:
+ if a.start_rep:
+  assert a.start_rep==1 and a.resume_from
+  prior=root/a.resume_from;assert json.loads((prior/'metadata.json').read_text())['binary_sha256']==meta['binary_sha256']
+  for src in prior.glob('tma-0.*'):shutil.copy2(src,out/src.name)
+  save('resume.json',{'from':a.resume_from,'kept_capture':'tma-0','raw_sha256':hashlib.sha256((out/'tma-0.stderr').read_bytes()).hexdigest()})
+  quality.append({'capture':'tma-0','resumed_raw':True})
  time.sleep(.5);assert (out/'workload.stderr').stat().st_size==0, 'workload startup failed';snap(child.pid)
  runner=ToplevRunner(str(root/'pmu-tools/toplev.py'),ToplevOptions(level=2,extra_args=['-C','2']))
- for i in range(3):
+ for i in range(a.start_rep,3):
   stem='tma-'+str(i);x=snap(child.pid);q=run(runner.build_command()+['--','sleep','5'],stem);sc=scope(x,snap(child.pid));save(stem+'.scope.json',sc)
-  lines=(q.stderr+'\n'+q.stdout).splitlines();heads=[j for j,l in enumerate(lines) if 'Timestamp' in l and 'Area' in l and 'Value' in l and 'Unit' in l];rows=list(csv.DictReader(lines[heads[0]:])) if len(heads)==1 else [];rows=[r for r in rows if r.get('Area')];groups=collections.defaultdict(list)
-  for r in rows:
-   if r['Area'] in roots:groups[r['Timestamp']].append(r)
-  try:
-   partition=len(groups)==5 and all(len(v)==4 and {r['Area'] for r in v}==roots and all(r['Unit'] in ['% Slots','% Slots <'] and math.isfinite(float(r['Value'])) and 0<=float(r['Value'])<=100 for r in v) and abs(sum(float(r['Value']) for r in v)-100)<=.3 for v in groups.values());mux=[float(r['Multiplex']) for r in rows];muxok=bool(rows) and len(mux)==len(rows) and all(v==100 for v in mux)
-  except (KeyError,ValueError):partition=False;muxok=False;mux=[]
-  rec={'capture':stem,'scope_pass':sc['pass'],'partition_pass':partition,'multiplex_all_100':muxok,'qualified':q.returncode==0 and sc['pass'] and partition and muxok,'rows':len(rows),'multiplex_min':min(mux) if mux else None};quality.append(rec);save(stem+'.quality.json',rec)
+  quality.append({'capture':stem,'scope_pass':sc['pass'],'returncode':q.returncode})
  x=snap(child.pid);q=run([perf,'stat','-p',str(child.pid),'-x,','-e','{cycles:u,instructions:u,branches:u,branch-misses:u}','--','sleep','3'],'counters');save('counters.scope.json',scope(x,snap(child.pid)))
  x=snap(child.pid);q=run([perf,'record','-p',str(child.pid),'-F','999','-e','cycles:u','-o',str(out/'hit.data'),'--','sleep','3'],'samples');save('samples.scope.json',scope(x,snap(child.pid)))
  if (out/'hit.data').exists():run([perf,'report','--stdio','--no-children','--percent-limit','0','-i',str(out/'hit.data'),'-s','dso,symbol'],'report')
- save('COMPLETE.json',{'finished':time.time(),'tma':quality,'all_tma_qualified':all(x['qualified'] for x in quality),'timing_acceptance':False})
+ save('COMPLETE.json',{'finished':time.time(),'tma':quality,'tma_qualification':'offline_pending','timing_acceptance':False})
 finally:
  terminated=child.poll() is None
  if terminated:child.terminate()
